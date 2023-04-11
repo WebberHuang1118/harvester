@@ -79,7 +79,7 @@ func main() {
 }
 
 func run(commonOptions *config.CommonOptions, options config.Options) error {
-	logrus.Info("Starting controller")
+	logrus.Info("Starting my controller")
 	ctx := signals.SetupSignalContext()
 
 	kubeConfig, err := server.GetConfig(commonOptions.KubeConfig)

@@ -40,9 +40,11 @@ type VMController struct {
 
 // createPVCsFromAnnotation creates PVCs defined in the volumeClaimTemplates annotation if they don't exist.
 func (h *VMController) createPVCsFromAnnotation(_ string, vm *kubevirtv1.VirtualMachine) (*kubevirtv1.VirtualMachine, error) {
+	logrus.Infof("createPVCsFromAnnotation: enter")
 	if vm == nil || vm.DeletionTimestamp != nil {
 		return nil, nil
 	}
+
 	volumeClaimTemplates, ok := vm.Annotations[util.AnnotationVolumeClaimTemplates]
 	if !ok || volumeClaimTemplates == "" {
 		return nil, nil
@@ -62,6 +64,7 @@ func (h *VMController) createPVCsFromAnnotation(_ string, vm *kubevirtv1.Virtual
 			if _, err = h.pvcClient.Create(pvcAnno); err != nil {
 				return nil, err
 			}
+			logrus.Infof("createPVCsFromAnnotation: create pvc %+v", pvcAnno.Name)
 			continue
 		} else if err != nil {
 			return nil, err
@@ -87,10 +90,13 @@ func (h *VMController) createPVCsFromAnnotation(_ string, vm *kubevirtv1.Virtual
 
 // SetOwnerOfPVCs records the target VirtualMachine as the owner of the PVCs in annotation.
 func (h *VMController) SetOwnerOfPVCs(vm *kubevirtv1.VirtualMachine) (*kubevirtv1.VirtualMachine, error) {
+	logrus.Infof("SetOwnerOfPVCs: enter")
+
 	// add harvester finalizers
 	if !util.ContainsFinalizer(vm, harvesterUnsetOwnerOfPVCsFinalizer) {
 		vmCopy := vm.DeepCopy()
 		util.AddFinalizer(vmCopy, harvesterUnsetOwnerOfPVCsFinalizer)
+		logrus.Infof("SetOwnerOfPVCs: AddFinalizer")
 		return h.vmClient.Update(vmCopy)
 	}
 
@@ -153,6 +159,7 @@ func (h *VMController) SetOwnerOfPVCs(vm *kubevirtv1.VirtualMachine) (*kubevirtv
 			return vm, fmt.Errorf("failed to grant VitrualMachine(%s/%s) as PVC(%s/%s)'s owner: %w",
 				vm.Namespace, vm.Name, pvcNamespace, pvcName, err)
 		}
+		logrus.Infof("SetOwnerOfPVCs: set owner %+v", pvc.Name)
 	}
 
 	return vm, nil
@@ -210,6 +217,8 @@ func (h *VMController) syncLabels(vm *kubevirtv1.VirtualMachine, vmi *kubevirtv1
 // StoreRunStrategy stores the last running strategy into the annotation before the VM is stopped.
 // As a workaround for the issue https://github.com/kubevirt/kubevirt/issues/7295
 func (h *VMController) StoreRunStrategy(_ string, vm *kubevirtv1.VirtualMachine) (*kubevirtv1.VirtualMachine, error) {
+	logrus.Infof("StoreRunStrategy: enter")
+
 	if vm == nil || vm.DeletionTimestamp != nil || vm.Spec.Template == nil {
 		return vm, nil
 	}
@@ -229,6 +238,7 @@ func (h *VMController) StoreRunStrategy(_ string, vm *kubevirtv1.VirtualMachine)
 		if _, err := h.vmClient.Update(toUpdate); err != nil {
 			return vm, err
 		}
+		logrus.Infof("update StoreRunStrategy vm %+v", vm.Name)
 	}
 
 	return vm, nil

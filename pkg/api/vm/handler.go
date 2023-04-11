@@ -17,6 +17,7 @@ import (
 	wranglername "github.com/rancher/wrangler/pkg/name"
 	"github.com/rancher/wrangler/pkg/schemas/validation"
 	"github.com/rancher/wrangler/pkg/slice"
+	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 	storagev1 "k8s.io/api/storage/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -59,6 +60,7 @@ type vmActionHandler struct {
 	settingCache              ctlharvesterv1.SettingCache
 	nodeCache                 ctlcorev1.NodeCache
 	pvcCache                  ctlcorev1.PersistentVolumeClaimCache
+	pvCache                   ctlcorev1.PersistentVolumeCache
 	secretClient              ctlcorev1.SecretClient
 	secretCache               ctlcorev1.SecretCache
 	virtSubresourceRestClient rest.Interface
@@ -725,6 +727,18 @@ func (h *vmActionHandler) addVolume(ctx context.Context, namespace, name string,
 	if err != nil {
 		return err
 	}
+	logrus.Infof("addVolume: pvc %v with phase %v", pvc.Name, pvc.Status.Phase)
+
+	pvName := pvc.Spec.VolumeName
+	pv, err := h.pvCache.Get(pvName)
+	if err != nil {
+		return err
+	}
+
+	logrus.Infof("addVolume: pv %v with annotation scheduling error %v",
+		pv.Name, pv.Annotations[longhorntypes.PVAnnotationLonghornVolumeSchedulingError])
+
+	return fmt.Errorf("failed on purpose for vm %v add volume %+v", name, input)
 
 	// Restrict the flexibility of disk options here but future extension may be possible.
 	body, err := json.Marshal(kubevirtv1.AddVolumeOptions{

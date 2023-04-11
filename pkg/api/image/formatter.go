@@ -31,12 +31,16 @@ const (
 )
 
 func Formatter(request *types.APIRequest, resource *types.RawResource) {
+	logrus.Infof("image Formatter - enter")
+
 	resource.Actions = make(map[string]string, 1)
 	if request.AccessControl.CanUpdate(request, resource.APIObject, resource.Schema) != nil {
+		logrus.Infof("image Formatter - cannot update, request:%+v", request)
 		return
 	}
 
 	if resource.APIObject.Data().String("spec", "sourceType") == apisv1beta1.VirtualMachineImageSourceTypeUpload {
+		logrus.Infof("image Formatter - can update, request:%+v", request)
 		resource.AddAction(request, actionUpload)
 	}
 }
@@ -83,6 +87,8 @@ func (h Handler) doGet(link string, rw http.ResponseWriter, req *http.Request) e
 }
 
 func (h Handler) doPost(action string, rw http.ResponseWriter, req *http.Request) error {
+	logrus.Infof("image doPost - action:%+v", action)
+
 	switch action {
 	case actionUpload:
 		return h.uploadImage(rw, req)
@@ -135,10 +141,13 @@ func (h Handler) uploadImage(rw http.ResponseWriter, req *http.Request) error {
 	vars := util.EncodeVars(mux.Vars(req))
 	namespace := vars["namespace"]
 	name := vars["name"]
+	logrus.Infof("image uploadImage - namespace:%v name:%v", namespace, name)
+
 	image, err := h.Images.Get(namespace, name, metav1.GetOptions{})
 	if err != nil {
 		return err
 	}
+	logrus.Infof("image uploadImage - get image:%+v", image)
 
 	defer func() {
 		if err != nil {
@@ -155,6 +164,8 @@ func (h Handler) uploadImage(rw http.ResponseWriter, req *http.Request) error {
 	}
 
 	uploadURL := fmt.Sprintf("%s/backingimages/%s-%s", util.LonghornDefaultManagerURL, namespace, name)
+	logrus.Infof("image uploadImage - uploadURL:%v", uploadURL)
+
 	uploadReq, err := http.NewRequestWithContext(req.Context(), http.MethodPost, uploadURL, req.Body)
 	if err != nil {
 		return fmt.Errorf("failed to create the upload request: %w", err)
