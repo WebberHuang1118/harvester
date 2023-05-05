@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/gorilla/mux"
+	longhorn "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
 	longhorntypes "github.com/longhorn/longhorn-manager/types"
 	"github.com/pkg/errors"
 	"github.com/rancher/apiserver/pkg/apierror"
@@ -727,7 +728,11 @@ func (h *vmActionHandler) addVolume(ctx context.Context, namespace, name string,
 	if err != nil {
 		return err
 	}
+
 	logrus.Infof("addVolume: pvc %v with phase %v", pvc.Name, pvc.Status.Phase)
+	if pvc.Status.Phase != corev1.ClaimBound {
+		return fmt.Errorf("volme %v not bound yet", pvc.Name)
+	}
 
 	pvName := pvc.Spec.VolumeName
 	pv, err := h.pvCache.Get(pvName)
@@ -735,10 +740,12 @@ func (h *vmActionHandler) addVolume(ctx context.Context, namespace, name string,
 		return err
 	}
 
-	logrus.Infof("addVolume: pv %v with annotation scheduling error %v",
-		pv.Name, pv.Annotations[longhorntypes.PVAnnotationLonghornVolumeSchedulingError])
+	scheduleErrAnno := pv.Annotations[longhorntypes.PVAnnotationLonghornVolumeSchedulingError]
+	logrus.Infof("addVolume: pv %v with annotation scheduling error %v", pv.Name, scheduleErrAnno)
 
-	return fmt.Errorf("failed on purpose for vm %v add volume %+v", name, input)
+	if scheduleErrAnno == longhorn.ErrorReplicaScheduleInsufficientStorage {
+		return fmt.Errorf("volme %v with insufficient storage", pvc.Name)
+	}
 
 	// Restrict the flexibility of disk options here but future extension may be possible.
 	body, err := json.Marshal(kubevirtv1.AddVolumeOptions{
