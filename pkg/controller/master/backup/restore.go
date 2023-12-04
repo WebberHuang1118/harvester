@@ -52,14 +52,19 @@ const (
 	volumeSnapshotKindName = "VolumeSnapshot"
 	vmRestoreKindName      = "VirtualMachineRestore"
 
-	restoreNameAnnotation = "restore.harvesterhci.io/name"
-	lastRestoreAnnotation = "restore.harvesterhci.io/last-restore-uid"
+	restoreNameAnnotation  = "restore.harvesterhci.io/name"
+	lastRestoreAnnotation  = "restore.harvesterhci.io/last-restore-uid"
+	pvcNameSpaceAnnotation = "pvc.harvesterhci.io/namespace"
+	pvcNameAnnotation      = "pvc.harvesterhci.io/name"
 
 	vmCreatorLabel = "harvesterhci.io/creator"
 	vmNameLabel    = "harvesterhci.io/vmName"
 
 	restoreErrorEvent    = "VirtualMachineRestoreError"
 	restoreCompleteEvent = "VirtualMachineRestoreComplete"
+
+	progressBeforeVMStart = 95
+	progressComplete      = 100
 )
 
 type RestoreHandler struct {
@@ -67,6 +72,7 @@ type RestoreHandler struct {
 
 	restores             ctlharvesterv1.VirtualMachineRestoreClient
 	restoreController    ctlharvesterv1.VirtualMachineRestoreController
+	restoreCache         ctlharvesterv1.VirtualMachineRestoreCache
 	backupCache          ctlharvesterv1.VirtualMachineBackupCache
 	vms                  ctlkubevirtv1.VirtualMachineClient
 	vmCache              ctlkubevirtv1.VirtualMachineCache
@@ -74,6 +80,7 @@ type RestoreHandler struct {
 	vmiCache             ctlkubevirtv1.VirtualMachineInstanceCache
 	pvcClient            ctlcorev1.PersistentVolumeClaimClient
 	pvcCache             ctlcorev1.PersistentVolumeClaimCache
+	pvCache              ctlcorev1.PersistentVolumeCache
 	secretClient         ctlcorev1.SecretClient
 	secretCache          ctlcorev1.SecretCache
 	snapshots            ctlsnapshotv1.VolumeSnapshotClient
@@ -83,6 +90,7 @@ type RestoreHandler struct {
 	lhbackupCache        ctllhv1.BackupCache
 	volumeCache          ctllhv1.VolumeCache
 	volumes              ctllhv1.VolumeClient
+	lhengineCache        ctllhv1.EngineCache
 
 	recorder   record.EventRecorder
 	restClient *rest.RESTClient
@@ -94,11 +102,13 @@ func RegisterRestore(ctx context.Context, management *config.Management, opts co
 	vms := management.VirtFactory.Kubevirt().V1().VirtualMachine()
 	vmis := management.VirtFactory.Kubevirt().V1().VirtualMachineInstance()
 	pvcs := management.CoreFactory.Core().V1().PersistentVolumeClaim()
+	pvs := management.CoreFactory.Core().V1().PersistentVolume()
 	secrets := management.CoreFactory.Core().V1().Secret()
 	snapshots := management.SnapshotFactory.Snapshot().V1().VolumeSnapshot()
 	snapshotContents := management.SnapshotFactory.Snapshot().V1().VolumeSnapshotContent()
 	lhbackups := management.LonghornFactory.Longhorn().V1beta2().Backup()
 	volumes := management.LonghornFactory.Longhorn().V1beta2().Volume()
+	lhengines := management.LonghornFactory.Longhorn().V1beta2().Engine()
 
 	copyConfig := rest.CopyConfig(management.RestConfig)
 	copyConfig.GroupVersion = &k8sschema.GroupVersion{Group: kubevirtv1.SubresourceGroupName, Version: kubevirtv1.ApiLatestVersion}
@@ -113,6 +123,7 @@ func RegisterRestore(ctx context.Context, management *config.Management, opts co
 		context:              ctx,
 		restores:             restores,
 		restoreController:    restores,
+		restoreCache:         restores.Cache(),
 		backupCache:          backups.Cache(),
 		vms:                  vms,
 		vmCache:              vms.Cache(),
@@ -120,6 +131,7 @@ func RegisterRestore(ctx context.Context, management *config.Management, opts co
 		vmiCache:             vmis.Cache(),
 		pvcClient:            pvcs,
 		pvcCache:             pvcs.Cache(),
+		pvCache:              pvs.Cache(),
 		secretClient:         secrets,
 		secretCache:          secrets.Cache(),
 		snapshots:            snapshots,
@@ -129,6 +141,7 @@ func RegisterRestore(ctx context.Context, management *config.Management, opts co
 		lhbackupCache:        lhbackups.Cache(),
 		volumes:              volumes,
 		volumeCache:          volumes.Cache(),
+		lhengineCache:        lhengines.Cache(),
 		recorder:             management.NewRecorder(restoreControllerName, "", ""),
 		restClient:           restClient,
 	}
@@ -136,6 +149,7 @@ func RegisterRestore(ctx context.Context, management *config.Management, opts co
 	restores.OnChange(ctx, restoreControllerName, handler.RestoreOnChanged)
 	restores.OnRemove(ctx, restoreControllerName, handler.RestoreOnRemove)
 	pvcs.OnChange(ctx, restoreControllerName, handler.PersistentVolumeClaimOnChange)
+	lhengines.OnChange(ctx, restoreControllerName, handler.LHEngineOnChange)
 	vms.OnChange(ctx, restoreControllerName, handler.VMOnChange)
 	return nil
 }
@@ -209,6 +223,24 @@ func (h *RestoreHandler) RestoreOnRemove(key string, restore *harvesterv1.Virtua
 	return nil, nil
 }
 
+func makeVolumeName(prefix, pvcUID string, volumeNameUUIDLength int) (string, error) {
+	// create persistent name based on a volumeNamePrefix and volumeNameUUIDLength
+	// of PVC's UID
+	if len(prefix) == 0 {
+		return "", fmt.Errorf("Volume name prefix cannot be of length 0")
+	}
+	if len(pvcUID) == 0 {
+		return "", fmt.Errorf("corrupted PVC object, it is missing UID")
+	}
+	if volumeNameUUIDLength == -1 {
+		// Default behavior is to not truncate or remove dashes
+		return fmt.Sprintf("%s-%s", prefix, pvcUID), nil
+	}
+	// Else we remove all dashes from UUID and truncate to volumeNameUUIDLength
+	return fmt.Sprintf("%s-%s", prefix, strings.Replace(string(pvcUID), "-", "", -1)[0:volumeNameUUIDLength]), nil
+
+}
+
 // PersistentVolumeClaimOnChange watching the PVCs on change and enqueue the vmRestore if it has the restore annotation
 func (h *RestoreHandler) PersistentVolumeClaimOnChange(key string, pvc *corev1.PersistentVolumeClaim) (*corev1.PersistentVolumeClaim, error) {
 	if pvc == nil || pvc.DeletionTimestamp != nil {
@@ -220,8 +252,129 @@ func (h *RestoreHandler) PersistentVolumeClaimOnChange(key string, pvc *corev1.P
 		return nil, nil
 	}
 
+	volumeName, err := makeVolumeName("pvc", fmt.Sprintf("%s", pvc.ObjectMeta.UID), -1)
+	if err != nil {
+		logrus.Infof("PersistentVolumeClaimOnChange: makeVolumeName err %v", err)
+		return nil, nil
+	}
+
+	volume, err := h.volumeCache.Get(util.LonghornSystemNamespaceName, volumeName)
+	if err != nil {
+		logrus.Infof("PersistentVolumeClaimOnChange: get volume %v err %v", volumeName, err)
+		return nil, nil
+	}
+
+	//logrus.Infof("PersistentVolumeClaimOnChange: get volume %v with annotation %v", volume.Name, volume.Annotations)
+
+	volumeCopy := volume.DeepCopy()
+	if volumeCopy.Annotations == nil {
+		volumeCopy.Annotations = make(map[string]string)
+	}
+
+	volumeCopy.Annotations[pvcNameSpaceAnnotation] = pvc.Namespace
+	volumeCopy.Annotations[pvcNameAnnotation] = pvc.Name
+	volumeCopy.Annotations[restoreNameAnnotation] = restoreName
+
+	if !reflect.DeepEqual(volume, volumeCopy) {
+		if _, err := h.volumes.Update(volumeCopy); err != nil {
+			logrus.Infof("PersistentVolumeClaimOnChange: volume %v update err %v", volume.Name, err)
+			return nil, nil
+		}
+	}
+
 	logrus.Debugf("handling PVC updating %s/%s", pvc.Namespace, pvc.Name)
 	h.restoreController.EnqueueAfter(pvc.Namespace, restoreName, 5*time.Second)
+	return nil, nil
+}
+
+func (h *RestoreHandler) resolveLHEngineRef(lhEngine *lhv1beta2.Engine) *lhv1beta2.Volume {
+	refs := lhEngine.GetOwnerReferences()
+	if len(refs) == 0 {
+		logrus.Infof("resolveLHEngineRef: ref not exist")
+		return nil
+	}
+
+	ref := refs[0]
+	if ref.Kind != lhv1beta2.SchemeGroupVersion.WithKind("Volume").Kind {
+		logrus.Infof("resolveLHEngineRef: ref kind is not volume")
+		return nil
+	}
+
+	volume, err := h.volumeCache.Get(util.LonghornSystemNamespaceName, ref.Name)
+	if err != nil {
+		logrus.Infof("resolveLHEngineRef: get ref volume %v err %v", ref.Name, err)
+		return nil
+	}
+
+	if volume.UID != ref.UID {
+		logrus.Infof("resolveLHEngineRef: volume uid %v not equal ref uid %v", volume.UID, ref.UID)
+		return nil
+	}
+
+	return volume
+}
+
+func (h *RestoreHandler) LHEngineOnChange(key string, lhEngine *lhv1beta2.Engine) (*lhv1beta2.Engine, error) {
+	if lhEngine == nil || lhEngine.DeletionTimestamp != nil || len(lhEngine.Status.RestoreStatus) == 0 {
+		return nil, nil
+	}
+
+	volume := h.resolveLHEngineRef(lhEngine)
+	if volume == nil {
+		return nil, nil
+	}
+
+	//logrus.Infof("LHEngineOnChange: get volume %v with annotation %v", volume.Name, volume.Annotations)
+
+	pvcNamespace, ok := volume.Annotations[pvcNameSpaceAnnotation]
+	if !ok {
+		return nil, nil
+	}
+
+	pvcName, ok := volume.Annotations[pvcNameAnnotation]
+	if !ok {
+		return nil, nil
+	}
+
+	restoreName, ok := volume.Annotations[restoreNameAnnotation]
+	if !ok {
+		return nil, nil
+	}
+
+	vmRestore, err := h.restoreCache.Get(pvcNamespace, restoreName)
+	if err != nil {
+		//logrus.Infof("LHEngineOnChange: get vmRestore %v/%v err %v", pvcNamespace, restoreName, err)
+		return nil, nil
+	}
+
+	vmRestoreCpy := vmRestore.DeepCopy()
+	for i, volumeRestore := range vmRestore.Status.VolumeRestores {
+		if volumeRestore.PersistentVolumeClaim.ObjectMeta.Namespace != pvcNamespace {
+			continue
+		}
+
+		if volumeRestore.PersistentVolumeClaim.ObjectMeta.Name != pvcName {
+			continue
+		}
+
+		vmRestoreCpy.Status.VolumeRestores[i].LonghornEngineName = pointer.String(lhEngine.Name)
+
+		// logrus.Infof("LHEngineOnChange: volumeRestore %v LonghornEngineName %v",
+		// 	vmRestoreCpy.Status.VolumeRestores[i].VolumeName,
+		// 	*vmRestoreCpy.Status.VolumeRestores[i].LonghornEngineName,
+		// )
+
+		break
+	}
+
+	if !reflect.DeepEqual(vmRestore.Status, vmRestoreCpy.Status) {
+		if _, err := h.restores.Update(vmRestoreCpy); err != nil {
+			return nil, err
+		}
+	}
+
+	//engueue to tigger progress update
+	h.restoreController.Enqueue(pvcNamespace, restoreName)
 	return nil, nil
 }
 
@@ -329,6 +482,7 @@ func getVolumeRestores(vmRestore *harvesterv1.VirtualMachineRestore, backup *har
 					Spec: vb.PersistentVolumeClaim.Spec,
 				},
 				VolumeBackupName: *vb.Name,
+				VolumeSize:       vb.VolumeSize,
 			}
 			restores = append(restores, vr)
 		}
@@ -820,6 +974,69 @@ func (h *RestoreHandler) startVM(vm *kubevirtv1.VirtualMachine) error {
 	return nil
 }
 
+func (h *RestoreHandler) updateRestoreProgress(volumeRestore *harvesterv1.VolumeRestore, isVolumesReady bool) error {
+	if volumeRestore.LonghornEngineName == nil {
+		logrus.Infof("updateRestoreProgress: nil engine")
+		return nil
+	}
+
+	lhEngine, err := h.lhengineCache.Get(util.LonghornSystemNamespaceName, *volumeRestore.LonghornEngineName)
+	if err != nil {
+		logrus.Infof("updateRestoreProgress: get engine %v err %v", *volumeRestore.LonghornEngineName, err)
+		return nil
+	}
+
+	var volumeRestoreProgress int
+
+	defer func() {
+		if volumeRestoreProgress > volumeRestore.RestoreProgress {
+			volumeRestore.RestoreProgress = volumeRestoreProgress
+		}
+
+		logrus.Infof("updateRestoreProgress: volumeRestore RestoreProgress %v",
+			volumeRestore.RestoreProgress)
+	}()
+
+	if isVolumesReady {
+		volumeRestoreProgress = progressComplete
+		return nil
+	}
+
+	var numReplica int
+	var replicaRestoreProgressSum int
+
+	for replica, rs := range lhEngine.Status.RestoreStatus {
+		if rs == nil {
+			continue
+		}
+
+		logrus.Infof("updateRestoreProgress: get replica %v IsRestoring %v", replica, rs.IsRestoring)
+		logrus.Infof("updateRestoreProgress: get replica %v progress %v", replica, rs.Progress)
+
+		numReplica++
+
+		if !rs.IsRestoring {
+			continue
+		}
+
+		replicaRestoreProgressSum += rs.Progress
+	}
+
+	if numReplica > 0 {
+		volumeRestoreProgress = replicaRestoreProgressSum / numReplica
+	}
+
+	return nil
+}
+
+func (h *RestoreHandler) recifyProgressBeforeVMStart(vmRestore *harvesterv1.VirtualMachineRestore) {
+	if vmRestore.Status.Progress <= progressBeforeVMStart {
+		return
+	}
+
+	vmRestore.Status.Progress = progressBeforeVMStart
+}
+
 func (h *RestoreHandler) updateStatus(
 	vmRestore *harvesterv1.VirtualMachineRestore,
 	backup *harvesterv1.VirtualMachineBackup,
@@ -827,7 +1044,30 @@ func (h *RestoreHandler) updateStatus(
 	isVolumesReady bool,
 ) error {
 	restoreCpy := vmRestore.DeepCopy()
+
+	defer func() {
+		logrus.Infof("updateStatus %s current progress %v", vmRestore.Name, restoreCpy.Status.Progress)
+	}()
+
+	var volumeSizeSum int64
+	var progressWeightSum int64
+
+	for i := range restoreCpy.Status.VolumeRestores {
+		vr := &restoreCpy.Status.VolumeRestores[i]
+		if err := h.updateRestoreProgress(vr, isVolumesReady); err != nil {
+			return err
+		}
+
+		volumeSizeSum += vr.VolumeSize
+		progressWeightSum += int64(vr.RestoreProgress) * vr.VolumeSize
+	}
+
+	if volumeSizeSum != 0 {
+		restoreCpy.Status.Progress = int(progressWeightSum / volumeSizeSum)
+	}
+
 	if !isVolumesReady {
+		h.recifyProgressBeforeVMStart(restoreCpy)
 		updateRestoreCondition(restoreCpy, newProgressingCondition(corev1.ConditionTrue, "", "Creating new PVCs"))
 		updateRestoreCondition(restoreCpy, newReadyCondition(corev1.ConditionFalse, "", "Waiting for new PVCs"))
 		if !reflect.DeepEqual(vmRestore, restoreCpy) {
@@ -844,6 +1084,7 @@ func (h *RestoreHandler) updateStatus(
 	}
 
 	if !vm.Status.Ready {
+		h.recifyProgressBeforeVMStart(restoreCpy)
 		message := "Waiting for target vm to be ready"
 		updateRestoreCondition(restoreCpy, newProgressingCondition(corev1.ConditionFalse, "", message))
 		updateRestoreCondition(restoreCpy, newReadyCondition(corev1.ConditionFalse, "", message))
