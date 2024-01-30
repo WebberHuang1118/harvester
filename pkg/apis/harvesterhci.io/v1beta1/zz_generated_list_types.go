@@ -244,3 +244,20 @@ func NewAddon(namespace, name string, obj Addon) *Addon {
 	obj.Namespace = namespace
 	return &obj
 }
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+// ImgEncrypterList is a list of ImgEncrypter resources
+type ImgEncrypterList struct {
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata"`
+
+	Items []ImgEncrypter `json:"items"`
+}
+
+func NewImgEncrypter(namespace, name string, obj ImgEncrypter) *ImgEncrypter {
+	obj.APIVersion, obj.Kind = SchemeGroupVersion.WithKind("ImgEncrypter").ToAPIVersionAndKind()
+	obj.Name = name
+	obj.Namespace = namespace
+	return &obj
+}

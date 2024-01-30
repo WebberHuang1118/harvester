@@ -29,6 +29,7 @@ import (
 
 var (
 	AddonResourceName                         = "addons"
+	ImgEncrypterResourceName                  = "imgencrypters"
 	KeyPairResourceName                       = "keypairs"
 	PreferenceResourceName                    = "preferences"
 	SettingResourceName                       = "settings"
@@ -66,6 +67,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(SchemeGroupVersion,
 		&Addon{},
 		&AddonList{},
+		&ImgEncrypter{},
+		&ImgEncrypterList{},
 		&KeyPair{},
 		&KeyPairList{},
 		&Preference{},

@@ -31,6 +31,7 @@ func init() {
 
 type Interface interface {
 	Addon() AddonController
+	ImgEncrypter() ImgEncrypterController
 	KeyPair() KeyPairController
 	Preference() PreferenceController
 	Setting() SettingController
@@ -57,6 +58,9 @@ type version struct {
 
 func (c *version) Addon() AddonController {
 	return NewAddonController(schema.GroupVersionKind{Group: "harvesterhci.io", Version: "v1beta1", Kind: "Addon"}, "addons", true, c.controllerFactory)
+}
+func (c *version) ImgEncrypter() ImgEncrypterController {
+	return NewImgEncrypterController(schema.GroupVersionKind{Group: "harvesterhci.io", Version: "v1beta1", Kind: "ImgEncrypter"}, "imgencrypters", true, c.controllerFactory)
 }
 func (c *version) KeyPair() KeyPairController {
 	return NewKeyPairController(schema.GroupVersionKind{Group: "harvesterhci.io", Version: "v1beta1", Kind: "KeyPair"}, "keypairs", true, c.controllerFactory)
