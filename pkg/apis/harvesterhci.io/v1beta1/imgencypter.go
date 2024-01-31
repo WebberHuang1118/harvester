@@ -24,7 +24,7 @@ type ImgEncrypterSpec struct {
 	SrcImgNamespace string `json:"srcImgNamespace"`
 
 	// +kubebuilder:validation:Required
-	SrcImgName string `json:"srcImgNames"`
+	SrcImgName string `json:"srcImgName"`
 }
 
 type ImgEncrypterStatus struct {

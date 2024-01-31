@@ -40,13 +40,13 @@ spec:
             properties:
               displayName:
                 type: string
-              srcImgNames:
+              srcImgName:
                 type: string
               srcImgNamespace:
                 type: string
             required:
             - displayName
-            - srcImgNames
+            - srcImgName
             - srcImgNamespace
             type: object
           status:

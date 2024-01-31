@@ -2480,7 +2480,7 @@ func schema_pkg_apis_harvesterhciio_v1beta1_ImgEncrypterSpec(ref common.Referenc
 							Format:  "",
 						},
 					},
-					"srcImgNames": {
+					"srcImgName": {
 						SchemaProps: spec.SchemaProps{
 							Default: "",
 							Type:    []string{"string"},
@@ -2488,7 +2488,7 @@ func schema_pkg_apis_harvesterhciio_v1beta1_ImgEncrypterSpec(ref common.Referenc
 						},
 					},
 				},
-				Required: []string{"displayName", "srcImgNamespace", "srcImgNames"},
+				Required: []string{"displayName", "srcImgNamespace", "srcImgName"},
 			},
 		},
 	}

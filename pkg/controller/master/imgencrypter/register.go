@@ -12,10 +12,15 @@ const (
 
 func Register(ctx context.Context, management *config.Management, _ config.Options) error {
 	encrypters := management.HarvesterFactory.Harvesterhci().V1beta1().ImgEncrypter()
+	pvcs := management.CoreFactory.Core().V1().PersistentVolumeClaim()
+	images := management.HarvesterFactory.Harvesterhci().V1beta1().VirtualMachineImage()
 
 	imgEncrypterHandler := &imgEncrypterHandler{
-		encrypters:          encrypters,
 		encrypterController: encrypters,
+		encrypterClient:     encrypters,
+		pvcClient:           pvcs,
+		pvcCache:            pvcs.Cache(),
+		imageCache:          images.Cache(),
 	}
 
 	encrypters.OnChange(ctx, imgEncrypterControllerName, imgEncrypterHandler.OnChanged)
