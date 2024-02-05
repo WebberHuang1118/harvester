@@ -26,11 +26,11 @@ const (
 	srcPVCName              = "src-pvc"
 	srcPVCSize              = "5Gi"
 	srcVolName              = "src-vol"
-	srcVolMntPath           = "/dev/src-vol"
+	srcVolDevPath           = "/dev/src-vol"
 	dstPVCName              = "dst-pvc"
 	dstPVCSize              = "6Gi"
 	dstVolName              = "dst-vol"
-	dstVolMntPath           = "/dev/dst-vol"
+	dstVolDevPath           = "/dev/dst-vol"
 	transferJob             = "transfer-job"
 	releaseAppHarvesterName = "harvester"
 )
@@ -170,21 +170,21 @@ func (h *imgEncrypterHandler) createJob(encrypter *harvesterv1.ImgEncrypter, src
 			Template: corev1.PodTemplateSpec{
 				Spec: corev1.PodSpec{
 					RestartPolicy: corev1.RestartPolicyNever,
-					// Volumes: []corev1.Volume{{
-					// 	Name: srcVolName,
-					// 	VolumeSource: corev1.VolumeSource{
-					// 		PersistentVolumeClaim: &corev1.PersistentVolumeClaimVolumeSource{
-					// 			ClaimName: srcPVC,
-					// 		},
-					// 	},
-					// }, {
-					// 	Name: dstVolName,
-					// 	VolumeSource: corev1.VolumeSource{
-					// 		PersistentVolumeClaim: &corev1.PersistentVolumeClaimVolumeSource{
-					// 			ClaimName: dstPVC,
-					// 		},
-					// 	},
-					// }},
+					Volumes: []corev1.Volume{{
+						Name: srcVolName,
+						VolumeSource: corev1.VolumeSource{
+							PersistentVolumeClaim: &corev1.PersistentVolumeClaimVolumeSource{
+								ClaimName: srcPVC,
+							},
+						},
+					}, {
+						Name: dstVolName,
+						VolumeSource: corev1.VolumeSource{
+							PersistentVolumeClaim: &corev1.PersistentVolumeClaimVolumeSource{
+								ClaimName: dstPVC,
+							},
+						},
+					}},
 					ServiceAccountName: "harvester",
 				},
 			},
@@ -199,10 +199,10 @@ func (h *imgEncrypterHandler) createJob(encrypter *harvesterv1.ImgEncrypter, src
 			Command:   []string{"sleep"},
 			Args:      []string{"7200"},
 			Resources: corev1.ResourceRequirements{},
-			// VolumeMounts: []corev1.VolumeMount{
-			// 	{Name: srcVolName, MountPath: srcVolMntPath},
-			// 	{Name: dstVolName, MountPath: dstVolMntPath},
-			// },
+			VolumeDevices: []corev1.VolumeDevice{
+				{Name: srcVolName, DevicePath: srcVolDevPath},
+				{Name: dstVolName, DevicePath: dstVolDevPath},
+			},
 			ImagePullPolicy: corev1.PullIfNotPresent,
 			SecurityContext: &corev1.SecurityContext{
 				Privileged: pointer.Bool(true),
