@@ -1,0 +1,54 @@
+1. Update CRD
+    a .followg code change on https://github.com/harvester/harvester/wiki/Example%3A-Adding-new-API-object-types-and-controllers
+    b. do code generate with "$./.dapper -s -m bind $go generate" and exit dapper
+    c. add necessary files, e.q. "deploy/charts/harvester-crd/templates/harvesterhci.io_virtualmachinebackups.yaml
+        pkg/apis/harvesterhci.io/v1beta1/backup.go
+        pkg/apis/harvesterhci.io/v1beta1/openapi_generated.go
+        pkg/codegen/main.go
+        pkg/controller/master/backup/backup.go
+        pkg/controller/master/backup/backup_status.go
+        pkg/generated/controllers/longhorn.io/v1beta2/interface.go
+        pkg/generated/controllers/longhorn.io/v1beta2/snapshot.go"
+    d. apply new chart to existing cluster, 
+        e.q. $ kubectl apply -f deploy/charts/harvester-crd/templates/harvesterhci.io_virtualmachinebackups.yaml
+             $ kubectl apply -f deploy/charts/harvester-crd/templates/harvesterhci.io_virtualmachinerestores.yaml
+
+2. Update dependeny go package
+    a. go mod tidy
+    b. go mod vendor
+    c. update specific package if needed
+        e.q. go get github.com/containerd/containerd v1.7.0
+
+3. Depolying minio backup target (w/ cert)
+    docker run --name minio \
+    --restart=unless-stopped \
+    -e MINIO_ROOT_USER=minioadmin \
+    -e MINIO_ROOT_PASSWORD=minioadmin \
+    -v /home/webber/s3-data:/data \
+    -p 9000:9000 \
+    -p 9001:9001 \
+    bitnami/minio:latest
+
+    ps: setup steps refer to https://confluence.suse.com/display/HARV/Setup+Harvester+Related+Endpoints#SetupHarvesterRelatedEndpoints-S3
+
+4. Example for watch CR with specific fields
+    vmbackup
+        $ kubectl get virtualmachinebackups.harvesterhci.io vm1-b1 --watch -o json | jq -r '. | "vmbackup \(.metadata.name) -> progress:\(.status.progress)\nvolumebackup \(.status.volumeBackups[0].persistentVolumeClaim.metadata.name) -> backup progress:\(.status.volumeBackups[0].backupProgress)\nvolumebackup \(.status.volumeBackups[1].persistentVolumeClaim.metadata.name) -> backup progress:\(.status.volumeBackups[1].backupProgress) "'
+        $ kubectl get virtualmachinebackups.harvesterhci.io vm1-b1  --watch -o json | jq -r '.status.volumeBackups[] | "\(.persistentVolumeClaim.metadata.name) -> snapshotSize: \(.snapshotSize) backupProgress: \(.backupProgress)" '
+    vmrestore
+        $ kubectl get virtualmachinerestores.harvesterhci.io restore-vm1-b1-hc5jk --watch -o json | jq -r ' . | "\n\nvmrestore \(.metadata.name):\n\t\t-> conditions \(.status.conditions[0].message)\n\t\t-> progress \(.status.progress)\n\nvolumerestore \(.status.restores[0].persistentVolumeClaimSpec.metadata.name):\n\t\t-> restore progress:\(.status.restores[0].restoreProgress)\nvolumerestore \(.status.restores[1].persistentVolumeClaimSpec.metadata.name):\n\t\t-> restore progress:\(.status.restores[1].restoreProgress)\n" '
+    bi
+        $ kubectl get backingimage -A -o json | jq -r '.items[] | select(.metadata.annotations["harvesterhci.io/imageId"] == "default/ubuntu-bionic-123456789012345678901234567890") | .metadata.name'
+    sc
+        $ kubectl get storageclasses.storage.k8s.io -A -o json | jq -r '.items[] | select(.parameters["backingImage"] == "default-ubuntu-bionic-123456789-ac6bf8d6") | .metadata.name'
+    vmi
+        $ kubectl get virtualmachineimages.harvesterhci.io -A -o json | jq -r '.items[] | select(.spec.displayName == "ubuntu-20.04.5-desktop-amd64.iso") | .metadata.namespace + "-" + .metadata.name'
+    bim
+        $ kubectl get backingimagemanagers.longhorn.io -A -o json | jq -r '.items[] | select(.spec.backingImages["default-image-krrtt"]) | .spec'    
+    volume
+        $ kubectl -n longhorn-system get volumes.longhorn.io pvc-52dd977a-8a99-41a4-a0a5-0a8723f784fb --watch -o json | jq -r ' .metadata.annotations'
+    engine    
+        $ kubectl -n longhorn-system get engines.longhorn.io pvc-a6665452-a1b1-4530-9310-2fe5e9e94034-e-9b3c71ce --watch -o json | jq -r ' .status.restoreStatus '
+    pvc
+        $ kubectl get persistentvolumeclaims restore-vm1-b1-bfe3e4fc-f83f-421c-bb52-d315ed6a1c00-disk-0 --watch -o json | jq -r '.spec.volumeName + " " +.status.phase'
+
