@@ -33,6 +33,7 @@ const (
 	dstVolDevPath           = "/dev/dst-vol"
 	transferJob             = "transfer-job"
 	releaseAppHarvesterName = "harvester"
+	dataCopyCmd             = "cp"
 )
 
 var (
@@ -194,10 +195,13 @@ func (h *imgEncrypterHandler) createJob(encrypter *harvesterv1.ImgEncrypter, src
 
 	podTemplate.Spec.Containers = []corev1.Container{
 		{
-			Name:      transferJob,
-			Image:     jobImage.ImageName(),
-			Command:   []string{"sleep"},
-			Args:      []string{"7200"},
+			Name:    transferJob,
+			Image:   jobImage.ImageName(),
+			Command: []string{dataCopyCmd},
+			Args: []string{
+				srcVolDevPath,
+				dstVolDevPath,
+			},
 			Resources: corev1.ResourceRequirements{},
 			VolumeDevices: []corev1.VolumeDevice{
 				{Name: srcVolName, DevicePath: srcVolDevPath},
