@@ -17,6 +17,7 @@ func Register(ctx context.Context, management *config.Management, options config
 	storageClasses := management.StorageFactory.Storage().V1().StorageClass()
 	appCache := management.CatalogFactory.Catalog().V1().App().Cache()
 	jobs := management.BatchFactory.Batch().V1().Job()
+	volumes := management.LonghornFactory.Longhorn().V1beta2().Volume()
 
 	imgEncrypterHandler := &imgEncrypterHandler{
 		encrypterController: encrypters,
@@ -29,6 +30,7 @@ func Register(ctx context.Context, management *config.Management, options config
 		appCache:            appCache,
 		jobs:                jobs,
 		jobCache:            jobs.Cache(),
+		volumeCache:         volumes.Cache(),
 	}
 
 	encrypters.OnChange(ctx, imgEncrypterControllerName, imgEncrypterHandler.OnChanged)

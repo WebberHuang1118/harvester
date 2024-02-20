@@ -3,6 +3,7 @@ package imgencrypter
 import (
 	"fmt"
 
+	lhv1beta2 "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
 	catalogv1 "github.com/rancher/rancher/pkg/generated/controllers/catalog.cattle.io/v1"
 	"github.com/rancher/wrangler/pkg/condition"
 	ctlbatchv1 "github.com/rancher/wrangler/pkg/generated/controllers/batch/v1"
@@ -18,6 +19,8 @@ import (
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	ctlharvesterv1 "github.com/harvester/harvester/pkg/generated/controllers/harvesterhci.io/v1beta1"
+	ctllhv1 "github.com/harvester/harvester/pkg/generated/controllers/longhorn.io/v1beta2"
+	"github.com/harvester/harvester/pkg/util"
 	utilCatalog "github.com/harvester/harvester/pkg/util/catalog"
 )
 
@@ -52,6 +55,7 @@ type imgEncrypterHandler struct {
 	appCache            catalogv1.AppCache
 	jobs                ctlbatchv1.JobClient
 	jobCache            ctlbatchv1.JobCache
+	volumeCache         ctllhv1.VolumeCache
 }
 
 func (h *imgEncrypterHandler) createSrcPVC(encrypter *harvesterv1.ImgEncrypter) (*corev1.PersistentVolumeClaim, error) {
@@ -186,7 +190,7 @@ func (h *imgEncrypterHandler) createJob(encrypter *harvesterv1.ImgEncrypter, src
 							},
 						},
 					}},
-					ServiceAccountName: "harvester",
+					ServiceAccountName: encrypter.Namespace,
 				},
 			},
 		},
@@ -224,7 +228,7 @@ func (h *imgEncrypterHandler) checkJob(encrypter *harvesterv1.ImgEncrypter, srcP
 			logrus.Infof("checkJob: createJob fail with err %v", err)
 			return nil, err
 		}
-		return nil, fmt.Errorf("checking transfer job again ")
+		return nil, fmt.Errorf("checking transfer job again")
 	}
 
 	if err != nil {
@@ -240,6 +244,32 @@ func (h *imgEncrypterHandler) checkJob(encrypter *harvesterv1.ImgEncrypter, srcP
 	}
 
 	return job, nil
+}
+
+func getVolumeName(pvc *corev1.PersistentVolumeClaim) (string, error) {
+	if pvc.Status.Phase == corev1.ClaimPending {
+		return "", fmt.Errorf("pvc %s in pending", pvc.Name)
+	}
+
+	return pvc.Spec.VolumeName, nil
+}
+
+func (h *imgEncrypterHandler) checkPVCDetached(encrypter *harvesterv1.ImgEncrypter, pvc *corev1.PersistentVolumeClaim) error {
+	volumeName, err := getVolumeName(pvc)
+	if err != nil {
+		return err
+	}
+
+	volume, err := h.volumeCache.Get(util.LonghornSystemNamespaceName, volumeName)
+	if err != nil {
+		return err
+	}
+
+	if volume.Status.State != lhv1beta2.VolumeStateDetached {
+		return fmt.Errorf("volume %s not detached yet", volumeName)
+	}
+
+	return nil
 }
 
 func (h *imgEncrypterHandler) OnChanged(_ string, encrypter *harvesterv1.ImgEncrypter) (*harvesterv1.ImgEncrypter, error) {
@@ -279,6 +309,16 @@ func (h *imgEncrypterHandler) OnChanged(_ string, encrypter *harvesterv1.ImgEncr
 		return nil, err
 	}
 	stage = 3
+
+	if err := h.checkPVCDetached(encrypter, srcPVC); err != nil {
+		return nil, err
+	}
+	stage = 4
+
+	if err := h.checkPVCDetached(encrypter, dstPVC); err != nil {
+		return nil, err
+	}
+	stage = 5
 
 	return encrypter, nil
 }
