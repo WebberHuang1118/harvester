@@ -15,6 +15,14 @@ const (
 	AnnStorageProvisioner     = "volume.kubernetes.io/storage-provisioner"
 	AnnBetaStorageProvisioner = "volume.beta.kubernetes.io/storage-provisioner"
 	LonghornDataLocality      = "dataLocality"
+
+	LonghornEncrypted                  = "encrypted"
+	LonghornNodePublishSecretName      = "csi.storage.k8s.io/node-publish-secret-name"
+	LonghornNodePublishSecretNameSpace = "csi.storage.k8s.io/node-publish-secret-namespace"
+	LonghornNodeStageSecretName        = "csi.storage.k8s.io/node-stage-secret-name"
+	LonghornNodeStageSecretNameSpace   = "csi.storage.k8s.io/node-stage-secret-namespace"
+	LonghornProvisionerSecretName      = "csi.storage.k8s.io/provisioner-secret-name"
+	LonghornProvisionerSecretNameSpace = "csi.storage.k8s.io/provisioner-secret-namespace"
 )
 
 var (
