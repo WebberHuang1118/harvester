@@ -30,4 +30,7 @@ type ImgEncrypterSpec struct {
 type ImgEncrypterStatus struct {
 	// +optional
 	Stage int64 `json:"stage,omitempty"`
+
+	// +optional
+	Message string `json:"message"`
 }

@@ -51,6 +51,8 @@ spec:
             type: object
           status:
             properties:
+              message:
+                type: string
               stage:
                 format: int64
                 type: integer

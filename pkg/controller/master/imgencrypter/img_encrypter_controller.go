@@ -40,6 +40,16 @@ const (
 	encryptImgPrefix        = "encrypt-"
 )
 
+var encrypterMsg = map[int64]string{
+	0: "Retrieving source data",
+	1: "Building temporary storage",
+	2: "Data encrypting",
+	3: "Waitng data release",
+	4: "Waitng data release",
+	5: "Exporting encrypt image",
+	6: "Completed",
+}
+
 var (
 	ConditionJobComplete = condition.Cond(batchv1.JobComplete)
 	ConditionJobFailed   = condition.Cond(batchv1.JobFailed)
@@ -327,7 +337,7 @@ func (h *imgEncrypterHandler) checkImage(encrypter *harvesterv1.ImgEncrypter) (*
 		return nil, fmt.Errorf("image reach retry exceed")
 	}
 
-	if ConditionImgImported.IsFalse(img) {
+	if !ConditionImgImported.IsTrue(img) {
 		return nil, fmt.Errorf("image not imported yet")
 	}
 
@@ -343,11 +353,12 @@ func (h *imgEncrypterHandler) OnChanged(_ string, encrypter *harvesterv1.ImgEncr
 	toUpdate := encrypter.DeepCopy()
 
 	defer func() {
-		if stage <= toUpdate.Status.Stage {
+		if stage <= toUpdate.Status.Stage && stage != 0 {
 			return
 		}
 
 		toUpdate.Status.Stage = stage
+		toUpdate.Status.Message = encrypterMsg[stage]
 		h.encrypterController.Update(toUpdate)
 	}()
 

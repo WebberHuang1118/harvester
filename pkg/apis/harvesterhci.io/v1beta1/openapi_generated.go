@@ -2506,6 +2506,13 @@ func schema_pkg_apis_harvesterhciio_v1beta1_ImgEncrypterStatus(ref common.Refere
 							Format: "int64",
 						},
 					},
+					"message": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
 				},
 			},
 		},
