@@ -37,11 +37,16 @@ const (
 	transferJob             = "transfer-job"
 	releaseAppHarvesterName = "harvester"
 	dataCopyCmd             = "cp"
+	encryptImgPrefix        = "encrypt-"
 )
 
 var (
 	ConditionJobComplete = condition.Cond(batchv1.JobComplete)
 	ConditionJobFailed   = condition.Cond(batchv1.JobFailed)
+
+	ConditionImgInitialized = condition.Cond(harvesterv1.ImageInitialized)
+	ConditionImgImported    = condition.Cond(harvesterv1.ImageImported)
+	ConditionImgRetryExceed = condition.Cond(harvesterv1.ImageRetryLimitExceeded)
 )
 
 type imgEncrypterHandler struct {
@@ -49,6 +54,7 @@ type imgEncrypterHandler struct {
 	encrypterClient     ctlharvesterv1.ImgEncrypterClient
 	pvcClient           ctlcorev1.PersistentVolumeClaimClient
 	pvcCache            ctlcorev1.PersistentVolumeClaimCache
+	imageClient         ctlharvesterv1.VirtualMachineImageClient
 	imageCache          ctlharvesterv1.VirtualMachineImageCache
 	storageClassCache   ctlstoragev1.StorageClassCache
 	namespace           string
@@ -272,6 +278,62 @@ func (h *imgEncrypterHandler) checkPVCDetached(encrypter *harvesterv1.ImgEncrypt
 	return nil
 }
 
+func (h *imgEncrypterHandler) exportImage(encrypter *harvesterv1.ImgEncrypter, srcImg *harvesterv1.VirtualMachineImage) (*harvesterv1.VirtualMachineImage, error) {
+	img := &harvesterv1.VirtualMachineImage{
+		ObjectMeta: metav1.ObjectMeta{
+			Namespace: encrypter.Namespace,
+			Name:      encryptImgPrefix + srcImg.Spec.DisplayName,
+			Annotations: map[string]string{
+				util.AnnotationStorageClassName: cryptoSC,
+			},
+		},
+		Spec: harvesterv1.VirtualMachineImageSpec{
+			DisplayName:  encryptImgPrefix + srcImg.Spec.DisplayName,
+			SourceType:   harvesterv1.VirtualMachineImageSourceTypeExportVolume,
+			PVCName:      dstPVCName,
+			PVCNamespace: encrypter.Namespace,
+		},
+	}
+
+	return h.imageClient.Create(img)
+}
+
+func (h *imgEncrypterHandler) checkImage(encrypter *harvesterv1.ImgEncrypter) (*harvesterv1.VirtualMachineImage, error) {
+	srcImg, err := h.imageCache.Get(encrypter.Spec.SrcImgNamespace, encrypter.Spec.SrcImgName)
+	if err != nil {
+		logrus.Infof("get src image %v/%v fail with err %v",
+			encrypter.Spec.SrcImgNamespace, encrypter.Spec.SrcImgName, err)
+		return nil, err
+	}
+
+	img, err := h.imageCache.Get(encrypter.Namespace, encryptImgPrefix+srcImg.Spec.DisplayName)
+	if apierrors.IsNotFound(err) {
+		if _, err := h.exportImage(encrypter, srcImg); err != nil {
+			logrus.Infof("checkImage: export image fail with err %v", err)
+			return nil, err
+		}
+		return nil, fmt.Errorf("checking image again")
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	if ConditionImgInitialized.IsFalse(img) {
+		return nil, fmt.Errorf("image initialize failed")
+	}
+
+	if ConditionImgRetryExceed.IsTrue(img) {
+		return nil, fmt.Errorf("image reach retry exceed")
+	}
+
+	if ConditionImgImported.IsFalse(img) {
+		return nil, fmt.Errorf("image not imported yet")
+	}
+
+	return img, nil
+}
+
 func (h *imgEncrypterHandler) OnChanged(_ string, encrypter *harvesterv1.ImgEncrypter) (*harvesterv1.ImgEncrypter, error) {
 	if encrypter == nil || encrypter.DeletionTimestamp != nil {
 		return encrypter, nil
@@ -319,6 +381,11 @@ func (h *imgEncrypterHandler) OnChanged(_ string, encrypter *harvesterv1.ImgEncr
 		return nil, err
 	}
 	stage = 5
+
+	if _, err := h.checkImage(encrypter); err != nil {
+		return nil, err
+	}
+	stage = 6
 
 	return encrypter, nil
 }

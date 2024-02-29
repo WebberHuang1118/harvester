@@ -24,6 +24,7 @@ func Register(ctx context.Context, management *config.Management, options config
 		encrypterClient:     encrypters,
 		pvcClient:           pvcs,
 		pvcCache:            pvcs.Cache(),
+		imageClient:         images,
 		imageCache:          images.Cache(),
 		storageClassCache:   storageClasses.Cache(),
 		namespace:           options.Namespace,
