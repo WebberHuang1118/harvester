@@ -52,10 +52,16 @@ func (h ActionHandler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		_, _ = rw.Write([]byte(err.Error()))
 		return
 	}
+
+	vars := util.EncodeVars(mux.Vars(req))
+	if vars["action"] == actionExport {
+		return
+	}
+
 	rw.WriteHeader(http.StatusNoContent)
 }
 
-func (h *ActionHandler) do(_ http.ResponseWriter, r *http.Request) error {
+func (h *ActionHandler) do(w http.ResponseWriter, r *http.Request) error {
 	vars := util.EncodeVars(mux.Vars(r))
 	action := vars["action"]
 	pvcName := vars["name"]
@@ -73,7 +79,7 @@ func (h *ActionHandler) do(_ http.ResponseWriter, r *http.Request) error {
 		if input.Namespace == "" {
 			return apierror.NewAPIError(validation.InvalidBodyContent, "Parameter `namespace` is required")
 		}
-		return h.exportVolume(r.Context(), input.Namespace, input.DisplayName, input.StorageClassName, pvcNamespace, pvcName)
+		return h.exportVolume(w, r.Context(), input.Namespace, input.DisplayName, input.StorageClassName, pvcNamespace, pvcName)
 	case actionCancelExpand:
 		return h.cancelExpand(r.Context(), pvcNamespace, pvcName)
 	case actionClone:
@@ -99,7 +105,7 @@ func (h *ActionHandler) do(_ http.ResponseWriter, r *http.Request) error {
 	}
 }
 
-func (h *ActionHandler) exportVolume(_ context.Context, imageNamespace, imageDisplayName, imageStorageClassName, pvcNamespace, pvcName string) error {
+func (h *ActionHandler) exportVolume(w http.ResponseWriter, _ context.Context, imageNamespace, imageDisplayName, imageStorageClassName, pvcNamespace, pvcName string) error {
 	vmImage := &harvesterv1.VirtualMachineImage{
 		ObjectMeta: metav1.ObjectMeta{
 			GenerateName: "image-",
@@ -118,12 +124,19 @@ func (h *ActionHandler) exportVolume(_ context.Context, imageNamespace, imageDis
 		vmImage.Annotations[util.AnnotationStorageClassName] = imageStorageClassName
 	}
 
-	if _, err := h.images.Create(vmImage); err != nil {
-		logrus.Errorf("failed to create image from volume %s", pvcName)
+	resultImage, err := h.images.Create(vmImage)
+	if err != nil {
 		return err
 	}
 
-	return nil
+	res, err := json.Marshal(resultImage)
+	if err != nil {
+		return err
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_, err = w.Write(res)
+	return err
 }
 
 func (h *ActionHandler) cancelExpand(_ context.Context, pvcNamespace, pvcName string) error {
