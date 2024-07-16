@@ -142,6 +142,10 @@ func (h *vmImageHandler) OnRemove(_ string, image *harvesterv1.VirtualMachineIma
 	if image == nil {
 		return nil, nil
 	}
+
+	biName, _ := util.GetBackingImageName(h.backingImageCache, image)
+	logrus.Infof("vmi %s delete bi %s", image.Name, biName)
+
 	if err := h.deleteBackingImageAndStorageClass(image); err != nil {
 		return image, err
 	}
@@ -162,6 +166,9 @@ func (h *vmImageHandler) initialize(image *harvesterv1.VirtualMachineImage) (*ha
 		}).Error("failed to check vmimage")
 		return h.images.Update(toUpdate)
 	}
+
+	biName, _ := util.GetBackingImageName(h.backingImageCache, image)
+	logrus.Infof("vmi %s create bi %s", image.Name, biName)
 
 	return h.createBackingImageAndStorageClass(toUpdate)
 }
@@ -262,7 +269,6 @@ func (h *vmImageHandler) createBackingImage(image *harvesterv1.VirtualMachineIma
 		bi.Spec.SourceParameters[lhv1beta2.DataSourceTypeExportFromVolumeParameterVolumeName] = pvc.Spec.VolumeName
 		bi.Spec.SourceParameters[lhmanager.DataSourceTypeExportFromVolumeParameterExportType] = lhmanager.DataSourceTypeExportFromVolumeParameterExportTypeRAW
 	}
-
 	_, err = h.backingImages.Create(bi)
 	return err
 }

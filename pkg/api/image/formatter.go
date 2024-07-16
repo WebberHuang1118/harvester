@@ -145,8 +145,11 @@ func (h Handler) uploadImage(_ http.ResponseWriter, req *http.Request) error {
 	name := vars["name"]
 	image, err := h.Images.Get(namespace, name, metav1.GetOptions{})
 	if err != nil {
+		logrus.Infof("vmi %s get err %v", name, err)
 		return err
 	}
+
+	logrus.Infof("vmi %s trying to upload image", image.Name)
 
 	defer func() {
 		if err != nil {
@@ -159,12 +162,15 @@ func (h Handler) uploadImage(_ http.ResponseWriter, req *http.Request) error {
 	//Wait for backing image data source to be ready. Otherwise the upload request will fail.
 	dsName, err := util.GetBackingImageDataSourceName(h.BackingImageCache, image)
 	if err != nil {
+		logrus.Infof("vmi %s failed to get backing image name", image.Name)
 		return fmt.Errorf("failed to get backing image name for VMImage %s/%s, error: %w", namespace, name, err)
 	}
 
 	if err := h.waitForBackingImageDataSourceReady(dsName); err != nil {
+		logrus.Infof("vmi %s waiting bids ready failed %v", image.Name, err)
 		return err
 	}
+	logrus.Infof("vmi %s ds %s is ready", image.Name, dsName)
 
 	uploadURL := fmt.Sprintf("%s/backingimages/%s", util.LonghornDefaultManagerURL, dsName)
 	uploadReq, err := http.NewRequestWithContext(req.Context(), http.MethodPost, uploadURL, req.Body)
@@ -185,16 +191,20 @@ func (h Handler) uploadImage(_ http.ResponseWriter, req *http.Request) error {
 		return fmt.Errorf("failed to send the upload request: %w", err)
 	}
 	defer uploadResp.Body.Close()
+	logrus.Infof("vmi %s uploadResp ready", image.Name)
 
 	body, err := ioutil.ReadAll(uploadResp.Body)
 	if err != nil {
+		logrus.Infof("vmi %s failed to read response body: %v", image.Name, err)
 		return fmt.Errorf("failed to read response body: %w", err)
 	}
 	if uploadResp.StatusCode >= http.StatusBadRequest {
 		// err will be recorded in image condition in the defer function
+		logrus.Infof("vmi %s upload failed: %s", image.Name, string(body))
 		err = fmt.Errorf("upload failed: %s", string(body))
 		return err
 	}
+	logrus.Infof("vmi %s upload ready", image.Name)
 
 	return nil
 }
