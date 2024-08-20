@@ -5,6 +5,7 @@ import (
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/controller/master/backup"
+	"github.com/harvester/harvester/pkg/util"
 )
 
 func (h *svmbackupHandler) OnVMBackupChange(_ string, vmBackup *harvesterv1.VirtualMachineBackup) (*harvesterv1.VirtualMachineBackup, error) {
@@ -12,7 +13,7 @@ func (h *svmbackupHandler) OnVMBackupChange(_ string, vmBackup *harvesterv1.Virt
 		return nil, nil
 	}
 
-	svmbackup := resolveSVMBackupRef(h, vmBackup)
+	svmbackup := util.ResolveSVMBackupRef(h.svmbackupCache, vmBackup)
 	if svmbackup == nil {
 		return nil, nil
 	}
@@ -37,7 +38,7 @@ func (h *svmbackupHandler) OnVMBackupRemove(_ string, vmBackup *harvesterv1.Virt
 		return nil, nil
 	}
 
-	svmbackup := resolveSVMBackupRef(h, vmBackup)
+	svmbackup := util.ResolveSVMBackupRef(h.svmbackupCache, vmBackup)
 	if svmbackup == nil {
 		return nil, nil
 	}

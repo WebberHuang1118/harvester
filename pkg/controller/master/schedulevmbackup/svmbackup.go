@@ -21,6 +21,10 @@ const (
 
 func deleteCronJob(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup) error {
 	cronJob, err := getCronJob(h, svmbackup)
+	if errors.IsNotFound(err) {
+		return nil
+	}
+
 	if err != nil {
 		return err
 	}

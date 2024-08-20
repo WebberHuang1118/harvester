@@ -5,6 +5,8 @@ import (
 
 	batchv1 "k8s.io/api/batch/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
+
+	"github.com/harvester/harvester/pkg/util"
 )
 
 func (h *svmbackupHandler) OnCronjobChanged(_ string, cronJob *batchv1.CronJob) (*batchv1.CronJob, error) {
@@ -12,7 +14,7 @@ func (h *svmbackupHandler) OnCronjobChanged(_ string, cronJob *batchv1.CronJob) 
 		return cronJob, nil
 	}
 
-	svmbackup := resolveSVMBackupRef(h, cronJob)
+	svmbackup := util.ResolveSVMBackupRef(h.svmbackupCache, cronJob)
 	if svmbackup == nil {
 		return nil, nil
 	}

@@ -11,7 +11,6 @@ import (
 const (
 	vmImageControllerName      = "vm-image-controller"
 	backingImageControllerName = "backing-image-controller"
-	cronJobControllerName      = "cron-job-controller"
 )
 
 func Register(ctx context.Context, management *config.Management, _ config.Options) error {

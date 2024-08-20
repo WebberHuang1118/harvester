@@ -66,21 +66,6 @@ func getVMBackup(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup, t
 	return vmBackup, nil
 }
 
-func resolveSVMBackupRef(h *svmbackupHandler, obj metav1.Object) *harvesterv1.ScheduleVMBackup {
-	var annotations = obj.GetAnnotations()
-	if annotations == nil || annotations[util.AnnotationSVMBackupID] == "" {
-		return nil
-	}
-
-	namespace, name := ref.Parse(annotations[util.AnnotationSVMBackupID])
-	svmbackup, err := h.svmbackupCache.Get(namespace, name)
-	if err != nil {
-		return nil
-	}
-
-	return svmbackup
-}
-
 func currentVMBackups(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup) (
 	[]*harvesterv1.VirtualMachineBackup, []*harvesterv1.VirtualMachineBackup,
 	*harvesterv1.VirtualMachineBackup, int, error) {

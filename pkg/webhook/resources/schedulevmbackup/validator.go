@@ -2,16 +2,13 @@ package schedulevmbackup
 
 import (
 	"fmt"
-	"os"
 
-	"github.com/longhorn/backupstore"
 	ctlv1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
 	"github.com/robfig/cron"
 	admissionregv1 "k8s.io/api/admissionregistration/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 
 	"github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
-	"github.com/harvester/harvester/pkg/controller/master/backup"
 	ctlharvesterv1 "github.com/harvester/harvester/pkg/generated/controllers/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/settings"
 	"github.com/harvester/harvester/pkg/util"
@@ -80,21 +77,8 @@ func (v *scheuldeVMBackupValidator) checkTargetHealth() error {
 		return fmt.Errorf("setting %s is not set", settings.BackupTargetSettingName)
 	}
 
-	if target.Type == settings.S3BackupType {
-		secret, err := v.secretCache.Get(util.LonghornSystemNamespaceName, util.BackupTargetSecretName)
-		if err != nil {
-			return fmt.Errorf("can't get backup target secret: %s/%s, error: %w",
-				util.LonghornSystemNamespaceName, util.BackupTargetSecretName, err)
-		}
-		os.Setenv(backup.AWSAccessKey, string(secret.Data[backup.AWSAccessKey]))
-		os.Setenv(backup.AWSSecretKey, string(secret.Data[backup.AWSSecretKey]))
-		os.Setenv(backup.AWSEndpoints, string(secret.Data[backup.AWSEndpoints]))
-		os.Setenv(backup.AWSCERT, string(secret.Data[backup.AWSCERT]))
-	}
-
-	_, err = backupstore.GetBackupStoreDriver(backup.ConstructEndpoint(target))
-	if err != nil {
-		return fmt.Errorf("can't connect to backup target %+v, error: %w", target, err)
+	if _, err := util.GetBackupStoreDriver(v.secretCache, target); err != nil {
+		return err
 	}
 
 	return nil
