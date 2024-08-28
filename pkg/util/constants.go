@@ -17,6 +17,7 @@ const (
 	AnnotationRunStrategy               = prefix + "/vmRunStrategy"
 	AnnotationSnapshotFreezeFS          = prefix + "/snapshotFreezeFS"
 	AnnotationSVMBackupID               = prefix + "/svmbackupId"
+	AnnotationSVMBackupSkipCronCheck    = prefix + "/svmbackupSkipCronCheck"
 	LabelImageDisplayName               = prefix + "/imageDisplayName"
 	LabelSetting                        = prefix + "/setting"
 	LabelVMName                         = prefix + "/vmName"

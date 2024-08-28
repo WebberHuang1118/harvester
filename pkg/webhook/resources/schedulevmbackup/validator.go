@@ -2,6 +2,7 @@ package schedulevmbackup
 
 import (
 	"fmt"
+	"time"
 
 	ctlv1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
 	"github.com/robfig/cron"
@@ -22,6 +23,9 @@ const (
 	fieldMaxFailure = "spec.maxFailure"
 	fieldSuspend    = "spec.suspend"
 	fieldVMBackup   = "spec.vmbackup"
+
+	minCronGranularity = time.Hour
+	minCronOffset      = 10 * time.Minute
 )
 
 type scheuldeVMBackupValidator struct {
@@ -84,6 +88,40 @@ func (v *scheuldeVMBackupValidator) checkTargetHealth() error {
 	return nil
 }
 
+func cronGranularityCheck(v *scheuldeVMBackupValidator, svmbackup *v1beta1.ScheduleVMBackup) error {
+	granularity, err := util.GetCronGranularity(svmbackup)
+	if err != nil {
+		return werror.NewInvalidError("invalid cron format", fieldCron)
+	}
+
+	if granularity < minCronGranularity {
+		return fmt.Errorf("schedule granularity %s less than %s", granularity.String(), minCronGranularity.String())
+	}
+
+	svmbackups, err := v.svmbackupCache.GetByIndex(indexeres.ScheduleVMBackupByCronGranularity, granularity.String())
+	if err != nil {
+		return err
+	}
+
+	for _, s := range svmbackups {
+		// skip check with svmbackup itself
+		if s.UID == svmbackup.UID {
+			continue
+		}
+
+		offset, err := util.CalculateCronOffset(svmbackup, s)
+		if err != nil {
+			return err
+		}
+
+		if offset < minCronOffset {
+			return fmt.Errorf("same granularity as schedule %s and offset less than %s", s.Name, minCronOffset.String())
+		}
+	}
+
+	return nil
+}
+
 func (v *scheuldeVMBackupValidator) Create(_ *types.Request, newObj runtime.Object) error {
 	newSVMBackup := newObj.(*v1beta1.ScheduleVMBackup)
 
@@ -93,6 +131,12 @@ func (v *scheuldeVMBackupValidator) Create(_ *types.Request, newObj runtime.Obje
 
 	if _, err := cron.ParseStandard(newSVMBackup.Spec.Cron); err != nil {
 		return werror.NewInvalidError("invalid cron format", fieldCron)
+	}
+
+	if !util.SkipCronGranularityCheck(newSVMBackup) {
+		if err := cronGranularityCheck(v, newSVMBackup); err != nil {
+			return werror.NewInvalidError(err.Error(), fieldCron)
+		}
 	}
 
 	srcVM := fmt.Sprintf("%s/%s", newSVMBackup.Namespace, newSVMBackup.Spec.VMBackupSpec.Source.Name)
@@ -130,6 +174,12 @@ func (v *scheuldeVMBackupValidator) Update(_ *types.Request, oldObj runtime.Obje
 
 	if _, err := cron.ParseStandard(newSVMBackup.Spec.Cron); err != nil {
 		return werror.NewInvalidError("invalid cron format", fieldCron)
+	}
+
+	if !util.SkipCronGranularityCheck(newSVMBackup) {
+		if err := cronGranularityCheck(v, newSVMBackup); err != nil {
+			return werror.NewInvalidError(err.Error(), fieldCron)
+		}
 	}
 
 	//not updated to resume schedule
