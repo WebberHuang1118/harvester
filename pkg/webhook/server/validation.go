@@ -18,6 +18,7 @@ import (
 	"github.com/harvester/harvester/pkg/webhook/resources/node"
 	"github.com/harvester/harvester/pkg/webhook/resources/persistentvolumeclaim"
 	"github.com/harvester/harvester/pkg/webhook/resources/resourcequota"
+	"github.com/harvester/harvester/pkg/webhook/resources/schedulevmbackup"
 	"github.com/harvester/harvester/pkg/webhook/resources/setting"
 	"github.com/harvester/harvester/pkg/webhook/resources/storageclass"
 	"github.com/harvester/harvester/pkg/webhook/resources/templateversion"
@@ -130,6 +131,9 @@ func Validation(clients *clients.Clients, options *config.Options) (http.Handler
 			clients.KubevirtFactory.Kubevirt().V1().VirtualMachine().Cache(),
 		),
 		resourcequota.NewValidator(),
+		schedulevmbackup.NewValidator(
+			clients.HarvesterFactory.Harvesterhci().V1beta1().Setting().Cache(),
+			clients.Core.Secret().Cache()),
 	}
 
 	router := webhook.NewRouter()
