@@ -33,13 +33,13 @@ type VMBackupInfo struct {
 
 // +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-// +kubebuilder:resource:shortName=svmbackup;svmbackup,scope=Namespaced
+// +kubebuilder:resource:shortName=svmbackup;svmbackups,scope=Namespaced
 // +kubebuilder:printcolumn:name="Cron",type=string,JSONPath=`.spec.cron`
 // +kubebuilder:printcolumn:name="Retain",type=integer,JSONPath=`.spec.retain`
 // +kubebuilder:printcolumn:name="MaxFailure",type=integer,JSONPath=`.spec.maxFailure`
 // +kubebuilder:printcolumn:name="SpecSuspend",type=boolean,JSONPath=`.spec.suspend`
 // +kubebuilder:printcolumn:name="Source",type=string,JSONPath=`.spec.vmbackup.source.name`
-// +kubebuilder:printcolumn:name="Suspend",type=string,JSONPath=`.status.suspend`
+// +kubebuilder:printcolumn:name="Suspended",type=string,JSONPath=`.status.suspended`
 // +kubebuilder:printcolumn:name="Failure",type=integer,JSONPath=`.status.failure`
 
 type ScheduleVMBackup struct {
@@ -81,7 +81,7 @@ type ScheduleVMBackupStatus struct {
 	Failure int `json:"failure,omitempty"`
 
 	// +optional
-	Suspend bool `json:"suspend,omitempty"`
+	Suspended bool `json:"suspended,omitempty"`
 
 	// +optional
 	Conditions []Condition `json:"conditions,omitempty"`

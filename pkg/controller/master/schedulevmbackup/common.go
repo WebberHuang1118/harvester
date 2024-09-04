@@ -23,7 +23,7 @@ const (
 
 	reachMaxFailure = "Reach Max Failure"
 
-	proactiveSuspend = "Proactive Scheulde Suspend"
+	proactiveSuspend = "Proactive Schedule Suspend"
 )
 
 const (
@@ -67,12 +67,12 @@ func getVMBackup(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup, t
 }
 
 func currentVMBackups(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup) (
-	[]*harvesterv1.VirtualMachineBackup, []*harvesterv1.VirtualMachineBackup,
-	*harvesterv1.VirtualMachineBackup, int, error) {
+	vmbackups []*harvesterv1.VirtualMachineBackup, errVMBackups []*harvesterv1.VirtualMachineBackup,
+	lastVMBackup *harvesterv1.VirtualMachineBackup, failure int, err error) {
 	sets := labels.Set{
 		util.LabelSVMBackupUID: string(svmbackup.UID),
 	}
-	vmbackups, err := h.vmBackupCache.List(svmbackup.Namespace, sets.AsSelector())
+	vmbackups, err = h.vmBackupCache.List(svmbackup.Namespace, sets.AsSelector())
 	if err != nil {
 		return nil, nil, nil, 0, err
 	}
@@ -83,9 +83,7 @@ func currentVMBackups(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBack
 		return time1.Before(time2)
 	})
 
-	errVMBackups := []*harvesterv1.VirtualMachineBackup{}
-	var lastVMBackup *harvesterv1.VirtualMachineBackup
-	var failure int
+	errVMBackups = []*harvesterv1.VirtualMachineBackup{}
 
 	for _, vb := range vmbackups {
 		lastVMBackup = vb
@@ -126,51 +124,8 @@ func createVMBackup(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup
 	return h.vmBackupClient.Create(vmBackup)
 }
 
-// Try our best to delete outdated VM Backup and LH snapshots
-// even error occurs during the process, log the error and continue to traverse all resources
+// LH snapshot will be deleted automatically, as LH setting AutoCleanupSnapshotWhenDeleteBackup is enabled by default
 func cleanseVMBackup(h *svmbackupHandler, vmbackup *harvesterv1.VirtualMachineBackup) error {
-
-	// Following commentted code block should be used if LH setting AutoCleanupSnapshotWhenDeleteBackup is off
-	// TODO: remove this code block after confirm the default AutoCleanupSnapshotWhenDeleteBackup value
-
-	// var errs error
-	// for _, vb := range vmbackup.Status.VolumeBackups {
-	// 	snapshot, err := h.snapshotCache.Get(vmbackup.Namespace, *vb.Name)
-	// 	if err != nil {
-	// 		if !errors.IsNotFound(err) {
-	// 			errs = multierr.Append(errs, fmt.Errorf("get snapshot %v/%v failed %v",
-	// 				vmbackup.Namespace, *vb.Name, err))
-	// 		}
-	// 		continue
-	// 	}
-
-	// 	if snapshot.Status == nil || snapshot.Status.BoundVolumeSnapshotContentName == nil {
-	// 		errs = multierr.Append(errs, fmt.Errorf("volumesnapshot %v not bound to snapshotcontent", snapshot.Name))
-	// 		continue
-	// 	}
-
-	// 	lhsnapshotName := strings.Replace(*snapshot.Status.BoundVolumeSnapshotContentName, "snapcontent", "snapshot", 1)
-	// 	lhsnapshot, err := h.lhsnapshotCache.Get(util.LonghornSystemNamespaceName, lhsnapshotName)
-	// 	if err != nil {
-	// 		errs = multierr.Append(errs, fmt.Errorf("get lhsnapshot %v failed %v", lhsnapshotName, err))
-	// 		continue
-	// 	}
-
-	// 	propagation := metav1.DeletePropagationForeground
-	// 	if err := h.lhsnapshotClient.Delete(util.LonghornSystemNamespaceName, lhsnapshot.Name,
-	// 		&metav1.DeleteOptions{PropagationPolicy: &propagation}); err != nil {
-	// 		errs = multierr.Append(errs, fmt.Errorf("delete lhsnapshot %v failed %v", lhsnapshotName, err))
-	// 		continue
-	// 	}
-	// }
-
-	// propagation := metav1.DeletePropagationForeground
-	// if err := h.vmBackupClient.Delete(vmbackup.Namespace, vmbackup.Name,
-	// 	&metav1.DeleteOptions{PropagationPolicy: &propagation}); err != nil {
-	// 	errs = multierr.Append(errs, fmt.Errorf("delete vmbackup %v/%v fail %v", vmbackup.Namespace, vmbackup.Name, err))
-	// }
-	// return errs
-
 	propagation := metav1.DeletePropagationForeground
 	return h.vmBackupClient.Delete(vmbackup.Namespace, vmbackup.Name,
 		&metav1.DeleteOptions{PropagationPolicy: &propagation})
@@ -349,13 +304,13 @@ func updateSuspendState(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBa
 	svmbackupCpy := svmbackup.DeepCopy()
 	if suspend {
 		svmbackupCpy.Spec.Suspend = true
-		svmbackupCpy.Status.Suspend = true
+		svmbackupCpy.Status.Suspended = true
 		harvesterv1.BackupSuspend.True(svmbackupCpy)
 		harvesterv1.BackupSuspend.Reason(svmbackupCpy, reason)
 		harvesterv1.BackupSuspend.Message(svmbackupCpy, msg)
 	} else {
 		svmbackupCpy.Spec.Suspend = false
-		svmbackupCpy.Status.Suspend = false
+		svmbackupCpy.Status.Suspended = false
 		harvesterv1.BackupSuspend.False(svmbackupCpy)
 		harvesterv1.BackupSuspend.Reason(svmbackupCpy, "")
 		harvesterv1.BackupSuspend.Message(svmbackupCpy, "")
@@ -401,7 +356,7 @@ func handleResume(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup) 
 }
 
 func updateResumeOrSuspend(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup) error {
-	if svmbackup.Spec.Suspend == svmbackup.Status.Suspend {
+	if svmbackup.Spec.Suspend == svmbackup.Status.Suspended {
 		return nil
 	}
 

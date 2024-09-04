@@ -33,6 +33,8 @@ func deleteCronJob(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup)
 	return h.cronJobsClient.Delete(cronJob.Namespace, cronJob.Name, &metav1.DeleteOptions{PropagationPolicy: &propagation})
 }
 
+// The cronjob actually doesn't do anything in its own job, it's utilized to trigger OnCronjobChanged()
+// In OnCronjobChanged(), controller will create VMBackup for VM backup/snapshot
 func createCronJob(h *svmbackupHandler, svmbackup *harvesterv1.ScheduleVMBackup) (*batchv1.CronJob, error) {
 	backoffLimit := int32(cronJobBackoffLimit)
 	jobImage, err := utilCatalog.FetchAppChartImage(h.appCache, h.namespace,

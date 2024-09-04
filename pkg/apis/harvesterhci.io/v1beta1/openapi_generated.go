@@ -3018,7 +3018,7 @@ func schema_pkg_apis_harvesterhciio_v1beta1_ScheduleVMBackupStatus(ref common.Re
 							Format: "int32",
 						},
 					},
-					"suspend": {
+					"suspended": {
 						SchemaProps: spec.SchemaProps{
 							Type:   []string{"boolean"},
 							Format: "",

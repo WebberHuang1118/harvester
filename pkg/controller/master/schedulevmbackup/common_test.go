@@ -261,7 +261,7 @@ func Test_HandleReachMaxFailure(t *testing.T) {
 
 	getSVMBackup, err := h.svmbackupCache.Get(svmbackup.Namespace, svmbackup.Name)
 	assert.Nil(err, "svmbackup should get from fake controller")
-	assert.True(getSVMBackup.Status.Suspend, "svmbackup should suspend")
+	assert.True(getSVMBackup.Status.Suspended, "svmbackup should suspend")
 
 	getCronJob, err := h.cronJobCache.Get(cronJob.Namespace, cronJob.Name)
 	assert.Nil(err, "cronjob should get from fake controller")

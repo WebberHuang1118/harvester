@@ -13,7 +13,7 @@ spec:
     plural: schedulevmbackups
     shortNames:
     - svmbackup
-    - svmbackup
+    - svmbackups
     singular: schedulevmbackup
   scope: Namespaced
   versions:
@@ -33,8 +33,8 @@ spec:
     - jsonPath: .spec.vmbackup.source.name
       name: Source
       type: string
-    - jsonPath: .status.suspend
-      name: Suspend
+    - jsonPath: .status.suspended
+      name: Suspended
       type: string
     - jsonPath: .status.failure
       name: Failure
@@ -147,7 +147,7 @@ spec:
                 type: array
               failure:
                 type: integer
-              suspend:
+              suspended:
                 type: boolean
               vmbackupInfo:
                 items:
