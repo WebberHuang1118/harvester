@@ -2,103 +2,66 @@ package backup
 
 import (
 	"fmt"
-	"reflect"
 	"strings"
 
 	snapshotv1 "github.com/kubernetes-csi/external-snapshotter/client/v4/apis/volumesnapshot/v1"
 	lhv1beta2 "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
-	corev1 "k8s.io/api/core/v1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"k8s.io/utils/pointer"
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
-	"github.com/harvester/harvester/pkg/util"
 )
 
-const backupProgressComplete = 100
-
-func (h *Handler) updateBackupProgress(volumeBackup *harvesterv1.VolumeBackup) error {
-	if volumeBackup.ReadyToUse != nil && *volumeBackup.ReadyToUse {
-		volumeBackup.Progress = backupProgressComplete
-		return nil
-	}
-
-	if volumeBackup.LonghornBackupName == nil {
-		return nil
-	}
-
-	lhBackup, err := h.lhbackupCache.Get(util.LonghornSystemNamespaceName, *volumeBackup.LonghornBackupName)
-	if err != nil {
-		return err
-	}
-
-	volumeBackup.Progress = lhBackup.Status.Progress
-	return nil
-}
-
-func (h *Handler) updateConditions(vmBackup *harvesterv1.VirtualMachineBackup) error {
-	var vmBackupCpy = vmBackup.DeepCopy()
-	if IsBackupProgressing(vmBackupCpy) {
-		updateBackupCondition(vmBackupCpy, newProgressingCondition(corev1.ConditionTrue, "", "Operation in progress"))
-		updateBackupCondition(vmBackupCpy, newReadyCondition(corev1.ConditionFalse, "", "Not ready"))
+func (h *Handler) updateConditions(vmb *harvesterv1.VirtualMachineBackup) error {
+	var vmbCpy = vmb.DeepCopy()
+	if h.vmbo.IsProcessing(vmbCpy) {
+		vmbCpy = h.vmbo.UpdateProcessingNoCommit(vmbCpy)
 	}
 
 	ready := true
-	errorMessage := ""
+	var volBackupErr error
 	var volumeSizeSum int64
 	var progressWeightSum int64
 
-	for i := range vmBackupCpy.Status.VolumeBackups {
-		vb := &vmBackupCpy.Status.VolumeBackups[i]
-		if vb.ReadyToUse == nil || !*vb.ReadyToUse {
+	for i := range h.vmbo.GetVolBackups(vmbCpy) {
+		vb := h.vmbo.GetVolBackup(vmbCpy, i)
+		if !h.vmbo.GetVolBackupReadyToUse(vb) {
 			ready = false
 		}
 
-		if vmBackupCpy.Spec.Type == harvesterv1.Backup {
-			if err := h.updateBackupProgress(vb); err != nil {
-				return err
-			}
-
-			volumeSizeSum += vb.VolumeSize
-			progressWeightSum += int64(vb.Progress) * vb.VolumeSize
+		volumeSize, err := h.engines[h.vmbo.GetType(vmbCpy)].UpdateProgress(vb)
+		if err != nil {
+			return err
 		}
 
-		if vb.Error != nil {
-			errorMessage = fmt.Sprintf("VolumeSnapshot %s in error state", *vb.Name)
+		volumeSizeSum += volumeSize
+		progressWeightSum += int64(h.vmbo.GetVolBackupProgress(vb)) * volumeSizeSum
+
+		if h.vmbo.GetVolBackupError(vb) != nil {
+			volBackupErr = fmt.Errorf("VolumeSnapshot %s in error state", *h.vmbo.GetVolBackupName(vb))
 			break
 		}
 	}
 
 	if volumeSizeSum != 0 {
-		vmBackupCpy.Status.Progress = int(progressWeightSum / volumeSizeSum)
-	}
-
-	if ready && (vmBackupCpy.Status.ReadyToUse == nil || !*vmBackupCpy.Status.ReadyToUse) {
-		vmBackupCpy.Status.CreationTime = currentTime()
-		vmBackupCpy.Status.Error = nil
-		updateBackupCondition(vmBackupCpy, newProgressingCondition(corev1.ConditionFalse, "", "Operation complete"))
-		updateBackupCondition(vmBackupCpy, newReadyCondition(corev1.ConditionTrue, "", "Operation complete"))
-	}
-
-	// check if the status need to update the error status
-	if errorMessage != "" && (vmBackupCpy.Status.Error == nil || vmBackupCpy.Status.Error.Message == nil || *vmBackupCpy.Status.Error.Message != errorMessage) {
-		vmBackupCpy.Status.Error = &harvesterv1.Error{
-			Time:    currentTime(),
-			Message: pointer.StringPtr(errorMessage),
-		}
-		updateBackupCondition(vmBackupCpy, newProgressingCondition(corev1.ConditionFalse, "Error", errorMessage))
-		updateBackupCondition(vmBackupCpy, newReadyCondition(corev1.ConditionFalse, "", "Not Ready"))
-	}
-
-	vmBackupCpy.Status.ReadyToUse = pointer.BoolPtr(ready)
-
-	if !reflect.DeepEqual(vmBackup.Status, vmBackupCpy.Status) {
-		if _, err := h.vmBackups.Update(vmBackupCpy); err != nil {
+		if err := h.vmbo.SetProgress(vmbCpy, int(progressWeightSum/volumeSizeSum)); err != nil {
 			return err
 		}
 	}
-	return nil
+
+	if ready && !h.vmbo.IsReady(vmbCpy) {
+		vmbCpy = h.vmbo.UpdateCompleteNoCommit(vmbCpy)
+	}
+
+	if volBackupErr != nil && !h.vmbo.IsSyncErrMsg(vmbCpy, volBackupErr.Error()) {
+		vmbCpy = h.vmbo.UpdateErrorNoCommit(vmbCpy, volBackupErr)
+	}
+
+	if err := h.vmbo.SetReadyToUse(vmbCpy, ready); err != nil {
+		return err
+	}
+	_, err := h.vmbo.Update(vmb, vmbCpy)
+	return err
 }
 
 func (h *Handler) updateVolumeSnapshotChanged(_ string, snapshot *snapshotv1.VolumeSnapshot) (*snapshotv1.VolumeSnapshot, error) {
@@ -128,16 +91,16 @@ func (h *Handler) resolveVolSnapshotRef(namespace string, controllerRef *metav1.
 	if controllerRef.Kind != vmBackupKind.Kind {
 		return nil
 	}
-	backup, err := h.vmBackupCache.Get(namespace, controllerRef.Name)
+	vmb, err := h.vmBackupCache.Get(namespace, controllerRef.Name)
 	if err != nil {
 		return nil
 	}
-	if backup.UID != controllerRef.UID {
+	if h.vmbo.GetUID(vmb) != controllerRef.UID {
 		// The controller we found with this Name is not the same one that the
 		// ControllerRef points to.
 		return nil
 	}
-	return backup
+	return vmb
 }
 
 func (h *Handler) OnLHBackupChanged(_ string, lhBackup *lhv1beta2.Backup) (*lhv1beta2.Backup, error) {
@@ -145,44 +108,61 @@ func (h *Handler) OnLHBackupChanged(_ string, lhBackup *lhv1beta2.Backup) (*lhv1
 		return nil, nil
 	}
 
-	snapshotContent, err := h.snapshotContentCache.Get(strings.Replace(lhBackup.Status.SnapshotName, "snapshot", "snapcontent", 1))
-	if err != nil {
-		if !apierrors.IsNotFound(err) {
-			return nil, err
-		}
+	vmb, err := h.getVMBackupFromLHBackup(lhBackup)
+	if err != nil || vmb == nil {
+		return nil, err
+	}
+
+	if h.vmbo.GetBackupTarget(vmb) == nil {
 		return nil, nil
 	}
 
-	snapshot, err := h.snapshotCache.Get(snapshotContent.Spec.VolumeSnapshotRef.Namespace, snapshotContent.Spec.VolumeSnapshotRef.Name)
+	if err := h.updateVolumeBackupLHNames(vmb, lhBackup.Name); err != nil {
+		return nil, err
+	}
+
+	// Enqueue to trigger progress update in updateConditions()
+	h.vmBackupController.Enqueue(h.vmbo.GetNamespace(vmb), h.vmbo.GetName(vmb))
+	return nil, nil
+}
+
+// getVMBackupFromLHBackup retrieves the VirtualMachineBackup associated with a Longhorn backup
+func (h *Handler) getVMBackupFromLHBackup(lhBackup *lhv1beta2.Backup) (*harvesterv1.VirtualMachineBackup, error) {
+	vsContent, err := h.snapshotContentCache.Get(strings.Replace(lhBackup.Status.SnapshotName, "snapshot", "snapcontent", 1))
+	if err != nil {
+		if apierrors.IsNotFound(err) {
+			return nil, nil
+		}
+		return nil, err
+	}
+
+	vs, err := h.snapshotCache.Get(vsContent.Spec.VolumeSnapshotRef.Namespace, vsContent.Spec.VolumeSnapshotRef.Name)
 	if err != nil {
 		return nil, err
 	}
 
-	controllerRef := metav1.GetControllerOf(snapshot)
-
-	if controllerRef != nil {
-		vmBackup := h.resolveVolSnapshotRef(snapshot.Namespace, controllerRef)
-		if vmBackup == nil || vmBackup.Status == nil || vmBackup.Status.BackupTarget == nil {
-			return nil, nil
-		}
-
-		vmBackupCpy := vmBackup.DeepCopy()
-		for i, volumeBackup := range vmBackupCpy.Status.VolumeBackups {
-			if *volumeBackup.Name == snapshot.Name {
-				vmBackupCpy.Status.VolumeBackups[i].LonghornBackupName = pointer.StringPtr(lhBackup.Name)
-			}
-		}
-
-		if !reflect.DeepEqual(vmBackup.Status, vmBackupCpy.Status) {
-			if _, err := h.vmBackups.Update(vmBackupCpy); err != nil {
-				return nil, err
-			}
-
-			return nil, nil
-		}
-
-		//enqueue to trigger progress update in updateConditions()
-		h.vmBackupController.Enqueue(vmBackup.Namespace, vmBackup.Name)
+	controllerRef := metav1.GetControllerOf(vs)
+	if controllerRef == nil {
+		return nil, nil
 	}
-	return nil, nil
+
+	return h.resolveVolSnapshotRef(vs.Namespace, controllerRef), nil
+}
+
+// updateVolumeBackupLHNames updates the Longhorn backup names for all volume backups
+func (h *Handler) updateVolumeBackupLHNames(vmb *harvesterv1.VirtualMachineBackup, lhBackupName string) error {
+	vmbCpy := vmb.DeepCopy()
+	volumeBackups := h.vmbo.GetVolBackups(vmbCpy)
+
+	for volumeIndex := range volumeBackups {
+		volumeBackup := h.vmbo.GetVolBackup(vmbCpy, volumeIndex)
+		if h.vmbo.GetVolBackupName(volumeBackup) != nil {
+			if err := h.vmbo.SetVolBackupLHBackupName(volumeBackup, lhBackupName); err != nil {
+				return fmt.Errorf("failed to set volume backup LH backup name: %w", err)
+			}
+		}
+	}
+
+	_, err := h.vmbo.UpdateByStatus(vmb, vmbCpy)
+	return err
 }

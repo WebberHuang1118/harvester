@@ -10,22 +10,17 @@ import (
 	"time"
 
 	snapshotv1 "github.com/kubernetes-csi/external-snapshotter/client/v4/apis/volumesnapshot/v1"
-	"github.com/longhorn/backupstore"
 	lhv1beta2 "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
 	ctlstoragev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/storage/v1"
 	wranglername "github.com/rancher/wrangler/v3/pkg/name"
-	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/utils/pointer"
-	"k8s.io/utils/ptr"
 	kubevirtv1 "kubevirt.io/api/core/v1"
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	ctllonghornv2 "github.com/harvester/harvester/pkg/generated/controllers/longhorn.io/v1beta2"
-	"github.com/harvester/harvester/pkg/settings"
 	"github.com/harvester/harvester/pkg/util"
-	backuputil "github.com/harvester/harvester/pkg/util/backup"
 )
 
 const (
@@ -47,17 +42,6 @@ func IsBackupReady(backup *harvesterv1.VirtualMachineBackup) bool {
 func IsBackupProgressing(backup *harvesterv1.VirtualMachineBackup) bool {
 	return GetVMBackupError(backup) == nil &&
 		(backup.Status == nil || backup.Status.ReadyToUse == nil || !*backup.Status.ReadyToUse)
-}
-
-func isBackupMissingStatus(backup *harvesterv1.VirtualMachineBackup) bool {
-	return backup.Status == nil || backup.Status.SourceSpec == nil || backup.Status.VolumeBackups == nil
-}
-
-func isBackupTargetOnAnnotation(backup *harvesterv1.VirtualMachineBackup) bool {
-	return backup.Annotations != nil &&
-		(backup.Annotations[backupTargetAnnotation] != "" ||
-			backup.Annotations[backupBucketNameAnnotation] != "" ||
-			backup.Annotations[backupBucketRegionAnnotation] != "")
 }
 
 func isVMRestoreProgressing(vmRestore *harvesterv1.VirtualMachineRestore) bool {
@@ -311,34 +295,4 @@ func checkStorageClass(storageClassCache ctlstoragev1.StorageClassCache, name st
 		return fmt.Errorf("storage class %s is being deleted", name)
 	}
 	return nil
-}
-
-func checkVolumeInBackupTarget(vmBackup *harvesterv1.VirtualMachineBackup, volumeBackup *harvesterv1.VolumeBackup, target *settings.BackupTarget) (string, error) {
-	volumeName := volumeBackup.PersistentVolumeClaim.Spec.VolumeName
-	volumes, err := backupstore.List(volumeName, backuputil.ConstructEndpoint(target), false)
-	if err != nil {
-		// The backup target may be offline. In this case, we don't want to trigger reconciliation.
-		return err.Error(), nil
-	}
-
-	if volumes[volumeName] == nil {
-		logrus.WithError(err).WithFields(logrus.Fields{
-			"namespace": vmBackup.Namespace,
-			"name":      vmBackup.Name,
-			"volume":    volumeName,
-		}).Warn("cannot find volume in the backup target for a ready VMBackup, change the VMBackup to not ready")
-		volumeBackup.ReadyToUse = ptr.To(false)
-		return fmt.Sprintf("cannot find volume %s in the backup target", volumeName), nil
-	}
-	if volumes[volumeName].Backups[*volumeBackup.LonghornBackupName] == nil {
-		logrus.WithFields(logrus.Fields{
-			"namespace":      vmBackup.Namespace,
-			"name":           vmBackup.Name,
-			"volume":         volumeName,
-			"longhornBackup": *volumeBackup.LonghornBackupName,
-		}).Warn("cannot find longhorn backup in the backup target for a ready VMBackup, change the VMBackup to not ready")
-		volumeBackup.ReadyToUse = ptr.To(false)
-		return fmt.Sprintf("cannot find longhorn backup %s in the backup target", *volumeBackup.LonghornBackupName), nil
-	}
-	return "", nil
 }

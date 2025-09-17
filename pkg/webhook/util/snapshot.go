@@ -14,6 +14,7 @@ import (
 	kubevirtv1 "kubevirt.io/api/core/v1"
 
 	"github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
+	"github.com/harvester/harvester/pkg/backup/common"
 	ctllonghornv1 "github.com/harvester/harvester/pkg/generated/controllers/longhorn.io/v1beta2"
 	"github.com/harvester/harvester/pkg/settings"
 	"github.com/harvester/harvester/pkg/util"
@@ -215,12 +216,16 @@ func ValidateProvisionerAndConfig(pvc *corev1.PersistentVolumeClaim,
 // it can be the volume backup is not completed or the volume backup is from third-party storage
 // from the misleading items https://github.com/harvester/harvester/issues/7755#issue-2896409886.
 // We should reject to recover such VMBackups
-func IsLHBackupRelated(vmb *v1beta1.VirtualMachineBackup) error {
-	for _, vb := range vmb.Status.VolumeBackups {
-		if vb.LonghornBackupName == nil || *vb.LonghornBackupName == "" {
-			return fmt.Errorf("vmbackup %s/%s vb %s not from LH, it can't be recovered",
-				vmb.Namespace, vmb.Name, *vb.Name)
+func IsLHBackupRelated(vmb *v1beta1.VirtualMachineBackup, vmbo common.VMBackupOperator) error {
+	volumeBackups := vmbo.GetVolBackups(vmb)
+	for volumeIndex, volumeBackup := range volumeBackups {
+		lhname := vmbo.GetVolBackupLHBackupName(&volumeBackup)
+		if lhname != nil && *lhname != "" {
+			continue
 		}
+		return fmt.Errorf("vmbackup %s/%s vb %s at index %d not from LH, it can't be recovered",
+			vmb.Namespace, vmb.Name, *volumeBackup.Name, volumeIndex)
 	}
+
 	return nil
 }

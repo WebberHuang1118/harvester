@@ -12,6 +12,7 @@ import (
 	kubevirtv1 "kubevirt.io/api/core/v1"
 
 	"github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
+	"github.com/harvester/harvester/pkg/backup/common"
 	ctlharvesterv1 "github.com/harvester/harvester/pkg/generated/controllers/harvesterhci.io/v1beta1"
 	ctlkubevirtv1 "github.com/harvester/harvester/pkg/generated/controllers/kubevirt.io/v1"
 	ctllonghornv1 "github.com/harvester/harvester/pkg/generated/controllers/longhorn.io/v1beta2"
@@ -47,6 +48,7 @@ func NewValidator(
 		scCache:            scCache,
 		resourceQuotaCache: resourceQuotaCache,
 		vmimCache:          vmimCache,
+		vmbo:               common.GetVMBackupOperator(nil, nil, nil, vms, nil, pvcCache, nil, nil, nil),
 	}
 }
 
@@ -61,6 +63,7 @@ type virtualMachineBackupValidator struct {
 	scCache            ctlstoragev1.StorageClassCache
 	resourceQuotaCache ctlharvesterv1.ResourceQuotaCache
 	vmimCache          ctlkubevirtv1.VirtualMachineInstanceMigrationCache
+	vmbo               common.VMBackupOperator
 }
 
 func (v *virtualMachineBackupValidator) Resource() types.Resource {
@@ -91,7 +94,7 @@ func (v *virtualMachineBackupValidator) Create(_ *types.Request, newObj runtime.
 	}
 
 	// Execute the selected validation.
-	if err := validateFunc(newVMBackup); err != nil {
+	if err := validateFunc(newVMBackup, v.vmbo); err != nil {
 		return err
 	}
 
@@ -107,7 +110,7 @@ func (v *virtualMachineBackupValidator) Create(_ *types.Request, newObj runtime.
 	return nil
 }
 
-func (v *virtualMachineBackupValidator) validateStandardBackup(vmb *v1beta1.VirtualMachineBackup) error {
+func (v *virtualMachineBackupValidator) validateStandardBackup(vmb *v1beta1.VirtualMachineBackup, vmbo common.VMBackupOperator) error {
 	// Retrieve the VM instance.
 	vm, err := v.vms.Get(vmb.Namespace, vmb.Spec.Source.Name)
 	if err != nil {
@@ -128,9 +131,9 @@ func (v *virtualMachineBackupValidator) validateStandardBackup(vmb *v1beta1.Virt
 	return nil
 }
 
-func (v *virtualMachineBackupValidator) validateVMBackupRecover(vmb *v1beta1.VirtualMachineBackup) error {
+func (v *virtualMachineBackupValidator) validateVMBackupRecover(vmb *v1beta1.VirtualMachineBackup, vmbo common.VMBackupOperator) error {
 	// Perform LH backup specific validation.
-	return webhookutil.IsLHBackupRelated(vmb)
+	return webhookutil.IsLHBackupRelated(vmb, vmbo)
 }
 
 // checkBackupVolumeSnapshotClass checks if the volumeSnapshotClassName is configured for the provisioner used by the PVCs in the VirtualMachine.

@@ -14,6 +14,7 @@ import (
 	kubevirtv1 "kubevirt.io/api/core/v1"
 
 	"github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
+	"github.com/harvester/harvester/pkg/backup/common"
 	ctlbackup "github.com/harvester/harvester/pkg/controller/master/backup"
 	ctlharvestercorev1 "github.com/harvester/harvester/pkg/generated/controllers/core/v1"
 	ctlharvesterv1 "github.com/harvester/harvester/pkg/generated/controllers/harvesterhci.io/v1beta1"
@@ -62,6 +63,7 @@ func NewValidator(
 		networkAttachmentDefinitionsCache: networkAttachmentDefinitionsCache,
 
 		vmrCalculator: resourcequota.NewCalculator(nss, pods, rqs, vmims, setting),
+		vmbo:          common.GetVMBackupOperator(nil, vmBackup, nil, vms, nil, nil, nil, nil, nil),
 	}
 }
 
@@ -77,6 +79,7 @@ type restoreValidator struct {
 	networkAttachmentDefinitionsCache ctlcniv1.NetworkAttachmentDefinitionCache
 
 	vmrCalculator *resourcequota.Calculator
+	vmbo          common.VMBackupOperator
 }
 
 func (v *restoreValidator) Resource() types.Resource {
@@ -274,7 +277,7 @@ func (v *restoreValidator) checkVMBackupType(vmRestore *v1beta1.VirtualMachineRe
 		if err == nil {
 			// Because of the misleading items https://github.com/harvester/harvester/issues/7755#issue-2896409886,
 			// User may have VMBackups with non-LH source volume. We should prevent this VMBackup from restoring
-			err = webhookutil.IsLHBackupRelated(vmBackup)
+			err = webhookutil.IsLHBackupRelated(vmBackup, v.vmbo)
 		}
 	case v1beta1.Snapshot:
 		err = v.checkSnapshot(vmRestore, vmBackup)
