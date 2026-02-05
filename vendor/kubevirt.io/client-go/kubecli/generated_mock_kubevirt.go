@@ -30,7 +30,7 @@ import (
 	v1alpha10 "k8s.io/client-go/kubernetes/typed/apiserverinternal/v1alpha1"
 	v14 "k8s.io/client-go/kubernetes/typed/apps/v1"
 	v1beta10 "k8s.io/client-go/kubernetes/typed/apps/v1beta1"
-	v1beta2 "k8s.io/client-go/kubernetes/typed/apps/v1beta2"
+	appv1beta2 "k8s.io/client-go/kubernetes/typed/apps/v1beta2"
 	v15 "k8s.io/client-go/kubernetes/typed/authentication/v1"
 	v1alpha11 "k8s.io/client-go/kubernetes/typed/authentication/v1alpha1"
 	v1beta11 "k8s.io/client-go/kubernetes/typed/authentication/v1beta1"
@@ -71,6 +71,7 @@ import (
 	v1beta113 "k8s.io/client-go/kubernetes/typed/rbac/v1beta1"
 	v1alpha3 "k8s.io/client-go/kubernetes/typed/resource/v1alpha3"
 	v1beta114 "k8s.io/client-go/kubernetes/typed/resource/v1beta1"
+	"k8s.io/client-go/kubernetes/typed/resource/v1beta2"
 	v119 "k8s.io/client-go/kubernetes/typed/scheduling/v1"
 	v1alpha16 "k8s.io/client-go/kubernetes/typed/scheduling/v1alpha1"
 	v1beta115 "k8s.io/client-go/kubernetes/typed/scheduling/v1beta1"
@@ -100,6 +101,11 @@ type MockKubevirtClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockKubevirtClientMockRecorder
 	isgomock struct{}
+}
+
+// ResourceV1beta2 implements [KubevirtClient].
+func (m *MockKubevirtClient) ResourceV1beta2() v1beta2.ResourceV1beta2Interface {
+	panic("unimplemented")
 }
 
 // MockKubevirtClientMockRecorder is the mock recorder for MockKubevirtClient.
@@ -190,10 +196,10 @@ func (mr *MockKubevirtClientMockRecorder) AppsV1beta1() *gomock.Call {
 }
 
 // AppsV1beta2 mocks base method.
-func (m *MockKubevirtClient) AppsV1beta2() v1beta2.AppsV1beta2Interface {
+func (m *MockKubevirtClient) AppsV1beta2() appv1beta2.AppsV1beta2Interface {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "AppsV1beta2")
-	ret0, _ := ret[0].(v1beta2.AppsV1beta2Interface)
+	ret0, _ := ret[0].(appv1beta2.AppsV1beta2Interface)
 	return ret0
 }
 

@@ -37,6 +37,7 @@ import (
 	"k8s.io/client-go/discovery"
 	"k8s.io/client-go/dynamic"
 	"k8s.io/client-go/kubernetes"
+	resourcev1beta2 "k8s.io/client-go/kubernetes/typed/resource/v1beta2"
 	"k8s.io/client-go/rest"
 
 	v1 "kubevirt.io/api/core/v1"
@@ -88,6 +89,7 @@ type KubevirtClient interface {
 	KubernetesSnapshotClient() k8ssnapshotclient.Interface
 	DynamicClient() dynamic.Interface
 	MigrationPolicyClient() *migrationsv1.MigrationsV1alpha1Client
+	ResourceV1beta2() resourcev1beta2.ResourceV1beta2Interface
 	kubernetes.Interface
 	Config() *rest.Config
 	SetRestTimeout(timeout time.Duration) (KubevirtClient, error)
@@ -225,6 +227,10 @@ func (k kubevirtClient) VirtualMachineClone(namespace string) clone.VirtualMachi
 
 func (k kubevirtClient) VirtualMachineCloneClient() *clone.CloneV1beta1Client {
 	return k.cloneClient // TODO ihol3 delete function? who's using it?
+}
+
+func (k kubevirtClient) ResourceV1beta2() resourcev1beta2.ResourceV1beta2Interface {
+	return k.Clientset.ResourceV1beta2()
 }
 
 type VirtualMachineInstanceInterface interface {

@@ -7,7 +7,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/pkg/errors"
+	"github.com/cockroachdb/errors"
 	"github.com/sirupsen/logrus"
 
 	lhbackup "github.com/longhorn/go-common-libs/backup"
@@ -116,6 +116,7 @@ func CreateBackingImageBackup(config *BackupConfig, backupBackingImage *BackupBa
 
 	if exists {
 		log.Info("Backup BackingImage already exists, no need to perform backup")
+		backupOperation.UpdateBackupProgress(string(common.ProgressStateInProgress), 100, EncodeBackupBackingImageURL(config.Name, config.DestURL), "")
 		return nil
 	}
 
@@ -463,7 +464,9 @@ func restoreBlocks(ctx context.Context, bsDriver backupstore.BackupStoreDriver, 
 			errChan <- err
 			return
 		}
-		defer backingImageFile.Close()
+		defer func() {
+			_ = backingImageFile.Close()
+		}()
 
 		for {
 			select {
@@ -474,7 +477,7 @@ func restoreBlocks(ctx context.Context, bsDriver backupstore.BackupStoreDriver, 
 					return
 				}
 
-				if err := restoreBlock(bsDriver, backingImageFile, block, progress, restoreOperation); err != nil {
+				if err := restoreBlock(ctx, bsDriver, backingImageFile, block, progress, restoreOperation); err != nil {
 					errChan <- err
 					return
 				}
@@ -485,7 +488,7 @@ func restoreBlocks(ctx context.Context, bsDriver backupstore.BackupStoreDriver, 
 	return errChan
 }
 
-func restoreBlock(bsDriver backupstore.BackupStoreDriver, backingImageFile *os.File, block *common.Block, progress *common.Progress, restoreOperation RestoreOperation) error {
+func restoreBlock(ctx context.Context, bsDriver backupstore.BackupStoreDriver, backingImageFile *os.File, block *common.Block, progress *common.Progress, restoreOperation RestoreOperation) error {
 
 	defer func() {
 		progress.Lock()
@@ -496,16 +499,16 @@ func restoreBlock(bsDriver backupstore.BackupStoreDriver, backingImageFile *os.F
 		restoreOperation.UpdateRestoreProgress(int(progress.ProcessedBlockCounts)*backupstore.DEFAULT_BLOCK_SIZE, nil)
 	}()
 
-	return restoreBlockToFile(bsDriver, backingImageFile, block.CompressionMethod,
+	return restoreBlockToFile(ctx, bsDriver, backingImageFile, block.CompressionMethod,
 		common.BlockMapping{
 			Offset:        block.Offset,
 			BlockChecksum: block.BlockChecksum,
 		})
 }
 
-func restoreBlockToFile(bsDriver backupstore.BackupStoreDriver, backingImageFile *os.File, decompression string, blk common.BlockMapping) error {
+func restoreBlockToFile(ctx context.Context, bsDriver backupstore.BackupStoreDriver, backingImageFile *os.File, decompression string, blk common.BlockMapping) error {
 	blkFile := getBackingImageBlockFilePath(blk.BlockChecksum)
-	r, err := backupstore.DecompressAndVerifyWithFallback(bsDriver, blkFile, decompression, blk.BlockChecksum)
+	r, err := backupstore.DecompressAndVerifyWithFallback(ctx, bsDriver, blkFile, decompression, blk.BlockChecksum)
 	if err != nil {
 		return err
 	}

@@ -1,10 +1,12 @@
 package client
 
 import (
+	"context"
 	"fmt"
 
 	rpc "github.com/longhorn/types/pkg/generated/bimrpc"
-	"golang.org/x/net/context"
+
+	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/types/known/emptypb"
@@ -30,11 +32,20 @@ func (cli *BackingImageManagerClient) Sync(name, uuid, checksum, fromAddress str
 		return nil, fmt.Errorf("failed to sync backing image: missing required parameter")
 	}
 
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return nil, fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -60,11 +71,20 @@ func (cli *BackingImageManagerClient) Send(name, uuid, toAddress string) error {
 		return fmt.Errorf("failed to send backing image: missing required parameter")
 	}
 
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -83,11 +103,20 @@ func (cli *BackingImageManagerClient) Delete(name, uuid string) error {
 		return fmt.Errorf("failed to delete backing image: missing required parameter")
 	}
 
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -105,11 +134,20 @@ func (cli *BackingImageManagerClient) Get(name, uuid string) (*api.BackingImage,
 		return nil, fmt.Errorf("failed to get backing image: missing required parameter")
 	}
 
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return nil, fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -126,11 +164,20 @@ func (cli *BackingImageManagerClient) Get(name, uuid string) (*api.BackingImage,
 }
 
 func (cli *BackingImageManagerClient) List() (map[string]*api.BackingImage, error) {
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return nil, fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -148,11 +195,20 @@ func (cli *BackingImageManagerClient) Fetch(name, uuid, checksum, dataSourceAddr
 		return nil, fmt.Errorf("failed to fetch backing image: missing required parameter")
 	}
 
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return nil, fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -178,11 +234,20 @@ func (cli *BackingImageManagerClient) PrepareDownload(name, uuid string) (string
 		return "", "", fmt.Errorf("failed to get backing image: missing required parameter")
 	}
 
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return "", "", fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -199,11 +264,20 @@ func (cli *BackingImageManagerClient) PrepareDownload(name, uuid string) (string
 }
 
 func (cli *BackingImageManagerClient) VersionGet() (*meta.VersionOutput, error) {
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return nil, fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -224,7 +298,12 @@ func (cli *BackingImageManagerClient) VersionGet() (*meta.VersionOutput, error) 
 }
 
 func (cli *BackingImageManagerClient) Watch() (*api.BackingImageStream, error) {
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return nil, fmt.Errorf("cannot connect backing image manager service to %v: %v", cli.Address, err)
 	}
@@ -235,6 +314,8 @@ func (cli *BackingImageManagerClient) Watch() (*api.BackingImageStream, error) {
 	ctx, cancel := context.WithCancel(context.Background())
 	stream, err := client.Watch(ctx, &emptypb.Empty{})
 	if err != nil {
+		cancel()
+		_ = conn.Close()
 		return nil, err
 	}
 	return api.NewBackingImageStream(conn, cancel, stream), nil
@@ -245,11 +326,20 @@ func (cli *BackingImageManagerClient) BackupCreate(name, uuid, checksum, backupT
 		return fmt.Errorf("failed to create backup backing image: missing required parameter")
 	}
 
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return fmt.Errorf("failed to connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)
@@ -279,11 +369,20 @@ func (cli *BackingImageManagerClient) BackupStatus(name string) (*api.BackupStat
 		return nil, fmt.Errorf("failed to get backup backing image status: missing required parameter")
 	}
 
-	conn, err := grpc.NewClient(cli.Address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(
+		cli.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithNoProxy(),
+		grpc.WithDisableServiceConfig(),
+	)
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect backing image manager service to %v: %v", cli.Address, err)
 	}
-	defer conn.Close()
+	defer func() {
+		if errClose := conn.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close backing image manager service connection")
+		}
+	}()
 
 	client := rpc.NewBackingImageManagerServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), types.GRPCServiceTimeout)

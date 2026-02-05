@@ -1,7 +1,6 @@
 package util
 
 import (
-	"bytes"
 	"compress/gzip"
 	"context"
 	"crypto/sha512"
@@ -11,13 +10,12 @@ import (
 	"io"
 	"net/url"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"regexp"
 	"syscall"
 	"time"
 
-	"github.com/pkg/errors"
+	"github.com/cockroachdb/errors"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
@@ -25,11 +23,9 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/status"
 
-	"github.com/longhorn/backing-image-manager/pkg/types"
-)
+	"github.com/longhorn/go-common-libs/backingimage"
 
-const (
-	QemuImgBinary = "qemu-img"
+	"github.com/longhorn/backing-image-manager/pkg/types"
 )
 
 func PrintJSON(obj interface{}) error {
@@ -47,7 +43,11 @@ func GetFileChecksum(filePath string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	defer f.Close()
+	defer func() {
+		if errClose := f.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close file")
+		}
+	}()
 
 	h := sha512.New()
 	if _, err := io.Copy(h, f); err != nil {
@@ -62,7 +62,11 @@ func CopyFile(srcPath, dstPath string) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
-	defer src.Close()
+	defer func() {
+		if errClose := src.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close source file")
+		}
+	}()
 
 	if _, err := os.Stat(dstPath); err == nil || !os.IsNotExist(err) {
 		if err := os.RemoveAll(dstPath); err != nil {
@@ -73,7 +77,11 @@ func CopyFile(srcPath, dstPath string) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
-	defer dst.Close()
+	defer func() {
+		if errClose := dst.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close destination file")
+		}
+	}()
 
 	return io.Copy(dst, src)
 }
@@ -98,7 +106,9 @@ func DetectGRPCServerAvailability(address string, waitIntervalInSecond int, shou
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 		grpcOpts := []grpc.DialOption{
 			grpc.WithTransportCredentials(insecure.NewCredentials()),
+			grpc.WithNoProxy(),
 			grpc.WithBlock(), // nolint: staticcheck
+			grpc.WithDisableServiceConfig(),
 		}
 		conn, err := grpc.DialContext(ctx, address, grpcOpts...) // nolint: staticcheck
 		defer cancel()
@@ -194,108 +204,22 @@ func ReadSyncingFileConfig(configFilePath string) (*SyncingFileConfig, error) {
 	return config, nil
 }
 
-func Execute(envs []string, binary string, args ...string) (string, error) {
-	return ExecuteWithTimeout(time.Minute, envs, binary, args...)
-}
-
-func ExecuteWithTimeout(timeout time.Duration, envs []string, binary string, args ...string) (string, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
-	defer cancel()
-
-	var err error
-	cmd := exec.CommandContext(ctx, binary, args...)
-	cmd.Env = append(os.Environ(), envs...)
-	done := make(chan struct{})
-
-	var output, stderr bytes.Buffer
-	cmd.Stdout = &output
-	cmd.Stderr = &stderr
-
-	go func() {
-		err = cmd.Run()
-		done <- struct{}{}
-	}()
-
-	select {
-	case <-done:
-	case <-ctx.Done():
-		if cmd.Process != nil {
-			if err := cmd.Process.Kill(); err != nil {
-				logrus.Warnf("problem killing process pid=%v: %s", cmd.Process.Pid, err)
-			}
-		}
-		return "", fmt.Errorf("timeout executing: %v %v, output %s, stderr, %s, error %v",
-			binary, args, output.String(), stderr.String(), err)
-	}
-
-	if err != nil {
-		return "", fmt.Errorf("failed to execute: %v %v, output %s, stderr, %s, error %v",
-			binary, args, output.String(), stderr.String(), err)
-	}
-	return output.String(), nil
-}
-
-type QemuImgInfo struct {
-	// For qcow2 files, VirtualSize may be larger than the physical
-	// image size on disk.  For raw files, `qemu-img info` will report
-	// VirtualSize as being the same as the physical file size.
-	VirtualSize int64  `json:"virtual-size"`
-	Format      string `json:"format"`
-}
-
-func GetQemuImgInfo(filePath string) (imgInfo QemuImgInfo, err error) {
-
-	/* Example command outputs
-	   $ qemu-img info --output=json SLE-Micro.x86_64-5.5.0-Default-qcow-GM.qcow2
-	   {
-	       "virtual-size": 21474836480,
-	       "filename": "SLE-Micro.x86_64-5.5.0-Default-qcow-GM.qcow2",
-	       "cluster-size": 65536,
-	       "format": "qcow2",
-	       "actual-size": 1001656320,
-	       "format-specific": {
-	           "type": "qcow2",
-	           "data": {
-	               "compat": "1.1",
-	               "compression-type": "zlib",
-	               "lazy-refcounts": false,
-	               "refcount-bits": 16,
-	               "corrupt": false,
-	               "extended-l2": false
-	           }
-	       },
-	       "dirty-flag": false
-	   }
-
-	   $ qemu-img info --output=json SLE-15-SP5-Full-x86_64-GM-Media1.iso
-	   {
-	       "virtual-size": 14548992000,
-	       "filename": "SLE-15-SP5-Full-x86_64-GM-Media1.iso",
-	       "format": "raw",
-	       "actual-size": 14548996096,
-	       "dirty-flag": false
-	   }
-	*/
-
-	output, err := Execute([]string{}, QemuImgBinary, "info", "--output=json", filePath)
-	if err != nil {
-		return
-	}
-	err = json.Unmarshal([]byte(output), &imgInfo)
-	return
-}
-
 func ConvertFromRawToQcow2(filePath string) error {
-	if imgInfo, err := GetQemuImgInfo(filePath); err != nil {
+	imageToolExecutor := backingimage.NewQemuImgExecutor()
+	if imgInfo, err := imageToolExecutor.GetImageInfo(filePath); err != nil {
 		return err
 	} else if imgInfo.Format == "qcow2" {
 		return nil
 	}
 
 	tmpFilePath := filePath + ".qcow2tmp"
-	defer os.RemoveAll(tmpFilePath)
+	defer func() {
+		if errRemove := os.RemoveAll(tmpFilePath); errRemove != nil {
+			logrus.WithError(errRemove).Error("Failed to remove temporary file")
+		}
+	}()
 
-	if _, err := Execute([]string{}, QemuImgBinary, "convert", "-f", "raw", "-O", "qcow2", filePath, tmpFilePath); err != nil {
+	if _, err := imageToolExecutor.Exec([]string{}, "convert", "-f", "raw", "-O", "qcow2", filePath, tmpFilePath); err != nil {
 		return err
 	}
 	if err := os.RemoveAll(filePath); err != nil {
@@ -305,13 +229,14 @@ func ConvertFromRawToQcow2(filePath string) error {
 }
 
 func ConvertFromQcow2ToRaw(sourcePath, targetPath string) error {
-	if imgInfo, err := GetQemuImgInfo(sourcePath); err != nil {
+	imageToolExecutor := backingimage.NewQemuImgExecutor()
+	if imgInfo, err := imageToolExecutor.GetImageInfo(sourcePath); err != nil {
 		return err
 	} else if imgInfo.Format == "raw" {
 		return nil
 	}
 
-	if _, err := Execute([]string{}, QemuImgBinary, "convert", "-f", "qcow2", "-O", "raw", sourcePath, targetPath); err != nil {
+	if _, err := imageToolExecutor.Exec([]string{}, "convert", "-f", "qcow2", "-O", "raw", sourcePath, targetPath); err != nil {
 		return err
 	}
 	return nil
@@ -342,19 +267,31 @@ func GunzipFile(filePath string, dstFilePath string) error {
 	if err != nil {
 		return err
 	}
-	defer gzipfile.Close()
+	defer func() {
+		if errClose := gzipfile.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close gzip file")
+		}
+	}()
 
 	reader, err := gzip.NewReader(gzipfile)
 	if err != nil {
 		return err
 	}
-	defer reader.Close()
+	defer func() {
+		if errClose := reader.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close gzip reader")
+		}
+	}()
 
 	writer, err := os.Create(dstFilePath)
 	if err != nil {
 		return err
 	}
-	defer writer.Close()
+	defer func() {
+		if errClose := writer.Close(); errClose != nil {
+			logrus.WithError(errClose).Error("Failed to close destination file")
+		}
+	}()
 
 	if _, err = io.Copy(writer, reader); err != nil {
 		return err

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pkg/errors"
+	"github.com/cockroachdb/errors"
 	"github.com/sirupsen/logrus"
 
 	"github.com/longhorn/go-iscsi-helper/iscsi"
@@ -75,7 +75,7 @@ func NewDevice(name, backingFile, bsType, bsOpts string, scsiTimeout, iscsiAbort
 }
 
 func Volume2ISCSIName(name string) string {
-	return strings.Replace(name, "_", ":", -1)
+	return strings.ReplaceAll(name, "_", ":")
 }
 
 func GetTargetName(volumeName string) string {
@@ -357,8 +357,14 @@ func (dev *Device) DeleteTarget() error {
 			}
 		}
 
+		// All connections closed, and it is possible for tgtd to have stale LUNs if tgtd crashed before.
+		// Try to delete LUN here and continue on target deletion if tgtd thinks the LUN still active.
 		if err := iscsi.DeleteLun(tid, TargetLunID); err != nil {
-			return err
+			if strings.Contains(err.Error(), types.TgtadmLunActive) {
+				logrus.WithError(err).Warnf("LUN %d still active, continuing with target deletion", TargetLunID)
+			} else {
+				return err
+			}
 		}
 
 		if err := iscsi.DeleteTarget(tid); err != nil {

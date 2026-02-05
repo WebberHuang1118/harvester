@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"sync"
 
-	"github.com/pkg/errors"
+	"github.com/cockroachdb/errors"
 
 	"github.com/longhorn/backupstore/util"
 )
@@ -54,6 +54,10 @@ type Backup struct {
 
 	Blocks     []BlockMapping `json:",omitempty"`
 	SingleFile BackupFile     `json:",omitempty"`
+}
+
+func (backup *Backup) GetBlockSize() (int64, error) {
+	return getBlockSizeFromParameters(backup.Parameters)
 }
 
 type LastBackupInfo struct {

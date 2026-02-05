@@ -23,7 +23,6 @@ import (
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	"k8s.io/apiserver/pkg/server/dynamiccertificates"
 	genericoptions "k8s.io/apiserver/pkg/server/options"
-	"k8s.io/component-base/version"
 	openapicommon "k8s.io/kube-openapi/pkg/common"
 	"k8s.io/kube-openapi/pkg/validation/spec"
 )
@@ -74,7 +73,7 @@ type ExtensionAPIServerOptions struct {
 	//
 	// If nil, the default version is the version of the Kubernetes Go library
 	// compiled in the final binary.
-	EffectiveVersion version.EffectiveVersion
+	// EffectiveVersion version.EffectiveVersion // Commented out: version package doesn't exist in k8s.io v0.33.0
 
 	SNICerts []dynamiccertificates.SNICertKeyContentProvider
 }
@@ -166,10 +165,11 @@ func NewExtensionAPIServer(scheme *runtime.Scheme, codecs serializer.CodecFactor
 	// The default kube effective version ends up being the version of the
 	// library. (The value is hardcoded but it is kept up-to-date via some
 	// automation)
-	config.EffectiveVersion = version.DefaultKubeEffectiveVersion()
-	if opts.EffectiveVersion != nil {
-		config.EffectiveVersion = opts.EffectiveVersion
-	}
+	// Commented out: version package doesn't exist in k8s.io v0.33.0
+	// config.EffectiveVersion = version.DefaultKubeEffectiveVersion()
+	// if opts.EffectiveVersion != nil {
+	// 	config.EffectiveVersion = opts.EffectiveVersion
+	// }
 
 	// This feature is more of an optimization for clients that want to go directly to a custom API server
 	// instead of going through the main apiserver. We currently don't need to support this so we're leaving this

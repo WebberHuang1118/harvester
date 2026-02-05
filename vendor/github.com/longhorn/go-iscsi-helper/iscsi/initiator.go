@@ -3,12 +3,13 @@ package iscsi
 import (
 	"bufio"
 	"fmt"
+	"net"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
 
-	"github.com/pkg/errors"
+	"github.com/cockroachdb/errors"
 	"github.com/sirupsen/logrus"
 
 	lhns "github.com/longhorn/go-common-libs/ns"
@@ -186,7 +187,7 @@ func IsTargetLoggedIn(ip, target string, nsexec *lhns.Executor) bool {
 	scanner := bufio.NewScanner(strings.NewReader(output))
 	for scanner.Scan() {
 		line := scanner.Text()
-		if strings.Contains(line, ip+":") {
+		if strings.Contains(line, net.JoinHostPort(ip, "")) {
 			if strings.HasSuffix(line, " "+target) ||
 				strings.Contains(scanner.Text(), " "+target+" ") {
 				found = true
@@ -253,7 +254,8 @@ func findScsiDevice(ip, target string, lun int, nsexec *lhns.Executor) (*lhtypes
 	*/
 	scanner := bufio.NewScanner(strings.NewReader(output))
 	targetLine := "Target: " + target
-	ipLine := " " + ip + ":"
+	ipLine := " " + net.JoinHostPort(ip, "")
+
 	lunLine := "Lun: " + strconv.Itoa(lun)
 	diskPrefix := "Attached scsi disk"
 	stateLine := "State:"

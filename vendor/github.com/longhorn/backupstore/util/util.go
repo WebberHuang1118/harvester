@@ -19,11 +19,12 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/cockroachdb/errors"
 	"github.com/google/uuid"
-	lz4 "github.com/pierrec/lz4/v4"
-	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"
+
+	lz4 "github.com/pierrec/lz4/v4"
 
 	"k8s.io/apimachinery/pkg/util/wait"
 	mount "k8s.io/mount-utils"
@@ -62,7 +63,7 @@ func fstypeToKind(fstype int64) (string, error) {
 
 // GenerateName generates a 16-byte name
 func GenerateName(prefix string) string {
-	suffix := strings.Replace(NewUUID(), "-", "", -1)
+	suffix := strings.ReplaceAll(NewUUID(), "-", "")
 	return prefix + "-" + suffix[:16]
 }
 
@@ -84,7 +85,9 @@ func GetFileChecksum(filePath string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	defer f.Close()
+	defer func() {
+		_ = f.Close()
+	}()
 
 	h := sha256.New()
 	if _, err := io.Copy(h, f); err != nil {
@@ -108,10 +111,10 @@ func CompressData(method string, data []byte) (io.ReadSeeker, error) {
 	}
 
 	if _, err := w.Write(data); err != nil {
-		w.Close()
+		_ = w.Close()
 		return nil, err
 	}
-	w.Close()
+	_ = w.Close()
 	return bytes.NewReader(buffer.Bytes()), nil
 }
 
@@ -121,7 +124,9 @@ func DecompressAndVerify(method string, src io.Reader, checksum string) (io.Read
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to create decompression reader")
 	}
-	defer r.Close()
+	defer func() {
+		_ = r.Close()
+	}()
 	block, err := io.ReadAll(r)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to read decompressed data")

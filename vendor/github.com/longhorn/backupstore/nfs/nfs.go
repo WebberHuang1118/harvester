@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pkg/errors"
+	"github.com/cockroachdb/errors"
 	"github.com/sirupsen/logrus"
 
 	mount "k8s.io/mount-utils"
@@ -72,7 +72,7 @@ func initFunc(destURL string) (backupstore.BackupStoreDriver, error) {
 
 	b.serverPath = u.Host + u.Path
 	b.destURL = KIND + "://" + b.serverPath
-	b.mountDir = filepath.Join(util.MountDir, strings.TrimRight(strings.Replace(u.Host, ".", "_", -1), ":"), u.Path)
+	b.mountDir = filepath.Join(util.MountDir, strings.TrimRight(strings.ReplaceAll(u.Host, ".", "_"), ":"), u.Path)
 
 	nfsOptions, exist := u.Query()["nfsOptions"]
 	if exist {

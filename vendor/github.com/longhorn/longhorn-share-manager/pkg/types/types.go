@@ -7,6 +7,9 @@ import (
 )
 
 const (
+	EnvPodName      = "POD_NAME"
+	EnvPodNamespace = "POD_NAMESPACE"
+
 	GRPCServiceTimeout = 1 * time.Minute
 
 	DevPath       = "/dev"
@@ -37,6 +40,10 @@ func GetVolumeDevicePath(volumeName, dataEngine string, EncryptedDevice bool) st
 		}
 		return path.Join(MapperDevPath, volumeName)
 	}
+	return GetRawVolumeDevicePath(volumeName)
+}
+
+func GetRawVolumeDevicePath(volumeName string) string {
 	return filepath.Join(DevPath, "longhorn", volumeName)
 }
 
