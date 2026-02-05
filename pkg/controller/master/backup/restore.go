@@ -321,6 +321,8 @@ func (h *RestoreHandler) PersistentVolumeClaimOnChange(_ string, pvc *corev1.Per
 	volumeCopy.Annotations[pvcNameAnnotation] = pvc.Name
 	volumeCopy.Annotations[restoreNameAnnotation] = restoreName
 
+	logrus.Infof("volumeCopy %+v", volumeCopy)
+
 	if !reflect.DeepEqual(volume, volumeCopy) {
 		if _, err := h.volumes.Update(volumeCopy); err != nil {
 			return nil, err
