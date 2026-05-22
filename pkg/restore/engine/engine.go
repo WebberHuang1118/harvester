@@ -1,6 +1,7 @@
 package engine
 
 import (
+	"context"
 	"errors"
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
@@ -21,4 +22,10 @@ type RestoreEngine interface {
 
 	// Delete handles cleanup of restore resources for a specific volume
 	Delete(vmr *harvesterv1.VirtualMachineRestore, volIndex int) error
+
+	// RegisterWatchers gives the engine an opportunity to register its own
+	// informer event handlers (e.g. on Jobs it creates) and call enqueue to
+	// trigger reconcile on the owning VMRestore. Engines that don't need any
+	// extra watchers should implement this as a no-op.
+	RegisterWatchers(ctx context.Context, enqueue func(namespace, name string))
 }

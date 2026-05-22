@@ -4,12 +4,9 @@ import (
 	"fmt"
 
 	snapshotv1 "github.com/kubernetes-csi/external-snapshotter/client/v4/apis/volumesnapshot/v1"
-	lhv1beta2 "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
-	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
-	backuputil "github.com/harvester/harvester/pkg/util/backup"
 )
 
 func (h *Handler) updateConditions(vmb *harvesterv1.VirtualMachineBackup) error {
@@ -104,88 +101,3 @@ func (h *Handler) resolveVolSnapshotRef(namespace string, controllerRef *metav1.
 	return vmb
 }
 
-func (h *Handler) OnLHBackupChanged(_ string, lhBackup *lhv1beta2.Backup) (*lhv1beta2.Backup, error) {
-	if lhBackup == nil || lhBackup.DeletionTimestamp != nil || lhBackup.Status.SnapshotName == "" {
-		return nil, nil
-	}
-
-	vmb, err := h.getVMBackupFromLHBackup(lhBackup)
-	if err != nil || vmb == nil {
-		return nil, err
-	}
-
-	if h.vmbo.GetBackupTarget(vmb) == nil {
-		return nil, nil
-	}
-
-	vsc, err := h.vscCache.Get(backuputil.LHSnapToVSContentName(lhBackup.Status.SnapshotName))
-	if apierrors.IsNotFound(err) {
-		return nil, nil
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	vs, err := h.vsCache.Get(vsc.Spec.VolumeSnapshotRef.Namespace, vsc.Spec.VolumeSnapshotRef.Name)
-	if err != nil {
-		return nil, err
-	}
-
-	updated, err := h.updateVolumeBackupLHNames(vmb, vs.Name, lhBackup.Name)
-	if err != nil {
-		return nil, err
-	}
-
-	// Only enqueue if we actually made changes to trigger progress update in updateConditions()
-	if updated {
-		h.vmbController.Enqueue(h.vmbo.GetNamespace(vmb), h.vmbo.GetName(vmb))
-	}
-	return nil, nil
-}
-
-// getVMBackupFromLHBackup retrieves the VirtualMachineBackup associated with a Longhorn backup
-func (h *Handler) getVMBackupFromLHBackup(lhBackup *lhv1beta2.Backup) (*harvesterv1.VirtualMachineBackup, error) {
-	vsc, err := h.vscCache.Get(backuputil.LHSnapToVSContentName(lhBackup.Status.SnapshotName))
-	if apierrors.IsNotFound(err) {
-		return nil, nil
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	vs, err := h.vsCache.Get(vsc.Spec.VolumeSnapshotRef.Namespace, vsc.Spec.VolumeSnapshotRef.Name)
-	if err != nil {
-		return nil, err
-	}
-
-	controllerRef := metav1.GetControllerOf(vs)
-	if controllerRef == nil {
-		return nil, nil
-	}
-
-	return h.resolveVolSnapshotRef(vs.Namespace, controllerRef), nil
-}
-
-// updateVolumeBackupLHNames updates the Longhorn backup name for the specific volume backup that matches snapshotName
-func (h *Handler) updateVolumeBackupLHNames(vmb *harvesterv1.VirtualMachineBackup, vsName, lhBackupName string) (bool, error) {
-	vmbCpy := vmb.DeepCopy()
-	vbs := h.vmbo.GetVolBackups(vmbCpy)
-
-	for index := range vbs {
-		vb := h.vmbo.GetVolBackup(vmbCpy, index)
-		vbName := h.vmbo.GetVolBackupName(vb)
-
-		if vbName == nil || *vbName != vsName {
-			continue
-		}
-
-		if err := h.vmbo.SetVolBackupLHBackupName(vb, lhBackupName); err != nil {
-			return false, fmt.Errorf("failed to set volume backup LH backup name: %w", err)
-		}
-
-		_, err := h.vmbo.UpdateByStatus(vmb, vmbCpy)
-		return err == nil, err
-	}
-
-	return false, nil
-}

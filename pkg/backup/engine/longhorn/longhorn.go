@@ -18,6 +18,7 @@ import (
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/backup/common"
 	"github.com/harvester/harvester/pkg/backup/engine"
+	ctlharvesterv1 "github.com/harvester/harvester/pkg/generated/controllers/harvesterhci.io/v1beta1"
 	ctllonghornv2 "github.com/harvester/harvester/pkg/generated/controllers/longhorn.io/v1beta2"
 	ctlsnapshotv1 "github.com/harvester/harvester/pkg/generated/controllers/snapshot.storage.k8s.io/v1"
 	"github.com/harvester/harvester/pkg/settings"
@@ -29,32 +30,42 @@ const (
 	longhornDriver         = "driver.longhorn.io"
 	longhornBackupScheme   = "bak://"
 	backupProgressComplete = 100
+	lhBackupWatcherName    = "longhorn-backup-watcher"
+	vmBackupKindName       = "VirtualMachineBackup"
 )
 
+var vmBackupKind = harvesterv1.SchemeGroupVersion.WithKind(vmBackupKindName)
+
 type LonghornEngine struct {
-	vmbo          common.VMBackupOperator
-	vsHelper      *common.VolumeSnapshotHelper
-	pvcCache      ctlcorev1.PersistentVolumeClaimCache
-	scCache       ctlstoragev1.StorageClassCache
-	lhbackupCache ctllonghornv2.BackupCache
+	vmbo               common.VMBackupOperator
+	vsHelper           *common.VolumeSnapshotHelper
+	pvcCache           ctlcorev1.PersistentVolumeClaimCache
+	scCache            ctlstoragev1.StorageClassCache
+	lhbackupCache      ctllonghornv2.BackupCache
+	lhbackupController ctllonghornv2.BackupController
+	vmbCache           ctlharvesterv1.VirtualMachineBackupCache
 }
 
 func GetBackupEngine(
 	vmbo common.VMBackupOperator,
 	vsCache ctlsnapshotv1.VolumeSnapshotCache,
 	vsClient ctlsnapshotv1.VolumeSnapshotClient,
-	vsContentCache ctlsnapshotv1.VolumeSnapshotContentCache,
-	vsContentClient ctlsnapshotv1.VolumeSnapshotContentClient,
+	vscCache ctlsnapshotv1.VolumeSnapshotContentCache,
+	vscClient ctlsnapshotv1.VolumeSnapshotContentClient,
 	pvcCache ctlcorev1.PersistentVolumeClaimCache,
 	scCache ctlstoragev1.StorageClassCache,
 	lhbackupCache ctllonghornv2.BackupCache,
+	lhbackupController ctllonghornv2.BackupController,
+	vmbCache ctlharvesterv1.VirtualMachineBackupCache,
 ) engine.BackupEngine {
 	return &LonghornEngine{
-		vmbo:          vmbo,
-		vsHelper:      common.NewVolumeSnapshotHelper(vsCache, vsClient, vsContentCache, vsContentClient, vmbo, pvcCache, scCache),
-		pvcCache:      pvcCache,
-		scCache:       scCache,
-		lhbackupCache: lhbackupCache,
+		vmbo:               vmbo,
+		vsHelper:           common.NewVolumeSnapshotHelper(vsCache, vsClient, vscCache, vscClient, vmbo, pvcCache, scCache),
+		pvcCache:           pvcCache,
+		scCache:            scCache,
+		lhbackupCache:      lhbackupCache,
+		lhbackupController: lhbackupController,
+		vmbCache:           vmbCache,
 	}
 }
 
@@ -335,7 +346,7 @@ func (le *LonghornEngine) Reconcile(
 	volIndex int,
 	vsClassMap map[string]snapshotv1.VolumeSnapshotClass,
 ) error {
-	logrus.Infof("LonghornEngine Reconcile called for VMBackup %s/%s volume index %d",
+	logrus.Debugf("LonghornEngine Reconcile called for VMBackup %s/%s volume index %d",
 		le.vmbo.GetNamespace(vmb), le.vmbo.GetName(vmb), volIndex)
 
 	vb := le.vmbo.GetVolBackup(vmb, volIndex)
@@ -457,4 +468,124 @@ func (le *LonghornEngine) ForceDelete(vmb *harvesterv1.VirtualMachineBackup, vol
 	}
 
 	return nil
+}
+
+// RegisterWatchers wires up a Longhorn-Backup → VMBackup event mapping so
+// LH-backup status changes feed the VMBackup reconcile loop. Lives on the
+// engine (not the controller) because the lookup chain
+// LHBackup → VolumeSnapshotContent → VolumeSnapshot → VMBackup is specific
+// to the Longhorn engine.
+func (le *LonghornEngine) RegisterWatchers(ctx context.Context, enqueueVMBackup func(namespace, name string)) {
+	le.lhbackupController.OnChange(ctx, lhBackupWatcherName, func(_ string, lhBackup *lhv1beta2.Backup) (*lhv1beta2.Backup, error) {
+		return le.onLHBackupChanged(lhBackup, enqueueVMBackup)
+	})
+}
+
+func (le *LonghornEngine) onLHBackupChanged(
+	lhBackup *lhv1beta2.Backup,
+	enqueueVMBackup func(namespace, name string),
+) (*lhv1beta2.Backup, error) {
+	if lhBackup == nil || lhBackup.DeletionTimestamp != nil || lhBackup.Status.SnapshotName == "" {
+		return nil, nil
+	}
+
+	vmb, err := le.getVMBackupFromLHBackup(lhBackup)
+	if err != nil || vmb == nil {
+		return nil, err
+	}
+
+	if le.vmbo.GetBackupTarget(vmb) == nil {
+		return nil, nil
+	}
+
+	vsc, err := le.vsHelper.GetVolumeSnapshotContent(backuputil.LHSnapToVSCName(lhBackup.Status.SnapshotName))
+	if apierrors.IsNotFound(err) {
+		return nil, nil
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	vs, err := le.vsHelper.GetVolumeSnapshot(vsc.Spec.VolumeSnapshotRef.Namespace, vsc.Spec.VolumeSnapshotRef.Name)
+	if err != nil {
+		return nil, err
+	}
+
+	updated, err := le.updateVolumeBackupLHNames(vmb, vs.Name, lhBackup.Name)
+	if err != nil {
+		return nil, err
+	}
+
+	// Only enqueue if we actually made changes to trigger progress update in updateConditions()
+	if updated {
+		enqueueVMBackup(le.vmbo.GetNamespace(vmb), le.vmbo.GetName(vmb))
+	}
+	return nil, nil
+}
+
+func (le *LonghornEngine) getVMBackupFromLHBackup(lhBackup *lhv1beta2.Backup) (*harvesterv1.VirtualMachineBackup, error) {
+	vsc, err := le.vsHelper.GetVolumeSnapshotContent(backuputil.LHSnapToVSCName(lhBackup.Status.SnapshotName))
+	if apierrors.IsNotFound(err) {
+		return nil, nil
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	vs, err := le.vsHelper.GetVolumeSnapshot(vsc.Spec.VolumeSnapshotRef.Namespace, vsc.Spec.VolumeSnapshotRef.Name)
+	if err != nil {
+		return nil, err
+	}
+
+	controllerRef := metav1.GetControllerOf(vs)
+	if controllerRef == nil {
+		return nil, nil
+	}
+
+	return le.resolveVolSnapshotRef(vs.Namespace, controllerRef), nil
+}
+
+// resolveVolSnapshotRef returns the VMBackup referenced by a ControllerRef, or
+// nil if the ControllerRef points to something else or the UID doesn't match.
+func (le *LonghornEngine) resolveVolSnapshotRef(
+	namespace string,
+	controllerRef *metav1.OwnerReference,
+) *harvesterv1.VirtualMachineBackup {
+	if controllerRef.Kind != vmBackupKind.Kind {
+		return nil
+	}
+	vmb, err := le.vmbCache.Get(namespace, controllerRef.Name)
+	if err != nil {
+		return nil
+	}
+	if le.vmbo.GetUID(vmb) != controllerRef.UID {
+		return nil
+	}
+	return vmb
+}
+
+// updateVolumeBackupLHNames stamps the Longhorn backup name on the matching
+// VolumeBackup entry. Returns whether a change was persisted so the caller
+// can decide whether to enqueue.
+func (le *LonghornEngine) updateVolumeBackupLHNames(vmb *harvesterv1.VirtualMachineBackup, vsName, lhBackupName string) (bool, error) {
+	vmbCpy := vmb.DeepCopy()
+	vbs := le.vmbo.GetVolBackups(vmbCpy)
+
+	for index := range vbs {
+		vb := le.vmbo.GetVolBackup(vmbCpy, index)
+		vbName := le.vmbo.GetVolBackupName(vb)
+
+		if vbName == nil || *vbName != vsName {
+			continue
+		}
+
+		if err := le.vmbo.SetVolBackupLHBackupName(vb, lhBackupName); err != nil {
+			return false, fmt.Errorf("failed to set volume backup LH backup name: %w", err)
+		}
+
+		_, err := le.vmbo.UpdateByStatus(vmb, vmbCpy)
+		return err == nil, err
+	}
+
+	return false, nil
 }

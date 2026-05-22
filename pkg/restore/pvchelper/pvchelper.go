@@ -2,6 +2,7 @@ package pvchelper
 
 import (
 	"fmt"
+	"strings"
 
 	snapshotv1 "github.com/kubernetes-csi/external-snapshotter/client/v4/apis/volumesnapshot/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -72,13 +73,45 @@ func BuildRestoreAnnotations(sourceAnnotations map[string]string, restoreName st
 	return annotations
 }
 
+// BuildRestoreLabels copies source PVC labels but strips CDI ownership markers.
+// Without this, CDI sees the destination PVC as one of its own and races its
+// populator/clone against our engine's writes, corrupting the restored data.
+func BuildRestoreLabels(sourceLabels map[string]string) map[string]string {
+	labels := make(map[string]string)
+	for key, value := range sourceLabels {
+		if !ShouldSkipLabel(key, value) {
+			labels[key] = value
+		}
+	}
+	return labels
+}
+
 // ShouldSkipAnnotation checks if an annotation should be filtered out
 func ShouldSkipAnnotation(key string) bool {
-	skipPrefixes := []string{"pv.kubernetes.io"}
+	// `cdi.kubevirt.io/*` annotations re-attach CDI to the destination PVC,
+	// which then runs its own populator clone in parallel with our engine.
+	skipPrefixes := []string{"pv.kubernetes.io", "cdi.kubevirt.io"}
 	for _, prefix := range skipPrefixes {
-		if len(key) >= len(prefix) && key[:len(prefix)] == prefix {
+		if strings.HasPrefix(key, prefix) {
 			return true
 		}
+	}
+	return false
+}
+
+// ShouldSkipLabel checks if a label should be filtered out. Targets the marker
+// labels CDI uses to claim ownership of a PVC.
+func ShouldSkipLabel(key, value string) bool {
+	if strings.HasPrefix(key, "cdi.kubevirt.io") {
+		return true
+	}
+	cdiOwnership := map[string]string{
+		"app":                          "containerized-data-importer",
+		"app.kubernetes.io/component":  "storage",
+		"app.kubernetes.io/managed-by": "cdi-controller",
+	}
+	if want, ok := cdiOwnership[key]; ok && want == value {
+		return true
 	}
 	return false
 }

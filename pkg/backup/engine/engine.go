@@ -1,6 +1,7 @@
 package engine
 
 import (
+	"context"
 	"errors"
 
 	snapshotv1 "github.com/kubernetes-csi/external-snapshotter/client/v4/apis/volumesnapshot/v1"
@@ -18,4 +19,9 @@ type BackupEngine interface {
 	Reconcile(vmb *harvesterv1.VirtualMachineBackup, volIndex int, vsClassMap map[string]snapshotv1.VolumeSnapshotClass) error
 	UpdateProgress(*harvesterv1.VolumeBackup) (int64, error)
 	ForceDelete(vmb *harvesterv1.VirtualMachineBackup, volIndex int) error
+	// RegisterWatchers gives the engine an opportunity to register its own
+	// informer event handlers (e.g. on Jobs it creates) and call enqueue to
+	// trigger reconcile on the owning VMBackup. Engines that don't need any
+	// extra watchers should implement this as a no-op.
+	RegisterWatchers(ctx context.Context, enqueue func(namespace, name string))
 }

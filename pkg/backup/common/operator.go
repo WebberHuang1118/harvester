@@ -624,10 +624,12 @@ func (vmbo *vmbackupOperator) loadCSIDriverConfig() (map[string]settings.CSIDriv
 func getVSCName(backupType harvesterv1.BackupType, driverInfo settings.CSIDriverInfo, csiDriverName string) (string, error) {
 	var vscName string
 
-	switch backupType {
-	case harvesterv1.Backup:
+	switch {
+	case backupType.UsesRemoteBackupTarget():
+		// Restic/Kopia snapshot the source PVC then clone-and-read via a job,
+		// so they need the backup snapshot class just like native backup.
 		vscName = driverInfo.BackupVolumeSnapshotClassName
-	case harvesterv1.Snapshot:
+	case backupType == harvesterv1.Snapshot:
 		vscName = driverInfo.VolumeSnapshotClassName
 	default:
 		return "", fmt.Errorf("unsupported backup type %q for CSI driver %q", backupType, csiDriverName)
@@ -1110,7 +1112,7 @@ func (vmbo *vmbackupOperator) InitVMBackup(old *harvesterv1.VirtualMachineBackup
 		return err
 	}
 
-	if vmbo.GetType(newVMb) == harvesterv1.Backup {
+	if vmbo.GetType(newVMb).UsesRemoteBackupTarget() {
 		newVMb, err = vmbo.initBackupTarget(newVMb)
 		if err != nil {
 			return err

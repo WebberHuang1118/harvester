@@ -1,6 +1,7 @@
 package longhorn
 
 import (
+	"context"
 	"fmt"
 	"strconv"
 	"strings"
@@ -58,9 +59,11 @@ type LonghornRestoreEngine struct {
 	lhBackupCache       ctllonghornv2.BackupCache
 	lhBackupVolumeCache ctllonghornv2.BackupVolumeCache
 	lhEngineCache       ctllonghornv2.EngineCache
+	lhEngineController  ctllonghornv2.EngineController
 	volumeCache         ctllonghornv2.VolumeCache
 	vmBackupController  ctlharvesterv1.VirtualMachineBackupController
 	vmBackupCache       ctlharvesterv1.VirtualMachineBackupCache
+	vmrCache            ctlharvesterv1.VirtualMachineRestoreCache
 }
 
 func GetRestoreEngine(
@@ -76,9 +79,11 @@ func GetRestoreEngine(
 	lhBackupCache ctllonghornv2.BackupCache,
 	lhBackupVolumeCache ctllonghornv2.BackupVolumeCache,
 	lhEngineCache ctllonghornv2.EngineCache,
+	lhEngineController ctllonghornv2.EngineController,
 	volumeCache ctllonghornv2.VolumeCache,
 	vmBackupController ctlharvesterv1.VirtualMachineBackupController,
 	vmBackupCache ctlharvesterv1.VirtualMachineBackupCache,
+	vmrCache ctlharvesterv1.VirtualMachineRestoreCache,
 ) engine.RestoreEngine {
 	return &LonghornRestoreEngine{
 		vmbo:                vmbo,
@@ -93,9 +98,11 @@ func GetRestoreEngine(
 		lhBackupCache:       lhBackupCache,
 		lhBackupVolumeCache: lhBackupVolumeCache,
 		lhEngineCache:       lhEngineCache,
+		lhEngineController:  lhEngineController,
 		volumeCache:         volumeCache,
 		vmBackupController:  vmBackupController,
 		vmBackupCache:       vmBackupCache,
+		vmrCache:            vmrCache,
 	}
 }
 
@@ -443,7 +450,7 @@ func (lre *LonghornRestoreEngine) createPVC(
 	pvcName := lre.vmro.GetVolRestorePVCName(vr)
 	namespace := lre.vmro.GetNamespace(vmr)
 	pvcSpec := lre.vmbo.GetVolBackupPVCSpec(vb)
-	labels := lre.vmbo.GetVolBackupPVCLabels(vb)
+	labels := pvchelper.BuildRestoreLabels(lre.vmbo.GetVolBackupPVCLabels(vb))
 
 	sourceAnnotations := lre.vmbo.GetVolBackupPVCAnnotations(vb)
 	restoreName := lre.vmro.GetName(vmr)
@@ -627,4 +634,111 @@ func normalizeCSISnapshotType(cSISnapshotType string) string {
 		return csiSnapshotTypeLonghornBackup
 	}
 	return cSISnapshotType
+}
+
+const (
+	lhEngineWatcherName = "longhorn-engine-watcher"
+)
+
+// RegisterWatchers wires up a Longhorn-Engine → VMRestore event mapping so
+// LH restore progress (captured in Engine.Status.RestoreStatus) feeds the
+// VMRestore reconcile loop. Lives on the engine (not the controller) because
+// the lookup chain Engine → Volume.annotations → VMRestore is LH-specific.
+func (lre *LonghornRestoreEngine) RegisterWatchers(ctx context.Context, enqueueVMRestore func(namespace, name string)) {
+	lre.lhEngineController.OnChange(ctx, lhEngineWatcherName, func(_ string, lhEngine *lhv1beta2.Engine) (*lhv1beta2.Engine, error) {
+		return lre.onLHEngineChanged(lhEngine, enqueueVMRestore)
+	})
+}
+
+func (lre *LonghornRestoreEngine) onLHEngineChanged(
+	lhEngine *lhv1beta2.Engine,
+	enqueueVMRestore func(namespace, name string),
+) (*lhv1beta2.Engine, error) {
+	if !shouldProcessEngine(lhEngine) {
+		return nil, nil
+	}
+
+	pvcNamespace, pvcName, restoreName, volumeSize, err := lre.getVolumeRestoreInfo(lhEngine)
+	if err != nil {
+		return nil, err
+	}
+	if pvcNamespace == "" {
+		return nil, nil
+	}
+
+	vmr, err := lre.vmrCache.Get(pvcNamespace, restoreName)
+	if err != nil {
+		return nil, nil
+	}
+
+	if err := lre.updateVolumeRestoreMetrics(vmr, pvcNamespace, pvcName, volumeSize, lhEngine); err != nil {
+		return nil, err
+	}
+
+	enqueueVMRestore(pvcNamespace, restoreName)
+	return nil, nil
+}
+
+func shouldProcessEngine(lhEngine *lhv1beta2.Engine) bool {
+	return lhEngine != nil && lhEngine.DeletionTimestamp == nil && len(lhEngine.Status.RestoreStatus) > 0
+}
+
+func (lre *LonghornRestoreEngine) getVolumeRestoreInfo(lhEngine *lhv1beta2.Engine) (pvcNamespace, pvcName, restoreName string, volumeSize int64, err error) {
+	volume, err := lre.volumeCache.Get(util.LonghornSystemNamespaceName, lhEngine.Spec.VolumeName)
+	if err != nil {
+		return "", "", "", 0, err
+	}
+
+	pvcNamespace, ok := volume.Annotations[restorecommon.PvcNameSpaceAnnotation]
+	if !ok {
+		return "", "", "", 0, nil
+	}
+	pvcName, ok = volume.Annotations[restorecommon.PvcNameAnnotation]
+	if !ok {
+		return "", "", "", 0, nil
+	}
+	restoreName, ok = volume.Annotations[restorecommon.RestoreNameAnnotation]
+	if !ok {
+		return "", "", "", 0, nil
+	}
+	return pvcNamespace, pvcName, restoreName, volume.Spec.Size, nil
+}
+
+func (lre *LonghornRestoreEngine) updateVolumeRestoreMetrics(
+	vmr *harvesterv1.VirtualMachineRestore,
+	pvcNamespace, pvcName string,
+	volumeSize int64,
+	lhEngine *lhv1beta2.Engine,
+) error {
+	vmrCpy := vmr.DeepCopy()
+
+	vr := lre.findMatchingVolumeRestore(vmrCpy, pvcNamespace, pvcName)
+	if vr == nil {
+		return nil
+	}
+
+	if err := lre.vmro.SetVolRestoreLHEngineName(vr, lhEngine.Name); err != nil {
+		return err
+	}
+	if err := lre.vmro.SetVolRestoreVolumeSize(vr, volumeSize); err != nil {
+		return err
+	}
+
+	_, err := lre.vmro.UpdateByStatus(vmr, vmrCpy)
+	return err
+}
+
+func (lre *LonghornRestoreEngine) findMatchingVolumeRestore(
+	vmrCpy *harvesterv1.VirtualMachineRestore,
+	pvcNamespace, pvcName string,
+) *harvesterv1.VolumeRestore {
+	vrs := lre.vmro.GetVolRestores(vmrCpy)
+	for i := range vrs {
+		vr := lre.vmro.GetVolRestore(vmrCpy, i)
+		if lre.vmro.GetVolRestorePVCNamespace(vr) == pvcNamespace &&
+			lre.vmro.GetVolRestorePVCName(vr) == pvcName {
+			return vr
+		}
+	}
+	return nil
 }

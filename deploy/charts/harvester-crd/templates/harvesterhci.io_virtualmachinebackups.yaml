@@ -86,6 +86,8 @@ spec:
                 enum:
                 - backup
                 - snapshot
+                - restic
+                - kopia
                 type: string
             required:
             - source

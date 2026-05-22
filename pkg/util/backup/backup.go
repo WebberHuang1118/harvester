@@ -71,11 +71,6 @@ func GetVMImageMetadataFilePath(vmImageNamespace, vmImageName string) string {
 	return filepath.Join(VMImageMetadataFolderPath, vmImageNamespace, fmt.Sprintf("%s.cfg", vmImageName))
 }
 
-// LHSnapToVSContentName derives the CSI VolumeSnapshotContent name from a
-// Longhorn backup's SnapshotName. The Longhorn CSI driver names its snapshot
-// objects "snapshot-<uid>" while the external-snapshotter names the
-// corresponding VolumeSnapshotContent "snapcontent-<uid>"; the two share the
-// same UID suffix, so a prefix swap maps one to the other.
-func LHSnapToVSContentName(lhSnapshotName string) string {
+func LHSnapToVSCName(lhSnapshotName string) string {
 	return strings.Replace(lhSnapshotName, "snapshot", "snapcontent", 1)
 }

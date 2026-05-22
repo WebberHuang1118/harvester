@@ -87,3 +87,7 @@ func (se *SnapshotEngine) UpdateProgress(*harvesterv1.VolumeBackup) (int64, erro
 func (se *SnapshotEngine) ForceDelete(vmb *harvesterv1.VirtualMachineBackup, volIndex int) error {
 	return nil
 }
+
+// RegisterWatchers is a no-op for the snapshot engine; it owns no external
+// resources whose changes need to feed back into the VMBackup reconcile loop.
+func (se *SnapshotEngine) RegisterWatchers(_ context.Context, _ func(string, string)) {}

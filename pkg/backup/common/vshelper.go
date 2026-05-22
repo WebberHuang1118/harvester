@@ -35,8 +35,8 @@ type VolumeSnapshotHelper struct {
 func NewVolumeSnapshotHelper(
 	vsCache ctlsnapshotv1.VolumeSnapshotCache,
 	vsClient ctlsnapshotv1.VolumeSnapshotClient,
-	vsContentCache ctlsnapshotv1.VolumeSnapshotContentCache,
-	vsContentClient ctlsnapshotv1.VolumeSnapshotContentClient,
+	vscCache ctlsnapshotv1.VolumeSnapshotContentCache,
+	vscClient ctlsnapshotv1.VolumeSnapshotContentClient,
 	vmbo VMBackupOperator,
 	pvcCache ctlcorev1.PersistentVolumeClaimCache,
 	scCache ctlstoragev1.StorageClassCache,
@@ -44,8 +44,8 @@ func NewVolumeSnapshotHelper(
 	return &VolumeSnapshotHelper{
 		vsCache:   vsCache,
 		vsClient:  vsClient,
-		vscCache:  vsContentCache,
-		vscClient: vsContentClient,
+		vscCache:  vscCache,
+		vscClient: vscClient,
 		vmbo:      vmbo,
 		pvcCache:  pvcCache,
 		scCache:   scCache,

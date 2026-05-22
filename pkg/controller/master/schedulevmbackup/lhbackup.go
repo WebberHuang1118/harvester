@@ -37,7 +37,7 @@ func (h *svmbackupHandler) OnLHBackupChanged(_ string, lhBackup *lhv1beta2.Backu
 		return nil, nil
 	}
 
-	snapshotContent, err := h.snapshotContentCache.Get(backuputil.LHSnapToVSContentName(lhBackup.Spec.SnapshotName))
+	snapshotContent, err := h.snapshotContentCache.Get(backuputil.LHSnapToVSCName(lhBackup.Spec.SnapshotName))
 	if err != nil {
 		if !apierrors.IsNotFound(err) {
 			return nil, err

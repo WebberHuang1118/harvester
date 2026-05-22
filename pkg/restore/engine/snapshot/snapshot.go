@@ -1,6 +1,7 @@
 package snapshot
 
 import (
+	"context"
 	"fmt"
 
 	ctlcorev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
@@ -180,8 +181,8 @@ func (sre *SnapshotRestoreEngine) buildAnnotations(
 }
 
 func (sre *SnapshotRestoreEngine) buildLabels(vb *harvesterv1.VolumeBackup) map[string]string {
-	// Get labels from volume backup metadata using vmbo
-	return sre.vmbo.GetVolBackupPVCLabels(vb)
+	// Strip CDI ownership markers so CDI doesn't latch onto the restored PVC.
+	return pvchelper.BuildRestoreLabels(sre.vmbo.GetVolBackupPVCLabels(vb))
 }
 
 func (sre *SnapshotRestoreEngine) checkPVCStatus(pvc *corev1.PersistentVolumeClaim) error {
@@ -198,3 +199,7 @@ func (sre *SnapshotRestoreEngine) Delete(vmr *harvesterv1.VirtualMachineRestore,
 	// Cleanup is handled by owner references
 	return nil
 }
+
+// RegisterWatchers is a no-op: the snapshot restore engine has no extra
+// external resources to watch beyond what the controller already wires up.
+func (sre *SnapshotRestoreEngine) RegisterWatchers(_ context.Context, _ func(string, string)) {}

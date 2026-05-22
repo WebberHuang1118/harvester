@@ -163,8 +163,7 @@ func (v *virtualMachineBackupValidator) checkBackupVolumeSnapshotClass(vm *kubev
 			return fmt.Errorf("failed to get PVC %s/%s: %w", pvcNamespace, pvcName, err)
 		}
 
-		// Validate both the ability and the CSI configuration.
-		if err := webhookutil.ValidateProvisionerAndConfig(pvc, v.engineCache, v.scCache, v.vmbo.GetType(newVMBackup), cdc); err != nil {
+		if err := webhookutil.ValidateProvisionerAndConfig(pvc, v.scCache, v.vmbo.GetType(newVMBackup), cdc); err != nil {
 			return err
 		}
 	}

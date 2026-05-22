@@ -13,9 +13,9 @@ import (
 	"time"
 
 	lhdatastore "github.com/longhorn/longhorn-manager/datastore"
-	lhv1beta2 "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
 	"github.com/longhorn/longhorn-manager/types"
 	lhutil "github.com/longhorn/longhorn-manager/util"
+	ctlbatchv1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/batch/v1"
 	ctlcorev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
 	ctlstoragev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/storage/v1"
 	"github.com/sirupsen/logrus"
@@ -34,7 +34,9 @@ import (
 	ctlsnapshotv1 "github.com/harvester/harvester/pkg/generated/controllers/snapshot.storage.k8s.io/v1"
 	restorecommon "github.com/harvester/harvester/pkg/restore/common"
 	"github.com/harvester/harvester/pkg/restore/engine"
+	restorekopia "github.com/harvester/harvester/pkg/restore/engine/kopia"
 	"github.com/harvester/harvester/pkg/restore/engine/longhorn"
+	restorerestic "github.com/harvester/harvester/pkg/restore/engine/restic"
 	restoresnapshot "github.com/harvester/harvester/pkg/restore/engine/snapshot"
 	"github.com/harvester/harvester/pkg/util"
 )
@@ -42,10 +44,12 @@ import (
 const (
 	restoreControllerName = "harvester-vm-restore-controller"
 
-	restoreNameAnnotation  = "restore.harvesterhci.io/name"
-	lastRestoreAnnotation  = "restore.harvesterhci.io/last-restore-uid"
-	pvcNameSpaceAnnotation = "pvc.harvesterhci.io/namespace"
-	pvcNameAnnotation      = "pvc.harvesterhci.io/name"
+	lastRestoreAnnotation = "restore.harvesterhci.io/last-restore-uid"
+
+	// restoreProgressPoll is the cadence at which we re-reconcile a VMRestore
+	// while its volumes are still restoring, so progress is refreshed from
+	// the engine on a known schedule.
+	restoreProgressPoll = 5 * time.Second
 
 	pvNamePrefix = "pvc"
 
@@ -86,7 +90,14 @@ func RegisterRestore(ctx context.Context, management *config.Management, _ confi
 	vmbo, vmro := newRestoreOperators(controllers, restClient)
 
 	// Initialize restore engines
-	engines := newRestoreEngines(controllers, vmbo, vmro)
+	engines := newRestoreEngines(controllers, management, vmbo, vmro)
+
+	// Let each engine wire up its own informer event handlers (e.g. Job
+	// watchers) so engine-owned resource changes feed back into VMRestore
+	// reconciles immediately instead of waiting on poll/requeue.
+	for _, e := range engines {
+		e.RegisterWatchers(ctx, controllers.vmrs.Enqueue)
+	}
 
 	// Create and configure handler
 	handler := newRestoreHandler(ctx, controllers, vmbo, vmro, engines)
@@ -114,6 +125,7 @@ type restoreControllerSet struct {
 	volumes         ctllhv1.VolumeController
 	lhengines       ctllhv1.EngineController
 	vsClasses       ctlsnapshotv1.VolumeSnapshotClassController
+	jobs            ctlbatchv1.JobController
 }
 
 // getRestoreControllers extracts all required controllers from management
@@ -134,6 +146,7 @@ func getRestoreControllers(management *config.Management) *restoreControllerSet 
 		volumes:         management.LonghornFactory.Longhorn().V1beta2().Volume(),
 		lhengines:       management.LonghornFactory.Longhorn().V1beta2().Engine(),
 		vsClasses:       management.SnapshotFactory.Snapshot().V1().VolumeSnapshotClass(),
+		jobs:            management.BatchFactory.Batch().V1().Job(),
 	}
 }
 
@@ -174,6 +187,7 @@ func newRestoreOperators(
 // newRestoreEngines creates restore engines for different backup types
 func newRestoreEngines(
 	controllers *restoreControllerSet,
+	management *config.Management,
 	vmbo backupcommon.VMBackupOperator,
 	vmro restorecommon.VMRestoreOperator,
 ) map[harvesterv1.BackupType]engine.RestoreEngine {
@@ -191,9 +205,11 @@ func newRestoreEngines(
 			controllers.lhbackups.Cache(),
 			controllers.lhbackupVolumes.Cache(),
 			controllers.lhengines.Cache(),
+			controllers.lhengines,
 			controllers.volumes.Cache(),
 			controllers.vmbs,
 			controllers.vmbs.Cache(),
+			controllers.vmrs.Cache(),
 		),
 		harvesterv1.Snapshot: restoresnapshot.GetRestoreEngine(
 			vmbo,
@@ -201,6 +217,28 @@ func newRestoreEngines(
 			controllers.pvcs.Cache(),
 			controllers.pvcs,
 			controllers.vss.Cache(),
+		),
+		harvesterv1.Restic: restorerestic.GetRestoreEngine(
+			vmbo,
+			vmro,
+			controllers.pvcs.Cache(),
+			controllers.pvcs,
+			controllers.scs.Cache(),
+			controllers.secrets.Cache(),
+			controllers.secrets,
+			controllers.jobs,
+			management.ClientSet,
+		),
+		harvesterv1.Kopia: restorekopia.GetRestoreEngine(
+			vmbo,
+			vmro,
+			controllers.pvcs.Cache(),
+			controllers.pvcs,
+			controllers.secrets.Cache(),
+			controllers.secrets,
+			controllers.jobs.Cache(),
+			controllers.jobs,
+			management.ClientSet,
 		),
 	}
 }
@@ -234,7 +272,6 @@ func registerRestoreEventHandlers(ctx context.Context, controllers *restoreContr
 	controllers.vmrs.OnChange(ctx, restoreControllerName, handler.RestoreOnChanged)
 	controllers.vmrs.OnRemove(ctx, restoreControllerName, handler.RestoreOnRemove)
 	controllers.pvcs.OnChange(ctx, restoreControllerName, handler.PersistentVolumeClaimOnChange)
-	controllers.lhengines.OnChange(ctx, restoreControllerName, handler.LHEngineOnChange)
 	controllers.vms.OnChange(ctx, restoreControllerName, handler.VMOnChange)
 }
 
@@ -270,17 +307,32 @@ func (h *RestoreHandler) RestoreOnChanged(_ string, vmr *harvesterv1.VirtualMach
 		return nil, h.vmro.InitVolumesStatus(vmr, vmb)
 	}
 
-	vm, isVolumesReady, err := h.reconcileResources(vmr, vmb)
+	// DeepCopy before any path that mutates status: engines call
+	// SetVolRestoreProgress etc. on entries inside vmrCpy.Status, and the
+	// informer cache must not be mutated. Persist-side operators take vmrCpy
+	// as their basis so engine mutations flow through to client.Update; vmr
+	// stays as the unmodified "old" side for diff comparisons.
+	vmrCpy := vmr.DeepCopy()
+
+	vm, isVolumesReady, err := h.reconcileResources(vmrCpy, vmb)
+
+	// Refresh per-volume progress regardless of reconcile outcome so the user
+	// sees the latest known progress even when an engine returns a hard error.
+	if updErr := h.updateProgressMetrics(vmrCpy, vmb); updErr != nil {
+		logrus.Warnf("failed to refresh restore progress for %s/%s: %v",
+			vmr.Namespace, vmr.Name, updErr)
+	}
+
 	if err != nil {
-		return nil, h.vmro.UpdateError(vmr, err)
+		return nil, h.vmro.UpdateError(vmrCpy, err)
 	}
 
 	// set vmRestore owner reference to the target VM
-	if !h.vmro.HasOwnerReference(vmr) {
-		return nil, h.vmro.UpdateOwnerRefAndTargetUID(vmr, vm)
+	if !h.vmro.HasOwnerReference(vmrCpy) {
+		return nil, h.vmro.UpdateOwnerRefAndTargetUID(vmrCpy, vm)
 	}
 
-	return nil, h.updateStatus(vmr, vmb, vm, isVolumesReady)
+	return nil, h.updateStatus(vmr, vmrCpy, vm, isVolumesReady)
 }
 
 // RestoreOnRemove delegates per-volume cleanup to the restore engine, mirroring
@@ -376,7 +428,7 @@ func (h *RestoreHandler) PersistentVolumeClaimOnChange(_ string, pvc *corev1.Per
 		return nil, nil
 	}
 
-	restoreName, ok := pvc.Annotations[restoreNameAnnotation]
+	restoreName, ok := pvc.Annotations[restorecommon.RestoreNameAnnotation]
 	if !ok {
 		return nil, nil
 	}
@@ -400,9 +452,9 @@ func (h *RestoreHandler) PersistentVolumeClaimOnChange(_ string, pvc *corev1.Per
 		volumeCopy.Annotations = make(map[string]string)
 	}
 
-	volumeCopy.Annotations[pvcNameSpaceAnnotation] = pvc.Namespace
-	volumeCopy.Annotations[pvcNameAnnotation] = pvc.Name
-	volumeCopy.Annotations[restoreNameAnnotation] = restoreName
+	volumeCopy.Annotations[restorecommon.PvcNameSpaceAnnotation] = pvc.Namespace
+	volumeCopy.Annotations[restorecommon.PvcNameAnnotation] = pvc.Name
+	volumeCopy.Annotations[restorecommon.RestoreNameAnnotation] = restoreName
 
 	if !reflect.DeepEqual(volume, volumeCopy) {
 		if _, err := h.volumes.Update(volumeCopy); err != nil {
@@ -415,114 +467,13 @@ func (h *RestoreHandler) PersistentVolumeClaimOnChange(_ string, pvc *corev1.Per
 	return nil, nil
 }
 
-func (h *RestoreHandler) LHEngineOnChange(_ string, lhEngine *lhv1beta2.Engine) (*lhv1beta2.Engine, error) {
-	if !h.shouldProcessEngine(lhEngine) {
-		return nil, nil
-	}
-
-	pvcNamespace, pvcName, restoreName, volumeSize, err := h.getVolumeRestoreInfo(lhEngine)
-	if err != nil {
-		return nil, err
-	}
-
-	if pvcNamespace == "" {
-		return nil, nil
-	}
-
-	vmr, err := h.vmrCache.Get(pvcNamespace, restoreName)
-	if err != nil {
-		return nil, nil
-	}
-
-	if err := h.updateVolumeRestoreMetrics(vmr, pvcNamespace, pvcName, volumeSize, lhEngine); err != nil {
-		return nil, err
-	}
-
-	h.vmrController.Enqueue(pvcNamespace, restoreName)
-	return nil, nil
-}
-
-// shouldProcessEngine checks if the engine should be processed for restore updates
-func (h *RestoreHandler) shouldProcessEngine(lhEngine *lhv1beta2.Engine) bool {
-	return lhEngine != nil && lhEngine.DeletionTimestamp == nil && len(lhEngine.Status.RestoreStatus) > 0
-}
-
-// getVolumeRestoreInfo extracts volume restore information from the engine's associated volume
-func (h *RestoreHandler) getVolumeRestoreInfo(lhEngine *lhv1beta2.Engine) (pvcNamespace, pvcName, restoreName string, volumeSize int64, err error) {
-	volume, err := h.volumeCache.Get(util.LonghornSystemNamespaceName, lhEngine.Spec.VolumeName)
-	if err != nil {
-		return "", "", "", 0, err
-	}
-
-	pvcNamespace, ok := volume.Annotations[pvcNameSpaceAnnotation]
-	if !ok {
-		return "", "", "", 0, nil
-	}
-
-	pvcName, ok = volume.Annotations[pvcNameAnnotation]
-	if !ok {
-		return "", "", "", 0, nil
-	}
-
-	restoreName, ok = volume.Annotations[restoreNameAnnotation]
-	if !ok {
-		return "", "", "", 0, nil
-	}
-
-	return pvcNamespace, pvcName, restoreName, volume.Spec.Size, nil
-}
-
-// updateVolumeRestoreMetrics updates the volume restore with engine name and volume size
-func (h *RestoreHandler) updateVolumeRestoreMetrics(
-	vmr *harvesterv1.VirtualMachineRestore,
-	pvcNamespace, pvcName string,
-	volumeSize int64,
-	lhEngine *lhv1beta2.Engine,
-) error {
-	vmrCpy := vmr.DeepCopy()
-
-	vr := h.findMatchingVolumeRestore(vmrCpy, pvcNamespace, pvcName)
-	if vr == nil {
-		return nil
-	}
-
-	if err := h.vmro.SetVolRestoreLHEngineName(vr, lhEngine.Name); err != nil {
-		return err
-	}
-	if err := h.vmro.SetVolRestoreVolumeSize(vr, volumeSize); err != nil {
-		return err
-	}
-
-	_, err := h.vmro.UpdateByStatus(vmr, vmrCpy)
-	return err
-}
-
-// findMatchingVolumeRestore finds the volume restore that matches the PVC namespace and name
-func (h *RestoreHandler) findMatchingVolumeRestore(
-	vmrCpy *harvesterv1.VirtualMachineRestore,
-	pvcNamespace, pvcName string,
-) *harvesterv1.VolumeRestore {
-	vrs := h.vmro.GetVolRestores(vmrCpy)
-
-	for i := range vrs {
-		vr := h.vmro.GetVolRestore(vmrCpy, i)
-
-		if h.vmro.GetVolRestorePVCNamespace(vr) == pvcNamespace &&
-			h.vmro.GetVolRestorePVCName(vr) == pvcName {
-			return vr
-		}
-	}
-
-	return nil
-}
-
 // VMOnChange watching the VM on change and enqueue the vmRestore if it has the restore annotation
 func (h *RestoreHandler) VMOnChange(_ string, vm *kubevirtv1.VirtualMachine) (*kubevirtv1.VirtualMachine, error) {
 	if vm == nil || vm.DeletionTimestamp != nil {
 		return nil, nil
 	}
 
-	restoreName, ok := vm.Annotations[restoreNameAnnotation]
+	restoreName, ok := vm.Annotations[restorecommon.RestoreNameAnnotation]
 	if !ok {
 		return nil, nil
 	}
@@ -641,7 +592,7 @@ func (h *RestoreHandler) setRestoreAnnotations(vm *kubevirtv1.VirtualMachine, vm
 		vm.Annotations = make(map[string]string)
 	}
 	vm.Annotations[lastRestoreAnnotation] = h.vmro.GetRestoreID(vmr)
-	vm.Annotations[restoreNameAnnotation] = h.vmro.GetName(vmr)
+	vm.Annotations[restorecommon.RestoreNameAnnotation] = h.vmro.GetName(vmr)
 	delete(vm.Annotations, util.AnnotationVolumeClaimTemplates)
 }
 
@@ -681,7 +632,15 @@ func (h *RestoreHandler) buildVMFromRestore(
 		return nil, err
 	}
 
-	defaultRunStrategy := h.getDefaultRunStrategy(vmr, sourceSpec)
+	// Create the VM Halted so KubeVirt doesn't spawn a VMI that races our
+	// per-volume restore Jobs for still-being-populated PVCs. For fast restore
+	// types (snapshot/longhorn) this is a no-op, but engines that write the
+	// volume out of band (restic/kopia) need the VM to wait until their Jobs
+	// have finished and the PVC is released — otherwise VirtLauncher attaches
+	// the PVC while the restore is mid-flight and the guest boots from
+	// inconsistent data. ensureVMStartedAndReady starts the VM via the /start
+	// subresource once isVolumesReady becomes true.
+	initialRunStrategy := kubevirtv1.RunStrategyHalted
 
 	vm := &kubevirtv1.VirtualMachine{
 		ObjectMeta: metav1.ObjectMeta{
@@ -690,7 +649,7 @@ func (h *RestoreHandler) buildVMFromRestore(
 			Annotations: vmAnnotations,
 		},
 		Spec: kubevirtv1.VirtualMachineSpec{
-			RunStrategy: &defaultRunStrategy,
+			RunStrategy: &initialRunStrategy,
 			Template: &kubevirtv1.VirtualMachineInstanceTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Annotations: specAnnotations,
@@ -722,8 +681,8 @@ func (h *RestoreHandler) buildVMAnnotations(
 	restoreName := h.vmro.GetName(vmr)
 
 	annotations := map[string]string{
-		lastRestoreAnnotation: restoreID,
-		restoreNameAnnotation: restoreName,
+		lastRestoreAnnotation:               restoreID,
+		restorecommon.RestoreNameAnnotation: restoreName,
 	}
 
 	// Preserve specific annotations from source VM
@@ -772,25 +731,22 @@ func (h *RestoreHandler) removeMacAddresses(vm *kubevirtv1.VirtualMachine) {
 	}
 }
 
+// updateStatus receives the original cache vmr plus the engine-mutated
+// vmrCpy. vmrCpy is the basis for any further status mutations and the "new"
+// side of operator Updates; vmr stays as the unmodified "old" side so diff
+// checks compare against actual etcd state.
 func (h *RestoreHandler) updateStatus(
 	vmr *harvesterv1.VirtualMachineRestore,
-	vmb *harvesterv1.VirtualMachineBackup,
+	vmrCpy *harvesterv1.VirtualMachineRestore,
 	vm *kubevirtv1.VirtualMachine,
 	isVolumesReady bool,
 ) error {
-	vmrCpy := vmr.DeepCopy()
-
-	// 1. Calculate and update progress metrics
-	if err := h.updateProgressMetrics(vmrCpy, vmb); err != nil {
-		return err
-	}
-
-	// 2. Wait for volumes if not ready
+	// Wait for volumes if not ready
 	if !isVolumesReady {
 		return h.handleVolumesNotReady(vmr, vmrCpy)
 	}
 
-	// 3. Ensure VM is started and ready
+	// Ensure VM is started and ready
 	if err := h.ensureVMStartedAndReady(vmr, vmrCpy, vm); err != nil {
 		return err
 	}
@@ -826,9 +782,10 @@ func (h *RestoreHandler) updateProgressMetrics(
 }
 
 // handleVolumesNotReady persists the "Creating new PVCs" progressing condition
-// and returns a non-nil error so the reconciler requeues. Without the error
-// return we would depend solely on PVC/Engine events to re-trigger reconcile,
-// which is brittle.
+// and schedules a fixed-interval re-reconcile so progress is sampled regularly
+// instead of through the workqueue's exponential backoff (which quickly grows
+// to multi-minute intervals during a long restore and leaves status.progress
+// stuck at its initial value until the Job's terminal event fires).
 func (h *RestoreHandler) handleVolumesNotReady(
 	vmr *harvesterv1.VirtualMachineRestore,
 	vmrCpy *harvesterv1.VirtualMachineRestore,
@@ -838,7 +795,8 @@ func (h *RestoreHandler) handleVolumesNotReady(
 	if _, err := h.vmro.Update(vmr, vmrCpy); err != nil {
 		return err
 	}
-	return fmt.Errorf("volumes for vmrestore %s/%s are not ready yet", vmr.Namespace, vmr.Name)
+	h.vmrController.EnqueueAfter(vmr.Namespace, vmr.Name, restoreProgressPoll)
+	return nil
 }
 
 // ensureVMStartedAndReady starts the VM if needed and waits for it to be ready.

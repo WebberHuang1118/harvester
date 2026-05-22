@@ -19,6 +19,7 @@ import (
 	// S3 Ref: https://github.com/longhorn/backupstore/blob/3912081eb7c5708f0027ebbb0da4934537eb9d72/s3/s3.go#L33-L37
 	_ "github.com/longhorn/backupstore/nfs" //nolint
 	_ "github.com/longhorn/backupstore/s3"  //nolint
+	ctlbatchv1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/batch/v1"
 	ctlcorev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
 	ctlstoragev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/storage/v1"
 	"github.com/sirupsen/logrus"
@@ -30,7 +31,9 @@ import (
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/backup/common"
 	"github.com/harvester/harvester/pkg/backup/engine"
+	backupkopia "github.com/harvester/harvester/pkg/backup/engine/kopia"
 	"github.com/harvester/harvester/pkg/backup/engine/longhorn"
+	backuprestic "github.com/harvester/harvester/pkg/backup/engine/restic"
 	"github.com/harvester/harvester/pkg/backup/engine/snapshot"
 	"github.com/harvester/harvester/pkg/config"
 	"github.com/harvester/harvester/pkg/generated/clientset/versioned/scheme"
@@ -43,9 +46,8 @@ import (
 )
 
 const (
-	backupControllerName         = "harvester-vm-backup-controller"
-	snapshotControllerName       = "volume-snapshot-controller"
-	longhornBackupControllerName = "longhorn-backup-controller"
+	backupControllerName   = "harvester-vm-backup-controller"
+	snapshotControllerName = "volume-snapshot-controller"
 
 	vmBackupKindName = "VirtualMachineBackup"
 
@@ -70,7 +72,14 @@ func RegisterBackup(ctx context.Context, management *config.Management, _ config
 	vmbo := newBackupOperator(controllers, restClient)
 
 	// Initialize backup engines
-	engines := newBackupEngines(controllers, vmbo)
+	engines := newBackupEngines(controllers, management, vmbo)
+
+	// Let each engine wire up its own informer event handlers (e.g. Job
+	// watchers) so engine-owned resource changes feed back into VMBackup
+	// reconciles immediately instead of waiting on poll/requeue.
+	for _, e := range engines {
+		e.RegisterWatchers(ctx, controllers.vmbs.Enqueue)
+	}
 
 	// Create and configure handler
 	handler := newBackupHandler(controllers, vmbo, engines)
@@ -95,6 +104,7 @@ type backupControllerSet struct {
 	vss            ctlsnapshotv1.VolumeSnapshotController
 	vscs           ctlsnapshotv1.VolumeSnapshotContentController
 	vsClasses      ctlsnapshotv1.VolumeSnapshotClassController
+	jobs           ctlbatchv1.JobController
 }
 
 // getBackupControllers extracts all required controllers from management
@@ -112,6 +122,7 @@ func getBackupControllers(management *config.Management) *backupControllerSet {
 		vss:            management.SnapshotFactory.Snapshot().V1().VolumeSnapshot(),
 		vscs:           management.SnapshotFactory.Snapshot().V1().VolumeSnapshotContent(),
 		vsClasses:      management.SnapshotFactory.Snapshot().V1().VolumeSnapshotClass(),
+		jobs:           management.BatchFactory.Batch().V1().Job(),
 	}
 }
 
@@ -149,6 +160,7 @@ func newBackupOperator(
 // newBackupEngines creates backup engines for different backup types
 func newBackupEngines(
 	controllers *backupControllerSet,
+	management *config.Management,
 	vmbo common.VMBackupOperator,
 ) map[harvesterv1.BackupType]engine.BackupEngine {
 	return map[harvesterv1.BackupType]engine.BackupEngine{
@@ -168,6 +180,33 @@ func newBackupEngines(
 			controllers.pvcs.Cache(),
 			controllers.storageClasses.Cache(),
 			controllers.lhbackups.Cache(),
+			controllers.lhbackups,
+			controllers.vmbs.Cache(),
+		),
+		harvesterv1.Restic: backuprestic.GetBackupEngine(
+			vmbo,
+			controllers.vss.Cache(),
+			controllers.vss,
+			controllers.pvcs.Cache(),
+			controllers.pvcs,
+			controllers.secrets.Cache(),
+			controllers.secrets,
+			controllers.storageClasses.Cache(),
+			controllers.jobs,
+			management.ClientSet,
+		),
+		harvesterv1.Kopia: backupkopia.GetBackupEngine(
+			vmbo,
+			controllers.vss.Cache(),
+			controllers.vss,
+			controllers.pvcs.Cache(),
+			controllers.pvcs,
+			controllers.secrets.Cache(),
+			controllers.secrets,
+			controllers.storageClasses.Cache(),
+			controllers.jobs.Cache(),
+			controllers.jobs,
+			management.ClientSet,
 		),
 	}
 }
@@ -189,12 +228,11 @@ func newBackupHandler(
 	}
 }
 
-// registerBackupEventHandlers registers all event handlers for the backup controller
+// registerBackupEventHandlers registers all event handlers for the backup controller.
 func registerBackupEventHandlers(ctx context.Context, controllers *backupControllerSet, handler *Handler) {
 	controllers.vmbs.OnChange(ctx, backupControllerName, handler.OnBackupChange)
 	controllers.vmbs.OnRemove(ctx, backupControllerName, handler.OnBackupRemove)
 	controllers.vss.OnChange(ctx, snapshotControllerName, handler.updateVolumeSnapshotChanged)
-	controllers.lhbackups.OnChange(ctx, longhornBackupControllerName, handler.OnLHBackupChanged)
 }
 
 type Handler struct {
@@ -285,9 +323,12 @@ func (h *Handler) OnBackupRemove(_ string, vmb *harvesterv1.VirtualMachineBackup
 		}
 	}
 
-	// Clean up volume backups if the backup target has changed since backup creation
-	// This ensures orphaned volume backups are removed when target configuration changes
-	if !h.vmbo.IsTargetConsistent(vmb, currentTarget) {
+	// Force-delete volume backups in two cases:
+	// 1) Target changed since creation — orphaned vol backups need cleanup
+	//    regardless of type (legacy behavior for native Backup).
+	// 2) The backup type owns remote state nothing else GCs for us (restic/
+	//    kopia), so the engine must always get a chance to forget remote data.
+	if !h.vmbo.IsTargetConsistent(vmb, currentTarget) || h.vmbo.GetType(vmb).OwnsExternalState() {
 		if err := h.forceDeleteVolBackups(vmb); err != nil {
 			return nil, fmt.Errorf("failed to delete volume backups: %w", err)
 		}
@@ -441,6 +482,7 @@ func (h *Handler) uploadVMBackupMetadata(vmb *harvesterv1.VirtualMachineBackup) 
 
 func (h *Handler) forceDeleteVolBackups(vmb *harvesterv1.VirtualMachineBackup) error {
 	backupEngine := h.getBackupEngine(vmb)
+
 	for i, vb := range h.vmbo.GetVolBackups(vmb) {
 		if h.vmbo.GetVolBackupName(&vb) == nil {
 			continue
@@ -454,7 +496,7 @@ func (h *Handler) forceDeleteVolBackups(vmb *harvesterv1.VirtualMachineBackup) e
 				"namespace":    h.vmbo.GetNamespace(vmb),
 				"backupType":   h.vmbo.GetType(vmb),
 			}).Warn("failed to force delete volume backup")
-			continue
+			return err
 		}
 	}
 	return nil
