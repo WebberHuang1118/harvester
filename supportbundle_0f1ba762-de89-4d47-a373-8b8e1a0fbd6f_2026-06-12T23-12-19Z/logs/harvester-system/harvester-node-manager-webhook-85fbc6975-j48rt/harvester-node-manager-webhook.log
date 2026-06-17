@@ -1,0 +1,12 @@
+2026-06-12T10:47:13.557368252Z time="2026-06-12T10:47:13Z" level=info msg="Active TLS secret harvester-system/harvester-node-manager-webhook-tls (ver=4925) (count 1): map[listener.cattle.io/cn-harvester-node-manager-webhook.har-ef92b8:harvester-node-manager-webhook.harvester-system.svc listener.cattle.io/fingerprint:SHA1=1D13AE2CD1D79FA0EF5F61FD23B819993352CEBB]"
+2026-06-12T10:47:13.559169186Z time="2026-06-12T10:47:13Z" level=info msg="Listening on :8443"
+2026-06-12T10:47:14.675089153Z time="2026-06-12T10:47:14Z" level=info msg="Starting apiregistration.k8s.io/v1, Kind=APIService controller"
+2026-06-12T10:47:14.675118569Z time="2026-06-12T10:47:14Z" level=info msg="Starting apiextensions.k8s.io/v1, Kind=CustomResourceDefinition controller"
+2026-06-12T10:47:14.675123256Z time="2026-06-12T10:47:14Z" level=info msg="Starting /v1, Kind=Secret controller"
+2026-06-12T10:47:14.675399238Z time="2026-06-12T10:47:14Z" level=info msg="Sleeping for 15 seconds then applying webhook config"
+2026-06-12T10:47:14.677563474Z time="2026-06-12T10:47:14Z" level=info msg="Updating TLS secret for harvester-system/harvester-node-manager-webhook-tls (count: 1): map[listener.cattle.io/cn-harvester-node-manager-webhook.har-ef92b8:harvester-node-manager-webhook.harvester-system.svc listener.cattle.io/fingerprint:SHA1=1D13AE2CD1D79FA0EF5F61FD23B819993352CEBB]"
+2026-06-12T11:02:37.280094138Z W0612 11:02:37.279939       1 gvks.go:80] Failed to read API for groups: map[custom.metrics.k8s.io/v1beta1:stale GroupVersion discovery: custom.metrics.k8s.io/v1beta1]
+2026-06-12T11:03:07.416336573Z W0612 11:03:07.416245       1 gvks.go:80] Failed to read API for groups: map[custom.metrics.k8s.io/v1beta1:stale GroupVersion discovery: custom.metrics.k8s.io/v1beta1]
+2026-06-12T11:05:24.528482906Z W0612 11:05:24.528401       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T20:47:13.863015074Z time="2026-06-12T20:47:13Z" level=info msg="Sleeping for 15 seconds then applying webhook config"
+2026-06-12T20:47:13.865194073Z time="2026-06-12T20:47:13Z" level=info msg="Updating TLS secret for harvester-system/harvester-node-manager-webhook-tls (count: 1): map[listener.cattle.io/cn-harvester-node-manager-webhook.har-ef92b8:harvester-node-manager-webhook.harvester-system.svc listener.cattle.io/fingerprint:SHA1=1D13AE2CD1D79FA0EF5F61FD23B819993352CEBB]"

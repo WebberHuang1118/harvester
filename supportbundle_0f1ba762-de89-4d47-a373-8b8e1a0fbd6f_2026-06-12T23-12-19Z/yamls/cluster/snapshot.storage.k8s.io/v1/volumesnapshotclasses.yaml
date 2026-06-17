@@ -1,0 +1,118 @@
+apiVersion: v1
+items:
+- apiVersion: snapshot.storage.k8s.io/v1
+  deletionPolicy: Delete
+  driver: driver.longhorn.io
+  kind: VolumeSnapshotClass
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: snapshot.storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:deletionPolicy: {}
+        f:driver: {}
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: longhorn
+    resourceVersion: "4650"
+    uid: 597d58cb-577f-4dba-a5e4-ebc57024663c
+- apiVersion: snapshot.storage.k8s.io/v1
+  deletionPolicy: Delete
+  driver: driver.longhorn.io
+  kind: VolumeSnapshotClass
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester
+      app.kubernetes.io/version: v1.8-d46887de
+      helm.sh/chart: harvester-0.0.0-v1.8-d46887de
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: snapshot.storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:deletionPolicy: {}
+        f:driver: {}
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:parameters:
+          f:type: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: longhorn-snapshot
+    resourceVersion: "4651"
+    uid: 559b5a62-0aa8-4dcd-9f26-b284b0a30587
+  parameters:
+    type: snap
+- apiVersion: snapshot.storage.k8s.io/v1
+  deletionPolicy: Delete
+  driver: lvm.driver.harvesterhci.io
+  kind: VolumeSnapshotClass
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester-csi-driver-lvm
+      meta.helm.sh/release-namespace: harvester-system
+    creationTimestamp: "2026-06-12T23:03:19Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: snapshot.storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:deletionPolicy: {}
+        f:driver: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T23:03:19Z"
+    name: lvm-snapshot
+    resourceVersion: "668778"
+    uid: df5a823a-6105-47d9-915f-fc289cd5b120
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676284"

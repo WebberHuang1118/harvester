@@ -1,0 +1,10 @@
+2026-06-12T10:42:52.365657831Z I0612 10:42:52.365342       1 apiserver.go:92] Note: increase the -v level in the api deployment for more detailed logging, eg. -v=2 or -v=3
+2026-06-12T10:42:52.366075285Z W0612 10:42:52.366010       1 client_config.go:659] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+2026-06-12T10:42:52.374361280Z I0612 10:42:52.373915       1 envvar.go:172] "Feature gate default state" feature="WatchListClient" enabled=false
+2026-06-12T10:42:52.374380805Z I0612 10:42:52.373947       1 envvar.go:172] "Feature gate default state" feature="InformerResourceVersion" enabled=false
+2026-06-12T10:42:52.574864456Z I0612 10:42:52.574771       1 certwatcher.go:126] Updated current TLS certificate
+2026-06-12T10:42:52.772846457Z I0612 10:42:52.772743       1 certwatcher.go:82] Starting certificate watcher
+2026-06-12T22:43:51.232587950Z I0612 22:43:51.232383       1 certwatcher.go:137] certificate eventevent"/var/run/certs/cdi-apiserver-server-cert/tls.crt": REMOVE
+2026-06-12T22:43:51.233068957Z I0612 22:43:51.232943       1 certwatcher.go:126] Updated current TLS certificate
+2026-06-12T22:43:51.233085705Z I0612 22:43:51.233013       1 certwatcher.go:137] certificate eventevent"/var/run/certs/cdi-apiserver-server-cert/tls.key": REMOVE
+2026-06-12T22:43:51.233536472Z I0612 22:43:51.233428       1 certwatcher.go:126] Updated current TLS certificate

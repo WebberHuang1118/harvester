@@ -1,0 +1,2065 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: DaemonSet
+  metadata:
+    annotations:
+      deprecated.daemonset.template.generation: "1"
+      meta.helm.sh/release-name: harvester-csi-driver-lvm
+      meta.helm.sh/release-namespace: harvester-system
+    creationTimestamp: "2026-06-12T23:03:19Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/instance: harvester-csi-driver-lvm
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-csi-driver-lvm
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-csi-driver-lvm-1.8.1-rc1
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:deprecated.daemonset.template.generation: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+        f:spec:
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app.kubernetes.io/component: {}
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/managed-by: {}
+                f:app.kubernetes.io/name: {}
+                f:app.kubernetes.io/version: {}
+                f:helm.sh/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"harvester-csi-driver-lvm-plugin"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"KUBE_NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":9898,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:privileged: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/csi"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/dev"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                    k:{"mountPath":"/etc/lvm/backup"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                    k:{"mountPath":"/etc/lvm/cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                    k:{"mountPath":"/lib/modules"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/run/lock/lvm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                    k:{"mountPath":"/var/lib/kubelet/plugins"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                    k:{"mountPath":"/var/lib/kubelet/pods"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                k:{"name":"liveness-probe"}:
+                  .: {}
+                  f:args: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/csi"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                k:{"name":"node-driver-registrar"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"KUBE_NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:privileged: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/csi"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/registration"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"dev-dir"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"lvmbackup"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"lvmcache"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"lvmlock"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"mod-dir"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"mountpoint-dir"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"plugins-dir"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"registration-dir"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"socket-dir"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:updateStrategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T23:03:19Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:currentNumberScheduled: {}
+          f:desiredNumberScheduled: {}
+          f:numberAvailable: {}
+          f:numberReady: {}
+          f:observedGeneration: {}
+          f:updatedNumberScheduled: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:03:30Z"
+    name: harvester-csi-driver-lvm-plugin
+    namespace: harvester-system
+    resourceVersion: "669057"
+    uid: 7d020bde-6acd-4ba5-b636-fe3f1b3a6415
+  spec:
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: harvester-csi-driver-lvm
+        app.kubernetes.io/name: harvester-csi-driver-lvm
+    template:
+      metadata:
+        labels:
+          app.kubernetes.io/component: storage
+          app.kubernetes.io/instance: harvester-csi-driver-lvm
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: harvester-csi-driver-lvm
+          app.kubernetes.io/version: v1.8.1-rc1
+          helm.sh/chart: harvester-csi-driver-lvm-1.8.1-rc1
+      spec:
+        containers:
+        - args:
+          - --v=5
+          - --csi-address=/csi/csi.sock
+          - --kubelet-registration-path=/var/lib/kubelet/plugins/lvm.driver.harvesterhci.io/csi.sock
+          env:
+          - name: KUBE_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          image: registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.9.2
+          imagePullPolicy: IfNotPresent
+          name: node-driver-registrar
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /termination.log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /csi
+            name: socket-dir
+          - mountPath: /registration
+            name: registration-dir
+        - args:
+          - --drivername=lvm.driver.harvesterhci.io
+          - --endpoint=unix:///csi/csi.sock
+          - --hostwritepath=/etc/lvm
+          - --nodeid=$(KUBE_NODE_NAME)
+          - --namespace=harvester-system
+          - --provisionerimage=rancher/harvester-lvm-provisioner:v1.8.1-rc1
+          - --pullpolicy=IfNotPresent
+          env:
+          - name: KUBE_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          image: rancher/harvester-lvm-csi-plugin:v1.8.1-rc1
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /healthz
+              port: healthz
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            successThreshold: 1
+            timeoutSeconds: 3
+          name: harvester-csi-driver-lvm-plugin
+          ports:
+          - containerPort: 9898
+            name: healthz
+            protocol: TCP
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /termination.log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /csi
+            name: socket-dir
+          - mountPath: /var/lib/kubelet/pods
+            mountPropagation: Bidirectional
+            name: mountpoint-dir
+          - mountPath: /var/lib/kubelet/plugins
+            mountPropagation: Bidirectional
+            name: plugins-dir
+          - mountPath: /dev
+            mountPropagation: Bidirectional
+            name: dev-dir
+          - mountPath: /lib/modules
+            name: mod-dir
+          - mountPath: /etc/lvm/backup
+            mountPropagation: Bidirectional
+            name: lvmbackup
+          - mountPath: /etc/lvm/cache
+            mountPropagation: Bidirectional
+            name: lvmcache
+          - mountPath: /run/lock/lvm
+            mountPropagation: Bidirectional
+            name: lvmlock
+        - args:
+          - --csi-address=/csi/csi.sock
+          - --health-port=9898
+          image: registry.k8s.io/sig-storage/livenessprobe:v2.12.0
+          imagePullPolicy: IfNotPresent
+          name: liveness-probe
+          resources: {}
+          terminationMessagePath: /termination.log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /csi
+            name: socket-dir
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester-csi-driver-lvm
+        serviceAccountName: harvester-csi-driver-lvm
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /var/lib/kubelet/plugins/lvm.driver.harvesterhci.io
+            type: DirectoryOrCreate
+          name: socket-dir
+        - hostPath:
+            path: /var/lib/kubelet/pods
+            type: DirectoryOrCreate
+          name: mountpoint-dir
+        - hostPath:
+            path: /var/lib/kubelet/plugins_registry
+            type: Directory
+          name: registration-dir
+        - hostPath:
+            path: /var/lib/kubelet/plugins
+            type: Directory
+          name: plugins-dir
+        - hostPath:
+            path: /dev
+            type: Directory
+          name: dev-dir
+        - hostPath:
+            path: /lib/modules
+            type: "null"
+          name: mod-dir
+        - hostPath:
+            path: /etc/lvm/backup
+            type: DirectoryOrCreate
+          name: lvmbackup
+        - hostPath:
+            path: /etc/lvm/cache
+            type: DirectoryOrCreate
+          name: lvmcache
+        - hostPath:
+            path: /etc/lvm/lock
+            type: DirectoryOrCreate
+          name: lvmlock
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
+      type: RollingUpdate
+  status:
+    currentNumberScheduled: 3
+    desiredNumberScheduled: 3
+    numberAvailable: 3
+    numberMisscheduled: 0
+    numberReady: 3
+    observedGeneration: 1
+    updatedNumberScheduled: 3
+- apiVersion: apps/v1
+  kind: DaemonSet
+  metadata:
+    annotations:
+      deprecated.daemonset.template.generation: "1"
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/component: network
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-network-controller
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-network-controller-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"harvester-network"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    k:{"name":"NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        f:fieldRef: {}
+                    k:{"name":"NODENAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    f:limits:
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    f:privileged: {}
+                  f:volumeMounts:
+                    k:{"mountPath":"/dev"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/lib/modules"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:hostNetwork: {}
+              f:serviceAccountName: {}
+              f:tolerations: {}
+              f:volumes:
+                k:{"name":"dev"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                  f:name: {}
+                k:{"name":"modules"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                  f:name: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:currentNumberScheduled: {}
+          f:desiredNumberScheduled: {}
+          f:numberAvailable: {}
+          f:numberReady: {}
+          f:observedGeneration: {}
+          f:updatedNumberScheduled: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:47:38Z"
+    name: harvester-network-controller
+    namespace: harvester-system
+    resourceVersion: "11970"
+    uid: 7a893459-7d11-4cd3-940a-b6edf670ec4c
+  spec:
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: harvester
+        app.kubernetes.io/name: harvester-network-controller
+    template:
+      metadata:
+        labels:
+          app.kubernetes.io/instance: harvester
+          app.kubernetes.io/name: harvester-network-controller
+      spec:
+        containers:
+        - args:
+          - agent
+          command:
+          - harvester-network-controller
+          env:
+          - name: NODENAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          image: rancher/harvester-network-controller:v1.8.1-rc1
+          imagePullPolicy: IfNotPresent
+          name: harvester-network
+          resources:
+            limits:
+              cpu: 100m
+              memory: 256Mi
+            requests:
+              cpu: 10m
+              memory: 64Mi
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /dev
+            name: dev
+          - mountPath: /lib/modules
+            name: modules
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester-network-controller
+        serviceAccountName: harvester-network-controller
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/master
+        volumes:
+        - hostPath:
+            path: /dev
+            type: "null"
+          name: dev
+        - hostPath:
+            path: /lib/modules
+            type: "null"
+          name: modules
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
+      type: RollingUpdate
+  status:
+    currentNumberScheduled: 3
+    desiredNumberScheduled: 3
+    numberAvailable: 3
+    numberMisscheduled: 0
+    numberReady: 3
+    observedGeneration: 1
+    updatedNumberScheduled: 3
+- apiVersion: apps/v1
+  kind: DaemonSet
+  metadata:
+    annotations:
+      deprecated.daemonset.template.generation: "1"
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-networkfs-manager
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-networkfs-manager-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"harvester-networkfs-manager"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    k:{"name":"LONGHORN_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    f:privileged: {}
+                  f:volumeMounts:
+                    k:{"mountPath":"/dev"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/host/proc"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/run/udev"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/sys"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+              f:hostNetwork: {}
+              f:serviceAccountName: {}
+              f:volumes:
+                k:{"name":"host-dev"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"host-proc"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"host-run-udev"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"host-sys"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:currentNumberScheduled: {}
+          f:desiredNumberScheduled: {}
+          f:numberAvailable: {}
+          f:numberReady: {}
+          f:observedGeneration: {}
+          f:updatedNumberScheduled: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:47:38Z"
+    name: harvester-networkfs-manager
+    namespace: harvester-system
+    resourceVersion: "11997"
+    uid: 84fa92a1-a459-4646-8a0f-ec89f69b91cf
+  spec:
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: harvester
+        app.kubernetes.io/name: harvester-networkfs-manager
+    template:
+      metadata:
+        labels:
+          app.kubernetes.io/instance: harvester
+          app.kubernetes.io/name: harvester-networkfs-manager
+      spec:
+        containers:
+        - command:
+          - networkfs-manager
+          env:
+          - name: LONGHORN_NAMESPACE
+            value: longhorn-system
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          image: rancher/harvester-networkfs-manager:v1.8.1-rc1
+          imagePullPolicy: IfNotPresent
+          name: harvester-networkfs-manager
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host/proc
+            name: host-proc
+            readOnly: true
+          - mountPath: /run/udev
+            name: host-run-udev
+            readOnly: true
+          - mountPath: /dev
+            name: host-dev
+            readOnly: true
+          - mountPath: /sys
+            name: host-sys
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester-networkfs-manager
+        serviceAccountName: harvester-networkfs-manager
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /proc
+            type: Directory
+          name: host-proc
+        - hostPath:
+            path: /run/udev
+            type: Directory
+          name: host-run-udev
+        - hostPath:
+            path: /dev
+            type: Directory
+          name: host-dev
+        - hostPath:
+            path: /sys
+            type: Directory
+          name: host-sys
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
+      type: RollingUpdate
+  status:
+    currentNumberScheduled: 3
+    desiredNumberScheduled: 3
+    numberAvailable: 3
+    numberMisscheduled: 0
+    numberReady: 3
+    observedGeneration: 1
+    updatedNumberScheduled: 3
+- apiVersion: apps/v1
+  kind: DaemonSet
+  metadata:
+    annotations:
+      deprecated.daemonset.template.generation: "1"
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-node-disk-manager
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-node-disk-manager-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"harvester-node-disk-manager"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    k:{"name":"LONGHORN_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NDM_LABEL_FILTER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    f:privileged: {}
+                  f:volumeMounts:
+                    k:{"mountPath":"/dev"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/host/proc"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/run/udev"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/sys"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+              f:hostNetwork: {}
+              f:serviceAccountName: {}
+              f:volumes:
+                k:{"name":"host-dev"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"host-proc"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"host-run-udev"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"host-sys"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:currentNumberScheduled: {}
+          f:desiredNumberScheduled: {}
+          f:numberAvailable: {}
+          f:numberReady: {}
+          f:observedGeneration: {}
+          f:updatedNumberScheduled: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:47:38Z"
+    name: harvester-node-disk-manager
+    namespace: harvester-system
+    resourceVersion: "11978"
+    uid: 9d434957-09c9-4d2c-a0be-d57e019cbdf6
+  spec:
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: harvester
+        app.kubernetes.io/name: harvester-node-disk-manager
+    template:
+      metadata:
+        labels:
+          app.kubernetes.io/instance: harvester
+          app.kubernetes.io/name: harvester-node-disk-manager
+      spec:
+        containers:
+        - command:
+          - node-disk-manager
+          env:
+          - name: NDM_LABEL_FILTER
+            value: COS_*,HARV_*
+          - name: LONGHORN_NAMESPACE
+            value: longhorn-system
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          image: rancher/harvester-node-disk-manager:v1.8.1-rc1
+          imagePullPolicy: IfNotPresent
+          name: harvester-node-disk-manager
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host/proc
+            name: host-proc
+            readOnly: true
+          - mountPath: /run/udev
+            name: host-run-udev
+            readOnly: true
+          - mountPath: /dev
+            name: host-dev
+            readOnly: true
+          - mountPath: /sys
+            name: host-sys
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester-node-disk-manager
+        serviceAccountName: harvester-node-disk-manager
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /proc
+            type: Directory
+          name: host-proc
+        - hostPath:
+            path: /run/udev
+            type: Directory
+          name: host-run-udev
+        - hostPath:
+            path: /dev
+            type: Directory
+          name: host-dev
+        - hostPath:
+            path: /sys
+            type: Directory
+          name: host-sys
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
+      type: RollingUpdate
+  status:
+    currentNumberScheduled: 3
+    desiredNumberScheduled: 3
+    numberAvailable: 3
+    numberMisscheduled: 0
+    numberReady: 3
+    observedGeneration: 1
+    updatedNumberScheduled: 3
+- apiVersion: apps/v1
+  kind: DaemonSet
+  metadata:
+    annotations:
+      deprecated.daemonset.template.generation: "1"
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/component: node-manager
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-node-manager
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-node-manager-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/name: {}
+                f:name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"node-manager"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    k:{"name":"HOST_PROC"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NODENAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    f:limits:
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    f:privileged: {}
+                  f:volumeMounts:
+                    k:{"mountPath":"/host/etc/systemd"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host/oem"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host/proc"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/lib/modules"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/sys/kernel/mm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/var/run/dbus/system_bus_socket"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+              f:serviceAccountName: {}
+              f:tolerations: {}
+              f:volumes:
+                k:{"name":"dbus-socket"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"host-oem"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"host-systemd"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"mm"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                  f:name: {}
+                k:{"name":"modules"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                  f:name: {}
+                k:{"name":"proc"}:
+                  .: {}
+                  f:hostPath:
+                    f:path: {}
+                  f:name: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:currentNumberScheduled: {}
+          f:desiredNumberScheduled: {}
+          f:numberAvailable: {}
+          f:numberReady: {}
+          f:observedGeneration: {}
+          f:updatedNumberScheduled: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:47:39Z"
+    name: harvester-node-manager
+    namespace: harvester-system
+    resourceVersion: "12020"
+    uid: be6f5e72-eaf7-4356-a535-490a61a910c2
+  spec:
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: harvester
+        app.kubernetes.io/name: harvester-node-manager
+    template:
+      metadata:
+        labels:
+          app.kubernetes.io/instance: harvester
+          app.kubernetes.io/name: harvester-node-manager
+          name: harvester-node-manager
+      spec:
+        containers:
+        - command:
+          - harvester-node-manager
+          env:
+          - name: NODENAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: HOST_PROC
+            value: /host/proc
+          image: rancher/harvester-node-manager:v1.8.1-rc1
+          imagePullPolicy: IfNotPresent
+          name: node-manager
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 64Mi
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /sys/kernel/mm
+            name: mm
+          - mountPath: /lib/modules
+            name: modules
+            readOnly: true
+          - mountPath: /host/proc
+            name: proc
+            readOnly: true
+          - mountPath: /var/run/dbus/system_bus_socket
+            name: dbus-socket
+            readOnly: true
+          - mountPath: /host/etc/systemd
+            name: host-systemd
+          - mountPath: /host/oem
+            name: host-oem
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester-node-manager
+        serviceAccountName: harvester-node-manager
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/master
+        - effect: NoExecute
+          operator: Exists
+        volumes:
+        - hostPath:
+            path: /sys/kernel/mm
+            type: "null"
+          name: mm
+        - hostPath:
+            path: /lib/modules
+            type: "null"
+          name: modules
+        - hostPath:
+            path: /proc
+            type: "null"
+          name: proc
+        - hostPath:
+            path: /var/run/dbus/system_bus_socket
+            type: "null"
+          name: dbus-socket
+        - hostPath:
+            path: /etc/systemd
+            type: "null"
+          name: host-systemd
+        - hostPath:
+            path: /oem
+            type: "null"
+          name: host-oem
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
+      type: RollingUpdate
+  status:
+    currentNumberScheduled: 3
+    desiredNumberScheduled: 3
+    numberAvailable: 3
+    numberMisscheduled: 0
+    numberReady: 3
+    observedGeneration: 1
+    updatedNumberScheduled: 3
+- apiVersion: apps/v1
+  kind: DaemonSet
+  metadata:
+    annotations:
+      deprecated.daemonset.template.generation: "1"
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"kube-vip"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    k:{"name":"cp_enable"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"enable_service_security"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"lb_enable"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"lb_port"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"prometheus_server"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"svc_election"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"svc_enable"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"vip_arp"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"vip_cidr"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"vip_interface"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"vip_leaderelection"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"vip_subnet"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    f:capabilities:
+                      f:add: {}
+                      f:drop: {}
+              f:hostNetwork: {}
+              f:nodeSelector: {}
+              f:serviceAccountName: {}
+              f:tolerations: {}
+          f:updateStrategy:
+            f:rollingUpdate:
+              f:maxUnavailable: {}
+            f:type: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:currentNumberScheduled: {}
+          f:desiredNumberScheduled: {}
+          f:numberAvailable: {}
+          f:numberReady: {}
+          f:observedGeneration: {}
+          f:updatedNumberScheduled: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:49:40Z"
+    name: kube-vip
+    namespace: harvester-system
+    resourceVersion: "15055"
+    uid: 22dce2ce-12ef-4829-ad0b-d4573ae2a8e3
+  spec:
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: harvester
+        app.kubernetes.io/name: kube-vip
+    template:
+      metadata:
+        labels:
+          app.kubernetes.io/instance: harvester
+          app.kubernetes.io/name: kube-vip
+      spec:
+        containers:
+        - args:
+          - manager
+          env:
+          - name: cp_enable
+            value: "false"
+          - name: enable_service_security
+            value: "true"
+          - name: lb_enable
+            value: "true"
+          - name: lb_port
+            value: "6443"
+          - name: prometheus_server
+            value: :2112
+          - name: svc_election
+            value: "false"
+          - name: svc_enable
+            value: "true"
+          - name: vip_arp
+            value: "true"
+          - name: vip_cidr
+            value: "32"
+          - name: vip_interface
+          - name: vip_leaderelection
+            value: "false"
+          - name: vip_subnet
+            value: "32"
+          image: rancher/mirrored-kube-vip-kube-vip-iptables:v1.0.4
+          imagePullPolicy: IfNotPresent
+          name: kube-vip
+          resources: {}
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+              - NET_RAW
+              drop:
+              - ALL
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        nodeSelector:
+          node-role.kubernetes.io/control-plane: "true"
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: kube-vip
+        serviceAccountName: kube-vip
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
+      type: RollingUpdate
+  status:
+    currentNumberScheduled: 3
+    desiredNumberScheduled: 3
+    numberAvailable: 3
+    numberMisscheduled: 0
+    numberReady: 3
+    observedGeneration: 1
+    updatedNumberScheduled: 3
+- apiVersion: apps/v1
+  kind: DaemonSet
+  metadata:
+    annotations:
+      deprecated.daemonset.template.generation: "1"
+      kubevirt.io/customizer-identifier: ed6c75fc7ef60740d09f9802c39ceb8c790d407e
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+    creationTimestamp: "2026-06-12T10:44:16Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      app.kubernetes.io/version: 1.7.0-150700.3.21.1
+      kubevirt.io: virt-handler
+      kubevirt.io/supports-migration-cn-types: "true"
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:currentNumberScheduled: {}
+          f:desiredNumberScheduled: {}
+          f:numberAvailable: {}
+          f:numberReady: {}
+          f:observedGeneration: {}
+          f:updatedNumberScheduled: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:48:30Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:deprecated.daemonset.template.generation: {}
+            f:kubevirt.io/customizer-identifier: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/version: {}
+            f:kubevirt.io: {}
+            f:kubevirt.io/supports-migration-cn-types: {}
+        f:spec:
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:kubevirt.io/install-strategy-identifier: {}
+                f:kubevirt.io/install-strategy-registry: {}
+                f:kubevirt.io/install-strategy-version: {}
+                f:openshift.io/required-scc: {}
+              f:labels:
+                .: {}
+                f:app.kubernetes.io/component: {}
+                f:app.kubernetes.io/managed-by: {}
+                f:app.kubernetes.io/version: {}
+                f:kubevirt.io: {}
+                f:np.kubevirt.io/allow-access-cluster-services: {}
+                f:prometheus.kubevirt.io: {}
+              f:name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"virt-handler"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"MY_POD_IP"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8443,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:privileged: {}
+                    f:seLinuxOptions:
+                      .: {}
+                      f:level: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/etc/podinfo"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/etc/virt-handler/migrationservercertificates"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/etc/virt-handler/servercertificates"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/etc/virt-handler/vsockclientcertificates"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/pods"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/profile-data"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/var/lib/kubelet"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                    k:{"mountPath":"/var/lib/kubevirt-node-labeller"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/var/run/kubevirt"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                    k:{"mountPath":"/var/run/kubevirt-libvirt-runtimes"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/var/run/kubevirt-private"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostPID: {}
+              f:initContainers:
+                .: {}
+                k:{"name":"virt-launcher"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:privileged: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/var/lib/kubevirt-node-labeller"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"kubelet"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"kubelet-pods"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"kubevirt-virt-handler-migration-client-certs"}:
+                  .: {}
+                  f:name: {}
+                  f:secret:
+                    .: {}
+                    f:defaultMode: {}
+                    f:optional: {}
+                    f:secretName: {}
+                k:{"name":"kubevirt-virt-handler-server-certs"}:
+                  .: {}
+                  f:name: {}
+                  f:secret:
+                    .: {}
+                    f:defaultMode: {}
+                    f:optional: {}
+                    f:secretName: {}
+                k:{"name":"kubevirt-virt-handler-vsock-client-certs"}:
+                  .: {}
+                  f:name: {}
+                  f:secret:
+                    .: {}
+                    f:defaultMode: {}
+                    f:optional: {}
+                    f:secretName: {}
+                k:{"name":"libvirt-runtimes"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"node-labeller"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"podinfo"}:
+                  .: {}
+                  f:downwardAPI:
+                    .: {}
+                    f:defaultMode: {}
+                    f:items: {}
+                  f:name: {}
+                k:{"name":"profile-data"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+                k:{"name":"virt-private-dir"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"virt-share-dir"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:updateStrategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:11:02Z"
+    name: virt-handler
+    namespace: harvester-system
+    resourceVersion: "154866"
+    uid: 8953a858-8b66-4051-a7a3-5317f64ffa0f
+  spec:
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        kubevirt.io: virt-handler
+    template:
+      metadata:
+        annotations:
+          kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+          kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+          kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+          openshift.io/required-scc: kubevirt-handler
+        labels:
+          app.kubernetes.io/component: kubevirt
+          app.kubernetes.io/managed-by: virt-operator
+          app.kubernetes.io/version: 1.7.0-150700.3.21.1
+          kubevirt.io: virt-handler
+          np.kubevirt.io/allow-access-cluster-services: "true"
+          prometheus.kubevirt.io: "true"
+        name: virt-handler
+      spec:
+        containers:
+        - args:
+          - --port
+          - "8443"
+          - --hostname-override
+          - $(NODE_NAME)
+          - --pod-ip-address
+          - $(MY_POD_IP)
+          - --max-metric-requests
+          - "3"
+          - --console-server-port
+          - "8186"
+          - --graceful-shutdown-seconds
+          - "315"
+          - -v
+          - "2"
+          - --migration-cn-types
+          - migration
+          command:
+          - virt-handler
+          env:
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: MY_POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          image: registry.suse.com/suse/sles/15.7/virt-handler:1.7.0-150700.3.21.1
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 8443
+              scheme: HTTPS
+            initialDelaySeconds: 15
+            periodSeconds: 45
+            successThreshold: 1
+            timeoutSeconds: 10
+          name: virt-handler
+          ports:
+          - containerPort: 8443
+            name: metrics
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 8443
+              scheme: HTTPS
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            successThreshold: 1
+            timeoutSeconds: 10
+          resources:
+            limits:
+              cpu: 700m
+              memory: 1600Mi
+            requests:
+              cpu: 10m
+              memory: 325Mi
+          securityContext:
+            privileged: true
+            seLinuxOptions:
+              level: s0
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: FallbackToLogsOnError
+          volumeMounts:
+          - mountPath: /etc/virt-handler/servercertificates
+            name: kubevirt-virt-handler-server-certs
+            readOnly: true
+          - mountPath: /etc/virt-handler/migrationservercertificates
+            name: kubevirt-virt-handler-migration-client-certs
+            readOnly: true
+          - mountPath: /etc/virt-handler/vsockclientcertificates
+            name: kubevirt-virt-handler-vsock-client-certs
+            readOnly: true
+          - mountPath: /profile-data
+            name: profile-data
+          - mountPath: /var/run/kubevirt-libvirt-runtimes
+            name: libvirt-runtimes
+          - mountPath: /var/run/kubevirt
+            mountPropagation: Bidirectional
+            name: virt-share-dir
+          - mountPath: /var/run/kubevirt-private
+            name: virt-private-dir
+          - mountPath: /pods
+            name: kubelet-pods
+          - mountPath: /var/lib/kubelet
+            mountPropagation: Bidirectional
+            name: kubelet
+          - mountPath: /var/lib/kubevirt-node-labeller
+            name: node-labeller
+          - mountPath: /etc/podinfo
+            name: podinfo
+        dnsPolicy: ClusterFirst
+        hostPID: true
+        initContainers:
+        - args:
+          - node-labeller.sh
+          command:
+          - /bin/sh
+          - -c
+          image: registry.suse.com/suse/sles/15.7/virt-launcher:1.7.0-150700.3.21.1
+          imagePullPolicy: IfNotPresent
+          name: virt-launcher
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: FallbackToLogsOnError
+          volumeMounts:
+          - mountPath: /var/lib/kubevirt-node-labeller
+            name: node-labeller
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: kubevirt-cluster-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: kubevirt-handler
+        serviceAccountName: kubevirt-handler
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        volumes:
+        - name: kubevirt-virt-handler-server-certs
+          secret:
+            defaultMode: 420
+            optional: true
+            secretName: kubevirt-virt-handler-server-certs
+        - name: kubevirt-virt-handler-migration-client-certs
+          secret:
+            defaultMode: 420
+            optional: true
+            secretName: kubevirt-virt-handler-migration-client-certs
+        - name: kubevirt-virt-handler-vsock-client-certs
+          secret:
+            defaultMode: 420
+            optional: true
+            secretName: kubevirt-virt-handler-vsock-client-certs
+        - emptyDir: {}
+          name: profile-data
+        - hostPath:
+            path: /var/run/kubevirt-libvirt-runtimes
+            type: "null"
+          name: libvirt-runtimes
+        - hostPath:
+            path: /var/run/kubevirt
+            type: "null"
+          name: virt-share-dir
+        - hostPath:
+            path: /var/run/kubevirt-private
+            type: "null"
+          name: virt-private-dir
+        - hostPath:
+            path: /var/lib/kubelet/pods
+            type: "null"
+          name: kubelet-pods
+        - hostPath:
+            path: /var/lib/kubelet
+            type: "null"
+          name: kubelet
+        - hostPath:
+            path: /var/lib/kubevirt-node-labeller
+            type: "null"
+          name: node-labeller
+        - downwardAPI:
+            defaultMode: 420
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.annotations['k8s.v1.cni.cncf.io/network-status']
+              path: network-status
+          name: podinfo
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
+      type: RollingUpdate
+  status:
+    currentNumberScheduled: 3
+    desiredNumberScheduled: 3
+    numberAvailable: 3
+    numberMisscheduled: 0
+    numberReady: 3
+    observedGeneration: 1
+    updatedNumberScheduled: 3
+kind: List
+metadata:
+  resourceVersion: "676447"

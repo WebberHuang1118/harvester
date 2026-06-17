@@ -1,0 +1,42 @@
+apiVersion: v1
+items:
+- apiVersion: network.harvesterhci.io/v1beta1
+  kind: ClusterNetwork
+  metadata:
+    annotations:
+      network.harvesterhci.io/vlan-id-set-str: "null"
+      network.harvesterhci.io/vlan-id-set-str-hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    creationTimestamp: "2026-06-12T10:42:54Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-network-manager-cn-controller
+    generation: 1
+    managedFields:
+    - apiVersion: network.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:network.harvesterhci.io/vlan-id-set-str: {}
+            f:network.harvesterhci.io/vlan-id-set-str-hash: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-network-manager-cn-controller"null: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester-network-controller
+      operation: Update
+      time: "2026-06-12T13:12:37Z"
+    name: mgmt
+    resourceVersion: "156601"
+    uid: 713f7e84-a776-4b74-a935-19cda3eef246
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:42:54Z"
+      status: "True"
+      type: ready
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676284"

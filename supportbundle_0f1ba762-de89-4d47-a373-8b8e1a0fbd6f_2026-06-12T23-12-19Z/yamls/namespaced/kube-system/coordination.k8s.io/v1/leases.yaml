@@ -1,0 +1,449 @@
+apiVersion: v1
+items:
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:38:50Z"
+    labels:
+      apiserver.kubernetes.io/identity: kube-apiserver
+      kubernetes.io/hostname: hp-117-tink-system
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:apiserver.kubernetes.io/identity: {}
+            f:kubernetes.io/hostname: {}
+        f:spec:
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:renewTime: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T23:12:21Z"
+    name: apiserver-2uudtwtutllvcxkbk7527aksma
+    namespace: kube-system
+    resourceVersion: "676249"
+    uid: de4da795-b5a1-45e0-9ba9-7bc00364039c
+  spec:
+    holderIdentity: apiserver-2uudtwtutllvcxkbk7527aksma_6cde3a21-e050-48ee-8218-b7e2a05624cf
+    leaseDurationSeconds: 3600
+    renewTime: "2026-06-12T23:12:21.365358Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:48:14Z"
+    labels:
+      apiserver.kubernetes.io/identity: kube-apiserver
+      kubernetes.io/hostname: hp-150-tink-system
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:apiserver.kubernetes.io/identity: {}
+            f:kubernetes.io/hostname: {}
+        f:spec:
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:renewTime: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T23:12:22Z"
+    name: apiserver-5gwgj7pmr46ruen6f466olbdaa
+    namespace: kube-system
+    resourceVersion: "676287"
+    uid: f5525796-a04d-4f4c-b28d-bef19945f7d3
+  spec:
+    holderIdentity: apiserver-5gwgj7pmr46ruen6f466olbdaa_0e396a7f-5115-4dae-ae9b-b369f32abfc5
+    leaseDurationSeconds: 3600
+    renewTime: "2026-06-12T23:12:22.971822Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:49:30Z"
+    labels:
+      apiserver.kubernetes.io/identity: kube-apiserver
+      kubernetes.io/hostname: hp-69-tink-system
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:apiserver.kubernetes.io/identity: {}
+            f:kubernetes.io/hostname: {}
+        f:spec:
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:renewTime: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T23:12:20Z"
+    name: apiserver-khe7yvyblorza44i22w5sn2emu
+    namespace: kube-system
+    resourceVersion: "676244"
+    uid: 5ea68346-5556-43b0-b8d8-db3e220170fe
+  spec:
+    holderIdentity: apiserver-khe7yvyblorza44i22w5sn2emu_e487b002-e1f1-48c5-b1dc-dee78d69fefe
+    leaseDurationSeconds: 3600
+    renewTime: "2026-06-12T23:12:20.879962Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:59Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T23:12:26Z"
+    name: cattle-controllers
+    namespace: kube-system
+    resourceVersion: "676335"
+    uid: f87eec06-65bf-4373-a613-f22e3e3977b6
+  spec:
+    acquireTime: "2026-06-12T10:45:19.411018Z"
+    holderIdentity: rancher-745fd84757-74w56
+    leaseDurationSeconds: 45
+    leaseTransitions: 1
+    renewTime: "2026-06-12T23:12:26.066402Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T23:12:26Z"
+    name: harvester-controllers
+    namespace: kube-system
+    resourceVersion: "676327"
+    uid: 28e773c9-211c-45e3-8dd3-7490ae815ee7
+  spec:
+    acquireTime: "2026-06-12T15:45:30.130515Z"
+    holderIdentity: harvester-6fd6f578f9-rdnfg
+    leaseDurationSeconds: 45
+    leaseTransitions: 1
+    renewTime: "2026-06-12T23:12:26.026990Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:45Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: harvester-load-balancer
+      operation: Update
+      time: "2026-06-12T23:12:26Z"
+    name: harvester-load-balancer
+    namespace: kube-system
+    resourceVersion: "676326"
+    uid: 36d34748-9747-4216-aa4d-23c2fb96c859
+  spec:
+    acquireTime: "2026-06-12T10:42:45.121835Z"
+    holderIdentity: harvester-load-balancer-7f84dcc4bf-4wkmf
+    leaseDurationSeconds: 45
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:26.017780Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:45Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: harvester-network-controller
+      operation: Update
+      time: "2026-06-12T23:12:25Z"
+    name: harvester-network-controllers
+    namespace: kube-system
+    resourceVersion: "676323"
+    uid: 2e44f865-2362-4c12-a45c-30a018a32814
+  spec:
+    acquireTime: "2026-06-12T10:42:45.348230Z"
+    holderIdentity: hp-117-tink-system
+    leaseDurationSeconds: 45
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:25.995697Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:38:59Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T23:12:26Z"
+    name: kube-controller-manager
+    namespace: kube-system
+    resourceVersion: "676338"
+    uid: 7382e23e-c415-486b-ae41-af0c77d9c14c
+  spec:
+    acquireTime: "2026-06-12T10:46:27.508892Z"
+    holderIdentity: hp-117-tink-system_0dd8211c-93d9-47a4-b889-6f8e7fd3fd4c
+    leaseDurationSeconds: 15
+    leaseTransitions: 1
+    renewTime: "2026-06-12T23:12:26.066382Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:38:59Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: kube-scheduler
+      operation: Update
+      time: "2026-06-12T23:12:26Z"
+    name: kube-scheduler
+    namespace: kube-system
+    resourceVersion: "676334"
+    uid: 361764e7-958b-4a5c-8622-0243a77ed3d8
+  spec:
+    acquireTime: "2026-06-12T10:46:11.763114Z"
+    holderIdentity: hp-117-tink-system_af7a256a-f715-417e-be00-d465a53b879c
+    leaseDurationSeconds: 15
+    leaseTransitions: 1
+    renewTime: "2026-06-12T23:12:26.065856Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:02Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: rke2-supervisor@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T23:12:26Z"
+    name: rke2
+    namespace: kube-system
+    resourceVersion: "676332"
+    uid: 31fc1ae4-8ec1-4a87-9d08-da1ba9ab938e
+  spec:
+    acquireTime: "2026-06-12T10:39:02.829730Z"
+    holderIdentity: hp-117-tink-system
+    leaseDurationSeconds: 45
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:26.063348Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:02Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: cloud-controller-manager
+      operation: Update
+      time: "2026-06-12T23:12:26Z"
+    name: rke2-cloud-controller-manager
+    namespace: kube-system
+    resourceVersion: "676339"
+    uid: 29be943d-a455-434c-bcb7-bd3eb9b58621
+  spec:
+    acquireTime: "2026-06-12T10:39:02.913063Z"
+    holderIdentity: hp-117-tink-system_933573db-5cb0-4463-a536-fa80bab02ce0
+    leaseDurationSeconds: 15
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:26.066486Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:02Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: rke2-supervisor@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T23:12:26Z"
+    name: rke2-etcd
+    namespace: kube-system
+    resourceVersion: "676330"
+    uid: 3d68799d-0f5b-4a5b-9ef3-baccdd388995
+  spec:
+    acquireTime: "2026-06-12T10:39:02.829660Z"
+    holderIdentity: hp-117-tink-system
+    leaseDurationSeconds: 45
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:26.056732Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:37Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: nginx-ingress-controller
+      operation: Update
+      time: "2026-06-12T23:12:22Z"
+    name: rke2-ingress-nginx-leader
+    namespace: kube-system
+    resourceVersion: "676285"
+    uid: e8b64f55-9a6d-4a5c-af5f-f652cffe91e4
+  spec:
+    acquireTime: "2026-06-12T10:45:00.821013Z"
+    holderIdentity: rke2-ingress-nginx-controller-wdtwk
+    leaseDurationSeconds: 30
+    leaseTransitions: 2
+    renewTime: "2026-06-12T23:12:22.772969Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:46Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: snapshot-controller
+      operation: Update
+      time: "2026-06-12T23:12:25Z"
+    name: snapshot-controller-leader
+    namespace: kube-system
+    resourceVersion: "676319"
+    uid: 1641f157-e09d-4a32-abe7-eca6eec3a113
+  spec:
+    acquireTime: "2026-06-12T10:42:46.383389Z"
+    holderIdentity: snapshot-controller-b996f9ff4-zc2z7
+    leaseDurationSeconds: 15
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:25.904100Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T15:28:08Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: vm-dhcp-controller
+      operation: Update
+      time: "2026-06-12T15:30:21Z"
+    name: vm-dhcp-controllers
+    namespace: kube-system
+    resourceVersion: "311386"
+    uid: 0c47de00-44aa-4f89-b0f4-be8f7fe47089
+  spec:
+    acquireTime: "2026-06-12T15:28:08.352611Z"
+    holderIdentity: harvester-vm-dhcp-controller-68cc84f5c6-fxxcn
+    leaseDurationSeconds: 45
+    leaseTransitions: 0
+    renewTime: "2026-06-12T15:30:21.108983Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T11:21:35Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: whereabouts
+      operation: Update
+      time: "2026-06-12T12:07:52Z"
+    name: whereabouts
+    namespace: kube-system
+    resourceVersion: "94573"
+    uid: 913e12f4-b00f-4609-a9fc-dec421cfcc43
+  spec:
+    acquireTime: "2026-06-12T12:07:52.891412Z"
+    holderIdentity: "null"
+    leaseDurationSeconds: 1
+    leaseTransitions: 39
+    renewTime: "2026-06-12T12:07:52.891412Z"
+kind: List
+metadata:
+  resourceVersion: "676340"

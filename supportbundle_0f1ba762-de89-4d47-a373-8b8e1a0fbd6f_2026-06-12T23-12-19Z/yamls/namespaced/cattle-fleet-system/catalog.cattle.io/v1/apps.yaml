@@ -1,0 +1,429 @@
+apiVersion: v1
+items:
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/7xXTW/jNhD9KwJ7rChLlleRBeTQZtEtWhQL7LY9tNnDiBpZjCmSICll00D/vaDk2PlwPpDYuZnUcN7MmzdD+pq06KACB6S4JiClcuC4ktYvVXmBzFl0keEqYuCcwIirGa9IQRoULQWtSfionbqUaOiqX5OCzPokDH7nsjr9isyge/aYhBZJQWwTeaTIoECwGPVJVAtEF/XZi1xYDcz7mb7R8Sy1V9ZhS4aQCChRjMkycCDU6pYTJjrr0FCDWt2EY0CyBg1lDRhnn4igAduQguQn1TLLSlYD5B/S+TItc0hYjFmOdQ15xk5gkeUnqY9lAzGGSKblU9GHZMzyC9ZoUDK0pPj3moDmf6OxXElSkD4hISmFYuvP3vQjCnTjlxqExZAwJZ1RQqAhhTMdhmTNpS/utkYvqkI3CqJKT+LF/ENCaxYv6SLLc1qmdUaX9SKHZb1cLJZLMnwbQmI1spFyT6L/8YQGH5YFOqcol9aBEDd0UWaq0xYca0i4r5JoHK85VrsK7rXD7xoNb1E68K49JXvtGl5VKJ+yWHcl0n5biPMujlM8DZIoTaOYxsG4wfw68+u9Pp4XwMMzypKCCC6773s/azQtd5buzMJLLit1afebG9XzCi1d9cYHMTWE3dR+Z9cnIHQDyV4nNy3zkI15lCxuszGPkg+PsrGRHr3TJUN4T/Bz4nf0bif2Pv1uhZYZrif9k1/88eBsq/+ABp+4+6xtAC74ykD4snI22jbOaVvMZlPPR5t8Rilai87OhFopO5tIsf2KPGjlXepJvIziaP5jpzeBDUM4jtJtxGlIuKyV1/7dkP/SKwMVBky1WqDzAdbcWPcRtVBXo7bn8TyjcUaT+Z9JXCziIs3/IX7IPWW1LOaptzII1Rj1D8HEzq8o2uDMJ30uz+W0x+2WJ1mNFhvOrOcs2pwkIbEOXOdVVt0Av2bCGbSqM4/Ptu24Mj1n+BNjqpPuHv/01pR7HnMIX4Gz4u5Clcfy7uWhtH2r+zMla776A/Tx+NkDsZbqUtJGWfeqBEwJLILONcrw/8ZbIVrndpo5t3CnwfRFjW37WHKHdL6p+CFd3pT57T5/5rLi8v4cOiwVDzAmRmi52T8Cwoagt0I8o5KjiXSvgN4J7Q0j5OVwz8vufeHfg+LHRHqgu2Dnt1WSO2W4XNEj3WpHus72pvB6BNDa3qnC9LDxb/bDCu9FQEfO4w1iKv2fobuj1Sj52zbYHUsCQXbal2T8o3uhyhcBfrv1rM2G3YPvmqjSoumx+oQSDUyv1zgktmtbMFekuB6G4f8AAAD//3rktTd4EAAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.fleet.v6
+      objectset.rio.cattle.io/owner-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:38Z"
+    generation: 12
+    labels:
+      catalog.cattle.io/cluster-repo-name: rancher-charts
+      objectset.rio.cattle.io/hash: 87d966bcfaa853293b8a1c0e68effa86c7a46873
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:catalog.cattle.io/cluster-repo-name: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"d3704251-fc09-4688-b3f6-9f48a9f94499"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:catalog.cattle.io/auto-install: {}
+                f:catalog.cattle.io/certified: {}
+                f:catalog.cattle.io/experimental: {}
+                f:catalog.cattle.io/hidden: {}
+                f:catalog.cattle.io/kube-version: {}
+                f:catalog.cattle.io/namespace: {}
+                f:catalog.cattle.io/os: {}
+                f:catalog.cattle.io/permits-os: {}
+                f:catalog.cattle.io/provides-gvr: {}
+                f:catalog.cattle.io/rancher-version: {}
+                f:catalog.cattle.io/release-name: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:icon: {}
+              f:name: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:readme: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:49:39Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:49:39Z"
+    name: fleet
+    namespace: cattle-fleet-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.fleet.v6
+      uid: d3704251-fc09-4688-b3f6-9f48a9f94499
+    resourceVersion: "15027"
+    uid: 4e035ed3-3500-43be-8d65-5b3703cdb0a2
+  spec:
+    chart:
+      metadata:
+        annotations:
+          catalog.cattle.io/auto-install: fleet-crd=match
+          catalog.cattle.io/certified: rancher
+          catalog.cattle.io/experimental: "true"
+          catalog.cattle.io/hidden: "true"
+          catalog.cattle.io/kube-version: '>= 1.33.0-0 < 1.36.0-0'
+          catalog.cattle.io/namespace: cattle-fleet-system
+          catalog.cattle.io/os: linux
+          catalog.cattle.io/permits-os: linux,windows
+          catalog.cattle.io/provides-gvr: clusters.fleet.cattle.io/v1alpha1
+          catalog.cattle.io/rancher-version: '>= 2.14.0-0 < 2.15.0-0'
+          catalog.cattle.io/release-name: fleet
+        apiVersion: v2
+        appVersion: 0.15.2
+        description: Fleet Controller - GitOps at Scale
+        icon: https://charts.rancher.io/assets/logos/fleet.svg
+        name: fleet
+        version: 109.0.2+up0.15.2
+    helmVersion: 3
+    info:
+      description: Upgrade complete
+      firstDeployed: "2026-06-12T10:40:38Z"
+      lastDeployed: "2026-06-12T10:49:23Z"
+      readme: |-
+        # Fleet Helm Chart
+
+        Fleet is GitOps and HelmOps at scale. Fleet is designed to manage multiple clusters.
+
+        ## What is Fleet?
+
+        * Cluster engine: Fleet is a container management and deployment engine designed to offer users more control on the local cluster and constant monitoring through GitOps. Fleet focuses not only on the ability to scale, but it also gives users a high degree of control and visibility to monitor exactly what is installed on the cluster.
+
+        * Deployment management: Fleet can manage deployments from git of raw Kubernetes YAML, Helm charts, Kustomize, or any combination of the three. Regardless of the source, all resources are dynamically turned into Helm charts, and Helm is used as the engine to deploy all resources in the cluster. As a result, users can enjoy a high degree of control, consistency, and auditability of their clusters.
+
+        ## Introduction
+
+        This chart deploys Fleet on a Kubernetes cluster. It also deploys some of its dependencies as subcharts.
+
+        The documentation is centralized in the [doc website](https://fleet.rancher.io/).
+
+        ## Prerequisites
+
+        Get helm if you don't have it. Helm 3 is just a CLI.
+
+
+        ## Install Fleet
+
+        Install the Fleet Helm charts (there are two because we separate out CRDs for ultimate flexibility.):
+
+        ```
+        $ helm repo add fleet https://rancher.github.io/fleet-helm-charts/
+        $ helm -n cattle-fleet-system install --create-namespace --wait fleet-crd fleet/fleet-crd
+        $ helm -n cattle-fleet-system install --create-namespace --wait fleet fleet/fleet
+        ```
+      status: deployed
+    name: fleet
+    namespace: cattle-fleet-system
+    resources:
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: fleet-controller
+      namespace: cattle-fleet-system
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: gitjob
+      namespace: cattle-fleet-system
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: helmops
+      namespace: cattle-fleet-system
+    - apiVersion: v1
+      kind: ConfigMap
+      name: fleet-controller
+      namespace: cattle-fleet-system
+    - apiVersion: v1
+      kind: ConfigMap
+      name: known-hosts
+      namespace: cattle-fleet-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: fleet-controller
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: gitjob
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: helmops
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: fleet-controller
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: gitjob-binding
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: helmops-binding
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: Role
+      name: fleet-controller
+      namespace: cattle-fleet-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: Role
+      name: gitjob
+      namespace: cattle-fleet-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: Role
+      name: helmops
+      namespace: cattle-fleet-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      name: fleet-controller
+      namespace: cattle-fleet-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      name: gitjob
+      namespace: cattle-fleet-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      name: helmops
+      namespace: cattle-fleet-system
+    - apiVersion: v1
+      kind: Service
+      name: monitoring-fleet-controller
+      namespace: cattle-fleet-system
+    - apiVersion: v1
+      kind: Service
+      name: gitjob
+      namespace: cattle-fleet-system
+    - apiVersion: v1
+      kind: Service
+      name: monitoring-gitjob
+      namespace: cattle-fleet-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: fleet-controller
+      namespace: cattle-fleet-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: gitjob
+      namespace: cattle-fleet-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: helmops
+      namespace: cattle-fleet-system
+    - apiVersion: batch/v1
+      kind: CronJob
+      name: fleet-cleanup-gitrepo-jobs
+      namespace: cattle-fleet-system
+    version: 6
+  status:
+    observedGeneration: 12
+    summary:
+      state: deployed
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/8RWyY7jNhD9FaNyjCRr8Sogp2lkQQ4BOkEOycyBpsoSY4okWCX3NBr694CSxp5k3AsCRHOTyCLfq/eqSD5BiywqwQLKJxDGWBasrKHwaw9/oWRCTryyiRTMGhNll6qCEhrUbSycg+jZOPtg0Mf1+QQlLM9ZtPhZmeq7X1F65FeXGdEilEBNEpASjxoFYXLOkqNG5Fj6Kjlnb9qGnJBhr3EuHtfTIzG20EegxQH1kLAULLStP9tE6o4YfezR2U+UvDCyQR/LRnimFxg0ghoo4SjEbrcpZJFt0mJb7Nbr1aZIt/kO91VWpOu8QKxW2T5wmSAuKcI49FIGEQyZ3uMRPRqJBOWfTyCc+h09KWughEGng7by9EsIvUONPMwchSaMQFrD3mqNHkr2HUZwUiaYfPHqzW50Q3Hk4rjNinUR77ebbbwSmzQ+5NU+Fpin65UU23Szgv5DHwE5lIP0Qczw8UI93rAHPaujwupqC0Q34hpVVRiUCNndjHhd5S/XWIIStDLdx5vTDn2rmOJrWPSgTGUf6Gb4pGn8RQn00b/czCGMuOtImmTrJIxWSNIrN5oL34ctFu86YtveI9nOS7zDozJqlDQCJYfAhtlRuVyOFZ1MSgZSggiZltrWlpYDpYTONdws1POFT5bukzTJv+3cxKzvo+HAuFAuIlDmaIOr/+T8kyEWWi+kbZ1GDmYdlSe+Q6ft42B0nuabON3EWf5blparrCx2f0Bo47dEeRTVwPybxSTP/d3iR9Tt4l1I/r15b16RbYyWjYAIiAV3wd7qE/B/7WE/Ad3oXuEUfmQ04ZeS046CMUOzTV36HNWrTYfOVBpHki0aprFtr9UHffR/oV5yb4VzytRzYs+DNV0StbedmxXRY62I/XhCfi1gtiecF30mMGt4tlapFYcnhkdir+R8fk6484CFG8DO1CGqFTWSFDPp6KxWUs103pBssOpunm4fPruGs/56QYXHPKE/Y/UDGhwbF8o0AuraVvhHKJ/6vv87AAD//5dZ6OAODAAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.fleet-crd.v1
+      objectset.rio.cattle.io/owner-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:41:39Z"
+    generation: 2
+    labels:
+      catalog.cattle.io/cluster-repo-name: rancher-charts
+      objectset.rio.cattle.io/hash: faa8863c31603738554630728e9d130523eed419
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:catalog.cattle.io/cluster-repo-name: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"2af71353-9767-4a60-b2d9-ae2054ca7064"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:catalog.cattle.io/certified: {}
+                f:catalog.cattle.io/hidden: {}
+                f:catalog.cattle.io/namespace: {}
+                f:catalog.cattle.io/os: {}
+                f:catalog.cattle.io/permits-os: {}
+                f:catalog.cattle.io/release-name: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:icon: {}
+              f:name: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:readme: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:41:40Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:41:40Z"
+    name: fleet-crd
+    namespace: cattle-fleet-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.fleet-crd.v1
+      uid: 2af71353-9767-4a60-b2d9-ae2054ca7064
+    resourceVersion: "2492"
+    uid: 7d77303f-bcb1-4e39-a1fd-f303888d08d0
+  spec:
+    chart:
+      metadata:
+        annotations:
+          catalog.cattle.io/certified: rancher
+          catalog.cattle.io/hidden: "true"
+          catalog.cattle.io/namespace: cattle-fleet-system
+          catalog.cattle.io/os: linux
+          catalog.cattle.io/permits-os: linux,windows
+          catalog.cattle.io/release-name: fleet-crd
+        apiVersion: v2
+        appVersion: 0.15.2
+        description: Fleet CustomResourceDefinitions
+        icon: https://charts.rancher.io/assets/logos/fleet.svg
+        name: fleet-crd
+        version: 109.0.2+up0.15.2
+    helmVersion: 3
+    info:
+      description: Install complete
+      firstDeployed: "2026-06-12T10:41:38Z"
+      lastDeployed: "2026-06-12T10:41:38Z"
+      readme: |
+        # Fleet CRD Helm Chart
+
+        Fleet CustomResourceDefinitions Helm chart is a requirement for the Fleet Helm Chart.
+
+        The Fleet documentation is centralized in the [doc website](https://fleet.rancher.io/).
+      status: deployed
+    name: fleet-crd
+    namespace: cattle-fleet-system
+    resources:
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: bundledeployments.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: bundlenamespacemappings.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: bundles.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: clustergroups.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: clusterregistrations.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: clusterregistrationtokens.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: clusters.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: contents.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: gitreporestrictions.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: gitrepos.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: helmops.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: imagescans.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: policies.fleet.cattle.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: schedules.fleet.cattle.io
+    version: 1
+  status:
+    observedGeneration: 2
+    summary:
+      state: deployed
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676393"

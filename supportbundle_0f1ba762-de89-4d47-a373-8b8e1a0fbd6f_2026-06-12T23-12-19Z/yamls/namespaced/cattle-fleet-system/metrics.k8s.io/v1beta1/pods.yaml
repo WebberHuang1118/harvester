@@ -1,0 +1,66 @@
+apiVersion: v1
+items:
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: fleet-agentmanagement
+    usage:
+      cpu: 1699673n
+      memory: 63120Ki
+  - name: fleet-cleanup
+    usage:
+      cpu: 932588n
+      memory: 50024Ki
+  - name: fleet-controller
+    usage:
+      cpu: 1012714n
+      memory: 78140Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:31Z"
+    labels:
+      app: fleet-controller
+      fleet.cattle.io/shard-default: "true"
+      fleet.cattle.io/shard-id: "null"
+      pod-template-hash: 58f99fb59b
+    name: fleet-controller-58f99fb59b-g8rnn
+    namespace: cattle-fleet-system
+  timestamp: "2026-06-12T23:12:05Z"
+  window: 11.64s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: gitjob
+    usage:
+      cpu: 567164n
+      memory: 49224Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:31Z"
+    labels:
+      app: gitjob
+      fleet.cattle.io/shard-default: "true"
+      fleet.cattle.io/shard-id: "null"
+      pod-template-hash: 59f544c44d
+    name: gitjob-59f544c44d-9vg5s
+    namespace: cattle-fleet-system
+  timestamp: "2026-06-12T23:12:04Z"
+  window: 13.132s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: helmops
+    usage:
+      cpu: 570043n
+      memory: 35624Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:31Z"
+    labels:
+      app: helmops
+      fleet.cattle.io/shard-default: "true"
+      fleet.cattle.io/shard-id: "null"
+      pod-template-hash: 65cdb6c4cc
+    name: helmops-65cdb6c4cc-92rdd
+    namespace: cattle-fleet-system
+  timestamp: "2026-06-12T23:12:11Z"
+  window: 10.215s
+kind: List
+metadata: {}

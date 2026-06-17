@@ -1,0 +1,1049 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:52Z"
+    finalizers:
+    - longhorn.io
+    - wrangler.cattle.io/harvester-ndm-node-handler
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:allowScheduling: {}
+          f:disks:
+            .: {}
+            f:default-disk-5447f0c30de8141:
+              .: {}
+              f:allowScheduling: {}
+              f:diskDriver: {}
+              f:diskType: {}
+              f:evictionRequested: {}
+              f:path: {}
+              f:storageReserved: {}
+              f:tags: {}
+          f:evictionRequested: {}
+          f:instanceManagerCPURequest: {}
+          f:name: {}
+          f:tags: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:42:52Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"wrangler.cattle.io/harvester-ndm-node-handler"null: {}
+      manager: node-disk-manager
+      operation: Update
+      time: "2026-06-12T10:43:22Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:autoEvicting: {}
+          f:conditions: {}
+          f:diskStatus:
+            .: {}
+            f:default-disk-5447f0c30de8141:
+              .: {}
+              f:conditions: {}
+              f:diskDriver: {}
+              f:diskName: {}
+              f:diskPath: {}
+              f:diskType: {}
+              f:diskUUID: {}
+              f:filesystemType: {}
+              f:healthData:
+                .: {}
+                f:default-disk-5447f0c30de8141:
+                  .: {}
+                  f:attributes: {}
+                  f:capacity: {}
+                  f:diskName: {}
+                  f:diskType: {}
+                  f:firmwareVersion: {}
+                  f:healthStatus: {}
+                  f:modelName: {}
+                  f:serialNumber: {}
+                  f:source: {}
+                  f:temperature: {}
+              f:healthDataLastCollectedAt: {}
+              f:instanceManagerName: {}
+              f:scheduledBackingImage:
+                .: {}
+                f:vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3: {}
+                f:vmi-05d29c48-b50e-46f1-ab5c-062661312daf: {}
+                f:vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f: {}
+                f:vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc: {}
+                f:vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383: {}
+                f:vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9: {}
+                f:vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6: {}
+                f:vmi-8c875d2b-a04a-4910-8d5b-8886193a1976: {}
+                f:vmi-8f50beba-f74e-4862-8b37-c371d9a61258: {}
+                f:vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da: {}
+                f:vmi-14ad7058-3d7c-458a-b57e-aa26484089e4: {}
+                f:vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad: {}
+                f:vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1: {}
+                f:vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d: {}
+                f:vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8: {}
+                f:vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b: {}
+                f:vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9: {}
+                f:vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b: {}
+                f:vmi-579c6004-6405-438c-a53a-44b36cdd4d53: {}
+                f:vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690: {}
+                f:vmi-719cfc1e-ca41-480b-95fc-5952c788060c: {}
+                f:vmi-5432d294-0053-48b2-a068-9e601a7682f9: {}
+                f:vmi-6250f35d-01cb-421e-95de-a51ccfb2134d: {}
+                f:vmi-62e8ef01-6b74-408f-a329-6550288ab4a6: {}
+                f:vmi-9389b375-93df-48cc-8a1c-7a505bce7abb: {}
+                f:vmi-9536b339-cd5f-42d0-b125-359af50add06: {}
+                f:vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410: {}
+                f:vmi-73081fc9-473f-4979-869d-68874d630056: {}
+                f:vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3: {}
+                f:vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332: {}
+                f:vmi-14259829-31ec-4a20-948a-b888a4fc4a90: {}
+                f:vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18: {}
+                f:vmi-a068016b-7eb4-4615-a627-d43820b6637a: {}
+                f:vmi-a97777bd-4d56-4bb0-ba70-0b6561531177: {}
+                f:vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad: {}
+                f:vmi-bded5314-5e37-4f33-84cd-a3e569747b56: {}
+                f:vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a: {}
+                f:vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54: {}
+                f:vmi-c6da5089-57c2-48ea-873b-77e3768ce594: {}
+                f:vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac: {}
+                f:vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec: {}
+                f:vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7: {}
+                f:vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5: {}
+                f:vmi-c3292732-b7df-4166-be52-7faaf0ec91c2: {}
+                f:vmi-defb5036-7caa-44fc-bed7-0b7518314131: {}
+                f:vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc: {}
+                f:vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0: {}
+                f:vmi-e23faa62-66d7-4028-b77b-02acefda5bd1: {}
+                f:vmi-f1f5d036-b108-49f0-aaa0-57212826afe4: {}
+                f:vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d: {}
+                f:vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98: {}
+                f:vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f: {}
+              f:scheduledReplica:
+                .: {}
+                f:pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-cc01ffbe: {}
+                f:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-4656c4fb: {}
+                f:pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-ae91467e: {}
+                f:pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-f19b544c: {}
+                f:pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-a929bc26: {}
+                f:pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-b0b0eab2: {}
+              f:storageAvailable: {}
+              f:storageMaximum: {}
+              f:storageScheduled: {}
+          f:region: {}
+          f:snapshotCheckStatus: {}
+          f:zone: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:03:22Z"
+    name: hp-117-tink-system
+    namespace: longhorn-system
+    resourceVersion: "668876"
+    uid: b8638d31-d056-4af7-8cc7-19bf75edbabf
+  spec:
+    allowScheduling: true
+    disks:
+      default-disk-5447f0c30de8141:
+        allowScheduling: true
+        diskDriver: "null"
+        diskType: filesystem
+        evictionRequested: false
+        path: /var/lib/harvester/defaultdisk
+        storageReserved: 0
+        tags: []
+    evictionRequested: false
+    instanceManagerCPURequest: 0
+    name: hp-117-tink-system
+    tags: []
+  status:
+    autoEvicting: false
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:52Z"
+      message: Node hp-117-tink-system is ready
+      reason: "null"
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:52Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Schedulable
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:52Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Multipathd
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:52Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: NFSClientInstalled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:52Z"
+      message: Kernel modules [dm_crypt] are loaded
+      reason: "null"
+      status: "True"
+      type: KernelModulesLoaded
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:43:22Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: MountPropagation
+    diskStatus:
+      default-disk-5447f0c30de8141:
+        conditions:
+        - lastProbeTime: "null"
+          lastTransitionTime: "2026-06-12T10:43:22Z"
+          message: Disk default-disk-5447f0c30de8141(/var/lib/harvester/defaultdisk)
+            on node hp-117-tink-system is ready
+          reason: "null"
+          status: "True"
+          type: Ready
+        - lastProbeTime: "null"
+          lastTransitionTime: "2026-06-12T10:43:22Z"
+          message: Disk default-disk-5447f0c30de8141(/var/lib/harvester/defaultdisk)
+            on node hp-117-tink-system is schedulable
+          reason: "null"
+          status: "True"
+          type: Schedulable
+        diskDriver: "null"
+        diskName: default-disk-5447f0c30de8141
+        diskPath: /var/lib/harvester/defaultdisk
+        diskType: filesystem
+        diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+        filesystemType: ext2/ext3
+        healthData:
+          default-disk-5447f0c30de8141:
+            attributes:
+            - name: CriticalWarning
+              rawValue: 0
+            - name: Temperature
+              rawValue: 40
+            - name: AvailableSpare
+              rawValue: 100
+            - name: AvailableSpareThreshold
+              rawValue: 10
+            - name: PercentageUsed
+              rawValue: 3
+            - name: DataUnitsRead
+              rawValue: 2.8348127e+07
+            - name: DataUnitsWritten
+              rawValue: 8.6578399e+07
+            - name: HostReads
+              rawValue: 1.398326093e+09
+            - name: HostWrites
+              rawValue: 1.824417679e+09
+            - name: ControllerBusyTime
+              rawValue: 12199
+            - name: PowerCycles
+              rawValue: 929
+            - name: PowerOnHours
+              rawValue: 2128
+            - name: UnsafeShutdowns
+              rawValue: 921
+            - name: MediaErrors
+              rawValue: 0
+            - name: NumErrLogEntries
+              rawValue: 0
+            - name: WarningTempTime
+              rawValue: 0
+            - name: CriticalCompTime
+              rawValue: 0
+            capacity: 2.000398934016e+12
+            diskName: /dev/nvme0
+            diskType: nvme
+            firmwareVersion: 4B2QEXM7
+            healthStatus: PASSED
+            modelName: Samsung SSD 970 EVO Plus 2TB
+            serialNumber: S6S2NS0TB28677H
+            source: SMART
+            temperature: 40
+        healthDataLastCollectedAt: "2026-06-12T23:03:22Z"
+        instanceManagerName: instance-manager-7742e04beb074c12e693076a0d1c6595
+        scheduledBackingImage:
+          vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3: 6.67357184e+08
+          vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383: 6.67357184e+08
+          vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9: 6.67357184e+08
+          vmi-05d29c48-b50e-46f1-ab5c-062661312daf: 6.67357184e+08
+          vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f: 6.67357184e+08
+          vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc: 6.67357184e+08
+          vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6: 6.67357184e+08
+          vmi-8c875d2b-a04a-4910-8d5b-8886193a1976: 6.67357184e+08
+          vmi-8f50beba-f74e-4862-8b37-c371d9a61258: 6.67357184e+08
+          vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da: 7.12626176e+08
+          vmi-14ad7058-3d7c-458a-b57e-aa26484089e4: 7.1337984e+08
+          vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad: 6.67357184e+08
+          vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1: 6.67357184e+08
+          vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d: 6.67357184e+08
+          vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8: 6.67353088e+08
+          vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b: 6.67353088e+08
+          vmi-62e8ef01-6b74-408f-a329-6550288ab4a6: 6.67357184e+08
+          vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9: 6.67353088e+08
+          vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b: 6.67357184e+08
+          vmi-579c6004-6405-438c-a53a-44b36cdd4d53: 7.13383936e+08
+          vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690: 6.67357184e+08
+          vmi-719cfc1e-ca41-480b-95fc-5952c788060c: 5.86407936e+08
+          vmi-5432d294-0053-48b2-a068-9e601a7682f9: 6.67357184e+08
+          vmi-6250f35d-01cb-421e-95de-a51ccfb2134d: 7.12630272e+08
+          vmi-9389b375-93df-48cc-8a1c-7a505bce7abb: 6.67357184e+08
+          vmi-9536b339-cd5f-42d0-b125-359af50add06: 0
+          vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410: 6.67357184e+08
+          vmi-73081fc9-473f-4979-869d-68874d630056: 6.67357184e+08
+          vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3: 6.67357184e+08
+          vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332: 7.13453568e+08
+          vmi-14259829-31ec-4a20-948a-b888a4fc4a90: 6.67357184e+08
+          vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18: 6.67357184e+08
+          vmi-a068016b-7eb4-4615-a627-d43820b6637a: 6.67357184e+08
+          vmi-a97777bd-4d56-4bb0-ba70-0b6561531177: 6.67353088e+08
+          vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad: 6.67357184e+08
+          vmi-bded5314-5e37-4f33-84cd-a3e569747b56: 6.67353088e+08
+          vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a: 6.67357184e+08
+          vmi-c6da5089-57c2-48ea-873b-77e3768ce594: 1.0737422336e+10
+          vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec: 6.67357184e+08
+          vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7: 6.67357184e+08
+          vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac: 7.13469952e+08
+          vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54: 6.67357184e+08
+          vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5: 6.67357184e+08
+          vmi-c3292732-b7df-4166-be52-7faaf0ec91c2: 6.67357184e+08
+          vmi-defb5036-7caa-44fc-bed7-0b7518314131: 6.67357184e+08
+          vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc: 6.67357184e+08
+          vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0: 6.67357184e+08
+          vmi-e23faa62-66d7-4028-b77b-02acefda5bd1: 6.67357184e+08
+          vmi-f1f5d036-b108-49f0-aaa0-57212826afe4: 6.67357184e+08
+          vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d: 6.67357184e+08
+          vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98: 6.67357184e+08
+          vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f: 6.67357184e+08
+        scheduledReplica:
+          pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-cc01ffbe: 1.073741824e+10
+          pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-4656c4fb: 1.073741824e+10
+          pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-ae91467e: 1.073741824e+10
+          pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-f19b544c: 2.147483648e+09
+          pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-a929bc26: 5.36870912e+09
+          pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-b0b0eab2: 5.36870912e+10
+        storageAvailable: 1.7387487232e+12
+        storageMaximum: 1.78488666112e+12
+        storageScheduled: 1.37714651136e+11
+    region: "null"
+    snapshotCheckStatus: {}
+    zone: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:32Z"
+    finalizers:
+    - longhorn.io
+    - wrangler.cattle.io/harvester-ndm-node-handler
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:allowScheduling: {}
+          f:disks:
+            .: {}
+            f:default-disk-7febdfa31a4567e3:
+              .: {}
+              f:allowScheduling: {}
+              f:diskDriver: {}
+              f:diskType: {}
+              f:evictionRequested: {}
+              f:path: {}
+              f:storageReserved: {}
+              f:tags: {}
+          f:evictionRequested: {}
+          f:instanceManagerCPURequest: {}
+          f:name: {}
+          f:tags: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:47:32Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"wrangler.cattle.io/harvester-ndm-node-handler"null: {}
+      manager: node-disk-manager
+      operation: Update
+      time: "2026-06-12T10:48:02Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:autoEvicting: {}
+          f:conditions: {}
+          f:diskStatus:
+            .: {}
+            f:default-disk-7febdfa31a4567e3:
+              .: {}
+              f:conditions: {}
+              f:diskDriver: {}
+              f:diskName: {}
+              f:diskPath: {}
+              f:diskType: {}
+              f:diskUUID: {}
+              f:filesystemType: {}
+              f:healthData:
+                .: {}
+                f:default-disk-7febdfa31a4567e3:
+                  .: {}
+                  f:attributes: {}
+                  f:capacity: {}
+                  f:diskName: {}
+                  f:diskType: {}
+                  f:firmwareVersion: {}
+                  f:healthStatus: {}
+                  f:modelName: {}
+                  f:serialNumber: {}
+                  f:source: {}
+                  f:temperature: {}
+              f:healthDataLastCollectedAt: {}
+              f:instanceManagerName: {}
+              f:scheduledBackingImage:
+                .: {}
+                f:vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3: {}
+                f:vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f: {}
+                f:vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383: {}
+                f:vmi-05d29c48-b50e-46f1-ab5c-062661312daf: {}
+                f:vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc: {}
+                f:vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9: {}
+                f:vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6: {}
+                f:vmi-8c875d2b-a04a-4910-8d5b-8886193a1976: {}
+                f:vmi-8f50beba-f74e-4862-8b37-c371d9a61258: {}
+                f:vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da: {}
+                f:vmi-14ad7058-3d7c-458a-b57e-aa26484089e4: {}
+                f:vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad: {}
+                f:vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1: {}
+                f:vmi-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10: {}
+                f:vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d: {}
+                f:vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8: {}
+                f:vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b: {}
+                f:vmi-62e8ef01-6b74-408f-a329-6550288ab4a6: {}
+                f:vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9: {}
+                f:vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b: {}
+                f:vmi-579c6004-6405-438c-a53a-44b36cdd4d53: {}
+                f:vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690: {}
+                f:vmi-719cfc1e-ca41-480b-95fc-5952c788060c: {}
+                f:vmi-5432d294-0053-48b2-a068-9e601a7682f9: {}
+                f:vmi-6250f35d-01cb-421e-95de-a51ccfb2134d: {}
+                f:vmi-9389b375-93df-48cc-8a1c-7a505bce7abb: {}
+                f:vmi-9536b339-cd5f-42d0-b125-359af50add06: {}
+                f:vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410: {}
+                f:vmi-73081fc9-473f-4979-869d-68874d630056: {}
+                f:vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3: {}
+                f:vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332: {}
+                f:vmi-14259829-31ec-4a20-948a-b888a4fc4a90: {}
+                f:vmi-a8fae03d-196b-4c73-a4d0-72ed8f8277a4: {}
+                f:vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18: {}
+                f:vmi-a068016b-7eb4-4615-a627-d43820b6637a: {}
+                f:vmi-a97777bd-4d56-4bb0-ba70-0b6561531177: {}
+                f:vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad: {}
+                f:vmi-bded5314-5e37-4f33-84cd-a3e569747b56: {}
+                f:vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a: {}
+                f:vmi-c1cb70e9-9fac-462e-877b-d2989ad33632: {}
+                f:vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac: {}
+                f:vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec: {}
+                f:vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7: {}
+                f:vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54: {}
+                f:vmi-c6da5089-57c2-48ea-873b-77e3768ce594: {}
+                f:vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5: {}
+                f:vmi-c3292732-b7df-4166-be52-7faaf0ec91c2: {}
+                f:vmi-c9986734-3742-4785-97ee-dee8c9d21ff0: {}
+                f:vmi-defb5036-7caa-44fc-bed7-0b7518314131: {}
+                f:vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc: {}
+                f:vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0: {}
+                f:vmi-e23faa62-66d7-4028-b77b-02acefda5bd1: {}
+                f:vmi-f1f5d036-b108-49f0-aaa0-57212826afe4: {}
+                f:vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d: {}
+                f:vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98: {}
+                f:vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f: {}
+              f:scheduledReplica:
+                .: {}
+                f:pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-6ec8cdbf: {}
+                f:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-8b69be68: {}
+                f:pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-389c6264: {}
+                f:pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-d4a02328: {}
+                f:pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-a2c5f104: {}
+                f:pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-a7716dbe: {}
+              f:storageAvailable: {}
+              f:storageMaximum: {}
+              f:storageScheduled: {}
+          f:region: {}
+          f:snapshotCheckStatus: {}
+          f:zone: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:08:02Z"
+    name: hp-150-tink-system
+    namespace: longhorn-system
+    resourceVersion: "672650"
+    uid: 88ae7910-2741-4c31-930e-08a18052e27a
+  spec:
+    allowScheduling: true
+    disks:
+      default-disk-7febdfa31a4567e3:
+        allowScheduling: true
+        diskDriver: "null"
+        diskType: filesystem
+        evictionRequested: false
+        path: /var/lib/harvester/defaultdisk
+        storageReserved: 0
+        tags: []
+    evictionRequested: false
+    instanceManagerCPURequest: 0
+    name: hp-150-tink-system
+    tags: []
+  status:
+    autoEvicting: false
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:47:34Z"
+      message: Node hp-150-tink-system is ready
+      reason: "null"
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:30Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Schedulable
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:47:32Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Multipathd
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:47:32Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: NFSClientInstalled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:47:32Z"
+      message: Kernel modules [dm_crypt] are loaded
+      reason: "null"
+      status: "True"
+      type: KernelModulesLoaded
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:02Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: MountPropagation
+    diskStatus:
+      default-disk-7febdfa31a4567e3:
+        conditions:
+        - lastProbeTime: "null"
+          lastTransitionTime: "2026-06-12T10:48:02Z"
+          message: Disk default-disk-7febdfa31a4567e3(/var/lib/harvester/defaultdisk)
+            on node hp-150-tink-system is ready
+          reason: "null"
+          status: "True"
+          type: Ready
+        - lastProbeTime: "null"
+          lastTransitionTime: "2026-06-12T10:48:02Z"
+          message: Disk default-disk-7febdfa31a4567e3(/var/lib/harvester/defaultdisk)
+            on node hp-150-tink-system is schedulable
+          reason: "null"
+          status: "True"
+          type: Schedulable
+        diskDriver: "null"
+        diskName: default-disk-7febdfa31a4567e3
+        diskPath: /var/lib/harvester/defaultdisk
+        diskType: filesystem
+        diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+        filesystemType: ext2/ext3
+        healthData:
+          default-disk-7febdfa31a4567e3:
+            attributes:
+            - name: CriticalWarning
+              rawValue: 0
+            - name: Temperature
+              rawValue: 37
+            - name: AvailableSpare
+              rawValue: 100
+            - name: AvailableSpareThreshold
+              rawValue: 10
+            - name: PercentageUsed
+              rawValue: 2
+            - name: DataUnitsRead
+              rawValue: 7.499285e+06
+            - name: DataUnitsWritten
+              rawValue: 4.7086975e+07
+            - name: HostReads
+              rawValue: 2.1443703e+07
+            - name: HostWrites
+              rawValue: 4.72285594e+08
+            - name: ControllerBusyTime
+              rawValue: 8963
+            - name: PowerCycles
+              rawValue: 1436
+            - name: PowerOnHours
+              rawValue: 14635
+            - name: UnsafeShutdowns
+              rawValue: 1429
+            - name: MediaErrors
+              rawValue: 0
+            - name: NumErrLogEntries
+              rawValue: 0
+            - name: WarningTempTime
+              rawValue: 0
+            - name: CriticalCompTime
+              rawValue: 0
+            capacity: 2.000398934016e+12
+            diskName: /dev/nvme0
+            diskType: nvme
+            firmwareVersion: 4B2QEXM7
+            healthStatus: PASSED
+            modelName: Samsung SSD 970 EVO Plus 2TB
+            serialNumber: S6S2NS0TC11169D
+            source: SMART
+            temperature: 37
+        healthDataLastCollectedAt: "2026-06-12T23:08:02Z"
+        instanceManagerName: instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5
+        scheduledBackingImage:
+          vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3: 6.67357184e+08
+          vmi-05d29c48-b50e-46f1-ab5c-062661312daf: 6.67357184e+08
+          vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f: 6.67357184e+08
+          vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc: 6.67357184e+08
+          vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383: 6.67357184e+08
+          vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9: 6.67357184e+08
+          vmi-8c875d2b-a04a-4910-8d5b-8886193a1976: 6.67357184e+08
+          vmi-8f50beba-f74e-4862-8b37-c371d9a61258: 6.67357184e+08
+          vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da: 7.12626176e+08
+          vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad: 6.67357184e+08
+          vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1: 6.67357184e+08
+          vmi-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10: 0
+          vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d: 6.67357184e+08
+          vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8: 6.67353088e+08
+          vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b: 6.67353088e+08
+          vmi-62e8ef01-6b74-408f-a329-6550288ab4a6: 6.67357184e+08
+          vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9: 6.67353088e+08
+          vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b: 6.67357184e+08
+          vmi-579c6004-6405-438c-a53a-44b36cdd4d53: 7.13383936e+08
+          vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690: 6.67357184e+08
+          vmi-719cfc1e-ca41-480b-95fc-5952c788060c: 5.86407936e+08
+          vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6: 6.67357184e+08
+          vmi-5432d294-0053-48b2-a068-9e601a7682f9: 6.67357184e+08
+          vmi-6250f35d-01cb-421e-95de-a51ccfb2134d: 7.12630272e+08
+          vmi-9389b375-93df-48cc-8a1c-7a505bce7abb: 6.67357184e+08
+          vmi-9536b339-cd5f-42d0-b125-359af50add06: 0
+          vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410: 6.67357184e+08
+          vmi-73081fc9-473f-4979-869d-68874d630056: 6.67357184e+08
+          vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3: 6.67357184e+08
+          vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332: 7.13453568e+08
+          vmi-14259829-31ec-4a20-948a-b888a4fc4a90: 6.67357184e+08
+          vmi-14ad7058-3d7c-458a-b57e-aa26484089e4: 7.1337984e+08
+          vmi-a8fae03d-196b-4c73-a4d0-72ed8f8277a4: 0
+          vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18: 6.67357184e+08
+          vmi-a068016b-7eb4-4615-a627-d43820b6637a: 6.67357184e+08
+          vmi-a97777bd-4d56-4bb0-ba70-0b6561531177: 6.67353088e+08
+          vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad: 6.67357184e+08
+          vmi-bded5314-5e37-4f33-84cd-a3e569747b56: 6.67353088e+08
+          vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a: 6.67357184e+08
+          vmi-c1cb70e9-9fac-462e-877b-d2989ad33632: 0
+          vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec: 6.67357184e+08
+          vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7: 6.67357184e+08
+          vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54: 6.67357184e+08
+          vmi-c6da5089-57c2-48ea-873b-77e3768ce594: 1.0737422336e+10
+          vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac: 7.13469952e+08
+          vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5: 6.67357184e+08
+          vmi-c3292732-b7df-4166-be52-7faaf0ec91c2: 6.67357184e+08
+          vmi-c9986734-3742-4785-97ee-dee8c9d21ff0: 0
+          vmi-defb5036-7caa-44fc-bed7-0b7518314131: 6.67357184e+08
+          vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc: 6.67357184e+08
+          vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0: 6.67357184e+08
+          vmi-e23faa62-66d7-4028-b77b-02acefda5bd1: 6.67357184e+08
+          vmi-f1f5d036-b108-49f0-aaa0-57212826afe4: 6.67357184e+08
+          vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d: 6.67357184e+08
+          vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98: 6.67357184e+08
+          vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f: 6.67357184e+08
+        scheduledReplica:
+          pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-6ec8cdbf: 1.073741824e+10
+          pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-8b69be68: 1.073741824e+10
+          pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-389c6264: 1.073741824e+10
+          pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-d4a02328: 2.147483648e+09
+          pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-a2c5f104: 5.36870912e+09
+          pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-a7716dbe: 5.36870912e+10
+        storageAvailable: 1.731198976e+12
+        storageMaximum: 1.78488666112e+12
+        storageScheduled: 1.37714651136e+11
+    region: "null"
+    snapshotCheckStatus: {}
+    zone: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:38Z"
+    finalizers:
+    - longhorn.io
+    - wrangler.cattle.io/harvester-ndm-node-handler
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:allowScheduling: {}
+          f:disks:
+            .: {}
+            f:default-disk-4b66abe09770603e:
+              .: {}
+              f:allowScheduling: {}
+              f:diskDriver: {}
+              f:diskType: {}
+              f:evictionRequested: {}
+              f:path: {}
+              f:storageReserved: {}
+              f:tags: {}
+          f:evictionRequested: {}
+          f:instanceManagerCPURequest: {}
+          f:name: {}
+          f:tags: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:47:38Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"wrangler.cattle.io/harvester-ndm-node-handler"null: {}
+      manager: node-disk-manager
+      operation: Update
+      time: "2026-06-12T10:48:08Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:autoEvicting: {}
+          f:conditions: {}
+          f:diskStatus:
+            .: {}
+            f:default-disk-4b66abe09770603e:
+              .: {}
+              f:conditions: {}
+              f:diskDriver: {}
+              f:diskName: {}
+              f:diskPath: {}
+              f:diskType: {}
+              f:diskUUID: {}
+              f:filesystemType: {}
+              f:healthData:
+                .: {}
+                f:default-disk-4b66abe09770603e:
+                  .: {}
+                  f:attributes: {}
+                  f:capacity: {}
+                  f:diskName: {}
+                  f:diskType: {}
+                  f:firmwareVersion: {}
+                  f:healthStatus: {}
+                  f:modelName: {}
+                  f:serialNumber: {}
+                  f:source: {}
+                  f:temperature: {}
+              f:healthDataLastCollectedAt: {}
+              f:instanceManagerName: {}
+              f:scheduledBackingImage:
+                .: {}
+                f:vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3: {}
+                f:vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f: {}
+                f:vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc: {}
+                f:vmi-2c46a0a6-2b99-4cf3-8d14-f7c6c204df33: {}
+                f:vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8: {}
+                f:vmi-49ce3af7-bb03-4ce3-9c63-7e40b18c441c: {}
+                f:vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383: {}
+                f:vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9: {}
+                f:vmi-05d29c48-b50e-46f1-ab5c-062661312daf: {}
+                f:vmi-8c875d2b-a04a-4910-8d5b-8886193a1976: {}
+                f:vmi-8f50beba-f74e-4862-8b37-c371d9a61258: {}
+                f:vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da: {}
+                f:vmi-14ad7058-3d7c-458a-b57e-aa26484089e4: {}
+                f:vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad: {}
+                f:vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1: {}
+                f:vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d: {}
+                f:vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b: {}
+                f:vmi-62e8ef01-6b74-408f-a329-6550288ab4a6: {}
+                f:vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9: {}
+                f:vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b: {}
+                f:vmi-579c6004-6405-438c-a53a-44b36cdd4d53: {}
+                f:vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690: {}
+                f:vmi-719cfc1e-ca41-480b-95fc-5952c788060c: {}
+                f:vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6: {}
+                f:vmi-5432d294-0053-48b2-a068-9e601a7682f9: {}
+                f:vmi-6250f35d-01cb-421e-95de-a51ccfb2134d: {}
+                f:vmi-9389b375-93df-48cc-8a1c-7a505bce7abb: {}
+                f:vmi-9536b339-cd5f-42d0-b125-359af50add06: {}
+                f:vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410: {}
+                f:vmi-73081fc9-473f-4979-869d-68874d630056: {}
+                f:vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3: {}
+                f:vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332: {}
+                f:vmi-14259829-31ec-4a20-948a-b888a4fc4a90: {}
+                f:vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18: {}
+                f:vmi-a068016b-7eb4-4615-a627-d43820b6637a: {}
+                f:vmi-a97777bd-4d56-4bb0-ba70-0b6561531177: {}
+                f:vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad: {}
+                f:vmi-bded5314-5e37-4f33-84cd-a3e569747b56: {}
+                f:vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a: {}
+                f:vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac: {}
+                f:vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec: {}
+                f:vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54: {}
+                f:vmi-c6da5089-57c2-48ea-873b-77e3768ce594: {}
+                f:vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7: {}
+                f:vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5: {}
+                f:vmi-c3292732-b7df-4166-be52-7faaf0ec91c2: {}
+                f:vmi-cb75375e-1921-45c9-b0f8-25387c5512a9: {}
+                f:vmi-defb5036-7caa-44fc-bed7-0b7518314131: {}
+                f:vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc: {}
+                f:vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0: {}
+                f:vmi-e23faa62-66d7-4028-b77b-02acefda5bd1: {}
+                f:vmi-f1f5d036-b108-49f0-aaa0-57212826afe4: {}
+                f:vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d: {}
+                f:vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98: {}
+                f:vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f: {}
+              f:scheduledReplica:
+                .: {}
+                f:pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-d000aad9: {}
+                f:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-df266d46: {}
+                f:pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-162cf65c: {}
+                f:pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-fd06a27a: {}
+                f:pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-d4a287af: {}
+                f:pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-2dee2b0f: {}
+              f:storageAvailable: {}
+              f:storageMaximum: {}
+              f:storageScheduled: {}
+          f:region: {}
+          f:snapshotCheckStatus: {}
+          f:zone: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:08:08Z"
+    name: hp-69-tink-system
+    namespace: longhorn-system
+    resourceVersion: "672726"
+    uid: 946e729f-c96a-42e4-bf13-75dc77d05aa5
+  spec:
+    allowScheduling: true
+    disks:
+      default-disk-4b66abe09770603e:
+        allowScheduling: true
+        diskDriver: "null"
+        diskType: filesystem
+        evictionRequested: false
+        path: /var/lib/harvester/defaultdisk
+        storageReserved: 0
+        tags: []
+    evictionRequested: false
+    instanceManagerCPURequest: 0
+    name: hp-69-tink-system
+    tags: []
+  status:
+    autoEvicting: false
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:47:40Z"
+      message: Node hp-69-tink-system is ready
+      reason: "null"
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:41:03Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Schedulable
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:47:38Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Multipathd
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:47:38Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: NFSClientInstalled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:47:38Z"
+      message: Kernel modules [dm_crypt] are loaded
+      reason: "null"
+      status: "True"
+      type: KernelModulesLoaded
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:08Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: MountPropagation
+    diskStatus:
+      default-disk-4b66abe09770603e:
+        conditions:
+        - lastProbeTime: "null"
+          lastTransitionTime: "2026-06-12T10:48:08Z"
+          message: Disk default-disk-4b66abe09770603e(/var/lib/harvester/defaultdisk)
+            on node hp-69-tink-system is ready
+          reason: "null"
+          status: "True"
+          type: Ready
+        - lastProbeTime: "null"
+          lastTransitionTime: "2026-06-12T10:48:08Z"
+          message: Disk default-disk-4b66abe09770603e(/var/lib/harvester/defaultdisk)
+            on node hp-69-tink-system is schedulable
+          reason: "null"
+          status: "True"
+          type: Schedulable
+        diskDriver: "null"
+        diskName: default-disk-4b66abe09770603e
+        diskPath: /var/lib/harvester/defaultdisk
+        diskType: filesystem
+        diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+        filesystemType: ext2/ext3
+        healthData:
+          default-disk-4b66abe09770603e:
+            attributes:
+            - name: CriticalWarning
+              rawValue: 0
+            - name: Temperature
+              rawValue: 43
+            - name: AvailableSpare
+              rawValue: 100
+            - name: AvailableSpareThreshold
+              rawValue: 10
+            - name: PercentageUsed
+              rawValue: 3
+            - name: DataUnitsRead
+              rawValue: 5.178852e+06
+            - name: DataUnitsWritten
+              rawValue: 3.3146432e+07
+            - name: HostReads
+              rawValue: 1.28104867e+08
+            - name: HostWrites
+              rawValue: 8.53520721e+08
+            - name: ControllerBusyTime
+              rawValue: 12882
+            - name: PowerCycles
+              rawValue: 139
+            - name: PowerOnHours
+              rawValue: 7798
+            - name: UnsafeShutdowns
+              rawValue: 130
+            - name: MediaErrors
+              rawValue: 0
+            - name: NumErrLogEntries
+              rawValue: 1
+            - name: WarningTempTime
+              rawValue: 0
+            - name: CriticalCompTime
+              rawValue: 0
+            capacity: 1.000204886016e+12
+            diskName: /dev/nvme0
+            diskType: nvme
+            firmwareVersion: 0B2QKXJ7
+            healthStatus: PASSED
+            modelName: Samsung SSD 990 EVO 1TB
+            serialNumber: S7M3NL0X807555H
+            source: SMART
+            temperature: 43
+        healthDataLastCollectedAt: "2026-06-12T23:08:08Z"
+        instanceManagerName: instance-manager-f7924585cf5aadacce1b397379d2df82
+        scheduledBackingImage:
+          vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3: 6.67357184e+08
+          vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f: 6.67357184e+08
+          vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc: 6.67357184e+08
+          vmi-2c46a0a6-2b99-4cf3-8d14-f7c6c204df33: 0
+          vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8: 6.67353088e+08
+          vmi-49ce3af7-bb03-4ce3-9c63-7e40b18c441c: 0
+          vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383: 6.67357184e+08
+          vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9: 6.67357184e+08
+          vmi-05d29c48-b50e-46f1-ab5c-062661312daf: 6.67357184e+08
+          vmi-8c875d2b-a04a-4910-8d5b-8886193a1976: 6.67357184e+08
+          vmi-8f50beba-f74e-4862-8b37-c371d9a61258: 6.67357184e+08
+          vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da: 7.12626176e+08
+          vmi-14ad7058-3d7c-458a-b57e-aa26484089e4: 7.1337984e+08
+          vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad: 6.67357184e+08
+          vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1: 6.67357184e+08
+          vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d: 6.67357184e+08
+          vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b: 6.67353088e+08
+          vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9: 6.67353088e+08
+          vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b: 6.67357184e+08
+          vmi-579c6004-6405-438c-a53a-44b36cdd4d53: 7.13383936e+08
+          vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690: 6.67357184e+08
+          vmi-719cfc1e-ca41-480b-95fc-5952c788060c: 5.86407936e+08
+          vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6: 6.67357184e+08
+          vmi-5432d294-0053-48b2-a068-9e601a7682f9: 6.67357184e+08
+          vmi-6250f35d-01cb-421e-95de-a51ccfb2134d: 7.12630272e+08
+          vmi-62e8ef01-6b74-408f-a329-6550288ab4a6: 6.67357184e+08
+          vmi-9389b375-93df-48cc-8a1c-7a505bce7abb: 6.67357184e+08
+          vmi-9536b339-cd5f-42d0-b125-359af50add06: 0
+          vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410: 6.67357184e+08
+          vmi-73081fc9-473f-4979-869d-68874d630056: 6.67357184e+08
+          vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3: 6.67357184e+08
+          vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332: 7.13453568e+08
+          vmi-14259829-31ec-4a20-948a-b888a4fc4a90: 6.67357184e+08
+          vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18: 6.67357184e+08
+          vmi-a068016b-7eb4-4615-a627-d43820b6637a: 6.67357184e+08
+          vmi-a97777bd-4d56-4bb0-ba70-0b6561531177: 6.67353088e+08
+          vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad: 6.67357184e+08
+          vmi-bded5314-5e37-4f33-84cd-a3e569747b56: 6.67353088e+08
+          vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a: 6.67357184e+08
+          vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54: 6.67357184e+08
+          vmi-c6da5089-57c2-48ea-873b-77e3768ce594: 1.0737422336e+10
+          vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7: 6.67357184e+08
+          vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac: 7.13469952e+08
+          vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec: 6.67357184e+08
+          vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5: 6.67357184e+08
+          vmi-c3292732-b7df-4166-be52-7faaf0ec91c2: 6.67357184e+08
+          vmi-cb75375e-1921-45c9-b0f8-25387c5512a9: 0
+          vmi-defb5036-7caa-44fc-bed7-0b7518314131: 6.67357184e+08
+          vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc: 6.67357184e+08
+          vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0: 6.67357184e+08
+          vmi-e23faa62-66d7-4028-b77b-02acefda5bd1: 6.67357184e+08
+          vmi-f1f5d036-b108-49f0-aaa0-57212826afe4: 6.67357184e+08
+          vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d: 6.67357184e+08
+          vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98: 6.67357184e+08
+          vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f: 6.67357184e+08
+        scheduledReplica:
+          pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-d000aad9: 1.073741824e+10
+          pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-df266d46: 1.073741824e+10
+          pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-162cf65c: 1.073741824e+10
+          pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-fd06a27a: 2.147483648e+09
+          pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-d4a287af: 5.36870912e+09
+          pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-2dee2b0f: 5.36870912e+10
+        storageAvailable: 7.542407168e+11
+        storageMaximum: 8.00394674176e+11
+        storageScheduled: 1.37714651136e+11
+    region: "null"
+    snapshotCheckStatus: {}
+    zone: "null"
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676494"

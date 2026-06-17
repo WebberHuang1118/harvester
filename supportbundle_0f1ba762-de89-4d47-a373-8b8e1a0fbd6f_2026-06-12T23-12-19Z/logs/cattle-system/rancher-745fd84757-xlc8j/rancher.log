@@ -1,0 +1,750 @@
+2026-06-12T14:41:04.625883322Z Restoring git repositories: 
+2026-06-12T14:41:04.625944860Z - /var/lib/rancher-data/local-catalogs/v2/rancher-charts/4b40cac650031b74776e87c1a726b0484d0877c3ec137da0872547ff9b73a721/.git
+2026-06-12T14:41:11.947111103Z Your branch is up to date with 'origin/release-v2.14'.
+2026-06-12T14:41:11.954337510Z /var/lib/rancher
+2026-06-12T14:41:11.954370392Z - /var/lib/rancher-data/local-catalogs/v2/rancher-rke2-charts/675f1b63a0a83905972dcab2794479ed599a6f41b86cd6193d69472d0fa889c9/.git
+2026-06-12T14:41:16.641704397Z Your branch is up to date with 'origin/main'.
+2026-06-12T14:41:16.646264030Z /var/lib/rancher
+2026-06-12T14:41:16.646291475Z - /var/lib/rancher-data/local-catalogs/v2/rancher-partner-charts/8f17acdce9bffd6e05a58a3798840e408c4ea71783381ecd2e9af30baad65974/.git
+2026-06-12T14:41:18.129383009Z Your branch is up to date with 'origin/main'.
+2026-06-12T14:41:18.136129459Z /var/lib/rancher
+2026-06-12T14:41:19.598247337Z 2026/06/12 14:41:19 [INFO] Rancher version v2.14.2 (1bb24fe965ab9a801cd28447cc97df28db58cbd9) is starting
+2026-06-12T14:41:19.598342551Z 2026/06/12 14:41:19 [INFO] Listening on /tmp/log.sock
+2026-06-12T14:41:19.598911217Z 2026/06/12 14:41:19 [INFO] Rancher arguments {ACMEDomains:[] AddLocal:true Embedded:false BindHost: HTTPListenPort:80 HTTPSListenPort:443 K8sMode:auto Debug:false Trace:false NoCACerts:true AuditLogPath:/var/log/auditlog/rancher-api-audit.log AuditLogMaxage:10 AuditLogMaxsize:100 AuditLogMaxbackup:10 AuditLogLevel:0 AuditLogEnabled:false Features:multi-cluster-management=false,multi-cluster-management-agent=false,managed-system-upgrade-controller=false ClusterRegistry: AggregationRegistrationTimeout:5m0s RancherNamespaceOptions: LocalUserPasswordsNamespace:true}
+2026-06-12T14:41:19.648083458Z 2026/06/12 14:41:19 [INFO] Detected primary IP family IPv4 from peer service
+2026-06-12T14:41:19.648897020Z 2026/06/12 14:41:19 [INFO] Running in clustered mode with ID 10.52.2.193, monitoring endpoint cattle-system/rancher
+2026-06-12T14:41:19.648939789Z 2026/06/12 14:41:19 [INFO] Scanning NodeTemplates in namespace: cattle-global-nt, group: nodetemplates.management.cattle.io
+2026-06-12T14:41:19.648948182Z 2026/06/12 14:41:19 [INFO] Scanning ClusterTemplates in namespace: cattle-global-data, group: clustertemplates.management.cattle.io
+2026-06-12T14:41:19.650115994Z 2026/06/12 14:41:19 [INFO] [deferred-capi - WaitForClient] waiting for CAPI CRDs to be established...
+2026-06-12T14:41:19.650138446Z 2026/06/12 14:41:19 [INFO] [deferred-ext] WaitForClient starting waiter for EXT api-service availability
+2026-06-12T14:41:21.304325781Z 2026/06/12 14:41:21 [INFO] Applying CRD features.management.cattle.io
+2026-06-12T14:41:22.463007695Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD auditpolicies.auditlog.cattle.io
+2026-06-12T14:41:22.485660477Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD clusterrepos.catalog.cattle.io
+2026-06-12T14:41:22.498867093Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD proxyendpoints.management.cattle.io
+2026-06-12T14:41:22.509070113Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD clusters.provisioning.cattle.io
+2026-06-12T14:41:22.634958663Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD custommachines.rke.cattle.io
+2026-06-12T14:41:22.647282384Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD etcdsnapshots.rke.cattle.io
+2026-06-12T14:41:22.660329416Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD rkebootstraps.rke.cattle.io
+2026-06-12T14:41:22.671646054Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD rkebootstraptemplates.rke.cattle.io
+2026-06-12T14:41:22.682853292Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD rkeclusters.rke.cattle.io
+2026-06-12T14:41:22.693886940Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD rkecontrolplanes.rke.cattle.io
+2026-06-12T14:41:22.763420504Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD users.management.cattle.io
+2026-06-12T14:41:22.773943079Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD clusterproxyconfigs.management.cattle.io
+2026-06-12T14:41:22.781215593Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD uiplugins.catalog.cattle.io
+2026-06-12T14:41:22.791752844Z 2026/06/12 14:41:22 [INFO] Updating embedded CRD secretrequests.telemetry.cattle.io
+2026-06-12T14:41:24.353214782Z 2026/06/12 14:41:24 [INFO] Applying CRD plans.upgrade.cattle.io
+2026-06-12T14:41:24.434117935Z 2026/06/12 14:41:24 [INFO] Applying CRD navlinks.ui.cattle.io
+2026-06-12T14:41:24.458807701Z 2026/06/12 14:41:24 [INFO] Applying CRD podsecurityadmissionconfigurationtemplates.management.cattle.io
+2026-06-12T14:41:24.492124284Z 2026/06/12 14:41:24 [INFO] Applying CRD clusters.management.cattle.io
+2026-06-12T14:41:24.511981369Z 2026/06/12 14:41:24 [INFO] Applying CRD apiservices.management.cattle.io
+2026-06-12T14:41:24.533214392Z 2026/06/12 14:41:24 [INFO] Applying CRD clusterregistrationtokens.management.cattle.io
+2026-06-12T14:41:24.553817111Z 2026/06/12 14:41:24 [INFO] Applying CRD settings.management.cattle.io
+2026-06-12T14:41:24.572889313Z 2026/06/12 14:41:24 [INFO] Applying CRD preferences.management.cattle.io
+2026-06-12T14:41:24.591267004Z 2026/06/12 14:41:24 [INFO] Applying CRD features.management.cattle.io
+2026-06-12T14:41:24.612081821Z 2026/06/12 14:41:24 [INFO] Applying CRD operations.catalog.cattle.io
+2026-06-12T14:41:24.638637781Z 2026/06/12 14:41:24 [INFO] Applying CRD apps.catalog.cattle.io
+2026-06-12T14:41:24.669461870Z 2026/06/12 14:41:24 [INFO] Applying CRD fleetworkspaces.management.cattle.io
+2026-06-12T14:41:24.691631384Z 2026/06/12 14:41:24 [INFO] Applying CRD managedcharts.management.cattle.io
+2026-06-12T14:41:27.039913169Z 2026/06/12 14:41:27 [INFO] Configuring auth server API body limit to 1048576 bytes
+2026-06-12T14:41:27.040287207Z 2026/06/12 14:41:27 [INFO] creating imperative extension apiserver resources
+2026-06-12T14:41:27.040462216Z 2026/06/12 14:41:27 [INFO] starting imperative api cert rotator
+2026-06-12T14:41:27.059093469Z 2026/06/12 14:41:27 [INFO] imperative api APIService cert updated
+2026-06-12T14:41:27.513205283Z 2026/06/12 14:41:27 [INFO] Successfully installed useractivity store
+2026-06-12T14:41:27.513230986Z 2026/06/12 14:41:27 [INFO] Successfully installed token store
+2026-06-12T14:41:27.513235595Z 2026/06/12 14:41:27 [INFO] Successfully installed kubeconfig store
+2026-06-12T14:41:27.513239803Z 2026/06/12 14:41:27 [INFO] Successfully installed passwordchangerequest store
+2026-06-12T14:41:27.515350112Z 2026/06/12 14:41:27 [INFO] Successfully installed groupmembershiprefreshrequest store
+2026-06-12T14:41:27.515370379Z 2026/06/12 14:41:27 [INFO] Successfully installed selfuser store
+2026-06-12T14:41:27.848096252Z I0612 14:41:27.847890      43 handler.go:304] Adding GroupVersion ext.cattle.io v1 to ResourceManager
+2026-06-12T14:41:29.980854225Z I0612 14:41:29.980635      43 requestheader_controller.go:180] Starting RequestHeaderAuthRequestController
+2026-06-12T14:41:29.980898466Z I0612 14:41:29.980659      43 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2026-06-12T14:41:29.980905478Z I0612 14:41:29.980700      43 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T14:41:29.980909973Z I0612 14:41:29.980717      43 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T14:41:29.981885919Z I0612 14:41:29.981660      43 secure_serving.go:211] Serving securely on [::]:6666
+2026-06-12T14:41:29.981923636Z I0612 14:41:29.981812      43 tlsconfig.go:243] "Starting DynamicServingCertificateController"
+2026-06-12T14:41:30.081103063Z I0612 14:41:30.080884      43 shared_informer.go:377] "Caches are synced"
+2026-06-12T14:41:30.081149507Z I0612 14:41:30.080790      43 shared_informer.go:377] "Caches are synced"
+2026-06-12T14:41:30.849631742Z 2026/06/12 14:41:30 [INFO] Starting API controllers
+2026-06-12T14:41:30.975663971Z 2026/06/12 14:41:30 [INFO] Starting management.cattle.io/v3, Kind=GroupMember controller
+2026-06-12T14:41:30.975692243Z 2026/06/12 14:41:30 [INFO] Starting management.cattle.io/v3, Kind=Group controller
+2026-06-12T14:41:30.975803451Z 2026/06/12 14:41:30 [INFO] Starting management.cattle.io/v3, Kind=User controller
+2026-06-12T14:41:30.975835322Z 2026/06/12 14:41:30 [INFO] Starting management.cattle.io/v3, Kind=UserAttribute controller
+2026-06-12T14:41:30.976822998Z 2026/06/12 14:41:30 [INFO] Starting management.cattle.io/v3, Kind=Token controller
+2026-06-12T14:41:31.012152817Z I0612 14:41:31.011993      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T14:41:31.505934350Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=AuthConfig controller
+2026-06-12T14:41:31.505964675Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=Feature controller
+2026-06-12T14:41:31.505970332Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=Preference controller
+2026-06-12T14:41:31.506589156Z 2026/06/12 14:41:31 [INFO] Starting /v1, Kind=Endpoints controller
+2026-06-12T14:41:31.507430831Z 2026/06/12 14:41:31 [INFO] Adding peer wss://10.52.1.11/v3/connect, 10.52.1.11
+2026-06-12T14:41:31.507451188Z 2026/06/12 14:41:31 [INFO] Adding peer wss://10.52.0.74/v3/connect, 10.52.0.74
+2026-06-12T14:41:31.511967877Z 2026/06/12 14:41:31 [ERROR] Failed to connect to peer wss://10.52.1.11/v3/connect [local ID=10.52.2.193]: websocket: bad handshake
+2026-06-12T14:41:31.513277282Z 2026/06/12 14:41:31 [ERROR] Failed to connect to peer wss://10.52.0.74/v3/connect [local ID=10.52.2.193]: websocket: bad handshake
+2026-06-12T14:41:31.529811341Z 2026/06/12 14:41:31 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=Role controller
+2026-06-12T14:41:31.529845761Z 2026/06/12 14:41:31 [INFO] Starting provisioning.cattle.io/v1, Kind=Cluster controller
+2026-06-12T14:41:31.529850777Z 2026/06/12 14:41:31 [INFO] Starting catalog.cattle.io/v1, Kind=ClusterRepo controller
+2026-06-12T14:41:31.553450060Z 2026/06/12 14:41:31 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=ClusterRoleBinding controller
+2026-06-12T14:41:31.581976503Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=Token controller
+2026-06-12T14:41:31.582201920Z 2026/06/12 14:41:31 [INFO] Starting /v1, Kind=Secret controller
+2026-06-12T14:41:31.582218987Z 2026/06/12 14:41:31 [INFO] Starting /v1, Kind=Namespace controller
+2026-06-12T14:41:31.582233510Z 2026/06/12 14:41:31 [INFO] Starting rke.cattle.io/v1, Kind=RKEBootstrap controller
+2026-06-12T14:41:31.582812692Z 2026/06/12 14:41:31 [INFO] Starting /v1, Kind=ConfigMap controller
+2026-06-12T14:41:31.583603388Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=User controller
+2026-06-12T14:41:31.583844406Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=ClusterRegistrationToken controller
+2026-06-12T14:41:31.584254556Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=Cluster controller
+2026-06-12T14:41:31.584527004Z I0612 14:41:31.584418      43 leaderelection.go:258] "Attempting to acquire leader lease..." lock="kube-system/cattle-controllers"
+2026-06-12T14:41:31.584679837Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=UserAttribute controller
+2026-06-12T14:41:31.584695765Z 2026/06/12 14:41:31 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=ClusterRole controller
+2026-06-12T14:41:31.586078668Z 2026/06/12 14:41:31 [INFO] Starting apiregistration.k8s.io/v1, Kind=APIService controller
+2026-06-12T14:41:31.587318008Z 2026/06/12 14:41:31 [INFO] Starting /v1, Kind=ServiceAccount controller
+2026-06-12T14:41:31.587882436Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=Setting controller
+2026-06-12T14:41:31.587933602Z 2026/06/12 14:41:31 [INFO] Starting rke.cattle.io/v1, Kind=ETCDSnapshot controller
+2026-06-12T14:41:31.588194096Z 2026/06/12 14:41:31 [INFO] Starting management.cattle.io/v3, Kind=APIService controller
+2026-06-12T14:41:31.588554799Z 2026/06/12 14:41:31 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=RoleBinding controller
+2026-06-12T14:41:31.588905354Z 2026/06/12 14:41:31 [INFO] Starting apiextensions.k8s.io/v1, Kind=CustomResourceDefinition controller
+2026-06-12T14:41:31.590162091Z 2026/06/12 14:41:31 [INFO] [deferred-capi - WaitForClient] waiting for CAPI catalog App to be ready with correct version...
+2026-06-12T14:41:31.590186489Z 2026/06/12 14:41:31 [INFO] [deferred-capi] Checking CAPI catalog App version...
+2026-06-12T14:41:31.597412472Z 2026/06/12 14:41:31 [INFO] [deferred-capi - WaitForClient] CAPI catalog App version is correct, initializing CAPI factory
+2026-06-12T14:41:31.615691004Z 2026/06/12 14:41:31 [INFO] Listening on :443
+2026-06-12T14:41:31.615727396Z 2026/06/12 14:41:31 [INFO] Listening on :80
+2026-06-12T14:41:31.616120196Z 2026/06/12 14:41:31 [INFO] Active TLS secret cattle-system/serving-cert (ver=32182) (count 9): map[listener.cattle.io/cn-10.115.252.20:10.115.252.20 listener.cattle.io/cn-10.52.0.6:10.52.0.6 listener.cattle.io/cn-10.52.0.74:10.52.0.74 listener.cattle.io/cn-10.52.1.11:10.52.1.11 listener.cattle.io/cn-10.52.2.2:10.52.2.2 listener.cattle.io/cn-10.52.2.58:10.52.2.58 listener.cattle.io/cn-127.0.0.1:127.0.0.1 listener.cattle.io/cn-localhost:localhost listener.cattle.io/cn-rancher.cattle-system:rancher.cattle-system listener.cattle.io/fingerprint:SHA1=8FED58E1FD6987B48AB37A969D009703854F0364]
+2026-06-12T14:41:31.616754589Z 2026/06/12 14:41:31 [INFO] certificate CN=dynamic,O=dynamic signed by CN=dynamiclistener-ca@1781260799,O=dynamiclistener-org: notBefore=2026-06-12 13:41:31 +0000 UTC notAfter=2027-06-12 13:41:31 +0000 UTC
+2026-06-12T14:41:31.637196465Z 2026/06/12 14:41:31 [INFO] certificate CN=dynamic,O=dynamic signed by CN=dynamiclistener-ca@1781260799,O=dynamiclistener-org: notBefore=2026-06-12 13:41:31 +0000 UTC notAfter=2027-06-12 13:41:31 +0000 UTC
+2026-06-12T14:41:31.637331831Z 2026/06/12 14:41:31 [INFO] Updating TLS secret for cattle-system/serving-cert (count: 10): map[listener.cattle.io/cn-10.115.252.20:10.115.252.20 listener.cattle.io/cn-10.52.0.6:10.52.0.6 listener.cattle.io/cn-10.52.0.74:10.52.0.74 listener.cattle.io/cn-10.52.1.11:10.52.1.11 listener.cattle.io/cn-10.52.2.193:10.52.2.193 listener.cattle.io/cn-10.52.2.2:10.52.2.2 listener.cattle.io/cn-10.52.2.58:10.52.2.58 listener.cattle.io/cn-127.0.0.1:127.0.0.1 listener.cattle.io/cn-localhost:localhost listener.cattle.io/cn-rancher.cattle-system:rancher.cattle-system listener.cattle.io/fingerprint:SHA1=485579B637B1751E078AE10EF71218D4612DD4B7]
+2026-06-12T14:41:31.650366371Z 2026/06/12 14:41:31 [INFO] Active TLS secret cattle-system/serving-cert (ver=265504) (count 10): map[listener.cattle.io/cn-10.115.252.20:10.115.252.20 listener.cattle.io/cn-10.52.0.6:10.52.0.6 listener.cattle.io/cn-10.52.0.74:10.52.0.74 listener.cattle.io/cn-10.52.1.11:10.52.1.11 listener.cattle.io/cn-10.52.2.193:10.52.2.193 listener.cattle.io/cn-10.52.2.2:10.52.2.2 listener.cattle.io/cn-10.52.2.58:10.52.2.58 listener.cattle.io/cn-127.0.0.1:127.0.0.1 listener.cattle.io/cn-localhost:localhost listener.cattle.io/cn-rancher.cattle-system:rancher.cattle-system listener.cattle.io/fingerprint:SHA1=485579B637B1751E078AE10EF71218D4612DD4B7]
+2026-06-12T14:41:31.654240542Z 2026/06/12 14:41:31 [INFO] Listening on :444
+2026-06-12T14:41:31.655161515Z 2026/06/12 14:41:31 [INFO] certificate CN=dynamic,O=dynamic signed by CN=dynamiclistener-ca@1781260799,O=dynamiclistener-org: notBefore=2026-06-12 13:41:31 +0000 UTC notAfter=2027-06-12 13:41:31 +0000 UTC
+2026-06-12T14:41:31.655205970Z 2026/06/12 14:41:31 [WARNING] dynamiclistener [::]:444: no cached certificate available for preload - deferring certificate load until storage initialization or first client request
+2026-06-12T14:41:31.655544911Z 2026/06/12 14:41:31 [INFO] Active TLS secret cattle-system/tls-rancher-internal (ver=250134) (count 7): map[listener.cattle.io/cn-10.115.252.20:10.115.252.20 listener.cattle.io/cn-10.52.0.6:10.52.0.6 listener.cattle.io/cn-10.52.0.74:10.52.0.74 listener.cattle.io/cn-10.52.1.11:10.52.1.11 listener.cattle.io/cn-10.52.2.2:10.52.2.2 listener.cattle.io/cn-10.52.2.58:10.52.2.58 listener.cattle.io/cn-10.53.3.202:10.53.3.202 listener.cattle.io/fingerprint:SHA1=82425D75B01D660E11D8F48729472FA9A1A2B963]
+2026-06-12T14:41:34.641809750Z 2026/06/12 14:41:34 [INFO] Handling backend connection request [10.52.0.74]
+2026-06-12T14:41:34.644577168Z 2026/06/12 14:41:34 [INFO] Handling backend connection request [10.52.1.11]
+2026-06-12T14:41:34.720273654Z I0612 14:41:34.720102      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T14:41:34.737440723Z I0612 14:41:34.737291      43 warnings.go:107] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2026-06-12T14:41:34.784352702Z I0612 14:41:34.784205      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T14:41:34.847281420Z I0612 14:41:34.847075      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T14:41:34.864750261Z 2026/06/12 14:41:34 [INFO] Watching metadata for node.harvesterhci.io/v1beta1, Kind=NodeConfig
+2026-06-12T14:41:34.864783439Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=RecurringJob
+2026-06-12T14:41:34.864789399Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=StagedGlobalNetworkPolicy
+2026-06-12T14:41:34.864812760Z 2026/06/12 14:41:34 [INFO] Watching metadata for discovery.k8s.io/v1, Kind=EndpointSlice
+2026-06-12T14:41:34.864817438Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=IPPool
+2026-06-12T14:41:34.864822200Z 2026/06/12 14:41:34 [INFO] Watching metadata for admissionregistration.k8s.io/v1, Kind=ValidatingAdmissionPolicyBinding
+2026-06-12T14:41:34.864885917Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=IPAMHandle
+2026-06-12T14:41:34.864911737Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1, Kind=ThanosRuler
+2026-06-12T14:41:34.865034596Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging-extensions.banzaicloud.io/v1alpha1, Kind=HostTailer
+2026-06-12T14:41:34.865113003Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=VolumeAttachment
+2026-06-12T14:41:34.865175054Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=ClusterRegistrationToken
+2026-06-12T14:41:34.865238397Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=NetworkFilesystem
+2026-06-12T14:41:34.865273351Z 2026/06/12 14:41:34 [INFO] Watching metadata for pool.kubevirt.io/v1beta1, Kind=VirtualMachinePool
+2026-06-12T14:41:34.865365294Z 2026/06/12 14:41:34 [INFO] Watching metadata for admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration
+2026-06-12T14:41:34.865415448Z 2026/06/12 14:41:34 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKEBootstrap
+2026-06-12T14:41:34.865558490Z 2026/06/12 14:41:34 [INFO] Watching metadata for catalog.cattle.io/v1, Kind=UIPlugin
+2026-06-12T14:41:34.865648634Z 2026/06/12 14:41:34 [INFO] Watching metadata for node.harvesterhci.io/v1beta1, Kind=Hugepage
+2026-06-12T14:41:34.865697504Z 2026/06/12 14:41:34 [INFO] Watching metadata for catalog.cattle.io/v1, Kind=App
+2026-06-12T14:41:34.865799675Z 2026/06/12 14:41:34 [INFO] Watching metadata for migrations.kubevirt.io/v1alpha1, Kind=MigrationPolicy
+2026-06-12T14:41:34.865829516Z 2026/06/12 14:41:34 [INFO] Watching metadata for kubevirt.io/v1, Kind=VirtualMachine
+2026-06-12T14:41:34.865863502Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=StorageProfile
+2026-06-12T14:41:34.865944509Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=AuthConfig
+2026-06-12T14:41:34.865971507Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=Snapshot
+2026-06-12T14:41:34.866022305Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Cluster
+2026-06-12T14:41:34.866045612Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=BGPPeer
+2026-06-12T14:41:34.866106616Z 2026/06/12 14:41:34 [INFO] Watching metadata for snapshot.kubevirt.io/v1beta1, Kind=VirtualMachineRestore
+2026-06-12T14:41:34.866160839Z 2026/06/12 14:41:34 [INFO] Watching metadata for k3s.cattle.io/v1, Kind=Addon
+2026-06-12T14:41:34.866242560Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=LimitRange
+2026-06-12T14:41:34.866296886Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=Node
+2026-06-12T14:41:34.866319982Z 2026/06/12 14:41:34 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKEBootstrapTemplate
+2026-06-12T14:41:34.866389853Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=User
+2026-06-12T14:41:34.866414625Z 2026/06/12 14:41:34 [INFO] Watching metadata for kubeovn.io/v1, Kind=Configuration
+2026-06-12T14:41:34.866519906Z 2026/06/12 14:41:34 [INFO] Watching metadata for network.harvesterhci.io/v1beta1, Kind=VlanConfig
+2026-06-12T14:41:34.866560700Z 2026/06/12 14:41:34 [INFO] Watching metadata for migration.harvesterhci.io/v1beta1, Kind=VmwareSource
+2026-06-12T14:41:34.866606366Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=BackingImage
+2026-06-12T14:41:34.866637138Z 2026/06/12 14:41:34 [INFO] Watching metadata for resource.k8s.io/v1, Kind=ResourceClaimTemplate
+2026-06-12T14:41:34.866653551Z 2026/06/12 14:41:34 [INFO] Watching metadata for cluster.x-k8s.io/v1beta2, Kind=Machine
+2026-06-12T14:41:34.866715148Z 2026/06/12 14:41:34 [INFO] Watching metadata for bmc.tinkerbell.org/v1alpha1, Kind=Task
+2026-06-12T14:41:34.866779379Z 2026/06/12 14:41:34 [INFO] Watching metadata for storage.k8s.io/v1, Kind=StorageClass
+2026-06-12T14:41:34.866813669Z 2026/06/12 14:41:34 [INFO] Watching metadata for policy/v1, Kind=PodDisruptionBudget
+2026-06-12T14:41:34.866882001Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=SyslogNGOutput
+2026-06-12T14:41:34.866911505Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=ObjectTransfer
+2026-06-12T14:41:34.866943308Z 2026/06/12 14:41:34 [INFO] Watching metadata for clone.kubevirt.io/v1beta1, Kind=VirtualMachineClone
+2026-06-12T14:41:34.867017537Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=ReplicationController
+2026-06-12T14:41:34.867038205Z 2026/06/12 14:41:34 [INFO] Watching metadata for apiextensions.k8s.io/v1, Kind=CustomResourceDefinition
+2026-06-12T14:41:34.867103383Z 2026/06/12 14:41:34 [INFO] Watching metadata for cluster.x-k8s.io/v1beta2, Kind=MachinePool
+2026-06-12T14:41:34.867137342Z 2026/06/12 14:41:34 [INFO] Watching metadata for metal.harvesterhci.io/v1alpha1, Kind=Inventory
+2026-06-12T14:41:34.867219224Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=Setting
+2026-06-12T14:41:34.867307846Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=APIService
+2026-06-12T14:41:34.867329544Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=LVMVolumeGroup
+2026-06-12T14:41:34.867388836Z 2026/06/12 14:41:34 [INFO] Watching metadata for apps/v1, Kind=StatefulSet
+2026-06-12T14:41:34.867452816Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=Tier
+2026-06-12T14:41:34.867533760Z 2026/06/12 14:41:34 [INFO] Watching metadata for rke.cattle.io/v1, Kind=ETCDSnapshot
+2026-06-12T14:41:34.867568747Z 2026/06/12 14:41:34 [INFO] Watching metadata for cluster.x-k8s.io/v1beta2, Kind=MachineSet
+2026-06-12T14:41:34.867630899Z 2026/06/12 14:41:34 [INFO] Watching metadata for snapshot.storage.k8s.io/v1, Kind=VolumeSnapshotClass
+2026-06-12T14:41:34.867673114Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=PersistentVolume
+2026-06-12T14:41:34.867782540Z 2026/06/12 14:41:34 [INFO] Watching metadata for ext.cattle.io/v1, Kind=Token
+2026-06-12T14:41:34.867825974Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=Namespace
+2026-06-12T14:41:34.867871997Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=BundleNamespaceMapping
+2026-06-12T14:41:34.867938043Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=DataSource
+2026-06-12T14:41:34.867993627Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=NetworkPolicy
+2026-06-12T14:41:34.868037164Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=SystemBackup
+2026-06-12T14:41:34.868102346Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=HostEndpoint
+2026-06-12T14:41:34.868151800Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=DataImportCron
+2026-06-12T14:41:34.868202412Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=BlockDevice
+2026-06-12T14:41:34.868252553Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1alpha1, Kind=PrometheusAgent
+2026-06-12T14:41:34.868301706Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=Pod
+2026-06-12T14:41:34.868363187Z 2026/06/12 14:41:34 [INFO] Watching metadata for node.k8s.io/v1, Kind=RuntimeClass
+2026-06-12T14:41:34.868438361Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=Orphan
+2026-06-12T14:41:34.868473318Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=Engine
+2026-06-12T14:41:34.868529372Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=ScheduleVMBackup
+2026-06-12T14:41:34.868627429Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=Upgrade
+2026-06-12T14:41:34.868641372Z 2026/06/12 14:41:34 [INFO] Watching metadata for storage.k8s.io/v1, Kind=CSIDriver
+2026-06-12T14:41:34.868659266Z 2026/06/12 14:41:34 [INFO] Watching metadata for catalog.cattle.io/v1, Kind=Operation
+2026-06-12T14:41:34.868713992Z 2026/06/12 14:41:34 [INFO] Watching metadata for cluster.x-k8s.io/v1beta2, Kind=MachineDrainRule
+2026-06-12T14:41:34.868794265Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=Node
+2026-06-12T14:41:34.868825504Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=SyslogNGConfig
+2026-06-12T14:41:34.868918234Z 2026/06/12 14:41:34 [INFO] Watching metadata for autoscaling/v2, Kind=HorizontalPodAutoscaler
+2026-06-12T14:41:34.868950859Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=ShareManager
+2026-06-12T14:41:34.869040642Z 2026/06/12 14:41:34 [INFO] Watching metadata for cluster.x-k8s.io/v1beta2, Kind=MachineDeployment
+2026-06-12T14:41:34.869130573Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=IPAMConfig
+2026-06-12T14:41:34.869149204Z 2026/06/12 14:41:34 [INFO] Watching metadata for bmc.tinkerbell.org/v1alpha1, Kind=BaseboardManagement
+2026-06-12T14:41:34.869173162Z 2026/06/12 14:41:34 [INFO] Watching metadata for ipam.cluster.x-k8s.io/v1beta2, Kind=IPAddressClaim
+2026-06-12T14:41:34.869396757Z 2026/06/12 14:41:34 [INFO] Watching metadata for coordination.k8s.io/v1, Kind=Lease
+2026-06-12T14:41:34.869431186Z 2026/06/12 14:41:34 [INFO] Watching metadata for whereabouts.cni.cncf.io/v1alpha1, Kind=OverlappingRangeIPReservation
+2026-06-12T14:41:34.869651217Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=LoggingRoute
+2026-06-12T14:41:34.869720210Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=VolumeRemoteRestore
+2026-06-12T14:41:34.869773889Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=Event
+2026-06-12T14:41:34.869782091Z 2026/06/12 14:41:34 [INFO] Watching metadata for provisioning.cattle.io/v1, Kind=Cluster
+2026-06-12T14:41:34.869857502Z 2026/06/12 14:41:34 [INFO] Watching metadata for runtime.cluster.x-k8s.io/v1beta2, Kind=ExtensionConfig
+2026-06-12T14:41:34.869907890Z 2026/06/12 14:41:34 [INFO] Watching metadata for kubevirt.io/v1, Kind=VirtualMachineInstanceReplicaSet
+2026-06-12T14:41:34.869976619Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=PCIDeviceClaim
+2026-06-12T14:41:34.870044898Z 2026/06/12 14:41:34 [INFO] Watching metadata for migration.harvesterhci.io/v1beta1, Kind=VirtualMachineImport
+2026-06-12T14:41:34.870053585Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=Volume
+2026-06-12T14:41:34.870230766Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=NetworkSet
+2026-06-12T14:41:34.870245833Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=ClusterFlow
+2026-06-12T14:41:34.870252171Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=VGPUDevice
+2026-06-12T14:41:34.870372353Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=USBDeviceClaim
+2026-06-12T14:41:34.870454150Z 2026/06/12 14:41:34 [INFO] Watching metadata for admissionregistration.k8s.io/v1, Kind=ValidatingAdmissionPolicy
+2026-06-12T14:41:34.870521735Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=VirtualMachineRestore
+2026-06-12T14:41:34.870558104Z 2026/06/12 14:41:34 [INFO] Watching metadata for kubevirt.io/v1, Kind=VirtualMachineInstanceMigration
+2026-06-12T14:41:34.870703515Z 2026/06/12 14:41:34 [INFO] Watching metadata for networking.k8s.io/v1, Kind=NetworkPolicy
+2026-06-12T14:41:34.870715759Z 2026/06/12 14:41:34 [INFO] Watching metadata for apps/v1, Kind=DaemonSet
+2026-06-12T14:41:34.870722443Z 2026/06/12 14:41:34 [INFO] Watching metadata for snapshot.storage.k8s.io/v1, Kind=VolumeSnapshotContent
+2026-06-12T14:41:34.870763174Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=PCIDevice
+2026-06-12T14:41:34.870904400Z 2026/06/12 14:41:34 [INFO] Watching metadata for rke.cattle.io/v1, Kind=CustomMachine
+2026-06-12T14:41:34.871141053Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=UserAttribute
+2026-06-12T14:41:34.871184430Z 2026/06/12 14:41:34 [INFO] Watching metadata for rbac.authorization.k8s.io/v1, Kind=RoleBinding
+2026-06-12T14:41:34.871412657Z 2026/06/12 14:41:34 [INFO] Watching metadata for apps/v1, Kind=Deployment
+2026-06-12T14:41:34.871797277Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=Output
+2026-06-12T14:41:34.871865826Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=EngineImage
+2026-06-12T14:41:34.871911743Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=SRIOVGPUDevice
+2026-06-12T14:41:34.872080474Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=HelmOp
+2026-06-12T14:41:34.872166650Z 2026/06/12 14:41:34 [INFO] Watching metadata for resource.k8s.io/v1, Kind=ResourceSlice
+2026-06-12T14:41:34.872285958Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=ServiceAccount
+2026-06-12T14:41:34.872547196Z 2026/06/12 14:41:34 [INFO] Watching metadata for storage.k8s.io/v1, Kind=CSINode
+2026-06-12T14:41:34.872575816Z 2026/06/12 14:41:34 [INFO] Watching metadata for cluster.x-k8s.io/v1beta2, Kind=Cluster
+2026-06-12T14:41:34.872700353Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=Flow
+2026-06-12T14:41:34.872718507Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=BackupBackingImage
+2026-06-12T14:41:34.872739191Z 2026/06/12 14:41:34 [INFO] Watching metadata for k3s.cattle.io/v1, Kind=ETCDSnapshotFile
+2026-06-12T14:41:34.872766409Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=PodSecurityAdmissionConfigurationTemplate
+2026-06-12T14:41:34.872871457Z 2026/06/12 14:41:34 [INFO] Watching metadata for whereabouts.cni.cncf.io/v1alpha1, Kind=NodeSlicePool
+2026-06-12T14:41:34.872903160Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=BGPFilter
+2026-06-12T14:41:34.872942746Z 2026/06/12 14:41:34 [INFO] Watching metadata for instancetype.kubevirt.io/v1beta1, Kind=VirtualMachineClusterPreference
+2026-06-12T14:41:34.872972300Z 2026/06/12 14:41:34 [INFO] Watching metadata for k8s.cni.cncf.io/v1, Kind=NetworkAttachmentDefinition
+2026-06-12T14:41:34.873066605Z 2026/06/12 14:41:34 [INFO] Watching metadata for auditlog.cattle.io/v1, Kind=AuditPolicy
+2026-06-12T14:41:34.873102787Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=ClusterProxyConfig
+2026-06-12T14:41:34.873115699Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=VirtualMachineTemplateVersion
+2026-06-12T14:41:34.873303289Z 2026/06/12 14:41:34 [INFO] Watching metadata for forklift.cdi.kubevirt.io/v1beta1, Kind=OvirtVolumePopulator
+2026-06-12T14:41:34.873319364Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=Setting
+2026-06-12T14:41:34.873326522Z 2026/06/12 14:41:34 [INFO] Watching metadata for turtles-capi.cattle.io/v1alpha1, Kind=ClusterctlConfig
+2026-06-12T14:41:34.873418225Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=FluentdConfig
+2026-06-12T14:41:34.873435228Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=Cluster
+2026-06-12T14:41:34.873442449Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=MigConfiguration
+2026-06-12T14:41:34.873512360Z 2026/06/12 14:41:34 [INFO] Watching metadata for snapshot.kubevirt.io/v1beta1, Kind=VirtualMachineSnapshot
+2026-06-12T14:41:34.873568318Z 2026/06/12 14:41:34 [INFO] Watching metadata for policy.networking.k8s.io/v1alpha2, Kind=ClusterNetworkPolicy
+2026-06-12T14:41:34.873640675Z 2026/06/12 14:41:34 [INFO] Watching metadata for snapshot.storage.k8s.io/v1, Kind=VolumeSnapshot
+2026-06-12T14:41:34.873915719Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=GlobalNetworkPolicy
+2026-06-12T14:41:34.873930175Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=SupportBundle
+2026-06-12T14:41:34.873936459Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=VirtualMachineImage
+2026-06-12T14:41:34.874283216Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=GroupMember
+2026-06-12T14:41:34.874316812Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging-extensions.banzaicloud.io/v1alpha1, Kind=EventTailer
+2026-06-12T14:41:34.874323232Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=SystemRestore
+2026-06-12T14:41:34.874329103Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=BackupTarget
+2026-06-12T14:41:34.874335290Z 2026/06/12 14:41:34 [INFO] Watching metadata for apiregistration.k8s.io/v1, Kind=APIService
+2026-06-12T14:41:34.874341487Z 2026/06/12 14:41:34 [INFO] Watching metadata for bmc.tinkerbell.org/v1alpha1, Kind=BMCTask
+2026-06-12T14:41:34.874347541Z 2026/06/12 14:41:34 [INFO] Watching metadata for turtles-capi.cattle.io/v1alpha1, Kind=CAPIProvider
+2026-06-12T14:41:34.874460411Z 2026/06/12 14:41:34 [INFO] Watching metadata for events.k8s.io/v1, Kind=Event
+2026-06-12T14:41:34.874595156Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=StagedKubernetesNetworkPolicy
+2026-06-12T14:41:34.874619765Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=Preference
+2026-06-12T14:41:34.874626723Z 2026/06/12 14:41:34 [INFO] Watching metadata for snapshot.kubevirt.io/v1beta1, Kind=VirtualMachineSnapshotContent
+2026-06-12T14:41:34.874653394Z 2026/06/12 14:41:34 [INFO] Watching metadata for addons.cluster.x-k8s.io/v1beta2, Kind=ClusterResourceSet
+2026-06-12T14:41:34.874761115Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Policy
+2026-06-12T14:41:34.874772725Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=Endpoints
+2026-06-12T14:41:34.874789641Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=FluentbitAgent
+2026-06-12T14:41:34.874961633Z 2026/06/12 14:41:34 [INFO] Watching metadata for batch/v1, Kind=CronJob
+2026-06-12T14:41:34.874989768Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=NodeAgent
+2026-06-12T14:41:34.875061828Z 2026/06/12 14:41:34 [INFO] Watching metadata for resource.k8s.io/v1, Kind=DeviceClass
+2026-06-12T14:41:34.875172920Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=ManagedChart
+2026-06-12T14:41:34.875185264Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Content
+2026-06-12T14:41:34.875419721Z 2026/06/12 14:41:34 [INFO] Watching metadata for whereabouts.cni.cncf.io/v1alpha1, Kind=IPPool
+2026-06-12T14:41:34.875434345Z 2026/06/12 14:41:34 [INFO] Watching metadata for resource.k8s.io/v1, Kind=ResourceClaim
+2026-06-12T14:41:34.875440959Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=UpgradeLog
+2026-06-12T14:41:34.875457965Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Schedule
+2026-06-12T14:41:34.875618701Z 2026/06/12 14:41:34 [INFO] Watching metadata for batch/v1, Kind=Job
+2026-06-12T14:41:34.875642855Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=BackupVolume
+2026-06-12T14:41:34.875731902Z 2026/06/12 14:41:34 [INFO] Watching metadata for cluster.x-k8s.io/v1beta2, Kind=MachineHealthCheck
+2026-06-12T14:41:34.875865065Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=IPReservation
+2026-06-12T14:41:34.875883456Z 2026/06/12 14:41:34 [INFO] Watching metadata for rbac.authorization.k8s.io/v1, Kind=Role
+2026-06-12T14:41:34.875889630Z 2026/06/12 14:41:34 [INFO] Watching metadata for networking.k8s.io/v1, Kind=IPAddress
+2026-06-12T14:41:34.875895821Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=InstanceManager
+2026-06-12T14:41:34.875914766Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=CalicoNodeStatus
+2026-06-12T14:41:34.875951368Z 2026/06/12 14:41:34 [INFO] Watching metadata for tinkerbell.org/v1alpha1, Kind=Template
+2026-06-12T14:41:34.876033062Z 2026/06/12 14:41:34 [INFO] Watching metadata for migration.harvesterhci.io/v1beta1, Kind=OpenstackSource
+2026-06-12T14:41:34.876057871Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=GitRepoRestriction
+2026-06-12T14:41:34.876320160Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=VirtualMachineBackup
+2026-06-12T14:41:34.876333953Z 2026/06/12 14:41:34 [INFO] Watching metadata for node.harvesterhci.io/v1beta1, Kind=CloudInit
+2026-06-12T14:41:34.876340053Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=DataVolume
+2026-06-12T14:41:34.876357781Z 2026/06/12 14:41:34 [INFO] Watching metadata for networking.k8s.io/v1, Kind=Ingress
+2026-06-12T14:41:34.876544212Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=ResourceQuota
+2026-06-12T14:41:34.876589251Z 2026/06/12 14:41:34 [INFO] Watching metadata for addons.cluster.x-k8s.io/v1beta2, Kind=ClusterResourceSetBinding
+2026-06-12T14:41:34.876624922Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=ClusterGroup
+2026-06-12T14:41:34.876811564Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=ClusterInformation
+2026-06-12T14:41:34.876940326Z 2026/06/12 14:41:34 [INFO] Watching metadata for export.kubevirt.io/v1beta1, Kind=VirtualMachineExport
+2026-06-12T14:41:34.877116379Z 2026/06/12 14:41:34 [INFO] Watching metadata for rbac.authorization.k8s.io/v1, Kind=ClusterRoleBinding
+2026-06-12T14:41:34.877127943Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=ClusterOutput
+2026-06-12T14:41:34.877313520Z 2026/06/12 14:41:34 [INFO] Watching metadata for kubevirt.io/v1, Kind=VirtualMachineInstancePreset
+2026-06-12T14:41:34.877653676Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=VirtualMachineImageDownloader
+2026-06-12T14:41:34.877681962Z 2026/06/12 14:41:34 [INFO] Watching metadata for instancetype.kubevirt.io/v1beta1, Kind=VirtualMachineClusterInstancetype
+2026-06-12T14:41:34.877713098Z 2026/06/12 14:41:34 [INFO] Watching metadata for network.harvesterhci.io/v1beta1, Kind=VlanStatus
+2026-06-12T14:41:34.877721097Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=StagedNetworkPolicy
+2026-06-12T14:41:34.877727168Z 2026/06/12 14:41:34 [INFO] Watching metadata for upgrade.cattle.io/v1, Kind=Plan
+2026-06-12T14:41:34.877732908Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=SRIOVNetworkDevice
+2026-06-12T14:41:34.877738698Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=ClusterRegistrationToken
+2026-06-12T14:41:34.879890174Z 2026/06/12 14:41:34 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKECluster
+2026-06-12T14:41:34.880217442Z 2026/06/12 14:41:34 [INFO] Watching metadata for instancetype.kubevirt.io/v1beta1, Kind=VirtualMachinePreference
+2026-06-12T14:41:34.880472486Z 2026/06/12 14:41:34 [INFO] Watching metadata for helm.cattle.io/v1, Kind=HelmChartConfig
+2026-06-12T14:41:34.880773193Z 2026/06/12 14:41:34 [INFO] Watching metadata for network.harvesterhci.io/v1beta1, Kind=ClusterNetwork
+2026-06-12T14:41:34.880792646Z 2026/06/12 14:41:34 [INFO] Watching metadata for bmc.tinkerbell.org/v1alpha1, Kind=Machine
+2026-06-12T14:41:34.881075445Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=FelixConfiguration
+2026-06-12T14:41:34.881230611Z 2026/06/12 14:41:34 [INFO] Watching metadata for network.harvesterhci.io/v1beta1, Kind=LinkMonitor
+2026-06-12T14:41:34.881327753Z 2026/06/12 14:41:34 [INFO] Watching metadata for tinkerbell.org/v1alpha1, Kind=WorkflowData
+2026-06-12T14:41:34.881346979Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=SyslogNGClusterOutput
+2026-06-12T14:41:34.881352448Z 2026/06/12 14:41:34 [INFO] Watching metadata for scheduling.k8s.io/v1, Kind=PriorityClass
+2026-06-12T14:41:34.881383895Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=BackingImageDataSource
+2026-06-12T14:41:34.881395468Z 2026/06/12 14:41:34 [INFO] Watching metadata for flowcontrol.apiserver.k8s.io/v1, Kind=FlowSchema
+2026-06-12T14:41:34.881400027Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=Logging
+2026-06-12T14:41:34.881418455Z 2026/06/12 14:41:34 [INFO] Watching metadata for network.harvesterhci.io/v1beta1, Kind=HostNetworkConfig
+2026-06-12T14:41:34.881540011Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=VolumeUploadSource
+2026-06-12T14:41:34.881619460Z 2026/06/12 14:41:34 [INFO] Watching metadata for ipam.cluster.x-k8s.io/v1beta2, Kind=IPAddress
+2026-06-12T14:41:34.881665930Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=Node
+2026-06-12T14:41:34.881978134Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=VirtualMachineTemplate
+2026-06-12T14:41:34.881994846Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1, Kind=Probe
+2026-06-12T14:41:34.882001804Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=CDI
+2026-06-12T14:41:34.882672085Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=Preference
+2026-06-12T14:41:34.882835650Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=Setting
+2026-06-12T14:41:34.882857475Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=Service
+2026-06-12T14:41:34.883045963Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=SyslogNGFlow
+2026-06-12T14:41:34.883063920Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=VolumeRemoteBackup
+2026-06-12T14:41:34.883144450Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=Replica
+2026-06-12T14:41:34.883157134Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=BGPConfiguration
+2026-06-12T14:41:34.883199810Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=Token
+2026-06-12T14:41:34.883311603Z 2026/06/12 14:41:34 [INFO] Watching metadata for migration.harvesterhci.io/v1beta1, Kind=OvaSource
+2026-06-12T14:41:34.883330198Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=Group
+2026-06-12T14:41:34.884517241Z 2026/06/12 14:41:34 [INFO] Watching metadata for storage.k8s.io/v1, Kind=VolumeAttributesClass
+2026-06-12T14:41:34.884548040Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=ResourceQuota
+2026-06-12T14:41:34.884555905Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=Secret
+2026-06-12T14:41:34.884562196Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=ProxyEndpoint
+2026-06-12T14:41:34.884568340Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=FleetWorkspace
+2026-06-12T14:41:34.884575725Z 2026/06/12 14:41:34 [INFO] Watching metadata for metal.harvesterhci.io/v1alpha1, Kind=AddressPool
+2026-06-12T14:41:34.884582022Z 2026/06/12 14:41:34 [INFO] Watching metadata for networking.k8s.io/v1, Kind=ServiceCIDR
+2026-06-12T14:41:34.884587906Z 2026/06/12 14:41:34 [INFO] Watching metadata for storage.k8s.io/v1, Kind=CSIStorageCapacity
+2026-06-12T14:41:34.884593709Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=KubeControllersConfiguration
+2026-06-12T14:41:34.884629490Z 2026/06/12 14:41:34 [INFO] Watching metadata for rbac.authorization.k8s.io/v1, Kind=ClusterRole
+2026-06-12T14:41:34.884636909Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=LHNode
+2026-06-12T14:41:34.884642886Z 2026/06/12 14:41:34 [INFO] Watching metadata for telemetry.cattle.io/v1, Kind=SecretRequest
+2026-06-12T14:41:34.884648329Z 2026/06/12 14:41:34 [INFO] Watching metadata for metal.harvesterhci.io/v1alpha1, Kind=Cluster
+2026-06-12T14:41:34.884653935Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=ImageScan
+2026-06-12T14:41:34.884659982Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1, Kind=Alertmanager
+2026-06-12T14:41:34.884691976Z 2026/06/12 14:41:34 [INFO] Watching metadata for certificates.k8s.io/v1, Kind=CertificateSigningRequest
+2026-06-12T14:41:34.884711542Z 2026/06/12 14:41:34 [INFO] Watching metadata for apps/v1, Kind=ControllerRevision
+2026-06-12T14:41:34.884731465Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1, Kind=Prometheus
+2026-06-12T14:41:34.884738076Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Bundle
+2026-06-12T14:41:34.884824879Z 2026/06/12 14:41:34 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKEControlPlane
+2026-06-12T14:41:34.884854624Z 2026/06/12 14:41:34 [INFO] Watching metadata for loadbalancer.harvesterhci.io/v1beta1, Kind=LoadBalancer
+2026-06-12T14:41:34.884980262Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=PersistentVolumeClaim
+2026-06-12T14:41:34.884998787Z 2026/06/12 14:41:34 [INFO] Watching metadata for node.harvesterhci.io/v1beta1, Kind=Ksmtuned
+2026-06-12T14:41:34.885021863Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1, Kind=ServiceMonitor
+2026-06-12T14:41:34.885046165Z 2026/06/12 14:41:34 [INFO] Watching metadata for ext.cattle.io/v1, Kind=Kubeconfig
+2026-06-12T14:41:34.885139883Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1alpha1, Kind=ScrapeConfig
+2026-06-12T14:41:34.885182859Z 2026/06/12 14:41:34 [INFO] Watching metadata for ui.cattle.io/v1, Kind=NavLink
+2026-06-12T14:41:34.885207691Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=VolumeCloneSource
+2026-06-12T14:41:34.885286906Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=Addon
+2026-06-12T14:41:34.885324129Z 2026/06/12 14:41:34 [INFO] Watching metadata for loadbalancer.harvesterhci.io/v1beta1, Kind=IPPool
+2026-06-12T14:41:34.885374854Z 2026/06/12 14:41:34 [INFO] Watching metadata for kubevirt.io/v1, Kind=VirtualMachineInstance
+2026-06-12T14:41:34.885449751Z 2026/06/12 14:41:34 [INFO] Watching metadata for networking.k8s.io/v1, Kind=IngressClass
+2026-06-12T14:41:34.885468816Z 2026/06/12 14:41:34 [INFO] Watching metadata for helm.cattle.io/v1, Kind=HelmChart
+2026-06-12T14:41:34.885579143Z 2026/06/12 14:41:34 [INFO] Watching metadata for instancetype.kubevirt.io/v1beta1, Kind=VirtualMachineInstancetype
+2026-06-12T14:41:34.885615105Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=IPAMBlock
+2026-06-12T14:41:34.885693749Z 2026/06/12 14:41:34 [INFO] Watching metadata for logging.banzaicloud.io/v1beta1, Kind=SyslogNGClusterFlow
+2026-06-12T14:41:34.885704027Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=CDIConfig
+2026-06-12T14:41:34.885758620Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=ConfigMap
+2026-06-12T14:41:34.885830954Z 2026/06/12 14:41:34 [INFO] Watching metadata for tinkerbell.org/v1alpha1, Kind=Hardware
+2026-06-12T14:41:34.885857104Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=BundleDeployment
+2026-06-12T14:41:34.885899453Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=GlobalNetworkSet
+2026-06-12T14:41:34.886000496Z 2026/06/12 14:41:34 [INFO] Watching metadata for cdi.kubevirt.io/v1beta1, Kind=VolumeImportSource
+2026-06-12T14:41:34.886025038Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=SupportBundle
+2026-06-12T14:41:34.887563036Z 2026/06/12 14:41:34 [INFO] Watching metadata for kubevirt.io/v1, Kind=KubeVirt
+2026-06-12T14:41:34.887591676Z 2026/06/12 14:41:34 [INFO] Watching metadata for storage.k8s.io/v1, Kind=VolumeAttachment
+2026-06-12T14:41:34.887734758Z 2026/06/12 14:41:34 [INFO] Watching metadata for apps/v1, Kind=ReplicaSet
+2026-06-12T14:41:34.887755168Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=Backup
+2026-06-12T14:41:34.887762316Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=Version
+2026-06-12T14:41:34.887768383Z 2026/06/12 14:41:34 [INFO] Watching metadata for cluster.x-k8s.io/v1beta2, Kind=ClusterClass
+2026-06-12T14:41:34.887774544Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=GitRepo
+2026-06-12T14:41:34.887780931Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=Feature
+2026-06-12T14:41:34.887788703Z 2026/06/12 14:41:34 [INFO] Watching metadata for harvesterhci.io/v1beta1, Kind=KeyPair
+2026-06-12T14:41:34.887795051Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1, Kind=PodMonitor
+2026-06-12T14:41:34.887801158Z 2026/06/12 14:41:34 [INFO] Watching metadata for management.cattle.io/v3, Kind=NodeDriver
+2026-06-12T14:41:34.887807054Z 2026/06/12 14:41:34 [INFO] Watching metadata for devices.harvesterhci.io/v1beta1, Kind=USBDevice
+2026-06-12T14:41:34.887813075Z 2026/06/12 14:41:34 [INFO] Watching metadata for tinkerbell.org/v1alpha1, Kind=Workflow
+2026-06-12T14:41:34.887819142Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1, Kind=PrometheusRule
+2026-06-12T14:41:34.887825446Z 2026/06/12 14:41:34 [INFO] Watching metadata for monitoring.coreos.com/v1alpha1, Kind=AlertmanagerConfig
+2026-06-12T14:41:34.887831673Z 2026/06/12 14:41:34 [INFO] Watching metadata for /v1, Kind=PodTemplate
+2026-06-12T14:41:34.887838040Z 2026/06/12 14:41:34 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=ClusterRegistration
+2026-06-12T14:41:34.887844438Z 2026/06/12 14:41:34 [INFO] Watching metadata for longhorn.io/v1beta2, Kind=BackingImageManager
+2026-06-12T14:41:34.887850585Z 2026/06/12 14:41:34 [INFO] Watching metadata for crd.projectcalico.org/v1, Kind=BlockAffinity
+2026-06-12T14:41:34.887856308Z 2026/06/12 14:41:34 [INFO] Watching metadata for forklift.cdi.kubevirt.io/v1beta1, Kind=OpenstackVolumePopulator
+2026-06-12T14:41:34.887867538Z 2026/06/12 14:41:34 [INFO] Watching metadata for flowcontrol.apiserver.k8s.io/v1, Kind=PriorityLevelConfiguration
+2026-06-12T14:41:34.887873524Z 2026/06/12 14:41:34 [INFO] Watching metadata for admissionregistration.k8s.io/v1, Kind=MutatingWebhookConfiguration
+2026-06-12T14:41:34.887879358Z 2026/06/12 14:41:34 [INFO] Watching metadata for bmc.tinkerbell.org/v1alpha1, Kind=Job
+2026-06-12T14:41:34.887885395Z 2026/06/12 14:41:34 [INFO] Watching metadata for catalog.cattle.io/v1, Kind=ClusterRepo
+2026-06-12T14:41:34.888455600Z I0612 14:41:34.888311      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T14:41:34.889396857Z I0612 14:41:34.889212      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T14:41:34.916247849Z I0612 14:41:34.915885      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T14:41:36.319159702Z 2026/06/12 14:41:36 [INFO] CacheFor STARTS creating informer for /v1, Kind=Namespace
+2026-06-12T14:41:36.419726487Z 2026/06/12 14:41:36 [INFO] CacheFor IS DONE creating informer for /v1, Kind=Namespace (took 100.632084ms)
+2026-06-12T14:48:19.917921233Z I0612 14:48:19.917711      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T14:50:26.010758398Z I0612 14:50:26.010512      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T14:50:58.880664505Z I0612 14:50:58.880533      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T14:51:15.889405139Z I0612 14:51:15.889192      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T14:54:08.919530343Z I0612 14:54:08.919337      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T14:56:17.012970357Z I0612 14:56:17.012740      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T14:59:13.890223150Z I0612 14:59:13.890042      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T14:59:45.884018392Z I0612 14:59:45.883806      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:01:55.920075028Z I0612 15:01:55.919841      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:03:32.014735437Z I0612 15:03:32.014470      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:07:31.888318248Z I0612 15:07:31.888148      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:07:38.890823148Z I0612 15:07:38.890652      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:07:42.920506436Z I0612 15:07:42.920322      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:11:52.017343432Z I0612 15:11:52.017117      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:12:50.892682200Z I0612 15:12:50.892508      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:12:51.921638943Z I0612 15:12:51.921386      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:12:53.633475808Z 2026/06/12 15:12:53 [ERROR] watcher channel closed
+2026-06-12T15:13:03.634101668Z 2026/06/12 15:13:03 [INFO] starting imperative api cert rotator
+2026-06-12T15:13:03.641925096Z 2026/06/12 15:13:03 [INFO] imperative api APIService cert updated
+2026-06-12T15:14:22.889164317Z I0612 15:14:22.888941      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:20:32.020117857Z I0612 15:20:32.019905      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:20:53.892025887Z I0612 15:20:53.891826      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:22:18.898005268Z I0612 15:22:18.897836      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:22:33.926796090Z I0612 15:22:33.926592      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:27:56.754310216Z 2026/06/12 15:27:56 [INFO] Creating token for user user-nkqmt
+2026-06-12T15:28:08.135211475Z I0612 15:28:08.135035      43 warnings.go:107] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2026-06-12T15:28:08.189890444Z I0612 15:28:08.189696      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:28:08.209464553Z I0612 15:28:08.209279      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:28:08.243173221Z I0612 15:28:08.243009      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:28:08.256310510Z 2026/06/12 15:28:08 [INFO] Watching metadata for network.harvesterhci.io/v1alpha1, Kind=VirtualMachineNetworkConfig
+2026-06-12T15:28:08.257371511Z 2026/06/12 15:28:08 [INFO] Watching metadata for network.harvesterhci.io/v1alpha1, Kind=IPPool
+2026-06-12T15:28:10.986735573Z I0612 15:28:10.986522      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:28:11.047904937Z I0612 15:28:11.047694      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:28:11.055624862Z I0612 15:28:11.055462      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:28:11.065350899Z I0612 15:28:11.065232      43 warnings.go:107] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2026-06-12T15:28:25.930342807Z I0612 15:28:25.930122      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:28:33.895003557Z I0612 15:28:33.894842      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:29:33.902063779Z I0612 15:29:33.901880      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:29:50.022926869Z I0612 15:29:50.022712      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:36:19.929540892Z I0612 15:36:19.929315      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:37:32.901146508Z I0612 15:37:32.900930      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:37:45.897189952Z I0612 15:37:45.897049      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:39:29.025720693Z I0612 15:39:29.025499      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:43:41.930360590Z I0612 15:43:41.930164      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:45:27.902514327Z I0612 15:45:27.902342      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:46:16.899364097Z I0612 15:46:16.899178      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:47:32.027309252Z I0612 15:47:32.027056      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:51:10.907083807Z I0612 15:51:10.906884      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:51:10.933424263Z I0612 15:51:10.933201      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:51:45.902306899Z I0612 15:51:45.902119      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:57:09.029554054Z I0612 15:57:09.029324      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T15:58:17.870124520Z 2026/06/12 15:58:17 [ERROR] watcher channel closed
+2026-06-12T15:58:25.909588803Z I0612 15:58:25.909350      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T15:58:27.870216425Z 2026/06/12 15:58:27 [INFO] starting imperative api cert rotator
+2026-06-12T15:58:27.881090188Z 2026/06/12 15:58:27 [INFO] imperative api APIService cert updated
+2026-06-12T15:59:47.904519750Z I0612 15:59:47.904331      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T15:59:53.935950257Z I0612 15:59:53.935725      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:02:25.031691212Z I0612 16:02:25.031456      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:05:48.935981522Z I0612 16:05:48.935794      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:06:23.908776220Z I0612 16:06:23.908508      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T16:07:55.907450615Z I0612 16:07:55.907256      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T16:08:05.034447371Z I0612 16:08:05.034238      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:11:56.910157523Z I0612 16:11:56.909943      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T16:14:19.937525712Z I0612 16:14:19.937285      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:14:41.909646939Z I0612 16:14:41.909404      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T16:16:08.036128734Z I0612 16:16:08.035949      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:17:51.914348504Z I0612 16:17:51.914132      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T16:23:52.946109463Z I0612 16:23:52.945916      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:24:13.038219953Z I0612 16:24:13.038017      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:24:29.912014191Z I0612 16:24:29.911789      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T16:24:44.920579417Z I0612 16:24:44.920379      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T16:29:55.040887211Z I0612 16:29:55.040647      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:30:04.914642081Z I0612 16:30:04.914444      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T16:31:07.948939932Z I0612 16:31:07.948771      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:32:47.923129961Z I0612 16:32:47.922916      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T16:36:39.947696483Z I0612 16:36:39.947406      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:37:44.917102049Z I0612 16:37:44.916884      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T16:39:15.042726613Z I0612 16:39:15.042462      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:41:37.921641025Z I0612 16:41:37.921423      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T16:43:04.947460800Z I0612 16:43:04.947235      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:44:42.919571115Z I0612 16:44:42.919338      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T16:47:43.045426214Z I0612 16:47:43.045278      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:51:26.919729773Z I0612 16:51:26.919551      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T16:52:03.948150394Z I0612 16:52:03.947966      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:52:44.922918067Z I0612 16:52:44.922734      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T16:57:25.878946898Z 2026/06/12 16:57:25 [ERROR] watcher channel closed
+2026-06-12T16:57:34.048121693Z I0612 16:57:34.047892      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:57:35.879715515Z 2026/06/12 16:57:35 [INFO] starting imperative api cert rotator
+2026-06-12T16:57:35.886619430Z 2026/06/12 16:57:35 [INFO] imperative api APIService cert updated
+2026-06-12T16:58:26.954961499Z I0612 16:58:26.954707      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T16:59:43.927424149Z I0612 16:59:43.927201      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T17:02:18.925844495Z I0612 17:02:18.925643      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T17:03:19.049709797Z I0612 17:03:19.049509      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:05:28.957896416Z I0612 17:05:28.957692      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:08:57.051975682Z I0612 17:08:57.051785      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:09:22.931038489Z I0612 17:09:22.930903      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T17:09:59.927768675Z I0612 17:09:59.927469      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T17:13:33.961415317Z I0612 17:13:33.961212      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:14:03.053455524Z I0612 17:14:03.053250      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:18:00.931202788Z I0612 17:18:00.930998      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T17:19:24.930326023Z I0612 17:19:24.930172      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T17:22:08.056930646Z I0612 17:22:08.056705      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:22:38.958989938Z I0612 17:22:38.958793      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:24:54.929872387Z I0612 17:24:54.929710      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T17:26:38.933432978Z I0612 17:26:38.933229      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T17:28:12.059319229Z I0612 17:28:12.059081      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:28:42.959167356Z I0612 17:28:42.959000      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:33:08.930639232Z I0612 17:33:08.930391      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T17:33:45.936645360Z I0612 17:33:45.936416      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T17:35:37.062562897Z I0612 17:35:37.062356      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:37:19.960131969Z I0612 17:37:19.959931      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:39:24.939734081Z I0612 17:39:24.939469      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T17:39:26.932040669Z I0612 17:39:26.931889      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T17:44:46.961623476Z I0612 17:44:46.961423      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:44:52.064274785Z I0612 17:44:52.064101      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:45:22.941405427Z I0612 17:45:22.941216      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T17:46:07.932198189Z I0612 17:46:07.932038      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T17:50:40.985584730Z 2026/06/12 17:50:40 [ERROR] watcher channel closed
+2026-06-12T17:50:50.986607913Z 2026/06/12 17:50:50 [INFO] starting imperative api cert rotator
+2026-06-12T17:50:50.993322671Z 2026/06/12 17:50:50 [INFO] imperative api APIService cert updated
+2026-06-12T17:51:35.943543363Z I0612 17:51:35.943284      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T17:52:59.960847945Z I0612 17:52:59.960663      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:54:27.067228517Z I0612 17:54:27.067037      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T17:55:32.935424317Z I0612 17:55:32.935191      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T17:59:34.946680188Z I0612 17:59:34.946472      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:02:12.967011928Z I0612 18:02:12.966817      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:03:15.068976059Z I0612 18:03:15.068783      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:04:00.937804664Z I0612 18:04:00.937635      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T18:06:12.949702867Z I0612 18:06:12.949507      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:09:12.965285777Z I0612 18:09:12.965107      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:12:20.070897945Z I0612 18:12:20.070677      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:12:36.952298920Z I0612 18:12:36.952072      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:12:53.936188044Z I0612 18:12:53.935999      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T18:15:04.965721644Z I0612 18:15:04.965520      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:18:09.073730494Z I0612 18:18:09.073554      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:18:19.955742247Z I0612 18:18:19.955556      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:19:40.942372249Z I0612 18:19:40.942157      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T18:23:20.975107269Z I0612 18:23:20.974863      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:23:56.075905983Z I0612 18:23:56.075701      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:27:56.958226782Z I0612 18:27:56.958030      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:28:32.948614773Z I0612 18:28:32.948372      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T18:31:17.078714643Z I0612 18:31:17.078518      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:32:35.980118216Z I0612 18:32:35.979921      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:34:13.959708876Z I0612 18:34:13.959519      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:36:06.952029731Z I0612 18:36:06.951816      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T18:37:59.081884412Z I0612 18:37:59.081670      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:38:49.982950261Z I0612 18:38:49.982710      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:42:22.954417376Z I0612 18:42:22.954230      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T18:42:29.686709848Z 2026/06/12 18:42:29 [ERROR] watcher channel closed
+2026-06-12T18:42:39.687655371Z 2026/06/12 18:42:39 [INFO] starting imperative api cert rotator
+2026-06-12T18:42:39.694022468Z 2026/06/12 18:42:39 [INFO] imperative api APIService cert updated
+2026-06-12T18:42:58.961514398Z I0612 18:42:58.961303      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:43:26.084046500Z I0612 18:43:26.083893      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:44:29.985441905Z I0612 18:44:29.985199      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:48:49.953600315Z I0612 18:48:49.953326      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T18:50:04.963234878Z I0612 18:50:04.963086      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:53:14.086961514Z I0612 18:53:14.086735      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:53:53.980558739Z I0612 18:53:53.980325      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:54:57.951774399Z I0612 18:54:57.951624      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T18:55:53.965599640Z I0612 18:55:53.965388      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T18:58:57.089580129Z I0612 18:58:57.089452      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T18:59:23.980873364Z I0612 18:59:23.980694      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:02:44.951875330Z I0612 19:02:44.951671      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T19:02:53.968147633Z I0612 19:02:53.967972      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T19:07:24.982944002Z I0612 19:07:24.982716      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:08:28.092450478Z I0612 19:08:28.092249      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:09:42.953877309Z I0612 19:09:42.953688      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T19:11:58.971198289Z I0612 19:11:58.970985      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T19:14:58.985609468Z I0612 19:14:58.985387      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:18:02.095019598Z I0612 19:18:02.094776      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:19:22.955892323Z I0612 19:19:22.955669      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T19:20:25.986830287Z I0612 19:20:25.986631      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:20:57.973539305Z I0612 19:20:57.973354      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T19:26:19.976561051Z I0612 19:26:19.976359      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T19:26:37.989253268Z I0612 19:26:37.989086      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:27:32.097218653Z I0612 19:27:32.096998      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:28:14.957838457Z I0612 19:28:14.957670      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T19:32:42.989619602Z I0612 19:32:42.989421      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:35:04.467084474Z 2026/06/12 19:35:04 [ERROR] watcher channel closed
+2026-06-12T19:35:09.978994267Z I0612 19:35:09.978779      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T19:35:14.468021446Z 2026/06/12 19:35:14 [INFO] starting imperative api cert rotator
+2026-06-12T19:35:14.474298471Z 2026/06/12 19:35:14 [INFO] imperative api APIService cert updated
+2026-06-12T19:35:52.956880791Z I0612 19:35:52.956685      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T19:36:51.098882721Z I0612 19:36:51.098735      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:42:31.988580611Z I0612 19:42:31.988366      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:44:39.981538743Z I0612 19:44:39.981285      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T19:45:19.957878449Z I0612 19:45:19.957692      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T19:45:27.101415073Z I0612 19:45:27.101187      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:51:24.999022266Z I0612 19:51:24.998814      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:51:25.103264921Z I0612 19:51:25.103138      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:52:03.968595964Z I0612 19:52:03.968357      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T19:54:05.983713021Z I0612 19:54:05.983527      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T19:57:52.105450150Z I0612 19:57:52.105239      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T19:58:34.979296551Z I0612 19:58:34.979069      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T19:59:07.986523304Z I0612 19:59:07.986318      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T20:00:19.012164149Z I0612 20:00:19.011952      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:03:47.107550480Z I0612 20:03:47.107342      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:07:09.989247424Z I0612 20:07:09.989013      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T20:07:29.984698609Z I0612 20:07:29.984496      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T20:07:48.015606632Z I0612 20:07:48.015440      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:11:25.109852629Z I0612 20:11:25.109652      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:14:31.900081059Z 2026/06/12 20:14:31 [ERROR] watcher channel closed
+2026-06-12T20:14:41.900956743Z 2026/06/12 20:14:41 [INFO] starting imperative api cert rotator
+2026-06-12T20:14:41.907208187Z 2026/06/12 20:14:41 [INFO] imperative api APIService cert updated
+2026-06-12T20:15:29.991563603Z I0612 20:15:29.991362      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T20:16:21.020899086Z I0612 20:16:21.020694      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:16:30.113437833Z I0612 20:16:30.113216      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:16:49.989940292Z I0612 20:16:49.989718      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T20:22:09.995055187Z I0612 20:22:09.994804      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T20:22:45.025396167Z I0612 20:22:45.025166      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:23:22.995347254Z I0612 20:23:22.995111      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T20:23:26.115230690Z I0612 20:23:26.115081      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:28:44.999029893Z I0612 20:28:44.998810      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T20:29:44.997168563Z I0612 20:29:44.996955      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T20:32:25.118515685Z I0612 20:32:25.118234      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:32:38.028072384Z I0612 20:32:38.027927      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:37:29.996440261Z I0612 20:37:29.996198      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T20:39:32.026401795Z I0612 20:39:32.026193      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:39:33.999011227Z I0612 20:39:33.998832      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T20:41:43.122292022Z I0612 20:41:43.122083      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:45:24.998010576Z I0612 20:45:24.997743      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T20:47:07.027075044Z I0612 20:47:07.026917      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:47:49.124915109Z I0612 20:47:49.124722      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:49:23.001395247Z I0612 20:49:23.001225      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T20:53:28.995451286Z I0612 20:53:28.995235      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T20:55:38.127555681Z I0612 20:55:38.127341      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:56:25.026437957Z I0612 20:56:25.026208      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T20:56:53.003422572Z I0612 20:56:53.003228      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T20:59:41.998383091Z I0612 20:59:41.998130      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T21:03:12.005560766Z I0612 21:03:12.005354      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T21:03:27.027913913Z I0612 21:03:27.027722      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:03:57.130695647Z I0612 21:03:57.130464      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:05:29.823463655Z 2026/06/12 21:05:29 [ERROR] watcher channel closed
+2026-06-12T21:05:39.823998014Z 2026/06/12 21:05:39 [INFO] starting imperative api cert rotator
+2026-06-12T21:05:39.830419771Z 2026/06/12 21:05:39 [INFO] imperative api APIService cert updated
+2026-06-12T21:07:09.000335146Z I0612 21:07:09.000180      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T21:09:31.030706466Z I0612 21:09:31.030517      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:10:00.132449208Z I0612 21:10:00.132236      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:12:14.007849932Z I0612 21:12:14.007666      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T21:16:44.134716185Z I0612 21:16:44.134537      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:16:53.003300260Z I0612 21:16:53.003120      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T21:17:04.034415631Z I0612 21:17:04.034211      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:18:04.010897353Z I0612 21:18:04.010680      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T21:24:33.007786188Z I0612 21:24:33.007547      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T21:25:19.037914812Z I0612 21:25:19.037696      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:25:41.013462247Z I0612 21:25:41.013246      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T21:26:27.136755667Z I0612 21:26:27.136528      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:31:29.003999025Z I0612 21:31:29.003731      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T21:33:27.140097016Z I0612 21:33:27.139929      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:33:46.022324944Z I0612 21:33:46.022124      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:33:48.016770253Z I0612 21:33:48.016565      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T21:38:34.142851657Z I0612 21:38:34.142684      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:38:51.977374929Z I0612 21:38:51.977154      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T21:39:38.005964422Z I0612 21:39:38.005745      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:43:44.019455386Z I0612 21:43:44.019261      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T21:44:46.998109072Z I0612 21:44:46.997927      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:47:45.145135879Z I0612 21:47:45.144871      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:47:54.962306050Z I0612 21:47:54.962102      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T21:49:00.021719854Z I0612 21:49:00.021466      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T21:53:43.004449658Z I0612 21:53:43.004234      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:53:49.147468048Z I0612 21:53:49.147270      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T21:55:24.024131050Z I0612 21:55:24.023980      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T21:56:32.988595963Z I0612 21:56:32.988443      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:02:10.032030428Z I0612 22:02:10.031834      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:03:05.149198918Z I0612 22:03:05.148977      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:03:45.004848978Z I0612 22:03:45.004627      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:04:50.047350432Z 2026/06/12 22:04:50 [ERROR] watcher channel closed
+2026-06-12T22:05:00.048182557Z 2026/06/12 22:05:00 [INFO] starting imperative api cert rotator
+2026-06-12T22:05:00.054662345Z 2026/06/12 22:05:00 [INFO] imperative api APIService cert updated
+2026-06-12T22:05:20.025908871Z I0612 22:05:20.025666      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T22:09:21.151771320Z I0612 22:09:21.151576      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:11:20.040563324Z I0612 22:11:20.040348      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:12:45.012715376Z I0612 22:12:45.012452      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:12:49.028873898Z I0612 22:12:49.028658      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T22:15:23.154024987Z I0612 22:15:23.153860      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:17:54.030623551Z I0612 22:17:54.030445      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T22:18:19.041983914Z I0612 22:18:19.041756      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:20:51.011857374Z I0612 22:20:51.011643      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:23:21.155922987Z I0612 22:23:21.155764      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:25:12.033229495Z I0612 22:25:12.033057      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T22:26:35.040716025Z I0612 22:26:35.040535      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:27:11.011629776Z I0612 22:27:11.011449      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:31:48.043170865Z I0612 22:31:48.042937      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:32:33.158906308Z I0612 22:32:33.158728      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:33:00.013922514Z I0612 22:33:00.013711      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:34:00.035554636Z I0612 22:34:00.035343      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T22:37:30.047938996Z I0612 22:37:30.047749      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:39:30.017187843Z I0612 22:39:30.017024      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:40:25.161555046Z I0612 22:40:25.161345      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:42:56.052018511Z I0612 22:42:56.051806      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:43:25.038350074Z I0612 22:43:25.038121      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T22:45:34.163801458Z I0612 22:45:34.163603      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:48:58.050684832Z I0612 22:48:58.050521      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:49:25.016363548Z I0612 22:49:25.016195      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:51:04.166701479Z I0612 22:51:04.166544      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:52:30.040812706Z I0612 22:52:30.040650      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T22:53:15.103454950Z 2026/06/12 22:53:15 [ERROR] watcher channel closed
+2026-06-12T22:53:25.103573148Z 2026/06/12 22:53:25 [INFO] starting imperative api cert rotator
+2026-06-12T22:53:25.109639893Z 2026/06/12 22:53:25 [INFO] imperative api APIService cert updated
+2026-06-12T22:56:27.052601633Z I0612 22:56:27.052390      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T22:57:41.043654795Z I0612 22:57:41.043387      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T22:57:58.019132348Z I0612 22:57:58.018954      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T22:58:53.169572862Z I0612 22:58:53.169356      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T23:01:47.056792743Z I0612 23:01:47.056648      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T23:01:48.251099144Z 2026/06/12 23:01:48 [INFO] CacheFor STARTS creating informer for management.cattle.io/v3, Kind=Setting
+2026-06-12T23:01:48.398772624Z 2026/06/12 23:01:48 [INFO] CacheFor IS DONE creating informer for management.cattle.io/v3, Kind=Setting (took 147.65378ms)
+2026-06-12T23:02:09.708893844Z 2026/06/12 23:02:09 [INFO] CacheFor STARTS creating informer for management.cattle.io/v3, Kind=Cluster
+2026-06-12T23:02:09.809676524Z 2026/06/12 23:02:09 [INFO] CacheFor IS DONE creating informer for management.cattle.io/v3, Kind=Cluster (took 100.853352ms)
+2026-06-12T23:02:15.295086391Z 2026/06/12 23:02:15 [INFO] CacheFor STARTS creating informer for harvesterhci.io/v1beta1, Kind=Setting
+2026-06-12T23:02:15.396024191Z 2026/06/12 23:02:15 [INFO] CacheFor IS DONE creating informer for harvesterhci.io/v1beta1, Kind=Setting (took 100.928676ms)
+2026-06-12T23:02:15.918559477Z 2026/06/12 23:02:15 [INFO] CacheFor STARTS creating informer for /v1, Kind=Event
+2026-06-12T23:02:16.640645628Z 2026/06/12 23:02:16 [INFO] CacheFor IS DONE creating informer for /v1, Kind=Event (took 721.957751ms)
+2026-06-12T23:02:43.732738780Z 2026/06/12 23:02:43 [INFO] CacheFor STARTS creating informer for /v1, Kind=Pod
+2026-06-12T23:02:44.489513194Z 2026/06/12 23:02:44 [INFO] CacheFor IS DONE creating informer for /v1, Kind=Pod (took 756.695276ms)
+2026-06-12T23:03:32.605442809Z 2026/06/12 23:03:32 [INFO] CacheFor STARTS creating informer for apps/v1, Kind=DaemonSet
+2026-06-12T23:03:32.706384431Z 2026/06/12 23:03:32 [INFO] CacheFor IS DONE creating informer for apps/v1, Kind=DaemonSet (took 100.949584ms)
+2026-06-12T23:03:34.045674976Z I0612 23:03:34.045462      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."
+2026-06-12T23:03:42.603917445Z 2026/06/12 23:03:42 [INFO] CacheFor STARTS creating informer for provisioning.cattle.io/v1, Kind=Cluster
+2026-06-12T23:03:42.704731325Z 2026/06/12 23:03:42 [INFO] CacheFor IS DONE creating informer for provisioning.cattle.io/v1, Kind=Cluster (took 100.873288ms)
+2026-06-12T23:03:42.752088383Z 2026/06/12 23:03:42 [INFO] CacheFor STARTS creating informer for /v1, Kind=ServiceAccount
+2026-06-12T23:03:42.765161459Z 2026/06/12 23:03:42 [INFO] CacheFor STARTS creating informer for /v1, Kind=Service
+2026-06-12T23:03:42.888539389Z 2026/06/12 23:03:42 [INFO] CacheFor IS DONE creating informer for /v1, Kind=ServiceAccount (took 136.427489ms)
+2026-06-12T23:03:42.956209942Z 2026/06/12 23:03:42 [INFO] CacheFor IS DONE creating informer for /v1, Kind=Service (took 191.035668ms)
+2026-06-12T23:05:39.172541702Z I0612 23:05:39.172372      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T23:07:15.022280918Z I0612 23:07:15.022044      43 warnings.go:107] "Warning: kubevirt.io/v1 VirtualMachineInstancePresets is now deprecated and will be removed in v2."
+2026-06-12T23:08:06.059276593Z I0612 23:08:06.059091      43 warnings.go:107] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2026-06-12T23:10:00.359832295Z 2026/06/12 23:10:00 [INFO] CacheFor STARTS creating informer for ui.cattle.io/v1, Kind=NavLink
+2026-06-12T23:10:00.460848980Z 2026/06/12 23:10:00 [INFO] CacheFor IS DONE creating informer for ui.cattle.io/v1, Kind=NavLink (took 101.116407ms)
+2026-06-12T23:10:00.862510320Z 2026/06/12 23:10:00 [INFO] CacheFor STARTS creating informer for catalog.cattle.io/v1, Kind=App
+2026-06-12T23:10:00.963570723Z 2026/06/12 23:10:00 [INFO] CacheFor IS DONE creating informer for catalog.cattle.io/v1, Kind=App (took 100.997994ms)
+2026-06-12T23:10:02.047219037Z I0612 23:10:02.046998      43 warnings.go:107] "Warning: cdi.kubevirt.io/v1beta1 ObjectTransfers is now deprecated and will be removed in v1."

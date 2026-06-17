@@ -1,0 +1,845 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:19:37Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-117-tink-system
+    resourceVersion: "633521"
+    uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+  kind: Event
+  lastTimestamp: "2026-06-12T22:19:37Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    52C,03-CPU 2 reported temp: 55C,04-P1 DIMM 1-6 reported temp: 36C,05-P1 DIMM 7-12
+    reported temp: 34C,06-P2 DIMM 1-6 reported temp: 42C,07-P2 DIMM 7-12 reported
+    temp: 39C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 42C,11-PS 1 Inlet reported temp: 40C,12-PS 2 Inlet reported temp:
+    43C,13-VR P1 reported temp: 39C,14-VR P2 reported temp: 44C,15-VR P1 Mem reported
+    temp: 30C,16-VR P1 Mem reported temp: 28C,17-VR P2 Mem reported temp: 37C,18-VR
+    P2 Mem reported temp: 35C,19-PS 1 Internal reported temp: 44C,20-PS 2 Internal
+    reported temp: 41C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 60C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 43C,29-Battery Zone reported temp: 38C,30-iLO Zone reported temp:
+    42C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 38C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 37C,35-I/O Zone reported
+    temp: 34C,36-Storage Batt reported temp: 0C,37-Fuse reported temp: 42C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:19:37Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:19:37Z"
+    name: hp-117-tink-system.18b875704a5e8479
+    namespace: default
+    resourceVersion: "634191"
+    uid: 08acef3a-1feb-4a5b-93d8-c2e7cbefc88e
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:35:28Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-117-tink-system
+    resourceVersion: "646360"
+    uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+  kind: Event
+  lastTimestamp: "2026-06-12T22:35:28Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    51C,03-CPU 2 reported temp: 54C,04-P1 DIMM 1-6 reported temp: 36C,05-P1 DIMM 7-12
+    reported temp: 34C,06-P2 DIMM 1-6 reported temp: 42C,07-P2 DIMM 7-12 reported
+    temp: 39C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 42C,11-PS 1 Inlet reported temp: 39C,12-PS 2 Inlet reported temp:
+    41C,13-VR P1 reported temp: 39C,14-VR P2 reported temp: 44C,15-VR P1 Mem reported
+    temp: 30C,16-VR P1 Mem reported temp: 28C,17-VR P2 Mem reported temp: 37C,18-VR
+    P2 Mem reported temp: 35C,19-PS 1 Internal reported temp: 44C,20-PS 2 Internal
+    reported temp: 40C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 59C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 42C,29-Battery Zone reported temp: 38C,30-iLO Zone reported temp:
+    42C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 37C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 37C,35-I/O Zone reported
+    temp: 34C,36-Storage Batt reported temp: 0C,37-Fuse reported temp: 42C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:35:28Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:35:28Z"
+    name: hp-117-tink-system.18b8764d8a66b832
+    namespace: default
+    resourceVersion: "646660"
+    uid: 08eac6a1-4cab-44d8-83d0-b0548bbb04f5
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:36:26Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-117-tink-system
+    resourceVersion: "646360"
+    uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+  kind: Event
+  lastTimestamp: "2026-06-12T22:36:26Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    52C,03-CPU 2 reported temp: 55C,04-P1 DIMM 1-6 reported temp: 36C,05-P1 DIMM 7-12
+    reported temp: 34C,06-P2 DIMM 1-6 reported temp: 42C,07-P2 DIMM 7-12 reported
+    temp: 40C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 42C,11-PS 1 Inlet reported temp: 39C,12-PS 2 Inlet reported temp:
+    41C,13-VR P1 reported temp: 38C,14-VR P2 reported temp: 45C,15-VR P1 Mem reported
+    temp: 31C,16-VR P1 Mem reported temp: 28C,17-VR P2 Mem reported temp: 37C,18-VR
+    P2 Mem reported temp: 35C,19-PS 1 Internal reported temp: 44C,20-PS 2 Internal
+    reported temp: 40C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 60C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 42C,29-Battery Zone reported temp: 38C,30-iLO Zone reported temp:
+    42C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 37C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 38C,35-I/O Zone reported
+    temp: 34C,36-Storage Batt reported temp: 30C,37-Fuse reported temp: 42C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:36:26Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:36:26Z"
+    name: hp-117-tink-system.18b8765b418d9db8
+    namespace: default
+    resourceVersion: "647450"
+    uid: 384d69c6-366a-4736-b999-1ffea13bde57
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:36:50Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-117-tink-system
+    resourceVersion: "647454"
+    uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+  kind: Event
+  lastTimestamp: "2026-06-12T22:36:50Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    52C,03-CPU 2 reported temp: 55C,04-P1 DIMM 1-6 reported temp: 37C,05-P1 DIMM 7-12
+    reported temp: 34C,06-P2 DIMM 1-6 reported temp: 42C,07-P2 DIMM 7-12 reported
+    temp: 40C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 42C,11-PS 1 Inlet reported temp: 39C,12-PS 2 Inlet reported temp:
+    41C,13-VR P1 reported temp: 38C,14-VR P2 reported temp: 45C,15-VR P1 Mem reported
+    temp: 31C,16-VR P1 Mem reported temp: 28C,17-VR P2 Mem reported temp: 38C,18-VR
+    P2 Mem reported temp: 35C,19-PS 1 Internal reported temp: 44C,20-PS 2 Internal
+    reported temp: 40C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 60C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 42C,29-Battery Zone reported temp: 38C,30-iLO Zone reported temp:
+    42C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 37C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 39C,35-I/O Zone reported
+    temp: 34C,36-Storage Batt reported temp: 31C,37-Fuse reported temp: 42C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:36:50Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:36:50Z"
+    name: hp-117-tink-system.18b87660a9614692
+    namespace: default
+    resourceVersion: "647747"
+    uid: 88d167ca-df97-422e-9cbd-7f3777bc3fe4
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:52:20Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-117-tink-system
+    resourceVersion: "658991"
+    uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+  kind: Event
+  lastTimestamp: "2026-06-12T22:52:20Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    54C,03-CPU 2 reported temp: 58C,04-P1 DIMM 1-6 reported temp: 36C,05-P1 DIMM 7-12
+    reported temp: 34C,06-P2 DIMM 1-6 reported temp: 42C,07-P2 DIMM 7-12 reported
+    temp: 40C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 42C,11-PS 1 Inlet reported temp: 40C,12-PS 2 Inlet reported temp:
+    43C,13-VR P1 reported temp: 39C,14-VR P2 reported temp: 45C,15-VR P1 Mem reported
+    temp: 31C,16-VR P1 Mem reported temp: 28C,17-VR P2 Mem reported temp: 38C,18-VR
+    P2 Mem reported temp: 36C,19-PS 1 Internal reported temp: 45C,20-PS 2 Internal
+    reported temp: 41C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 63C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 44C,29-Battery Zone reported temp: 39C,30-iLO Zone reported temp:
+    43C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 38C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 39C,35-I/O Zone reported
+    temp: 34C,36-Storage Batt reported temp: 0C,37-Fuse reported temp: 43C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:52:20Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:52:20Z"
+    name: hp-117-tink-system.18b877394e137f80
+    namespace: default
+    resourceVersion: "659993"
+    uid: 97876f00-1752-4a26-bf8f-1d0df645e776
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T23:07:44Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-117-tink-system
+    resourceVersion: "671999"
+    uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+  kind: Event
+  lastTimestamp: "2026-06-12T23:07:44Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    51C,03-CPU 2 reported temp: 55C,04-P1 DIMM 1-6 reported temp: 35C,05-P1 DIMM 7-12
+    reported temp: 34C,06-P2 DIMM 1-6 reported temp: 42C,07-P2 DIMM 7-12 reported
+    temp: 39C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 42C,11-PS 1 Inlet reported temp: 39C,12-PS 2 Inlet reported temp:
+    42C,13-VR P1 reported temp: 38C,14-VR P2 reported temp: 45C,15-VR P1 Mem reported
+    temp: 30C,16-VR P1 Mem reported temp: 28C,17-VR P2 Mem reported temp: 37C,18-VR
+    P2 Mem reported temp: 35C,19-PS 1 Internal reported temp: 44C,20-PS 2 Internal
+    reported temp: 41C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 59C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 42C,29-Battery Zone reported temp: 38C,30-iLO Zone reported temp:
+    42C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 38C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 37C,35-I/O Zone reported
+    temp: 34C,36-Storage Batt reported temp: 31C,37-Fuse reported temp: 42C'
+  metadata:
+    creationTimestamp: "2026-06-12T23:07:44Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T23:07:44Z"
+    name: hp-117-tink-system.18b87810637eab49
+    namespace: default
+    resourceVersion: "672412"
+    uid: 86acc7bd-fba7-4e47-bfe2-1b285b915b27
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:19:44Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-150-tink-system
+    resourceVersion: "633768"
+    uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+  kind: Event
+  lastTimestamp: "2026-06-12T22:19:44Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    49C,03-CPU 2 reported temp: 60C,04-P1 DIMM 1-6 reported temp: 38C,05-P1 DIMM 7-12
+    reported temp: 33C,06-P2 DIMM 1-6 reported temp: 43C,07-P2 DIMM 7-12 reported
+    temp: 40C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 34C,11-PS 1 Inlet reported temp: 41C,12-PS 2 Inlet reported temp:
+    43C,13-VR P1 reported temp: 39C,14-VR P2 reported temp: 48C,15-VR P1 Mem reported
+    temp: 32C,16-VR P1 Mem reported temp: 29C,17-VR P2 Mem reported temp: 40C,18-VR
+    P2 Mem reported temp: 36C,19-PS 1 Internal reported temp: 45C,20-PS 2 Internal
+    reported temp: 45C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 64C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 28C,28-P/S 2 Zone
+    reported temp: 44C,29-Battery Zone reported temp: 39C,30-iLO Zone reported temp:
+    41C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 35C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 41C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 30C,37-Fuse reported temp: 44C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:19:44Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:19:44Z"
+    name: hp-150-tink-system.18b87571dd384adc
+    namespace: default
+    resourceVersion: "634286"
+    uid: 6ca2ed81-779f-491a-9cc6-c31bec7d7a54
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:35:34Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-150-tink-system
+    resourceVersion: "645645"
+    uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+  kind: Event
+  lastTimestamp: "2026-06-12T22:35:34Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    49C,03-CPU 2 reported temp: 59C,04-P1 DIMM 1-6 reported temp: 38C,05-P1 DIMM 7-12
+    reported temp: 33C,06-P2 DIMM 1-6 reported temp: 43C,07-P2 DIMM 7-12 reported
+    temp: 40C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 34C,11-PS 1 Inlet reported temp: 41C,12-PS 2 Inlet reported temp:
+    43C,13-VR P1 reported temp: 39C,14-VR P2 reported temp: 48C,15-VR P1 Mem reported
+    temp: 32C,16-VR P1 Mem reported temp: 29C,17-VR P2 Mem reported temp: 40C,18-VR
+    P2 Mem reported temp: 36C,19-PS 1 Internal reported temp: 45C,20-PS 2 Internal
+    reported temp: 45C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 64C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 28C,28-P/S 2 Zone
+    reported temp: 44C,29-Battery Zone reported temp: 39C,30-iLO Zone reported temp:
+    41C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 35C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 41C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 31C,37-Fuse reported temp: 44C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:35:34Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:35:34Z"
+    name: hp-150-tink-system.18b8764f1dc742c0
+    namespace: default
+    resourceVersion: "646758"
+    uid: 96cda422-1c09-481a-8ff5-f5d46cf100c1
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:37:00Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-150-tink-system
+    resourceVersion: "647395"
+    uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+  kind: Event
+  lastTimestamp: "2026-06-12T22:37:00Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    49C,03-CPU 2 reported temp: 59C,04-P1 DIMM 1-6 reported temp: 38C,05-P1 DIMM 7-12
+    reported temp: 33C,06-P2 DIMM 1-6 reported temp: 44C,07-P2 DIMM 7-12 reported
+    temp: 40C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 34C,11-PS 1 Inlet reported temp: 41C,12-PS 2 Inlet reported temp:
+    43C,13-VR P1 reported temp: 38C,14-VR P2 reported temp: 48C,15-VR P1 Mem reported
+    temp: 32C,16-VR P1 Mem reported temp: 29C,17-VR P2 Mem reported temp: 41C,18-VR
+    P2 Mem reported temp: 36C,19-PS 1 Internal reported temp: 45C,20-PS 2 Internal
+    reported temp: 45C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 64C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 28C,28-P/S 2 Zone
+    reported temp: 44C,29-Battery Zone reported temp: 39C,30-iLO Zone reported temp:
+    41C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 35C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 41C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 31C,37-Fuse reported temp: 44C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:37:00Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:37:00Z"
+    name: hp-150-tink-system.18b876630d238052
+    namespace: default
+    resourceVersion: "647878"
+    uid: 248361d6-bb6a-4ea9-82a1-756aa6ff409b
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:52:27Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-150-tink-system
+    resourceVersion: "659450"
+    uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+  kind: Event
+  lastTimestamp: "2026-06-12T22:52:27Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    49C,03-CPU 2 reported temp: 59C,04-P1 DIMM 1-6 reported temp: 38C,05-P1 DIMM 7-12
+    reported temp: 33C,06-P2 DIMM 1-6 reported temp: 43C,07-P2 DIMM 7-12 reported
+    temp: 40C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 34C,11-PS 1 Inlet reported temp: 41C,12-PS 2 Inlet reported temp:
+    43C,13-VR P1 reported temp: 38C,14-VR P2 reported temp: 48C,15-VR P1 Mem reported
+    temp: 32C,16-VR P1 Mem reported temp: 29C,17-VR P2 Mem reported temp: 40C,18-VR
+    P2 Mem reported temp: 36C,19-PS 1 Internal reported temp: 45C,20-PS 2 Internal
+    reported temp: 45C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 64C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 28C,28-P/S 2 Zone
+    reported temp: 44C,29-Battery Zone reported temp: 39C,30-iLO Zone reported temp:
+    41C,31-PCI 1 Zone reported temp: 34C,32-PCI 2 Zone reported temp: 35C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 41C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 30C,37-Fuse reported temp: 44C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:52:27Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:52:27Z"
+    name: hp-150-tink-system.18b8773add450536
+    namespace: default
+    resourceVersion: "660078"
+    uid: edc0af79-175e-471a-81d6-a7f059bb765f
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T23:07:51Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-150-tink-system
+    resourceVersion: "671796"
+    uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+  kind: Event
+  lastTimestamp: "2026-06-12T23:07:51Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 21C,02-CPU 1 reported temp:
+    51C,03-CPU 2 reported temp: 59C,04-P1 DIMM 1-6 reported temp: 38C,05-P1 DIMM 7-12
+    reported temp: 33C,06-P2 DIMM 1-6 reported temp: 43C,07-P2 DIMM 7-12 reported
+    temp: 40C,08-HD Max reported temp: 35C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 34C,11-PS 1 Inlet reported temp: 41C,12-PS 2 Inlet reported temp:
+    44C,13-VR P1 reported temp: 39C,14-VR P2 reported temp: 47C,15-VR P1 Mem reported
+    temp: 32C,16-VR P1 Mem reported temp: 29C,17-VR P2 Mem reported temp: 40C,18-VR
+    P2 Mem reported temp: 36C,19-PS 1 Internal reported temp: 45C,20-PS 2 Internal
+    reported temp: 45C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 64C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 28C,28-P/S 2 Zone
+    reported temp: 44C,29-Battery Zone reported temp: 39C,30-iLO Zone reported temp:
+    41C,31-PCI 1 Zone reported temp: 35C,32-PCI 2 Zone reported temp: 35C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 41C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 30C,37-Fuse reported temp: 44C'
+  metadata:
+    creationTimestamp: "2026-06-12T23:07:51Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T23:07:51Z"
+    name: hp-150-tink-system.18b87811ef063b3c
+    namespace: default
+    resourceVersion: "672496"
+    uid: 1177af71-e301-4e74-8f7b-0e358b57b6a5
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:19:51Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-69-tink-system
+    resourceVersion: "632766"
+    uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+  kind: Event
+  lastTimestamp: "2026-06-12T22:19:51Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 20C,02-CPU 1 reported temp:
+    45C,03-CPU 2 reported temp: 56C,04-P1 DIMM 1-6 reported temp: 33C,05-P1 DIMM 7-12
+    reported temp: 31C,06-P2 DIMM 1-6 reported temp: 39C,07-P2 DIMM 7-12 reported
+    temp: 37C,08-HD Max reported temp: 0C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 40C,11-PS 1 Inlet reported temp: 34C,12-PS 2 Inlet reported temp:
+    37C,13-VR P1 reported temp: 35C,14-VR P2 reported temp: 44C,15-VR P1 Mem reported
+    temp: 30C,16-VR P1 Mem reported temp: 27C,17-VR P2 Mem reported temp: 38C,18-VR
+    P2 Mem reported temp: 34C,19-PS 1 Internal reported temp: 40C,20-PS 2 Internal
+    reported temp: 40C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 0C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 40C,29-Battery Zone reported temp: 34C,30-iLO Zone reported temp:
+    37C,31-PCI 1 Zone reported temp: 33C,32-PCI 2 Zone reported temp: 34C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 0C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 30C,37-Fuse reported temp: 40C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:19:51Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:19:51Z"
+    name: hp-69-tink-system.18b87573696dd593
+    namespace: default
+    resourceVersion: "634374"
+    uid: 542526d6-3943-4879-80a3-09c08457e32a
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:37:07Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-69-tink-system
+    resourceVersion: "646813"
+    uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+  kind: Event
+  lastTimestamp: "2026-06-12T22:37:07Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 20C,02-CPU 1 reported temp:
+    45C,03-CPU 2 reported temp: 57C,04-P1 DIMM 1-6 reported temp: 33C,05-P1 DIMM 7-12
+    reported temp: 31C,06-P2 DIMM 1-6 reported temp: 39C,07-P2 DIMM 7-12 reported
+    temp: 37C,08-HD Max reported temp: 0C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 40C,11-PS 1 Inlet reported temp: 34C,12-PS 2 Inlet reported temp:
+    37C,13-VR P1 reported temp: 35C,14-VR P2 reported temp: 43C,15-VR P1 Mem reported
+    temp: 30C,16-VR P1 Mem reported temp: 27C,17-VR P2 Mem reported temp: 37C,18-VR
+    P2 Mem reported temp: 34C,19-PS 1 Internal reported temp: 40C,20-PS 2 Internal
+    reported temp: 40C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 0C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 40C,29-Battery Zone reported temp: 34C,30-iLO Zone reported temp:
+    37C,31-PCI 1 Zone reported temp: 33C,32-PCI 2 Zone reported temp: 34C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 0C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 30C,37-Fuse reported temp: 40C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:37:07Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:37:07Z"
+    name: hp-69-tink-system.18b876649bacb9a9
+    namespace: default
+    resourceVersion: "647975"
+    uid: 9c669e9d-d4c2-4fe4-84da-cd7660200415
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T22:52:34Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-69-tink-system
+    resourceVersion: "659626"
+    uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+  kind: Event
+  lastTimestamp: "2026-06-12T22:52:34Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 20C,02-CPU 1 reported temp:
+    46C,03-CPU 2 reported temp: 55C,04-P1 DIMM 1-6 reported temp: 33C,05-P1 DIMM 7-12
+    reported temp: 31C,06-P2 DIMM 1-6 reported temp: 39C,07-P2 DIMM 7-12 reported
+    temp: 36C,08-HD Max reported temp: 0C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 40C,11-PS 1 Inlet reported temp: 34C,12-PS 2 Inlet reported temp:
+    37C,13-VR P1 reported temp: 35C,14-VR P2 reported temp: 43C,15-VR P1 Mem reported
+    temp: 30C,16-VR P1 Mem reported temp: 27C,17-VR P2 Mem reported temp: 38C,18-VR
+    P2 Mem reported temp: 34C,19-PS 1 Internal reported temp: 40C,20-PS 2 Internal
+    reported temp: 40C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 0C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 40C,29-Battery Zone reported temp: 34C,30-iLO Zone reported temp:
+    37C,31-PCI 1 Zone reported temp: 33C,32-PCI 2 Zone reported temp: 35C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 0C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 30C,37-Fuse reported temp: 40C'
+  metadata:
+    creationTimestamp: "2026-06-12T22:52:34Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T22:52:34Z"
+    name: hp-69-tink-system.18b8773c75a990d2
+    namespace: default
+    resourceVersion: "660162"
+    uid: d5fed73a-762a-4819-bb4f-75b90d2b4a08
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: "null"
+  firstTimestamp: "2026-06-12T23:07:57Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Node
+    name: hp-69-tink-system
+    resourceVersion: "672131"
+    uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+  kind: Event
+  lastTimestamp: "2026-06-12T23:07:57Z"
+  message: 'ThermalHealth: 01-Inlet Ambient reported temp: 20C,02-CPU 1 reported temp:
+    46C,03-CPU 2 reported temp: 55C,04-P1 DIMM 1-6 reported temp: 32C,05-P1 DIMM 7-12
+    reported temp: 30C,06-P2 DIMM 1-6 reported temp: 39C,07-P2 DIMM 7-12 reported
+    temp: 36C,08-HD Max reported temp: 0C,09-Exp Bay Drive reported temp: 0C,10-Chipset
+    reported temp: 40C,11-PS 1 Inlet reported temp: 34C,12-PS 2 Inlet reported temp:
+    37C,13-VR P1 reported temp: 35C,14-VR P2 reported temp: 43C,15-VR P1 Mem reported
+    temp: 30C,16-VR P1 Mem reported temp: 27C,17-VR P2 Mem reported temp: 37C,18-VR
+    P2 Mem reported temp: 34C,19-PS 1 Internal reported temp: 40C,20-PS 2 Internal
+    reported temp: 40C,21-PCI 1 reported temp: 0C,22-PCI 2 reported temp: 0C,23-PCI
+    3 reported temp: 0C,24-HD Controller reported temp: 0C,25-LOM Card reported temp:
+    0C,26-LOM reported temp: 0C,27-Front Ambient reported temp: 26C,28-P/S 2 Zone
+    reported temp: 40C,29-Battery Zone reported temp: 34C,30-iLO Zone reported temp:
+    37C,31-PCI 1 Zone reported temp: 33C,32-PCI 2 Zone reported temp: 35C,33-PCI 3
+    Zone reported temp: 0C,34-HD Cntlr Zone reported temp: 0C,35-I/O Zone reported
+    temp: 32C,36-Storage Batt reported temp: 30C,37-Fuse reported temp: 40C'
+  metadata:
+    creationTimestamp: "2026-06-12T23:07:57Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T23:07:57Z"
+    name: hp-69-tink-system.18b878137b6a5c3a
+    namespace: default
+    resourceVersion: "672576"
+    uid: f4057844-a212-4c42-bf24-a35644418ae6
+  reason: HarvesterHardwareDiscovery
+  reportingComponent: boots
+  reportingInstance: "null"
+  source:
+    component: boots
+  type: Warning
+kind: List
+metadata:
+  resourceVersion: "676315"

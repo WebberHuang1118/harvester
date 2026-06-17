@@ -1,0 +1,55 @@
+#==[ Verification ]=================================#
+# rpm -V smartmontools-7.5-160000.3.1.x86_64
+# Verification Status: Passed
+
+#==[ Command ]======================================#
+# /bin/systemctl status smartd.service
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Configuration File ]===========================#
+# /proc/partitions
+major minor  #blocks  name
+ 259        0 1953514584 nvme0n1
+ 259        1      65536 nvme0n1p1
+ 259        2      51200 nvme0n1p2
+ 259        3    8388608 nvme0n1p3
+ 259        4   15728640 nvme0n1p4
+ 259        5  157286400 nvme0n1p5
+ 259        6 1771993088 nvme0n1p6
+   8        0 1757614382 sda
+   7        0    3145728 loop0
+   7        1    3686400 loop1
+   7        2    3686400 loop2
+   8       16    3932160 sdb
+
+
+#==[ Configuration File ]===========================#
+# /etc/smartd.conf
+DEFAULT -d removable -s (S/../.././03|L/../(01|02|03|04|05|06|07)/7/01)
+DEVICESCAN
+
+
+#==[ Quick Status Check ]===========================#
+
+#==[ Command ]======================================#
+# /sbin/smartctl --all /dev/sda
+smartctl 7.5 2025-04-30 r5714 [x86_64-linux-6.12.0-160000.32-default] (SUSE RPM)
+Copyright (C) 2002-25, Bruce Allen, Christian Franke, www.smartmontools.org
+
+/dev/sda: requires option '-d cciss,N'
+Please specify device type with the -d option.
+
+Use smartctl -h to get a usage summary
+
+
+#==[ Command ]======================================#
+# /sbin/smartctl --all /dev/sdb
+smartctl 7.5 2025-04-30 r5714 [x86_64-linux-6.12.0-160000.32-default] (SUSE RPM)
+Copyright (C) 2002-25, Bruce Allen, Christian Franke, www.smartmontools.org
+
+/dev/sdb: Unknown USB bridge [0x058f:0x6387 (0x102)]
+Please specify device type with the -d option.
+
+Use smartctl -h to get a usage summary
+
+

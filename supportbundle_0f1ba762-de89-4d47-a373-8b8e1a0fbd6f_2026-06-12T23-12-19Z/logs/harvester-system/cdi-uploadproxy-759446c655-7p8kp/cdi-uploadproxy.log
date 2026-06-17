@@ -1,0 +1,10 @@
+2026-06-12T10:43:04.203749630Z I0612 10:43:04.203522       1 uploadproxy.go:66] Note: increase the -v level in the api deployment for more detailed logging, eg. -v=2 or -v=3
+2026-06-12T10:43:04.203839621Z W0612 10:43:04.203803       1 client_config.go:659] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+2026-06-12T10:43:04.204836062Z I0612 10:43:04.204743       1 envvar.go:172] "Feature gate default state" feature="InformerResourceVersion" enabled=false
+2026-06-12T10:43:04.204850852Z I0612 10:43:04.204766       1 envvar.go:172] "Feature gate default state" feature="WatchListClient" enabled=false
+2026-06-12T10:43:04.305602041Z I0612 10:43:04.305459       1 certwatcher.go:126] Updated current TLS certificate
+2026-06-12T10:43:04.305852874Z I0612 10:43:04.305806       1 certwatcher.go:82] Starting certificate watcher
+2026-06-12T22:43:48.300751424Z I0612 22:43:48.300603       1 certwatcher.go:137] certificate eventevent"/var/run/certs/cdi-uploadproxy-server-cert/tls.crt": REMOVE
+2026-06-12T22:43:48.301205917Z I0612 22:43:48.301117       1 certwatcher.go:126] Updated current TLS certificate
+2026-06-12T22:43:48.301345329Z I0612 22:43:48.301192       1 certwatcher.go:137] certificate eventevent"/var/run/certs/cdi-uploadproxy-server-cert/tls.key": REMOVE
+2026-06-12T22:43:48.301714183Z I0612 22:43:48.301670       1 certwatcher.go:126] Updated current TLS certificate

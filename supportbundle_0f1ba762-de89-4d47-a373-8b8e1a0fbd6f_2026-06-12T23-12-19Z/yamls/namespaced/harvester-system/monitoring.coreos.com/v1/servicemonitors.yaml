@@ -1,0 +1,72 @@
+apiVersion: v1
+items:
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      operator.cdi.kubevirt.io/lastAppliedConfiguration: '{"metadata":{"name":"service-monitor-cdi","namespace":"harvester-system","creationTimestamp":"null","labels":{"cdi.kubevirt.io":"","openshift.io/cluster-monitoring":"","prometheus.cdi.kubevirt.io":"true"}},"spec":{"endpoints":[{"port":"metrics","scheme":"https","tlsConfig":{"ca":{},"cert":{},"insecureSkipVerify":true}}],"selector":{"matchLabels":{"prometheus.cdi.kubevirt.io":"true"}},"namespaceSelector":{"matchNames":["harvester-system"]}}}'
+    creationTimestamp: "2026-06-12T10:42:49Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: "null"
+      openshift.io/cluster-monitoring: "null"
+      prometheus.cdi.kubevirt.io: "true"
+    managedFields:
+    - apiVersion: monitoring.coreos.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:operator.cdi.kubevirt.io/lastAppliedConfiguration: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:openshift.io/cluster-monitoring: {}
+            f:prometheus.cdi.kubevirt.io: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"b70bda57-f8fc-417f-8fb1-0f5f050f60e9"}: {}
+        f:spec:
+          .: {}
+          f:endpoints: {}
+          f:namespaceSelector:
+            .: {}
+            f:matchNames: {}
+          f:selector: {}
+      manager: virt-cdi-operator
+      operation: Update
+      time: "2026-06-12T10:42:49Z"
+    name: service-monitor-cdi
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: cdi-deployment
+      uid: b70bda57-f8fc-417f-8fb1-0f5f050f60e9
+    resourceVersion: "5310"
+    uid: a48bc319-0b07-4133-9c9e-8b732d7e05b3
+  spec:
+    endpoints:
+    - port: metrics
+      scheme: https
+      tlsConfig:
+        ca: {}
+        cert: {}
+        insecureSkipVerify: true
+    namespaceSelector:
+      matchNames:
+      - harvester-system
+    selector:
+      matchLabels:
+        prometheus.cdi.kubevirt.io: "true"
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676449"

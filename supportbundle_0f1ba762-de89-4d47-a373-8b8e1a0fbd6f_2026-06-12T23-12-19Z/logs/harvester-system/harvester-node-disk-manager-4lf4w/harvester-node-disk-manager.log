@@ -1,0 +1,349 @@
+2026-06-12T10:47:32.398265749Z time="2026-06-12T10:47:32Z" level=info msg="Node Disk Manager v1.8.1-rc1 (029ff7d) is starting"
+2026-06-12T10:47:32.398299152Z time="2026-06-12T10:47:32Z" level=info msg="Notable parameters are following:"
+2026-06-12T10:47:32.398303564Z time="2026-06-12T10:47:32Z" level=info msg="Namespace: longhorn-system, ConcurrentOps: 5, InjectUdevMonitorError: false"
+2026-06-12T10:47:32.398307742Z time="2026-06-12T10:47:32Z" level=info msg="Starting node disk manager controller"
+2026-06-12T10:47:32.412448601Z time="2026-06-12T10:47:32Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T10:47:32.412467012Z time="2026-06-12T10:47:32Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T10:47:32.412473729Z time="2026-06-12T10:47:32Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T10:47:32.412476633Z time="2026-06-12T10:47:32Z" level=info msg="  - ExcludePaths: "
+2026-06-12T10:47:32.412479069Z time="2026-06-12T10:47:32Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T10:47:32.412481295Z time="2026-06-12T10:47:32Z" level=info msg="register exclude filters"
+2026-06-12T10:47:32.412491680Z time="2026-06-12T10:47:32Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T10:47:32.414605485Z time="2026-06-12T10:47:32Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T10:47:32.414620445Z time="2026-06-12T10:47:32Z" level=info msg="  - Devices: "
+2026-06-12T10:47:32.414624198Z time="2026-06-12T10:47:32Z" level=info msg="register auto provision filters"
+2026-06-12T10:47:32.591270083Z time="2026-06-12T10:47:32Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T10:47:32.591287192Z time="2026-06-12T10:47:32Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T10:47:32.591290150Z time="2026-06-12T10:47:32Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T10:47:32.601227566Z time="2026-06-12T10:47:32Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T10:47:32.601239845Z time="2026-06-12T10:47:32Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T10:47:32.606957807Z time="2026-06-12T10:47:32Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T10:47:32.609640914Z time="2026-06-12T10:47:32Z" level=info msg="creating new BD" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME name=f387c4ee-6224-4e63-8587-706e39014138 serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T10:47:32.611152603Z time="2026-06-12T10:47:32Z" level=info msg="Add new block device f387c4ee-6224-4e63-8587-706e39014138 with device: /dev/sda"
+2026-06-12T10:47:32.624014958Z time="2026-06-12T10:47:32Z" level=info msg="creating new BD" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk name=4b4c0be0-17a6-4e28-8512-10d9b9c6bc77 serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T10:47:32.629588163Z time="2026-06-12T10:47:32Z" level=info msg="Add new block device 4b4c0be0-17a6-4e28-8512-10d9b9c6bc77 with device: /dev/sdb"
+2026-06-12T10:47:32.641701377Z time="2026-06-12T10:47:32Z" level=info msg="Waking scanner once on startup in case any device paths have changed"
+2026-06-12T10:47:32.641826149Z time="2026-06-12T10:47:32Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T10:47:32.856509908Z time="2026-06-12T10:47:32Z" level=info msg="Starting harvesterhci.io/v1beta1, Kind=BlockDevice controller"
+2026-06-12T10:47:32.856606174Z time="2026-06-12T10:47:32Z" level=info msg="Starting harvesterhci.io/v1beta1, Kind=LVMVolumeGroup controller"
+2026-06-12T10:47:32.856630454Z time="2026-06-12T10:47:32Z" level=info msg="Skip device 4b4c0be0-17a6-4e28-8512-10d9b9c6bc77 as no provisioner found or not configured"
+2026-06-12T10:47:32.856695666Z time="2026-06-12T10:47:32Z" level=info msg="Skip device f387c4ee-6224-4e63-8587-706e39014138 as no provisioner found or not configured"
+2026-06-12T10:47:32.867413631Z time="2026-06-12T10:47:32Z" level=info msg="Starting longhorn.io/v1beta2, Kind=Node controller"
+2026-06-12T10:47:32.876185735Z time="2026-06-12T10:47:32Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:32.877846498Z time="2026-06-12T10:47:32Z" level=info msg="Start monitoring udev processed events"
+2026-06-12T10:47:32.877903449Z time="2026-06-12T10:47:32Z" level=info msg="Starting /v1, Kind=ConfigMap controller"
+2026-06-12T10:47:32.878046164Z time="2026-06-12T10:47:32Z" level=info msg="ConfigMap harvester-system/harvester-node-disk-manager changed, triggering disk rescan"
+2026-06-12T10:47:32.878052419Z time="2026-06-12T10:47:32Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T10:47:32.879838384Z time="2026-06-12T10:47:32Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T10:47:32.879850607Z time="2026-06-12T10:47:32Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T10:47:32.879853441Z time="2026-06-12T10:47:32Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T10:47:32.879856145Z time="2026-06-12T10:47:32Z" level=info msg="  - ExcludePaths: "
+2026-06-12T10:47:32.879858783Z time="2026-06-12T10:47:32Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T10:47:32.879861048Z time="2026-06-12T10:47:32Z" level=info msg="register exclude filters"
+2026-06-12T10:47:32.879873927Z time="2026-06-12T10:47:32Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T10:47:32.887591910Z time="2026-06-12T10:47:32Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T10:47:32.887609670Z time="2026-06-12T10:47:32Z" level=info msg="  - Devices: "
+2026-06-12T10:47:32.887613733Z time="2026-06-12T10:47:32Z" level=info msg="register auto provision filters"
+2026-06-12T10:47:32.894159422Z time="2026-06-12T10:47:32Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:32.919658408Z time="2026-06-12T10:47:32Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:32.949775762Z time="2026-06-12T10:47:32Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:32.999309045Z time="2026-06-12T10:47:32Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:33.053895172Z time="2026-06-12T10:47:33Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T10:47:33.053913743Z time="2026-06-12T10:47:33Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T10:47:33.053916733Z time="2026-06-12T10:47:33Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T10:47:33.060210761Z time="2026-06-12T10:47:33Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T10:47:33.060223946Z time="2026-06-12T10:47:33Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T10:47:33.065732107Z time="2026-06-12T10:47:33Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T10:47:33.068556514Z time="2026-06-12T10:47:33Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T10:47:33.088355102Z time="2026-06-12T10:47:33Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:33.264772883Z time="2026-06-12T10:47:33Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:33.593969315Z time="2026-06-12T10:47:33Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:34.246724083Z time="2026-06-12T10:47:34Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:34.357221842Z time="2026-06-12T10:47:34Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:35.536227736Z time="2026-06-12T10:47:35Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:38.492476176Z time="2026-06-12T10:47:38Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:38.502434270Z time="2026-06-12T10:47:38Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:38.510980777Z time="2026-06-12T10:47:38Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:38.524949419Z time="2026-06-12T10:47:38Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:38.575195475Z time="2026-06-12T10:47:38Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:38.665218789Z time="2026-06-12T10:47:38Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:38.852063280Z time="2026-06-12T10:47:38Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:39.182730976Z time="2026-06-12T10:47:39Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:39.839988045Z time="2026-06-12T10:47:39Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:40.665518212Z time="2026-06-12T10:47:40Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:40.973199387Z time="2026-06-12T10:47:40Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:41.131289211Z time="2026-06-12T10:47:41Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:50.182964549Z time="2026-06-12T10:47:46Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:50.920061329Z time="2026-06-12T10:47:50Z" level=error msg="error syncing 'longhorn-system/hp-150-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-150-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T10:47:56.518014141Z time="2026-06-12T10:47:56Z" level=error msg="error syncing 'longhorn-system/hp-69-tink-system': handler harvester-ndm-node-handler: admission webhook \"validator.longhorn.io\" denied the request: spec and status of disks on node hp-69-tink-system are being syncing and please retry later., requeuing"
+2026-06-12T11:21:12.623305317Z time="2026-06-12T11:21:12Z" level=info msg="block device /dev/sdc ignored by vendor filter and rules: vendors: [longhorn, SPDK bdev Controller]"
+2026-06-12T11:21:19.526664577Z time="2026-06-12T11:21:19Z" level=info msg="removing disk" device=/dev/sdc model=VIRTUAL-DISK serial=60000000000000000e00000000010001 vendor=IET wwn=0x6000000000000000
+2026-06-12T11:21:19.526691012Z time="2026-06-12T11:21:19Z" level=info msg="udev action triggering scanner wake" device=/dev/sdc kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:21:19.526707961Z time="2026-06-12T11:21:19Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:21:19.529526544Z time="2026-06-12T11:21:19Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:21:19.529548255Z time="2026-06-12T11:21:19Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:21:19.529552231Z time="2026-06-12T11:21:19Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:21:19.529556208Z time="2026-06-12T11:21:19Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:21:19.529559800Z time="2026-06-12T11:21:19Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:21:19.529563397Z time="2026-06-12T11:21:19Z" level=info msg="register exclude filters"
+2026-06-12T11:21:19.529566962Z time="2026-06-12T11:21:19Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:21:19.531632026Z time="2026-06-12T11:21:19Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:21:19.531650107Z time="2026-06-12T11:21:19Z" level=info msg="  - Devices: "
+2026-06-12T11:21:19.531654595Z time="2026-06-12T11:21:19Z" level=info msg="register auto provision filters"
+2026-06-12T11:21:19.697616962Z time="2026-06-12T11:21:19Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:21:19.697645218Z time="2026-06-12T11:21:19Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:21:19.697649399Z time="2026-06-12T11:21:19Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:21:19.703897395Z time="2026-06-12T11:21:19Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:21:19.703915994Z time="2026-06-12T11:21:19Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:21:19.709594770Z time="2026-06-12T11:21:19Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:21:19.714286787Z time="2026-06-12T11:21:19Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T11:22:21.588432946Z time="2026-06-12T11:22:21Z" level=info msg="block device /dev/sdc ignored by vendor filter and rules: vendors: [longhorn, SPDK bdev Controller]"
+2026-06-12T11:22:42.493279049Z time="2026-06-12T11:22:42Z" level=info msg="removing disk" device=/dev/sdc model=VIRTUAL-DISK serial=60000000000000000e00000000010001 vendor=IET wwn=0x6000000000000000
+2026-06-12T11:22:42.493298963Z time="2026-06-12T11:22:42Z" level=info msg="udev action triggering scanner wake" device=/dev/sdc kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:22:42.493303702Z time="2026-06-12T11:22:42Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:22:42.498988599Z time="2026-06-12T11:22:42Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:22:42.499016377Z time="2026-06-12T11:22:42Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:22:42.499019619Z time="2026-06-12T11:22:42Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:22:42.499022115Z time="2026-06-12T11:22:42Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:22:42.499024410Z time="2026-06-12T11:22:42Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:22:42.499026654Z time="2026-06-12T11:22:42Z" level=info msg="register exclude filters"
+2026-06-12T11:22:42.499039829Z time="2026-06-12T11:22:42Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:22:42.501067183Z time="2026-06-12T11:22:42Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:22:42.501080513Z time="2026-06-12T11:22:42Z" level=info msg="  - Devices: "
+2026-06-12T11:22:42.501083503Z time="2026-06-12T11:22:42Z" level=info msg="register auto provision filters"
+2026-06-12T11:22:42.667143718Z time="2026-06-12T11:22:42Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:22:42.667164127Z time="2026-06-12T11:22:42Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:22:42.667168376Z time="2026-06-12T11:22:42Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:22:42.673909467Z time="2026-06-12T11:22:42Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:22:42.673922682Z time="2026-06-12T11:22:42Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:22:42.680048776Z time="2026-06-12T11:22:42Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:22:42.683207981Z time="2026-06-12T11:22:42Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T11:34:49.320647011Z time="2026-06-12T11:34:49Z" level=info msg="block device /dev/sdc ignored by vendor filter and rules: vendors: [longhorn, SPDK bdev Controller]"
+2026-06-12T11:37:07.549170849Z time="2026-06-12T11:37:07Z" level=info msg="removing disk" device=/dev/sdc model=VIRTUAL-DISK serial=60000000000000000e00000000010001 vendor=IET wwn=0x6000000000000000
+2026-06-12T11:37:07.549195777Z time="2026-06-12T11:37:07Z" level=info msg="udev action triggering scanner wake" device=/dev/sdc kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:37:07.549201102Z time="2026-06-12T11:37:07Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:37:07.555029461Z time="2026-06-12T11:37:07Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:37:07.555101186Z time="2026-06-12T11:37:07Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:37:07.555107989Z time="2026-06-12T11:37:07Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:37:07.555111810Z time="2026-06-12T11:37:07Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:37:07.555115510Z time="2026-06-12T11:37:07Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:37:07.555119009Z time="2026-06-12T11:37:07Z" level=info msg="register exclude filters"
+2026-06-12T11:37:07.555122852Z time="2026-06-12T11:37:07Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:37:07.557383051Z time="2026-06-12T11:37:07Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:37:07.557399098Z time="2026-06-12T11:37:07Z" level=info msg="  - Devices: "
+2026-06-12T11:37:07.557413067Z time="2026-06-12T11:37:07Z" level=info msg="register auto provision filters"
+2026-06-12T11:37:07.728414279Z time="2026-06-12T11:37:07Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:37:07.728437130Z time="2026-06-12T11:37:07Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:37:07.728440540Z time="2026-06-12T11:37:07Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:37:07.735088332Z time="2026-06-12T11:37:07Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:37:07.735103053Z time="2026-06-12T11:37:07Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:37:07.741101119Z time="2026-06-12T11:37:07Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:37:07.744614772Z time="2026-06-12T11:37:07Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T11:53:22.087382308Z time="2026-06-12T11:53:22Z" level=info msg="block device /dev/sdc ignored by vendor filter and rules: vendors: [longhorn, SPDK bdev Controller]"
+2026-06-12T11:53:29.025818939Z time="2026-06-12T11:53:29Z" level=info msg="removing disk" device=/dev/sdc model=VIRTUAL-DISK serial=60000000000000000e00000000010001 vendor=IET wwn=0x6000000000000000
+2026-06-12T11:53:29.025842795Z time="2026-06-12T11:53:29Z" level=info msg="udev action triggering scanner wake" device=/dev/sdc kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:53:29.025847800Z time="2026-06-12T11:53:29Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:53:29.028730874Z time="2026-06-12T11:53:29Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:53:29.028749625Z time="2026-06-12T11:53:29Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:53:29.028754094Z time="2026-06-12T11:53:29Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:53:29.028758736Z time="2026-06-12T11:53:29Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:53:29.028762320Z time="2026-06-12T11:53:29Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:53:29.028766770Z time="2026-06-12T11:53:29Z" level=info msg="register exclude filters"
+2026-06-12T11:53:29.028771784Z time="2026-06-12T11:53:29Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:53:29.031731986Z time="2026-06-12T11:53:29Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:53:29.031749432Z time="2026-06-12T11:53:29Z" level=info msg="  - Devices: "
+2026-06-12T11:53:29.031753505Z time="2026-06-12T11:53:29Z" level=info msg="register auto provision filters"
+2026-06-12T11:53:29.202902867Z time="2026-06-12T11:53:29Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:53:29.202918939Z time="2026-06-12T11:53:29Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:53:29.202923118Z time="2026-06-12T11:53:29Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:53:29.209308517Z time="2026-06-12T11:53:29Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:53:29.209321842Z time="2026-06-12T11:53:29Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:53:29.215452570Z time="2026-06-12T11:53:29Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:53:29.218681848Z time="2026-06-12T11:53:29Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T11:53:34.239970809Z time="2026-06-12T11:53:34Z" level=info msg="block device /dev/sdc ignored by vendor filter and rules: vendors: [longhorn, SPDK bdev Controller]"
+2026-06-12T11:53:34.448195809Z time="2026-06-12T11:53:34Z" level=info msg="removing disk" device=/dev/sdc model=VIRTUAL-DISK serial=60000000000000000e00000000010001 vendor=IET wwn=0x6000000000000000
+2026-06-12T11:53:34.448213488Z time="2026-06-12T11:53:34Z" level=info msg="udev action triggering scanner wake" device=/dev/sdc kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:53:34.448217994Z time="2026-06-12T11:53:34Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:53:34.458809620Z time="2026-06-12T11:53:34Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:53:34.458824911Z time="2026-06-12T11:53:34Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:53:34.458828621Z time="2026-06-12T11:53:34Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:53:34.458832195Z time="2026-06-12T11:53:34Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:53:34.458835854Z time="2026-06-12T11:53:34Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:53:34.458839199Z time="2026-06-12T11:53:34Z" level=info msg="register exclude filters"
+2026-06-12T11:53:34.458843124Z time="2026-06-12T11:53:34Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:53:34.471863204Z time="2026-06-12T11:53:34Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:53:34.471878465Z time="2026-06-12T11:53:34Z" level=info msg="  - Devices: "
+2026-06-12T11:53:34.471882513Z time="2026-06-12T11:53:34Z" level=info msg="register auto provision filters"
+2026-06-12T11:53:34.640696787Z time="2026-06-12T11:53:34Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:53:34.640717499Z time="2026-06-12T11:53:34Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:53:34.640721997Z time="2026-06-12T11:53:34Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:53:34.647016978Z time="2026-06-12T11:53:34Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:53:34.647030258Z time="2026-06-12T11:53:34Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:53:34.652987711Z time="2026-06-12T11:53:34Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:53:34.655802303Z time="2026-06-12T11:53:34Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T11:54:43.943771796Z time="2026-06-12T11:54:43Z" level=info msg="block device /dev/dm-0 ignored because it's a dm device (likely LHv2 volume)"
+2026-06-12T11:54:54.856161689Z time="2026-06-12T11:54:54Z" level=info msg="removing disk" device=/dev/dm-0 model= serial= vendor= wwn=
+2026-06-12T11:54:54.856184737Z time="2026-06-12T11:54:54Z" level=info msg="udev action triggering scanner wake" device=/dev/dm-0 kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:54:54.856189452Z time="2026-06-12T11:54:54Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:54:54.860255761Z time="2026-06-12T11:54:54Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:54:54.860285402Z time="2026-06-12T11:54:54Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:54:54.860288489Z time="2026-06-12T11:54:54Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:54:54.860291437Z time="2026-06-12T11:54:54Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:54:54.860293745Z time="2026-06-12T11:54:54Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:54:54.860296228Z time="2026-06-12T11:54:54Z" level=info msg="register exclude filters"
+2026-06-12T11:54:54.860298956Z time="2026-06-12T11:54:54Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:54:54.863757977Z time="2026-06-12T11:54:54Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:54:54.863776910Z time="2026-06-12T11:54:54Z" level=info msg="  - Devices: "
+2026-06-12T11:54:54.863804166Z time="2026-06-12T11:54:54Z" level=info msg="register auto provision filters"
+2026-06-12T11:54:55.030468919Z time="2026-06-12T11:54:55Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:54:55.030490443Z time="2026-06-12T11:54:55Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:54:55.030493974Z time="2026-06-12T11:54:55Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:54:55.036729291Z time="2026-06-12T11:54:55Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:54:55.036742501Z time="2026-06-12T11:54:55Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:54:55.042858414Z time="2026-06-12T11:54:55Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:54:55.046520551Z time="2026-06-12T11:54:55Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T11:54:55.857022155Z time="2026-06-12T11:54:55Z" level=info msg="removing disk" device=/dev/dm-0 model= serial= vendor= wwn=
+2026-06-12T11:54:55.857042977Z time="2026-06-12T11:54:55Z" level=info msg="udev action triggering scanner wake" device=/dev/dm-0 kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:54:55.857046504Z time="2026-06-12T11:54:55Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:54:55.859627898Z time="2026-06-12T11:54:55Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:54:55.859641852Z time="2026-06-12T11:54:55Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:54:55.859645064Z time="2026-06-12T11:54:55Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:54:55.859648111Z time="2026-06-12T11:54:55Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:54:55.859650914Z time="2026-06-12T11:54:55Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:54:55.859653684Z time="2026-06-12T11:54:55Z" level=info msg="register exclude filters"
+2026-06-12T11:54:55.859656606Z time="2026-06-12T11:54:55Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:54:55.861675569Z time="2026-06-12T11:54:55Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:54:55.861689395Z time="2026-06-12T11:54:55Z" level=info msg="  - Devices: "
+2026-06-12T11:54:55.861692677Z time="2026-06-12T11:54:55Z" level=info msg="register auto provision filters"
+2026-06-12T11:54:56.026227150Z time="2026-06-12T11:54:56Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:54:56.026245793Z time="2026-06-12T11:54:56Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:54:56.026249038Z time="2026-06-12T11:54:56Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:54:56.031983178Z time="2026-06-12T11:54:56Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:54:56.031995043Z time="2026-06-12T11:54:56Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:54:56.037813681Z time="2026-06-12T11:54:56Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:54:56.040673141Z time="2026-06-12T11:54:56Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T11:55:28.650366932Z time="2026-06-12T11:55:28Z" level=info msg="block device /dev/dm-0 ignored because it's a dm device (likely LHv2 volume)"
+2026-06-12T11:55:38.862955707Z time="2026-06-12T11:55:38Z" level=info msg="removing disk" device=/dev/dm-0 model= serial= vendor= wwn=
+2026-06-12T11:55:38.862988388Z time="2026-06-12T11:55:38Z" level=info msg="udev action triggering scanner wake" device=/dev/dm-0 kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:55:38.863082984Z time="2026-06-12T11:55:38Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:55:38.865817852Z time="2026-06-12T11:55:38Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:55:38.865831294Z time="2026-06-12T11:55:38Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:55:38.865838497Z time="2026-06-12T11:55:38Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:55:38.865842332Z time="2026-06-12T11:55:38Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:55:38.865845831Z time="2026-06-12T11:55:38Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:55:38.865849350Z time="2026-06-12T11:55:38Z" level=info msg="register exclude filters"
+2026-06-12T11:55:38.865852762Z time="2026-06-12T11:55:38Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:55:38.867865975Z time="2026-06-12T11:55:38Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:55:38.867878725Z time="2026-06-12T11:55:38Z" level=info msg="  - Devices: "
+2026-06-12T11:55:38.867882564Z time="2026-06-12T11:55:38Z" level=info msg="register auto provision filters"
+2026-06-12T11:55:39.035235426Z time="2026-06-12T11:55:39Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:55:39.035259293Z time="2026-06-12T11:55:39Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:55:39.035263534Z time="2026-06-12T11:55:39Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:55:39.041422124Z time="2026-06-12T11:55:39Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:55:39.041434920Z time="2026-06-12T11:55:39Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:55:39.047043673Z time="2026-06-12T11:55:39Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:55:39.050433915Z time="2026-06-12T11:55:39Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T11:55:39.864068369Z time="2026-06-12T11:55:39Z" level=info msg="removing disk" device=/dev/dm-0 model= serial= vendor= wwn=
+2026-06-12T11:55:39.864093828Z time="2026-06-12T11:55:39Z" level=info msg="udev action triggering scanner wake" device=/dev/dm-0 kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T11:55:39.864097815Z time="2026-06-12T11:55:39Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T11:55:39.866560038Z time="2026-06-12T11:55:39Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:55:39.866586543Z time="2026-06-12T11:55:39Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T11:55:39.866589190Z time="2026-06-12T11:55:39Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T11:55:39.866592151Z time="2026-06-12T11:55:39Z" level=info msg="  - ExcludePaths: "
+2026-06-12T11:55:39.866594683Z time="2026-06-12T11:55:39Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T11:55:39.866597177Z time="2026-06-12T11:55:39Z" level=info msg="register exclude filters"
+2026-06-12T11:55:39.866599848Z time="2026-06-12T11:55:39Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T11:55:39.871471222Z time="2026-06-12T11:55:39Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T11:55:39.871484171Z time="2026-06-12T11:55:39Z" level=info msg="  - Devices: "
+2026-06-12T11:55:39.871487220Z time="2026-06-12T11:55:39Z" level=info msg="register auto provision filters"
+2026-06-12T11:55:40.036098489Z time="2026-06-12T11:55:40Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T11:55:40.036123668Z time="2026-06-12T11:55:40Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T11:55:40.036127165Z time="2026-06-12T11:55:40Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T11:55:40.042540470Z time="2026-06-12T11:55:40Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T11:55:40.042556837Z time="2026-06-12T11:55:40Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T11:55:40.048901961Z time="2026-06-12T11:55:40Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T11:55:40.052069225Z time="2026-06-12T11:55:40Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T12:13:23.105670643Z time="2026-06-12T12:13:23Z" level=info msg="block device /dev/sdc ignored by vendor filter and rules: vendors: [longhorn, SPDK bdev Controller]"
+2026-06-12T12:13:31.079725071Z time="2026-06-12T12:13:31Z" level=info msg="removing disk" device=/dev/sdc model=VIRTUAL-DISK serial=60000000000000000e00000000010001 vendor=IET wwn=0x6000000000000000
+2026-06-12T12:13:31.079745345Z time="2026-06-12T12:13:31Z" level=info msg="udev action triggering scanner wake" device=/dev/sdc kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T12:13:31.079750306Z time="2026-06-12T12:13:31Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T12:13:31.086777898Z time="2026-06-12T12:13:31Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T12:13:31.086801196Z time="2026-06-12T12:13:31Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T12:13:31.086805180Z time="2026-06-12T12:13:31Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T12:13:31.086809714Z time="2026-06-12T12:13:31Z" level=info msg="  - ExcludePaths: "
+2026-06-12T12:13:31.086824068Z time="2026-06-12T12:13:31Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T12:13:31.086826805Z time="2026-06-12T12:13:31Z" level=info msg="register exclude filters"
+2026-06-12T12:13:31.086830154Z time="2026-06-12T12:13:31Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T12:13:31.088915489Z time="2026-06-12T12:13:31Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T12:13:31.088929136Z time="2026-06-12T12:13:31Z" level=info msg="  - Devices: "
+2026-06-12T12:13:31.088932173Z time="2026-06-12T12:13:31Z" level=info msg="register auto provision filters"
+2026-06-12T12:13:31.257597689Z time="2026-06-12T12:13:31Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T12:13:31.257631716Z time="2026-06-12T12:13:31Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T12:13:31.257635394Z time="2026-06-12T12:13:31Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T12:13:31.264166708Z time="2026-06-12T12:13:31Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T12:13:31.264178457Z time="2026-06-12T12:13:31Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T12:13:31.269645825Z time="2026-06-12T12:13:31Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T12:13:31.278842717Z time="2026-06-12T12:13:31Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T14:35:50.164355209Z time="2026-06-12T14:35:50Z" level=info msg="block device /dev/sdc ignored by vendor filter and rules: vendors: [longhorn, SPDK bdev Controller]"
+2026-06-12T14:37:11.395817636Z time="2026-06-12T14:37:11Z" level=info msg="removing disk" device=/dev/sdc model=VIRTUAL-DISK serial=60000000000000000e00000000010001 vendor=IET wwn=0x6000000000000000
+2026-06-12T14:37:11.395841325Z time="2026-06-12T14:37:11Z" level=info msg="udev action triggering scanner wake" device=/dev/sdc kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T14:37:11.395846543Z time="2026-06-12T14:37:11Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T14:37:11.398569358Z time="2026-06-12T14:37:11Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T14:37:11.398577644Z time="2026-06-12T14:37:11Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T14:37:11.398581106Z time="2026-06-12T14:37:11Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T14:37:11.398584849Z time="2026-06-12T14:37:11Z" level=info msg="  - ExcludePaths: "
+2026-06-12T14:37:11.398588527Z time="2026-06-12T14:37:11Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T14:37:11.398592019Z time="2026-06-12T14:37:11Z" level=info msg="register exclude filters"
+2026-06-12T14:37:11.398595726Z time="2026-06-12T14:37:11Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T14:37:11.400652750Z time="2026-06-12T14:37:11Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T14:37:11.400665202Z time="2026-06-12T14:37:11Z" level=info msg="  - Devices: "
+2026-06-12T14:37:11.400669489Z time="2026-06-12T14:37:11Z" level=info msg="register auto provision filters"
+2026-06-12T14:37:11.565348756Z time="2026-06-12T14:37:11Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T14:37:11.565364965Z time="2026-06-12T14:37:11Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T14:37:11.565379234Z time="2026-06-12T14:37:11Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T14:37:11.571532056Z time="2026-06-12T14:37:11Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T14:37:11.571543651Z time="2026-06-12T14:37:11Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T14:37:11.577545643Z time="2026-06-12T14:37:11Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T14:37:11.580666350Z time="2026-06-12T14:37:11Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T14:40:26.690909577Z time="2026-06-12T14:40:26Z" level=info msg="block device /dev/sdc ignored by vendor filter and rules: vendors: [longhorn, SPDK bdev Controller]"
+2026-06-12T14:41:18.391653700Z time="2026-06-12T14:41:18Z" level=info msg="removing disk" device=/dev/sdc model=VIRTUAL-DISK serial=60000000000000000e00000000010001 vendor=IET wwn=0x6000000000000000
+2026-06-12T14:41:18.391681228Z time="2026-06-12T14:41:18Z" level=info msg="udev action triggering scanner wake" device=/dev/sdc kind=BlockDevice namespace=longhorn-system udevAction=remove
+2026-06-12T14:41:18.391685869Z time="2026-06-12T14:41:18Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T14:41:18.394683001Z time="2026-06-12T14:41:18Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T14:41:18.394698574Z time="2026-06-12T14:41:18Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T14:41:18.394702648Z time="2026-06-12T14:41:18Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T14:41:18.394706393Z time="2026-06-12T14:41:18Z" level=info msg="  - ExcludePaths: "
+2026-06-12T14:41:18.394709670Z time="2026-06-12T14:41:18Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T14:41:18.394712990Z time="2026-06-12T14:41:18Z" level=info msg="register exclude filters"
+2026-06-12T14:41:18.394716472Z time="2026-06-12T14:41:18Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T14:41:18.396940235Z time="2026-06-12T14:41:18Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T14:41:18.396956070Z time="2026-06-12T14:41:18Z" level=info msg="  - Devices: "
+2026-06-12T14:41:18.396960049Z time="2026-06-12T14:41:18Z" level=info msg="register auto provision filters"
+2026-06-12T14:41:18.563435751Z time="2026-06-12T14:41:18Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T14:41:18.563458419Z time="2026-06-12T14:41:18Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T14:41:18.563462852Z time="2026-06-12T14:41:18Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T14:41:18.569626687Z time="2026-06-12T14:41:18Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T14:41:18.569639676Z time="2026-06-12T14:41:18Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T14:41:18.575174908Z time="2026-06-12T14:41:18Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T14:41:18.677929849Z time="2026-06-12T14:41:18Z" level=info msg="Waiting new event to trigger..."
+2026-06-12T20:47:32.647203369Z time="2026-06-12T20:47:32Z" level=info msg="Skip device 4b4c0be0-17a6-4e28-8512-10d9b9c6bc77 as no provisioner found or not configured"
+2026-06-12T20:47:32.647247915Z time="2026-06-12T20:47:32Z" level=info msg="Skip device f387c4ee-6224-4e63-8587-706e39014138 as no provisioner found or not configured"
+2026-06-12T20:47:32.780655542Z time="2026-06-12T20:47:32Z" level=info msg="ConfigMap harvester-system/harvester-node-disk-manager changed, triggering disk rescan"
+2026-06-12T20:47:32.780674971Z time="2026-06-12T20:47:32Z" level=info msg="Scanner woke up, do scan..."
+2026-06-12T20:47:32.783959653Z time="2026-06-12T20:47:32Z" level=info msg="Successfully loaded filter configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T20:47:32.783980645Z time="2026-06-12T20:47:32Z" level=info msg="  - ExcludeDevices: "
+2026-06-12T20:47:32.783983542Z time="2026-06-12T20:47:32Z" level=info msg="  - ExcludeVendors: "
+2026-06-12T20:47:32.783986527Z time="2026-06-12T20:47:32Z" level=info msg="  - ExcludePaths: "
+2026-06-12T20:47:32.783989672Z time="2026-06-12T20:47:32Z" level=info msg="  - ExcludeLabels: COS_*,HARV_*"
+2026-06-12T20:47:32.783992260Z time="2026-06-12T20:47:32Z" level=info msg="register exclude filters"
+2026-06-12T20:47:32.783995097Z time="2026-06-12T20:47:32Z" level=info msg="Attempting to load auto-provision configuration from ConfigMap"
+2026-06-12T20:47:32.786208257Z time="2026-06-12T20:47:32Z" level=info msg="Successfully loaded auto-provision configuration from ConfigMap for node hp-150-tink-system"
+2026-06-12T20:47:32.786221816Z time="2026-06-12T20:47:32Z" level=info msg="  - Devices: "
+2026-06-12T20:47:32.786225252Z time="2026-06-12T20:47:32Z" level=info msg="register auto provision filters"
+2026-06-12T20:47:32.952339320Z time="2026-06-12T20:47:32Z" level=info msg="Scanning device" device=/dev/nvme0n1
+2026-06-12T20:47:32.952368533Z time="2026-06-12T20:47:32Z" level=info msg="block device /dev/nvme0n1 ignored by label filter and rules: fs labels: [COS_*, HARV_*]"
+2026-06-12T20:47:32.952371598Z time="2026-06-12T20:47:32Z" level=info msg="Scanning device" device=/dev/sda
+2026-06-12T20:47:32.958753189Z time="2026-06-12T20:47:32Z" level=info msg="Detected disk" buspath="pci-0000:03:00.0-scsi-0:1:0:0" device=/dev/sda model=LOGICAL_VOLUME serial=600508b1001c3173914021737328af61 uuid= vendor=HP wwn=0x600508b1001c3173914021737328af61
+2026-06-12T20:47:32.958764694Z time="2026-06-12T20:47:32Z" level=info msg="Scanning device" device=/dev/sdb
+2026-06-12T20:47:32.964300670Z time="2026-06-12T20:47:32Z" level=info msg="Detected disk" buspath="pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0" device=/dev/sdb model=Flash_Disk serial=ED99DB7C uuid= vendor=Generic wwn=unknown
+2026-06-12T20:47:32.968481379Z time="2026-06-12T20:47:32Z" level=info msg="Waiting new event to trigger..."

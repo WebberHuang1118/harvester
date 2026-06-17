@@ -1,0 +1,57 @@
+apiVersion: v1
+items:
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-06-12T11:04:00Z"
+    generation: 1
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:04:00Z"
+    name: hp-117-tink-system
+    resourceVersion: "28539"
+    uid: 6228e3a2-1576-4aca-8299-bfc79a2361aa
+  spec: {}
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-06-12T11:03:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:03:57Z"
+    name: hp-150-tink-system
+    resourceVersion: "28452"
+    uid: 9461020c-b736-4213-bb74-ea900b84aef2
+  spec: {}
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-06-12T11:04:17Z"
+    generation: 1
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:04:17Z"
+    name: hp-69-tink-system
+    resourceVersion: "28937"
+    uid: 5c8b8abd-842c-42ad-8d96-697d25e31aa5
+  spec: {}
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676281"

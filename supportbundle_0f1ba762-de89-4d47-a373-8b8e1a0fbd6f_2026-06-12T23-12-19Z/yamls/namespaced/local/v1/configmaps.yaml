@@ -1,0 +1,44 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIBeTCCAR+gAwIBAgIBADAKBggqhkjOPQQDAjAkMSIwIAYDVQQDDBlya2UyLXNl
+      cnZlci1jYUAxNzgxMjYwNzE2MB4XDTI2MDYxMjA5MzgzNloXDTM2MDYwOTA5Mzgz
+      NlowJDEiMCAGA1UEAwwZcmtlMi1zZXJ2ZXItY2FAMTc4MTI2MDcxNjBZMBMGByqG
+      SM49AgEGCCqGSM49AwEHA0IABPk246u4fDiUoJxE2EVjsdl+2WghA1AozD9LyTCt
+      kcWEXR7Y/p8ZBOmKO/7JDWR+adXlmaOH9Qt2X+OD26+OekKjQjBAMA4GA1UdDwEB
+      /wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBRTQF4RR+CYwjWUKUiW
+      v6ANMtfbszAKBggqhkjOPQQDAgNIADBFAiEAw5QWjMooFbKCSQS9HjyoPM7a7FfQ
+      a/dd2uErfC7APv4CIByEUj+g2uzMsgnCaVLekKRnpTqNn5gkLHHvR2ecZd02
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2026-06-12T10:40:00Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:ca.crt: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubernetes.io/description: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:40:00Z"
+    name: kube-root-ca.crt
+    namespace: local
+    resourceVersion: "1646"
+    uid: 4ba141d8-71ec-4eaf-8106-8c59a13c324d
+kind: List
+metadata:
+  resourceVersion: "676472"

@@ -1,0 +1,184 @@
+# Default values for kubeovn-operator.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+
+image:
+  repository: rancher/harvester-kubeovn-operator
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  # tag: main-head
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+enableConfiguration: false
+configurationSpec:
+  cniConf:
+    nonPrimaryCNI: true
+  components:
+    OVSDBConTimeout: 3
+    OVSDBInactivityTimeout: 10
+    checkGateway: true
+    enableANP: false
+    enableBindLocalIP: true
+    enableExternalVPC: true
+    enableIC: false
+    enableKeepVMIP: true
+    enableLB: true
+    enableLBSVC: false
+    enableLiveMigrationOptimize: true
+    enableNATGateway: true
+    enableNP: true
+    enableOVNIPSec: false
+    enableTProxy: false
+    hardwareOffload: false
+    logicalGateway: false
+    lsCtSkipOstLportIPS: true
+    lsDnatModDlDst: true
+    secureServing: false
+    setVLANTxOff: false
+    u2oInterconnection: false
+    enableDNSNameResolver: false
+    enableOVNLBPreferLocal: false
+    npEnforcement: standard
+  debug:
+    mirrorInterface: mirror0
+  dpdkCPU: "0"
+  dpdkMEMORY: "0"
+  dpdkVersion: "19.11"
+  global:
+    images:
+      kubeovn:
+        dpdkRepository: kube-ovn-dpdk
+        repository: kube-ovn
+        vpcRepository: vpc-nat-gateway
+      natgateway:
+        repository: vpc-nat-gateway
+        tag: ""
+    registry:
+      address: docker.io/kubeovn
+  hugePages: "0"
+  hugepageSizeType: hugepages-2Mi
+  imagePullPolicy: IfNotPresent
+  ipv4:
+    joinCIDR: 100.64.0.0/16
+    pingerExternalAddress: 1.1.1.1
+    pingerExternalDomain: google.com.
+    podCIDR: 10.54.0.0/16
+    podGateway: 10.54.0.1
+    serviceCIDR: 10.55.0.0/16
+  kubeOvnCNI:
+    requests:
+      cpu: "100m"
+      memory: "100Mi"
+    limits:
+      cpu: "1"
+      memory: "1Gi"
+  kubeOvnController:
+    requests:
+      cpu: "200m"
+      memory: "200Mi"
+    limits:
+      cpu: "1"
+      memory: "1Gi"
+  kubeOvnMonitor:
+    requests:
+      cpu: "200m"
+      memory: "200Mi"
+    limits:
+      cpu: "200m"
+      memory: "200Mi"
+  kubeOvnPinger:
+    requests:
+      cpu: "100m"
+      memory: "100Mi"
+    limits:
+      cpu: "200m"
+      memory: "400Mi"
+  networking:
+    defaultSubnet: ovn-default
+    defaultVPC: ovn-cluster
+    enableECMP: false
+    enableEIPSNAT: true
+    enableMetrics: true
+    enableSSL: false
+    networkType: geneve
+    nodeSubnet: join
+    ovnLeaderProbeInterval: 5
+    ovnNorthdNThreads: 1
+    ovnNorthdProbeInterval: 5000
+    ovnRemoteOpenflowInterval: 10
+    ovnRemoteProbeInterval: 10000
+    probeInterval: 180000
+    nodeLocalDNSIPS: ""
+    skipConnTrackDstCIDRs: ""
+  vlan:
+    providerName: {}
+    vlanId: {}
+    vlanName: {}
+  ovnCentral:
+    requests:
+      cpu: "300m"
+      memory: "200Mi"
+    limits:
+      cpu: "3"
+      memory: "4Gi"
+  ovnDir: /etc/origin/ovn
+  ovnIPSecKeysDir: /etc/origin/ovs_ipsec_keys
+  ovsOVN:
+    limits:
+      cpu: "2"
+      memory: "1000Mi"
+    requests:
+      cpu: "200m"
+      memory: "200Mi"
+  performance:
+    gcInterval: 360
+    inspectInterval: 20
+    ovsVSCtlConcurrency: 100

@@ -1,0 +1,1008 @@
+apiVersion: v1
+items:
+- apiVersion: harvesterhci.io/v1beta1
+  default: "1.5"
+  kind: Setting
+  metadata:
+    annotations:
+      harvesterhci.io/hash: d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 2
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/hash: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: additional-guest-memory-overhead-ratio
+    resourceVersion: "7199"
+    uid: 08d2bfb1-b337-40e6-8a93-e27b585fbe75
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:44:04Z"
+      status: "False"
+      type: configured
+- apiVersion: harvesterhci.io/v1beta1
+  default: 1.1.9
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+        f:value: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: api-ui-version
+    resourceVersion: "7048"
+    uid: 866428d8-035d-4045-8e3a-3ac94c6054b6
+  status: {}
+  value: 1.1.9
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: auto-disk-provision-paths
+    resourceVersion: "7078"
+    uid: c51c8383-42c9-4009-88f0-04a833a5060e
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"enable":false,"expiringInHours":240}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: auto-rotate-rke2-certs
+    resourceVersion: "7079"
+    uid: c77fa85c-3085-4c42-a9c5-b05ef1e66336
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 27
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:value: {}
+      manager: python-requests
+      operation: Update
+      time: "2026-06-12T14:28:25Z"
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:28:26Z"
+    name: backup-target
+    resourceVersion: "249839"
+    uid: df301f81-e2f2-4708-9f7b-b2bedf1214d9
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T14:28:26Z"
+      status: "False"
+      type: configured
+  value: '{}'
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"enabled":false,"whitelistedNamespacesList":"", "privilegedNamespacesList":"",
+    "restrictedNamespacesList":""}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: cluster-pod-security-standard
+    resourceVersion: "7096"
+    uid: a0676226-685b-42ee-b3b9-cf63df8627b1
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"driver.longhorn.io":{"volumeSnapshotClassName":"longhorn-snapshot","backupVolumeSnapshotClassName":"longhorn"}}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: csi-driver-config
+    resourceVersion: "7056"
+    uid: 07458748-1cf7-4427-98c9-a3ae27fb8d4a
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"driver.longhorn.io":true}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: csi-online-expand-validation
+    resourceVersion: "7086"
+    uid: 3e05c9b7-fbcd-4622-8d79-642185bb3468
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: longhorn
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: default-storage-class
+    resourceVersion: "7093"
+    uid: 31e35cba-1b8b-421b-81f4-cb863f19b651
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: "120"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: default-vm-termination-grace-period-seconds
+    resourceVersion: "7072"
+    uid: 8b9c99a2-4d25-49d0-897a-49114795feef
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"harvester-cloud-provider":">=0.0.1 <0.3.0","harvester-csi-provider":">=0.0.1
+    <0.3.0"}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: harvester-csi-ccm-versions
+    resourceVersion: "7062"
+    uid: 66976030-72af-43bd-9fcf-bfa37ee5bd0b
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: http-proxy
+    resourceVersion: "7101"
+    uid: 095c4fd9-5113-4764-a1bf-9e4f745a0524
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"cpu":{}}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: instance-manager-resources
+    resourceVersion: "7081"
+    uid: 5eb6c186-d7dc-4f13-b6ea-74164173ba11
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: "0"
+  kind: Setting
+  metadata:
+    annotations:
+      harvesterhci.io/hash: 62b0823ae4db2be7b494f00bf86950c9f77b3e181d737b75fdb72844
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 4
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/hash: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:08:08Z"
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:value: {}
+      manager: python-requests
+      operation: Update
+      time: "2026-06-12T11:08:08Z"
+    name: kubeconfig-default-token-ttl-minutes
+    resourceVersion: "34100"
+    uid: 98b647a4-0cbb-4f1d-a0d3-3015e4da2332
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T11:08:08Z"
+      status: "True"
+      type: configured
+  value: "172800"
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"parallelOutboundMigrationsPerNode":2,"parallelMigrationsPerCluster":5,"allowAutoConverge":false,"bandwidthPerMigration":0,"completionTimeoutPerGiB":150,"progressTimeout":150,"unsafeMigrationOverride":false,"allowPostCopy":false,"allowWorkloadDisruption":false,"disableTLS":false,"matchSELinuxLevelOnMigration":false}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: kubevirt-migration
+    resourceVersion: "7095"
+    uid: 53efec70-dbc4-4e10-8c83-1f349c9ff6dd
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: info
+  kind: Setting
+  metadata:
+    annotations:
+      harvesterhci.io/hash: a840ad7ebefa949275196739a216deda316206fa37db311515eb8dfe
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 4
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/hash: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:08:08Z"
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:value: {}
+      manager: python-requests
+      operation: Update
+      time: "2026-06-12T11:08:08Z"
+    name: log-level
+    resourceVersion: "34096"
+    uid: da9d39a4-0306-4d0c-b30e-9fb778be1872
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T11:08:07Z"
+      status: "True"
+      type: configured
+  value: info
+- apiVersion: harvesterhci.io/v1beta1
+  default: "false"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: longhorn-v2-data-engine-enabled
+    resourceVersion: "7073"
+    uid: f6ef2af2-56ba-4b33-93f3-f39db6e95c06
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: "4"
+  kind: Setting
+  metadata:
+    annotations:
+      harvesterhci.io/hash: 271f93f45e9b4067327ed5c8cd30a034730aaace4382803c3e1d6c2f
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 4
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/hash: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:10:35Z"
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:value: {}
+      manager: python-requests
+      operation: Update
+      time: "2026-06-12T13:10:35Z"
+    name: max-hotplug-ratio
+    resourceVersion: "154319"
+    uid: ebce3be0-e5b3-490a-9288-b9daa0439239
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T13:10:14Z"
+      status: "True"
+      type: configured
+  value: "4"
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    annotations:
+      harvesterhci.io/hash: 538be04ea3d768c12d43086935fc815353200cc2d6b81672591a2dc3
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"harvesterhci.io/v1beta1","kind":"Setting","metadata":{"annotations":{},"name":"ntp-servers"},"value":"{\"ntpServers\":[\"0.suse.pool.ntp.org\",\"1.suse.pool.ntp.org\"]}"}
+    creationTimestamp: "2026-06-12T10:42:30Z"
+    generation: 2
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:value: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2026-06-12T10:42:30Z"
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:harvesterhci.io/hash: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: ntp-servers
+    resourceVersion: "7158"
+    uid: 3b4baffc-021a-4305-9a92-ee912e4852a5
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:44:04Z"
+      status: "True"
+      type: configured
+  value: '{"ntpServers":["0.suse.pool.ntp.org","1.suse.pool.ntp.org"]}'
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"cpu":1000,"memory":150,"storage":100}'
+  kind: Setting
+  metadata:
+    annotations:
+      harvesterhci.io/hash: 078ada29467400b3ed33414e37d7988d2ae57a71be9941c01510827a
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 14
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/hash: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:42:59Z"
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:value: {}
+      manager: python-requests
+      operation: Update
+      time: "2026-06-12T14:42:59Z"
+    name: overcommit-config
+    resourceVersion: "267083"
+    uid: f9f0ad03-8808-4d74-81b4-02a63bd08e9d
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T12:13:36Z"
+      status: "True"
+      type: configured
+  value: '{"cpu": 2400, "memory": 800, "storage": 100}'
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: rancher-cluster
+    resourceVersion: "7110"
+    uid: 6c1d84ae-616b-4e7f-809d-486010e083c6
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: https://releases.rancher.com/harvester
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: release-download-url
+    resourceVersion: "7104"
+    uid: 83a4c902-287e-4232-918f-8bed332838ca
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"share-storage-network":false}'
+  kind: Setting
+  metadata:
+    annotations:
+      rwx-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+      rwx-network.settings.harvesterhci.io/initialized: "true"
+      rwx-network.settings.harvesterhci.io/net-attach-def: "null"
+      rwx-network.settings.harvesterhci.io/old-net-attach-def: "null"
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 3
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rwx-network.settings.harvesterhci.io/hash: {}
+            f:rwx-network.settings.harvesterhci.io/initialized: {}
+            f:rwx-network.settings.harvesterhci.io/net-attach-def: {}
+            f:rwx-network.settings.harvesterhci.io/old-net-attach-def: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: rwx-network
+    resourceVersion: "7197"
+    uid: be086943-e3b2-4909-91ab-7f3ca48f0678
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:44:04Z"
+      reason: Completed
+      status: "True"
+      type: configured
+- apiVersion: harvesterhci.io/v1beta1
+  default: dev
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+        f:value: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: server-version
+    resourceVersion: "7090"
+    uid: 093114a4-e556-4324-b345-4d8ca5b48a34
+  status: {}
+  value: v1.8-d46887de-head
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: ssl-parameters
+    resourceVersion: "7053"
+    uid: 813dd07d-7422-473d-8075-48f3d50af113
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    annotations:
+      storage-network.settings.harvesterhci.io/hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+      storage-network.settings.harvesterhci.io/net-attach-def: "null"
+      storage-network.settings.harvesterhci.io/old-net-attach-def: "null"
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 37
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:storage-network.settings.harvesterhci.io/hash: {}
+            f:storage-network.settings.harvesterhci.io/net-attach-def: {}
+            f:storage-network.settings.harvesterhci.io/old-net-attach-def: {}
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T12:07:51Z"
+    name: storage-network
+    resourceVersion: "94490"
+    uid: 390d6ec1-3ccf-4daf-82cb-5a11ed21f967
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T12:07:51Z"
+      reason: Completed
+      status: "True"
+      type: configured
+- apiVersion: harvesterhci.io/v1beta1
+  default: "30"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: support-bundle-expiration
+    resourceVersion: "7071"
+    uid: a489724f-0a11-4b09-99c6-62937319c0a5
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 3
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:value: {}
+      manager: python-requests
+      operation: Update
+      time: "2026-06-12T11:21:03Z"
+    name: support-bundle-file-name
+    resourceVersion: "44934"
+    uid: 01382c78-e681-4cc6-b823-2d424d4dd9f6
+  status: {}
+  value: "null"
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"repository":"rancher/support-bundle-kit","tag":"v0.0.86","imagePullPolicy":"IfNotPresent"}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: support-bundle-image
+    resourceVersion: "7098"
+    uid: 16831940-49e3-4c75-bdc4-340ba13b655e
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: support-bundle-namespaces
+    resourceVersion: "7105"
+    uid: 99010345-9cc2-4967-a1f5-c6b2326b3538
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: "30"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: support-bundle-node-collection-timeout
+    resourceVersion: "7099"
+    uid: a162341f-876d-47d0-b592-9442415b4bcf
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: "50"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: support-bundle-timeout
+    resourceVersion: "7085"
+    uid: 9a45b0be-2dd5-4391-82d0-ec4f27a647e3
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: https://releases.rancher.com/harvester-ui/dashboard/release-harvester-v1.8/index.html
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: ui-index
+    resourceVersion: "7091"
+    uid: 2e72e179-2fdb-4001-bdf7-0a317220fd76
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: /usr/share/harvester/harvester
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+        f:value: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: ui-path
+    resourceVersion: "7097"
+    uid: e9b636c2-5e16-4539-9925-d438fab69120
+  status: {}
+  value: /usr/share/harvester/harvester
+- apiVersion: harvesterhci.io/v1beta1
+  default: https://releases.rancher.com/harvester-ui/plugin/harvester-release-harvester-v1.8/harvester-release-harvester-v1.8.umd.min.js
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: ui-plugin-index
+    resourceVersion: "7108"
+    uid: 68f27974-2c4f-4412-88e9-4c7bca975527
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: auto
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: ui-source
+    resourceVersion: "7075"
+    uid: af689c14-456d-4646-8f40-aaa58f9136a9
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: upgradable-versions
+    resourceVersion: "7092"
+    uid: 7b135b4e-b9ec-4cf8-b16a-302628c495cb
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: "true"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: upgrade-checker-enabled
+    resourceVersion: "7103"
+    uid: 7f5b54dc-cea4-4fab-a0b3-05a3de90d123
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: https://harvester-upgrade-responder.rancher.io/v1/checkupgrade
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: upgrade-checker-url
+    resourceVersion: "7067"
+    uid: d9c36659-b326-4db0-b2a2-19ff082a1645
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"imagePreloadOption":{"strategy":{"type":"sequential"}},"nodeUpgradeOption":{"strategy":{"mode":"auto"}},"restoreVM":
+    false, "logReadyTimeout": "5"}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: upgrade-config
+    resourceVersion: "7083"
+    uid: af2c451d-844c-433c-9de4-c1e12eb6d4b4
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: vip-pools
+    resourceVersion: "7077"
+    uid: 1bae7388-8dec-4fa1-ac55-a262a8ba952b
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: '{"enable":true,"period":15,"vmMigrationTimeout":180}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: vm-force-reset-policy
+    resourceVersion: "7106"
+    uid: e272aec8-8b81-48fe-b194-4dbeab28cacd
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: vm-migration-network
+    resourceVersion: "7094"
+    uid: 6f5def19-8593-42e1-afce-b278cd5328b5
+  status: {}
+- apiVersion: harvesterhci.io/v1beta1
+  default: longhorn
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    generation: 1
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+        f:status: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:03Z"
+    name: volume-snapshot-class
+    resourceVersion: "7064"
+    uid: 912f2b51-ce8c-4f5c-9a02-9a2a7eea98d2
+  status: {}
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676233"

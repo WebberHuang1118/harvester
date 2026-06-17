@@ -1,0 +1,379 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: VolumeAttachment
+  metadata:
+    creationTimestamp: "2026-06-12T15:28:43Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      longhornvolume: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhornvolume: {}
+        f:spec:
+          .: {}
+          f:attachmentTickets: {}
+          f:volume: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:28:45Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:attachmentTicketStatuses: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:28:50Z"
+    name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+      uid: 241a258a-44f4-4860-9544-f5490180670f
+    resourceVersion: "311267"
+    uid: e288b19d-cf94-46c1-bc90-825501820d2a
+  spec:
+    attachmentTickets: {}
+    volume: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+  status:
+    attachmentTicketStatuses: {}
+- apiVersion: longhorn.io/v1beta2
+  kind: VolumeAttachment
+  metadata:
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    labels:
+      longhornvolume: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhornvolume: {}
+        f:spec:
+          .: {}
+          f:attachmentTickets:
+            .: {}
+            f:csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b:
+              .: {}
+              f:generation: {}
+              f:id: {}
+              f:nodeID: {}
+              f:parameters:
+                .: {}
+                f:disableFrontend: {}
+                f:lastAttachedBy: {}
+              f:type: {}
+          f:volume: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:04Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:attachmentTicketStatuses:
+            .: {}
+            f:csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b:
+              .: {}
+              f:conditions: {}
+              f:generation: {}
+              f:id: {}
+              f:satisfied: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:14Z"
+    name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+      uid: 03e87a9b-452f-463d-bfa5-2d396d4ed96a
+    resourceVersion: "292610"
+    uid: a9ae1181-93d8-46da-b40f-47df5eadd548
+  spec:
+    attachmentTickets:
+      csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b:
+        generation: 0
+        id: csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b
+        nodeID: hp-69-tink-system
+        parameters:
+          disableFrontend: "false"
+          lastAttachedBy: "null"
+        type: csi-attacher
+    volume: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+  status:
+    attachmentTicketStatuses:
+      csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b:
+        conditions:
+        - lastProbeTime: "null"
+          lastTransitionTime: "2026-06-12T15:10:14Z"
+          message: "null"
+          reason: "null"
+          status: "True"
+          type: Satisfied
+        generation: 0
+        id: csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b
+        satisfied: true
+- apiVersion: longhorn.io/v1beta2
+  kind: VolumeAttachment
+  metadata:
+    creationTimestamp: "2026-06-12T11:49:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    labels:
+      longhornvolume: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhornvolume: {}
+        f:spec:
+          .: {}
+          f:attachmentTickets: {}
+          f:volume: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:49:44Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:attachmentTicketStatuses: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:49:44Z"
+    name: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+      uid: 967444d6-e736-42b7-b413-4c667ebbea3b
+    resourceVersion: "74220"
+    uid: dbacb3d8-03ab-484b-9582-026f566c30ad
+  spec:
+    attachmentTickets: {}
+    volume: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+  status:
+    attachmentTicketStatuses: {}
+- apiVersion: longhorn.io/v1beta2
+  kind: VolumeAttachment
+  metadata:
+    creationTimestamp: "2026-06-12T14:57:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      longhornvolume: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhornvolume: {}
+        f:spec:
+          .: {}
+          f:attachmentTickets: {}
+          f:volume: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:57:46Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:attachmentTicketStatuses: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:58:47Z"
+    name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+      uid: 6a53f0f2-91ef-48c3-8660-3874378d3854
+    resourceVersion: "283072"
+    uid: 5b516996-cc2e-460f-a474-766e5c2adf61
+  spec:
+    attachmentTickets: {}
+    volume: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+  status:
+    attachmentTicketStatuses: {}
+- apiVersion: longhorn.io/v1beta2
+  kind: VolumeAttachment
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:43Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      longhornvolume: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhornvolume: {}
+        f:spec:
+          .: {}
+          f:attachmentTickets: {}
+          f:volume: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:02:46Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:attachmentTicketStatuses: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:02:50Z"
+    name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+      uid: 412fe632-a7f8-4e82-b5fd-7bdff85711c3
+    resourceVersion: "29575"
+    uid: 63ad7a7d-5842-4f09-b6d2-f6270e2ac4d1
+  spec:
+    attachmentTickets: {}
+    volume: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+  status:
+    attachmentTicketStatuses: {}
+- apiVersion: longhorn.io/v1beta2
+  kind: VolumeAttachment
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      longhornvolume: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhornvolume: {}
+        f:spec:
+          .: {}
+          f:attachmentTickets: {}
+          f:volume: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:attachmentTicketStatuses: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:02:45Z"
+    name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+      uid: e29a975e-6f97-4b65-ae9b-232bd727a681
+    resourceVersion: "29548"
+    uid: 76c1b7e7-1fd5-4fc1-824b-87443b8bff0b
+  spec:
+    attachmentTickets: {}
+    volume: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+  status:
+    attachmentTicketStatuses: {}
+- apiVersion: longhorn.io/v1beta2
+  kind: VolumeAttachment
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      longhornvolume: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhornvolume: {}
+        f:spec:
+          .: {}
+          f:attachmentTickets: {}
+          f:volume: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:attachmentTicketStatuses: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:02:46Z"
+    name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+      uid: b5d65388-6238-4f04-87ea-be9d028afe0e
+    resourceVersion: "29554"
+    uid: b1289e16-e40d-4b20-9f20-ec8127ec035b
+  spec:
+    attachmentTickets: {}
+    volume: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+  status:
+    attachmentTicketStatuses: {}
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676494"

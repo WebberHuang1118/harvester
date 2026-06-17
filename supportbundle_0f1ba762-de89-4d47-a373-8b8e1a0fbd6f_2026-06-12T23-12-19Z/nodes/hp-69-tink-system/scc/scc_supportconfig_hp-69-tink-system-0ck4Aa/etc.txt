@@ -1,0 +1,4690 @@
+#==[ Command ]======================================#
+# /sbin/update-alternatives --get-selections
+
+#==[ Configuration File ]===========================#
+# /etc/smartd.conf
+DEFAULT -d removable -s (S/../.././03|L/../(01|02|03|04|05|06|07)/7/01)
+DEVICESCAN
+
+
+#==[ Configuration File ]===========================#
+# /etc/wpa_supplicant/wpa_supplicant.conf
+ctrl_interface=/run/wpa_supplicant
+ctrl_interface_group=wheel
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/45-generic.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Set substitutions for emoji/math fonts</description>
+<!-- Keep in sync with 60-generic.conf -->
+<!-- Emoji -->
+	<!-- System emoji -->
+	<alias binding="same">
+		<family>Noto Color Emoji</family> <!-- Google -->
+		<default><family>emoji</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Apple Color Emoji</family> <!-- Apple -->
+		<default><family>emoji</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Segoe UI Emoji</family> <!-- Microsoft -->
+		<default><family>emoji</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Twitter Color Emoji</family> <!-- Twitter -->
+		<default><family>emoji</family></default>
+	</alias>
+	<alias binding="same">
+		<family>EmojiOne Mozilla</family> <!-- Mozilla -->
+		<default><family>emoji</family></default>
+	</alias>
+	<!-- Third-party emoji -->
+	<alias binding="same">
+		<family>Emoji Two</family>
+		<default><family>emoji</family></default>
+	</alias>
+	<alias binding="same">
+		<family>JoyPixels</family>
+		<default><family>emoji</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Emoji One</family>
+		<default><family>emoji</family></default>
+	</alias>
+	<!-- B&W -->
+	<alias binding="same">
+		<family>Noto Emoji</family> <!-- Google -->
+		<default><family>emoji</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Android Emoji</family> <!-- Google -->
+		<default><family>emoji</family></default>
+	</alias>
+	<!-- Add language for emoji, to match other emoji fonts. -->
+	<match>
+		<test name="family">
+			<string>emoji</string>
+		</test>
+		<edit name="lang" mode="prepend">
+			<string>und-zsye</string>
+		</edit>
+	</match>
+	<match>
+		<test name="lang">
+			<string>und-zsye</string>
+		</test>
+		<test qual="all" name="family" compare="not_eq">
+			<string>emoji</string>
+		</test>
+		<!-- Add generic family. -->
+		<edit name="family" mode="append" binding="strong">
+			<string>emoji</string>
+		</edit>
+	</match>
+<!-- Math -->
+	<!-- https://en.wikipedia.org/wiki/Category:Mathematical_OpenType_typefaces -->
+	<alias binding="same">
+		<family>XITS Math</family> <!-- Khaled Hosny -->
+		<default><family>math</family></default>
+	</alias>
+	<alias binding="same">
+		<family>STIX Two Math</family> <!-- AMS -->
+		<default><family>math</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Cambria Math</family> <!-- Microsoft -->
+		<default><family>math</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Latin Modern Math</family> <!-- TeX -->
+		<default><family>math</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Minion Math</family> <!-- Adobe -->
+		<default><family>math</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Lucida Math</family> <!-- Adobe -->
+		<default><family>math</family></default>
+	</alias>
+	<alias binding="same">
+		<family>Asana Math</family>
+		<default><family>math</family></default>
+	</alias>
+	<!-- Add language for math, to match other math fonts. -->
+	<match>
+		<test name="family">
+			<string>math</string>
+		</test>
+		<edit name="lang" mode="prepend">
+			<string>und-zmth</string>
+		</edit>
+	</match>
+	<match>
+		<test name="lang">
+			<string>und-zmth</string>
+		</test>
+		<test qual="all" name="family" compare="not_eq">
+			<string>math</string>
+		</test>
+		<!-- Add generic family -->
+		<edit name="family" mode="append" binding="strong">
+			<string>math</string>
+		</edit>
+	</match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/49-sansserif.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Add sans-serif to the family when no generic name</description>
+<!--
+  If the font still has no generic name, add sans-serif
+ -->
+	<match target="pattern">
+		<test qual="all" name="family" compare="not_eq">
+			<string>sans-serif</string>
+		</test>
+		<test qual="all" name="family" compare="not_eq">
+			<string>serif</string>
+		</test>
+		<test qual="all" name="family" compare="not_eq">
+			<string>monospace</string>
+		</test>
+		<edit name="family" mode="append_last">
+			<string>sans-serif</string>
+		</edit>
+	</match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/48-spacing.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Add mono to the family when spacing is 100</description>
+<!--
+  If the request specifies spacing 100, add monospace to family
+ -->
+	<match target="pattern">
+		<test qual="any" name="spacing" compare="eq">
+			<int>100</int>
+		</test>
+		<edit name="family" mode="prepend">
+			<string>monospace</string>
+		</edit>
+	</match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/90-synthetic.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+<!-- 
+ Artificial oblique for fonts without an italic or oblique version
+ -->
+	<match target="font">
+		<!-- check to see if the font is roman -->
+		<test name="slant">
+			<const>roman</const>
+		</test>
+		<!-- check to see if the pattern requested non-roman -->
+		<test target="pattern" name="slant" compare="not_eq">
+			<const>roman</const>
+		</test>
+		<!-- multiply the matrix to slant the font -->
+		<edit name="matrix" mode="assign">
+			<times>
+				<name>matrix</name>
+				<matrix><double>1</double><double>0.2</double>
+					<double>0</double><double>1</double>
+				</matrix>
+			</times>
+		</edit>
+		<!-- pretend the font is oblique now -->
+		<edit name="slant" mode="assign">
+			<const>oblique</const>
+		</edit>
+		<!-- and disable embedded bitmaps for artificial oblique -->
+		<edit name="embeddedbitmap" mode="assign">
+			<bool>false</bool>
+		</edit>
+	</match>
+<!--
+ Synthetic emboldening for fonts that do not have bold face available
+ -->
+	<match target="font">
+		<!-- check to see if the weight in the font is less than medium which possibly need emboldening -->
+		<test name="weight" compare="less_eq">
+			<const>medium</const>
+		</test>
+		<!-- check to see if the pattern requests bold -->
+		<test target="pattern" name="weight" compare="more_eq">
+			<const>bold</const>
+		</test>
+		<!--
+		  set the embolden flag
+		  needed for applications using cairo, e.g. gucharmap, gedit, ...
+		-->
+		<edit name="embolden" mode="assign">
+			<bool>true</bool>
+		</edit>
+		<!--
+		 set weight to bold
+		 needed for applications using Xft directly, e.g. Firefox, ...
+		-->
+		<edit name="weight" mode="assign">
+			<const>bold</const>
+		</edit>
+	</match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/10-scale-bitmap-fonts.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Bitmap scaling</description>
+<!--
+  If font is bitmap, calculate scale factor.
+  Note that color bitmap fonts have scalable=true, while
+  non-color ones have scalable=false.  Both groups have outline=false.
+  -->
+<match target="font">
+  <test name="outline" compare="eq">
+    <bool>false</bool>
+  </test>
+  <edit name="pixelsizefixupfactor" mode="assign">
+    <divide>
+      <name target="pattern">pixelsize</name>
+      <name target="font"   >pixelsize</name>
+    </divide>
+  </edit>
+</match>
+<!--
+  For non-scalable bitmap fonts (ie. non-color), skip
+  minor scaling if hinting is enabled.
+  -->
+<match target="font">
+  <test name="outline" compare="eq">
+    <bool>false</bool>
+  </test>
+  <test name="scalable" compare="eq">
+    <bool>false</bool>
+  </test>
+  <test name="hinting" compare="eq">
+    <bool>true</bool>
+  </test>
+  <edit name="scalingnotneeded" mode="assign">
+    <and>
+      <less>
+        <name>pixelsizefixupfactor</name>
+        <double>1.2</double>
+      </less>
+      <more>
+        <name>pixelsizefixupfactor</name>
+        <double>0.8</double>
+      </more>
+    </and>
+  </edit>
+</match>
+<match target="font">
+  <test name="scalingnotneeded" compare="eq">
+    <bool>true</bool>
+  </test>
+  <edit name="pixelsizefixupfactor" mode="assign">
+    <double>1.0</double>
+  </edit>
+</match>
+<!--
+  If we *are* going to scale, go ahead and do it.
+  -->
+<match target="font">
+  <test name="outline" compare="eq">
+    <bool>false</bool>
+  </test>
+  <test name="pixelsizefixupfactor" compare="not_eq">
+    <double>1.0</double>
+  </test>
+  <edit name="matrix" mode="assign">
+    <times>
+      <name>matrix</name>
+      <matrix>
+        <name>pixelsizefixupfactor</name> <double>0</double>
+        <double>0</double> <name>pixelsizefixupfactor</name>
+       </matrix>
+    </times>
+  </edit>
+  <edit name="size" mode="assign">
+    <divide>
+      <name>size</name>
+      <name>pixelsizefixupfactor</name>
+    </divide>
+  </edit>
+</match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/10-yes-antialias.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Enable antialiasing</description>
+  <match target="pattern">
+    <edit name="antialias" mode="append"><bool>true</bool></edit>
+  </match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/10-hinting-slight.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Set hintslight to hintstyle</description>
+  <match target="pattern">
+    <!--
+      This sort of configuration is available on the major desktop environments
+      and we don't have to break it with "assign" unconditionally. however, we
+      want to set something for others. So we use "append" here to get this working
+      in both cases so that most clients would takes a look at the first place only.
+    -->
+    <edit name="hintstyle" mode="append"><const>hintslight</const></edit>
+  </match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/55-local.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<!-- /etc/fonts/local.conf file for local customizations -->
+<fontconfig>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/45-latin.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Set substitutions for Latin fonts</description>
+<!--
+  Mark common families with their generics so we'll get
+  something reasonable
+-->
+<!--
+  Serif faces
+ -->
+	<alias>
+		<family>Bitstream Vera Serif</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Cambria</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Constantia</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>DejaVu Serif</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Elephant</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Garamond</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Georgia</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Liberation Serif</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Luxi Serif</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>MS Serif</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Nimbus Roman No9 L</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Nimbus Roman</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Palatino Linotype</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Thorndale AMT</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Thorndale</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Times New Roman</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Times</family>
+		<default><family>serif</family></default>
+	</alias>
+<!--
+  Sans-serif faces
+ -->
+	<alias>
+		<family>Albany AMT</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Albany</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Arial Unicode MS</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Arial</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Bitstream Vera Sans</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Britannic</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Calibri</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Candara</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Century Gothic</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Corbel</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>DejaVu Sans</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Helvetica LT Std</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Helvetica</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Haettenschweiler</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Liberation Sans</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>MS Sans Serif</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Nimbus Sans L</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Nimbus Sans</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Luxi Sans</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Tahoma</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Trebuchet MS</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Twentieth Century</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Verdana</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+<!--
+  Monospace faces
+ -->
+	<alias>
+		<family>Andale Mono</family>
+		<default><family>monospace</family></default>
+	</alias>
+ 	<alias>
+		<family>Bitstream Vera Sans Mono</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Consolas</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Courier New</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Courier Std</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Courier</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Cumberland AMT</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Cumberland</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>DejaVu Sans Mono</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Fixedsys</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Inconsolata</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Liberation Mono</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Luxi Mono</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Nimbus Mono L</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Nimbus Mono</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Nimbus Mono PS</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>Terminal</family>
+		<default><family>monospace</family></default>
+	</alias>
+<!--
+  Fantasy faces
+ -->
+	<alias>
+		<family>Bauhaus Std</family>
+		<default><family>fantasy</family></default>
+	</alias>
+	<alias>
+		<family>Cooper Std</family>
+		<default><family>fantasy</family></default>
+	</alias>
+	<alias>
+		<family>Copperplate Gothic Std</family>
+		<default><family>fantasy</family></default>
+	</alias>
+	<alias>
+		<family>Impact</family>
+		<default><family>fantasy</family></default>
+	</alias>
+<!--
+  Cursive faces
+  -->
+	<alias>
+		<family>Comic Sans MS</family>
+		<default><family>cursive</family></default>
+	</alias>
+	<alias>
+		<family>ITC Zapf Chancery Std</family>
+		<default><family>cursive</family></default>
+	</alias>
+	<alias>
+		<family>Zapfino</family>
+		<default><family>cursive</family></default>
+	</alias>
+<!--
+  system-ui
+-->
+	<alias>
+		<family>Cantarell</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Segoe UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Segoe UI Historic</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Segoe UI Symbol</family>
+		<default><family>system-ui</family></default>
+	</alias>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/11-lcdfilter-default.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Use lcddefault as default for LCD filter</description>
+<!--  Use lcddefault as default for LCD filter -->
+  <match target="pattern">
+    <!--
+      This sort of configuration is available on the major desktop environments
+      and we don't have to break it with "assign" unconditionally. however, we
+      want to set something for others. So we use "append" here to get this working
+      in both cases so that most clients would takes a look at the first place only.
+    -->
+    <edit mode="append" name="lcdfilter">
+      <const>lcddefault</const>
+    </edit>
+  </match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/61-latin.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Set preferable fonts for Latin</description>
+	<alias>
+		<family>serif</family>
+		<prefer>
+			<family>Noto Serif</family>
+			<family>DejaVu Serif</family>
+			<family>Times New Roman</family>
+			<family>Thorndale AMT</family>
+			<family>Luxi Serif</family>
+			<family>Nimbus Roman No9 L</family>
+			<family>Nimbus Roman</family>
+			<family>Times</family>
+		</prefer>
+	</alias>
+	<alias>
+		<family>sans-serif</family>
+		<prefer>
+			<family>Noto Sans</family>
+			<family>DejaVu Sans</family>
+			<family>Verdana</family>
+			<family>Arial</family>
+			<family>Albany AMT</family>
+			<family>Luxi Sans</family>
+			<family>Nimbus Sans L</family>
+			<family>Nimbus Sans</family>
+			<family>Helvetica</family>
+			<family>Lucida Sans Unicode</family>
+			<family>BPG Glaho International</family> <!-- lat,cyr,arab,geor -->
+			<family>Tahoma</family> <!-- lat,cyr,greek,heb,arab,thai -->
+		</prefer>
+	</alias>
+	<alias>
+		<family>monospace</family>
+		<prefer>
+			<family>Noto Sans Mono</family>
+			<family>DejaVu Sans Mono</family>
+			<family>Inconsolata</family>
+			<family>Andale Mono</family>
+			<family>Courier New</family>
+			<family>Cumberland AMT</family>
+			<family>Luxi Mono</family>
+			<family>Nimbus Mono L</family>
+			<family>Nimbus Mono</family>
+			<family>Nimbus Mono PS</family>
+			<family>Courier</family>
+		</prefer>
+	</alias>
+<!--
+  Fantasy faces
+ -->
+ 	<alias>
+		<family>fantasy</family>
+		<prefer>
+			<family>Impact</family>
+			<family>Copperplate Gothic Std</family>
+			<family>Cooper Std</family>
+			<family>Bauhaus Std</family>
+		</prefer>
+	</alias>
+<!--
+  Cursive faces
+  -->
+	<alias>
+		<family>cursive</family>
+		<prefer>
+			<family>ITC Zapf Chancery Std</family>
+			<family>Zapfino</family>
+			<family>Comic Sans MS</family>
+		</prefer>
+	</alias>
+<!--
+  system-ui
+-->
+	<alias>
+		<family>system-ui</family>
+		<prefer>
+			<family>Cantarell</family>
+			<family>Noto Sans UI</family>
+			<family>Segoe UI</family>
+			<family>Segoe UI Historic</family>
+			<family>Segoe UI Symbol</family>
+		</prefer>
+	</alias>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/10-sub-pixel-none.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Disable sub-pixel rendering</description>
+<!--  Disable sub-pixel rendering --> 
+  <match target="pattern">
+    <!--
+      This sort of configuration is available on the major desktop environments
+      and we don't have to break it with "assign" unconditionally. however, we
+      want to set something for others. So we use "append" here to get this working
+      in both cases so that most clients would takes a look at the first place only.
+    -->
+    <edit name="rgba" mode="append"><const>none</const></edit>
+  </match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/20-unhint-small-vera.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Disable hinting for Bitstream Vera fonts when the size is less than 8ppem</description>
+<!-- 
+	The Bitstream Vera fonts have GASP entries suggesting that hinting be
+	disabled below 8 ppem, but FreeType ignores those, preferring to use
+	the data found in the instructed hints.  The initial Vera release
+	didn't include the right instructions in the 'prep' table. Fix this
+	by disabling hinting manually at smaller sizes (< 8ppem)
+ -->
+	<match target="font">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Bitstream Vera Sans</string>
+		</test>
+		<test name="pixelsize" compare="less">
+			<double>7.5</double>
+		</test>
+		<edit name="hinting">
+			<bool>false</bool>
+		</edit>
+	</match>
+	<match target="font">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Bitstream Vera Serif</string>
+		</test>
+		<test name="pixelsize" compare="less">
+			<double>7.5</double>
+		</test>
+		<edit name="hinting">
+			<bool>false</bool>
+		</edit>
+	</match>
+	<match target="font">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Bitstream Vera Sans Mono</string>
+		</test>
+		<test name="pixelsize" compare="less">
+			<double>7.5</double>
+		</test>
+		<edit name="hinting">
+			<bool>false</bool>
+		</edit>
+	</match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/30-metric-aliases.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Set substitutions for similar/metric-compatible families</description>
+<!--
+Alias similar/metric-compatible families from various sources:
+PostScript fonts:       URW fonts:           GUST fonts:        Windows fonts:
+======================  ==================  =================  ==================
+Helvetica               Nimbus Sans         TeX Gyre Heros
+Helvetica Narrow        Nimbus Sans Narrow  TeX Gyre Heros Cn
+Times                   Nimbus Roman        TeX Gyre Termes
+Courier                 Nimbus Mono PS      TeX Gyre Cursor
+ITC Avant Garde Gothic  URW Gothic          TeX Gyre Adventor
+ITC Bookman             URW Bookman         TeX Gyre Bonum     Bookman Old Style
+ITC Zapf Chancery       Z003                TeX Gyre Chorus
+Palatino                P052                TeX Gyre Pagella   Palatino Linotype
+New Century Schoolbook  C059                TeX Gyre Schola    Century Schoolbook
+Microsoft fonts:  Liberation fonts:       Google CrOS core fonts:  StarOffice fonts:  AMT fonts:
+================  ======================  =======================  =================  ==============
+Arial             Liberation Sans         Arimo                    Albany             Albany AMT
+Arial Narrow      Liberation Sans Narrow
+Times New Roman   Liberation Serif        Tinos                    Thorndale          Thorndale AMT
+Courier New       Liberation Mono         Cousine                  Cumberland         Cumberland AMT
+Cambria                                   Caladea
+Calibri                                   Carlito
+Symbol                                    SymbolNeu
+Microsoft fonts:  Other fonts:
+================  ============
+Georgia           Gelasio
+We want for each of them to fallback to any of these available,
+but in an order preferring similar designs first.  We do this in three steps:
+1) Alias each specific to its generic family.
+   e.g. Liberation Sans to Arial
+2) Weak alias each generic to the other generic of its family.
+   e.g. Arial to Helvetica
+3) Alias each generic to its specifics.
+   e.g. Arial to Liberation Sans, Arimo, Albany, and Albany AMT
+NOTE: The (URW)++ fonts mappings of generics to specifics were removed, because
+      upstream now includes them in their release of (URW)++ Core Font Set here:
+      https://github.com/ArtifexSoftware/urw-base35-fonts/tree/master/fontconfig
+-->
+<!-- Map specifics to generics -->
+	<!-- PostScript -->
+	<alias binding="same">
+	  <family>Helvetica LT Std</family>
+	  <default>
+	  <family>Helvetica</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Nimbus Sans L</family>
+	  <default>
+	  <family>Helvetica</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Nimbus Sans</family>
+	  <default>
+	  <family>Helvetica</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Heros</family>
+	  <default>
+	  <family>Helvetica</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Nimbus Sans Narrow</family>
+	  <default>
+	  <family>Helvetica Narrow</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Heros Cn</family>
+	  <default>
+	  <family>Helvetica Narrow</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Nimbus Roman No9 L</family>
+	  <default>
+	  <family>Times</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Nimbus Roman</family>
+	  <default>
+	  <family>Times</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Termes</family>
+	  <default>
+	  <family>Times</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Courier Std</family>
+	  <accept>
+	  <family>Courier</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Nimbus Mono L</family>
+	  <default>
+	  <family>Courier</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Nimbus Mono</family>
+	  <default>
+	  <family>Courier</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Nimbus Mono PS</family>
+	  <default>
+	  <family>Courier</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Cursor</family>
+	  <default>
+	  <family>Courier</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Avant Garde</family>
+	  <default>
+	  <family>ITC Avant Garde Gothic</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>URW Gothic L</family>
+	  <default>
+	  <family>ITC Avant Garde Gothic</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>URW Gothic</family>
+	  <default>
+	  <family>ITC Avant Garde Gothic</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Adventor</family>
+	  <default>
+	  <family>ITC Avant Garde Gothic</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Bookman</family>
+	  <default>
+	  <family>ITC Bookman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>URW Bookman L</family>
+	  <default>
+	  <family>ITC Bookman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Bookman URW</family>
+	  <default>
+	  <family>ITC Bookman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>URW Bookman</family>
+	  <default>
+	  <family>ITC Bookman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Bonum</family>
+	  <default>
+	  <family>ITC Bookman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Bookman Old Style</family>
+	  <default>
+	  <family>ITC Bookman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Zapf Chancery</family>
+	  <default>
+	  <family>ITC Zapf Chancery</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>URW Chancery L</family>
+	  <default>
+	  <family>ITC Zapf Chancery</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Chancery URW</family>
+	  <default>
+	  <family>ITC Zapf Chancery</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Z003</family>
+	  <default>
+	  <family>ITC Zapf Chancery</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Chorus</family>
+	  <default>
+	  <family>ITC Zapf Chancery</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>URW Palladio L</family>
+	  <default>
+	  <family>Palatino</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Palladio URW</family>
+	  <default>
+	  <family>Palatino</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>P052</family>
+	  <default>
+	  <family>Palatino</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Pagella</family>
+	  <default>
+	  <family>Palatino</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Palatino Linotype</family>
+	  <default>
+	  <family>Palatino</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Century Schoolbook L</family>
+	  <default>
+	  <family>New Century Schoolbook</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Century SchoolBook URW</family>
+	  <default>
+	  <family>New Century Schoolbook</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>C059</family>
+	  <default>
+	  <family>New Century Schoolbook</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>TeX Gyre Schola</family>
+	  <default>
+	  <family>New Century Schoolbook</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Century Schoolbook</family>
+	  <default>
+	  <family>New Century Schoolbook</family>
+	  </default>
+	</alias>
+	<!-- Microsoft -->
+	<alias binding="same">
+	  <family>Arimo</family>
+	  <default>
+	    <family>Arial</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Liberation Sans</family>
+	  <default>
+	  <family>Arial</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Liberation Sans Narrow</family>
+	  <default>
+	    <family>Arial Narrow</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Albany</family>
+	  <default>
+	  <family>Arial</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Albany AMT</family>
+	  <default>
+	  <family>Arial</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Tinos</family>
+	  <default>
+	    <family>Times New Roman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Liberation Serif</family>
+	  <default>
+	  <family>Times New Roman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Thorndale</family>
+	  <default>
+	  <family>Times New Roman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Thorndale AMT</family>
+	  <default>
+	  <family>Times New Roman</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Cousine</family>
+	  <default>
+	    <family>Courier New</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Liberation Mono</family>
+	  <default>
+	  <family>Courier New</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Cumberland</family>
+	  <default>
+	  <family>Courier New</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Cumberland AMT</family>
+	  <default>
+	  <family>Courier New</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Gelasio</family>
+	  <default>
+	  <family>Georgia</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Caladea</family>
+	  <default>
+	  <family>Cambria</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>Carlito</family>
+	  <default>
+	  <family>Calibri</family>
+	  </default>
+	</alias>
+	<alias binding="same">
+	  <family>SymbolNeu</family>
+	  <default>
+	  <family>Symbol</family>
+	  </default>
+  </alias>
+<!-- Accept the other group as fallback -->
+	<!-- PostScript -->
+	<alias>
+	  <family>Helvetica</family>
+	  <default>
+	  <family>Arial</family>
+	  </default>
+	</alias>
+	<alias>
+	  <family>Helvetica Narrow</family>
+	  <default>
+	  <family>Arial Narrow</family>
+	  </default>
+	</alias>
+	<alias>
+	  <family>Times</family>
+	  <default>
+	  <family>Times New Roman</family>
+	  </default>
+	</alias>
+	<alias>
+	  <family>Courier</family>
+	  <default>
+	  <family>Courier New</family>
+	  </default>
+	</alias>
+	<!-- Microsoft -->
+	<alias>
+	  <family>Arial</family>
+	  <default>
+	  <family>Helvetica</family>
+	  </default>
+	</alias>
+	<alias>
+	  <family>Arial Narrow</family>
+	  <default>
+	  <family>Helvetica Narrow</family>
+	  </default>
+	</alias>
+	<alias>
+	  <family>Times New Roman</family>
+	  <default>
+	  <family>Times</family>
+	  </default>
+	</alias>
+	<alias>
+	  <family>Courier New</family>
+	  <default>
+	  <family>Courier</family>
+	  </default>
+	</alias>
+<!-- Map generics to specifics -->
+	<!-- PostScript -->
+	<alias binding="same">
+	  <family>Helvetica</family>
+	  <accept>
+	  <family>Helvetica LT Std</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Helvetica</family>
+	  <accept>
+	  <family>TeX Gyre Heros</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Helvetica Narrow</family>
+	  <accept>
+	  <family>TeX Gyre Heros Cn</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Times</family>
+	  <accept>
+	  <family>TeX Gyre Termes</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Courier</family>
+	  <accept>
+	  <family>TeX Gyre Cursor</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Courier</family>
+	  <accept>
+	  <family>Courier Std</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>ITC Avant Garde Gothic</family>
+	  <accept>
+	  <family>TeX Gyre Adventor</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>ITC Bookman</family>
+	  <accept>
+	  <family>Bookman Old Style</family>
+	  <family>TeX Gyre Bonum</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>ITC Zapf Chancery</family>
+	  <accept>
+	  <family>TeX Gyre Chorus</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Palatino</family>
+	  <accept>
+	  <family>Palatino Linotype</family>
+	  <family>TeX Gyre Pagella</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>New Century Schoolbook</family>
+	  <accept>
+	  <family>Century Schoolbook</family>
+	  <family>TeX Gyre Schola</family>
+	  </accept>
+	</alias>
+	<!-- Microsoft -->
+	<alias binding="same">
+	  <family>Arial</family>
+	  <accept>
+	    <family>Arimo</family>
+	    <family>Liberation Sans</family>
+	    <family>Albany</family>
+	    <family>Albany AMT</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Arial Narrow</family>
+	  <accept>
+	    <family>Liberation Sans Narrow</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Times New Roman</family>
+	  <accept>
+	    <family>Tinos</family>
+	    <family>Liberation Serif</family>
+	    <family>Thorndale</family>
+	    <family>Thorndale AMT</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Courier New</family>
+	  <accept>
+	    <family>Cousine</family>
+	    <family>Liberation Mono</family>
+	    <family>Cumberland</family>
+	    <family>Cumberland AMT</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Georgia</family>
+	  <accept>
+	    <family>Gelasio</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Cambria</family>
+	  <accept>
+	    <family>Caladea</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Calibri</family>
+	  <accept>
+	    <family>Carlito</family>
+	  </accept>
+  </alias>
+	<alias binding="same">
+	  <family>Symbol</family>
+	  <accept>
+	    <family>SymbolNeu</family>
+	  </accept>
+  </alias>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/56-user.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Load per-user customization files</description>
+	<!--
+	    Load per-user customization files where stored on XDG Base Directory
+	    specification compliant places. it should be usually:
+	      $HOME/.config/fontconfig/conf.d
+	      $HOME/.config/fontconfig/fonts.conf
+	-->
+	<include ignore_missing="yes" prefix="xdg">fontconfig/conf.d</include>
+	<include ignore_missing="yes" prefix="xdg">fontconfig/fonts.conf</include>
+	<!-- the following elements will be removed in the future -->
+	<include ignore_missing="yes" deprecated="yes">~/.fonts.conf.d</include>
+	<include ignore_missing="yes" deprecated="yes">~/.fonts.conf</include>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/60-generic.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Set preferable fonts for emoji/math fonts</description>
+<!-- Keep in sync with 45-generic.conf -->
+<!-- Emoji -->
+	<!-- Prefer to match color emoji font. -->
+	<match>
+		<test name="lang">
+			<string>und-zsye</string>
+		</test>
+		<test qual="all" name="color" compare="not_eq">
+			<bool>true</bool>
+		</test>
+		<test qual="all" name="color" compare="not_eq">
+			<bool>false</bool>
+		</test>
+		<edit name="color" mode="append">
+			<bool>true</bool>
+		</edit>
+	</match>
+	<!-- TODO
+	 ! Match on "color" and alias B&W ones first if no color is requested.
+	 ! That's "hard" because <alias> doesn't work in match and needs to be
+	 ! expanded to its non-sugar form.
+	 !-->
+	<alias binding="same">
+		<family>emoji</family>
+		<prefer>
+			<!-- System fonts -->
+			<family>Noto Color Emoji</family> <!-- Google -->
+			<family>Apple Color Emoji</family> <!-- Apple -->
+			<family>Segoe UI Emoji</family> <!-- Microsoft -->
+			<family>Twitter Color Emoji</family> <!-- Twitter -->
+			<family>EmojiOne Mozilla</family> <!-- Mozilla -->
+			<!-- Third-Party fonts -->
+			<family>Emoji Two</family>
+			<family>JoyPixels</family>
+			<family>Emoji One</family>
+			<!-- Non-color -->
+			<family>Noto Emoji</family> <!-- Google -->
+			<family>Android Emoji</family> <!-- Google -->
+		</prefer>
+	</alias>
+<!-- Math -->
+	<alias binding="same">
+		<!-- https://en.wikipedia.org/wiki/Category:Mathematical_OpenType_typefaces -->
+		<family>math</family>
+		<prefer>
+			<family>XITS Math</family> <!-- Khaled Hosny -->
+			<family>STIX Two Math</family> <!-- AMS -->
+			<family>Cambria Math</family> <!-- Microsoft -->
+			<family>Latin Modern Math</family> <!-- TeX -->
+			<family>Minion Math</family> <!-- Adobe -->
+			<family>Lucida Math</family> <!-- Adobe -->
+			<family>Asana Math</family>
+		</prefer>
+	</alias>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/65-nonlatin.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Set preferable fonts for non-Latin</description>
+	<alias>
+		<family>serif</family>
+		<prefer>
+			<family>Artsounk</family> <!-- armenian -->
+			<family>BPG UTF8 M</family> <!-- georgian -->
+			<family>Kinnari</family> <!-- thai -->
+			<family>Norasi</family> <!-- thai -->
+			<family>Frank Ruehl</family> <!-- hebrew -->
+			<family>Dror</family>  <!-- hebrew -->
+			<family>JG LaoTimes</family>  <!-- lao -->
+			<family>Saysettha Unicode</family>  <!-- lao -->
+			<family>Pigiarniq</family> <!-- canadian syllabics -->
+			<family>B Davat</family> <!-- arabic (fa) -->
+			<family>B Compset</family>  <!-- arabic (fa) -->
+			<family>Kacst-Qr</family> <!-- arabic (ar) -->
+			<family>Urdu Nastaliq Unicode</family> <!-- arabic (ur) -->
+			<family>Raghindi</family> <!-- devanagari -->
+			<family>Mukti Narrow</family> <!-- bengali -->
+			<family>malayalam</family> <!-- malayalam -->
+			<family>Sampige</family> <!-- kannada -->
+			<family>padmaa</family> <!-- gujarati -->
+			<family>Hapax Berbère</family> <!-- tifinagh -->
+			<family>MS Mincho</family> <!-- han (ja) -->
+			<family>SimSun</family> <!-- han (zh-cn,zh-tw) -->
+			<family>PMingLiu</family> <!-- han (zh-tw) -->
+			<family>WenQuanYi Zen Hei</family> <!-- han (zh-cn,zh-tw) -->
+			<family>WenQuanYi Bitmap Song</family> <!-- han (zh-cn,zh-tw) -->
+			<family>AR PL ShanHeiSun Uni</family> <!-- han (ja,zh-cn,zh-tw) -->
+			<family>AR PL New Sung</family> <!-- han (zh-cn,zh-tw) -->
+			<family>ZYSong18030</family> <!-- han (zh-cn,zh-tw) -->
+			<family>HanyiSong</family> <!-- han (zh-cn,zh-tw) -->
+			<family>Hiragino Mincho ProN</family> <!-- han (ja) - macOS -->
+			<family>Songti SC</family> <!-- han (zh-cn) - macOS -->
+			<family>Songti TC</family> <!-- han (zh-tw) - macOS -->
+			<family>SimSong</family> <!-- han (zh-cn) - macOS -->
+			<family>MgOpen Canonica</family>
+			<family>Sazanami Mincho</family>
+			<family>IPAMonaMincho</family>
+			<family>IPAMincho</family>
+			<family>Kochi Mincho</family>
+			<family>AR PL SungtiL GB</family>
+			<family>AR PL Mingti2L Big5</family>
+ 			<family>AR PL Zenkai Uni</family>
+			<family>ＭＳ 明朝</family>
+ 			<family>ZYSong18030</family>
+			<family>NanumMyeongjo</family> <!-- hangul (ko) -->
+			<family>UnBatang</family> <!-- hangul (ko) -->
+			<family>Baekmuk Batang</family> <!-- hangul (ko) -->
+			<family>AppleMyungjo</family> <!-- hangul (ko) - macOS -->
+ 			<family>KacstQura</family>
+ 			<family>Frank Ruehl CLM</family>
+			<family>Lohit Bengali</family>
+ 			<family>Lohit Gujarati</family>
+ 			<family>Lohit Hindi</family>
+			<family>Lohit Marathi</family>
+			<family>Lohit Maithili</family>
+			<family>Lohit Kashmiri</family>
+			<family>Lohit Konkani</family>
+			<family>Lohit Nepali</family>
+			<family>Lohit Sindhi</family>
+ 			<family>Lohit Punjabi</family>
+ 			<family>Lohit Tamil</family>
+			<family>Rachana</family>
+			<family>Lohit Malayalam</family>
+ 			<family>Lohit Kannada</family>
+ 			<family>Lohit Telugu</family>
+ 			<family>Lohit Oriya</family>
+ 			<family>LKLUG</family>
+		</prefer>
+	</alias>
+	<alias>
+		<family>sans-serif</family>
+		<prefer>
+			<family>Nachlieli</family> <!-- hebrew -->
+			<family>Lucida Sans Unicode</family>
+			<family>Yudit Unicode</family>
+			<family>Kerkis</family> <!-- greek -->
+			<family>ArmNet Helvetica</family> <!-- armenian -->
+			<family>Artsounk</family> <!-- armenian -->
+			<family>BPG UTF8 M</family> <!-- georgian -->
+			<family>Waree</family> <!-- thai -->
+			<family>Loma</family> <!-- thai -->
+			<family>Garuda</family> <!-- thai -->
+			<family>Umpush</family> <!-- thai -->
+			<family>Saysettha Unicode</family> <!-- lao? -->
+			<family>JG Lao Old Arial</family> <!-- lao -->
+			<family>GF Zemen Unicode</family> <!-- ethiopic -->
+			<family>Pigiarniq</family> <!-- canadian syllabics -->
+			<family>B Davat</family> <!-- arabic (fa) -->
+			<family>B Compset</family> <!-- arabic (fa) -->
+			<family>Kacst-Qr</family> <!-- arabic (ar) -->
+			<family>Urdu Nastaliq Unicode</family> <!-- arabic (ur) -->
+			<family>Raghindi</family> <!-- devanagari -->
+			<family>Mukti Narrow</family> <!-- bengali -->
+			<family>malayalam</family> <!-- malayalam -->
+			<family>Sampige</family> <!-- kannada -->
+			<family>padmaa</family> <!-- gujarati -->
+			<family>Hapax Berbère</family> <!-- tifinagh -->
+			<family>MS Gothic</family> <!-- han (ja) -->
+			<family>UmePlus P Gothic</family> <!-- han (ja) -->
+			<family>Microsoft YaHei</family> <!-- han (zh-cn,zh-tw) -->
+			<family>Microsoft JhengHei</family> <!-- han (zh-tw) -->
+			<family>WenQuanYi Zen Hei</family> <!-- han (zh-cn,zh-tw) -->
+			<family>WenQuanYi Bitmap Song</family> <!-- han (zh-cn,zh-tw) -->
+			<family>AR PL ShanHeiSun Uni</family> <!--han (ja,zh-cn,zh-tw) -->
+			<family>AR PL New Sung</family> <!-- han (zh-cn,zh-tw) -->
+			<family>Hiragino Sans</family> <!-- han (ja) - macOS -->
+			<family>PingFang SC</family> <!-- han (zh-cn) - macOS -->
+			<family>PingFang TC</family> <!-- han (zh-tw) - macOS -->
+			<family>PingFang HK</family> <!-- han (zh-hk) - macOS -->
+			<family>Hiragino Sans CNS</family> <!-- han (zh-cn) - macOS -->
+			<family>Hiragino Sans GB</family> <!-- han (zh-tw) - macOS -->
+			<family>MgOpen Modata</family>
+			<family>VL Gothic</family>
+			<family>IPAMonaGothic</family>
+			<family>IPAGothic</family>
+			<family>Sazanami Gothic</family>
+			<family>Kochi Gothic</family>
+			<family>AR PL KaitiM GB</family>
+			<family>AR PL KaitiM Big5</family>
+ 			<family>AR PL ShanHeiSun Uni</family>
+ 			<family>AR PL SungtiL GB</family>
+ 			<family>AR PL Mingti2L Big5</family>
+			<family>ＭＳ ゴシック</family>
+			<family>ZYSong18030</family> <!-- han (zh-cn,zh-tw) -->
+			<family>TSCu_Paranar</family> <!-- tamil -->
+			<family>NanumGothic</family> <!-- hangul (ko) -->
+			<family>UnDotum</family> <!-- hangul (ko) -->
+			<family>Baekmuk Dotum</family> <!-- hangul (ko) -->
+ 			<family>Baekmuk Gulim</family> <!-- hangul (ko) -->
+			<family>Apple SD Gothic Neo</family> <!-- hangul (ko) - macOS -->
+ 			<family>KacstQura</family>
+			<family>Lohit Bengali</family>
+ 			<family>Lohit Gujarati</family>
+ 			<family>Lohit Hindi</family>
+			<family>Lohit Marathi</family>
+			<family>Lohit Maithili</family>
+			<family>Lohit Kashmiri</family>
+			<family>Lohit Konkani</family>
+			<family>Lohit Nepali</family>
+			<family>Lohit Sindhi</family>
+ 			<family>Lohit Punjabi</family>
+ 			<family>Lohit Tamil</family>
+			<family>Meera</family>
+ 			<family>Lohit Malayalam</family>
+ 			<family>Lohit Kannada</family>
+ 			<family>Lohit Telugu</family>
+ 			<family>Lohit Oriya</family>
+ 			<family>LKLUG</family>
+		</prefer>
+	</alias>
+	<alias>
+		<family>monospace</family>
+		<prefer>
+			<family>Miriam Mono</family> <!-- hebrew -->
+			<family>VL Gothic</family>
+			<family>IPAMonaGothic</family>
+			<family>IPAGothic</family>
+			<family>Sazanami Gothic</family>
+			<family>Kochi Gothic</family>
+			<family>AR PL KaitiM GB</family>
+			<family>MS Gothic</family> <!-- han (ja) -->
+			<family>UmePlus Gothic</family> <!-- han (ja) -->
+			<family>NSimSun</family> <!-- han (zh-cn,zh-tw) -->
+			<family>MingLiu</family> <!-- han (zh-tw) -->
+			<family>AR PL ShanHeiSun Uni</family> <!-- han (ja,zh-cn,zh-tw) -->
+			<family>AR PL New Sung Mono</family> <!-- han (zh-cn,zh-tw) -->
+			<family>HanyiSong</family> <!-- han (zh-cn) -->
+			<family>AR PL SungtiL GB</family>
+			<family>AR PL Mingti2L Big5</family>
+			<family>ZYSong18030</family> <!-- han (zh-cn,zh-tw) -->
+			<family>NanumGothicCoding</family> <!-- hangul (ko) -->
+			<family>NanumGothic</family> <!-- hangul (ko) -->
+			<family>UnDotum</family> <!-- hangul (ko) -->
+			<family>Baekmuk Dotum</family> <!-- hangul (ko) -->
+			<family>Baekmuk Gulim</family> <!-- hangul (ko) -->
+			<family>TlwgTypo</family> <!-- thai -->
+			<family>TlwgTypist</family> <!-- thai -->
+			<family>TlwgTypewriter</family> <!-- thai -->
+			<family>TlwgMono</family> <!-- thai -->
+			<family>Hasida</family> <!-- hebrew -->
+			<family>GF Zemen Unicode</family> <!-- ethiopic -->
+			<family>Hapax Berbère</family> <!-- tifinagh -->
+			<family>Lohit Bengali</family>
+			<family>Lohit Gujarati</family>
+			<family>Lohit Hindi</family>
+			<family>Lohit Marathi</family>
+			<family>Lohit Maithili</family>
+			<family>Lohit Kashmiri</family>
+			<family>Lohit Konkani</family>
+			<family>Lohit Nepali</family>
+			<family>Lohit Sindhi</family>
+			<family>Lohit Punjabi</family>
+			<family>Lohit Tamil</family>
+			<family>Meera</family>
+			<family>Lohit Malayalam</family>
+			<family>Lohit Kannada</family>
+			<family>Lohit Telugu</family>
+			<family>Lohit Oriya</family>
+			<family>LKLUG</family>
+		</prefer>
+	</alias>
+<!--
+  system-ui
+-->
+	<alias>
+		<family>system-ui</family>
+		<prefer>
+			<family>Noto Sans Arabic UI</family><!-- ar -->
+			<family>Noto Sans Bengali UI</family><!-- bn -->
+			<family>Noto Sans Devanagari UI</family><!-- hi, mai, mr -->
+			<family>Noto Sans Gujarati UI</family><!-- gu -->
+			<family>Noto Sans Gurmukhi UI</family><!-- pa -->
+			<family>Noto Sans Kannada UI</family><!-- kn -->
+			<family>Noto Sans Khmer UI</family><!-- km -->
+			<family>Noto Sans Lao UI</family><!-- lo -->
+			<family>Noto Sans Malayalam UI</family><!-- ml -->
+			<family>Noto Sans Myanmar UI</family><!-- my -->
+			<family>Noto Sans Oriya UI</family><!-- or -->
+			<family>Noto Sans Sinhala UI</family><!-- si -->
+			<family>Noto Sans Tamil UI</family><!-- ta -->
+			<family>Noto Sans Telugu UI</family><!-- te -->
+			<family>Noto Sans Thai UI</family><!-- th -->
+			<family>Leelawadee UI</family><!-- bug, th, jv, km, lo -->
+			<family>Nirmala UI</family><!-- Indic -->
+			<family>Yu Gothic UI</family><!-- han (ja) -->
+			<family>Meiryo UI</family><!-- han (ja) -->
+			<family>MS UI Gothic</family><!-- han (ja) -->
+			<family>Khmer UI</family><!-- km -->
+			<family>Lao UI</family><!-- lo -->
+			<family>Microsoft YaHei UI</family><!-- han (zh-cn) -->
+			<family>Microsoft JhengHei UI</family><!-- han (zh-tw) -->
+		</prefer>
+	</alias>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/69-unifont.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+	<alias>
+		<family>serif</family>
+		<prefer>
+			<family>FreeSerif</family>
+			<family>Code2000</family>
+			<family>Code2001</family> <!-- plane1 and beyond -->
+		</prefer>
+	</alias>
+	<alias>
+		<family>sans-serif</family>
+		<prefer>
+			<family>FreeSans</family>
+			<family>Arial Unicode MS</family>
+			<family>Arial Unicode</family>
+			<family>Code2000</family> <!-- almost everything; serif actually -->
+			<family>Code2001</family> <!-- plane1 and beyond -->
+		</prefer>
+	</alias>
+	<alias>
+		<family>monospace</family>
+		<prefer>
+			<family>FreeMono</family>
+		</prefer>
+	</alias>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/40-nonlatin.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+  <description>Set substitutions for non-Latin fonts</description>
+<!--
+  Mark common families with their generics so we'll get
+  something reasonable
+-->
+<!--
+  Serif faces
+ -->
+	<alias>
+		<family>Nazli</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Lotoos</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Mitra</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Ferdosi</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Badr</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Zar</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Titr</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Jadid</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Kochi Mincho</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>AR PL SungtiL GB</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>AR PL Mingti2L Big5</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>ＭＳ 明朝</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>NanumMyeongjo</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>UnBatang</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Baekmuk Batang</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>MgOpen Canonica</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>Sazanami Mincho</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>AR PL ZenKai Uni</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>ZYSong18030</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>FreeSerif</family>
+		<default><family>serif</family></default>
+	</alias>
+	<alias>
+		<family>SimSun</family>
+		<default><family>serif</family></default>
+	</alias>
+<!--
+  Sans-serif faces
+ -->
+	<alias>
+		<family>Arshia</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Elham</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Farnaz</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Nasim</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Sina</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Roya</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Koodak</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Terafik</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Kochi Gothic</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>AR PL KaitiM GB</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>AR PL KaitiM Big5</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>ＭＳ ゴシック</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>NanumGothic</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>UnDotum</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Baekmuk Dotum</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>MgOpen Modata</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>Sazanami Gothic</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>AR PL ShanHeiSun Uni</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>ZYSong18030</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+	<alias>
+		<family>FreeSans</family>
+		<default><family>sans-serif</family></default>
+	</alias>
+<!--
+  Monospace faces
+ -->
+	<alias>
+		<family>NSimSun</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>ZYSong18030</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>NanumGothicCoding</family>
+		<default><family>monospace</family></default>
+	</alias>
+	<alias>
+		<family>FreeMono</family>
+		<default><family>monospace</family></default>
+	</alias>
+<!--
+  Fantasy faces
+ -->
+	<alias>
+		<family>Homa</family>
+		<default><family>fantasy</family></default>
+	</alias>
+	<alias>
+		<family>Kamran</family>
+		<default><family>fantasy</family></default>
+	</alias>
+	<alias>
+		<family>Fantezi</family>
+		<default><family>fantasy</family></default>
+	</alias>
+	<alias>
+		<family>Tabassom</family>
+		<default><family>fantasy</family></default>
+	</alias>
+<!--
+  Cursive faces
+ -->
+	<alias>
+		<family>IranNastaliq</family>
+		<default><family>cursive</family></default>
+	</alias>
+	<alias>
+		<family>Nafees Nastaleeq</family>
+		<default><family>cursive</family></default>
+	</alias>
+<!--
+  system-ui
+-->
+	<alias>
+		<family>Noto Sans Arabic UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Bengali UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Devanagari UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Gujarati UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Gurmukhi UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Kannada UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Khmer UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Lao UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Malayalam UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Myanmar UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Oriya UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Sinhala UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Tamil UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Telugu UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Noto Sans Thai UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Leelawadee UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Nirmala UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Yu Gothic UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Meiryo UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>MS UI Gothic</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Khmer UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Lao UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Microsoft JhengHei UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+	<alias>
+		<family>Microsoft YaHei UI</family>
+		<default><family>system-ui</family></default>
+	</alias>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/65-fonts-persian.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<!--
+  fonts-persian.conf
+  To configure Persian fonts from The FarsiWeb Project.
+  Copyright (C) 2005  Sharif FarsiWeb, Inc. <license@farsiweb.info>
+  Permission to use, copy, modify, distribute, and sell this software and its
+  documentation for any purpose is hereby granted without fee, provided that
+  the above copyright notice appear in all copies and that both that
+  copyright notice and this permission notice appear in supporting
+  documentation, and that the name of Sharif FarsiWeb, Inc. not be used in
+  advertising or publicity pertaining to distribution of the software without
+  specific, written prior permission.  Sharif FarsiWeb, Inc. makes no
+  representations about the suitability of this software for any purpose.  It
+  is provided "as is" without express or implied warranty.
+  SHARIF FARSIWEB, INC. DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+  INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
+  EVENT SHALL THE AUTHOR(S) BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+  CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+  DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+  TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+  PERFORMANCE OF THIS SOFTWARE.
+  ChangeLog:
+    2005-04-03  Behdad Esfahbod:  Initial revision.
+    2005-10-09  Behdad Esfahbod:  Turned off back-slant and Tahoma sections.
+    2005-11-30  Behdad Esfahbod:  Set Titr susbtitution size to 24 points.
+    2008	Behdad Esfahbod:  Cleanup.  Add fantasy and cursive.
+  -->
+<fontconfig>
+<!-- Deprecated fonts are discouraged -->
+	<!-- Nesf[2] is officially deprecated and has problematic tables -->
+	<alias binding="same">
+	  <family>Nesf</family>
+	  <accept><family>Nesf2</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Nesf2</family>
+	  <accept><family>Persian_sansserif_default</family></accept>
+	</alias>
+<!-- Name changes and spelling variant aliases -->
+	<alias binding="same">
+	  <family>Nazanin</family>
+	  <accept><family>Nazli</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Lotus</family>
+	  <accept><family>Lotoos</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Yaqut</family>
+	  <accept><family>Yaghoot</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Yaghut</family>
+	  <accept><family>Yaghoot</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Traffic</family>
+	  <accept><family>Terafik</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Ferdowsi</family>
+	  <accept><family>Ferdosi</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Fantezy</family>
+	  <accept><family>Fantezi</family></accept>
+	</alias>
+<!-- Classify fonts. -->
+	<!-- Persian_title class -->
+	<alias binding="same">
+	  <family>Jadid</family>
+	  <accept><family>Persian_title</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Titr</family>
+	  <accept><family>Persian_title</family></accept>
+	</alias>
+	<!-- Persian_fantasy class -->
+	<alias binding="same">
+	  <family>Kamran</family>
+	  <accept>
+	  <family>Persian_fantasy</family>
+	  <family>Homa</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Homa</family>
+	  <accept>
+	  <family>Persian_fantasy</family>
+	  <family>Kamran</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Fantezi</family>
+	  <accept><family>Persian_fantasy</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Tabassom</family>
+	  <accept><family>Persian_fantasy</family></accept>
+	</alias>
+	<!-- Persian_square class -->
+	<alias binding="same">
+	  <family>Arshia</family>
+	  <accept><family>Persian_square</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Nasim</family>
+	  <accept><family>Persian_square</family></accept>
+	</alias>
+	<alias binding="same">
+	  <family>Elham</family>
+	  <accept>
+	  <family>Persian_square</family>
+	  <family>Farnaz</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Farnaz</family>
+	  <accept>
+	  <family>Persian_square</family>
+	  <family>Elham</family>
+	  </accept>
+	</alias>
+	<alias binding="same">
+	  <family>Sina</family>
+	  <accept><family>Persian_square</family></accept>
+	</alias>
+<!-- Font ordering per class -->
+	<!-- Persian_title class -->
+	<alias binding="same">
+	  <family>Persian_title</family>
+	  <accept>
+	  <family>Titr</family>
+	  <family>Jadid</family>
+	  <family>Persian_serif</family>
+	  </accept>
+	</alias>
+	<!-- Persian_fantasy class -->
+	<alias binding="same">
+	  <family>Persian_fantasy</family>
+	  <accept>
+	  <family>Homa</family>
+	  <family>Kamran</family>
+	  <family>Fantezi</family>
+	  <family>Tabassom</family>
+	  <family>Persian_square</family>
+	  </accept>
+	</alias>
+	<!-- Persian_square class -->
+	<alias binding="same">
+	  <family>Persian_square</family>
+	  <accept>
+	  <family>Arshia</family>
+	  <family>Elham</family>
+	  <family>Farnaz</family>
+	  <family>Nasim</family>
+	  <family>Sina</family>
+	  <family>Persian_serif</family>
+	  </accept>
+	</alias>
+<!-- Register the fonts that we actually do have -->
+	<match target="scan">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Elham</string>
+		</test>
+		<edit name="foundry">
+			<string>farsiweb</string>
+		</edit>
+	</match>
+	<match target="scan">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Homa</string>
+		</test>
+		<edit name="foundry">
+			<string>farsiweb</string>
+		</edit>
+	</match>
+	<match target="scan">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Koodak</string>
+		</test>
+		<edit name="foundry">
+			<string>farsiweb</string>
+		</edit>
+	</match>
+	<match target="scan">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Nazli</string>
+		</test>
+		<edit name="foundry">
+			<string>farsiweb</string>
+		</edit>
+	</match>
+	<match target="scan">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Roya</string>
+		</test>
+		<edit name="foundry">
+			<string>farsiweb</string>
+		</edit>
+	</match>
+	<match target="scan">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Terafik</string>
+		</test>
+		<edit name="foundry">
+			<string>farsiweb</string>
+		</edit>
+	</match>
+	<match target="scan">
+		<test name="family" compare="eq" ignore-blanks="true">
+			<string>Titr</string>
+		</test>
+		<edit name="foundry">
+			<string>farsiweb</string>
+		</edit>
+	</match>
+<!-- Our fonts should oblique to the other side (TURNED-OFF) -->
+	<match target="font">
+		<test name="foundry">
+			<!--string>farsiweb</string-->
+			<string>TURNED-OFF</string>
+		</test>
+		<test name="foundry">
+			<string>farsiweb</string>
+		</test>
+		<!-- check to see if the font is roman -->
+		<test name="slant">
+			<const>roman</const>
+		</test>
+		<!-- check to see if the pattern requested non-roman -->
+		<test target="pattern" name="slant" compare="not_eq">
+			<const>roman</const>
+		</test>
+		<!-- multiply the matrix to slant the font -->
+		<edit name="matrix" mode="assign">
+			<times>
+				<name>matrix</name>
+				<matrix><double>1</double><double>-0.2</double>
+					<double>0</double><double>1</double>
+				</matrix>
+			</times>
+		</edit>
+		<!-- pretend the font is oblique now -->
+		<edit name="slant" mode="assign">
+			<const>oblique</const>
+		</edit>
+	</match>
+<!--
+  We can't hint our fonts well, so turn off hinting.
+  Moreover, the bitmaps we have designed (well, they
+  have designed), suck, so disable them too.
+  -->
+	<match target="font">
+		<test name="foundry">
+			<string>farsiweb</string>
+		</test>
+		<edit name="autohint">
+			<bool>false</bool>
+		</edit>
+		<edit name="hinting">
+			<bool>false</bool>
+		</edit>
+ 		<edit name="embeddedbitmap">
+ 			<bool>false</bool>
+ 		</edit>
+	</match>
+<!-- Alias our fonts to common families -->
+	<!-- Persian serif fonts -->
+	<alias>
+		<family>serif</family>
+		<accept>
+			<family>Nazli</family>
+			<family>Lotoos</family>
+			<family>Mitra</family>
+			<family>Ferdosi</family>
+			<family>Badr</family>
+			<family>Zar</family>
+		</accept>
+	</alias>
+	<!-- Persian sans-serif fonts -->
+	<alias>
+		<family>sans-serif</family>
+		<accept>
+			<family>Roya</family>
+			<family>Koodak</family>
+			<family>Terafik</family>
+		</accept>
+	</alias>
+	<!-- Persian monospace fonts -->
+	<alias>
+		<family>monospace</family>
+		<accept>
+			<!-- Not really monospace -->
+			<family>Terafik</family>
+		</accept>
+	</alias>
+	<!-- Persian fantasy fonts -->
+	<alias>
+		<family>fantasy</family>
+		<accept>
+			<family>Homa</family>
+			<family>Kamran</family>
+			<family>Fantezi</family>
+			<family>Tabassom</family>
+		</accept>
+	</alias>
+	<!-- Persian (and Urdu) Nastaliq/cursive fonts -->
+	<alias>
+		<family>cursive</family>
+		<accept>
+			<family>IranNastaliq</family>
+			<family>Nafees Nastaleeq</family>
+		</accept>
+	</alias>
+<!-- Use Titr in titles -->
+	<!-- Both serif... -->
+	<match>
+		<test name="family">
+			<string>serif</string>
+		</test>
+		<test name="weight" compare="more_eq">
+			<int>200</int>
+		</test>
+		<test name="size" compare="more_eq">
+			<double>24</double>
+		</test>
+		<edit name="family" mode="prepend">
+			<string>Titr</string>
+		</edit>
+	</match>
+	<!-- and sans-serif. -->
+	<match>
+		<test name="family">
+			<string>sans-serif</string>
+		</test>
+		<test name="weight" compare="more_eq">
+			<int>200</int>
+		</test>
+		<test name="size" compare="more_eq">
+			<double>24</double>
+		</test>
+		<edit name="family" mode="prepend">
+			<string>Titr</string>
+		</edit>
+	</match>
+	<!-- and more. -->
+	<match>
+		<test name="family">
+			<string>Persian_sansserif_default</string>
+		</test>
+		<test name="weight" compare="more_eq">
+			<int>200</int>
+		</test>
+		<test name="size" compare="more_eq">
+			<double>24</double>
+		</test>
+		<edit name="family" mode="prepend" binding="same">
+			<string>Titr</string>
+		</edit>
+	</match>
+<!-- Default substituted for deprecated sans-serif fonts -->
+	<match>
+		<test name="family">
+			<string>Persian_sansserif_default</string>
+		</test>
+		<edit name="family" mode="assign" binding="same">
+			<string>Roya</string>
+		</edit>
+	</match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/conf.d/80-delicious.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+<!-- Fix-ups for Delicious family -->
+<!-- Delicious 'heavy' variant says its Medium weight -->
+<match target="scan">
+	<test name="family" compare="eq" ignore-blanks="true">
+		<string>Delicious</string>
+	</test>
+	<test name="style">
+		<string>Heavy</string>
+	</test>
+	<edit name="weight">
+		<const>heavy</const>
+	</edit>
+</match>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/local.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<!-- /etc/fonts/local.conf file for local customizations -->
+<fontconfig>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/fonts/fonts.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<!-- /etc/fonts/fonts.conf file to configure system font access -->
+<fontconfig>
+	<description>Default configuration file</description>
+<!--
+	DO NOT EDIT THIS FILE.
+	IT WILL BE REPLACED WHEN FONTCONFIG IS UPDATED.
+	LOCAL CHANGES BELONG IN 'local.conf'.
+	The intent of this standard configuration file is to be adequate for
+	most environments.  If you have a reasonably normal environment and
+	have found problems with this configuration, they are probably
+	things that others will also want fixed.  Please submit any problems
+	to the fontconfig issue tracking system located at fontconfig.org
+	Note that the normal 'make install' procedure for fontconfig is to
+	replace any existing fonts.conf file with the new version.  Place
+	any local customizations in local.conf which this file references.
+	Keith Packard
+-->
+<!-- Font directory list -->
+	<dir>/usr/share/fonts</dir>
+	<dir>/usr/X11R6/lib/X11/fonts</dir> <dir>/opt/kde3/share/fonts</dir> <dir>/usr/local/share/fonts</dir>
+	<dir prefix="xdg">fonts</dir>
+	<!-- the following element will be removed in the future -->
+	<dir>~/.fonts</dir>
+<!--
+  Accept deprecated 'mono' alias, replacing it with 'monospace'
+-->
+	<match target="pattern">
+		<test qual="any" name="family">
+			<string>mono</string>
+		</test>
+		<edit name="family" mode="assign" binding="same">
+			<string>monospace</string>
+		</edit>
+	</match>
+<!--
+  Accept alternate 'sans serif' spelling, replacing it with 'sans-serif'
+-->
+	<match target="pattern">
+		<test qual="any" name="family">
+			<string>sans serif</string>
+		</test>
+		<edit name="family" mode="assign" binding="same">
+			<string>sans-serif</string>
+		</edit>
+	</match>
+<!--
+  Accept deprecated 'sans' alias, replacing it with 'sans-serif'
+-->
+	<match target="pattern">
+		<test qual="any" name="family">
+			<string>sans</string>
+		</test>
+		<edit name="family" mode="assign" binding="same">
+			<string>sans-serif</string>
+		</edit>
+	</match>
+<!--
+  Accept alternate 'system ui' spelling, replacing it with 'system-ui'
+-->
+	<match target="pattern">
+		<test qual="any" name="family">
+			<string>system ui</string>
+		</test>
+		<edit name="family" mode="assign" binding="same">
+			<string>system-ui</string>
+		</edit>
+	</match>
+<!--
+  Load local system customization file
+-->
+	<include ignore_missing="yes">conf.d</include>
+<!-- Font cache directory list -->
+	<cachedir>/var/cache/fontconfig</cachedir>
+	<cachedir prefix="xdg">fontconfig</cachedir>
+	<!-- the following element will be removed in the future -->
+	<cachedir>~/.fontconfig</cachedir>
+	<config>
+<!--
+  Rescan configuration every 30 seconds when FcFontSetList is called
+ -->
+		<rescan>
+			<int>30</int>
+		</rescan>
+	</config>
+</fontconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/lvm/lvmlocal.conf
+local {
+}
+
+
+#==[ Configuration File ]===========================#
+# /etc/lvm/lvm.conf
+config {
+}
+devices {
+	global_filter = [ "r|/dev/loop.*|", "r|/dev/disk/by-path/.*longhorn.*|", "r|/dev/mapper/pvc-.*|" ]
+	obtain_device_list_from_udev = 1
+	external_device_info_source = "udev"
+	use_devicesfile = 0
+	multipath_wwids_file = ""
+	issue_discards = 1
+}
+allocation {
+}
+log {
+	syslog = 1
+	indent = 1
+}
+backup {
+}
+shell {
+}
+global {
+	units = "h"
+	use_lvmlockd = 0
+	use_lvmpolld = 1
+}
+activation {
+	udev_sync = 0
+	udev_rules = 0
+	auto_set_activation_skip = 0
+}
+dmeventd {
+}
+
+
+#==[ Configuration File ]===========================#
+# /etc/iscsid.conf
+iscsid.startup = /bin/systemctl start iscsid.socket iscsiuio.socket
+iscsid.safe_logout = Yes
+node.startup = manual
+node.leading_login = No
+node.session.timeo.replacement_timeout = 120
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.noop_out_interval = 0
+node.conn[0].timeo.noop_out_timeout = 0
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.initial_login_retry_max = 8
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+discovery.sendtargets.iscsi.MaxRecvDataSegmentLength = 32768
+node.session.nr_sessions = 1
+node.session.reopen_max = 0
+node.session.iscsi.FastAbort = Yes
+node.session.scan = auto
+
+
+#==[ Configuration File ]===========================#
+# /etc/sensors3.conf
+chip "lm78-*" "lm79-*" "lm80-*" "lm96080-*"
+    label temp1 "M/B Temp"
+chip "w83792d-*"
+    label in0 "VcoreA"
+    label in1 "VcoreB"
+    label in6 "+5V"
+    label in7 "5VSB"
+    label in8 "Vbat"
+    set in6_min  5.0 * 0.90
+    set in6_max  5.0 * 1.10
+    set in7_min  5.0 * 0.90
+    set in7_max  5.0 * 1.10
+    set in8_min  3.0 * 0.90
+    set in8_max  3.0 * 1.10
+chip "w83793-*"
+    label in0 "VcoreA"
+    label in1 "VcoreB"
+    label in7 "+5V"
+    label in8 "5VSB"
+    label in9 "Vbat"
+    set in7_min  5.0 * 0.90
+    set in7_max  5.0 * 1.10
+    set in8_min  5.0 * 0.90
+    set in8_max  5.0 * 1.10
+    set in9_min  3.0 * 0.90
+    set in9_max  3.0 * 1.10
+chip "w83795g-*" "w83795adg-*"
+    label in12 "+3.3V"
+    label in13 "3VSB"
+    label in14 "Vbat"
+    set in12_min  3.3 * 0.90
+    set in12_max  3.3 * 1.10
+    set in13_min  3.3 * 0.90
+    set in13_max  3.3 * 1.10
+    set in14_min  3.0 * 0.90
+    set in14_max  3.3 * 1.10
+chip "via686a-*"
+    label in0 "Vcore"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label in4 "+12V"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    set in4_min 12.0 * 0.90
+    set in4_max 12.0 * 1.10
+chip "adm1025-*" "ne1619-*"
+    label in1 "Vcore"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label in4 "+12V"
+    label in5 "VCC"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    set in5_min  3.3 * 0.90
+    set in5_max  3.3 * 1.10
+    label temp1 "CPU Temp"
+    label temp2 "M/B Temp"
+chip "lm87-*" "adm1024-*"
+    label in1 "Vcore"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label in4 "+12V"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    set in4_min 12.0 * 0.90
+    set in4_max 12.0 * 1.10
+    label temp1 "M/B Temp"
+    label temp2 "CPU Temp"
+chip "it87-*" "it8712-*" "it8716-*" "it8718-*" "it8720-*"
+    label in8 "Vbat"
+chip "fscpos-*" "fscher-*"
+    label in0 "+12V"
+    label in1 "+5V"
+    label in2 "Vbat"
+    label temp1 "CPU Temp"
+    label temp2 "M/B Temp"
+    label temp3 "Aux Temp"
+chip "fscscy-*"
+    label in0 "+12V"
+    label in1 "+5V"
+    label in2 "+3.3V"
+    label temp1 "CPU0 Temp"
+    label temp2 "CPU1 Temp"
+    label temp3 "M/B Temp"
+    label temp4 "Aux Temp"
+chip "fschds-*"
+    label temp1 "CPU Temp"
+    label temp2 "Super I/O Temp"
+    label temp3 "System Temp"
+    label fan1 "PSU Fan"
+    label fan2 "CPU Fan"
+    label fan3 "System FAN2"
+    label fan4 "System FAN3"
+    label fan5 "System FAN4"
+    label in0 "+12V"
+    label in1 "+5V"
+    label in2 "Vbat"
+chip "fscsyl-*"
+    label temp1 "CPU Temp"
+    label temp4 "Super I/O Temp"
+    label temp5 "Northbridge Temp"
+    label fan1 "CPU Fan"
+    label fan2 "System FAN2"
+    label fan3 "System FAN3"
+    label fan4 "System FAN4"
+    label fan7 "PSU Fan"
+    label in0 "+12V"
+    label in1 "+5V"
+    label in2 "Vbat"
+    label in3 "+3.3V"
+    label in5 "+3.3V-Aux"
+chip "vt1211-*"
+    label in5 "+3.3V"
+    label temp2 "SIO Temp"
+chip "vt8231-*"
+    label in5 "+3.3V"
+chip "smsc47m192-*"
+    label in1 "Vcore"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label in4 "+12V"
+    label in5 "VCC"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    set in4_min 12.0 * 0.90
+    set in4_max 12.0 * 1.10
+    set in5_min  3.3 * 0.90
+    set in5_max  3.3 * 1.10
+    label temp1 "SIO Temp"
+chip "lm85-*" "lm85b-*" "lm85c-*" "adm1027-*" "adt7463-*" "adt7468-*" \
+     "emc6d100-*" "emc6d102-*" "emc6d103-*" "emc6d103s-*"
+    label in1 "Vcore"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label in4 "+12V"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    label temp2 "M/B Temp"
+chip "emc6w201-*"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label temp6 "M/B Temp"
+chip "pc87365-*" "pc87366-*"
+    label in7 "3VSB"
+    label in8 "VDD"
+    label in9 "Vbat"
+    label in10 "AVDD"
+    compute in7   @*2, @/2
+    compute in8   @*2, @/2
+    compute in10  @*2, @/2
+    set in7_min   3.0
+    set in7_max   3.6
+    set in8_min   3.0
+    set in8_max   3.6
+    set in10_min  3.0
+    set in10_max  3.6
+    label temp3 "SIO Temp"
+    set temp3_min    0
+    set temp3_max   70
+    set temp3_crit  85
+chip "adm1030-*" "adm1031-*"
+    label temp1 "M/B Temp"
+chip "w83627thf-*"
+    label in3 "+5V"
+    label in7 "5VSB"
+    label in8 "Vbat"
+    compute in3  @ * (1 + 34/51), @ / (1 + 34/51)
+    compute in7  @ * (1 + 34/51), @ / (1 + 34/51)
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    set in7_min  5.0 * 0.90
+    set in7_max  5.0 * 1.10
+chip "nct6106-isa-*"
+    label in0 "Vcore"
+    label in2 "AVCC"
+    label in3 "+3.3V"
+    label in6 "3VSB"
+    label in7 "Vbat"
+    compute in6 @*2, @/2
+chip "w83627ehf-*" "w83627dhg-*" "w83667hg-*" "nct6775-*" "nct6776-*" \
+     "nct6779-*" "nct6791-*" "nct6795-*" "nct6796-*"
+    label in0 "Vcore"
+    label in2 "AVCC"
+    label in3 "+3.3V"
+    label in7 "3VSB"
+    label in8 "Vbat"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  3.3 * 0.90
+    set in3_max  3.3 * 1.10
+    set in7_min  3.3 * 0.90
+    set in7_max  3.3 * 1.10
+    set in8_min  3.0 * 0.90
+    set in8_max  3.3 * 1.10
+chip "w83627uhg-*"
+    label in2 "AVCC"
+    label in3 "+5V"
+    label in7 "5VSB"
+    label in8 "Vbat"
+    set in2_min  5.0 * 0.90
+    set in2_max  5.0 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    set in7_min  5.0 * 0.90
+    set in7_max  5.0 * 1.10
+    set in8_min  3.0 * 0.90
+    set in8_max  3.3 * 1.10
+chip "f71805f-*"
+    label in0 "+3.3V"
+    set in0_min  3.3 * 0.90
+    set in0_max  3.3 * 1.10
+chip "f71872f-*"
+    label in0 "+3.3V"
+    label in9 "Vbat"
+    label in10 "3VSB"
+    set in0_min   3.3 * 0.90
+    set in0_max   3.3 * 1.10
+    set in9_min   3.0 * 0.90
+    set in9_max   3.0 * 1.10
+    set in10_min  3.3 * 0.90
+    set in10_max  3.3 * 1.10
+chip "k8temp-*"
+    label temp1 "Core0 Temp"
+    label temp2 "Core0 Temp"
+    label temp3 "Core1 Temp"
+    label temp4 "Core1 Temp"
+chip "dme1737-*"
+    label in0 "5VSB"
+    label in1 "Vcore"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label in4 "+12V"
+    label in5 "3VSB"
+    label in6 "Vbat"
+    label temp2 "SIO Temp"
+    set in0_min  5.0 * 0.90
+    set in0_max  5.0 * 1.10
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    set in4_min 12.0 * 0.90
+    set in4_max 12.0 * 1.10
+    set in5_min  3.3 * 0.90
+    set in5_max  3.3 * 1.10
+    set in6_min  3.0 * 0.90
+    set in6_max  3.0 * 1.10
+chip "sch311x-*"
+    label in1 "Vcore"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label in4 "+12V"
+    label in5 "3VSB"
+    label in6 "Vbat"
+    label temp2 "SIO Temp"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    set in4_min 12.0 * 0.90
+    set in4_max 12.0 * 1.10
+    set in5_min  3.3 * 0.90
+    set in5_max  3.3 * 1.10
+    set in6_min  3.0 * 0.90
+    set in6_max  3.0 * 1.10
+chip "sch5027-*"
+    label in0 "5VSB"
+    label in1 "Vcore"
+    label in2 "+3.3V"
+    label in5 "3VSB"
+    label in6 "Vbat"
+    label temp2 "SIO Temp"
+    set in0_min  5.0 * 0.90
+    set in0_max  5.0 * 1.10
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in5_min  3.3 * 0.90
+    set in5_max  3.3 * 1.10
+    set in6_min  3.0 * 0.90
+    set in6_max  3.0 * 1.10
+chip "sch5127-*"
+    label in2 "+3.3V"
+    label in5 "3VSB"
+    label in6 "Vbat"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in5_min  3.3 * 0.90
+    set in5_max  3.3 * 1.10
+    set in6_min  3.0 * 0.90
+    set in6_max  3.0 * 1.10
+chip "f71808e-*" "f71808a-*" "f71862fg-*" "f71869-*" "f71869a-*" "f71882fg-*" \
+     "f71889fg-*" "f71889ed-*" "f71889a-*"
+    label in0 "+3.3V"
+    label in7 "3VSB"
+    label in8 "Vbat"
+    compute in0  @*2, @/2
+    compute in7  @*2, @/2
+    compute in8  @*2, @/2
+chip "f71858fg-*" "f8000-*"
+    label in0 "+3.3V"
+    label in1 "3VSB"
+    label in2 "Vbat"
+    compute in0  @*2, @/2
+    compute in1  @*2, @/2
+    compute in2  @*2, @/2
+chip "f71868a-*"
+    label in0 "+3.3V"
+    label in7 "3VSB"
+    label in8 "Vbat"
+    label in9 "5VSB"
+    compute in0  @*2, @/2
+    compute in7  @*2, @/2
+    compute in8  @*2, @/2
+    compute in9  @*3, @/3
+chip "f81865f-*"
+    label in0 "+3.3V"
+    label in5 "3VSB"
+    label in6 "Vbat"
+    compute in0  @*2, @/2
+    compute in5  @*2, @/2
+    compute in6  @*2, @/2
+chip "adt7473-*" "adt7475-*"
+    label in2 "+3.3V"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    label temp2 "Board Temp"
+chip "adt7476-*" "adt7490-*"
+    label in1 "Vcore"
+    label in2 "+3.3V"
+    label in3 "+5V"
+    label in4 "+12V"
+    set in2_min  3.3 * 0.90
+    set in2_max  3.3 * 1.10
+    set in3_min  5.0 * 0.90
+    set in3_max  5.0 * 1.10
+    label temp2 "M/B Temp"
+
+
+#==[ Configuration File ]===========================#
+# /etc/pcp/derived/mssql.conf
+mssql.buffer_manager.buffer_cache_hit_ratio = 100 * (mssql.buffer_manager.raw_buffer_cache_hit_ratio / mssql.buffer_manager.raw_buffer_cache_hit_ratio_base)
+mssql.buffer_manager.buffer_cache_hit_ratio(oneline) = percentage of pages found in the buffer cache without reading from disk
+mssql.buffer_manager.buffer_cache_hit_ratio(helptext) = '\
+Ratio of raw_buffer_cache_hit_ratio over raw_buffer_cache_hit_ratio_base
+as a percentage.'
+mssql.databases.log_cache_hit_ratio = 100 * (mssql.databases.raw_log_cache_hit_ratio / mssql.databases.raw_log_cache_hit_ratio_base)
+mssql.databases.log_cache_hit_ratio(oneline) = percentage of log cache reads satisfied from the log cache
+mssql.databases.log_cache_hit_ratio(helptext) = '\
+Ratio of raw_log_cache_hit_ratio over raw_log_cache_hit_ratio_base
+as a percentage.'
+mssql.latches.average_latch_wait_time = (mssql.latches.raw_average_latch_wait_time / mssql.latches.raw_average_latch_wait_time_base)
+mssql.latches.average_latch_wait_time(oneline) = average delay associated with latch acquisition
+mssql.latches.average_latch_wait_time(helptext) = '\
+A latch is a short-term synchronization object that ensures data integrity
+on objects in SQL Server memory.  A latch wait is a delay associated with
+access to a latch, and may be caused by the I/O system not keeping up with
+latch requests.'
+mssql.locks.average_wait_time = (mssql.locks.raw_average_wait_time / mssql.locks.raw_average_wait_time_base)
+mssql.locks.average_wait_time(oneline) = average delay associated with lock acquisition
+mssql.locks.average_wait_time(helptext) = '\
+Average lock wait time is aggregated time that processes spend waiting for
+other processes to release a SQL Server lock.'
+mssql.plan_cache.cache_hit_ratio = (mssql.plan_cache.raw_cache_hit_ratio / mssql.plan_cache.raw_cache_hit_ratio_base)
+mssql.plan_cache.cache_hit_ratio(oneline) = percentage of plan cache reads satisfied from the plan cache
+mssql.plan_cache.cache_hit_ratio(helptext) = '\
+Ratio of raw_cache_hit_ratio over raw_cache_hit_ratio_base as a percentage.'
+
+
+#==[ Configuration File ]===========================#
+# /etc/pcp/derived/iostat.conf
+disk.dev.await = delta(disk.dev.total) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dev.total_rawactive) / delta(disk.dev.total)
+disk.dev.await(oneline) = average time read and write requests queued and serviced
+disk.dev.await(helptext) = '\
+average time in milliseconds that read and write requests
+were queued (and serviced) during the reporting interval.'
+disk.dev.r_await = delta(disk.dev.read) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dev.read_rawactive) / delta(disk.dev.read)
+disk.dev.r_await(oneline) = average time read requests queued and serviced 
+disk.dev.r_await(helptext) = '\
+average time in milliseconds that read requests were queued
+(and serviced) during the reporting interval.'
+disk.dev.w_await = delta(disk.dev.write) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dev.write_rawactive) / delta(disk.dev.write)
+disk.dev.w_await(oneline) = average time write requests queued and serviced
+disk.dev.w_await(helptext) = '\
+average time in milliseconds that write requests were queued
+(and serviced) during the reporting interval.'
+disk.dev.d_await = delta(disk.dev.discard) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dev.discard_rawactive) / delta(disk.dev.discard)
+disk.dev.d_await(oneline) = average time discard requests queued and serviced
+disk.dev.d_await(helptext) = '\
+average time in milliseconds that discard requests were queued
+(and serviced) during the reporting interval.'
+disk.dev.f_await = delta(disk.dev.flush) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dev.flush_rawactive) / delta(disk.dev.flush)
+disk.dev.f_await(oneline) = average time flush requests queued and serviced
+disk.dev.f_await(helptext) = '\
+average time in milliseconds that flush requests were queued
+(and serviced) during the reporting interval.'
+disk.dev.avg_qlen = rate(disk.dev.read_rawactive) + rate(disk.dev.write_rawactive)
+disk.dev.avg_qlen(oneline) = average read and write queue length
+disk.dev.avg_qlen(helptext) = '\
+average read and write I/O queue length to the device during the reporting interval.'
+disk.dev.avg_rqsz = (delta(disk.dev.read) + delta(disk.dev.write)) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : rescale(delta(disk.dev.read_bytes) + delta(disk.dev.write_bytes), "kbyte") / (delta(disk.dev.read) + delta(disk.dev.write))
+disk.dev.avg_rqsz(oneline) = average I/O request size for both reads and writes
+disk.dev.avg_rqsz(helptext) = '\
+average I/O request size for both reads and writes during the reporting interval.'
+disk.dev.r_avg_rqsz = delta(disk.dev.read) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : rescale(delta(disk.dev.read_bytes), "kbyte") / delta(disk.dev.read)
+disk.dev.r_avg_rqsz(oneline) = average I/O request size for reads to the device
+disk.dev.r_avg_rqsz(helptext) = '\
+average I/O request size for reads to the device during the reporting interval.'
+disk.dev.w_avg_rqsz = delta(disk.dev.write) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : rescale(delta(disk.dev.write_bytes), "kbyte") / delta(disk.dev.write)
+disk.dev.w_avg_rqsz(oneline) = average I/O request size for writes to the device
+disk.dev.w_avg_rqsz(helptext) = '\
+average I/O request size for writes to the device during the reporting interval.'
+disk.dev.d_avg_rqsz = delta(disk.dev.discard) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : rescale(delta(disk.dev.discard_bytes), "kbyte") / delta(disk.dev.discard)
+disk.dev.d_avg_rqsz(oneline) = average I/O request size for discards to the device
+disk.dev.d_avg_rqsz(helptext) = '\
+average I/O request size for discards to the device during the reporting interval.'
+disk.dev.util = 100 * rate(disk.dev.avactive)
+disk.dev.util(oneline) = percentage of time device was busy processing requests
+disk.dev.util(helptext) = '\
+The percentage of time during the reporting interval that the
+device was busy processing requests (reads and writes). A value
+of 100% indicates device saturation.'
+disk.dm.await = delta(disk.dm.total) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dm.total_rawactive) / delta(disk.dm.total)
+disk.dm.await(oneline) = average time read and write requests queued and serviced
+disk.dm.await(helptext) = '\
+average time in milliseconds that read and write requests
+were queued (and serviced) to the device-mapper logical
+device during the reporting interval.'
+disk.dm.r_await = delta(disk.dm.read) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dm.read_rawactive) / delta(disk.dm.read)
+disk.dm.r_await(oneline) = average time read requests queued and serviced
+disk.dm.r_await(helptext) = '\
+average time in milliseconds that read requests were queued
+(and serviced) to the device-mapper logical device during
+the reporting interval.'
+disk.dm.w_await = delta(disk.dm.write) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dm.write_rawactive) / delta(disk.dm.write)
+disk.dm.w_await(oneline) = average time write requests queued and serviced
+disk.dm.w_await(helptext) = '\
+average time in milliseconds that write requests were queued
+(and serviced) to the device-mapper logical device during
+the reporting interval.'
+disk.dm.d_await = delta(disk.dm.discard) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dm.discard_rawactive) / delta(disk.dm.discard)
+disk.dm.d_await(oneline) = average time discard requests queued and serviced
+disk.dm.d_await(helptext) = '\
+average time in milliseconds that discard requests were queued
+(and serviced) to the device-mapper logical device during
+the reporting interval.'
+disk.dm.f_await = delta(disk.dm.flush) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.dm.flush_rawactive) / delta(disk.dm.flush)
+disk.dm.f_await(oneline) = average time flush requests queued and serviced
+disk.dm.f_await(helptext) = '\
+average time in milliseconds that flush requests were queued
+(and serviced) to the device-mapper logical device during
+the reporting interval.'
+disk.dm.avg_qlen = rate(disk.dm.read_rawactive) + rate(disk.dm.write_rawactive)
+disk.dm.avg_qlen(oneline) = average read and write queue length
+disk.dm.avg_qlen(helptext) = '\
+average read and write I/O queue length to the device-mapper logical
+device during the reporting interval.'
+disk.dm.avg_rqsz = (delta(disk.dm.read) + delta(disk.dm.write)) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : (delta(disk.dm.read_bytes) + delta(disk.dm.write_bytes)) / (delta(disk.dm.read) + delta(disk.dm.write))
+disk.dm.avg_rqsz(oneline) = average I/O request size for reads and writes to the device
+disk.dm.avg_rqsz(helptext) = '\
+average I/O request size for reads and writes to the device-mapper logical
+device during the reporting interval.'
+disk.dm.r_avg_rqsz = delta(disk.dm.read) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : delta(disk.dm.read_bytes) / delta(disk.dm.read)
+disk.dm.r_avg_rqsz(oneline) = average I/O request size for reads to the device
+disk.dm.r_avg_rqsz(helptext) = '\
+average I/O request size for reads to the device-mapper logical device
+during the reporting interval.'
+disk.dm.w_avg_rqsz = delta(disk.dm.write) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : delta(disk.dm.write_bytes) / delta(disk.dm.write)
+disk.dm.w_avg_rqsz(oneline) = average I/O request size for writes to the device
+disk.dm.w_avg_rqsz(helptext) = '\
+average I/O request size for writes to the device-mapper logical device
+during the reporting interval.'
+disk.dm.d_avg_rqsz = delta(disk.dm.discard) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : delta(disk.dm.discard_bytes) / delta(disk.dm.discard)
+disk.dm.d_avg_rqsz(oneline) = average I/O request size for discards to the device
+disk.dm.d_avg_rqsz(helptext) = '\
+average I/O request size for discards to the device-mapper logical device
+during the reporting interval.'
+disk.dm.util = 100 * rate(disk.dm.avactive)
+disk.dm.util(oneline) = percentage of time device was busy processing requests
+disk.dm.util(helptext) = '\
+The percentage of time during the reporting interval that the
+device-mapper logical device was busy processing requests (reads
+and writes). A value of 100% indicates device saturation.'
+disk.md.await = delta(disk.md.total) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.md.total_rawactive) / delta(disk.md.total)
+disk.md.await(oneline) = average time read and write requests queued and serviced
+disk.md.await(helptext) = '\
+average time in milliseconds that read and write requests
+were queued (and serviced) to the per-multi-device logical
+device during the reporting interval.'
+disk.md.r_await = delta(disk.md.read) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.md.read_rawactive) / delta(disk.md.read)
+disk.md.r_await(oneline) = average time read requests queued and serviced
+disk.md.r_await(helptext) = '\
+average time in milliseconds that read requests were queued
+(and serviced) to the per-multi-device logical device during
+the reporting interval.'
+disk.md.w_await = delta(disk.md.write) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.md.write_rawactive) / delta(disk.md.write)
+disk.md.w_await(oneline) = average time write requests queued and serviced
+disk.md.w_await(helptext) = '\
+average time in milliseconds that write requests were queued
+(and serviced) to the per-multi-device logical device during
+the reporting interval.'
+disk.md.d_await = delta(disk.md.discard) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.md.discard_rawactive) / delta(disk.md.discard)
+disk.md.d_await(oneline) = average time discard requests queued and serviced
+disk.md.d_await(helptext) = '\
+average time in milliseconds that discard requests were queued
+(and serviced) to the per-multi-device logical device during
+the reporting interval.'
+disk.md.f_await = delta(disk.md.flush) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.md.flush_rawactive) / delta(disk.md.flush)
+disk.md.f_await(oneline) = average time flush requests queued and serviced
+disk.md.f_await(helptext) = '\
+average time in milliseconds that flush requests were queued
+(and serviced) to the per-multi-device logical device during
+the reporting interval.'
+disk.md.avg_qlen = rate(disk.md.read_rawactive) + rate(disk.md.write_rawactive)
+disk.md.avg_qlen(oneline) = average read and write queue length
+disk.md.avg_qlen(helptext) = '\
+average read and write I/O queue length to the per-multi-device logical
+device during the reporting interval.'
+disk.md.avg_rqsz = (delta(disk.md.read) + delta(disk.md.write)) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : (delta(disk.md.read_bytes) + delta(disk.md.write_bytes)) / (delta(disk.md.read) + delta(disk.md.write))
+disk.md.avg_rqsz(oneline) = average I/O request size for reads and writes to the device
+disk.md.avg_rqsz(helptext) = '\
+average I/O request size for reads and writes to the per-multi-device logical
+device during the reporting interval.'
+disk.md.r_avg_rqsz = delta(disk.md.read) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : delta(disk.md.read_bytes) / delta(disk.md.read)
+disk.md.r_avg_rqsz(oneline) = average I/O request size for reads to the device
+disk.md.r_avg_rqsz(helptext) = '\
+average I/O request size for reads to the per-multi-device logical device
+during the reporting interval.'
+disk.md.w_avg_rqsz = delta(disk.md.write) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : delta(disk.md.write_bytes) / delta(disk.md.write)
+disk.md.w_avg_rqsz(oneline) = average I/O request size for writes to the device
+disk.md.w_avg_rqsz(helptext) = '\
+average I/O request size for writes to the per-multi-device logical device
+during the reporting interval.'
+disk.md.d_avg_rqsz = delta(disk.md.discard) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : delta(disk.md.discard_bytes) / delta(disk.md.discard)
+disk.md.d_avg_rqsz(oneline) = average I/O request size for discards to the device
+disk.md.d_avg_rqsz(helptext) = '\
+average I/O request size for discards to the per-multi-device logical device
+during the reporting interval.'
+disk.md.util = 100 * rate(disk.md.avactive)
+disk.md.util(oneline) = percentage of time device was busy processing requests
+disk.md.util(helptext) = '\
+The percentage of time during the reporting interval that the
+per-multi-device logical device was busy processing requests
+(reads and writes). A value of 100% indicates device saturation.'
+disk.wwid.await = delta(disk.wwid.total) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.wwid.total_rawactive) / delta(disk.wwid.total)
+disk.wwid.await(oneline) = average time read and write requests queued and serviced
+disk.wwid.await(helptext) = '\
+average time in milliseconds that read and write requests
+were queued (and serviced) during the reporting interval.'
+disk.wwid.r_await = delta(disk.wwid.read) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.wwid.read_rawactive) / delta(disk.wwid.read)
+disk.wwid.r_await(oneline) = average time read requests queued and serviced 
+disk.wwid.r_await(helptext) = '\
+average time in milliseconds that read requests were queued
+(and serviced) during the reporting interval.'
+disk.wwid.w_await = delta(disk.wwid.write) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.wwid.write_rawactive) / delta(disk.wwid.write)
+disk.wwid.w_await(oneline) = average time write requests queued and serviced
+disk.wwid.w_await(helptext) = '\
+average time in milliseconds that write requests were queued
+(and serviced) during the reporting interval.'
+disk.wwid.d_await = delta(disk.wwid.discard) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.wwid.discard_rawactive) / delta(disk.wwid.discard)
+disk.wwid.d_await(oneline) = average time discard requests queued and serviced
+disk.wwid.d_await(helptext) = '\
+average time in milliseconds that discard requests were queued
+(and serviced) during the reporting interval.'
+disk.wwid.f_await = delta(disk.wwid.flush) == 0 ? mkconst(0, type="double", semantics="instant", units="millisec / count") : delta(disk.wwid.flush_rawactive) / delta(disk.wwid.flush)
+disk.wwid.f_await(oneline) = average time flush requests queued and serviced
+disk.wwid.f_await(helptext) = '\
+average time in milliseconds that flush requests were queued
+(and serviced) during the reporting interval.'
+disk.wwid.avg_qlen = rate(disk.wwid.read_rawactive) + rate(disk.wwid.write_rawactive)
+disk.wwid.avg_qlen(oneline) = average read and write queue length
+disk.wwid.avg_qlen(helptext) = '\
+average read and write I/O queue length to the device during the reporting interval.'
+disk.wwid.avg_rqsz = (delta(disk.wwid.read) + delta(disk.wwid.write)) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : rescale(delta(disk.wwid.read_bytes) + delta(disk.wwid.write_bytes), "kbyte") / (delta(disk.wwid.read) + delta(disk.wwid.write))
+disk.wwid.avg_rqsz(oneline) = average I/O request size for both reads and writes
+disk.wwid.avg_rqsz(helptext) = '\
+average I/O request size for both reads and writes during the reporting interval.'
+disk.wwid.r_avg_rqsz = delta(disk.wwid.read) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : rescale(delta(disk.wwid.read_bytes), "kbyte") / delta(disk.wwid.read)
+disk.wwid.r_avg_rqsz(oneline) = average I/O request size for reads to the device
+disk.wwid.r_avg_rqsz(helptext) = '\
+average I/O request size for reads to the device during the reporting interval.'
+disk.wwid.w_avg_rqsz = delta(disk.wwid.write) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : rescale(delta(disk.wwid.write_bytes), "kbyte") / delta(disk.wwid.write)
+disk.wwid.w_avg_rqsz(oneline) = average I/O request size for writes to the device
+disk.wwid.w_avg_rqsz(helptext) = '\
+average I/O request size for writes to the device during the reporting interval.'
+disk.wwid.d_avg_rqsz = delta(disk.wwid.discard) == 0 ? mkconst(0, type="double", semantics="instant", units="kbyte / count") : rescale(delta(disk.wwid.discard_bytes), "kbyte") / delta(disk.wwid.discard)
+disk.wwid.d_avg_rqsz(oneline) = average I/O request size for discards to the device
+disk.wwid.d_avg_rqsz(helptext) = '\
+average I/O request size for discards to the device during the reporting interval.'
+disk.wwid.util = 100 * rate(disk.wwid.avactive)
+disk.wwid.util(oneline) = percentage of time device was busy processing requests
+disk.wwid.util(helptext) = '\
+The percentage of time during the reporting interval that the
+device was busy processing requests (reads and writes). A value
+of 100% indicates device saturation.'
+
+
+#==[ Configuration File ]===========================#
+# /etc/pcp/derived/cpu-util.conf
+kernel.cpu.util.user = (100 * rate(kernel.all.cpu.user)) / hinv.ncpu
+kernel.cpu.util.user(oneline) = percentage of user time across all CPUs, including guest CPU time
+kernel.cpu.util.nice = (100 * rate(kernel.all.cpu.nice)) / hinv.ncpu
+kernel.cpu.util.nice(oneline) = percentage of nice user time across all CPUs, including guest nice CPU time
+kernel.cpu.util.sys = (100 * rate(kernel.all.cpu.sys)) / hinv.ncpu
+kernel.cpu.util.sys(oneline) = percentage of sys time across all CPUs
+kernel.cpu.util.idle = (100 * rate(kernel.all.cpu.idle)) / hinv.ncpu
+kernel.cpu.util.idle(oneline) = percentage of idle time across all CPUs
+kernel.cpu.util.intr = (100 * rate(kernel.all.cpu.intr)) / hinv.ncpu
+kernel.cpu.util.intr(oneline) = percentage of interrupt time across all CPUs
+kernel.cpu.util.intr(helptext) = '\
+Percentage of time spent processing interrupts across all CPUs.
+This value includes both soft and hard interrupt processing time.'
+kernel.cpu.util.wait = (100 * rate(kernel.all.cpu.wait.total)) / hinv.ncpu
+kernel.cpu.util.wait(oneline) = percentage of wait time across all CPUs
+kernel.cpu.util.steal = (100 * rate(kernel.all.cpu.steal)) / hinv.ncpu
+kernel.cpu.util.steal(oneline) = percentage of virtualization CPU steal time across all CPUs
+kernel.cpu.util.steal(helptext) = '\
+Percentage of time across all CPUs when a CPU had a runnable process,
+but the hypervisor (virtualisation layer) chose to run something else
+instead.'
+
+
+#==[ Configuration File ]===========================#
+# /etc/pcp/derived/denki.conf
+denki.bat.energy_now_rate = rate(denki.bat.energy_now) * 3600
+denki.bat.energy_now_rate(oneline) = Rate of charging/discharging the battery
+denki.bat.energy_now_rate(helptext) = '\
+The rate of charging/discharging the battery, computed from looking at the
+current charge level of the battery over time.'
+
+
+#==[ Configuration File ]===========================#
+# /etc/pcp/derived/proc.conf
+proc.psinfo.age = kernel.all.uptime - proc.psinfo.start_time
+proc.psinfo.age(oneline) = time in seconds since process was started
+proc.psinfo.age(helptext) = '\
+time in seconds since process was started, calculated from
+proc.psinfo.start_time subtracted from kernel.all.uptime.'
+proc.io.total_bytes = instant(proc.io.read_bytes) + instant(proc.io.write_bytes) - instant(proc.io.cancelled_write_bytes)
+proc.io.total_bytes(oneline) = total bytes read and written by process
+proc.io.total_bytes(helptext) = '\
+total bytes read and written by the process, less cancelled written bytes.'
+proc.hog.cpu = 100 * (rate(proc.psinfo.utime) + rate(proc.psinfo.stime)) / (kernel.all.uptime - proc.psinfo.start_time)
+proc.hog.cpu(oneline) = average percentage CPU utilization of each process
+proc.hog.cpu(helptext) = '\
+average CPU utilization of each process expressed as a percentage
+of time since the process started.'
+proc.hog.mem = proc.memory.vmrss + proc.memory.vmswap
+proc.hog.mem(oneline) = sum of resident and swapped memory used by the process
+proc.hog.mem(helptext) = '\
+amount of resident and swapped memory used by each process.'
+proc.hog.disk = (rate(proc.io.read_bytes) + rate(proc.io.write_bytes) - rate(proc.io.cancelled_write_bytes)) / (kernel.all.uptime - proc.psinfo.start_time)
+proc.hog.disk(oneline) = average I/O rate of each process since it was started
+proc.hog.disk(helptext) = '\
+average I/O rate (reads and writes less cancelled writes) of each process
+since it was started.'
+proc.hog.net = rate(bcc.proc.net.tcp.recv.bytes) + rate(bcc.proc.net.tcp.send.bytes) + rate(bcc.proc.net.udp.recv.bytes) + rate(bcc.proc.net.udp.send.bytes)
+proc.hog.net(oneline) = sum of network usage by the process
+proc.hog.net(helptext) = '\
+sum of network usage (TCP/UDP recv/send) by each process.'
+
+
+#==[ Configuration File ]===========================#
+# /etc/sysctl.d/ipv6.conf
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+
+
+#==[ Configuration File ]===========================#
+# /etc/sysctl.d/10-ptrace-scope.conf
+kernel.yama.ptrace_scope = 2
+
+
+#==[ Configuration File ]===========================#
+# /etc/pcp.conf
+PCP_ETC_DIR=/etc
+PCP_SYSCONF_DIR=/etc/pcp
+PCP_RC_DIR=/usr/libexec/pcp/lib
+PCP_SYSCONFIG_DIR=/etc/sysconfig
+PCP_BIN_DIR=/usr/bin
+PCP_BINADM_DIR=/usr/libexec/pcp/bin
+PCP_LIBADM_DIR=/usr/libexec/pcp/lib
+PCP_LIB_DIR=/usr/lib64
+PCP_LIB32_DIR=/usr/lib
+PCP_SHARE_DIR=/usr/share/pcp
+PCP_INC_DIR=/usr/include/pcp
+PCP_MAN_DIR=/usr/share/man
+PCP_VAR_DIR=/var/lib/pcp
+PCP_PMCDCONF_PATH=/etc/pcp/pmcd/pmcd.conf
+PCP_PMCDOPTIONS_PATH=/etc/pcp/pmcd/pmcd.options
+PCP_PMCDRCLOCAL_PATH=/etc/pcp/pmcd/rc.local
+PCP_PMPROXYOPTIONS_PATH=/etc/pcp/pmproxy/pmproxy.options
+PCP_PMIECONTROL_PATH=/etc/pcp/pmie/control
+PCP_PMSNAPCONTROL_PATH=/etc/pcp/pmsnap/control
+PCP_PMLOGGERCONTROL_PATH=/etc/pcp/pmlogger/control
+PCP_PMDAS_DIR=/var/lib/pcp/pmdas
+PCP_PMDASADM_DIR=/usr/libexec/pcp/pmdas
+PCP_RUN_DIR=/run/pcp
+PCP_LOG_DIR=/var/log/pcp
+PCP_ARCHIVE_DIR=/var/log/pcp/pmlogger
+PCP_ARCHIVE_VERSION=3
+PCP_SA_DIR=/var/log/pcp/sa
+PCP_PACCT_SYSTEM_PATH=/var/account/pacct
+PCP_TMP_DIR=/var/lib/pcp/tmp
+PCP_TMPFILE_DIR=/var/lib/pcp/tmp
+PCP_DOC_DIR=/usr/share/doc/packages/pcp
+PCP_HTML_DIR=/usr/share/doc/pcp-doc/html
+PCP_DEMOS_DIR=/usr/share/pcp/demos
+PCP_TLSCONF_PATH=/etc/pcp/tls.conf
+PCP_AWK_PROG="/usr/bin/gawk --posix"
+PCP_SORT_PROG=/usr/bin/sort
+PCP_MAKE_PROG=/usr/bin/gmake
+PCP_CC_PROG="gcc "
+PCP_ECHO_PROG=/usr/bin/echo
+PCP_ECHO_N=-n
+PCP_ECHO_C=
+PCP_SYSLOG_PROG=logger
+PCP_PS_PROG=ps
+PCP_PS_ALL_FLAGS="-efw"
+PCP_PYTHON_PROG=/usr/bin/python3
+PCP_PERL_PROG=perl
+PCP_WHICH_PROG=/usr/bin/which
+PCP_PLATFORM=linux
+PCP_PLATFORM_PATHS=/usr/bin/X11:/usr/local/bin
+PCP_VERSION=6.2.0
+PCP_XCONFIRM_PROG=/usr/bin/pmconfirm
+PCP_USER=pcp
+PCP_GROUP=pcp
+PCP_SASLCONF_DIR=/etc/sasl2
+PCP_SYSTEMDUNIT_DIR=/usr/lib/systemd/system
+PCP_SYSTEMDSYSUSERS_DIR=/usr/lib/sysusers.d
+PCP_SYSTEMDTMPFILES_DIR=/usr/lib/tmpfiles.d
+PCP_LOG_RC_SCRIPTS=false
+
+
+#==[ Configuration File ]===========================#
+# /etc/gnome_defaults.conf
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+x-scheme-handler/mailto=evolution.desktop
+yelp.desktop
+!banshee-1.desktop
+video/x-ms-asf-plugin=moonshine.desktop
+video/x-msvideo=moonshine.desktop
+video/x-ms-asf=moonshine.desktop
+video/x-ms-wmv=moonshine.desktop
+video/x-wmv=moonshine.desktop
+video/x-ms-wvx=moonshine.desktop
+video/x-ms-wm=moonshine.desktop
+video/x-ms-wmp=moonshine.desktop
+application/x-ms-wms=moonshine.desktop
+application/x-ms-wmp=moonshine.desktop
+application/asx=moonshine.desktop
+audio/x-ms-wma=moonshine.desktop
+video/mpeg=LinDVD.desktop
+video/x-mpeg=LinDVD.desktop
+video/dvd=LinDVD.desktop
+x-content/video-dvd=LinDVD.desktop
+!flashplayer.desktop
+!acroread.desktop
+realplay.desktop
+application/x-rpm=package-manager.desktop
+!gpk-install-file.desktop
+org.gnome.eog.desktop
+org.gnome.Papers.desktop
+org.gnome.Evince.desktop
+org.gnome.TextEditor.desktop
+!org.gnome.FileRoller.desktop
+application/x-cd-image=brasero.desktop
+org.gnome.Nautilus.desktop
+image/tiff=org.gnome.eog.desktop
+application/vnd.sun.xml.impress=libreoffice-impress.desktop
+application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop
+leafpad.desktop
+ristretto.desktop
+beaver.desktop
+gpicview.desktop
+firefox.desktop
+libreoffice-base.desktop
+libreoffice-calc.desktop
+libreoffice-draw.desktop
+libreoffice-impress.desktop
+libreoffice-math.desktop
+libreoffice-writer.desktop
+text/plain=org.gnome.TextEditor.desktop
+
+
+#==[ Configuration File ]===========================#
+# /etc/mke2fs.conf
+[defaults]
+	base_features = sparse_super,large_file,filetype,resize_inode,dir_index,ext_attr
+	default_mntopts = acl,user_xattr
+	enable_periodic_fsck = 0
+	blocksize = 4096
+	inode_size = 256
+	inode_ratio = 16384
+[fs_types]
+	ext3 = {
+		features = has_journal
+	}
+	ext4 = {
+		features = has_journal,extent,huge_file,flex_bg,metadata_csum,metadata_csum_seed,64bit,dir_nlink,extra_isize,orphan_file
+	}
+	small = {
+		blocksize = 1024
+		inode_ratio = 4096
+	}
+	floppy = {
+		blocksize = 1024
+		inode_ratio = 8192
+	}
+	big = {
+		inode_ratio = 32768
+	}
+	huge = {
+		inode_ratio = 65536
+	}
+	news = {
+		inode_ratio = 4096
+	}
+	largefile = {
+		inode_ratio = 1048576
+		blocksize = -1
+	}
+	largefile4 = {
+		inode_ratio = 4194304
+		blocksize = -1
+	}
+	hurd = {
+	     blocksize = 4096
+	     inode_size = 128
+	     warn_y2038_dates = 0
+	}
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/timesyncd.conf
+[Time]
+NTP = 0.suse.pool.ntp.org 1.suse.pool.ntp.org
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/system/rancherd.service.d/override.conf
+[Unit]
+After=time-sync.target
+Wants=time-sync.target
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/system/kdump.service.d/override.conf
+[Service]
+ExecStartPre=/usr/sbin/gen-kdump-initrd
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/system/rke2-server.service.d/override.conf
+[Unit]
+After=time-sync.target
+Wants=time-sync.target
+[Service]
+ExecStartPre=/usr/sbin/harv-update-rke2-server-url server
+ExecStartPost=/sbin/sysctl -w net.bridge.bridge-nf-call-iptables=0
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/system/getty@tty1.service.d/override.conf
+[Service]
+EnvironmentFile=-/etc/rancher/installer/env
+ExecStartPre=/usr/bin/setterm --msg off
+ExecStartPre=/usr/bin/kill -s 55 1
+ExecStopPost=/usr/bin/kill -s 54 1
+ExecStart=
+ExecStart=-/sbin/agetty -n -l /usr/bin/start-installer.sh %I $TERM
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/system/etc.mount.d/override.conf
+[Mount]
+LazyUnmount=true
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/system/rke2-agent.service.d/override.conf
+[Unit]
+After=time-sync.target
+Wants=time-sync.target
+[Service]
+ExecStartPre=/usr/sbin/harv-update-rke2-server-url agent
+ExecStartPost=/sbin/sysctl -w net.bridge.bridge-nf-call-iptables=0
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/system/systemd-time-wait-sync.service.d/override.conf
+[Service]
+TimeoutStartSec=180
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/system/rancher-system-agent.service.d/env.conf
+[Service]
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/rke2/bin"
+
+
+#==[ Configuration File ]===========================#
+# /etc/cos/grub.cfg
+set timeout=10
+set env_file="/grubenv"
+set oem_env_file="/grub_oem_env"
+set custom_file="/grubcustom"
+if [ -f "${oem_env_file}" ]; then
+  load_env -f "${oem_env_file}"
+fi
+search --no-floppy --set oem_blk --label "${oem_label}"
+if [ -f "(${oem_blk})${env_file}" ]; then
+  load_env -f "(${oem_blk})${env_file}"
+fi
+if [ "${next_entry}" ]; then
+  set default="${next_entry}"
+  set selected_entry="${next_entry}"
+  set next_entry=
+  save_env -f "(${oem_blk})${env_file}" next_entry
+else
+  set default="${saved_entry}"
+fi
+if [ "${default_menu_entry}" ]; then
+  set display_name="${default_menu_entry}"
+else
+  set display_name="Elemental"
+fi
+if [ "${default_fallback}" ]; then
+  set fallback="${default_fallback}"
+else
+  set fallback="0 1 2"
+fi
+insmod all_video
+insmod gfxterm
+insmod loopback
+insmod squash4
+set loopdev="loop0"
+menuentry "${display_name}" --id cos {
+  set label=${active_label}
+  set img=/cOS/active.img
+  loopback $loopdev /$img
+  source ($loopdev)/etc/cos/bootargs.cfg
+  linux ($loopdev)$kernel $kernelcmd ${extra_cmdline} ${extra_active_cmdline}
+  initrd ($loopdev)$initramfs
+  loopback -d $loopdev
+}
+menuentry "${display_name} (fallback)" --id fallback {
+  set label=${passive_label}
+  set img=/cOS/passive.img
+  loopback $loopdev /$img
+  source ($loopdev)/etc/cos/bootargs.cfg
+  linux ($loopdev)$kernel $kernelcmd ${extra_cmdline} ${extra_passive_cmdline}
+  initrd ($loopdev)$initramfs
+  loopback -d $loopdev
+}
+menuentry "${display_name} recovery" --id recovery {
+  if [ -n "${system_label}" ]; then
+    set label=${system_label}
+  else
+    set recoverylabel=${recovery_label}
+  fi
+  set img=/cOS/recovery.img
+  search --no-floppy --label --set=root $recovery_label
+  loopback $loopdev /$img
+  source ($loopdev)/etc/cos/bootargs.cfg
+  linux ($loopdev)$kernel $kernelcmd ${extra_cmdline} ${extra_recovery_cmdline}
+  initrd ($loopdev)$initramfs
+  loopback -d $loopdev
+}
+if [ -f "${custom_file}" ]; then
+  source "${custom_file}"
+fi
+
+
+#==[ Configuration File ]===========================#
+# /etc/cos/bootargs.cfg
+set console_params="console=tty1"
+set kernel=/boot/vmlinuz
+crash_kernel_params="crashkernel=440M,high crashkernel=72M,low"
+if [ "${img}" == "/cOS/recovery.img" ]; then
+    set kernelcmd="$console_params root=LABEL=$recovery_label cos-img/filename=$img rd.neednet=1 rd.cos.oemlabel=$oem_label rd.cos.mount=LABEL=$oem_label:/oem rd.cos.oemtimeout=120"
+else
+    set kernelcmd="$console_params root=LABEL=$state_label cos-img/filename=$img panic=0 net.ifnames=1 rd.cos.oemlabel=$oem_label rd.cos.mount=LABEL=$oem_label:/oem rd.cos.mount=LABEL=$persistent_label:/usr/local rd.cos.oemtimeout=120 audit=1 audit_backlog_limit=8192 intel_iommu=on amd_iommu=on iommu=pt $third_party_kernel_args"
+fi
+set initramfs=/boot/initrd
+
+
+#==[ Configuration File ]===========================#
+# /etc/isns/isnsadm.conf
+Auth.ReplayWindow = 2m
+Auth.TimeStampJitter = 1s
+
+
+#==[ Configuration File ]===========================#
+# /etc/isns/isnsdd.conf
+Auth.ReplayWindow = 2m
+Auth.TimeStampJitter = 1s
+
+
+#==[ Configuration File ]===========================#
+# /etc/isns/isnsd.conf
+Database	= /var/lib/isns
+RegistrationPeriod	= 10m
+DefaultDiscoveryDomain	= 1
+SLPRegister		= 1
+ClientKeyStore	= DB:
+SCNTimeout	= 60
+SCNRetries	= 3
+ESIMinInterval	= 1m
+ESIMaxInterval	= 2m
+ESIRetries	= 3
+Auth.ReplayWindow = 2m
+Auth.TimeStampJitter = 1s
+
+
+#==[ Configuration File ]===========================#
+# /etc/resolv.conf
+nameserver 10.115.252.1
+
+
+#==[ Configuration File ]===========================#
+# /etc/libaudit.conf
+failure_action = ignore
+
+
+#==[ Configuration File ]===========================#
+# /etc/sestatus.conf
+[files]
+/etc/passwd
+/etc/shadow
+/bin/bash
+/bin/login
+/bin/sh
+/sbin/agetty
+/sbin/init
+/sbin/mingetty
+/usr/sbin/sshd
+/lib/libc.so.6
+/lib/ld-linux.so.2
+/lib/ld.so.1
+[process]
+/sbin/mingetty
+/sbin/agetty
+/usr/sbin/sshd
+
+
+#==[ Configuration File ]===========================#
+# /etc/dbus-1/system.conf
+<!--
+This configuration file is no longer required and may be removed.
+In older versions of dbus, this file defined the behaviour of the well-known
+system bus. That behaviour is now determined by
+/usr/share/dbus-1/system.conf, which should not be edited.
+For local configuration changes, create a file
+system-local.conf or files matching system.d/*.conf in the same directory
+as this one, with a <busconfig> element containing configuration directives.
+These directives can override D-Bus or OS defaults.
+For upstream or distribution-wide defaults that can be overridden
+by a local sysadmin, create files matching
+/usr/share/dbus-1/system.d/*.conf instead.
+-->
+<!DOCTYPE busconfig PUBLIC "-//freedesktop//DTD D-Bus Bus Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+<busconfig></busconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/dbus-1/session.conf
+<!--
+This configuration file is no longer required and may be removed.
+In older versions of dbus, this file defined the behaviour of the well-known
+session bus. That behaviour is now determined by
+/usr/share/dbus-1/session.conf, which should not be edited.
+For local configuration changes, create a file
+session-local.conf or files matching session.d/*.conf in the same directory
+as this one, with a <busconfig> element containing configuration directives.
+These directives can override D-Bus or OS defaults.
+For upstream or distribution-wide defaults that can be overridden
+by a local sysadmin, create files matching
+/usr/share/dbus-1/session.d/*.conf instead.
+-->
+<!DOCTYPE busconfig PUBLIC "-//freedesktop//DTD D-Bus Bus Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+<busconfig></busconfig>
+
+
+#==[ Configuration File ]===========================#
+# /etc/request-key.conf
+create  dns_resolver *		*               /usr/sbin/key.dns_resolver %k
+create	user	debug:*		negate		/usr/bin/keyctl negate %k 30 %S
+create  user    debug:*         rejected        /usr/bin/keyctl reject %k 30 %c %S
+create  user    debug:*         expired         /usr/bin/keyctl reject %k 30 %c %S
+create  user    debug:*         revoked         /usr/bin/keyctl reject %k 30 %c %S
+create	user	debug:loop:*	*		|/bin/cat
+create	user	debug:*		*		/usr/share/keyutils/request-key-debug.sh %k %d %c %S
+create	cifs.spnego	*	*		/usr/sbin/cifs.upcall %k
+negate	*	*		*		/usr/bin/keyctl negate %k 30 %S
+create  id_resolver    *	*		/usr/sbin/nfsidmap %k %d -t 600
+
+
+#==[ Configuration File ]===========================#
+# /etc/gnupg/gpgconf.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/nsswitch.conf
+passwd:		compat systemd
+group:		compat [SUCCESS=merge] systemd
+shadow:		compat systemd
+hosts:  	files mdns_minimal [NOTFOUND=return] dns
+networks:	files dns
+aliases:	files usrfiles
+ethers:		files usrfiles
+gshadow:	files usrfiles
+netgroup:	files
+protocols:	files usrfiles
+publickey:	files
+rpc:		files usrfiles
+services:	files usrfiles
+automount:	files
+bootparams:	files
+netmasks:	files
+
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf.d/51-livenet-initrd.conf
+add_dracutmodules+=" livenet "
+
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf.d/10-persistent_policy.conf
+persistent_policy="by-uuid"
+
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf.d/99-debug.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf.d/02-elemental-setup-initramfs.conf
+install_items+=" /usr/lib/systemd/system/elemental-setup-initramfs.service /etc/systemd/system/initrd.target.requires/elemental-setup-initramfs.service "
+install_items+=" /usr/lib/systemd/system/elemental-setup-rootfs.service /etc/systemd/system/initrd-fs.target.requires/elemental-setup-rootfs.service "
+install_items+=" /etc/hosts "
+add_dracutmodules+=" network "
+
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf.d/60-generate-ifcfg.conf
+add_dracutmodules+=" network-manager "
+
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf.d/50-elemental-initrd.conf
+hostonly_cmdline="no"
+hostonly="no"
+compress="xz"
+add_dracutmodules+=" livenet dmsquash-live "
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf.d/02-elemental-immutable-rootfs.conf
+add_dracutmodules+=" elemental-immutable-rootfs "
+
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf.d/50-cos-initrd.conf
+hostonly_cmdline="no"
+hostonly="no"
+compress="xz"
+add_dracutmodules+=" dmsquash-live "
+
+
+#==[ Configuration File ]===========================#
+# /etc/elemental/grub.cfg
+set timeout=10
+set env_file="/grubenv"
+set oem_env_file="/grub_oem_env"
+set custom_file="/grubcustom/custom.cfg"
+if [ -f "${oem_env_file}" ]; then
+  load_env -f "${oem_env_file}"
+fi
+search --no-floppy --set oem_blk --label "${oem_label}"
+if [ -f "(${oem_blk})${env_file}" ]; then
+  load_env -f "(${oem_blk})${env_file}"
+fi
+if [ -f "${oem_env_file}" ]; then
+  load_env -f "${oem_env_file}"
+fi
+if [ "${next_entry}" ]; then
+  set default="${next_entry}"
+  set selected_entry="${next_entry}"
+  set next_entry=
+  save_env -f "(${oem_blk})${env_file}" next_entry
+else
+  set default="${saved_entry}"
+fi
+if [ "${default_menu_entry}" ]; then
+  set display_name="${default_menu_entry}"
+else
+  set display_name="Elemental"
+fi
+if [ "${default_fallback}" ]; then
+  set fallback="${default_fallback}"
+else
+  set fallback="0 recovery"
+fi
+if [ -f "${custom_file}" ]; then
+  source "${custom_file}"
+fi
+insmod all_video
+insmod gfxterm
+insmod loopback
+insmod squash4
+function set_loopdevice {
+  set volume="loop"
+  if [ -e (${volume}) ]; then 
+    loopback -d ${volume}
+  fi
+  loopback ${volume} ${1}
+}
+function source_bootargs {
+  source (${volume})/${root_subpath}etc/cos/bootargs.cfg
+  source (${volume})/${root_subpath}etc/elemental/bootargs.cfg
+}
+function set_volume {
+  if [ "${snapshotter}" == "btrfs" ]; then
+    set btrfs_relative_path="y"
+    set volume="${root}"
+    if [ -d "@/.snapshots/${active_snap}/snapshot" ]; then
+      if [ -n "${1}" ]; then
+        set img="@/.snapshots/${1}/snapshot"
+      else
+        set img="@/.snapshots/${active_snap}/snapshot"
+      fi
+      set root_subpath="${img}/"
+    else
+      set root_subpath=""
+      if [ -n "${1}" ]; then
+        set img="@/.snapshots/${1}/snapshot"
+        btrfs-mount-subvol ($root) / ${img}
+      fi
+    fi
+  elif [ -z "${1}" ]; then
+    set root_subpath=""
+    set_loopdevice /.snapshots/active
+  else
+    set root_subpath=""
+    set img="/.snapshots/${1}/snapshot.img"
+    set_loopdevice ${img}
+  fi
+}
+menuentry "${display_name}" --id active {
+  set mode=active
+  search --no-floppy --set root --label ${state_label}
+  set_volume
+  source_bootargs
+  linux (${volume})${kernel} ${kernelcmd} ${extra_cmdline} ${extra_active_cmdline}
+  initrd (${volume})${initramfs}
+}
+for passive_snap in ${passive_snaps}; do
+  menuentry "${display_name} (snapshot ${passive_snap})" --id passive${passive_snap} ${passive_snap} {
+    set mode=passive
+    search --no-floppy --set root --label ${state_label}
+    set_volume ${2}
+    source_bootargs
+    linux (${volume})${kernel} ${kernelcmd} ${extra_cmdline} ${extra_passive_cmdline}
+    initrd (${volume})${initramfs}
+  }
+done
+menuentry "${display_name} recovery" --id recovery {
+  set mode=recovery
+  search --no-floppy --set root --label ${recovery_label}
+  set img=/boot/recovery.img
+  if [ -f "${img}" ]; then
+    source (${root})/boot/bootargs.cfg
+    linux (${root})${kernel} ${kernelcmd} ${extra_cmdline} ${extra_recovery_cmdline}
+    initrd (${root})${initramfs}
+  else
+    set img=/cOS/recovery.img
+    set_loopdevice ${img}
+    source_bootargs
+    linux (${volume})${kernel} ${kernelcmd} ${extra_cmdline} ${extra_recovery_cmdline}
+    initrd (${volume})${initramfs}
+  fi
+}
+
+
+#==[ Configuration File ]===========================#
+# /etc/krb5.conf
+includedir  /etc/krb5.conf.d
+[libdefaults]
+    dns_canonicalize_hostname = false
+    rdns = false
+	default_ccache_name = KEYRING:persistent:%{uid}
+[realms]
+[logging]
+    kdc = FILE:/var/log/krb5/krb5kdc.log
+    admin_server = FILE:/var/log/krb5/kadmind.log
+    default = SYSLOG:NOTICE:DAEMON
+
+
+#==[ Configuration File ]===========================#
+# /etc/ld.so.conf
+/usr/local/lib64
+/usr/local/lib
+include /etc/ld.so.conf.d/*.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/cni/net.d/whereabouts.d/whereabouts.conf
+{
+  "datastore": "kubernetes",
+  "kubernetes": {
+    "kubeconfig": "/etc/cni/net.d/whereabouts.d/whereabouts.kubeconfig"
+  },
+  "reconciler_cron_expression": "30 4 * * *"
+}
+
+
+#==[ Configuration File ]===========================#
+# /etc/cni/net.d/00-multus.conf
+{
+        "cniVersion": "0.3.1",
+        "name": "multus-cni-network",
+        "type": "multus",
+        "capabilities": {"bandwidth":true,"portMappings":true},
+        "cniConf": "/host/etc/cni/multus/net.d",
+        "kubeconfig": "/etc/cni/net.d/multus.d/multus.kubeconfig",
+        "delegates": [
+                {"cniVersion":"0.3.1","name":"k8s-pod-network","plugins":[{"datastore_type":"kubernetes","ipam":{"ranges":[[{"subnet":"usePodCidr"}]],"type":"host-local"},"kubernetes":{"kubeconfig":"/etc/cni/net.d/calico-kubeconfig"},"log_level":"info","mtu":1450,"nodename":"hp-69-tink-system","policy":{"type":"k8s"},"type":"calico"},{"capabilities":{"portMappings":true},"snat":true,"type":"portmap"},{"capabilities":{"bandwidth":true},"type":"bandwidth"}]}
+        ]
+}
+
+
+#==[ Configuration File ]===========================#
+# /etc/zypp/vendors.d/00-openSUSE.conf
+[main]
+vendors=openSUSE,SUSE,SUSE LLC <https://www.suse.com/>
+
+
+#==[ Configuration File ]===========================#
+# /etc/zypp/zypper.conf
+[main]
+[solver]
+[commit]
+[search]
+[color]
+[obs]
+[subcommand]
+
+
+#==[ Configuration File ]===========================#
+# /etc/zypp/zypp.conf
+[main]
+multiversion = provides:multiversion(kernel)
+multiversion.kernels = latest,latest-1,running
+
+
+#==[ Configuration File ]===========================#
+# /etc/vmware-tools/tools.conf
+[powerops]
+[vmsvc]
+[vmtools]
+[vmtray]
+[desktopevents]
+[logging]
+[guestinfo]
+[unity]
+
+
+#==[ Configuration File ]===========================#
+# /etc/vmware-tools/vgauth.conf
+[service]
+samlSchemaDir = /etc/vmware-tools/vgauth/schemas
+[localization]
+msgCatalog = /usr/share/open-vm-tools
+
+
+#==[ Configuration File ]===========================#
+# /etc/nginx/fastcgi.conf
+fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+fastcgi_param  QUERY_STRING       $query_string;
+fastcgi_param  REQUEST_METHOD     $request_method;
+fastcgi_param  CONTENT_TYPE       $content_type;
+fastcgi_param  CONTENT_LENGTH     $content_length;
+fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;
+fastcgi_param  REQUEST_URI        $request_uri;
+fastcgi_param  DOCUMENT_URI       $document_uri;
+fastcgi_param  DOCUMENT_ROOT      $document_root;
+fastcgi_param  SERVER_PROTOCOL    $server_protocol;
+fastcgi_param  REQUEST_SCHEME     $scheme;
+fastcgi_param  HTTPS              $https if_not_empty;
+fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;
+fastcgi_param  SERVER_SOFTWARE    nginx/$nginx_version;
+fastcgi_param  REMOTE_ADDR        $remote_addr;
+fastcgi_param  REMOTE_PORT        $remote_port;
+fastcgi_param  SERVER_ADDR        $server_addr;
+fastcgi_param  SERVER_PORT        $server_port;
+fastcgi_param  SERVER_NAME        $server_name;
+fastcgi_param  REDIRECT_STATUS    200;
+
+
+#==[ Configuration File ]===========================#
+# /etc/nginx/nginx.conf
+worker_processes  1;
+events {
+    worker_connections  1024;
+    use epoll;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+    server_tokens off;
+    include conf.d/*.conf;
+    include vhosts.d/*.conf;
+}
+
+
+#==[ Configuration File ]===========================#
+# /etc/selinux/semanage.conf
+module-store = direct
+expand-check=0
+usepasswd=False
+bzip-small=true
+bzip-blocksize=5
+ignoredirs=/root
+
+
+#==[ Configuration File ]===========================#
+# /etc/selinux/targeted/setrans.conf
+s0=SystemLow
+s0-s0:c0.c1023=SystemLow-SystemHigh
+s0:c0.c1023=SystemHigh
+
+
+#==[ Configuration File ]===========================#
+# /etc/containers/registries.conf.d/000-shortnames.conf
+[aliases]
+  "almalinux" = "docker.io/library/almalinux"
+  "almalinux-minimal" = "docker.io/library/almalinux-minimal"
+  "amazonlinux" = "public.ecr.aws/amazonlinux/amazonlinux"
+  "archlinux" = "docker.io/library/archlinux"
+  "centos" = "quay.io/centos/centos"
+  "skopeo" = "quay.io/skopeo/stable"
+  "buildah" = "quay.io/buildah/stable"
+  "podman" = "quay.io/podman/stable"
+  "hello" = "quay.io/podman/hello"
+  "hello-world" = "quay.io/podman/hello"
+  "alpine" = "docker.io/library/alpine"
+  "docker" = "docker.io/library/docker"
+  "registry" = "docker.io/library/registry"
+  "swarm" = "docker.io/library/swarm"
+  "fedora-bootc" = "registry.fedoraproject.org/fedora-bootc"
+  "fedora-minimal" = "registry.fedoraproject.org/fedora-minimal"
+  "fedora" = "registry.fedoraproject.org/fedora"
+  "gentoo" = "docker.io/gentoo/stage3"
+  "opensuse/tumbleweed" = "registry.opensuse.org/opensuse/tumbleweed"
+  "opensuse/tumbleweed-dnf" = "registry.opensuse.org/opensuse/tumbleweed-dnf"
+  "opensuse/tumbleweed-microdnf" = "registry.opensuse.org/opensuse/tumbleweed-microdnf"
+  "opensuse/leap" = "registry.opensuse.org/opensuse/leap"
+  "opensuse/busybox" = "registry.opensuse.org/opensuse/busybox"
+  "tumbleweed" = "registry.opensuse.org/opensuse/tumbleweed"
+  "tumbleweed-dnf" = "registry.opensuse.org/opensuse/tumbleweed-dnf"
+  "tumbleweed-microdnf" = "registry.opensuse.org/opensuse/tumbleweed-microdnf"
+  "leap" = "registry.opensuse.org/opensuse/leap"
+  "leap-dnf" = "registry.opensuse.org/opensuse/leap-dnf"
+  "leap-microdnf" = "registry.opensuse.org/opensuse/leap-microdnf"
+  "tw-busybox" = "registry.opensuse.org/opensuse/busybox"
+  "otel/autoinstrumentation-go" = "docker.io/otel/autoinstrumentation-go"
+  "otel/autoinstrumentation-nodejs" = "docker.io/otel/autoinstrumentation-nodejs"
+  "otel/autoinstrumentation-python" = "docker.io/otel/autoinstrumentation-python"
+  "otel/autoinstrumentation-java" = "docker.io/otel/autoinstrumentation-java"
+  "otel/autoinstrumentation-dotnet" = "docker.io/otel/autoinstrumentation-dotnet"
+  "otel/opentelemetry-collector" = "docker.io/otel/opentelemetry-collector"
+  "otel/opentelemetry-collector-contrib" = "docker.io/otel/opentelemetry-collector-contrib"
+  "otel/opentelemetry-collector-contrib-dev" = "docker.io/otel/opentelemetry-collector-contrib-dev"
+  "otel/opentelemetry-collector-k8s" = "docker.io/otel/opentelemetry-collector-k8s"
+  "otel/opentelemetry-operator" = "docker.io/otel/opentelemetry-operator"
+  "otel/opentelemetry-operator-bundle" = "docker.io/otel/opentelemetry-operator-bundle"
+  "otel/operator-opamp-bridge" = "docker.io/otel/operator-opamp-bridge"
+  "otel/semconvgen" = "docker.io/otel/semconvgen"
+  "otel/weaver" = "docker.io/otel/weaver"
+  "suse/sle15" = "registry.suse.com/suse/sle15"
+  "suse/sles12sp5" = "registry.suse.com/suse/sles12sp5"
+  "suse/sles12sp4" = "registry.suse.com/suse/sles12sp4"
+  "suse/sles12sp3" = "registry.suse.com/suse/sles12sp3"
+  "sle15" = "registry.suse.com/suse/sle15"
+  "sles12sp5" = "registry.suse.com/suse/sles12sp5"
+  "sles12sp4" = "registry.suse.com/suse/sles12sp4"
+  "sles12sp3" = "registry.suse.com/suse/sles12sp3"
+  "bci/bci-base" = "registry.suse.com/bci/bci-base"
+  "bci/bci-micro" = "registry.suse.com/bci/bci-micro"
+  "bci/bci-minimal" = "registry.suse.com/bci/bci-minimal"
+  "bci/bci-busybox" = "registry.suse.com/bci/bci-busybox"
+  "rhel" = "registry.access.redhat.com/rhel"
+  "rhel6" = "registry.access.redhat.com/rhel6"
+  "rhel7" = "registry.access.redhat.com/rhel7"
+  "rhel7.9" = "registry.access.redhat.com/rhel7.9"
+  "rhel-atomic" = "registry.access.redhat.com/rhel-atomic"
+  "rhel9-bootc" = "registry.redhat.io/rhel9/rhel-bootc"
+  "rhel-minimal" = "registry.access.redhat.com/rhel-minimal"
+  "rhel-init" = "registry.access.redhat.com/rhel-init"
+  "rhel7-atomic" = "registry.access.redhat.com/rhel7-atomic"
+  "rhel7-minimal" = "registry.access.redhat.com/rhel7-minimal"
+  "rhel7-init" = "registry.access.redhat.com/rhel7-init"
+  "rhel7/rhel" = "registry.access.redhat.com/rhel7/rhel"
+  "rhel7/rhel-atomic" = "registry.access.redhat.com/rhel7/rhel7/rhel-atomic"
+  "ubi7/ubi" = "registry.access.redhat.com/ubi7/ubi"
+  "ubi7/ubi-minimal" = "registry.access.redhat.com/ubi7-minimal"
+  "ubi7/ubi-init" = "registry.access.redhat.com/ubi7-init"
+  "ubi7" = "registry.access.redhat.com/ubi7"
+  "ubi7-init" = "registry.access.redhat.com/ubi7-init"
+  "ubi7-minimal" = "registry.access.redhat.com/ubi7-minimal"
+  "rhel8" = "registry.access.redhat.com/ubi8"
+  "rhel8-init" = "registry.access.redhat.com/ubi8-init"
+  "rhel8-minimal" = "registry.access.redhat.com/ubi8-minimal"
+  "rhel8-micro" = "registry.access.redhat.com/ubi8-micro"
+  "ubi8" = "registry.access.redhat.com/ubi8"
+  "ubi8-minimal" = "registry.access.redhat.com/ubi8-minimal"
+  "ubi8-init" = "registry.access.redhat.com/ubi8-init"
+  "ubi8-micro" = "registry.access.redhat.com/ubi8-micro"
+  "ubi8/ubi" = "registry.access.redhat.com/ubi8/ubi"
+  "ubi8/ubi-minimal" = "registry.access.redhat.com/ubi8-minimal"
+  "ubi8/ubi-init" = "registry.access.redhat.com/ubi8-init"
+  "ubi8/ubi-micro" = "registry.access.redhat.com/ubi8-micro"
+  "ubi8/podman" = "registry.access.redhat.com/ubi8/podman"
+  "ubi8/buildah" = "registry.access.redhat.com/ubi8/buildah"
+  "ubi8/skopeo" = "registry.access.redhat.com/ubi8/skopeo"
+  "rhel9" = "registry.access.redhat.com/ubi9"
+  "rhel9-init" = "registry.access.redhat.com/ubi9-init"
+  "rhel9-minimal" = "registry.access.redhat.com/ubi9-minimal"
+  "rhel9-micro" = "registry.access.redhat.com/ubi9-micro"
+  "ubi9" = "registry.access.redhat.com/ubi9"
+  "ubi9-minimal" = "registry.access.redhat.com/ubi9-minimal"
+  "ubi9-init" = "registry.access.redhat.com/ubi9-init"
+  "ubi9-micro" = "registry.access.redhat.com/ubi9-micro"
+  "ubi9/ubi" = "registry.access.redhat.com/ubi9/ubi"
+  "ubi9/ubi-minimal" = "registry.access.redhat.com/ubi9-minimal"
+  "ubi9/ubi-init" = "registry.access.redhat.com/ubi9-init"
+  "ubi9/ubi-micro" = "registry.access.redhat.com/ubi9-micro"
+  "ubi9/podman" = "registry.access.redhat.com/ubi9/podman"
+  "ubi9/buildah" = "registry.access.redhat.com/ubi9/buildah"
+  "ubi9/skopeo" = "registry.access.redhat.com/ubi9/skopeo"
+  "rockylinux" = "quay.io/rockylinux/rockylinux"
+  "debian" = "docker.io/library/debian"
+  "kali-bleeding-edge" = "docker.io/kalilinux/kali-bleeding-edge"
+  "kali-dev" = "docker.io/kalilinux/kali-dev"
+  "kali-experimental" = "docker.io/kalilinux/kali-experimental"
+  "kali-last-release" = "docker.io/kalilinux/kali-last-release"
+  "kali-rolling" = "docker.io/kalilinux/kali-rolling"
+  "ubuntu" = "docker.io/library/ubuntu"
+  "oraclelinux" = "container-registry.oracle.com/os/oraclelinux"
+  "busybox" = "docker.io/library/busybox"
+  "golang" = "docker.io/library/golang"
+  "php" = "docker.io/library/php"
+  "python" = "docker.io/library/python"
+  "rust" = "docker.io/library/rust"
+  "node" = "docker.io/library/node"
+  "grafana/agent" = "docker.io/grafana/agent"
+  "grafana/grafana" = "docker.io/grafana/grafana"
+  "grafana/k6" = "docker.io/grafana/k6"
+  "grafana/loki" = "docker.io/grafana/loki"
+  "grafana/mimir" = "docker.io/grafana/mimir"
+  "grafana/oncall" = "docker.io/grafana/oncall"
+  "grafana/pyroscope" = "docker.io/grafana/pyroscope"
+  "grafana/tempo" = "docker.io/grafana/tempo"
+
+
+#==[ Configuration File ]===========================#
+# /etc/containers/registries.conf
+unqualified-search-registries = ["registry.suse.com"]
+
+
+#==[ Configuration File ]===========================#
+# /etc/NetworkManager/conf.d/harvester.conf
+[main]
+no-auto-default=*
+ignore-carrier=*
+
+
+#==[ Configuration File ]===========================#
+# /etc/NetworkManager/conf.d/rke2-canal.conf
+[keyfile]
+unmanaged-devices=interface-name:flannel*;interface-name:cali*;interface-name:tunl*;interface-name:vxlan.calico;interface-name:vxlan-v6.calico;interface-name:wireguard.cali;interface-name:wg-v6.cali
+
+
+#==[ Configuration File ]===========================#
+# /etc/gcrypt/random.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/mtools.conf
+drive a: file="/dev/fd0" exclusive mformat_only cylinders=80 heads=2 sectors=18
+drive b: file="/dev/fd1" exclusive mformat_only cylinders=80 heads=2 sectors=18
+drive c: file="/dev/sda1"
+drive m: file="/var/lib/dosemu/diskimage"
+drive n: file="/var/lib/dosemu/hdimage.first" MTOOLS_SKIP_CHECK=1 MTOOLS_LOWER_CASE=1 MTOOLS_NO_VFAT=1 partition=1 offset=128
+mtools_lower_case=1
+
+
+#==[ Configuration File ]===========================#
+# /etc/avahi/avahi-daemon.conf
+[server]
+use-ipv4=yes
+use-ipv6=yes
+ratelimit-interval-usec=1000000
+ratelimit-burst=1000
+[wide-area]
+enable-wide-area=yes
+[publish]
+publish-hinfo=no
+publish-workstation=no
+[reflector]
+[rlimits]
+
+
+#==[ Configuration File ]===========================#
+# /etc/audit/plugins.d/syslog.conf
+active = no
+direction = out
+path = /sbin/audisp-syslog
+type = always 
+args = LOG_INFO
+format = string
+
+
+#==[ Configuration File ]===========================#
+# /etc/audit/plugins.d/af_unix.conf
+active = no
+direction = out
+path = /sbin/audisp-af_unix
+type = always
+args = 0640 /var/run/audispd_events
+format = string
+
+
+#==[ Configuration File ]===========================#
+# /etc/audit/auditd.conf
+local_events = yes
+write_logs = yes
+log_file = /var/log/audit/audit.log
+log_group = audit
+log_format = RAW
+flush = INCREMENTAL_ASYNC
+freq = 50
+max_log_file = 8
+num_logs = 5
+priority_boost = 4
+name_format = NONE
+max_log_file_action = ROTATE
+space_left = 75
+space_left_action = SYSLOG
+verify_email = yes
+action_mail_acct = root
+admin_space_left = 50
+admin_space_left_action = SUSPEND
+disk_full_action = SUSPEND
+disk_error_action = SUSPEND
+use_libwrap = yes
+tcp_listen_queue = 5
+tcp_max_per_addr = 1
+tcp_client_max_idle = 0
+transport = TCP
+distribute_network = no
+q_depth = 2000
+overflow_action = SYSLOG
+max_restarts = 10
+plugin_dir = /etc/audit/plugins.d
+end_of_event_timeout = 2
+
+
+#==[ Configuration File ]===========================#
+# /etc/modprobe.d/10-pinifix.conf
+blacklist rds
+blacklist rds_tcp
+install rds /bin/fasle
+install rds_tcp /bin/false
+
+
+#==[ Configuration File ]===========================#
+# /etc/modprobe.d/10-copyfail2-fix.conf
+blacklist esp4
+blacklist esp6
+blacklist rxrpc
+install esp4 /bin/false
+install esp6 /bin/false
+install rxrpc /bin/false
+
+
+#==[ Configuration File ]===========================#
+# /etc/modprobe.d/10-cvs-fix.conf
+blacklist algif_aead
+install algif_aead /bin/false
+
+
+#==[ Configuration File ]===========================#
+# /etc/host.conf
+multi on
+
+
+#==[ Configuration File ]===========================#
+# /etc/rdma/modules/opa.conf
+ib_ipoib
+ib_umad
+opa_vnic
+
+
+#==[ Configuration File ]===========================#
+# /etc/rdma/modules/rdma.conf
+ib_iser
+ib_uverbs
+rdma_ucm
+xprtrdma
+svcrdma
+
+
+#==[ Configuration File ]===========================#
+# /etc/rdma/modules/iwarp.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/rdma/modules/roce.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/rdma/modules/infiniband.conf
+ib_ipoib
+ib_umad
+
+
+#==[ Configuration File ]===========================#
+# /etc/rdma/mlx4.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/xattr.conf
+system.nfs4_acl			permissions
+system.nfs4acl			permissions
+system.posix_acl_access		permissions
+system.posix_acl_default	permissions
+trusted.SGI_ACL_DEFAULT		skip		# xfs specific
+trusted.SGI_ACL_FILE		skip		# xfs specific
+trusted.SGI_CAP_FILE		skip		# xfs specific
+trusted.SGI_DMI_*		skip		# xfs specific
+trusted.SGI_MAC_FILE		skip		# xfs specific
+xfsroot.*			skip		# xfs specific; obsolete
+user.Beagle.*			skip		# ignore Beagle index data
+security.evm			skip		# may only be written by kernel
+afs.*				skip		# AFS metadata and ACLs
+
+
+#==[ Configuration File ]===========================#
+# /etc/sysstat/sysstat.ioconf
+1:ram:*:0:d:256:*:1:RAM disks (ram0..ram255)
+1:initrd:x:250:d:256:*:1:Initial RAM Disk (initrd)
+2:fd:*:0:d:4:*:1:Floppy Devices fd0,fd1,fd2,fd3
+3:hd:*:0:a:2:*:64:IDE - Controller %d
+22:3:1:
+33:3:2:
+34:3:3:
+56:3:4:
+57:3:5:
+88:3:6:
+89:3:7:
+90:3:8:
+91:3:9:
+7:loop:*:0:d:256:*:1:Loop Devices
+8:sd:*:0:a:16:*:16:SCSI - Controller %d
+65:8:1:
+66:8:2:
+67:8:3:
+68:8:4:
+69:8:5:
+70:8:6:
+71:8:7:
+128:8:8:
+129:8:9:
+130:8:10:
+131:8:11:
+132:8:12:
+133:8:13:
+134:8:14:
+135:8:15:
+9:md:*:0:d:256:*:1:Metadisk (Software RAID) devices  (md0..md255)
+11:scd:*:0:d:256:*:1:CDROM - CDROM (scd0..scd255)
+13:xd:*:0:a:2:*:64:8-bit MFM/RLL/IDE controller (xda, xdb)
+19:double:*:0:d:256:*:1:Compressed Disk (double0..double255)
+21:mfm:*:0:a:2:*:64:Acorn MFM Hard Drive (mfma, mfmb)
+36:ed:*:0:a:2:*:64:MCA ESDI Hard Disk (eda, edb)
+43:nb:*:0:d:256:*:1:Network Block devices (nb0..nb255)
+44:ftl:*:0:a:16:*:16:Flash Translation Layer (ftla..ftlp)
+45:pd:*:0:a:4:*:16:Parallel Port IDE (pda..pdd)
+47:pf:*:0:d:256:*:1:Parallel Port ATAPI Disk Devices (pf0..pf255)
+48:rd:/c:0:%d:32:p:8:Mylex DAC960 RAID, Controller %d
+49:48:1:
+50:48:2:
+51:48:3:
+52:48:4:
+53:48:5:
+54:48:6:
+55:48:7:
+136:48:8:
+137:48:9:
+138:48:10:
+139:48:11:
+140:48:12:
+141:48:13:
+142:48:14:
+143:48:15:
+58:lvm:*:0:d:256:*:1:Logical Volume Manager (lvm0..lvm255)
+72:ida/:c:0:%d:16:p:16:Compaq Intelligent Drive Array - Controller %d
+73:72:1:
+74:72:2:
+75:72:3:
+76:72:4:
+77:72:5:
+78:72:6:
+79:72:7:
+80:i2o/hd:*:0:a:16:*:16:I2O Disk - Controller %d
+81:80:1:
+82:80:2:
+83:80:3:
+84:80:4:
+85:80:5:
+86:80:6:
+87:80:7:
+94:dasd:*:0:a:64:*:4:IBM S/390 DASD Block Storage (dasda, dasdb, ...)
+98:ubd:*:0:d:256:*:1:User-mode Virtual Block Devices (ubd0..ubd256)
+101:amiraid/ar:*:0:d:16:p:16:AMI HyperDisk RAID (amiraid/ar0 - amiraid/ar15)
+104:cciss:/c:0:%d:16:p:16:HP SA 5xxx/6xxx (cciss) Controller %d
+105:104:1:
+106:104:2:
+107:104:3:
+108:104:4:
+109:104:5:
+110:104:6:
+111:104:7:
+112:iseries/vd:*:0:a:32:*:8:IBM iSeries Virtual Disk (.../vda - .../vdaf)
+120:emcpower:*:0:a:16:*:16:EMC PowerPath Unit %d
+160:carmel/:*:0:d:8:p:32:Carmel 8-port SATA Disks (carmel/0 - carmel/7)
+161:160:1:
+180:ub:*:0:a:32:p:8:USB block devices
+202:xvd:*:0:a:16:p:16:Xen Virtual Block Device
+232:emcpower:*:0:a:16:*:16:EMC PowerPath Unit %d
+233:232:1:
+234:232:2:
+235:232:3:
+236:232:4:
+237:232:5:
+238:232:6:
+239:232:7:
+240:232:8:
+241:232:9:
+242:232:10:
+243:232:11:
+244:232:12:
+245:232:13:
+246:232:14:
+247:232:15:
+256:rfd:*:0:a:16:*:16:Resident Flash Disk Flash Translation Layer (rfda..rfdp)
+257:ssfdc:*:0:a:8:*:8:SSFDC Flash Translation Layer filesystem (ssfdca..ssfdch)
+258:blockrom:*:0:d:256:*:1:ROM/Flash Read-Only Translation Layer (blockrom0...)
+
+
+#==[ Configuration File ]===========================#
+# /etc/ssh/sshd_config.d/harvester.conf
+PermitRootLogin no
+LoginGraceTime 60
+AllowGroups admin
+AllowAgentForwarding no
+X11Forwarding no
+AllowTcpForwarding no
+MaxAuthTries 3
+
+
+#==[ Configuration File ]===========================#
+# /etc/ssh/ssh_config.d/50-suse.conf
+Match final all
+	Include /etc/crypto-policies/back-ends/openssh.config
+
+
+#==[ Configuration File ]===========================#
+# /etc/cups/client.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/openldap/ldap.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/dracut.conf
+
+
+#==[ Configuration File ]===========================#
+# /etc/named.d/rndc-access.conf
+include "/etc/rndc.key";
+controls {
+	inet 127.0.0.1 allow {
+		127.0.0.0/8;
+	} keys { rndc-key; };
+};
+
+
+#==[ Configuration File ]===========================#
+# /etc/iscsi/iscsid.conf
+iscsid.startup = /bin/systemctl start iscsid.socket iscsiuio.socket
+iscsid.safe_logout = Yes
+node.startup = manual
+node.leading_login = No
+node.session.timeo.replacement_timeout = 120
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.noop_out_interval = 0
+node.conn[0].timeo.noop_out_timeout = 0
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.initial_login_retry_max = 8
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+discovery.sendtargets.iscsi.MaxRecvDataSegmentLength = 32768
+node.session.nr_sessions = 1
+node.session.reopen_max = 0
+node.session.iscsi.FastAbort = Yes
+node.session.scan = auto
+
+
+#==[ Configuration File ]===========================#
+# /etc/vconsole.conf
+KEYMAP=us
+
+
+#==[ Configuration File ]===========================#
+# /etc/locale.conf
+LANG=en_US.UTF-8
+
+
+#==[ Configuration File ]===========================#
+# /etc/multipath/conf.d/99-longhorn.conf
+blacklist {
+  device {
+    vendor "IET"
+    product "VIRTUAL-DISK"
+  }
+}
+
+#==[ Configuration File ]===========================#
+# /etc/logrotate.d/nginx
+/var/log/nginx/*.log {
+    su nginx nginx
+    compress
+    dateext
+    maxage 365
+    rotate 99
+    size=+4096k
+    missingok
+    notifempty
+    delaycompress
+    lastaction
+      [ -f /run/nginx.pid ] && /usr/sbin/nginx -s reopen
+    endscript
+}
+
+
+#==[ Configuration File ]===========================#
+# /etc/rc.dialout - File not found
+
+#==[ Configuration File ]===========================#
+# /etc/ppp/options - File not found
+
+#==[ Configuration File ]===========================#
+# /etc/ppp/ioptions - File not found
+
+#==[ Configuration File ]===========================#
+# /etc/ppp/peers/pppoe - File not found
+
+#==[ Configuration File ]===========================#
+# /etc/motd - File not found
+

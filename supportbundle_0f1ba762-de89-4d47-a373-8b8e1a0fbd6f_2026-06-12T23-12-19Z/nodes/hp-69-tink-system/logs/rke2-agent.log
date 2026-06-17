@@ -1,0 +1,111 @@
+Jun 12 10:47:07.804428 hp-69-tink-system systemd[1]: Starting Rancher Kubernetes Engine v2 (agent)...
+Jun 12 10:47:07.931562 hp-69-tink-system harv-update-rke2-server-url[4101]: + HARVESTER_CONFIG_FILE=/oem/harvester.config
+Jun 12 10:47:07.932121 hp-69-tink-system harv-update-rke2-server-url[4101]: + RKE2_VIP_CONFIG_FILE=/etc/rancher/rke2/config.yaml.d/90-harvester-vip.yaml
+Jun 12 10:47:07.932121 hp-69-tink-system harv-update-rke2-server-url[4101]: + case $1 in
+Jun 12 10:47:07.932121 hp-69-tink-system harv-update-rke2-server-url[4101]: + update_agent_conf
+Jun 12 10:47:07.932551 hp-69-tink-system harv-update-rke2-server-url[4103]: ++ yq -e e .serverurl /oem/harvester.config
+Jun 12 10:47:07.970626 hp-69-tink-system harv-update-rke2-server-url[4101]: + server_url=https://10.115.252.20:443
+Jun 12 10:47:07.970626 hp-69-tink-system harv-update-rke2-server-url[4101]: + '[' -z https://10.115.252.20:443 ']'
+Jun 12 10:47:07.971375 hp-69-tink-system harv-update-rke2-server-url[4109]: + echo https://10.115.252.20:443
+Jun 12 10:47:07.971912 hp-69-tink-system harv-update-rke2-server-url[4110]: + grep -E '^https://(.*):(8443|443)'
+Jun 12 10:47:07.974296 hp-69-tink-system harv-update-rke2-server-url[4110]: https://10.115.252.20:443
+Jun 12 10:47:07.975884 hp-69-tink-system harv-update-rke2-server-url[4112]: ++ echo https://10.115.252.20:443
+Jun 12 10:47:07.976332 hp-69-tink-system harv-update-rke2-server-url[4113]: ++ sed -E 's,^https://(.*):(8443|443),https://\1:9345,'
+Jun 12 10:47:07.979689 hp-69-tink-system harv-update-rke2-server-url[4101]: + export RKE2_SERVER_URL=https://10.115.252.20:9345
+Jun 12 10:47:07.979689 hp-69-tink-system harv-update-rke2-server-url[4101]: + RKE2_SERVER_URL=https://10.115.252.20:9345
+Jun 12 10:47:07.979858 hp-69-tink-system harv-update-rke2-server-url[4101]: + '[' -e /etc/rancher/rke2/config.yaml.d/90-harvester-vip.yaml ']'
+Jun 12 10:47:07.979858 hp-69-tink-system harv-update-rke2-server-url[4101]: + yq -n e '.server = strenv(RKE2_SERVER_URL)'
+Jun 12 10:47:08.136086 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=warning msg="Unknown flag --apiVersion found in config.yaml, skipping\n"
+Jun 12 10:47:08.136863 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=warning msg="Unknown flag --kind found in config.yaml, skipping\n"
+Jun 12 10:47:08.136939 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=warning msg="Unknown flag --omitStages found in config.yaml, skipping\n"
+Jun 12 10:47:08.136992 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=warning msg="Unknown flag --omitStages found in config.yaml, skipping\n"
+Jun 12 10:47:08.136992 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=warning msg="Unknown flag --rules found in config.yaml, skipping\n"
+Jun 12 10:47:08.143555 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=warning msg="not running in CIS mode"
+Jun 12 10:47:08.144142 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=info msg="Applying Pod Security Admission Configuration"
+Jun 12 10:47:08.148182 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=info msg="Starting rke2 agent v1.35.5+rke2r1 (e28e7c1a0404f1e9bf36e8b7222d64aec6b7a004)"
+Jun 12 10:47:08.150520 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=info msg="Updated load balancer rke2-agent-load-balancer default server: 10.115.252.20:9345"
+Jun 12 10:47:08.151109 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=info msg="Running load balancer rke2-agent-load-balancer 127.0.0.1:6444 -> [] [default: 10.115.252.20:9345]"
+Jun 12 10:47:08.197187 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=warning msg="Cluster CA certificate is not trusted by the host CA bundle, but the token does not include a CA hash. Use the full token from the server's node-token file to enable Cluster CA validation."
+Jun 12 10:47:08.380586 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=info msg="Updated load balancer rke2-api-server-agent-load-balancer default server: 10.115.252.20:6443"
+Jun 12 10:47:08.380769 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=info msg="Running load balancer rke2-api-server-agent-load-balancer 127.0.0.1:6443 -> [] [default: 10.115.252.20:6443]"
+Jun 12 10:47:08.822325 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:08Z" level=info msg="Using private registry config file at /etc/rancher/rke2/registries.yaml"
+Jun 12 10:47:09.893417 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:09Z" level=info msg="Module overlay was already loaded"
+Jun 12 10:47:09.932648 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:09Z" level=info msg="Module br_netfilter was already loaded"
+Jun 12 10:47:09.962435 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:09Z" level=warning msg="Failed to load kernel module nft-expr-counter with modprobe"
+Jun 12 10:47:10.020143 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Set sysctl 'net/netfilter/nf_conntrack_max' to 1572864"
+Jun 12 10:47:10.020281 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Set sysctl 'net/netfilter/nf_conntrack_tcp_timeout_established' to 86400"
+Jun 12 10:47:10.020343 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Set sysctl 'net/netfilter/nf_conntrack_tcp_timeout_close_wait' to 3600"
+Jun 12 10:47:10.020438 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Set sysctl 'net/ipv4/conf/all/forwarding' to 1"
+Jun 12 10:47:10.020786 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Removed kube-proxy static pod manifest"
+Jun 12 10:47:10.021115 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Runtime image index.docker.io/rancher/rke2-runtime:v1.35.5-rke2r1 bin and charts directories already exist; skipping extract"
+Jun 12 10:47:10.022091 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Waiting for cri connection: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/k3s/containerd/containerd.sock: connect: no such file or directory\""
+Jun 12 10:47:10.022587 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=warning msg="SELinux is enabled on this host, but rke2 has not been started with --selinux - containerd SELinux support is disabled"
+Jun 12 10:47:10.024379 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Getting list of apiserver endpoints from server"
+Jun 12 10:47:10.024524 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Logging containerd to /var/lib/rancher/rke2/agent/containerd/containerd.log"
+Jun 12 10:47:10.024596 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Running containerd -c /var/lib/rancher/rke2/agent/etc/containerd/config.toml"
+Jun 12 10:47:10.025511 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Creating rke2-cert-monitor event broadcaster"
+Jun 12 10:47:10.215851 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Got apiserver addresses from supervisor: [10.115.252.86:6443]"
+Jun 12 10:47:10.215851 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Adding server to load balancer rke2-api-server-agent-load-balancer: 10.115.252.86:6443"
+Jun 12 10:47:10.215851 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Updated load balancer rke2-api-server-agent-load-balancer server addresses -> [10.115.252.86:6443] [default: 10.115.252.20:6443]"
+Jun 12 10:47:10.216100 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Adding server to load balancer rke2-agent-load-balancer: 10.115.252.86:9345"
+Jun 12 10:47:10.216165 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Updated load balancer rke2-agent-load-balancer server addresses -> [10.115.252.86:9345] [default: 10.115.252.20:9345]"
+Jun 12 10:47:10.216380 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Connecting to proxy" url="wss://10.115.252.86:9345/v1-rke2/connect"
+Jun 12 10:47:10.223284 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Server 10.115.252.86:9345@UNCHECKED->RECOVERING from successful dial"
+Jun 12 10:47:10.229909 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Connected to proxy" url="wss://10.115.252.86:9345/v1-rke2/connect"
+Jun 12 10:47:10.230029 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Remotedialer connected to proxy" url="wss://10.115.252.86:9345/v1-rke2/connect"
+Jun 12 10:47:10.382408 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Server 10.115.252.86:6443@UNCHECKED->RECOVERING from successful health check"
+Jun 12 10:47:10.396244 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:10Z" level=info msg="Running kube-proxy --cluster-cidr=10.52.0.0/16 --conntrack-max-per-core=0 --conntrack-tcp-timeout-close-wait=0s --conntrack-tcp-timeout-established=0s --healthz-bind-address=127.0.0.1 --hostname-override=hp-69-tink-system --kubeconfig=/var/lib/rancher/rke2/agent/kubeproxy.kubeconfig --proxy-mode=iptables"
+Jun 12 10:47:11.029003 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:11Z" level=info msg="containerd is now running"
+Jun 12 10:47:11.153204 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:11Z" level=info msg="Server 10.115.252.86:9345@RECOVERING->PREFERRED from successful health check"
+Jun 12 10:47:11.383360 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:11Z" level=info msg="Server 10.115.252.86:6443@RECOVERING->PREFERRED from successful health check"
+Jun 12 10:47:11.563856 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:11Z" level=info msg="Pulling images from /var/lib/rancher/rke2/agent/images/kube-proxy-image.txt"
+Jun 12 10:47:11.565064 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:11Z" level=info msg="Image index.docker.io/rancher/hardened-kubernetes:v1.35.5-rke2r1-build20260512 has already been pulled"
+Jun 12 10:47:11.568908 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:11Z" level=info msg="Imported docker.io/rancher/hardened-kubernetes:v1.35.5-rke2r1-build20260512"
+Jun 12 10:47:11.574619 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:11Z" level=info msg="Tagged docker.io/rancher/hardened-kubernetes@sha256:96c771588f47e31f00e5f6298c8af4925f109cd00bbc6677ea0bff8a4aba357b"
+Jun 12 10:47:11.595987 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:11Z" level=info msg="Imported images from /var/lib/rancher/rke2/agent/images/kube-proxy-image.txt in 32.181606ms"
+Jun 12 10:47:12.069551 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:12Z" level=info msg="Running kubelet --alsologtostderr=false --cloud-provider=external --config-dir=/var/lib/rancher/rke2/agent/etc/kubelet.conf.d --containerd=/run/k3s/containerd/containerd.sock --hostname-override=hp-69-tink-system --kube-reserved=cpu=708m --kubeconfig=/var/lib/rancher/rke2/agent/kubelet.kubeconfig --log-file=/var/lib/rancher/rke2/agent/logs/kubelet.log --log-file-max-size=50 --logtostderr=false --max-pods=200 --node-ip=10.115.252.96 --node-labels=harvesterhci.io/managed=true,rke.cattle.io/machine=5b3ed060-1245-4a12-95b9-8f5296fd1f8f --read-only-port=0 --stderrthreshold=FATAL --system-reserved=cpu=472m"
+Jun 12 10:47:12.298741 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:12Z" level=info msg="Server 10.115.252.86:6443@PREFERRED->ACTIVE from successful dial"
+Jun 12 10:47:30.033868 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:30Z" level=info msg="Event occurred" apiVersion= fieldPath= kind=Node logger=rke2 message="Node and Certificate Authority certificates managed by rke2 are OK" object=hp-69-tink-system reason=CertificateExpirationOK type=Normal
+Jun 12 10:47:30.047826 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:30Z" level=info msg="Tunnel authorizer set Kubelet Port 0.0.0.0:10250"
+Jun 12 10:47:30.075797 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:30Z" level=info msg="Annotations and labels have been set successfully on node: hp-69-tink-system"
+Jun 12 10:47:30.075958 hp-69-tink-system rke2[4120]: time="2026-06-12T10:47:30Z" level=info msg="rke2 agent is up and running"
+Jun 12 10:47:30.618982 hp-69-tink-system sysctl[6768]: net.bridge.bridge-nf-call-iptables = 0
+Jun 12 10:47:30.621845 hp-69-tink-system systemd[1]: Started Rancher Kubernetes Engine v2 (agent).
+Jun 12 10:48:11.193884 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:11Z" level=info msg="Server 10.115.252.86:9345@PREFERRED->HEALTHY from successful health check"
+Jun 12 10:48:19.060621 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Adding server to load balancer rke2-api-server-agent-load-balancer: 10.115.252.95:6443"
+Jun 12 10:48:19.060621 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Updated load balancer rke2-api-server-agent-load-balancer server addresses -> [10.115.252.86:6443 10.115.252.95:6443] [default: 10.115.252.20:6443]"
+Jun 12 10:48:19.062008 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Adding server to load balancer rke2-agent-load-balancer: 10.115.252.95:9345"
+Jun 12 10:48:19.062008 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Updated load balancer rke2-agent-load-balancer server addresses -> [10.115.252.86:9345 10.115.252.95:9345] [default: 10.115.252.20:9345]"
+Jun 12 10:48:19.062008 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Started tunnel to 10.115.252.95:9345"
+Jun 12 10:48:19.062008 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Connecting to proxy" url="wss://10.115.252.95:9345/v1-rke2/connect"
+Jun 12 10:48:19.067321 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Connected to proxy" url="wss://10.115.252.95:9345/v1-rke2/connect"
+Jun 12 10:48:19.067443 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Remotedialer connected to proxy" url="wss://10.115.252.95:9345/v1-rke2/connect"
+Jun 12 10:48:19.198668 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Server 10.115.252.95:9345@UNCHECKED->RECOVERING from successful health check"
+Jun 12 10:48:19.424106 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:19Z" level=info msg="Server 10.115.252.95:6443@UNCHECKED->RECOVERING from successful health check"
+Jun 12 10:48:20.199006 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:20Z" level=info msg="Server 10.115.252.95:9345@RECOVERING->PREFERRED from successful health check"
+Jun 12 10:48:20.425260 hp-69-tink-system rke2[4120]: time="2026-06-12T10:48:20Z" level=info msg="Server 10.115.252.95:6443@RECOVERING->PREFERRED from successful health check"
+Jun 12 10:48:58.984129 hp-69-tink-system systemd[1]: Stopping Rancher Kubernetes Engine v2 (agent)...
+Jun 12 10:48:59.043950 hp-69-tink-system systemd[1]: rke2-agent.service: Deactivated successfully.
+Jun 12 10:48:59.044243 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 4270 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.044381 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 4348 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.044524 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 4371 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.044655 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 4383 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.044780 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7044 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.044905 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7158 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.045026 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7228 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.045148 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7267 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.045269 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7550 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.045391 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7552 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.045528 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7616 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.045655 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7754 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.045786 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7762 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.045909 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7886 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.046031 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7927 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.046153 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 7969 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.046274 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 8015 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.046395 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 8016 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.046530 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 11474 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.046656 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 12936 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.046781 hp-69-tink-system systemd[1]: rke2-agent.service: Unit process 16290 (containerd-shim) remains running after unit stopped.
+Jun 12 10:48:59.047539 hp-69-tink-system systemd[1]: Stopped Rancher Kubernetes Engine v2 (agent).
+Jun 12 10:48:59.048098 hp-69-tink-system systemd[1]: rke2-agent.service: Consumed 3min 41.854s CPU time.

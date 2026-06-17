@@ -1,0 +1,33 @@
+2026-06-12T10:41:16.730914168Z {"level":"info","ts":"2026-06-12T10:41:16Z","logger":"setup","msg":"listening for changes on local cluster","disableMetrics":false}
+2026-06-12T10:41:16.742874301Z Error: no matches for kind "BundleDeployment" in version "fleet.cattle.io/v1alpha1"
+2026-06-12T10:41:16.742899304Z Usage:
+2026-06-12T10:41:16.742917754Z   fleet-controller [flags]
+2026-06-12T10:41:16.742921215Z   fleet-controller [command]
+2026-06-12T10:41:16.742923557Z 
+2026-06-12T10:41:16.742926614Z Available Commands:
+2026-06-12T10:41:16.742929116Z   agentmanagement 
+2026-06-12T10:41:16.742931581Z   cleanup         
+2026-06-12T10:41:16.742934629Z   completion      Generate the autocompletion script for the specified shell
+2026-06-12T10:41:16.742937598Z   gitjob          
+2026-06-12T10:41:16.742940094Z   helmops         
+2026-06-12T10:41:16.742942846Z   help            Help about any command
+2026-06-12T10:41:16.742945106Z 
+2026-06-12T10:41:16.742947840Z Flags:
+2026-06-12T10:41:16.742950727Z       --debug                             Turn on debug logging
+2026-06-12T10:41:16.742953232Z       --debug-level int                   If debugging is enabled, set klog -v=X
+2026-06-12T10:41:16.742955879Z       --disable-metrics                   disable metrics
+2026-06-12T10:41:16.742958475Z   -h, --help                              help for fleet-controller
+2026-06-12T10:41:16.742963511Z       --kubeconfig string                 Paths to a kubeconfig. Only required if out-of-cluster.
+2026-06-12T10:41:16.742966550Z       --leader-elect                      Enable leader election for controller manager. Enabling this will ensure there is only one active controller manager. (default true)
+2026-06-12T10:41:16.742972160Z       --namespace string                  namespace to watch (default "cattle-fleet-system")
+2026-06-12T10:41:16.742975178Z       --shard-id string                   only manage resources labeled with a specific shard ID
+2026-06-12T10:41:16.742977736Z   -v, --version                           version for fleet-controller
+2026-06-12T10:41:16.742980715Z       --zap-devel                         Development Mode defaults(encoder=consoleEncoder,logLevel=Debug,stackTraceLevel=Warn). Production Mode defaults(encoder=jsonEncoder,logLevel=Info,stackTraceLevel=Error) (default true)
+2026-06-12T10:41:16.742983598Z       --zap-encoder encoder               Zap log encoding (one of 'json' or 'console')
+2026-06-12T10:41:16.742986327Z       --zap-log-level level               Zap Level to configure the verbosity of logging. Can be one of 'debug', 'info', 'error', 'panic'or any integer value > 0 which corresponds to custom debug levels of increasing verbosity
+2026-06-12T10:41:16.742989230Z       --zap-stacktrace-level level        Zap Level at and above which stacktraces are captured (one of 'info', 'error', 'panic').
+2026-06-12T10:41:16.742992456Z       --zap-time-encoding time-encoding   Zap time encoding (one of 'epoch', 'millis', 'nano', 'iso8601', 'rfc3339' or 'rfc3339nano'). Defaults to 'epoch'.
+2026-06-12T10:41:16.742994671Z 
+2026-06-12T10:41:16.742997688Z Use "fleet-controller [command] --help" for more information about a command.
+2026-06-12T10:41:16.743000281Z 
+2026-06-12T10:41:16.743020258Z time="2026-06-12T10:41:16Z" level=fatal msg="no matches for kind \"BundleDeployment\" in version \"fleet.cattle.io/v1alpha1\""

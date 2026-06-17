@@ -1,0 +1,4837 @@
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-canal
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:08Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:08Z"
+    name: canal-calico
+    resourceVersion: "665"
+    uid: b529f7e5-fe78-4c17-a793-80cbb6603d44
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: calico-node
+  subjects:
+  - kind: ServiceAccount
+    name: canal
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-canal
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:08Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:08Z"
+    name: canal-flannel
+    resourceVersion: "667"
+    uid: 0cd2524e-044f-4d25-9132-39bd8b62c4c5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: flannel
+  subjects:
+  - kind: ServiceAccount
+    name: canal
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:17Z"
+    labels:
+      cluster.x-k8s.io/provider: cluster-api
+      clusterctl.cluster.x-k8s.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:cluster.x-k8s.io/provider: {}
+            f:clusterctl.cluster.x-k8s.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: capi-operator
+      operation: Apply
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:cluster.x-k8s.io/provider: {}
+            f:clusterctl.cluster.x-k8s.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T10:42:17Z"
+    name: capi-manager-rolebinding
+    resourceVersion: "3665"
+    uid: ddca05ef-508a-4b9c-ae32-6734b1ee6136
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: capi-aggregated-manager-role
+  subjects:
+  - kind: ServiceAccount
+    name: capi-manager
+    namespace: cattle-capi-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet-agent-local
+      meta.helm.sh/release-namespace: cattle-fleet-local-system
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5yQvU4DMQzH38VzE0r6dc2GGNjLiBicnK8NTeNT4kOC6t4dpQeiCx0Yndi//8cZTiTYoiDYM2BKLCiBU6kjuzfyUkh0Dqw9ikTSge9CCxa6SCQK95REOWYpkrFX05KaPiN7jKp8FKETjDOI6CjeJB+wHMDCYm3mZtFtVoY23f222baNW68Mzc3WtcavVw3Sxi+XFZrwRGDhT2F1bTRzJOVCakPa1+M676i7ZO/DU+ahBwvZodc4yIFz+LzUoY9N0YFhBseQavrHOBShvONI8A8PVbsMUwlgX84/2GfK78HTg/c8JPklX91/P5Ye/U1NGF/HrwAAAP//Oj/32d4BAAA
+      objectset.rio.cattle.io/id: fleet-agent-bootstrap-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:09Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: 362023f752e7f1989d8b652e029bd2c658ae7c44
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T10:42:09Z"
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+      manager: fleetagent
+      operation: Update
+      time: "2026-06-12T10:42:16Z"
+    name: cattle-fleet-local-system-fleet-agent-role-binding
+    resourceVersion: "3418"
+    uid: bb3bb0e6-cce3-46ee-b7b5-13efaf3d76c1
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-fleet-local-system-fleet-agent-role
+  subjects:
+  - kind: ServiceAccount
+    name: fleet-agent
+    namespace: cattle-fleet-local-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SPMU/DMBBG/8vNxdAkJY1XBvauiOF8vipHHV9lXwao+t9RGokFqYLxkz69p3eBiQ0jGoK/AOashiaa6zI1fDBZZXNF1BGaJXaijxLBwzof5oyzjZxNCI0jXDeQMHC6CxixjuAhNNsm7oaW267tiXa4fWqo7wai2NNxH7qGhhCfeYFmnPiutWjiAx9vGWd5LTqfwUMJSG75apGvW5k77asThQ2cJC8hL2muxuWgieEPnjqvUeDf/mtarz+O+lmNJ//L8X79DgAA//+0OkajlgEAAA
+      objectset.rio.cattle.io/id: cattle-unauthenticated
+    creationTimestamp: "2026-06-12T10:40:00Z"
+    labels:
+      objectset.rio.cattle.io/hash: b212d593e3437cc5a102c749ccd7cf8b42c9bd6e
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:00Z"
+    name: cattle-unauthenticated
+    resourceVersion: "1658"
+    uid: 3ce85c3a-6681-4fab-839b-b31c62a7e6f3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-unauthenticated
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:unauthenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      operator.cdi.kubevirt.io/lastAppliedConfiguration: '{"kind":"ClusterRoleBinding","apiVersion":"rbac.authorization.k8s.io/v1","metadata":{"name":"cdi-apiserver","creationTimestamp":"null","labels":{"app":"containerized-data-importer","app.kubernetes.io/component":"storage","app.kubernetes.io/managed-by":"cdi-operator","cdi.kubevirt.io":""}},"subjects":[{"kind":"ServiceAccount","name":"cdi-apiserver","namespace":"harvester-system"}],"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cdi-apiserver"}}'
+    creationTimestamp: "2026-06-12T10:42:47Z"
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: "null"
+      operator.cdi.kubevirt.io/createVersion: 1.64.0-150700.9.6.1
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:operator.cdi.kubevirt.io/lastAppliedConfiguration: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:operator.cdi.kubevirt.io/createVersion: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"57d36aef-680f-4ffd-bbc8-025ccbd99dc0"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-cdi-operator
+      operation: Update
+      time: "2026-06-12T10:42:47Z"
+    name: cdi-apiserver
+    ownerReferences:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: CDI
+      name: cdi
+      uid: 57d36aef-680f-4ffd-bbc8-025ccbd99dc0
+    resourceVersion: "5143"
+    uid: 33662902-3194-49b0-947f-ba6cf1beed3e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cdi-apiserver
+  subjects:
+  - kind: ServiceAccount
+    name: cdi-apiserver
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      operator.cdi.kubevirt.io/lastAppliedConfiguration: '{"kind":"ClusterRoleBinding","apiVersion":"rbac.authorization.k8s.io/v1","metadata":{"name":"cdi-cronjob","creationTimestamp":"null","labels":{"app":"containerized-data-importer","app.kubernetes.io/component":"storage","app.kubernetes.io/managed-by":"cdi-operator","cdi.kubevirt.io":""}},"subjects":[{"kind":"ServiceAccount","name":"cdi-cronjob","namespace":"harvester-system"}],"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cdi-cronjob"}}'
+    creationTimestamp: "2026-06-12T10:42:47Z"
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: "null"
+      operator.cdi.kubevirt.io/createVersion: 1.64.0-150700.9.6.1
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:operator.cdi.kubevirt.io/lastAppliedConfiguration: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:operator.cdi.kubevirt.io/createVersion: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"57d36aef-680f-4ffd-bbc8-025ccbd99dc0"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-cdi-operator
+      operation: Update
+      time: "2026-06-12T10:42:47Z"
+    name: cdi-cronjob
+    ownerReferences:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: CDI
+      name: cdi
+      uid: 57d36aef-680f-4ffd-bbc8-025ccbd99dc0
+    resourceVersion: "5118"
+    uid: 50eb0310-2345-4734-99a2-1eca95200f67
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cdi-cronjob
+  subjects:
+  - kind: ServiceAccount
+    name: cdi-cronjob
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+      operator.cdi.kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+            f:operator.cdi.kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: cdi-operator
+    resourceVersion: "4366"
+    uid: 2bdfce31-7207-4fd1-905a-febc44906ebd
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cdi-operator-cluster
+  subjects:
+  - kind: ServiceAccount
+    name: cdi-operator
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      operator.cdi.kubevirt.io/lastAppliedConfiguration: '{"kind":"ClusterRoleBinding","apiVersion":"rbac.authorization.k8s.io/v1","metadata":{"name":"cdi-sa","creationTimestamp":"null","labels":{"app":"containerized-data-importer","app.kubernetes.io/component":"storage","app.kubernetes.io/managed-by":"cdi-operator","cdi.kubevirt.io":""}},"subjects":[{"kind":"ServiceAccount","name":"cdi-sa","namespace":"harvester-system"}],"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cdi"}}'
+    creationTimestamp: "2026-06-12T10:42:46Z"
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: "null"
+      operator.cdi.kubevirt.io/createVersion: 1.64.0-150700.9.6.1
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:operator.cdi.kubevirt.io/lastAppliedConfiguration: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:operator.cdi.kubevirt.io/createVersion: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"57d36aef-680f-4ffd-bbc8-025ccbd99dc0"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-cdi-operator
+      operation: Update
+      time: "2026-06-12T10:42:46Z"
+    name: cdi-sa
+    ownerReferences:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: CDI
+      name: cdi
+      uid: 57d36aef-680f-4ffd-bbc8-025ccbd99dc0
+    resourceVersion: "5036"
+    uid: 74ed762f-5c2d-4127-84e0-42a4aa1014f5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cdi
+  subjects:
+  - kind: ServiceAccount
+    name: cdi-sa
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      operator.cdi.kubevirt.io/lastAppliedConfiguration: '{"kind":"ClusterRoleBinding","apiVersion":"rbac.authorization.k8s.io/v1","metadata":{"name":"cdi-uploadproxy","creationTimestamp":"null","labels":{"app":"containerized-data-importer","app.kubernetes.io/component":"storage","app.kubernetes.io/managed-by":"cdi-operator","cdi.kubevirt.io":""}},"subjects":[{"kind":"ServiceAccount","name":"cdi-uploadproxy","namespace":"harvester-system"}],"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cdi-uploadproxy"}}'
+    creationTimestamp: "2026-06-12T10:42:47Z"
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: "null"
+      operator.cdi.kubevirt.io/createVersion: 1.64.0-150700.9.6.1
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:operator.cdi.kubevirt.io/lastAppliedConfiguration: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:operator.cdi.kubevirt.io/createVersion: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"57d36aef-680f-4ffd-bbc8-025ccbd99dc0"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-cdi-operator
+      operation: Update
+      time: "2026-06-12T10:42:46Z"
+    name: cdi-uploadproxy
+    ownerReferences:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: CDI
+      name: cdi
+      uid: 57d36aef-680f-4ffd-bbc8-025ccbd99dc0
+    resourceVersion: "5095"
+    uid: 7e1244a1-749e-4c94-9061-d7aa1d746d8b
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cdi-uploadproxy
+  subjects:
+  - kind: ServiceAccount
+    name: cdi-uploadproxy
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      operator.cdi.kubevirt.io/lastAppliedConfiguration: '{"kind":"ClusterRoleBinding","apiVersion":"rbac.authorization.k8s.io/v1","metadata":{"name":"cdi.kubevirt.io:config-reader","creationTimestamp":"null","labels":{"app":"containerized-data-importer","app.kubernetes.io/component":"storage","app.kubernetes.io/managed-by":"cdi-operator","cdi.kubevirt.io":""}},"subjects":[{"kind":"Group","apiGroup":"rbac.authorization.k8s.io","name":"system:authenticated"},{"kind":"Group","apiGroup":"rbac.authorization.k8s.io","name":"system:serviceaccount"}],"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cdi.kubevirt.io:config-reader"}}'
+    creationTimestamp: "2026-06-12T10:42:47Z"
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: "null"
+      operator.cdi.kubevirt.io/createVersion: 1.64.0-150700.9.6.1
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:operator.cdi.kubevirt.io/lastAppliedConfiguration: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:operator.cdi.kubevirt.io/createVersion: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"57d36aef-680f-4ffd-bbc8-025ccbd99dc0"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-cdi-operator
+      operation: Update
+      time: "2026-06-12T10:42:47Z"
+    name: cdi.kubevirt.io:config-reader
+    ownerReferences:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: CDI
+      name: cdi
+      uid: 57d36aef-680f-4ffd-bbc8-025ccbd99dc0
+    resourceVersion: "5138"
+    uid: f030b91a-e8f8-49bf-a087-c82053593c33
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cdi.kubevirt.io:config-reader
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:serviceaccount
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: cluster-admin
+    resourceVersion: "135"
+    uid: 286e3bdc-611f-4f86-b81e-772474357318
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:masters
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2026-06-12T10:40:00Z"
+    generateName: default-admin-
+    labels:
+      authz.management.cattle.io/bootstrapping: admin-user
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:authz.management.cattle.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:00Z"
+    name: default-admin-4wsv8
+    resourceVersion: "1641"
+    uid: ec7fdd17-39be-4199-b441-ef3f192c8ffe
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: user-nkqmt
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    name: fleet-controller
+    resourceVersion: "1961"
+    uid: 3fd1dc74-3dca-496d-9fd4-8e00b93d7330
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: fleet-controller
+  subjects:
+  - kind: ServiceAccount
+    name: fleet-controller
+    namespace: cattle-fleet-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRzU7rMBCFX+Vq1kkuSZumtcSKBQt2lVghFmN72po6nsieFEHVd0dpgihC/Cwtnfnm+JsjtCRoURDUETAEFhTHIQ1P1k9kJJEU0XFhUMRT4fi/s6DA+D4JxdxEQiHIvk3zc6CYbw97UNBFPrjkOLiwvYgcyuzfnQv2+maE/koL2BIo8GzQ/ymcOjTDxMYTST7OnTLwqMn/+Ncdph0oaJZztIt6pfXVqtZGl9ZWFqtqZmlRVzjXtcaybPQAncpdrMrfZaFtXRgykT2taXOW3rnbyH0HCiCDvQuD3UnEmv2gdiJ+oaR+bA3q4RMnajQF9rLj6F7P9yz2y1Q4/lhwn86aJ3Kft9w0sxcRmcPp8fQWAAD//23lvwgXAgAA
+      objectset.rio.cattle.io/id: cluster-create
+      objectset.rio.cattle.io/owner-gvk: provisioning.cattle.io/v1, Kind=Cluster
+      objectset.rio.cattle.io/owner-name: local
+      objectset.rio.cattle.io/owner-namespace: fleet-local
+    creationTimestamp: "2026-06-12T10:40:02Z"
+    labels:
+      objectset.rio.cattle.io/hash: 784ad659bb095bcb1dd2da223de652a4b5ba117b
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:02Z"
+    name: fleet-local-cluster-admin
+    resourceVersion: "1692"
+    uid: fcf19733-312f-4227-9f75-eb0c5bd1dcaf
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-mo773yttt4
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    name: gitjob-binding
+    resourceVersion: "1960"
+    uid: 4cfcd417-c71e-4f31-8631-00db778951cb
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: gitjob
+  subjects:
+  - kind: ServiceAccount
+    name: gitjob
+    namespace: cattle-fleet-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/component: apiserver
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester
+      app.kubernetes.io/part-of: harvester
+      app.kubernetes.io/version: v1.8-d46887de
+      helm.sh/chart: harvester-0.0.0-v1.8-d46887de
+      helm.sh/release: harvester
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/part-of: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:helm.sh/release: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester
+    resourceVersion: "4360"
+    uid: d5dc3a9b-03a1-4c05-9e16-6489245632f7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: harvester
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SPMU/DMBBG/8vNwZCUmOCVgb1iQwwX+6ti6tiRfUGCqv8dOZUYGCoYTzq9970TzRB2LEzmRBxjEhafYqlnGt9hpUBU9klZFglQPt16R4Ymzh8ognzDq0yI4i0LHJ0bshkb5MXPKMLzQiauITQUeES4ip64TGTIDeh2ttW4c499B4zYaa0Hp3t74G5oWz3a/uEe1RZ5xvU9OQXscdgKF/+c07qQoTyyVfU3Zf+17VXHoSifqKGjj7XxKayVuE8B9BdRWS9ZZF7/q7q8/kjKZxHM5pfh7fwdAAD//84VI4awAQAA
+      objectset.rio.cattle.io/id: harvester-authenticated
+    creationTimestamp: "2026-06-12T10:42:48Z"
+    labels:
+      objectset.rio.cattle.io/hash: d8e23c16e0d952eebe36668d65cfa28116bc574e
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:42:48Z"
+    name: harvester-authenticated
+    resourceVersion: "5217"
+    uid: 9ceb5972-9422-410a-a257-3c4567c4927f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-authenticated
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      helm.sh/hook: pre-install
+      helm.sh/hook-weight: "2"
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:30Z"
+    labels:
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:helm.sh/hook: {}
+            f:helm.sh/hook-weight: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:30Z"
+    name: harvester-cdi-namespace-modify
+    resourceVersion: "4127"
+    uid: bfc2410e-08c1-4bfd-b31d-f2f2869bb545
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-cdi-namespace-modify
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-cdi-namespace-modify
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester-csi-driver-lvm
+      meta.helm.sh/release-namespace: harvester-system
+    creationTimestamp: "2026-06-12T23:03:19Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T23:03:19Z"
+    name: harvester-csi-driver-lvm
+    resourceVersion: "668762"
+    uid: a270b892-5a56-4515-a7fd-7d895f2a964a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-csi-driver-lvm
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-csi-driver-lvm
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester-csi-driver-lvm
+      meta.helm.sh/release-namespace: harvester-system
+    creationTimestamp: "2026-06-12T23:03:19Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T23:03:19Z"
+    name: harvester-csi-driver-lvm-webhook
+    resourceVersion: "668761"
+    uid: 9e910832-7203-4f98-89c0-ce25acae3ffc
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-csi-driver-lvm-webhook
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-csi-driver-lvm-webhook
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-load-balancer
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-load-balancer-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-load-balancer
+    resourceVersion: "4362"
+    uid: 26c58cf2-c3c8-4e71-905f-8a23f1e951c9
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-load-balancer
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-load-balancer
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-load-balancer-webhook
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-load-balancer-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-load-balancer-webhook
+    resourceVersion: "4358"
+    uid: 783ebf91-6fbe-42d5-8a88-a4d20f5bc790
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-load-balancer-webhook
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-load-balancer-webhook
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/component: network
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-network-controller
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-network-controller-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-network-controller
+    resourceVersion: "4351"
+    uid: 46d36ddf-7feb-4241-8745-aa5a0d94a64d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-network-controller
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-network-controller
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/component: network
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-network-controller
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-network-controller-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-network-helper
+    resourceVersion: "4359"
+    uid: cb566530-8c5f-4c8f-a623-0f30414c7658
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-network-helper
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-network-helper
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/component: network
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-network-controller
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-network-controller-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-network-webhook
+    resourceVersion: "4353"
+    uid: 931b221b-f0bb-4339-8f97-4412498c4949
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-network-webhook
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-network-webhook
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-networkfs-manager
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-networkfs-manager-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-networkfs-manager
+    resourceVersion: "4361"
+    uid: e67d563c-6d48-4582-984d-5783b3ba0723
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-networkfs-manager
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-networkfs-manager
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-node-disk-manager
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-node-disk-manager-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-node-disk-manager
+    resourceVersion: "4370"
+    uid: 78528f75-76ce-461c-99a8-0609d9f46721
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-node-disk-manager
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-node-disk-manager
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-node-disk-manager-webhook
+    resourceVersion: "4368"
+    uid: 96a2b44c-3140-4f3a-96ba-e6fb8d1035aa
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-node-disk-manager-webhook
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-node-disk-manager-webhook
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/component: node-manager
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester-node-manager
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-node-manager-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-node-manager
+    resourceVersion: "4369"
+    uid: 53887f78-946e-4d4c-90d1-511436f7f342
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-node-manager
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-node-manager
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/component: node-manager
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/version: v1.8.1-rc1
+      helm.sh/chart: harvester-node-manager-1.8.1-rc1
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-node-manager-webhook
+    resourceVersion: "4354"
+    uid: ea6e4fae-0a93-4e92-ae5a-cc79708d5381
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-node-manager-webhook
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-node-manager-webhook
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-whereabouts
+    resourceVersion: "4363"
+    uid: 0e2ccad1-e1e3-4cc3-9db1-3cd07c914090
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: harvester-whereabouts
+  subjects:
+  - kind: ServiceAccount
+    name: harvester-whereabouts
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRTW/bMAyG/8rAs+UtsfMBAztsOWzAbhnQS9EDLdExG1kyKNlFG+S/F0qaol9Je7SF5yH5vjvAnq9IAnsHFUiNOschtl74ASN7l2+XIWf/fZxABlt2BipY2SFEkrW39JudYbeBDDqKaDAiVDtA53w84CF9+vqWdAwUc2Gfa4zRUnJykrVkO6VblKiENhyiHEDIzmL+zpGozbh9ol88jZPs2z925udfst0qST/1OOwoiVBGSlcpHVgZ4ZFE2bH7Eh961K8l4T5E6mCfgcWa7MUYWgwtVFAvy2lTzmZFuaByYYzGH7qomxrnxbzQk0WJDTZmOk/S09Ipu7dD1dlT9hmIt7Sm5lBSz3/ED/2l2j/sHJ7n6+NPhaZjl/RhON4I1fXuRP4nGVnTL6394CKcW/5d7JeDvdk/BgAA//92MUUQuwIAAA
+      objectset.rio.cattle.io/id: helm-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: harvester-csi-driver-lvm
+      objectset.rio.cattle.io/owner-namespace: harvester-system
+    creationTimestamp: "2026-06-12T23:12:15Z"
+    labels:
+      objectset.rio.cattle.io/hash: b842f455347e47ddca0c3bfba6363c174afafd26
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T23:12:15Z"
+    name: helm-harvester-system-harvester-csi-driver-lvm
+    resourceVersion: "676122"
+    uid: 9d88e9a7-94da-45c9-a813-6e62a322184d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: helm-harvester-csi-driver-lvm
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRT2/bMAzFv8rAs+XlHxbHwA5bDhuwWwb0UvRAU0ysWpYMiXbRBvnuhZy0SIAm7VEi3o+P7+0BO3PHIRrvoIRQIeXYS+2DeUEx3uVNEXPjvw9TyKAxTkMJa9tH4bDxln8bp43bQQYtC2oUhHIP6JyXUR7T01ePTBJZ8mB8TihiOTFNgtVsW0XeSfDWclBUYxAVeGeihJEB2VWCf3Ic1G5oTqCz0TDNvv0zTv/8y7ZdJ+inHIctpxAanilCh/ZLitghJVnTV6zicxRu4ZCBxYrtzfNrjDWUUK2WmmhJjDhZUbWYM88XBVXzyVbPNC6KYrKk6Y8iQU8Ox8zO9qkzy4cMgre84e3YRGf+BN93t7r9sFh4X0bHT4W6NS7hY388CMr7/ZvyP4fBEP8i8r0TuHR6EejVyB4OrwEAAP//GkLYeI0CAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-canal
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    labels:
+      objectset.rio.cattle.io/hash: b97dcc7ceaa09cb43ee348cb30fd2da48807c168
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: helm-kube-system-rke2-canal
+    resourceVersion: "400"
+    uid: e5f85c61-ae81-46b2-9efb-a7eb003cde01
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: helm-rke2-canal
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRwU7jMBCGX2U15zjbdtumibQH6AEkbkXigjhM7Glj4tiRPQmCqu+OnBbUIlo42tb/zfj7t4CtfiAftLNQgC9Rpthx5bx+Q9bOpvUipNr97ceQQK2tggKWpgtMfuUMXWurtN1AAg0xKmSEYgtoreMhHuLRlc8kORCnXrtUIrOhyNQRVpFphHSWvTOGvJAVehaeNjqwHxiQnCW4F0tebPr6ADp66sfJnztt1f9bMs0yQn/kWGwoSqhpIqTzpGz4VSa0KGOw7koS4TUwNbBLwGBJ5qKACkMFBazVhBZzHM3/LUaolCxHU6UyOVc0m2VZlmd5Ppvk62mEHnYcrB3NEydL7xLwztCK1kMbrb7xrmsv9fttufA5Tu4vBapG24gP3f5LUDxuP5L35Hst6UpK11mG012/SD2r7Wn3HgAA//+ODuWZkwIAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-coredns
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    labels:
+      objectset.rio.cattle.io/hash: fd2e86a06380addcb04dd7c6de557779799529f4
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: helm-kube-system-rke2-coredns
+    resourceVersion: "421"
+    uid: 13ce925d-cbf8-4fd6-9b6c-3e7222e34dcc
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: helm-rke2-coredns
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRTY/TMBCG/wqacxxoN91sInGAPYDEbZG4IA5jezYZ4owj2wkfVf87clpQkdrC0bbeZ8bPuwec+BOFyF6ghaDRlDin3gf+iYm9lMNDLNm/XDZQwMBioYVHN8dE4ck7estiWTooYKSEFhNCuwcU8WmNx3z0+iuZFCmVgX1pMCVHmckZ1pMblfGSgneOgjI9hqQCdRxTWBlQXCX4b0JBdctwAp09LZvixQcW+/o9ufExQ//JERwpSxhoq1i6QDEq6Vi+/1cyTmhyfJg1qfgjJhrhUIBDTe6mhh5jDy3UzeauuW/qBzLbZ1tbTXe2qbb3VUW7Hb5qdlhrXWmdoadNV3dn89SF1Q8FBO/oiZ7XZiZ+F/w83er6YtHwZ6g5Xiq0I0vGx/n4MWg/738nP1JY2NAbY/wsCf7e+KLgqwq/HH4FAAD//yhsx2GlAgAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-ingress-nginx
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    labels:
+      objectset.rio.cattle.io/hash: 791396978ec2fd7dbe3d942644e55a095a7bb4bb
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: helm-kube-system-rke2-ingress-nginx
+    resourceVersion: "448"
+    uid: 89a4f4f6-f8db-44a9-934e-254c588436f2
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: helm-rke2-ingress-nginx
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRwW7UMBCGXwXNOQ6bTUtKJA7QA0jcisQFcZjYk80Qx47GkyBY7bsjpwUVaXfhaFv/N+PvPwLO/JkkcQzQgnRoS1x0iMI/UTmGcrxLJceXawUFjBwctHDvl6QkD9HTOw6OwwEKmEjRoSK0R8AQom7xlI+x+0ZWE2kpHEuLqp4ykzNsID8ZG4NK9J7E2AFFjdCBk8rGgOIiIX4PJOawjk+gZ09rVbz4yMG9+UB+us/Qf3ICTpQljLQ3E6mwTSaRrCT/FU0z2pwfl45M+pGUJjgV4LEjf9XDgGmAFqjf3fb17rba1zdY1U1ju87WDTXWoat3vbupaP/q7nWGPq26yXs2z5zb/VSARE8P1G/dzPxe4jJfa/ts1fBnqn28NOgmDhmflsefQfvl+Dv5iWRlS2+tjUtQ+Hvl84ovSvx6+hUAAP//TZJQs6gCAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-metrics-server
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    labels:
+      objectset.rio.cattle.io/hash: ef05f3051234a1377cbbc37e7cdad30fd41e2689
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: helm-kube-system-rke2-metrics-server
+    resourceVersion: "446"
+    uid: 73f58b57-7f54-411b-b507-f23cbff91ede
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: helm-rke2-metrics-server
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRQW/iMBCF/8pqznF2AyyESHvY5bCVeqNSL1UPE3sgbhw7ssepWsR/rxxoBVKhPdqj982b93aAvb4nH7SzUIGvUeYYuXFevyJrZ/O2DLl2P4cCMmi1VVDBysTA5NfO0D9tlbZbyKAjRoWMUO0ArXU8ykN6uvqJJAfi3GuXS2Q2lJg6wRoynZDOsnfGkBeyQc/C01YH9iMDsosE92zJi+3QHkEno6HIftxqq/7ckOlWCfolx2JHKYSWJqKLhmP4liT0KJOujTWJ8BKYOthnYLAmc/X+BkMDFRRzNdtMfv1eFISzmZyW5WSpVFlPyyWWi6JWc4nLWs0T9GhxDO1knzj1vM/AO0Nr2oxd9Pq/d7G/1u6n1cLHNnn4FKg6bRM+xMNFUD3s3pV35Act6a+ULlqGc6vnkV4M7XH/FgAA//9HZ90IkAIAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-multus
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    labels:
+      objectset.rio.cattle.io/hash: 16d4f20571ea44c38829dd8b389a871bd6ca9bd6
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: helm-kube-system-rke2-multus
+    resourceVersion: "481"
+    uid: aac7042b-e66d-4036-9dd7-7884e60fa6ec
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: helm-rke2-multus
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRwY7TMBCGXwXNOQ4yLW0SiQP0ABK3InFBHCbOpBni2JE9CYKq746cllVXart7tK3/m/H3HwFH/k4hsndQQajR5DhJ5wP/RWHv8r6IOfu3s4YMenYNVLCzUxQKe2/pE7uG3QEyGEiwQUGojoDOeVniMR19/YuMRJI8sM8NilhKTE6wjuygjHcSvLUUlOkwiAp04ChhYUB2l+B/OwrqMPcX0NXTrLM3X9k1H76QHXYJ+iLH4UBJQk/vVJic8EDGYowUXxWNI5qU76eaVPwThQY4ZWCxJvvQQ4exgwrajdbbssC6wKIp8f1qpVtsTEm61evtZlNjuy41Fgl6WXWRdzVP3dr9lEHwlvbULt2M/Dn4aXzU9s2q4WmqOV8qbAZ2CR+n88+g+nH8n/xGYWZDH43xkxN4vvJtxXcl/jz9CwAA///wr+S8qAIAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-runtimeclasses
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    labels:
+      objectset.rio.cattle.io/hash: f611798ab8a8d9a5331fadc9e1f14766baf491a8
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: helm-kube-system-rke2-runtimeclasses
+    resourceVersion: "482"
+    uid: 4fc45810-ff0a-4754-a712-beb71a5ed599
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: helm-rke2-runtimeclasses
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    name: helmops-binding
+    resourceVersion: "1959"
+    uid: b1ca7d7a-84a5-45ca-8513-801de678d4e4
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: helmops
+  subjects:
+  - kind: ServiceAccount
+    name: helmops
+    namespace: cattle-fleet-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:43:24Z"
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:10:57Z"
+    name: instancetype.kubevirt.io:view
+    resourceVersion: "154751"
+    uid: b1c8bd64-9565-4fdf-a0bb-9069acb697ac
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: instancetype.kubevirt.io:view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:59Z"
+    labels:
+      rke2.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:rke2.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rke2
+      operation: Update
+      time: "2026-06-12T10:38:59Z"
+    name: kube-apiserver-kubelet-admin
+    resourceVersion: "280"
+    uid: 7b926951-2f29-4a26-8095-fec0a9667a67
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:kubelet-api-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: kube-apiserver
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-vip
+      app.kubernetes.io/version: v1.0.4
+      helm.sh/chart: kube-vip-0.9.8
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: kube-vip
+    resourceVersion: "4364"
+    uid: e9821667-0711-4d1c-9a2f-3e0cfacb69ce
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kube-vip
+  subjects:
+  - kind: ServiceAccount
+    name: kube-vip
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+    creationTimestamp: "2026-06-12T10:43:24Z"
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:10:57Z"
+    name: kubevirt-apiserver
+    resourceVersion: "154752"
+    uid: e0d757e7-0cdb-4908-87f4-f45845dcb9d6
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubevirt-apiserver
+  subjects:
+  - kind: ServiceAccount
+    name: kubevirt-apiserver
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+    creationTimestamp: "2026-06-12T10:43:24Z"
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:10:57Z"
+    name: kubevirt-apiserver-auth-delegator
+    resourceVersion: "154753"
+    uid: 5e6a0f9e-c45a-4120-bbc6-230ec4d49987
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:auth-delegator
+  subjects:
+  - kind: ServiceAccount
+    name: kubevirt-apiserver
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+    creationTimestamp: "2026-06-12T10:43:24Z"
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:10:57Z"
+    name: kubevirt-controller
+    resourceVersion: "154754"
+    uid: 12c04299-0a6d-46f6-a64a-3960ed2cb6b0
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubevirt-controller
+  subjects:
+  - kind: ServiceAccount
+    name: kubevirt-controller
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+    creationTimestamp: "2026-06-12T10:43:25Z"
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:10:57Z"
+    name: kubevirt-exportproxy
+    resourceVersion: "154758"
+    uid: accf1f64-d723-43f3-a317-f7bf83c8344b
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubevirt-exportproxy
+  subjects:
+  - kind: ServiceAccount
+    name: kubevirt-exportproxy
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+    creationTimestamp: "2026-06-12T10:43:24Z"
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:10:57Z"
+    name: kubevirt-handler
+    resourceVersion: "154757"
+    uid: b144125c-6633-456f-941b-646fb5384431
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubevirt-handler
+  subjects:
+  - kind: ServiceAccount
+    name: kubevirt-handler
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/component: operator
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: virt-operator
+      app.kubernetes.io/part-of: kubevirt-operator
+      app.kubernetes.io/version: 1.7.0
+      helm.sh/chart: kubevirt-operator-0.6.2
+      helm.sh/release: harvester
+      kubevirt.io: "null"
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/part-of: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:helm.sh/release: {}
+            f:kubevirt.io: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: kubevirt-operator
+    resourceVersion: "4355"
+    uid: b946805d-2e2b-4ed7-97ce-83105c00a514
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubevirt-operator
+  subjects:
+  - kind: ServiceAccount
+    name: kubevirt-operator
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+    creationTimestamp: "2026-06-12T10:43:25Z"
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:10:58Z"
+    name: kubevirt-synchronization-controller
+    resourceVersion: "154760"
+    uid: 2ec85fb9-ef19-4c9e-accd-0ae36c81645a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubevirt-synchronization-controller
+  subjects:
+  - kind: ServiceAccount
+    name: kubevirt-synchronization-controller
+    namespace: harvester-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubevirt.io/generation: "5"
+      kubevirt.io/install-strategy-identifier: b357896524d764ec4a976e713d49941f84dcf0e8
+      kubevirt.io/install-strategy-registry: registry.suse.com/suse/sles/15.7
+      kubevirt.io/install-strategy-version: 1.7.0-150700.3.21.1
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:43:24Z"
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      kubevirt.io: "null"
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/generation: {}
+            f:kubevirt.io/install-strategy-identifier: {}
+            f:kubevirt.io/install-strategy-registry: {}
+            f:kubevirt.io/install-strategy-version: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubevirt.io: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T13:10:57Z"
+    name: kubevirt.io:default
+    resourceVersion: "154750"
+    uid: 092cfac5-7803-48e5-948f-aa20ceebd396
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubevirt.io:default
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: longhorn-bind
+    resourceVersion: "4356"
+    uid: 28c1e8e4-19f8-4e73-901f-7b1345fac310
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: longhorn-role
+  subjects:
+  - kind: ServiceAccount
+    name: longhorn-service-account
+    namespace: longhorn-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: longhorn-support-bundle
+    resourceVersion: "4365"
+    uid: 1207b26a-8e67-4d2e-8056-18e42565fd73
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: longhorn-support-bundle
+    namespace: longhorn-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:18Z"
+    generateName: pod-impersonation-shell-
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"cf2fd131-68c7-4932-8120-57946af8ade0"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T23:02:18Z"
+    name: pod-impersonation-shell-mqk9k
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: pod-impersonation-shell-t299r
+      uid: cf2fd131-68c7-4932-8120-57946af8ade0
+    resourceVersion: "667869"
+    uid: 0022f46a-8b5b-4c15-92d3-114541e1afb5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: pod-impersonation-shell-t299r
+  subjects:
+  - kind: ServiceAccount
+    name: pod-impersonation-shell-62pgs
+    namespace: cattle-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rancher
+      meta.helm.sh/release-namespace: cattle-system
+    creationTimestamp: "2026-06-12T10:39:02Z"
+    labels:
+      app: rancher
+      app.kubernetes.io/managed-by: Helm
+      chart: rancher-2.14.2
+      heritage: Helm
+      release: rancher
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:chart: {}
+            f:heritage: {}
+            f:release: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:02Z"
+    name: rancher
+    resourceVersion: "328"
+    uid: 2fdcd20c-75cb-41b8-8893-a9ac75913584
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: rancher
+    namespace: cattle-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rancher-monitoring-crd
+      meta.helm.sh/release-namespace: cattle-monitoring-system
+      objectset.rio.cattle.io/id: default-mcc-rancher-monitoring-crd-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:17Z"
+    labels:
+      app: rancher-monitoring-crd-manager
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: 2da503261617e9ea2da822d2da7cdcfccad847a9
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:17Z"
+    name: rancher-monitoring-crd-manager
+    resourceVersion: "3448"
+    uid: b05ca9db-2561-4080-a025-c1e4c8d89a5f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: rancher-monitoring-crd-manager
+  subjects:
+  - kind: ServiceAccount
+    name: rancher-monitoring-crd-manager
+    namespace: cattle-monitoring-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rancher-turtles
+      meta.helm.sh/release-namespace: cattle-turtles-system
+    creationTimestamp: "2026-06-12T10:42:00Z"
+    labels:
+      app.kubernetes.io/component: rbac
+      app.kubernetes.io/created-by: rancher-turtles
+      app.kubernetes.io/instance: manager-rolebinding
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: clusterrolebinding
+      app.kubernetes.io/part-of: rancher-turtles
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/created-by: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/part-of: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:42:00Z"
+    name: rancher-turtles-manager-rolebinding
+    resourceVersion: "2799"
+    uid: 1f845941-b989-42b5-86c1-a1ec2508afc7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: rancher-turtles-aggregated-manager-role
+  subjects:
+  - kind: ServiceAccount
+    name: rancher-turtles-manager
+    namespace: cattle-turtles-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rancher-webhook
+      meta.helm.sh/release-namespace: cattle-system
+    creationTimestamp: "2026-06-12T10:41:46Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:41:46Z"
+    name: rancher-webhook
+    resourceVersion: "2560"
+    uid: 10229616-1a81-40db-a2c0-9777b8a13c6e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: rancher-webhook
+    namespace: cattle-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SST4vbMBDFv0qZs+Va8d8Yeig99NBbeiw9jORxrEaRXGmcQkK+e7ETQ1g2y+7FYEZv3ns/6QJHYuyQEdoLoHOekY13cf716g9pjsRpMD7VyGwpNf6z6aAFbafIFESgvYkcFhUkTzX+n6Mg9qcDtNBbIn6YnSTacUCZfPphXPfl223z7iOLHR4JWgj0d6LIQp2tte8SxRE1rZmE9RotXBOwqMguEF6GPaLDPc0EOEz0hseAcYAWMlViRarqm0pJwqzOs6LoVdMTNVmX6bImqqTqZ9fXWgjtHZPjeR68pR31y1WN5nvw0zgfV6hTnHjwwZwXXOmhianxkMDBuDnqitTbOfHd5lb5YX2cblWg/XVZlT8pnIymr1r7yTE8ybjNN7Lc6EJkKteiqCkXjaRCSE1FmVOJvSzu2hX4+n4ewN+/EvOuqrsMm+0Wrr+v/wMAAP//OO4uW6QCAAA
+      objectset.rio.cattle.io/id: cluster-registration
+      objectset.rio.cattle.io/owner-gvk: fleet.cattle.io/v1alpha1, Kind=ClusterRegistration
+      objectset.rio.cattle.io/owner-name: request-bzlll
+      objectset.rio.cattle.io/owner-namespace: fleet-local
+    creationTimestamp: "2026-06-12T14:29:21Z"
+    labels:
+      fleet.cattle.io/managed: "true"
+      objectset.rio.cattle.io/hash: 0b5a6eb6f86b1ea073044fb8fee80d0c57ee61bf
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:fleet.cattle.io/managed: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T14:29:21Z"
+    name: request-bzlll-content
+    resourceVersion: "251764"
+    uid: 4609b258-7c78-4502-bd69-03ee5e409d3a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: fleet-content
+  subjects:
+  - kind: ServiceAccount
+    name: request-bzlll-932152c4-0b3c-47e3-81e4-1ce453e5af14
+    namespace: cluster-fleet-local-local-1a3d67d0a899
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:39:00Z"
+    labels:
+      rke2.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:rke2.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rke2
+      operation: Update
+      time: "2026-06-12T10:39:00Z"
+    name: rke2-cloud-controller-manager
+    resourceVersion: "286"
+    uid: edd8111a-43cc-4f8c-82c3-e032a54aa5e5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: rke2-cloud-controller-manager
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: rke2-cloud-controller-manager
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:39:00Z"
+    labels:
+      rke2.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:rke2.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rke2
+      operation: Update
+      time: "2026-06-12T10:39:00Z"
+    name: rke2-cloud-controller-manager-auth-delegator
+    resourceVersion: "283"
+    uid: 6b80cdb4-4e11-45ad-92cd-7fe233738b09
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:auth-delegator
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: rke2-cloud-controller-manager
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-coredns
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:07Z"
+    labels:
+      app.kubernetes.io/instance: rke2-coredns
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-coredns
+      helm.sh/chart: rke2-coredns-1.45.212
+      k8s-app: kube-dns
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: CoreDNS
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:helm.sh/chart: {}
+            f:k8s-app: {}
+            f:kubernetes.io/cluster-service: {}
+            f:kubernetes.io/name: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:07Z"
+    name: rke2-coredns-rke2-coredns
+    resourceVersion: "575"
+    uid: bffb72b8-ddd0-4ae7-9454-c4b6f4251aa1
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: rke2-coredns-rke2-coredns
+  subjects:
+  - kind: ServiceAccount
+    name: coredns
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-coredns
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:07Z"
+    labels:
+      app.kubernetes.io/instance: rke2-coredns
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-coredns-autoscaler
+      helm.sh/chart: rke2-coredns-1.45.212
+      k8s-app: kube-dns-autoscaler
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: CoreDNS
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:helm.sh/chart: {}
+            f:k8s-app: {}
+            f:kubernetes.io/cluster-service: {}
+            f:kubernetes.io/name: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:07Z"
+    name: rke2-coredns-rke2-coredns-autoscaler
+    resourceVersion: "576"
+    uid: 61024780-4440-432e-be9c-55141fa3bfe3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: rke2-coredns-rke2-coredns-autoscaler
+  subjects:
+  - kind: ServiceAccount
+    name: rke2-coredns-rke2-coredns-autoscaler
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-ingress-nginx
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:31Z"
+    labels:
+      app.kubernetes.io/instance: rke2-ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-ingress-nginx
+      app.kubernetes.io/part-of: rke2-ingress-nginx
+      app.kubernetes.io/version: 1.14.5
+      helm.sh/chart: rke2-ingress-nginx-4.14.508
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/part-of: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:31Z"
+    name: rke2-ingress-nginx
+    resourceVersion: "1036"
+    uid: 7ed561f8-6b88-45a6-b87c-ec36a44d2d7f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: rke2-ingress-nginx
+  subjects:
+  - kind: ServiceAccount
+    name: rke2-ingress-nginx
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yPMU/DQAxG/4vnJlQtaa/ZEAN7GRGD43Ma0+s5uvMxUPW/oyswwIA6Wvr8nt4ZTmzo0RD6M2CMamiiMddThzcmy2xtEm0JzQK3onfioYd05FVzQpokckMaRzk0FBhjmeGygIADh38pE+YJevB+5wca/ZbWzrnOr5e8dUjDpsPOcbfbrDb3S7dcVWjEE/9R/zY3g0Qv8VDHSQPvebx2zfKUtMz1d0BqsdikST6uqe3R5VYUFnCUWMseQ8nGaa+B4RZnFVVhLl+l0L+cf1jPnN6F+IFIS7SbcBm/Z3lGqtsxMFsTlDDA5fXyGQAA//9eIcCAswEAAA
+      objectset.rio.cattle.io/id: rke2-machine-config-cleanup
+    creationTimestamp: "2026-06-12T10:42:20Z"
+    labels:
+      objectset.rio.cattle.io/hash: dd9dbcfd7c38885d30e78acb65a58e5962640802
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:42:20Z"
+    name: rke2-machineconfig-cleanup-binding
+    resourceVersion: "3742"
+    uid: 18b752d6-3097-407d-9f95-9d922fa96487
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: rke2-machineconfig-cleanup-role
+  subjects:
+  - kind: ServiceAccount
+    name: rke2-machineconfig-cleanup-sa
+    namespace: fleet-local
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-metrics-server
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:29Z"
+    labels:
+      app: rke2-metrics-server
+      app.kubernetes.io/instance: rke2-metrics-server
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-metrics-server
+      app.kubernetes.io/version: 0.8.0
+      helm.sh/chart: rke2-metrics-server-3.13.011
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:29Z"
+    name: rke2-metrics-server:system:auth-delegator
+    resourceVersion: "981"
+    uid: 4a1ea886-4565-4c3c-97fd-00392fb784ba
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:auth-delegator
+  subjects:
+  - kind: ServiceAccount
+    name: rke2-metrics-server
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-multus
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:07Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:07Z"
+    name: rke2-multus
+    resourceVersion: "598"
+    uid: aa4de77b-7c94-49af-a5c8-214a0719d614
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: rke2-multus
+  subjects:
+  - kind: ServiceAccount
+    name: multus
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: snapshot-controller-role
+    resourceVersion: "4367"
+    uid: 7dabcbdd-eb82-42c8-a848-9b4fccb9f128
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: snapshot-controller-runner
+  subjects:
+  - kind: ServiceAccount
+    name: snapshot-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4SQMU/DMBCF/8vNjUnaNGq8IQb2MiKG8+VITB07ss9IEOW/ozQgMbWj9Xzf0/dmGFmwQ0HQM6D3QVBs8Gl9BvPBJIlFRRsUoYhjZcOD7UDDiB577or0lYTHAnv2AssOHBp2N88HTANoaFoyx6psqhoPdWdKIkRu65LKhvclVac9HbA1xxXqcWTQ8L+ryFMfseO45jE4PvP71WGyzzHkCTREg6QwyxCi/b5qqcspKRtgBxfrV4snl5NwPAfHcL8m5U0J9Ov8R3jh+GmJH4lC9nIPssVpQlr/bJv8TgjL2/ITAAD//xx7zqKPAQAA
+      objectset.rio.cattle.io/id: managed-system-agent
+    creationTimestamp: "2026-06-12T10:45:22Z"
+    labels:
+      objectset.rio.cattle.io/hash: 69cb510614a34db0ccaae940c06e20c182c3a9b5
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:45:22Z"
+    name: system-agent-upgrader
+    resourceVersion: "8917"
+    uid: c7c35656-fd00-4c9e-8379-e5591a3812e3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system-agent-upgrader
+  subjects:
+  - kind: ServiceAccount
+    name: system-agent-upgrader
+    namespace: cattle-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: mcc-local-managed-system-upgrade-controller
+      meta.helm.sh/release-namespace: cattle-system
+    creationTimestamp: "2026-06-12T10:42:21Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:42:21Z"
+    name: system-upgrade-controller
+    resourceVersion: "3814"
+    uid: 60b7a790-e4d0-4f0d-9752-0479e06c039b
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: system-upgrade-controller
+    namespace: cattle-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:basic-user
+    resourceVersion: "138"
+    uid: 673c0493-e3bd-4825-adf4-061e6a54be69
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:basic-user
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:attachdetach-controller
+    resourceVersion: "147"
+    uid: 3926dc9c-7b60-4dc6-b365-6b3ba3108bbb
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:attachdetach-controller
+  subjects:
+  - kind: ServiceAccount
+    name: attachdetach-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:certificate-controller
+    resourceVersion: "175"
+    uid: fcacb338-4eda-4065-9a3d-aa9a8341338e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:certificate-controller
+  subjects:
+  - kind: ServiceAccount
+    name: certificate-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:clusterrole-aggregation-controller
+    resourceVersion: "148"
+    uid: 2bd2b5aa-3f6b-4b6f-afc1-fdb269b6d6f3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:clusterrole-aggregation-controller
+  subjects:
+  - kind: ServiceAccount
+    name: clusterrole-aggregation-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:cronjob-controller
+    resourceVersion: "149"
+    uid: 8de5b762-179d-4d49-8239-2077e918cb2e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:cronjob-controller
+  subjects:
+  - kind: ServiceAccount
+    name: cronjob-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:daemon-set-controller
+    resourceVersion: "150"
+    uid: f61adf33-064d-4307-adfb-00bbb98727df
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:daemon-set-controller
+  subjects:
+  - kind: ServiceAccount
+    name: daemon-set-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:deployment-controller
+    resourceVersion: "151"
+    uid: 65d479f0-7409-44a6-ac71-f5477251cf5e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:deployment-controller
+  subjects:
+  - kind: ServiceAccount
+    name: deployment-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:disruption-controller
+    resourceVersion: "152"
+    uid: 448de308-914a-4913-a4d4-26e364b95f56
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:disruption-controller
+  subjects:
+  - kind: ServiceAccount
+    name: disruption-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:endpoint-controller
+    resourceVersion: "153"
+    uid: 4736829c-de8e-4e5c-ad18-5a642b6f795b
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:endpoint-controller
+  subjects:
+  - kind: ServiceAccount
+    name: endpoint-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:endpointslice-controller
+    resourceVersion: "154"
+    uid: 5ed1b4f8-db95-4d1b-9195-26ff429c188e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:endpointslice-controller
+  subjects:
+  - kind: ServiceAccount
+    name: endpointslice-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:endpointslicemirroring-controller
+    resourceVersion: "155"
+    uid: 3f1165ba-f6ae-4c93-b66f-cefacad9a7e0
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:endpointslicemirroring-controller
+  subjects:
+  - kind: ServiceAccount
+    name: endpointslicemirroring-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:ephemeral-volume-controller
+    resourceVersion: "157"
+    uid: b1101d03-9374-4d58-ade0-0c3124f1e7a0
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:ephemeral-volume-controller
+  subjects:
+  - kind: ServiceAccount
+    name: ephemeral-volume-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:expand-controller
+    resourceVersion: "156"
+    uid: 548686e3-e33d-43e2-b681-0e72a328f9d5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:expand-controller
+  subjects:
+  - kind: ServiceAccount
+    name: expand-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:generic-garbage-collector
+    resourceVersion: "159"
+    uid: 6b7c143e-dc86-4982-90b7-342167f2fc12
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:generic-garbage-collector
+  subjects:
+  - kind: ServiceAccount
+    name: generic-garbage-collector
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:horizontal-pod-autoscaler
+    resourceVersion: "160"
+    uid: 0a78d575-bb93-4222-91ee-0166c66a743f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:horizontal-pod-autoscaler
+  subjects:
+  - kind: ServiceAccount
+    name: horizontal-pod-autoscaler
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:job-controller
+    resourceVersion: "161"
+    uid: cfeaa6e4-a140-4816-a7ab-2991ff3a46d4
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:job-controller
+  subjects:
+  - kind: ServiceAccount
+    name: job-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:legacy-service-account-token-cleaner
+    resourceVersion: "182"
+    uid: 18170ec1-8373-4499-921e-bb5a3fb906c8
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:legacy-service-account-token-cleaner
+  subjects:
+  - kind: ServiceAccount
+    name: legacy-service-account-token-cleaner
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:namespace-controller
+    resourceVersion: "162"
+    uid: 4145e576-cd1c-4eac-a2b0-b9f190d63807
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:namespace-controller
+  subjects:
+  - kind: ServiceAccount
+    name: namespace-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:node-controller
+    resourceVersion: "163"
+    uid: c6146002-e12e-4f08-b326-1fa879e3bb25
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:node-controller
+  subjects:
+  - kind: ServiceAccount
+    name: node-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:persistent-volume-binder
+    resourceVersion: "164"
+    uid: 80c09898-325a-4ac8-8b2f-9c9f2e37347a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:persistent-volume-binder
+  subjects:
+  - kind: ServiceAccount
+    name: persistent-volume-binder
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:pod-garbage-collector
+    resourceVersion: "165"
+    uid: df7d8739-0b7a-4fe1-9707-9a3f4a5ea6fe
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:pod-garbage-collector
+  subjects:
+  - kind: ServiceAccount
+    name: pod-garbage-collector
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:pv-protection-controller
+    resourceVersion: "177"
+    uid: 0b40394c-8a18-46e5-b8de-5badc923c3d2
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:pv-protection-controller
+  subjects:
+  - kind: ServiceAccount
+    name: pv-protection-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:pvc-protection-controller
+    resourceVersion: "176"
+    uid: 14d1e069-9547-4b16-ae18-66673e95d2a7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:pvc-protection-controller
+  subjects:
+  - kind: ServiceAccount
+    name: pvc-protection-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:replicaset-controller
+    resourceVersion: "166"
+    uid: 961b8a85-b23d-42d3-978a-29fbd5deb766
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:replicaset-controller
+  subjects:
+  - kind: ServiceAccount
+    name: replicaset-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:replication-controller
+    resourceVersion: "167"
+    uid: 83f00236-02e1-4542-9f88-acc4db8148fc
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:replication-controller
+  subjects:
+  - kind: ServiceAccount
+    name: replication-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:resource-claim-controller
+    resourceVersion: "158"
+    uid: 604d60d2-0821-4926-a0be-099820dcf079
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:resource-claim-controller
+  subjects:
+  - kind: ServiceAccount
+    name: resource-claim-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:resourcequota-controller
+    resourceVersion: "168"
+    uid: 721d6a38-ba53-4a8c-a76b-046d4747738a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:resourcequota-controller
+  subjects:
+  - kind: ServiceAccount
+    name: resourcequota-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:root-ca-cert-publisher
+    resourceVersion: "180"
+    uid: ce0e581f-3a56-446f-9057-89834b2b5104
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:root-ca-cert-publisher
+  subjects:
+  - kind: ServiceAccount
+    name: root-ca-cert-publisher
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:route-controller
+    resourceVersion: "169"
+    uid: a2512bdd-9670-4f29-a7e4-b9f3325dbb85
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:route-controller
+  subjects:
+  - kind: ServiceAccount
+    name: route-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:selinux-warning-controller
+    resourceVersion: "183"
+    uid: d9c5921e-00e9-4bbb-9044-5aef2b46bebd
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:selinux-warning-controller
+  subjects:
+  - kind: ServiceAccount
+    name: selinux-warning-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:service-account-controller
+    resourceVersion: "170"
+    uid: c4fb4f1c-0011-4832-9eaa-91bc319bf81d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:service-account-controller
+  subjects:
+  - kind: ServiceAccount
+    name: service-account-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:service-cidrs-controller
+    resourceVersion: "172"
+    uid: 78c93533-8841-4cab-8f39-b33b5982a3f3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:service-cidrs-controller
+  subjects:
+  - kind: ServiceAccount
+    name: service-cidrs-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:service-controller
+    resourceVersion: "171"
+    uid: e6aa17fb-bb76-4fb4-bf0e-6854e92ece99
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:service-controller
+  subjects:
+  - kind: ServiceAccount
+    name: service-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:statefulset-controller
+    resourceVersion: "173"
+    uid: 72a3f720-9448-4736-8ec3-512d5c2d2f76
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:statefulset-controller
+  subjects:
+  - kind: ServiceAccount
+    name: statefulset-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:ttl-after-finished-controller
+    resourceVersion: "179"
+    uid: 85138ff0-5c1d-4189-bdd8-50345d927362
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:ttl-after-finished-controller
+  subjects:
+  - kind: ServiceAccount
+    name: ttl-after-finished-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:ttl-controller
+    resourceVersion: "174"
+    uid: a8938863-9967-464c-b4ac-85cdc857a13d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:ttl-controller
+  subjects:
+  - kind: ServiceAccount
+    name: ttl-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:validatingadmissionpolicy-status-controller
+    resourceVersion: "181"
+    uid: 75a04c7d-f16e-4d51-9062-49687d8107ca
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:validatingadmissionpolicy-status-controller
+  subjects:
+  - kind: ServiceAccount
+    name: validatingadmissionpolicy-status-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:controller:volumeattributesclass-protection-controller
+    resourceVersion: "178"
+    uid: 1fb014d8-fe4b-44f5-ab51-443a929b278b
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:volumeattributesclass-protection-controller
+  subjects:
+  - kind: ServiceAccount
+    name: volumeattributesclass-protection-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:discovery
+    resourceVersion: "137"
+    uid: 5f07660a-22a6-45db-bba1-2e6058e4709d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:discovery
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:kube-controller-manager
+    resourceVersion: "141"
+    uid: de98d7cc-5bd4-4888-ae4c-37965a81a08a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:kube-controller-manager
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-controller-manager
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:kube-dns
+    resourceVersion: "142"
+    uid: 3a138ceb-a7b3-481b-ac44-8bfc3cbb1a7a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:kube-dns
+  subjects:
+  - kind: ServiceAccount
+    name: kube-dns
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:39:00Z"
+    labels:
+      rke2.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:rke2.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rke2
+      operation: Update
+      time: "2026-06-12T10:39:00Z"
+    name: system:kube-proxy
+    resourceVersion: "290"
+    uid: 47cbdcf7-dda7-453e-88de-45e624bda216
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:kube-proxy
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-proxy
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:kube-scheduler
+    resourceVersion: "143"
+    uid: fd7e8181-238f-4f6a-a86c-f7f17b318091
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:kube-scheduler
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-scheduler
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:monitoring
+    resourceVersion: "136"
+    uid: c5a46e64-bf34-48c8-9edf-34c231fe0635
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:monitoring
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:monitoring
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:node
+    resourceVersion: "145"
+    uid: 19ff5da6-8ded-4a06-bd04-a0ac5a1bac49
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:node
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:node-proxier
+    resourceVersion: "140"
+    uid: f112ab47-0d92-4d3f-8981-d99ff5a5deab
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:node-proxier
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-proxy
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:public-info-viewer
+    resourceVersion: "139"
+    uid: 2fe45cc4-78ec-406f-9cab-92c82af34c01
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:public-info-viewer
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:unauthenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:39:01Z"
+    labels:
+      rke2.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:rke2.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rke2
+      operation: Update
+      time: "2026-06-12T10:39:01Z"
+    name: system:rke2-controller
+    resourceVersion: "301"
+    uid: 08005e10-886a-4127-8fd9-1bc831c51bbd
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:rke2-controller
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:rke2-controller
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-metrics-server
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:29Z"
+    labels:
+      app: rke2-metrics-server
+      app.kubernetes.io/instance: rke2-metrics-server
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-metrics-server
+      app.kubernetes.io/version: 0.8.0
+      helm.sh/chart: rke2-metrics-server-3.13.011
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:29Z"
+    name: system:rke2-metrics-server
+    resourceVersion: "980"
+    uid: ee331477-0e8e-4ae6-abe0-f8661f9be581
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:rke2-metrics-server
+  subjects:
+  - kind: ServiceAccount
+    name: rke2-metrics-server
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:service-account-issuer-discovery
+    resourceVersion: "146"
+    uid: 9193d33f-ece0-4424-b95a-b9d45e888135
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:service-account-issuer-discovery
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:serviceaccounts
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2026-06-12T10:38:52Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:rbac.authorization.kubernetes.io/autoupdate: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/bootstrapping: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:52Z"
+    name: system:volume-scheduler
+    resourceVersion: "144"
+    uid: a1bc9793-a433-4f44-ace5-4c30d12314e7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:volume-scheduler
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-scheduler
+kind: List
+metadata:
+  resourceVersion: "676237"

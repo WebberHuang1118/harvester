@@ -1,0 +1,57 @@
+apiVersion: v1
+items:
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: hp-69-tink-system
+    creationTimestamp: "2026-06-12T15:10:04Z"
+    finalizers:
+    - external-attacher/driver-longhorn-io
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:csi.alpha.kubernetes.io/node-id: {}
+          f:finalizers:
+            .: {}
+            v:"external-attacher/driver-longhorn-io"null: {}
+      manager: csi-attacher
+      operation: Update
+      time: "2026-06-12T15:10:04Z"
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:attacher: {}
+          f:nodeName: {}
+          f:source:
+            f:persistentVolumeName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T15:10:04Z"
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:attached: {}
+      manager: csi-attacher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:20Z"
+    name: csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b
+    resourceVersion: "292704"
+    uid: 92a1a714-3855-4e53-ac22-e055c943b105
+  spec:
+    attacher: driver.longhorn.io
+    nodeName: hp-69-tink-system
+    source:
+      persistentVolumeName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+  status:
+    attached: true
+kind: List
+metadata:
+  resourceVersion: "676237"

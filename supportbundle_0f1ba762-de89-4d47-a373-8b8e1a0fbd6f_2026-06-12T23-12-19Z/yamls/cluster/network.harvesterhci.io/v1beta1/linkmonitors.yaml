@@ -1,0 +1,192 @@
+apiVersion: v1
+items:
+- apiVersion: network.harvesterhci.io/v1beta1
+  kind: LinkMonitor
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:55Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-network-link-monitor-controller
+    generation: 5
+    managedFields:
+    - apiVersion: network.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-network-link-monitor-controller"null: {}
+        f:spec:
+          .: {}
+          f:targetLinkRule:
+            .: {}
+            f:nameRule: {}
+        f:status:
+          .: {}
+          f:linkStatus:
+            .: {}
+            f:hp-69-tink-system: {}
+            f:hp-117-tink-system: {}
+            f:hp-150-tink-system: {}
+      manager: harvester-network-controller
+      operation: Update
+      time: "2026-06-12T12:57:46Z"
+    name: mgmt
+    resourceVersion: "141420"
+    uid: 06392a89-095f-4a2b-a399-1b94d8719044
+  spec:
+    targetLinkRule:
+      nameRule: mgmt(-br|-bo)
+  status:
+    linkStatus:
+      hp-69-tink-system:
+      - index: 4
+        mac: 5c:b9:01:88:d0:30
+        masterIndex: 5
+        name: mgmt-bo
+        promiscuous: true
+        state: up
+        type: bond
+      - index: 5
+        mac: 5c:b9:01:88:d0:30
+        name: mgmt-br
+        promiscuous: true
+        state: up
+        type: bridge
+      - index: 6
+        mac: 5c:b9:01:88:d0:30
+        name: mgmt-br.2021
+        state: up
+        type: vlan
+      hp-117-tink-system:
+      - index: 8
+        mac: 5c:b9:01:88:d0:44
+        masterIndex: 9
+        name: mgmt-bo
+        state: up
+        type: bond
+      - index: 9
+        mac: 5c:b9:01:88:d0:44
+        name: mgmt-br
+        state: up
+        type: bridge
+      - index: 10
+        mac: 5c:b9:01:88:d0:44
+        name: mgmt-br.2021
+        state: up
+        type: vlan
+      hp-150-tink-system:
+      - index: 4
+        mac: 5c:b9:01:89:c2:ac
+        masterIndex: 5
+        name: mgmt-bo
+        state: up
+        type: bond
+      - index: 5
+        mac: 5c:b9:01:89:c2:ac
+        name: mgmt-br
+        state: up
+        type: bridge
+      - index: 6
+        mac: 5c:b9:01:89:c2:ac
+        name: mgmt-br.2021
+        state: up
+        type: vlan
+- apiVersion: network.harvesterhci.io/v1beta1
+  kind: LinkMonitor
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:54Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-network-link-monitor-controller
+    generation: 67
+    managedFields:
+    - apiVersion: network.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-network-link-monitor-controller"null: {}
+        f:spec:
+          .: {}
+          f:targetLinkRule:
+            .: {}
+            f:typeRule: {}
+        f:status:
+          .: {}
+          f:linkStatus:
+            .: {}
+            f:hp-69-tink-system: {}
+            f:hp-117-tink-system: {}
+            f:hp-150-tink-system: {}
+      manager: harvester-network-controller
+      operation: Update
+      time: "2026-06-12T15:27:37Z"
+    name: nic
+    resourceVersion: "308660"
+    uid: 67839111-e213-4e34-a0ad-c6290cefb849
+  spec:
+    targetLinkRule:
+      typeRule: device
+  status:
+    linkStatus:
+      hp-69-tink-system:
+      - index: 2
+        mac: 5c:b9:01:88:d0:30
+        masterIndex: 4
+        name: netboot
+        promiscuous: true
+        state: up
+        type: device
+      - index: 3
+        mac: 5c:b9:01:88:d0:31
+        name: eno50
+        state: up
+        type: device
+      hp-117-tink-system:
+      - index: 2
+        mac: ec:b1:d7:89:df:88
+        name: eno1
+        state: down
+        type: device
+      - index: 3
+        mac: ec:b1:d7:89:df:89
+        name: eno2
+        state: down
+        type: device
+      - index: 4
+        mac: 5c:b9:01:88:d0:44
+        masterIndex: 8
+        name: netboot
+        state: up
+        type: device
+      - index: 5
+        mac: ec:b1:d7:89:df:8a
+        name: eno3
+        state: down
+        type: device
+      - index: 6
+        mac: ec:b1:d7:89:df:8b
+        name: eno4
+        state: down
+        type: device
+      - index: 7
+        mac: 5c:b9:01:88:d0:45
+        name: eno50
+        state: up
+        type: device
+      hp-150-tink-system:
+      - index: 2
+        mac: 5c:b9:01:89:c2:ac
+        masterIndex: 4
+        name: netboot
+        state: up
+        type: device
+      - index: 3
+        mac: 5c:b9:01:89:c2:ad
+        name: eno50
+        state: up
+        type: device
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676283"

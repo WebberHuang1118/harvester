@@ -1,0 +1,15 @@
+2026-06-12T23:03:22.690344159Z I0612 23:03:22.690156       1 main.go:135] Version: v2.9.2
+2026-06-12T23:03:22.690378300Z I0612 23:03:22.690273       1 main.go:136] Running node-driver-registrar in mode=
+2026-06-12T23:03:22.690382184Z I0612 23:03:22.690282       1 main.go:157] Attempting to open a gRPC connection with: "/csi/csi.sock"
+2026-06-12T23:03:22.690393582Z I0612 23:03:22.690308       1 connection.go:213] Connecting to unix:///csi/csi.sock
+2026-06-12T23:03:27.544692349Z I0612 23:03:27.544598       1 main.go:164] Calling CSI driver to discover driver name
+2026-06-12T23:03:27.544713880Z I0612 23:03:27.544624       1 connection.go:242] GRPC call: /csi.v1.Identity/GetPluginInfo
+2026-06-12T23:03:27.546771190Z I0612 23:03:27.544631       1 connection.go:243] GRPC request: {}
+2026-06-12T23:03:27.549227755Z I0612 23:03:27.549124       1 connection.go:249] GRPC response: {"name":"lvm.driver.harvesterhci.io","vendor_version":"dev"}
+2026-06-12T23:03:27.549240171Z I0612 23:03:27.549152       1 connection.go:250] GRPC error: <nil>
+2026-06-12T23:03:27.549243381Z I0612 23:03:27.549163       1 main.go:173] CSI driver name: "lvm.driver.harvesterhci.io"
+2026-06-12T23:03:27.549246348Z I0612 23:03:27.549195       1 node_register.go:55] Starting Registration Server at: /registration/lvm.driver.harvesterhci.io-reg.sock
+2026-06-12T23:03:27.549644659Z I0612 23:03:27.549522       1 node_register.go:64] Registration Server started at: /registration/lvm.driver.harvesterhci.io-reg.sock
+2026-06-12T23:03:27.549873119Z I0612 23:03:27.549803       1 node_register.go:88] Skipping HTTP server because endpoint is set to: ""
+2026-06-12T23:03:28.341036954Z I0612 23:03:28.340961       1 main.go:90] Received GetInfo call: &InfoRequest{}
+2026-06-12T23:03:28.404104032Z I0612 23:03:28.404024       1 main.go:101] Received NotifyRegistrationStatus call: &RegistrationStatus{PluginRegistered:true,Error:,}

@@ -1,0 +1,19 @@
+#==[ Plugin ]=======================================#
+# Output: /usr/lib/supportconfig/plugins/harvester_plugin_rke2
+
+#==[ Command ]======================================#
+# /usr/lib/supportconfig/plugins/harvester_plugin_rke2
+no /run/cos/target/rke2.log available yet
+
+
+#==[ Plugin ]=======================================#
+# File: cat -n /usr/lib/supportconfig/plugins/harvester_plugin_rke2
+
+     1	#!/bin/bash
+     2	if [ -f /run/cos/target/rke2.log ]
+     3	then
+     4	  cat /run/cos/target/rke2.log
+     5	else
+     6	  echo "no /run/cos/target/rke2.log available yet"
+     7	fi
+

@@ -1,0 +1,140 @@
+apiVersion: v1
+items:
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:40:42Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T23:12:22Z"
+    name: fleet-agentmanagement-lock
+    namespace: cattle-fleet-system
+    resourceVersion: "676271"
+    uid: b448ace1-6368-41ca-9169-0d8243d81574
+  spec:
+    acquireTime: "2026-06-12T10:40:42.580438Z"
+    holderIdentity: fleet-controller-58f99fb59b-g8rnn
+    leaseDurationSeconds: 30
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:22.044163Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:40:42Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T23:12:22Z"
+    name: fleet-cleanup-lock
+    namespace: cattle-fleet-system
+    resourceVersion: "676272"
+    uid: 50367b9c-207b-4ec6-9767-b5928b3376c9
+  spec:
+    acquireTime: "2026-06-12T10:40:42.191577Z"
+    holderIdentity: fleet-controller-58f99fb59b-g8rnn
+    leaseDurationSeconds: 30
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:22.046149Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:41:58Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T23:12:29Z"
+    name: fleet-controller-leader-election-shard
+    namespace: cattle-fleet-system
+    resourceVersion: "676367"
+    uid: 9e8d5338-5eaf-4823-9c3b-3c48d362037f
+  spec:
+    acquireTime: "2026-06-12T10:41:58.900382Z"
+    holderIdentity: fleet-controller-58f99fb59b-g8rnn_213d1ccd-fc84-4f16-8be1-819e78bbd523
+    leaseDurationSeconds: 30
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:29.615269Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:41:58Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T23:12:29Z"
+    name: fleet-gitops-leader-election-shard
+    namespace: cattle-fleet-system
+    resourceVersion: "676368"
+    uid: 8f23b66f-b1cb-437f-a308-00dba430459d
+  spec:
+    acquireTime: "2026-06-12T10:41:58.901947Z"
+    holderIdentity: gitjob-59f544c44d-9vg5s_d6006545-2590-46c9-b598-c13fbd9419d6
+    leaseDurationSeconds: 30
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:29.617336Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:40:41Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T23:12:22Z"
+    name: fleet-helmops-leader-election-shard
+    namespace: cattle-fleet-system
+    resourceVersion: "676273"
+    uid: 62ae166d-0ec7-437a-8e73-81ac7a8ab7a0
+  spec:
+    acquireTime: "2026-06-12T10:40:41.960910Z"
+    holderIdentity: helmops-65cdb6c4cc-92rdd_200c13be-c5e2-4276-9206-00623178f656
+    leaseDurationSeconds: 30
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:22.051211Z"
+kind: List
+metadata:
+  resourceVersion: "676388"

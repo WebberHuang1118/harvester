@@ -1,0 +1,167 @@
+apiVersion: v1
+items:
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:43:28Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: csi-provisioner
+      operation: Update
+      time: "2026-06-12T23:12:35Z"
+    name: driver-longhorn-io
+    namespace: longhorn-system
+    resourceVersion: "676453"
+    uid: 839d96f3-ff6a-4c88-b30b-84829481f372
+  spec:
+    acquireTime: "2026-06-12T10:43:28.567504Z"
+    holderIdentity: 1781261008513-8014-driver-longhorn-io
+    leaseDurationSeconds: 15
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:35.932746Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:43:29Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: csi-attacher
+      operation: Update
+      time: "2026-06-12T23:12:35Z"
+    name: external-attacher-leader-driver-longhorn-io
+    namespace: longhorn-system
+    resourceVersion: "676454"
+    uid: be269413-a582-49f3-a29e-64f3a73922db
+  spec:
+    acquireTime: "2026-06-12T10:43:29.053523Z"
+    holderIdentity: csi-attacher-789565cff6-wxzxs
+    leaseDurationSeconds: 15
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:35.933264Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:43:28Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: csi-resizer
+      operation: Update
+      time: "2026-06-12T23:12:35Z"
+    name: external-resizer-driver-longhorn-io
+    namespace: longhorn-system
+    resourceVersion: "676450"
+    uid: 81e11176-dc5b-4a3d-a4b5-888235b731c1
+  spec:
+    acquireTime: "2026-06-12T10:43:28.483951Z"
+    holderIdentity: csi-resizer-5d694ff569-j74gj
+    leaseDurationSeconds: 15
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:35.923217Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:43:28Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: csi-snapshotter
+      operation: Update
+      time: "2026-06-12T23:12:35Z"
+    name: external-snapshotter-leader-driver-longhorn-io
+    namespace: longhorn-system
+    resourceVersion: "676451"
+    uid: c69d3b15-536c-4e15-8749-aa565732fafc
+  spec:
+    acquireTime: "2026-06-12T10:43:28.858832Z"
+    holderIdentity: csi-snapshotter-678c9588c4-mt4mp
+    leaseDurationSeconds: 15
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:35.926882Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:49Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:42:49Z"
+    name: longhorn-manager-upgrade-lock
+    namespace: longhorn-system
+    resourceVersion: "5360"
+    uid: b40dfe3c-b3ae-49bb-873f-e415bd593064
+  spec:
+    acquireTime: "2026-06-12T10:42:49.846747Z"
+    holderIdentity: "null"
+    leaseDurationSeconds: 1
+    leaseTransitions: 0
+    renewTime: "2026-06-12T10:42:49.846747Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:45Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:47:38Z"
+    name: longhorn-manager-webhook-lock
+    namespace: longhorn-system
+    resourceVersion: "11944"
+    uid: 3f27c42b-fd38-4037-811a-6b2639c28220
+  spec:
+    acquireTime: "2026-06-12T10:47:38.282866Z"
+    holderIdentity: "null"
+    leaseDurationSeconds: 1
+    leaseTransitions: 2
+    renewTime: "2026-06-12T10:47:38.282866Z"
+kind: List
+metadata:
+  resourceVersion: "676475"

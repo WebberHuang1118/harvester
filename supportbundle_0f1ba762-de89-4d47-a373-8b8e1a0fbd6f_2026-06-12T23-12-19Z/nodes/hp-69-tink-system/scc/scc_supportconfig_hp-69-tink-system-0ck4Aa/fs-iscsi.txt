@@ -1,0 +1,254 @@
+#___________________________________________________________#
+#____[ iSCSI Target Information ]___________________________#
+
+#==[ Verification ]=================================#
+# RPM Not Installed: python3-targetcli-fb
+
+#___________________________________________________________#
+#____[ iSCSI Initiator Information ]________________________#
+
+#==[ Verification ]=================================#
+# rpm -V open-iscsi-2.1.11-160000.3.1.x86_64
+.M.......  g /etc/iscsi/initiatorname.iscsi
+# Verification Status: Differences Found
+
+#==[ Command ]======================================#
+# /bin/systemctl status iscsi.service
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemctl status iscsid.service
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemctl status iscsid.socket
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Configuration File ]===========================#
+# /etc/iscsi/initiatorname.iscsi
+InitiatorName=iqn.1996-04.de.suse:01:9012f19ad5ed
+
+
+#==[ Configuration File ]===========================#
+# /etc/iscsi/iscsid.conf
+iscsid.startup = /bin/systemctl start iscsid.socket iscsiuio.socket
+iscsid.safe_logout = Yes
+node.startup = manual
+node.leading_login = No
+node.session.timeo.replacement_timeout = 120
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.noop_out_interval = 0
+node.conn[0].timeo.noop_out_timeout = 0
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.initial_login_retry_max = 8
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+discovery.sendtargets.iscsi.MaxRecvDataSegmentLength = 32768
+node.session.nr_sessions = 1
+node.session.reopen_max = 0
+node.session.iscsi.FastAbort = Yes
+node.session.scan = auto
+
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m discovery
+10.52.2.14:3260 via sendtargets
+10.52.2.82:3260 via sendtargets
+10.52.2.107:3260 via sendtargets
+10.52.2.111:3260 via sendtargets
+10.52.2.192:3260 via sendtargets
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m discovery -P 1
+SENDTARGETS:
+DiscoveryAddress: 10.52.2.14,3260
+DiscoveryAddress: 10.52.2.82,3260
+DiscoveryAddress: 10.52.2.107,3260
+DiscoveryAddress: 10.52.2.111,3260
+DiscoveryAddress: 10.52.2.192,3260
+Target: iqn.2019-10.io.longhorn:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+	Portal: 10.52.2.192:3260,1
+		Iface Name: default
+iSNS:
+No targets found.
+STATIC:
+No targets found.
+FIRMWARE:
+No targets found.
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m iface
+default tcp,<empty>,<empty>,<empty>,<empty>
+iser iser,<empty>,<empty>,<empty>,<empty>
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m iface -P 1
+Iface: default
+	Target: iqn.2019-10.io.longhorn:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+		Portal: 10.52.2.192:3260,1
+Iface: iser
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m host
+iSCSI ERROR: Failed to read 'username': permission deny when reading '/sys/class/iscsi_session/session68/username' # ../libopeniscsiusr/sysfs.c:_sysfs_prop_get_str():184
+<empty>: [0] 10.115.252.96,[<empty>],<empty> <empty>
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m host -P 1
+iSCSI ERROR: Failed to read 'username': permission deny when reading '/sys/class/iscsi_session/session68/username' # ../libopeniscsiusr/sysfs.c:_sysfs_prop_get_str():184
+Host Number: 0
+	State: running
+	Transport: <empty>
+	Initiatorname: <empty>
+	IPaddress: 10.115.252.96
+	HWaddress: <empty>
+	Netdev: <empty>
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m session
+iSCSI ERROR: Failed to read 'username': permission deny when reading '/sys/class/iscsi_session/session68/username' # ../libopeniscsiusr/sysfs.c:_sysfs_prop_get_str():184
+iscsiadm: No active sessions.
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m session -P 1
+iSCSI ERROR: Failed to read 'username': permission deny when reading '/sys/class/iscsi_session/session68/username' # ../libopeniscsiusr/sysfs.c:_sysfs_prop_get_str():184
+iscsiadm: No active sessions.
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m fw
+iscsiadm: Could not get list of targets from firmware. (err 21)
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m node
+10.52.2.192:3260,1 iqn.2019-10.io.longhorn:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m node -P 1
+Target: iqn.2019-10.io.longhorn:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+	Portal: 10.52.2.192:3260,1
+		Iface Name: default
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m node -T iqn.2019-10.io.longhorn:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+# BEGIN RECORD 2.1.11
+node.name = iqn.2019-10.io.longhorn:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+node.tpgt = 1
+node.startup = manual
+node.leading_login = No
+iface.iscsi_ifacename = default
+iface.net_ifacename = <empty>
+iface.ipaddress = <empty>
+iface.prefix_len = 0
+iface.hwaddress = <empty>
+iface.transport_name = tcp
+iface.initiatorname = <empty>
+iface.state = <empty>
+iface.vlan_id = 0
+iface.vlan_priority = 0
+iface.vlan_state = <empty>
+iface.iface_num = 0
+iface.mtu = 0
+iface.port = 0
+iface.bootproto = <empty>
+iface.subnet_mask = <empty>
+iface.gateway = <empty>
+iface.dhcp_alt_client_id_state = <empty>
+iface.dhcp_alt_client_id = <empty>
+iface.dhcp_dns = <empty>
+iface.dhcp_learn_iqn = <empty>
+iface.dhcp_req_vendor_id_state = <empty>
+iface.dhcp_vendor_id_state = <empty>
+iface.dhcp_vendor_id = <empty>
+iface.dhcp_slp_da = <empty>
+iface.fragmentation = <empty>
+iface.gratuitous_arp = <empty>
+iface.incoming_forwarding = <empty>
+iface.tos_state = <empty>
+iface.tos = 0
+iface.ttl = 0
+iface.delayed_ack = <empty>
+iface.tcp_nagle = <empty>
+iface.tcp_wsf_state = <empty>
+iface.tcp_wsf = 0
+iface.tcp_timer_scale = 0
+iface.tcp_timestamp = <empty>
+iface.redirect = <empty>
+iface.def_task_mgmt_timeout = 0
+iface.header_digest = <empty>
+iface.data_digest = <empty>
+iface.immediate_data = <empty>
+iface.initial_r2t = <empty>
+iface.data_seq_inorder = <empty>
+iface.data_pdu_inorder = <empty>
+iface.erl = 0
+iface.max_receive_data_len = 0
+iface.first_burst_len = 0
+iface.max_outstanding_r2t = 0
+iface.max_burst_len = 0
+iface.chap_auth = <empty>
+iface.bidi_chap = <empty>
+iface.strict_login_compliance = <empty>
+iface.discovery_auth = <empty>
+iface.discovery_logout = <empty>
+node.discovery_address = 10.52.2.192
+node.discovery_port = 3260
+node.discovery_type = send_targets
+node.session.initial_cmdsn = 0
+node.session.initial_login_retry_max = 8
+node.session.xmit_thread_priority = 0
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.nr_sessions = 1
+node.session.auth.authmethod = None
+node.session.auth.username = <empty>
+node.session.auth.password = *REMOVED BY SUPPORTCONFIG*
+node.session.auth.username_in = <empty>
+node.session.auth.password_in = *REMOVED BY SUPPORTCONFIG*
+node.session.auth.chap_algs = MD5
+node.session.timeo.replacement_timeout = 120
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.iscsi.FastAbort = Yes
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.session.iscsi.DefaultTime2Retain = 0
+node.session.iscsi.DefaultTime2Wait = 2
+node.session.iscsi.MaxConnections = 1
+node.session.iscsi.MaxOutstandingR2T = 1
+node.session.iscsi.ERL = 0
+node.session.scan = auto
+node.session.reopen_max = 0
+node.session.sess_reopen_log_freq = 1
+node.conn[0].address = 10.52.2.192
+node.conn[0].port = 3260
+node.conn[0].startup = manual
+node.conn[0].tcp.window_size = 524288
+node.conn[0].tcp.type_of_service = 0
+node.conn[0].tcp.congestion_control = <empty>
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.auth_timeout = 45
+node.conn[0].timeo.noop_out_interval = 0
+node.conn[0].timeo.noop_out_timeout = 0
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.HeaderDigest = None
+node.conn[0].iscsi.DataDigest = None
+node.conn[0].iscsi.IFMarker = No
+node.conn[0].iscsi.OFMarker = No
+# END RECORD
+

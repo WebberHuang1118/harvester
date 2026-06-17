@@ -1,0 +1,50 @@
+2026-06-12T10:39:29.239037887Z if [[ ${KUBERNETES_SERVICE_HOST} =~ .*:.* ]]; then
+2026-06-12T10:39:29.239073123Z 	echo "KUBERNETES_SERVICE_HOST is using IPv6"
+2026-06-12T10:39:29.239077920Z 	CHART="${CHART//%\{KUBERNETES_API\}%/[${KUBERNETES_SERVICE_HOST}]:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T10:39:29.239084005Z else
+2026-06-12T10:39:29.239087174Z 	CHART="${CHART//%\{KUBERNETES_API\}%/${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T10:39:29.239090057Z fi
+2026-06-12T10:39:29.239122405Z 
+2026-06-12T10:39:29.239135920Z set +v -x
+2026-06-12T10:39:29.239241471Z + [[ '' == v2 ]]
+2026-06-12T10:39:29.239258288Z + shopt -s nullglob
+2026-06-12T10:39:29.239295995Z + [[ -f /config/ca-file.pem ]]
+2026-06-12T10:39:29.239411390Z + [[ -f /tmp/ca-file.pem ]]
+2026-06-12T10:39:29.239476890Z + [[ false == true ]]
+2026-06-12T10:39:29.239547398Z + [[ false == true ]]
+2026-06-12T10:39:29.239632882Z + [[ -n '' ]]
+2026-06-12T10:39:29.239650729Z + helm_content_decode
+2026-06-12T10:39:29.239670792Z + set -e
+2026-06-12T10:39:29.239685712Z + ENC_CHART_PATH=/chart/rke2-runtimeclasses.tgz.base64
+2026-06-12T10:39:29.239693775Z + CHART_PATH=/tmp/rke2-runtimeclasses.tgz
+2026-06-12T10:39:29.239715726Z + [[ ! -f /chart/rke2-runtimeclasses.tgz.base64 ]]
+2026-06-12T10:39:29.239747601Z + base64 -d /chart/rke2-runtimeclasses.tgz.base64
+2026-06-12T10:39:29.241046451Z + CHART=/tmp/rke2-runtimeclasses.tgz
+2026-06-12T10:39:29.241060380Z + set +e
+2026-06-12T10:39:29.241099791Z + [[ install != delete ]]
+2026-06-12T10:39:29.241108082Z + helm_repo_init
+2026-06-12T10:39:29.241173857Z + grep -q -e 'https\?://'
+2026-06-12T10:39:29.242331495Z + [[ /tmp/rke2-runtimeclasses.tgz == stable/* ]]
+2026-06-12T10:39:29.242344625Z + [[ -n '' ]]
+2026-06-12T10:39:29.242458821Z + helm_update install --take-ownership --set-string global.clusterCIDR=10.52.0.0/16 --set-string global.clusterCIDRv4=10.52.0.0/16 --set-string global.clusterDNS=10.53.0.10 --set-string global.clusterDomain=cluster.local --set global.prime.enabled=false --set-string global.rke2DataDir=/var/lib/rancher/rke2 --set-string global.serviceCIDR=10.53.0.0/16 --set-string global.systemDefaultIngressClass=ingress-nginx
+2026-06-12T10:39:29.243454149Z ++ helm ls --all -f '^rke2-runtimeclasses$' --namespace kube-system --output json
+2026-06-12T10:39:29.243617182Z ++ jq -r '"\(.[0].chart),\(.[0].status),\(.[0].revision)"'
+2026-06-12T10:39:29.243672039Z ++ tr '[:upper:]' '[:lower:]'
+2026-06-12T10:39:29.362123372Z + LINE=null,null,null
+2026-06-12T10:39:29.362140965Z + IFS=,
+2026-06-12T10:39:29.362144717Z + read -r INSTALLED_VERSION STATUS REVISION _
+2026-06-12T10:39:29.362225015Z + VALUES=
+2026-06-12T10:39:29.362274374Z + [[ install = delete ]]
+2026-06-12T10:39:29.362308900Z + [[ null =~ ^(|null)$ ]]
+2026-06-12T10:39:29.362418404Z + [[ null =~ ^(|null)$ ]]
+2026-06-12T10:39:29.362477426Z + echo 'Installing helm chart'
+2026-06-12T10:39:29.362950910Z + helm install --take-ownership --set-string global.clusterCIDR=10.52.0.0/16 --set-string global.clusterCIDRv4=10.52.0.0/16 --set-string global.clusterDNS=10.53.0.10 --set-string global.clusterDomain=cluster.local --set global.prime.enabled=false --set-string global.rke2DataDir=/var/lib/rancher/rke2 --set-string global.serviceCIDR=10.53.0.0/16 --set-string global.systemDefaultIngressClass=ingress-nginx rke2-runtimeclasses /tmp/rke2-runtimeclasses.tgz
+2026-06-12T10:39:29.507685496Z NAME: rke2-runtimeclasses
+2026-06-12T10:39:29.507706511Z LAST DEPLOYED: Fri Jun 12 10:39:29 2026
+2026-06-12T10:39:29.507710122Z NAMESPACE: kube-system
+2026-06-12T10:39:29.507712943Z STATUS: deployed
+2026-06-12T10:39:29.507715522Z REVISION: 1
+2026-06-12T10:39:29.507718277Z TEST SUITE: None
+2026-06-12T10:39:29.507733138Z NOTES:
+2026-06-12T10:39:29.507736172Z Runtime classes have been installed.
+2026-06-12T10:39:29.509143145Z + exit

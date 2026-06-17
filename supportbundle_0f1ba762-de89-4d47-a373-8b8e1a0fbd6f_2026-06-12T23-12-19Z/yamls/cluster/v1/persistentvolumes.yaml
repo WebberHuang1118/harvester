@@ -1,0 +1,811 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      longhorn.io/volume-scheduling-error: "null"
+      pv.kubernetes.io/provisioned-by: driver.longhorn.io
+      volume.kubernetes.io/provisioner-deletion-secret-name: "null"
+      volume.kubernetes.io/provisioner-deletion-secret-namespace: "null"
+    creationTimestamp: "2026-06-12T15:28:45Z"
+    finalizers:
+    - external-provisioner.volume.kubernetes.io/finalizer
+    - kubernetes.io/pv-protection
+    - external-attacher/driver-longhorn-io
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"external-attacher/driver-longhorn-io"null: {}
+      manager: csi-attacher
+      operation: Update
+      time: "2026-06-12T15:28:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/provisioned-by: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-name: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-namespace: {}
+          f:finalizers:
+            .: {}
+            v:"external-provisioner.volume.kubernetes.io/finalizer"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:claimRef:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:namespace: {}
+            f:resourceVersion: {}
+            f:uid: {}
+          f:csi:
+            .: {}
+            f:driver: {}
+            f:volumeAttributes:
+              .: {}
+              f:backingImage: {}
+              f:migratable: {}
+              f:numberOfReplicas: {}
+              f:share: {}
+              f:staleReplicaTimeout: {}
+              f:storage.kubernetes.io/csiProvisionerIdentity: {}
+            f:volumeHandle: {}
+          f:persistentVolumeReclaimPolicy: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: csi-provisioner
+      operation: Update
+      time: "2026-06-12T15:28:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:28:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:longhorn.io/volume-scheduling-error: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:28:45Z"
+    name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    resourceVersion: "309860"
+    uid: 850e319d-4cb4-4349-bf89-95657b38ad7a
+  spec:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 10Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: dhcp-test-vm-15h26m26s356466-06-12-opensuse
+      namespace: default
+      resourceVersion: "309750"
+      uid: 01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    csi:
+      driver: driver.longhorn.io
+      volumeAttributes:
+        backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+        migratable: "true"
+        numberOfReplicas: "3"
+        share: "true"
+        staleReplicaTimeout: "30"
+        storage.kubernetes.io/csiProvisionerIdentity: 1781261008513-8014-driver.longhorn.io
+      volumeHandle: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: lh-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    volumeMode: Block
+  status:
+    lastPhaseTransitionTime: "2026-06-12T15:28:45Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      longhorn.io/volume-scheduling-error: "null"
+      pv.kubernetes.io/provisioned-by: driver.longhorn.io
+      volume.kubernetes.io/provisioner-deletion-secret-name: "null"
+      volume.kubernetes.io/provisioner-deletion-secret-namespace: "null"
+    creationTimestamp: "2026-06-12T15:10:04Z"
+    finalizers:
+    - external-provisioner.volume.kubernetes.io/finalizer
+    - kubernetes.io/pv-protection
+    - external-attacher/driver-longhorn-io
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"external-attacher/driver-longhorn-io"null: {}
+      manager: csi-attacher
+      operation: Update
+      time: "2026-06-12T15:10:04Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/provisioned-by: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-name: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-namespace: {}
+          f:finalizers:
+            .: {}
+            v:"external-provisioner.volume.kubernetes.io/finalizer"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:claimRef:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:namespace: {}
+            f:resourceVersion: {}
+            f:uid: {}
+          f:csi:
+            .: {}
+            f:driver: {}
+            f:volumeAttributes:
+              .: {}
+              f:backingImage: {}
+              f:migratable: {}
+              f:numberOfReplicas: {}
+              f:share: {}
+              f:staleReplicaTimeout: {}
+              f:storage.kubernetes.io/csiProvisionerIdentity: {}
+            f:volumeHandle: {}
+          f:persistentVolumeReclaimPolicy: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: csi-provisioner
+      operation: Update
+      time: "2026-06-12T15:10:04Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:04Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:longhorn.io/volume-scheduling-error: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:04Z"
+    name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    resourceVersion: "292406"
+    uid: ab5edc66-06ec-471d-9351-27c8f392f360
+  spec:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 10Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: 15h08m00s971364-06-12-mgmt-opensuse
+      namespace: default
+      resourceVersion: "292287"
+      uid: 0ebca804-b487-4cad-a241-1a1b6bc17980
+    csi:
+      driver: driver.longhorn.io
+      volumeAttributes:
+        backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+        migratable: "true"
+        numberOfReplicas: "3"
+        share: "true"
+        staleReplicaTimeout: "30"
+        storage.kubernetes.io/csiProvisionerIdentity: 1781261008513-8014-driver.longhorn.io
+      volumeHandle: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: lh-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    volumeMode: Block
+  status:
+    lastPhaseTransitionTime: "2026-06-12T15:10:04Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      longhorn.io/volume-scheduling-error: 'precheck new replica failed: incompatible
+        volume size'
+      pv.kubernetes.io/provisioned-by: driver.longhorn.io
+      volume.kubernetes.io/provisioner-deletion-secret-name: "null"
+      volume.kubernetes.io/provisioner-deletion-secret-namespace: "null"
+    creationTimestamp: "2026-06-12T11:49:46Z"
+    finalizers:
+    - external-provisioner.volume.kubernetes.io/finalizer
+    - kubernetes.io/pv-protection
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/provisioned-by: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-name: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-namespace: {}
+          f:finalizers:
+            .: {}
+            v:"external-provisioner.volume.kubernetes.io/finalizer"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:claimRef:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:namespace: {}
+            f:resourceVersion: {}
+            f:uid: {}
+          f:csi:
+            .: {}
+            f:driver: {}
+            f:volumeAttributes:
+              .: {}
+              f:baseImage: {}
+              f:fromBackup: {}
+              f:migratable: {}
+              f:numberOfReplicas: {}
+              f:share: {}
+              f:staleReplicaTimeout: {}
+              f:storage.kubernetes.io/csiProvisionerIdentity: {}
+            f:volumeHandle: {}
+          f:persistentVolumeReclaimPolicy: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: csi-provisioner
+      operation: Update
+      time: "2026-06-12T11:49:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:49:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:longhorn.io/volume-scheduling-error: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T12:08:32Z"
+    name: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+    resourceVersion: "95297"
+    uid: 096fb255-b920-461d-97f3-884ed16dcac8
+  spec:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 999999Ti
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: 11h47m47s831161-06-12
+      namespace: default
+      resourceVersion: "74201"
+      uid: 4210668c-8fe0-4e67-9d17-3d1b90a20feb
+    csi:
+      driver: driver.longhorn.io
+      volumeAttributes:
+        baseImage: "null"
+        fromBackup: "null"
+        migratable: "true"
+        numberOfReplicas: "3"
+        share: "true"
+        staleReplicaTimeout: "30"
+        storage.kubernetes.io/csiProvisionerIdentity: 1781261008513-8014-driver.longhorn.io
+      volumeHandle: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: harvester-longhorn
+    volumeMode: Block
+  status:
+    lastPhaseTransitionTime: "2026-06-12T11:49:46Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      longhorn.io/volume-scheduling-error: "null"
+      pv.kubernetes.io/provisioned-by: driver.longhorn.io
+      volume.kubernetes.io/provisioner-deletion-secret-name: "null"
+      volume.kubernetes.io/provisioner-deletion-secret-namespace: "null"
+    creationTimestamp: "2026-06-12T14:57:46Z"
+    finalizers:
+    - external-provisioner.volume.kubernetes.io/finalizer
+    - kubernetes.io/pv-protection
+    - external-attacher/driver-longhorn-io
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"external-attacher/driver-longhorn-io"null: {}
+      manager: csi-attacher
+      operation: Update
+      time: "2026-06-12T14:57:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/provisioned-by: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-name: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-namespace: {}
+          f:finalizers:
+            .: {}
+            v:"external-provisioner.volume.kubernetes.io/finalizer"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:claimRef:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:namespace: {}
+            f:resourceVersion: {}
+            f:uid: {}
+          f:csi:
+            .: {}
+            f:driver: {}
+            f:volumeAttributes:
+              .: {}
+              f:backingImage: {}
+              f:migratable: {}
+              f:numberOfReplicas: {}
+              f:share: {}
+              f:staleReplicaTimeout: {}
+              f:storage.kubernetes.io/csiProvisionerIdentity: {}
+            f:volumeHandle: {}
+          f:persistentVolumeReclaimPolicy: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: csi-provisioner
+      operation: Update
+      time: "2026-06-12T14:57:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:57:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:longhorn.io/volume-scheduling-error: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:57:46Z"
+    name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    resourceVersion: "280827"
+    uid: c1cd8f33-fa2a-403e-9dff-a19aca9cf3ec
+  spec:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 10Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: tmpl-stopped-0628936362-14h49m13s790479-06-12-disk-0
+      namespace: default
+      resourceVersion: "280737"
+      uid: 77da81c0-aff4-4e7f-b8a3-f48b39767676
+    csi:
+      driver: driver.longhorn.io
+      volumeAttributes:
+        backingImage: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+        migratable: "true"
+        numberOfReplicas: "3"
+        share: "true"
+        staleReplicaTimeout: "30"
+        storage.kubernetes.io/csiProvisionerIdentity: 1781261008513-8014-driver.longhorn.io
+      volumeHandle: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: lh-c6da5089-57c2-48ea-873b-77e3768ce594
+    volumeMode: Block
+  status:
+    lastPhaseTransitionTime: "2026-06-12T14:57:46Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      longhorn.io/volume-scheduling-error: "null"
+      pv.kubernetes.io/provisioned-by: driver.longhorn.io
+      volume.kubernetes.io/provisioner-deletion-secret-name: "null"
+      volume.kubernetes.io/provisioner-deletion-secret-namespace: "null"
+    creationTimestamp: "2026-06-12T11:02:45Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    - external-attacher/driver-longhorn-io
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/provisioned-by: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-name: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-namespace: {}
+          f:finalizers: {}
+        f:spec:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:claimRef:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:namespace: {}
+            f:resourceVersion: {}
+          f:csi:
+            .: {}
+            f:driver: {}
+            f:fsType: {}
+            f:volumeAttributes:
+              .: {}
+              f:baseImage: {}
+              f:fromBackup: {}
+              f:migratable: {}
+              f:numberOfReplicas: {}
+              f:staleReplicaTimeout: {}
+              f:storage.kubernetes.io/csiProvisionerIdentity: {}
+            f:volumeHandle: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: csi-provisioner
+      operation: Update
+      time: "2026-06-12T11:02:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:longhorn.io/volume-scheduling-error: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:02:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"external-attacher/driver-longhorn-io"null: {}
+      manager: csi-attacher
+      operation: Update
+      time: "2026-06-12T11:02:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:persistentVolumeReclaimPolicy: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:03:00Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:42Z"
+    name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    resourceVersion: "29869"
+    uid: 942dfc0c-4253-4523-8ff1-caf850d2e0e3
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 2Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: rancher-monitoring-grafana
+      namespace: cattle-monitoring-system
+      resourceVersion: "26388"
+    csi:
+      driver: driver.longhorn.io
+      fsType: ext4
+      volumeAttributes:
+        baseImage: "null"
+        fromBackup: "null"
+        migratable: "false"
+        numberOfReplicas: "3"
+        staleReplicaTimeout: "30"
+        storage.kubernetes.io/csiProvisionerIdentity: 1781261008513-8014-driver.longhorn.io
+      volumeHandle: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    persistentVolumeReclaimPolicy: Retain
+    storageClassName: harvester-longhorn
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2026-06-12T11:04:42Z"
+    phase: Available
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      longhorn.io/volume-scheduling-error: "null"
+      pv.kubernetes.io/provisioned-by: driver.longhorn.io
+      volume.kubernetes.io/provisioner-deletion-secret-name: "null"
+      volume.kubernetes.io/provisioner-deletion-secret-namespace: "null"
+    creationTimestamp: "2026-06-12T11:02:41Z"
+    finalizers:
+    - external-provisioner.volume.kubernetes.io/finalizer
+    - kubernetes.io/pv-protection
+    - external-attacher/driver-longhorn-io
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"external-attacher/driver-longhorn-io"null: {}
+      manager: csi-attacher
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/provisioned-by: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-name: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-namespace: {}
+          f:finalizers:
+            .: {}
+            v:"external-provisioner.volume.kubernetes.io/finalizer"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:claimRef:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:namespace: {}
+            f:resourceVersion: {}
+            f:uid: {}
+          f:csi:
+            .: {}
+            f:driver: {}
+            f:fsType: {}
+            f:volumeAttributes:
+              .: {}
+              f:baseImage: {}
+              f:fromBackup: {}
+              f:migratable: {}
+              f:numberOfReplicas: {}
+              f:staleReplicaTimeout: {}
+              f:storage.kubernetes.io/csiProvisionerIdentity: {}
+            f:volumeHandle: {}
+          f:persistentVolumeReclaimPolicy: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: csi-provisioner
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:longhorn.io/volume-scheduling-error: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    resourceVersion: "26263"
+    uid: 62c71b83-4d81-4b37-89b8-684dc81959e9
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 5Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: alertmanager-rancher-monitoring-alertmanager-db-alertmanager-rancher-monitoring-alertmanager-0
+      namespace: cattle-monitoring-system
+      resourceVersion: "26061"
+      uid: c963b942-099b-45b7-87b0-aa2b8d8439c4
+    csi:
+      driver: driver.longhorn.io
+      fsType: ext4
+      volumeAttributes:
+        baseImage: "null"
+        fromBackup: "null"
+        migratable: "false"
+        numberOfReplicas: "3"
+        staleReplicaTimeout: "30"
+        storage.kubernetes.io/csiProvisionerIdentity: 1781261008513-8014-driver.longhorn.io
+      volumeHandle: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: harvester-longhorn
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2026-06-12T11:02:41Z"
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      longhorn.io/volume-scheduling-error: "null"
+      pv.kubernetes.io/provisioned-by: driver.longhorn.io
+      volume.kubernetes.io/provisioner-deletion-secret-name: "null"
+      volume.kubernetes.io/provisioner-deletion-secret-namespace: "null"
+    creationTimestamp: "2026-06-12T11:02:41Z"
+    finalizers:
+    - external-provisioner.volume.kubernetes.io/finalizer
+    - kubernetes.io/pv-protection
+    - external-attacher/driver-longhorn-io
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"external-attacher/driver-longhorn-io"null: {}
+      manager: csi-attacher
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/provisioned-by: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-name: {}
+            f:volume.kubernetes.io/provisioner-deletion-secret-namespace: {}
+          f:finalizers:
+            .: {}
+            v:"external-provisioner.volume.kubernetes.io/finalizer"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:claimRef:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:namespace: {}
+            f:resourceVersion: {}
+            f:uid: {}
+          f:csi:
+            .: {}
+            f:driver: {}
+            f:fsType: {}
+            f:volumeAttributes:
+              .: {}
+              f:baseImage: {}
+              f:fromBackup: {}
+              f:migratable: {}
+              f:numberOfReplicas: {}
+              f:staleReplicaTimeout: {}
+              f:storage.kubernetes.io/csiProvisionerIdentity: {}
+            f:volumeHandle: {}
+          f:persistentVolumeReclaimPolicy: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: csi-provisioner
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:longhorn.io/volume-scheduling-error: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    resourceVersion: "26293"
+    uid: 6153b124-a484-4eed-8099-2eab1b0de485
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 50Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: prometheus-rancher-monitoring-prometheus-db-prometheus-rancher-monitoring-prometheus-0
+      namespace: cattle-monitoring-system
+      resourceVersion: "26107"
+      uid: cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    csi:
+      driver: driver.longhorn.io
+      fsType: ext4
+      volumeAttributes:
+        baseImage: "null"
+        fromBackup: "null"
+        migratable: "false"
+        numberOfReplicas: "3"
+        staleReplicaTimeout: "30"
+        storage.kubernetes.io/csiProvisionerIdentity: 1781261008513-8014-driver.longhorn.io
+      volumeHandle: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: harvester-longhorn
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2026-06-12T11:02:41Z"
+    phase: Bound
+kind: List
+metadata:
+  resourceVersion: "676233"

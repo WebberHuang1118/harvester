@@ -1,0 +1,11 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+name: oem_settings
+stages:
+  initramfs:
+    - name: ntp
+      systemctl:
+        enable:
+          - systemd-timesyncd
+          - systemd-time-wait-sync
+      timesyncd:
+        NTP: 0.suse.pool.ntp.org 1.suse.pool.ntp.org

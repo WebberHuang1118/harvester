@@ -1,0 +1,50 @@
+2026-06-12T23:03:28.058898339Z I0612 23:03:28.058725       1 main.go:93] Version : v1.9.2
+2026-06-12T23:03:28.058928265Z I0612 23:03:28.058852       1 feature_gate.go:249] feature gates: &{map[]}
+2026-06-12T23:03:28.060825418Z I0612 23:03:28.060768       1 connection.go:164] Connecting to unix:///csi/csi.sock
+2026-06-12T23:03:28.061618549Z I0612 23:03:28.061574       1 common.go:138] Probing CSI driver for readiness
+2026-06-12T23:03:28.061627591Z I0612 23:03:28.061593       1 connection.go:193] GRPC call: /csi.v1.Identity/Probe
+2026-06-12T23:03:28.064376346Z I0612 23:03:28.061600       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:28.065256152Z I0612 23:03:28.065208       1 connection.go:200] GRPC response: {}
+2026-06-12T23:03:28.065269908Z I0612 23:03:28.065224       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:28.065273285Z I0612 23:03:28.065236       1 connection.go:193] GRPC call: /csi.v1.Identity/GetPluginInfo
+2026-06-12T23:03:28.065284345Z I0612 23:03:28.065241       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:28.065656137Z I0612 23:03:28.065606       1 connection.go:200] GRPC response: {"name":"lvm.driver.harvesterhci.io","vendor_version":"dev"}
+2026-06-12T23:03:28.065672676Z I0612 23:03:28.065617       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:28.065676275Z I0612 23:03:28.065627       1 main.go:141] CSI driver name: "lvm.driver.harvesterhci.io"
+2026-06-12T23:03:28.065688787Z I0612 23:03:28.065637       1 connection.go:193] GRPC call: /csi.v1.Identity/GetPluginCapabilities
+2026-06-12T23:03:28.065710305Z I0612 23:03:28.065653       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:28.066226399Z I0612 23:03:28.066184       1 connection.go:200] GRPC response: {"capabilities":[{"Type":{"Service":{"type":1}}},{"Type":{"Service":{"type":2}}}]}
+2026-06-12T23:03:28.066235728Z I0612 23:03:28.066196       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:28.066238685Z I0612 23:03:28.066208       1 connection.go:193] GRPC call: /csi.v1.Controller/ControllerGetCapabilities
+2026-06-12T23:03:28.066251208Z I0612 23:03:28.066213       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:28.066757987Z I0612 23:03:28.066703       1 connection.go:200] GRPC response: {"capabilities":[{"Type":{"Rpc":{"type":1}}},{"Type":{"Rpc":{"type":5}}},{"Type":{"Rpc":{"type":7}}}]}
+2026-06-12T23:03:28.066769622Z I0612 23:03:28.066718       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:28.066777574Z I0612 23:03:28.066747       1 connection.go:193] GRPC call: /csi.v1.Node/NodeGetCapabilities
+2026-06-12T23:03:28.066803666Z I0612 23:03:28.066754       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:28.067584479Z I0612 23:03:28.067527       1 connection.go:200] GRPC response: {"capabilities":[{"Type":{"Rpc":{"type":1}}},{"Type":{"Rpc":{"type":3}}},{"Type":{"Rpc":{"type":2}}}]}
+2026-06-12T23:03:28.067594030Z I0612 23:03:28.067543       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:28.067597216Z I0612 23:03:28.067559       1 csi_resizer.go:72] The CSI driver supports node resize only, using trivial resizer to handle resize requests
+2026-06-12T23:03:28.067706834Z I0612 23:03:28.067673       1 controller.go:120] Register Pod informer for resizer lvm.driver.harvesterhci.io
+2026-06-12T23:03:28.067728762Z I0612 23:03:28.067699       1 controller.go:255] Starting external resizer lvm.driver.harvesterhci.io
+2026-06-12T23:03:28.067853036Z I0612 23:03:28.067797       1 reflector.go:289] Starting reflector *v1.PersistentVolumeClaim (10m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:28.067901080Z I0612 23:03:28.067859       1 reflector.go:325] Listing and watching *v1.PersistentVolumeClaim from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:28.067981526Z I0612 23:03:28.067801       1 reflector.go:289] Starting reflector *v1.PersistentVolume (10m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:28.068002792Z I0612 23:03:28.067940       1 reflector.go:325] Listing and watching *v1.PersistentVolume from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:28.068013796Z I0612 23:03:28.067797       1 reflector.go:289] Starting reflector *v1.Pod (10m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:28.068021393Z I0612 23:03:28.068009       1 reflector.go:325] Listing and watching *v1.Pod from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:28.268892208Z I0612 23:03:28.268812       1 shared_informer.go:341] caches populated
+2026-06-12T23:03:28.268923772Z I0612 23:03:28.268864       1 controller.go:295] Started PVC processing "cattle-monitoring-system/alertmanager-rancher-monitoring-alertmanager-db-alertmanager-rancher-monitoring-alertmanager-0"
+2026-06-12T23:03:28.268934342Z I0612 23:03:28.268886       1 controller.go:343] No need to resize PVC "cattle-monitoring-system/alertmanager-rancher-monitoring-alertmanager-db-alertmanager-rancher-monitoring-alertmanager-0"
+2026-06-12T23:03:28.268943350Z I0612 23:03:28.268905       1 controller.go:295] Started PVC processing "default/11h47m47s831161-06-12"
+2026-06-12T23:03:28.269059680Z I0612 23:03:28.268902       1 controller.go:295] Started PVC processing "cattle-monitoring-system/prometheus-rancher-monitoring-prometheus-db-prometheus-rancher-monitoring-prometheus-0"
+2026-06-12T23:03:28.269075180Z I0612 23:03:28.268932       1 controller.go:295] Started PVC processing "default/dhcp-test-vm-15h26m26s356466-06-12-opensuse"
+2026-06-12T23:03:28.269078350Z I0612 23:03:28.268931       1 controller.go:295] Started PVC processing "default/15h08m00s971364-06-12-mgmt-opensuse"
+2026-06-12T23:03:28.269081874Z I0612 23:03:28.268942       1 controller.go:343] No need to resize PVC "cattle-monitoring-system/prometheus-rancher-monitoring-prometheus-db-prometheus-rancher-monitoring-prometheus-0"
+2026-06-12T23:03:28.269084793Z I0612 23:03:28.268960       1 controller.go:343] No need to resize PVC "default/15h08m00s971364-06-12-mgmt-opensuse"
+2026-06-12T23:03:28.269087861Z I0612 23:03:28.268969       1 controller.go:295] Started PVC processing "default/tmpl-stopped-0628936362-14h49m13s790479-06-12-disk-0"
+2026-06-12T23:03:28.269091763Z I0612 23:03:28.268917       1 controller.go:343] No need to resize PVC "default/11h47m47s831161-06-12"
+2026-06-12T23:03:28.269094446Z I0612 23:03:28.268944       1 controller.go:343] No need to resize PVC "default/dhcp-test-vm-15h26m26s356466-06-12-opensuse"
+2026-06-12T23:03:28.269097238Z I0612 23:03:28.268996       1 controller.go:343] No need to resize PVC "default/tmpl-stopped-0628936362-14h49m13s790479-06-12-disk-0"
+2026-06-12T23:10:10.077361666Z I0612 23:10:10.077254       1 reflector.go:790] k8s.io/client-go/informers/factory.go:150: Watch close - *v1.PersistentVolume total 7 items received
+2026-06-12T23:10:31.178212610Z I0612 23:10:31.178084       1 reflector.go:790] k8s.io/client-go/informers/factory.go:150: Watch close - *v1.Pod total 59 items received
+2026-06-12T23:10:34.076707070Z I0612 23:10:34.076499       1 reflector.go:790] k8s.io/client-go/informers/factory.go:150: Watch close - *v1.PersistentVolumeClaim total 8 items received

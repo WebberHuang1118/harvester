@@ -1,0 +1,94 @@
+apiVersion: v1
+items:
+- apiVersion: storage.k8s.io/v1
+  kind: CSIDriver
+  metadata:
+    annotations:
+      driver.longhorn.io/git-commit: b1f0987b04144b24b5115ddf8ce31c29dfa69828
+      driver.longhorn.io/version: v1.11.2
+    creationTimestamp: "2026-06-12T10:43:24Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:driver.longhorn.io/git-commit: {}
+            f:driver.longhorn.io/version: {}
+        f:spec:
+          f:attachRequired: {}
+          f:fsGroupPolicy: {}
+          f:podInfoOnMount: {}
+          f:requiresRepublish: {}
+          f:seLinuxMount: {}
+          f:storageCapacity: {}
+          f:volumeLifecycleModes:
+            .: {}
+            v:"Persistent"null: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:43:24Z"
+    name: driver.longhorn.io
+    resourceVersion: "6254"
+    uid: 6063d2cf-d133-4794-a84a-dac333686a10
+  spec:
+    attachRequired: true
+    fsGroupPolicy: ReadWriteOnceWithFSType
+    podInfoOnMount: true
+    requiresRepublish: false
+    seLinuxMount: false
+    storageCapacity: false
+    volumeLifecycleModes:
+    - Persistent
+- apiVersion: storage.k8s.io/v1
+  kind: CSIDriver
+  metadata:
+    annotations:
+      lvm.driver.harvesterhci.io/version: v1.8.1-rc1
+      meta.helm.sh/release-name: harvester-csi-driver-lvm
+      meta.helm.sh/release-namespace: harvester-system
+    creationTimestamp: "2026-06-12T23:03:19Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:lvm.driver.harvesterhci.io/version: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:spec:
+          f:attachRequired: {}
+          f:fsGroupPolicy: {}
+          f:podInfoOnMount: {}
+          f:requiresRepublish: {}
+          f:seLinuxMount: {}
+          f:storageCapacity: {}
+          f:volumeLifecycleModes:
+            .: {}
+            v:"Persistent"null: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T23:03:19Z"
+    name: lvm.driver.harvesterhci.io
+    resourceVersion: "668777"
+    uid: 2f5a30d3-7800-41de-83f0-224c7c62a4df
+  spec:
+    attachRequired: false
+    fsGroupPolicy: ReadWriteOnceWithFSType
+    podInfoOnMount: true
+    requiresRepublish: false
+    seLinuxMount: false
+    storageCapacity: false
+    volumeLifecycleModes:
+    - Persistent
+kind: List
+metadata:
+  resourceVersion: "676237"

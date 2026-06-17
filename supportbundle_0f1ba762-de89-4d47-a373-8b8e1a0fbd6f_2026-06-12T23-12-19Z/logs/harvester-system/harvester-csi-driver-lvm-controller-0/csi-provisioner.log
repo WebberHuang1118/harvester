@@ -1,0 +1,52 @@
+2026-06-12T23:03:25.555350341Z W0612 23:03:25.555094       1 feature_gate.go:241] Setting GA feature gate Topology=true. It will be removed in a future release.
+2026-06-12T23:03:25.555391439Z I0612 23:03:25.555234       1 feature_gate.go:249] feature gates: &{map[Topology:true]}
+2026-06-12T23:03:25.555395822Z I0612 23:03:25.555265       1 csi-provisioner.go:154] Version: v3.6.2
+2026-06-12T23:03:25.555398858Z I0612 23:03:25.555275       1 csi-provisioner.go:177] Building kube configs for running in cluster...
+2026-06-12T23:03:25.556121382Z I0612 23:03:25.556004       1 connection.go:164] Connecting to unix:///csi/csi.sock
+2026-06-12T23:03:27.695820915Z I0612 23:03:27.695744       1 common.go:138] Probing CSI driver for readiness
+2026-06-12T23:03:27.695838180Z I0612 23:03:27.695773       1 connection.go:193] GRPC call: /csi.v1.Identity/Probe
+2026-06-12T23:03:27.699467214Z I0612 23:03:27.695781       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:27.701049994Z I0612 23:03:27.700995       1 connection.go:200] GRPC response: {}
+2026-06-12T23:03:27.701060918Z I0612 23:03:27.701010       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:27.701064440Z I0612 23:03:27.701022       1 connection.go:193] GRPC call: /csi.v1.Identity/GetPluginInfo
+2026-06-12T23:03:27.701072765Z I0612 23:03:27.701028       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:27.701928151Z I0612 23:03:27.701873       1 connection.go:200] GRPC response: {"name":"lvm.driver.harvesterhci.io","vendor_version":"dev"}
+2026-06-12T23:03:27.701938721Z I0612 23:03:27.701889       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:27.701942765Z I0612 23:03:27.701905       1 csi-provisioner.go:230] Detected CSI driver lvm.driver.harvesterhci.io
+2026-06-12T23:03:27.701970375Z I0612 23:03:27.701917       1 connection.go:193] GRPC call: /csi.v1.Identity/GetPluginCapabilities
+2026-06-12T23:03:27.701982081Z I0612 23:03:27.701923       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:27.703412876Z I0612 23:03:27.703366       1 connection.go:200] GRPC response: {"capabilities":[{"Type":{"Service":{"type":1}}},{"Type":{"Service":{"type":2}}}]}
+2026-06-12T23:03:27.703427895Z I0612 23:03:27.703381       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:27.703431277Z I0612 23:03:27.703391       1 connection.go:193] GRPC call: /csi.v1.Controller/ControllerGetCapabilities
+2026-06-12T23:03:27.703439942Z I0612 23:03:27.703397       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:27.704126242Z I0612 23:03:27.704087       1 connection.go:200] GRPC response: {"capabilities":[{"Type":{"Rpc":{"type":1}}},{"Type":{"Rpc":{"type":5}}},{"Type":{"Rpc":{"type":7}}}]}
+2026-06-12T23:03:27.704134504Z I0612 23:03:27.704102       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:27.704220634Z I0612 23:03:27.704190       1 csi-provisioner.go:302] CSI driver does not support PUBLISH_UNPUBLISH_VOLUME, not watching VolumeAttachments
+2026-06-12T23:03:27.705679185Z I0612 23:03:27.704712       1 controller.go:732] Using saving PVs to API server in background
+2026-06-12T23:03:27.705693074Z I0612 23:03:27.704884       1 reflector.go:289] Starting reflector *v1.StorageClass (1h0m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.705696845Z I0612 23:03:27.704939       1 reflector.go:289] Starting reflector *v1.PersistentVolumeClaim (15m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.705706509Z I0612 23:03:27.704957       1 reflector.go:325] Listing and watching *v1.PersistentVolumeClaim from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.705709980Z I0612 23:03:27.705018       1 reflector.go:289] Starting reflector *v1.CSINode (1h0m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.705713221Z I0612 23:03:27.705053       1 reflector.go:325] Listing and watching *v1.CSINode from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.705732321Z I0612 23:03:27.704942       1 reflector.go:325] Listing and watching *v1.StorageClass from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.705735466Z I0612 23:03:27.704887       1 reflector.go:289] Starting reflector *v1.Node (1h0m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.705738129Z I0612 23:03:27.705513       1 reflector.go:325] Listing and watching *v1.Node from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.805607822Z I0612 23:03:27.805469       1 shared_informer.go:341] caches populated
+2026-06-12T23:03:27.805624939Z I0612 23:03:27.805512       1 shared_informer.go:341] caches populated
+2026-06-12T23:03:27.805628399Z I0612 23:03:27.805519       1 shared_informer.go:341] caches populated
+2026-06-12T23:03:27.805631251Z I0612 23:03:27.805526       1 shared_informer.go:341] caches populated
+2026-06-12T23:03:27.805674351Z I0612 23:03:27.805577       1 controller.go:811] Starting provisioner controller lvm.driver.harvesterhci.io_harvester-csi-driver-lvm-controller-0_c1df46c7-bfc0-4122-b6f0-50bea21b08fb!
+2026-06-12T23:03:27.805681697Z I0612 23:03:27.805622       1 clone_controller.go:66] Starting CloningProtection controller
+2026-06-12T23:03:27.805712378Z I0612 23:03:27.805670       1 clone_controller.go:82] Started CloningProtection controller
+2026-06-12T23:03:27.805727917Z I0612 23:03:27.805695       1 volume_store.go:97] Starting save volume queue
+2026-06-12T23:03:27.805993211Z I0612 23:03:27.805907       1 reflector.go:289] Starting reflector *v1.PersistentVolume (15m0s) from sigs.k8s.io/sig-storage-lib-external-provisioner/v9/controller/controller.go:845
+2026-06-12T23:03:27.806004617Z I0612 23:03:27.805932       1 reflector.go:325] Listing and watching *v1.PersistentVolume from sigs.k8s.io/sig-storage-lib-external-provisioner/v9/controller/controller.go:845
+2026-06-12T23:03:27.806118569Z I0612 23:03:27.806003       1 reflector.go:289] Starting reflector *v1.StorageClass (15m0s) from sigs.k8s.io/sig-storage-lib-external-provisioner/v9/controller/controller.go:848
+2026-06-12T23:03:27.806129920Z I0612 23:03:27.806025       1 reflector.go:325] Listing and watching *v1.StorageClass from sigs.k8s.io/sig-storage-lib-external-provisioner/v9/controller/controller.go:848
+2026-06-12T23:03:27.906703615Z I0612 23:03:27.906577       1 shared_informer.go:341] caches populated
+2026-06-12T23:03:27.906893898Z I0612 23:03:27.906847       1 controller.go:860] Started provisioner controller lvm.driver.harvesterhci.io_harvester-csi-driver-lvm-controller-0_c1df46c7-bfc0-4122-b6f0-50bea21b08fb!
+2026-06-12T23:08:38.715384708Z I0612 23:08:38.715261       1 reflector.go:790] k8s.io/client-go/informers/factory.go:150: Watch close - *v1.StorageClass total 7 items received
+2026-06-12T23:10:00.811445521Z I0612 23:10:00.811292       1 reflector.go:790] sigs.k8s.io/sig-storage-lib-external-provisioner/v9/controller/controller.go:848: Watch close - *v1.StorageClass total 8 items received
+2026-06-12T23:10:40.726575275Z I0612 23:10:40.726403       1 reflector.go:790] k8s.io/client-go/informers/factory.go:150: Watch close - *v1.Node total 36 items received
+2026-06-12T23:13:04.712009248Z I0612 23:13:04.711848       1 reflector.go:790] k8s.io/client-go/informers/factory.go:150: Watch close - *v1.CSINode total 13 items received
+2026-06-12T23:13:06.810112836Z I0612 23:13:06.809997       1 reflector.go:790] sigs.k8s.io/sig-storage-lib-external-provisioner/v9/controller/controller.go:845: Watch close - *v1.PersistentVolume total 10 items received

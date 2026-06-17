@@ -1,0 +1,18 @@
+Jun 12 11:21:12.417178 hp-150-tink-system systemd[1]: Starting Open-iSCSI...
+Jun 12 11:21:12.447211 hp-150-tink-system systemd[1]: Started Open-iSCSI.
+Jun 12 11:21:12.467105 hp-150-tink-system iscsid[123518]: iscsid: Connection1:0 to [target: iqn.2019-10.io.longhorn:pvc-49ec3246-d0f6-4baf-9337-41d0edd3e5f2, portal: 10.52.1.9,3260] through [iface: default] is operational now
+Jun 12 11:21:19.566953 hp-150-tink-system iscsid[123518]: iscsid: Connection1:0 to [target: iqn.2019-10.io.longhorn:pvc-49ec3246-d0f6-4baf-9337-41d0edd3e5f2, portal: 10.52.1.9,3260] through [iface: default] is shutdown.
+Jun 12 11:22:21.452415 hp-150-tink-system iscsid[123518]: iscsid: Connection2:0 to [target: iqn.2019-10.io.longhorn:pvc-5c525247-ca8a-48b7-b5a8-3189290051a7, portal: 10.52.1.38,3260] through [iface: default] is operational now
+Jun 12 11:22:42.526957 hp-150-tink-system iscsid[123518]: iscsid: Connection2:0 to [target: iqn.2019-10.io.longhorn:pvc-5c525247-ca8a-48b7-b5a8-3189290051a7, portal: 10.52.1.38,3260] through [iface: default] is shutdown.
+Jun 12 11:34:49.074315 hp-150-tink-system iscsid[123518]: iscsid: Connection3:0 to [target: iqn.2019-10.io.longhorn:pvc-0a063c22-d325-4077-a528-d406d1a1393e, portal: 10.52.1.45,3260] through [iface: default] is operational now
+Jun 12 11:37:07.589951 hp-150-tink-system iscsid[123518]: iscsid: Connection3:0 to [target: iqn.2019-10.io.longhorn:pvc-0a063c22-d325-4077-a528-d406d1a1393e, portal: 10.52.1.45,3260] through [iface: default] is shutdown.
+Jun 12 11:53:21.931776 hp-150-tink-system iscsid[123518]: iscsid: Connection4:0 to [target: iqn.2019-10.io.longhorn:pvc-d2e77dc6-e302-4205-96a3-b92ee23c8b31, portal: 10.52.1.45,3260] through [iface: default] is operational now
+Jun 12 11:53:29.067057 hp-150-tink-system iscsid[123518]: iscsid: Connection4:0 to [target: iqn.2019-10.io.longhorn:pvc-d2e77dc6-e302-4205-96a3-b92ee23c8b31, portal: 10.52.1.45,3260] through [iface: default] is shutdown.
+Jun 12 11:53:34.087669 hp-150-tink-system iscsid[123518]: iscsid: Connection5:0 to [target: iqn.2019-10.io.longhorn:pvc-d2e77dc6-e302-4205-96a3-b92ee23c8b31, portal: 10.52.1.45,3260] through [iface: default] is operational now
+Jun 12 11:53:34.483077 hp-150-tink-system iscsid[123518]: iscsid: Connection5:0 to [target: iqn.2019-10.io.longhorn:pvc-d2e77dc6-e302-4205-96a3-b92ee23c8b31, portal: 10.52.1.45,3260] through [iface: default] is shutdown.
+Jun 12 12:13:22.839002 hp-150-tink-system iscsid[123518]: iscsid: Connection6:0 to [target: iqn.2019-10.io.longhorn:pvc-b57e291a-b2e2-4693-8467-14196107f6a2, portal: 10.52.1.75,3260] through [iface: default] is operational now
+Jun 12 12:13:31.118002 hp-150-tink-system iscsid[123518]: iscsid: Connection6:0 to [target: iqn.2019-10.io.longhorn:pvc-b57e291a-b2e2-4693-8467-14196107f6a2, portal: 10.52.1.75,3260] through [iface: default] is shutdown.
+Jun 12 14:35:49.855495 hp-150-tink-system iscsid[123518]: iscsid: Connection7:0 to [target: iqn.2019-10.io.longhorn:pvc-2324cea6-2c8a-44fa-b0e6-a13756738922, portal: 10.52.1.75,3260] through [iface: default] is operational now
+Jun 12 14:37:11.441963 hp-150-tink-system iscsid[123518]: iscsid: Connection7:0 to [target: iqn.2019-10.io.longhorn:pvc-2324cea6-2c8a-44fa-b0e6-a13756738922, portal: 10.52.1.75,3260] through [iface: default] is shutdown.
+Jun 12 14:40:26.328965 hp-150-tink-system iscsid[123518]: iscsid: Connection8:0 to [target: iqn.2019-10.io.longhorn:pvc-659a4fb9-769c-41fa-85a9-0fcaa8985a51, portal: 10.52.1.75,3260] through [iface: default] is operational now
+Jun 12 14:41:18.431939 hp-150-tink-system iscsid[123518]: iscsid: Connection8:0 to [target: iqn.2019-10.io.longhorn:pvc-659a4fb9-769c-41fa-85a9-0fcaa8985a51, portal: 10.52.1.75,3260] through [iface: default] is shutdown.

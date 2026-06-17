@@ -1,0 +1,8 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+stages:
+  initramfs:
+    - name: "change systemctl kernel ptrace scope"
+      files:
+        - path: "/etc/sysctl.d/10-ptrace-scope.conf"
+          content: |
+            kernel.yama.ptrace_scope = 2

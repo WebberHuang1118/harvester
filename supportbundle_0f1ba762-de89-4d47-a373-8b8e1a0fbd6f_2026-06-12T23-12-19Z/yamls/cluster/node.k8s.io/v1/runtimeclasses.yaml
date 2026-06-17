@@ -1,0 +1,92 @@
+apiVersion: v1
+items:
+- apiVersion: node.k8s.io/v1
+  handler: crun
+  kind: RuntimeClass
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-runtimeclasses
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:29Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: node.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:handler: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:29Z"
+    name: crun
+    resourceVersion: "970"
+    uid: 3d8207cf-c3fa-497e-a243-8432b28a99e4
+- apiVersion: node.k8s.io/v1
+  handler: nvidia
+  kind: RuntimeClass
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-runtimeclasses
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:29Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: node.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:handler: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:29Z"
+    name: nvidia
+    resourceVersion: "971"
+    uid: 6ca79515-54a0-49fd-9856-cf6595902f98
+- apiVersion: node.k8s.io/v1
+  handler: nvidia-experimental
+  kind: RuntimeClass
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rke2-runtimeclasses
+      meta.helm.sh/release-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:29Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: node.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:handler: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:29Z"
+    name: nvidia-experimental
+    resourceVersion: "969"
+    uid: 778ee5ef-6915-486d-b2dd-20842d800e25
+kind: List
+metadata:
+  resourceVersion: "676275"

@@ -1,0 +1,15 @@
+2026-06-12T10:48:18.585826287Z I0612 10:48:18.585581       1 server.go:175] "Starting Kubernetes Scheduler" version="v1.35.5+rke2r1"
+2026-06-12T10:48:18.585879040Z I0612 10:48:18.585739       1 server.go:177] "Golang settings" GOGC="" GOMAXPROCS="" GOTRACEBACK=""
+2026-06-12T10:48:18.591772094Z I0612 10:48:18.591663       1 requestheader_controller.go:180] Starting RequestHeaderAuthRequestController
+2026-06-12T10:48:18.591803602Z I0612 10:48:18.591685       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::client-ca-file"
+2026-06-12T10:48:18.591810730Z I0612 10:48:18.591695       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2026-06-12T10:48:18.591813777Z I0612 10:48:18.591723       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:48:18.591825256Z I0612 10:48:18.591694       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:48:18.591827883Z I0612 10:48:18.591712       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:48:18.592033633Z I0612 10:48:18.591974       1 secure_serving.go:211] Serving securely on 127.0.0.1:10259
+2026-06-12T10:48:18.595862238Z I0612 10:48:18.591999       1 tlsconfig.go:243] "Starting DynamicServingCertificateController"
+2026-06-12T10:48:18.595885948Z I0612 10:48:18.595637       1 dynamic_serving_content.go:135] "Starting controller" name="serving-cert::/var/lib/rancher/rke2/server/tls/kube-scheduler/kube-scheduler.crt::/var/lib/rancher/rke2/server/tls/kube-scheduler/kube-scheduler.key"
+2026-06-12T10:48:18.692036436Z I0612 10:48:18.691902       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:48:18.696526895Z I0612 10:48:18.696395       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="kube-system/kube-scheduler"
+2026-06-12T10:48:18.792845386Z I0612 10:48:18.792764       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:48:18.796053786Z I0612 10:48:18.795972       1 shared_informer.go:377] "Caches are synced"

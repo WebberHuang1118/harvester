@@ -1,0 +1,1511 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: Volume
+  metadata:
+    creationTimestamp: "2026-06-12T15:28:43Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      backup-target: default
+      longhornvolume: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+      recurring-job-group.longhorn.io/default: enabled
+      setting.longhorn.io/remove-snapshots-during-filesystem-trim: ignored
+      setting.longhorn.io/replica-auto-balance: ignored
+      setting.longhorn.io/snapshot-data-integrity: ignored
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:recurring-job-group.longhorn.io/default: {}
+        f:spec:
+          .: {}
+          f:Standby: {}
+          f:accessMode: {}
+          f:backingImage: {}
+          f:backupBlockSize: {}
+          f:backupCompressionMethod: {}
+          f:backupTargetName: {}
+          f:dataEngine: {}
+          f:dataLocality: {}
+          f:dataSource: {}
+          f:disableFrontend: {}
+          f:encrypted: {}
+          f:freezeFilesystemForSnapshot: {}
+          f:fromBackup: {}
+          f:frontend: {}
+          f:image: {}
+          f:lastAttachedBy: {}
+          f:migratable: {}
+          f:migrationNodeID: {}
+          f:nodeID: {}
+          f:numberOfReplicas: {}
+          f:offlineRebuilding: {}
+          f:rebuildConcurrentSyncLimit: {}
+          f:replicaAutoBalance: {}
+          f:replicaDiskSoftAntiAffinity: {}
+          f:replicaRebuildingBandwidthLimit: {}
+          f:replicaSoftAntiAffinity: {}
+          f:replicaZoneSoftAntiAffinity: {}
+          f:restoreVolumeRecurringJob: {}
+          f:revisionCounterDisabled: {}
+          f:size: {}
+          f:snapshotDataIntegrity: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:staleReplicaTimeout: {}
+          f:unmapMarkSnapChainRemoved: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:30:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:actualSize: {}
+          f:cloneStatus:
+            .: {}
+            f:attemptCount: {}
+            f:nextAllowedAttemptAt: {}
+            f:snapshot: {}
+            f:sourceVolume: {}
+            f:state: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentMigrationNodeID: {}
+          f:currentNodeID: {}
+          f:expansionRequired: {}
+          f:frontendDisabled: {}
+          f:isStandby: {}
+          f:kubernetesStatus:
+            .: {}
+            f:lastPVCRefAt: {}
+            f:lastPodRefAt: {}
+            f:namespace: {}
+            f:pvName: {}
+            f:pvStatus: {}
+            f:pvcName: {}
+            f:workloadsStatus: {}
+          f:lastBackup: {}
+          f:lastBackupAt: {}
+          f:lastDegradedAt: {}
+          f:ownerID: {}
+          f:remountRequestedAt: {}
+          f:restoreInitiated: {}
+          f:restoreRequired: {}
+          f:robustness: {}
+          f:shareEndpoint: {}
+          f:shareState: {}
+          f:state: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:30:17Z"
+    name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    namespace: longhorn-system
+    resourceVersion: "311317"
+    uid: 241a258a-44f4-4860-9544-f5490180670f
+  spec:
+    Standby: false
+    accessMode: rwx
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    backupBlockSize: "2097152"
+    backupCompressionMethod: lz4
+    backupTargetName: default
+    dataEngine: v1
+    dataLocality: disabled
+    dataSource: "null"
+    disableFrontend: false
+    diskSelector: []
+    encrypted: false
+    freezeFilesystemForSnapshot: ignored
+    fromBackup: "null"
+    frontend: blockdev
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastAttachedBy: "null"
+    migratable: true
+    migrationNodeID: "null"
+    nodeID: "null"
+    nodeSelector: []
+    numberOfReplicas: 3
+    offlineRebuilding: ignored
+    rebuildConcurrentSyncLimit: 0
+    replicaAutoBalance: ignored
+    replicaDiskSoftAntiAffinity: ignored
+    replicaRebuildingBandwidthLimit: 0
+    replicaSoftAntiAffinity: ignored
+    replicaZoneSoftAntiAffinity: ignored
+    restoreVolumeRecurringJob: ignored
+    revisionCounterDisabled: true
+    size: "10737418240"
+    snapshotDataIntegrity: ignored
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    staleReplicaTimeout: 30
+    unmapMarkSnapChainRemoved: ignored
+  status:
+    actualSize: 2.0803584e+07
+    cloneStatus:
+      attemptCount: 0
+      nextAllowedAttemptAt: "null"
+      snapshot: "null"
+      sourceVolume: "null"
+      state: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: TooManySnapshots
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Scheduled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: OfflineRebuilding
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: Restore
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentMigrationNodeID: "null"
+    currentNodeID: "null"
+    expansionRequired: false
+    frontendDisabled: false
+    isStandby: false
+    kubernetesStatus:
+      lastPVCRefAt: "null"
+      lastPodRefAt: "2026-06-12T15:30:14Z"
+      namespace: default
+      pvName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+      pvStatus: Bound
+      pvcName: dhcp-test-vm-15h26m26s356466-06-12-opensuse
+      workloadsStatus:
+      - podName: virt-launcher-dhcp-test-vm-15h26m26s356466-06-12-2c86l
+        podStatus: Succeeded
+        workloadName: dhcp-test-vm-15h26m26s356466-06-12
+        workloadType: VirtualMachineInstance
+    lastBackup: "null"
+    lastBackupAt: "null"
+    lastDegradedAt: "null"
+    ownerID: hp-69-tink-system
+    remountRequestedAt: "null"
+    restoreInitiated: false
+    restoreRequired: false
+    robustness: unknown
+    shareEndpoint: "null"
+    shareState: "null"
+    state: detached
+- apiVersion: longhorn.io/v1beta2
+  kind: Volume
+  metadata:
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    labels:
+      backup-target: default
+      longhornvolume: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+      recurring-job-group.longhorn.io/default: enabled
+      setting.longhorn.io/remove-snapshots-during-filesystem-trim: ignored
+      setting.longhorn.io/replica-auto-balance: ignored
+      setting.longhorn.io/snapshot-data-integrity: ignored
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:recurring-job-group.longhorn.io/default: {}
+        f:spec:
+          .: {}
+          f:Standby: {}
+          f:accessMode: {}
+          f:backingImage: {}
+          f:backupBlockSize: {}
+          f:backupCompressionMethod: {}
+          f:backupTargetName: {}
+          f:dataEngine: {}
+          f:dataLocality: {}
+          f:dataSource: {}
+          f:disableFrontend: {}
+          f:encrypted: {}
+          f:freezeFilesystemForSnapshot: {}
+          f:fromBackup: {}
+          f:frontend: {}
+          f:image: {}
+          f:lastAttachedBy: {}
+          f:migratable: {}
+          f:migrationNodeID: {}
+          f:nodeID: {}
+          f:numberOfReplicas: {}
+          f:offlineRebuilding: {}
+          f:rebuildConcurrentSyncLimit: {}
+          f:replicaAutoBalance: {}
+          f:replicaDiskSoftAntiAffinity: {}
+          f:replicaRebuildingBandwidthLimit: {}
+          f:replicaSoftAntiAffinity: {}
+          f:replicaZoneSoftAntiAffinity: {}
+          f:restoreVolumeRecurringJob: {}
+          f:revisionCounterDisabled: {}
+          f:size: {}
+          f:snapshotDataIntegrity: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:staleReplicaTimeout: {}
+          f:unmapMarkSnapChainRemoved: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:04Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:actualSize: {}
+          f:cloneStatus:
+            .: {}
+            f:attemptCount: {}
+            f:nextAllowedAttemptAt: {}
+            f:snapshot: {}
+            f:sourceVolume: {}
+            f:state: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentMigrationNodeID: {}
+          f:currentNodeID: {}
+          f:expansionRequired: {}
+          f:frontendDisabled: {}
+          f:isStandby: {}
+          f:kubernetesStatus:
+            .: {}
+            f:lastPVCRefAt: {}
+            f:lastPodRefAt: {}
+            f:namespace: {}
+            f:pvName: {}
+            f:pvStatus: {}
+            f:pvcName: {}
+            f:workloadsStatus: {}
+          f:lastBackup: {}
+          f:lastBackupAt: {}
+          f:lastDegradedAt: {}
+          f:ownerID: {}
+          f:remountRequestedAt: {}
+          f:restoreInitiated: {}
+          f:restoreRequired: {}
+          f:robustness: {}
+          f:shareEndpoint: {}
+          f:shareState: {}
+          f:state: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:26:59Z"
+    name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    namespace: longhorn-system
+    resourceVersion: "308000"
+    uid: 03e87a9b-452f-463d-bfa5-2d396d4ed96a
+  spec:
+    Standby: false
+    accessMode: rwx
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    backupBlockSize: "2097152"
+    backupCompressionMethod: lz4
+    backupTargetName: default
+    dataEngine: v1
+    dataLocality: disabled
+    dataSource: "null"
+    disableFrontend: false
+    diskSelector: []
+    encrypted: false
+    freezeFilesystemForSnapshot: ignored
+    fromBackup: "null"
+    frontend: blockdev
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastAttachedBy: "null"
+    migratable: true
+    migrationNodeID: "null"
+    nodeID: hp-69-tink-system
+    nodeSelector: []
+    numberOfReplicas: 3
+    offlineRebuilding: ignored
+    rebuildConcurrentSyncLimit: 0
+    replicaAutoBalance: ignored
+    replicaDiskSoftAntiAffinity: ignored
+    replicaRebuildingBandwidthLimit: 0
+    replicaSoftAntiAffinity: ignored
+    replicaZoneSoftAntiAffinity: ignored
+    restoreVolumeRecurringJob: ignored
+    revisionCounterDisabled: true
+    size: "10737418240"
+    snapshotDataIntegrity: ignored
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    staleReplicaTimeout: 30
+    unmapMarkSnapChainRemoved: ignored
+  status:
+    actualSize: 4.10836992e+08
+    cloneStatus:
+      attemptCount: 0
+      nextAllowedAttemptAt: "null"
+      snapshot: "null"
+      sourceVolume: "null"
+      state: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:10Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:03Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: TooManySnapshots
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:03Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Scheduled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:03Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: OfflineRebuilding
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:03Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: Restore
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentMigrationNodeID: "null"
+    currentNodeID: hp-69-tink-system
+    expansionRequired: false
+    frontendDisabled: false
+    isStandby: false
+    kubernetesStatus:
+      lastPVCRefAt: "null"
+      lastPodRefAt: "null"
+      namespace: default
+      pvName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+      pvStatus: Bound
+      pvcName: 15h08m00s971364-06-12-mgmt-opensuse
+      workloadsStatus:
+      - podName: virt-launcher-15h08m00s971364-06-12-mgmt-hnfp4
+        podStatus: Running
+        workloadName: 15h08m00s971364-06-12-mgmt
+        workloadType: VirtualMachineInstance
+    lastBackup: "null"
+    lastBackupAt: "null"
+    lastDegradedAt: "null"
+    ownerID: hp-69-tink-system
+    remountRequestedAt: "null"
+    restoreInitiated: false
+    restoreRequired: false
+    robustness: healthy
+    shareEndpoint: "null"
+    shareState: "null"
+    state: attached
+- apiVersion: longhorn.io/v1beta2
+  kind: Volume
+  metadata:
+    creationTimestamp: "2026-06-12T11:49:43Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    labels:
+      backup-target: default
+      longhornvolume: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+      recurring-job-group.longhorn.io/default: enabled
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:recurring-job-group.longhorn.io/default: {}
+        f:spec:
+          .: {}
+          f:Standby: {}
+          f:accessMode: {}
+          f:backingImage: {}
+          f:backupBlockSize: {}
+          f:backupCompressionMethod: {}
+          f:backupTargetName: {}
+          f:dataEngine: {}
+          f:dataLocality: {}
+          f:dataSource: {}
+          f:disableFrontend: {}
+          f:encrypted: {}
+          f:freezeFilesystemForSnapshot: {}
+          f:fromBackup: {}
+          f:frontend: {}
+          f:image: {}
+          f:lastAttachedBy: {}
+          f:migratable: {}
+          f:migrationNodeID: {}
+          f:nodeID: {}
+          f:numberOfReplicas: {}
+          f:offlineRebuilding: {}
+          f:rebuildConcurrentSyncLimit: {}
+          f:replicaAutoBalance: {}
+          f:replicaDiskSoftAntiAffinity: {}
+          f:replicaRebuildingBandwidthLimit: {}
+          f:replicaSoftAntiAffinity: {}
+          f:replicaZoneSoftAntiAffinity: {}
+          f:restoreVolumeRecurringJob: {}
+          f:revisionCounterDisabled: {}
+          f:size: {}
+          f:snapshotDataIntegrity: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:staleReplicaTimeout: {}
+          f:unmapMarkSnapChainRemoved: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:49:43Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:actualSize: {}
+          f:cloneStatus:
+            .: {}
+            f:attemptCount: {}
+            f:nextAllowedAttemptAt: {}
+            f:snapshot: {}
+            f:sourceVolume: {}
+            f:state: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentMigrationNodeID: {}
+          f:currentNodeID: {}
+          f:expansionRequired: {}
+          f:frontendDisabled: {}
+          f:isStandby: {}
+          f:kubernetesStatus:
+            .: {}
+            f:lastPVCRefAt: {}
+            f:lastPodRefAt: {}
+            f:namespace: {}
+            f:pvName: {}
+            f:pvStatus: {}
+            f:pvcName: {}
+            f:workloadsStatus: {}
+          f:lastBackup: {}
+          f:lastBackupAt: {}
+          f:lastDegradedAt: {}
+          f:ownerID: {}
+          f:remountRequestedAt: {}
+          f:restoreInitiated: {}
+          f:restoreRequired: {}
+          f:robustness: {}
+          f:shareEndpoint: {}
+          f:shareState: {}
+          f:state: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T12:08:32Z"
+    name: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+    namespace: longhorn-system
+    resourceVersion: "95298"
+    uid: 967444d6-e736-42b7-b413-4c667ebbea3b
+  spec:
+    Standby: false
+    accessMode: rwx
+    backingImage: "null"
+    backupBlockSize: "2097152"
+    backupCompressionMethod: lz4
+    backupTargetName: default
+    dataEngine: v1
+    dataLocality: disabled
+    dataSource: "null"
+    disableFrontend: false
+    diskSelector: []
+    encrypted: false
+    freezeFilesystemForSnapshot: ignored
+    fromBackup: "null"
+    frontend: blockdev
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastAttachedBy: "null"
+    migratable: true
+    migrationNodeID: "null"
+    nodeID: "null"
+    nodeSelector: []
+    numberOfReplicas: 3
+    offlineRebuilding: ignored
+    rebuildConcurrentSyncLimit: 0
+    replicaAutoBalance: ignored
+    replicaDiskSoftAntiAffinity: ignored
+    replicaRebuildingBandwidthLimit: 0
+    replicaSoftAntiAffinity: ignored
+    replicaZoneSoftAntiAffinity: ignored
+    restoreVolumeRecurringJob: ignored
+    revisionCounterDisabled: true
+    size: "1099510528264372224"
+    snapshotDataIntegrity: ignored
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    staleReplicaTimeout: 30
+    unmapMarkSnapChainRemoved: ignored
+  status:
+    actualSize: 0
+    cloneStatus:
+      attemptCount: 0
+      nextAllowedAttemptAt: "null"
+      snapshot: "null"
+      sourceVolume: "null"
+      state: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:49:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:49:44Z"
+      message: 'precheck new replica failed: incompatible volume size'
+      reason: ReplicaSchedulingFailure
+      status: "False"
+      type: Scheduled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:49:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: TooManySnapshots
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:49:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: OfflineRebuilding
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:49:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: Restore
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentMigrationNodeID: "null"
+    currentNodeID: "null"
+    expansionRequired: false
+    frontendDisabled: false
+    isStandby: false
+    kubernetesStatus:
+      lastPVCRefAt: "null"
+      lastPodRefAt: "null"
+      namespace: default
+      pvName: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+      pvStatus: Bound
+      pvcName: 11h47m47s831161-06-12
+      workloadsStatus: null
+    lastBackup: "null"
+    lastBackupAt: "null"
+    lastDegradedAt: "null"
+    ownerID: hp-150-tink-system
+    remountRequestedAt: "null"
+    restoreInitiated: false
+    restoreRequired: false
+    robustness: faulted
+    shareEndpoint: "null"
+    shareState: "null"
+    state: detached
+- apiVersion: longhorn.io/v1beta2
+  kind: Volume
+  metadata:
+    creationTimestamp: "2026-06-12T14:57:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      backup-target: default
+      longhornvolume: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+      recurring-job-group.longhorn.io/default: enabled
+      setting.longhorn.io/remove-snapshots-during-filesystem-trim: ignored
+      setting.longhorn.io/replica-auto-balance: ignored
+      setting.longhorn.io/snapshot-data-integrity: ignored
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:recurring-job-group.longhorn.io/default: {}
+        f:spec:
+          .: {}
+          f:Standby: {}
+          f:accessMode: {}
+          f:backingImage: {}
+          f:backupBlockSize: {}
+          f:backupCompressionMethod: {}
+          f:backupTargetName: {}
+          f:dataEngine: {}
+          f:dataLocality: {}
+          f:dataSource: {}
+          f:disableFrontend: {}
+          f:encrypted: {}
+          f:freezeFilesystemForSnapshot: {}
+          f:fromBackup: {}
+          f:frontend: {}
+          f:image: {}
+          f:lastAttachedBy: {}
+          f:migratable: {}
+          f:migrationNodeID: {}
+          f:nodeID: {}
+          f:numberOfReplicas: {}
+          f:offlineRebuilding: {}
+          f:rebuildConcurrentSyncLimit: {}
+          f:replicaAutoBalance: {}
+          f:replicaDiskSoftAntiAffinity: {}
+          f:replicaRebuildingBandwidthLimit: {}
+          f:replicaSoftAntiAffinity: {}
+          f:replicaZoneSoftAntiAffinity: {}
+          f:restoreVolumeRecurringJob: {}
+          f:revisionCounterDisabled: {}
+          f:size: {}
+          f:snapshotDataIntegrity: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:staleReplicaTimeout: {}
+          f:unmapMarkSnapChainRemoved: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:00:17Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:actualSize: {}
+          f:cloneStatus:
+            .: {}
+            f:attemptCount: {}
+            f:nextAllowedAttemptAt: {}
+            f:snapshot: {}
+            f:sourceVolume: {}
+            f:state: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentMigrationNodeID: {}
+          f:currentNodeID: {}
+          f:expansionRequired: {}
+          f:frontendDisabled: {}
+          f:isStandby: {}
+          f:kubernetesStatus:
+            .: {}
+            f:lastPVCRefAt: {}
+            f:lastPodRefAt: {}
+            f:namespace: {}
+            f:pvName: {}
+            f:pvStatus: {}
+            f:pvcName: {}
+            f:workloadsStatus: {}
+          f:lastBackup: {}
+          f:lastBackupAt: {}
+          f:lastDegradedAt: {}
+          f:ownerID: {}
+          f:remountRequestedAt: {}
+          f:restoreInitiated: {}
+          f:restoreRequired: {}
+          f:robustness: {}
+          f:shareEndpoint: {}
+          f:shareState: {}
+          f:state: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:00:18Z"
+    name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    namespace: longhorn-system
+    resourceVersion: "283131"
+    uid: 6a53f0f2-91ef-48c3-8660-3874378d3854
+  spec:
+    Standby: false
+    accessMode: rwx
+    backingImage: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+    backupBlockSize: "2097152"
+    backupCompressionMethod: lz4
+    backupTargetName: default
+    dataEngine: v1
+    dataLocality: disabled
+    dataSource: "null"
+    disableFrontend: false
+    diskSelector: []
+    encrypted: false
+    freezeFilesystemForSnapshot: ignored
+    fromBackup: "null"
+    frontend: blockdev
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastAttachedBy: "null"
+    migratable: true
+    migrationNodeID: "null"
+    nodeID: "null"
+    nodeSelector: []
+    numberOfReplicas: 3
+    offlineRebuilding: ignored
+    rebuildConcurrentSyncLimit: 0
+    replicaAutoBalance: ignored
+    replicaDiskSoftAntiAffinity: ignored
+    replicaRebuildingBandwidthLimit: 0
+    replicaSoftAntiAffinity: ignored
+    replicaZoneSoftAntiAffinity: ignored
+    restoreVolumeRecurringJob: ignored
+    revisionCounterDisabled: true
+    size: "10737418240"
+    snapshotDataIntegrity: ignored
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    staleReplicaTimeout: 30
+    unmapMarkSnapChainRemoved: ignored
+  status:
+    actualSize: 4.096e+06
+    cloneStatus:
+      attemptCount: 0
+      nextAllowedAttemptAt: "null"
+      snapshot: "null"
+      sourceVolume: "null"
+      state: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:58:43Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:45Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: TooManySnapshots
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:45Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Scheduled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:45Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: OfflineRebuilding
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:45Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: Restore
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentMigrationNodeID: "null"
+    currentNodeID: "null"
+    expansionRequired: false
+    frontendDisabled: false
+    isStandby: false
+    kubernetesStatus:
+      lastPVCRefAt: "null"
+      lastPodRefAt: "2026-06-12T15:00:09Z"
+      namespace: default
+      pvName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+      pvStatus: Bound
+      pvcName: tmpl-stopped-0628936362-14h49m13s790479-06-12-disk-0
+      workloadsStatus:
+      - podName: virt-launcher-tmpl-stopped-0628936362-14h49m13s790479-06-17rszz
+        podStatus: Succeeded
+        workloadName: tmpl-stopped-0628936362-14h49m13s790479-06-12
+        workloadType: VirtualMachineInstance
+    lastBackup: "null"
+    lastBackupAt: "null"
+    lastDegradedAt: "null"
+    ownerID: hp-69-tink-system
+    remountRequestedAt: "null"
+    restoreInitiated: false
+    restoreRequired: false
+    robustness: unknown
+    shareEndpoint: "null"
+    shareState: "null"
+    state: detached
+- apiVersion: longhorn.io/v1beta2
+  kind: Volume
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:43Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      backup-target: default
+      longhornvolume: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+      recurring-job-group.longhorn.io/default: enabled
+      setting.longhorn.io/remove-snapshots-during-filesystem-trim: ignored
+      setting.longhorn.io/replica-auto-balance: ignored
+      setting.longhorn.io/snapshot-data-integrity: ignored
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:recurring-job-group.longhorn.io/default: {}
+        f:spec:
+          .: {}
+          f:Standby: {}
+          f:accessMode: {}
+          f:backingImage: {}
+          f:backupBlockSize: {}
+          f:backupCompressionMethod: {}
+          f:backupTargetName: {}
+          f:dataEngine: {}
+          f:dataLocality: {}
+          f:dataSource: {}
+          f:disableFrontend: {}
+          f:encrypted: {}
+          f:freezeFilesystemForSnapshot: {}
+          f:fromBackup: {}
+          f:frontend: {}
+          f:image: {}
+          f:lastAttachedBy: {}
+          f:migratable: {}
+          f:migrationNodeID: {}
+          f:nodeID: {}
+          f:numberOfReplicas: {}
+          f:offlineRebuilding: {}
+          f:rebuildConcurrentSyncLimit: {}
+          f:replicaAutoBalance: {}
+          f:replicaDiskSoftAntiAffinity: {}
+          f:replicaRebuildingBandwidthLimit: {}
+          f:replicaSoftAntiAffinity: {}
+          f:replicaZoneSoftAntiAffinity: {}
+          f:restoreVolumeRecurringJob: {}
+          f:revisionCounterDisabled: {}
+          f:size: {}
+          f:snapshotDataIntegrity: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:staleReplicaTimeout: {}
+          f:unmapMarkSnapChainRemoved: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:32Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:actualSize: {}
+          f:cloneStatus:
+            .: {}
+            f:attemptCount: {}
+            f:nextAllowedAttemptAt: {}
+            f:snapshot: {}
+            f:sourceVolume: {}
+            f:state: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentMigrationNodeID: {}
+          f:currentNodeID: {}
+          f:expansionRequired: {}
+          f:frontendDisabled: {}
+          f:isStandby: {}
+          f:kubernetesStatus:
+            .: {}
+            f:lastPVCRefAt: {}
+            f:lastPodRefAt: {}
+            f:namespace: {}
+            f:pvName: {}
+            f:pvStatus: {}
+            f:pvcName: {}
+            f:workloadsStatus: {}
+          f:lastBackup: {}
+          f:lastBackupAt: {}
+          f:lastDegradedAt: {}
+          f:ownerID: {}
+          f:remountRequestedAt: {}
+          f:restoreInitiated: {}
+          f:restoreRequired: {}
+          f:robustness: {}
+          f:shareEndpoint: {}
+          f:shareState: {}
+          f:state: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:42Z"
+    name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    namespace: longhorn-system
+    resourceVersion: "29870"
+    uid: 412fe632-a7f8-4e82-b5fd-7bdff85711c3
+  spec:
+    Standby: false
+    accessMode: rwo
+    backingImage: "null"
+    backupBlockSize: "2097152"
+    backupCompressionMethod: lz4
+    backupTargetName: default
+    dataEngine: v1
+    dataLocality: disabled
+    dataSource: "null"
+    disableFrontend: false
+    diskSelector: []
+    encrypted: false
+    freezeFilesystemForSnapshot: ignored
+    fromBackup: "null"
+    frontend: blockdev
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastAttachedBy: "null"
+    migratable: false
+    migrationNodeID: "null"
+    nodeID: "null"
+    nodeSelector: []
+    numberOfReplicas: 3
+    offlineRebuilding: ignored
+    rebuildConcurrentSyncLimit: 0
+    replicaAutoBalance: ignored
+    replicaDiskSoftAntiAffinity: ignored
+    replicaRebuildingBandwidthLimit: 0
+    replicaSoftAntiAffinity: ignored
+    replicaZoneSoftAntiAffinity: ignored
+    restoreVolumeRecurringJob: ignored
+    revisionCounterDisabled: true
+    size: "2147483648"
+    snapshotDataIntegrity: ignored
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    staleReplicaTimeout: 30
+    unmapMarkSnapChainRemoved: ignored
+  status:
+    actualSize: 1.58920704e+08
+    cloneStatus:
+      attemptCount: 0
+      nextAllowedAttemptAt: "null"
+      snapshot: "null"
+      sourceVolume: "null"
+      state: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: TooManySnapshots
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Scheduled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: OfflineRebuilding
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:45Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: Restore
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentMigrationNodeID: "null"
+    currentNodeID: "null"
+    expansionRequired: false
+    frontendDisabled: false
+    isStandby: false
+    kubernetesStatus:
+      lastPVCRefAt: "2026-06-12T11:04:32Z"
+      lastPodRefAt: "2026-06-12T11:04:32Z"
+      namespace: cattle-monitoring-system
+      pvName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+      pvStatus: Available
+      pvcName: rancher-monitoring-grafana
+      workloadsStatus:
+      - podName: rancher-monitoring-grafana-6f88968b-h5fqk
+        podStatus: Succeeded
+        workloadName: rancher-monitoring-grafana-6f88968b
+        workloadType: ReplicaSet
+    lastBackup: "null"
+    lastBackupAt: "null"
+    lastDegradedAt: "null"
+    ownerID: hp-69-tink-system
+    remountRequestedAt: "null"
+    restoreInitiated: false
+    restoreRequired: false
+    robustness: unknown
+    shareEndpoint: "null"
+    shareState: "null"
+    state: detached
+- apiVersion: longhorn.io/v1beta2
+  kind: Volume
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:38Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      backup-target: default
+      longhornvolume: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+      recurring-job-group.longhorn.io/default: enabled
+      setting.longhorn.io/remove-snapshots-during-filesystem-trim: ignored
+      setting.longhorn.io/replica-auto-balance: ignored
+      setting.longhorn.io/snapshot-data-integrity: ignored
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:recurring-job-group.longhorn.io/default: {}
+        f:spec:
+          .: {}
+          f:Standby: {}
+          f:accessMode: {}
+          f:backingImage: {}
+          f:backupBlockSize: {}
+          f:backupCompressionMethod: {}
+          f:backupTargetName: {}
+          f:dataEngine: {}
+          f:dataLocality: {}
+          f:dataSource: {}
+          f:disableFrontend: {}
+          f:encrypted: {}
+          f:freezeFilesystemForSnapshot: {}
+          f:fromBackup: {}
+          f:frontend: {}
+          f:image: {}
+          f:lastAttachedBy: {}
+          f:migratable: {}
+          f:migrationNodeID: {}
+          f:nodeID: {}
+          f:numberOfReplicas: {}
+          f:offlineRebuilding: {}
+          f:rebuildConcurrentSyncLimit: {}
+          f:replicaAutoBalance: {}
+          f:replicaDiskSoftAntiAffinity: {}
+          f:replicaRebuildingBandwidthLimit: {}
+          f:replicaSoftAntiAffinity: {}
+          f:replicaZoneSoftAntiAffinity: {}
+          f:restoreVolumeRecurringJob: {}
+          f:revisionCounterDisabled: {}
+          f:size: {}
+          f:snapshotDataIntegrity: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:staleReplicaTimeout: {}
+          f:unmapMarkSnapChainRemoved: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:32Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:actualSize: {}
+          f:cloneStatus:
+            .: {}
+            f:attemptCount: {}
+            f:nextAllowedAttemptAt: {}
+            f:snapshot: {}
+            f:sourceVolume: {}
+            f:state: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentMigrationNodeID: {}
+          f:currentNodeID: {}
+          f:expansionRequired: {}
+          f:frontendDisabled: {}
+          f:isStandby: {}
+          f:kubernetesStatus:
+            .: {}
+            f:lastPVCRefAt: {}
+            f:lastPodRefAt: {}
+            f:namespace: {}
+            f:pvName: {}
+            f:pvStatus: {}
+            f:pvcName: {}
+            f:workloadsStatus: {}
+          f:lastBackup: {}
+          f:lastBackupAt: {}
+          f:lastDegradedAt: {}
+          f:ownerID: {}
+          f:remountRequestedAt: {}
+          f:restoreInitiated: {}
+          f:restoreRequired: {}
+          f:robustness: {}
+          f:shareEndpoint: {}
+          f:shareState: {}
+          f:state: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:34Z"
+    name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    namespace: longhorn-system
+    resourceVersion: "29667"
+    uid: e29a975e-6f97-4b65-ae9b-232bd727a681
+  spec:
+    Standby: false
+    accessMode: rwo
+    backingImage: "null"
+    backupBlockSize: "2097152"
+    backupCompressionMethod: lz4
+    backupTargetName: default
+    dataEngine: v1
+    dataLocality: disabled
+    dataSource: "null"
+    disableFrontend: false
+    diskSelector: []
+    encrypted: false
+    freezeFilesystemForSnapshot: ignored
+    fromBackup: "null"
+    frontend: blockdev
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastAttachedBy: "null"
+    migratable: false
+    migrationNodeID: "null"
+    nodeID: "null"
+    nodeSelector: []
+    numberOfReplicas: 3
+    offlineRebuilding: ignored
+    rebuildConcurrentSyncLimit: 0
+    replicaAutoBalance: ignored
+    replicaDiskSoftAntiAffinity: ignored
+    replicaRebuildingBandwidthLimit: 0
+    replicaSoftAntiAffinity: ignored
+    replicaZoneSoftAntiAffinity: ignored
+    restoreVolumeRecurringJob: ignored
+    revisionCounterDisabled: true
+    size: "5368709120"
+    snapshotDataIntegrity: ignored
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    staleReplicaTimeout: 30
+    unmapMarkSnapChainRemoved: ignored
+  status:
+    actualSize: 1.53812992e+08
+    cloneStatus:
+      attemptCount: 0
+      nextAllowedAttemptAt: "null"
+      snapshot: "null"
+      sourceVolume: "null"
+      state: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: TooManySnapshots
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Scheduled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:40Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: OfflineRebuilding
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:40Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: Restore
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentMigrationNodeID: "null"
+    currentNodeID: "null"
+    expansionRequired: false
+    frontendDisabled: false
+    isStandby: false
+    kubernetesStatus:
+      lastPVCRefAt: "null"
+      lastPodRefAt: "2026-06-12T11:04:31Z"
+      namespace: cattle-monitoring-system
+      pvName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+      pvStatus: Bound
+      pvcName: alertmanager-rancher-monitoring-alertmanager-db-alertmanager-rancher-monitoring-alertmanager-0
+      workloadsStatus:
+      - podName: alertmanager-rancher-monitoring-alertmanager-0
+        podStatus: Succeeded
+        workloadName: alertmanager-rancher-monitoring-alertmanager
+        workloadType: StatefulSet
+    lastBackup: "null"
+    lastBackupAt: "null"
+    lastDegradedAt: "null"
+    ownerID: hp-69-tink-system
+    remountRequestedAt: "null"
+    restoreInitiated: false
+    restoreRequired: false
+    robustness: unknown
+    shareEndpoint: "null"
+    shareState: "null"
+    state: detached
+- apiVersion: longhorn.io/v1beta2
+  kind: Volume
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 3
+    labels:
+      backup-target: default
+      longhornvolume: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+      recurring-job-group.longhorn.io/default: enabled
+      setting.longhorn.io/remove-snapshots-during-filesystem-trim: ignored
+      setting.longhorn.io/replica-auto-balance: ignored
+      setting.longhorn.io/snapshot-data-integrity: ignored
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:recurring-job-group.longhorn.io/default: {}
+        f:spec:
+          .: {}
+          f:Standby: {}
+          f:accessMode: {}
+          f:backingImage: {}
+          f:backupBlockSize: {}
+          f:backupCompressionMethod: {}
+          f:backupTargetName: {}
+          f:dataEngine: {}
+          f:dataLocality: {}
+          f:dataSource: {}
+          f:disableFrontend: {}
+          f:encrypted: {}
+          f:freezeFilesystemForSnapshot: {}
+          f:fromBackup: {}
+          f:frontend: {}
+          f:image: {}
+          f:lastAttachedBy: {}
+          f:migratable: {}
+          f:migrationNodeID: {}
+          f:nodeID: {}
+          f:numberOfReplicas: {}
+          f:offlineRebuilding: {}
+          f:rebuildConcurrentSyncLimit: {}
+          f:replicaAutoBalance: {}
+          f:replicaDiskSoftAntiAffinity: {}
+          f:replicaRebuildingBandwidthLimit: {}
+          f:replicaSoftAntiAffinity: {}
+          f:replicaZoneSoftAntiAffinity: {}
+          f:restoreVolumeRecurringJob: {}
+          f:revisionCounterDisabled: {}
+          f:size: {}
+          f:snapshotDataIntegrity: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:staleReplicaTimeout: {}
+          f:unmapMarkSnapChainRemoved: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:32Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:actualSize: {}
+          f:cloneStatus:
+            .: {}
+            f:attemptCount: {}
+            f:nextAllowedAttemptAt: {}
+            f:snapshot: {}
+            f:sourceVolume: {}
+            f:state: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentMigrationNodeID: {}
+          f:currentNodeID: {}
+          f:expansionRequired: {}
+          f:frontendDisabled: {}
+          f:isStandby: {}
+          f:kubernetesStatus:
+            .: {}
+            f:lastPVCRefAt: {}
+            f:lastPodRefAt: {}
+            f:namespace: {}
+            f:pvName: {}
+            f:pvStatus: {}
+            f:pvcName: {}
+            f:workloadsStatus: {}
+          f:lastBackup: {}
+          f:lastBackupAt: {}
+          f:lastDegradedAt: {}
+          f:ownerID: {}
+          f:remountRequestedAt: {}
+          f:restoreInitiated: {}
+          f:restoreRequired: {}
+          f:robustness: {}
+          f:shareEndpoint: {}
+          f:shareState: {}
+          f:state: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:38Z"
+    name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    namespace: longhorn-system
+    resourceVersion: "29771"
+    uid: b5d65388-6238-4f04-87ea-be9d028afe0e
+  spec:
+    Standby: false
+    accessMode: rwo
+    backingImage: "null"
+    backupBlockSize: "2097152"
+    backupCompressionMethod: lz4
+    backupTargetName: default
+    dataEngine: v1
+    dataLocality: disabled
+    dataSource: "null"
+    disableFrontend: false
+    diskSelector: []
+    encrypted: false
+    freezeFilesystemForSnapshot: ignored
+    fromBackup: "null"
+    frontend: blockdev
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastAttachedBy: "null"
+    migratable: false
+    migrationNodeID: "null"
+    nodeID: "null"
+    nodeSelector: []
+    numberOfReplicas: 3
+    offlineRebuilding: ignored
+    rebuildConcurrentSyncLimit: 0
+    replicaAutoBalance: ignored
+    replicaDiskSoftAntiAffinity: ignored
+    replicaRebuildingBandwidthLimit: 0
+    replicaSoftAntiAffinity: ignored
+    replicaZoneSoftAntiAffinity: ignored
+    restoreVolumeRecurringJob: ignored
+    revisionCounterDisabled: true
+    size: "53687091200"
+    snapshotDataIntegrity: ignored
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    staleReplicaTimeout: 30
+    unmapMarkSnapChainRemoved: ignored
+  status:
+    actualSize: 1.055715328e+09
+    cloneStatus:
+      attemptCount: 0
+      nextAllowedAttemptAt: "null"
+      snapshot: "null"
+      sourceVolume: "null"
+      state: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:40Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:40Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: TooManySnapshots
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:40Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: Scheduled
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:40Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: OfflineRebuilding
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:40Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: Restore
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentMigrationNodeID: "null"
+    currentNodeID: "null"
+    expansionRequired: false
+    frontendDisabled: false
+    isStandby: false
+    kubernetesStatus:
+      lastPVCRefAt: "null"
+      lastPodRefAt: "2026-06-12T11:04:38Z"
+      namespace: cattle-monitoring-system
+      pvName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+      pvStatus: Bound
+      pvcName: prometheus-rancher-monitoring-prometheus-db-prometheus-rancher-monitoring-prometheus-0
+      workloadsStatus:
+      - podName: prometheus-rancher-monitoring-prometheus-0
+        podStatus: Succeeded
+        workloadName: prometheus-rancher-monitoring-prometheus
+        workloadType: StatefulSet
+    lastBackup: "null"
+    lastBackupAt: "null"
+    lastDegradedAt: "null"
+    ownerID: hp-69-tink-system
+    remountRequestedAt: "null"
+    restoreInitiated: false
+    restoreRequired: false
+    robustness: unknown
+    shareEndpoint: "null"
+    shareState: "null"
+    state: detached
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676495"

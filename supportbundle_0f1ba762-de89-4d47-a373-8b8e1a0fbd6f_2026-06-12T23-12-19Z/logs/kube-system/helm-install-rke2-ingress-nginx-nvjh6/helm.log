@@ -1,0 +1,109 @@
+2026-06-12T10:44:06.159697881Z if [[ ${KUBERNETES_SERVICE_HOST} =~ .*:.* ]]; then
+2026-06-12T10:44:06.159746516Z 	echo "KUBERNETES_SERVICE_HOST is using IPv6"
+2026-06-12T10:44:06.159751943Z 	CHART="${CHART//%\{KUBERNETES_API\}%/[${KUBERNETES_SERVICE_HOST}]:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T10:44:06.159758798Z else
+2026-06-12T10:44:06.159762432Z 	CHART="${CHART//%\{KUBERNETES_API\}%/${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T10:44:06.159765081Z fi
+2026-06-12T10:44:06.159767418Z 
+2026-06-12T10:44:06.159769959Z set +v -x
+2026-06-12T10:44:06.159772537Z + [[ '' == v2 ]]
+2026-06-12T10:44:06.159775640Z + shopt -s nullglob
+2026-06-12T10:44:06.159779040Z + [[ -f /config/ca-file.pem ]]
+2026-06-12T10:44:06.159781883Z + [[ -f /tmp/ca-file.pem ]]
+2026-06-12T10:44:06.159784603Z + [[ false == true ]]
+2026-06-12T10:44:06.159787321Z + [[ false == true ]]
+2026-06-12T10:44:06.159790063Z + [[ -n '' ]]
+2026-06-12T10:44:06.159804611Z + helm_content_decode
+2026-06-12T10:44:06.159807507Z + set -e
+2026-06-12T10:44:06.159810307Z + ENC_CHART_PATH=/chart/rke2-ingress-nginx.tgz.base64
+2026-06-12T10:44:06.159817309Z + CHART_PATH=/tmp/rke2-ingress-nginx.tgz
+2026-06-12T10:44:06.159819956Z + [[ ! -f /chart/rke2-ingress-nginx.tgz.base64 ]]
+2026-06-12T10:44:06.159830273Z + base64 -d /chart/rke2-ingress-nginx.tgz.base64
+2026-06-12T10:44:06.162470529Z + CHART=/tmp/rke2-ingress-nginx.tgz
+2026-06-12T10:44:06.162487519Z + set +e
+2026-06-12T10:44:06.162555954Z + [[ install != delete ]]
+2026-06-12T10:44:06.162564879Z + helm_repo_init
+2026-06-12T10:44:06.162620932Z + grep -q -e 'https\?://'
+2026-06-12T10:44:06.163787044Z + [[ /tmp/rke2-ingress-nginx.tgz == stable/* ]]
+2026-06-12T10:44:06.165318029Z + [[ -n '' ]]
+2026-06-12T10:44:06.165343212Z + helm_update install --set-string global.clusterCIDR=10.52.0.0/16 --set-string global.clusterCIDRv4=10.52.0.0/16 --set-string global.clusterDNS=10.53.0.10 --set-string global.clusterDomain=cluster.local --set global.prime.enabled=false --set-string global.rke2DataDir=/var/lib/rancher/rke2 --set-string global.serviceCIDR=10.53.0.0/16 --set-string global.systemDefaultIngressClass=ingress-nginx
+2026-06-12T10:44:06.165348993Z ++ helm ls --all -f '^rke2-ingress-nginx$' --namespace kube-system --output json
+2026-06-12T10:44:06.165352317Z ++ jq -r '"\(.[0].chart),\(.[0].status),\(.[0].revision)"'
+2026-06-12T10:44:06.165418456Z ++ tr '[:upper:]' '[:lower:]'
+2026-06-12T10:44:06.310238103Z + LINE=rke2-ingress-nginx-4.14.508,deployed,2
+2026-06-12T10:44:06.310265825Z + IFS=,
+2026-06-12T10:44:06.310269336Z + read -r INSTALLED_VERSION STATUS REVISION _
+2026-06-12T10:44:06.310407286Z + VALUES=
+2026-06-12T10:44:06.310460054Z + for VALUES_FILE in /config/*.yaml
+2026-06-12T10:44:06.310536400Z + VALUES=' --values /config/values-1-000-HelmChartConfig-ValuesContent.yaml'
+2026-06-12T10:44:06.310601977Z + [[ install = delete ]]
+2026-06-12T10:44:06.310665259Z + [[ rke2-ingress-nginx-4.14.508 =~ ^(|null)$ ]]
+2026-06-12T10:44:06.310773653Z + check_revision 2
+2026-06-12T10:44:06.310789074Z + REVISION=2
+2026-06-12T10:44:06.310801986Z + [[ -n 2 ]]
+2026-06-12T10:44:06.310827445Z + [[ 2 != 2 ]]
+2026-06-12T10:44:06.310871233Z + [[ deployed =~ ^(pending-install|pending-upgrade|pending-rollback|superseded|uninstalling)$ ]]
+2026-06-12T10:44:06.311077861Z + [[ deployed =~ ^deployed$ ]]
+2026-06-12T10:44:06.311143161Z + echo 'Already installed rke2-ingress-nginx'
+2026-06-12T10:44:06.311158230Z Already installed rke2-ingress-nginx
+2026-06-12T10:44:06.311179646Z + helm mapkubeapis rke2-ingress-nginx --namespace kube-system
+2026-06-12T10:44:06.401725003Z 2026/06/12 10:44:06 Release 'rke2-ingress-nginx' will be checked for deprecated or removed Kubernetes APIs and will be updated if necessary to supported API versions.
+2026-06-12T10:44:06.401759626Z 2026/06/12 10:44:06 Get release 'rke2-ingress-nginx' latest version.
+2026-06-12T10:44:06.433697821Z 2026/06/12 10:44:06 Check release 'rke2-ingress-nginx' for deprecated or removed APIs...
+2026-06-12T10:44:06.438145440Z 2026/06/12 10:44:06 Finished checking release 'rke2-ingress-nginx' for deprecated or removed APIs.
+2026-06-12T10:44:06.438164428Z 2026/06/12 10:44:06 Release 'rke2-ingress-nginx' has no deprecated or removed APIs.
+2026-06-12T10:44:06.438168614Z 2026/06/12 10:44:06 Map of release 'rke2-ingress-nginx' deprecated or removed APIs to supported versions, completed successfully.
+2026-06-12T10:44:06.442214087Z + echo 'Upgrading helm chart'
+2026-06-12T10:44:06.442256143Z + echo 'Upgrading rke2-ingress-nginx'
+2026-06-12T10:44:06.442268262Z + shift 1
+2026-06-12T10:44:06.442288144Z Upgrading rke2-ingress-nginx
+2026-06-12T10:44:06.442408057Z + helm upgrade --set-string global.clusterCIDR=10.52.0.0/16 --set-string global.clusterCIDRv4=10.52.0.0/16 --set-string global.clusterDNS=10.53.0.10 --set-string global.clusterDomain=cluster.local --set global.prime.enabled=false --set-string global.rke2DataDir=/var/lib/rancher/rke2 --set-string global.serviceCIDR=10.53.0.0/16 --set-string global.systemDefaultIngressClass=ingress-nginx rke2-ingress-nginx /tmp/rke2-ingress-nginx.tgz --values /config/values-1-000-HelmChartConfig-ValuesContent.yaml
+2026-06-12T10:44:20.225489327Z Release "rke2-ingress-nginx" has been upgraded. Happy Helming!
+2026-06-12T10:44:20.225525037Z NAME: rke2-ingress-nginx
+2026-06-12T10:44:20.225530105Z LAST DEPLOYED: Fri Jun 12 10:44:06 2026
+2026-06-12T10:44:20.225534456Z NAMESPACE: kube-system
+2026-06-12T10:44:20.225538558Z STATUS: deployed
+2026-06-12T10:44:20.225542742Z REVISION: 3
+2026-06-12T10:44:20.225546313Z TEST SUITE: None
+2026-06-12T10:44:20.225549967Z NOTES:
+2026-06-12T10:44:20.225554031Z The ingress-nginx controller has been installed.
+2026-06-12T10:44:20.225573664Z It may take a few minutes for the load balancer IP to be available.
+2026-06-12T10:44:20.225579794Z You can watch the status by running 'kubectl get service --namespace kube-system rke2-ingress-nginx-controller --output wide --watch'
+2026-06-12T10:44:20.225588643Z 
+2026-06-12T10:44:20.225593044Z An example Ingress that makes use of the controller:
+2026-06-12T10:44:20.225596847Z   apiVersion: networking.k8s.io/v1
+2026-06-12T10:44:20.225600811Z   kind: Ingress
+2026-06-12T10:44:20.225604468Z   metadata:
+2026-06-12T10:44:20.225608194Z     name: example
+2026-06-12T10:44:20.225612256Z     namespace: foo
+2026-06-12T10:44:20.225616022Z   spec:
+2026-06-12T10:44:20.225619979Z     ingressClassName: nginx
+2026-06-12T10:44:20.225623687Z     rules:
+2026-06-12T10:44:20.225627467Z       - host: www.example.com
+2026-06-12T10:44:20.225631048Z         http:
+2026-06-12T10:44:20.225635032Z           paths:
+2026-06-12T10:44:20.225658927Z             - pathType: Prefix
+2026-06-12T10:44:20.225665647Z               backend:
+2026-06-12T10:44:20.225669361Z                 service:
+2026-06-12T10:44:20.225673245Z                   name: exampleService
+2026-06-12T10:44:20.225677167Z                   port:
+2026-06-12T10:44:20.225680664Z                     number: 80
+2026-06-12T10:44:20.225684316Z               path: /
+2026-06-12T10:44:20.225687982Z     # This section is only required if TLS is to be enabled for the Ingress
+2026-06-12T10:44:20.225691828Z     tls:
+2026-06-12T10:44:20.225695614Z       - hosts:
+2026-06-12T10:44:20.225699317Z         - www.example.com
+2026-06-12T10:44:20.225702970Z         secretName: example-tls
+2026-06-12T10:44:20.225720936Z 
+2026-06-12T10:44:20.225724740Z If TLS is enabled for the Ingress, a Secret containing the certificate and key must also be provided:
+2026-06-12T10:44:20.225727065Z 
+2026-06-12T10:44:20.225729934Z   apiVersion: v1
+2026-06-12T10:44:20.225732725Z   kind: Secret
+2026-06-12T10:44:20.225735278Z   metadata:
+2026-06-12T10:44:20.225737713Z     name: example-tls
+2026-06-12T10:44:20.225740360Z     namespace: foo
+2026-06-12T10:44:20.225742828Z   data:
+2026-06-12T10:44:20.225745568Z     tls.crt: <base64 encoded cert>
+2026-06-12T10:44:20.225748132Z     tls.key: <base64 encoded key>
+2026-06-12T10:44:20.225750703Z   type: kubernetes.io/tls
+2026-06-12T10:44:20.229011324Z + exit

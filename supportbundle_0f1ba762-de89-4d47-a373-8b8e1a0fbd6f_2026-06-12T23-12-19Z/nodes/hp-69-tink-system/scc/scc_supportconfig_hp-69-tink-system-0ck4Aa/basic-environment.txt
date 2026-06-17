@@ -1,0 +1,95 @@
+=============================================================================
+                     Support Utilities - Supportconfig
+                          Script Version: 3.2.12
+                         Library Version: 3.2.8-6
+                          Script Date: 2025 Dec 12
+
+ Detailed system information and logs are collected and organized in a
+ manner that helps reduce service request resolution times. Private system
+ information can be disclosed when using this tool. If this is a concern,
+ please prune private data from the log files. Several startup options
+ are available to exclude more sensitive information. Supportconfig data is
+ used only for diagnostic purposes and is considered confidential information.
+ See http://www.suse.com/company/policies/privacy/
+=============================================================================
+
+#==[ Command ]======================================#
+# /bin/date
+Fri Jun 12 23:14:04 UTC 2026
+
+#==[ Command ]======================================#
+# /bin/uname -a
+Linux supportbundle-agent-bundle-local-v1.8-d46887de-head-zcpxy-7ldx9 6.12.0-160000.32-default #1 SMP PREEMPT_DYNAMIC Fri May 15 19:14:55 UTC 2026 (78b265d) x86_64 x86_64 x86_64 GNU/Linux
+
+#==[ System ]=======================================#
+# Virtualization
+Manufacturer:  HP
+Hardware:      ProLiant DL360 Gen9
+Hypervisor:    None
+Identity:      Not Detected
+
+#==[ Configuration File ]===========================#
+# /etc/harvester-release.yaml
+harvester: d46887de
+harvesterChart: 0.0.0-v1.8-d46887de
+installer: e53bc5a
+os: Harvester v1.8
+kubernetes: v1.35.5+rke2r1
+rancher: v2.14.2
+monitoringChart: 108.0.2+up77.9.1-rancher.11
+loggingChart: 108.0.2+up4.10.0-rancher.18
+loggingChartHarvesterEventRouter: rancher/harvester-eventrouter:v1.8.1-rc1
+kubevirt: 1.7.0-150700.3.21.1
+minUpgradableVersion: ''
+rancherDependencies:
+  fleet:
+    chart: 109.0.2+up0.15.2
+    app: 0.15.2
+  fleet-crd:
+    chart: 109.0.2+up0.15.2
+    app: 0.15.2
+  rancher-webhook:
+    chart: 109.0.2+up0.10.6
+    app: 0.10.6
+
+
+#==[ Configuration File ]===========================#
+# /etc/os-release
+NAME="SLES"
+PRETTY_NAME="Harvester v1.8"
+VARIANT="Micro"
+VARIANT_ID="transactional"
+VERSION="16.0"
+VERSION_ID="16.0"
+ANSI_COLOR="0;32"
+ID="sles"
+ID_LIKE="suse opensuse sle-micro sl-micro microos opensuse-microos"
+CPE_NAME="cpe:/o:suse:sles:16:16.0"
+SUSE_SUPPORT_PRODUCT="SUSE Linux Micro"
+SUSE_SUPPORT_PRODUCT_VERSION="6.2"
+SUSE_PRETTY_NAME="SUSE Linux Micro 6.2"
+HOME_URL="https://www.suse.com/products/micro/"
+DOCUMENTATION_URL="https://documentation.suse.com/sl-micro/6.2/"
+LOGO="distributor-logo"
+IMAGE_REPO="registry.suse.com/suse/sl-micro/6.2/base-os-container"
+IMAGE_TAG="2.3.0-7.88"
+IMAGE="registry.suse.com/suse/sl-micro/6.2/base-os-container:2.3.0-7.88"
+TIMESTAMP=20260527164651
+GRUB_ENTRY_NAME="SUSE Linux Micro"
+VARIANT="Harvester"
+VARIANT_ID="Harvester-v1.8-20260605"
+GRUB_ENTRY_NAME="Harvester v1.8"
+
+
+#==[ Command ]======================================#
+# /bin/rpm -qf /etc/products.d/baseproduct
+SL-Micro-release-6.2-160000.18.1.x86_64
+
+#==[ Command ]======================================#
+# /bin/rpm -qa --queryformat "%{DISTRIBUTION}\n" | sort | uniq
+SUSE Linux 16
+isv:Rancher:Harvester:ExtraPackages:v1.8 / sl-micro-6.2
+
+#==[ Verification ]=================================#
+# RPM Not Installed: firewalld
+

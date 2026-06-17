@@ -1,0 +1,222 @@
+apiVersion: v1
+items:
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: Hugepage
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:48Z"
+    generation: 1
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e3daa4a2-3ffc-4a60-bed1-aa5be0249246"}: {}
+        f:spec:
+          .: {}
+          f:transparent:
+            .: {}
+            f:defrag: {}
+            f:enabled: {}
+            f:shmemEnabled: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T10:42:48Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:meminfo:
+            .: {}
+            f:anonHugePages: {}
+            f:hugePagesFree: {}
+            f:hugePagesRsvd: {}
+            f:hugePagesSurp: {}
+            f:hugePagesTotal: {}
+            f:hugepageSize: {}
+            f:shmemHugePages: {}
+          f:transparent:
+            .: {}
+            f:defrag: {}
+            f:enabled: {}
+            f:shmemEnabled: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:11:39Z"
+    name: hp-117-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-117-tink-system
+      uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+    resourceVersion: "675636"
+    uid: ce109871-0650-422f-bcc3-962f3cbbf98b
+  spec:
+    transparent:
+      defrag: madvise
+      enabled: always
+      shmemEnabled: never
+  status:
+    meminfo:
+      anonHugePages: 7.730102272e+09
+      hugePagesFree: 0
+      hugePagesRsvd: 0
+      hugePagesSurp: 0
+      hugePagesTotal: 0
+      hugepageSize: 2.097152e+06
+      shmemHugePages: 0
+    transparent:
+      defrag: madvise
+      enabled: always
+      shmemEnabled: never
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: Hugepage
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:34Z"
+    generation: 1
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"240e7b92-78b6-4f7a-9e31-87e062e42187"}: {}
+        f:spec:
+          .: {}
+          f:transparent:
+            .: {}
+            f:defrag: {}
+            f:enabled: {}
+            f:shmemEnabled: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T10:47:34Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:meminfo:
+            .: {}
+            f:anonHugePages: {}
+            f:hugePagesFree: {}
+            f:hugePagesRsvd: {}
+            f:hugePagesSurp: {}
+            f:hugePagesTotal: {}
+            f:hugepageSize: {}
+            f:shmemHugePages: {}
+          f:transparent:
+            .: {}
+            f:defrag: {}
+            f:enabled: {}
+            f:shmemEnabled: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:11:55Z"
+    name: hp-150-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-150-tink-system
+      uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+    resourceVersion: "675872"
+    uid: fd0535c6-4d0d-4167-9598-4f4f4bbc1300
+  spec:
+    transparent:
+      defrag: madvise
+      enabled: always
+      shmemEnabled: never
+  status:
+    meminfo:
+      anonHugePages: 3.95313152e+09
+      hugePagesFree: 0
+      hugePagesRsvd: 0
+      hugePagesSurp: 0
+      hugePagesTotal: 0
+      hugepageSize: 2.097152e+06
+      shmemHugePages: 0
+    transparent:
+      defrag: madvise
+      enabled: always
+      shmemEnabled: never
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: Hugepage
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:43Z"
+    generation: 1
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"393f61bc-82fe-4d9f-a4e3-c1b00c70f006"}: {}
+        f:spec:
+          .: {}
+          f:transparent:
+            .: {}
+            f:defrag: {}
+            f:enabled: {}
+            f:shmemEnabled: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T10:47:43Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:meminfo:
+            .: {}
+            f:anonHugePages: {}
+            f:hugePagesFree: {}
+            f:hugePagesRsvd: {}
+            f:hugePagesSurp: {}
+            f:hugePagesTotal: {}
+            f:hugepageSize: {}
+            f:shmemHugePages: {}
+          f:transparent:
+            .: {}
+            f:defrag: {}
+            f:enabled: {}
+            f:shmemEnabled: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:12:11Z"
+    name: hp-69-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-69-tink-system
+      uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    resourceVersion: "676066"
+    uid: 38deafa2-f174-42bc-bac6-458c1e4dda1c
+  spec:
+    transparent:
+      defrag: madvise
+      enabled: always
+      shmemEnabled: never
+  status:
+    meminfo:
+      anonHugePages: 5.356126208e+09
+      hugePagesFree: 0
+      hugePagesRsvd: 0
+      hugePagesSurp: 0
+      hugePagesTotal: 0
+      hugepageSize: 2.097152e+06
+      shmemHugePages: 0
+    transparent:
+      defrag: madvise
+      enabled: always
+      shmemEnabled: never
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676284"

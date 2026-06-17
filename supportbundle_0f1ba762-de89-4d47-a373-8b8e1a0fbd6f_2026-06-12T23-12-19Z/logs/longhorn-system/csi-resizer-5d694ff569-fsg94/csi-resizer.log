@@ -1,0 +1,15 @@
+2026-06-12T10:43:27.794336990Z I0612 10:43:27.794126       1 main.go:118] "Version" version="v"
+2026-06-12T10:43:27.794379753Z I0612 10:43:27.794292       1 feature_gate.go:466] feature gates: {map[RecoverVolumeExpansionFailure:false]}
+2026-06-12T10:43:27.794691406Z I0612 10:43:27.794596       1 envvar.go:172] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+2026-06-12T10:43:27.794700530Z I0612 10:43:27.794624       1 envvar.go:172] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+2026-06-12T10:43:27.794703297Z I0612 10:43:27.794634       1 envvar.go:172] "Feature gate default state" feature="InOrderInformers" enabled=true
+2026-06-12T10:43:27.794706016Z I0612 10:43:27.794667       1 envvar.go:172] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+2026-06-12T10:43:27.794713705Z I0612 10:43:27.794676       1 envvar.go:172] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+2026-06-12T10:43:27.794716512Z I0612 10:43:27.794683       1 envvar.go:172] "Feature gate default state" feature="WatchListClient" enabled=true
+2026-06-12T10:43:27.800304642Z I0612 10:43:27.800237       1 main.go:161] "VolumeAttributesClass v1 API is available"
+2026-06-12T10:43:27.801821890Z W0612 10:43:27.801734       1 logging.go:55] [core] [Channel #1 SubChannel #2] grpc: addrConn.createTransport failed to connect to {Addr: "/csi/csi.sock", ServerName: "localhost", Attributes: {"<%!p(networktype.keyType=grpc.internal.transport.networktype)>": "unix" }, }. Err: connection error: desc = "transport: Error while dialing: dial unix /csi/csi.sock: connect: no such file or directory"
+2026-06-12T10:43:28.803051223Z I0612 10:43:28.802949       1 common.go:143] "Probing CSI driver for readiness"
+2026-06-12T10:43:28.804513775Z I0612 10:43:28.804454       1 main.go:188] "CSI driver name" driverName="driver.longhorn.io"
+2026-06-12T10:43:28.809779161Z I0612 10:43:28.809707       1 main.go:226] "Modify not supported" message="CSI driver does not support controller modify"
+2026-06-12T10:43:28.809954867Z I0612 10:43:28.809873       1 main.go:241] "ServeMux listening" address=":8000"
+2026-06-12T10:43:28.810435547Z I0612 10:43:28.810396       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="longhorn-system/external-resizer-driver-longhorn-io"

@@ -1,0 +1,1138 @@
+apiVersion: v1
+items:
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.52
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: cdi-apiserver-5b85b4b788-rrgc7
+      namespace: harvester-system
+      uid: 7241db30-f1f5-4a6b-bc4d-cc68abeb674f
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:42:54Z"
+    creationTimestamp: "2026-06-12T10:42:47Z"
+    generateName: cdi-api-
+    generation: 3
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: cdi-apiserver
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: cdi-api
+      operator.cdi.kubevirt.io/createVersion: 1.64.0-150700.9.6.1
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:operator.cdi.kubevirt.io/createVersion: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"cb95d23d-877a-4bec-948f-fabe1847fa68"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:42:54Z"
+    name: cdi-api-kr6ll
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: cdi-api
+      uid: cb95d23d-877a-4bec-948f-fabe1847fa68
+    resourceVersion: "5654"
+    uid: 8ef73785-5e7c-4a63-baa7-d604b3054317
+  ports:
+  - name: "null"
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.50
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: cdi-operator-cddfc56d5-pn8ch
+      namespace: harvester-system
+      uid: 5b4a400e-bb20-4e67-87a8-7af98841dc60
+  - addresses:
+    - 10.52.0.54
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: cdi-deployment-5d5645445b-zff8v
+      namespace: harvester-system
+      uid: e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:42:58Z"
+    creationTimestamp: "2026-06-12T10:42:48Z"
+    generateName: cdi-prometheus-metrics-
+    generation: 4
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: "null"
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: cdi-prometheus-metrics
+      operator.cdi.kubevirt.io/createVersion: 1.64.0-150700.9.6.1
+      prometheus.cdi.kubevirt.io: "true"
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:operator.cdi.kubevirt.io/createVersion: {}
+            f:prometheus.cdi.kubevirt.io: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"1818bce6-78ae-48b2-a5a8-285627597cc6"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:42:58Z"
+    name: cdi-prometheus-metrics-lbwcv
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: cdi-prometheus-metrics
+      uid: 1818bce6-78ae-48b2-a5a8-285627597cc6
+    resourceVersion: "5786"
+    uid: 2d7e1b19-c24f-4376-88d1-8d8c9ff4ae0e
+  ports:
+  - name: metrics
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.51
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: cdi-uploadproxy-759446c655-7p8kp
+      namespace: harvester-system
+      uid: 1675eb18-fe58-400c-af68-38e95135cced
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:43:10Z"
+    creationTimestamp: "2026-06-12T10:42:48Z"
+    generateName: cdi-uploadproxy-
+    generation: 3
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-operator
+      cdi.kubevirt.io: cdi-uploadproxy
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: cdi-uploadproxy
+      operator.cdi.kubevirt.io/createVersion: 1.64.0-150700.9.6.1
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:operator.cdi.kubevirt.io/createVersion: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"f34b585b-9ac7-4d5f-b0dc-00427f785d0a"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:43:10Z"
+    name: cdi-uploadproxy-tgmkq
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: cdi-uploadproxy
+      uid: f34b585b-9ac7-4d5f-b0dc-00427f785d0a
+    resourceVersion: "5970"
+    uid: e54639d3-f13e-4a24-8576-f8c0c44549f7
+  ports:
+  - name: "null"
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.2.230
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-69-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-csi-driver-lvm-webhook-66489785cd-w4cxr
+      namespace: harvester-system
+      uid: 25b8a2db-e7fb-4dec-9824-58cd01669dbc
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T23:03:27Z"
+    creationTimestamp: "2026-06-12T23:03:19Z"
+    generateName: harvester-csi-driver-lvm-webhook-
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: harvester-csi-driver-lvm-webhook
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"c923c757-fd5b-4afd-921e-f5020a243609"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T23:03:27Z"
+    name: harvester-csi-driver-lvm-webhook-xwxlb
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: harvester-csi-driver-lvm-webhook
+      uid: c923c757-fd5b-4afd-921e-f5020a243609
+    resourceVersion: "668989"
+    uid: de317f93-d9e5-4fe7-a8db-67030f63662a
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.41
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-load-balancer-webhook-c86fb56b9-9lqrn
+      namespace: harvester-system
+      uid: a5279635-6f76-4fa5-997f-adbaed4f7809
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:42:44Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generateName: harvester-load-balancer-webhook-
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: harvester-load-balancer-webhook
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"995eb5aa-b6dd-41c7-a4e6-9e4a666a2fbd"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:42:45Z"
+    name: harvester-load-balancer-webhook-kqsjr
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: harvester-load-balancer-webhook
+      uid: 995eb5aa-b6dd-41c7-a4e6-9e4a666a2fbd
+    resourceVersion: "4952"
+    uid: f36f155e-e0d0-4045-978a-1f60c3bd8af8
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.37
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-network-webhook-dc9497c64-l6c4q
+      namespace: harvester-system
+      uid: ad917de6-c143-4734-8e02-639476e47937
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:42:44Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generateName: harvester-network-webhook-
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: harvester-network-webhook
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"8d0b2c23-123a-4578-9e65-24ea59cb3e86"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:42:45Z"
+    name: harvester-network-webhook-xrh5v
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: harvester-network-webhook
+      uid: 8d0b2c23-123a-4578-9e65-24ea59cb3e86
+    resourceVersion: "4947"
+    uid: 4147e379-f375-4f50-9a4c-275feba42bcc
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.36
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-node-disk-manager-webhook-78d9b6887f-v88ws
+      namespace: harvester-system
+      uid: 2ae75d4c-eacb-41d1-8fcb-a3a0b6d7cca8
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:42:44Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generateName: harvester-node-disk-manager-webhook-
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: harvester-node-disk-manager-webhook
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"690f8474-564f-4b5e-a755-8fb80d789ec8"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:42:44Z"
+    name: harvester-node-disk-manager-webhook-vjnpg
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: harvester-node-disk-manager-webhook
+      uid: 690f8474-564f-4b5e-a755-8fb80d789ec8
+    resourceVersion: "4922"
+    uid: 44e58f43-645d-4642-8399-d8d08ca0e465
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.46
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-node-manager-webhook-85fbc6975-sglzw
+      namespace: harvester-system
+      uid: ced58154-c356-4c4b-a4e6-70e1d45c4810
+  - addresses:
+    - 10.52.0.84
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-node-manager-webhook-85fbc6975-77xgw
+      namespace: harvester-system
+      uid: 4f8f040c-d64a-47d3-9973-30807fa8e28a
+  - addresses:
+    - 10.52.0.85
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-node-manager-webhook-85fbc6975-j48rt
+      namespace: harvester-system
+      uid: d907518f-99e3-48ae-bd15-f3727a516cdf
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:47:14Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generateName: harvester-node-manager-webhook-
+    generation: 4
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: harvester-node-manager-webhook
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"49711126-a2a4-4c26-bce5-0ef7b88f90e3"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:47:14Z"
+    name: harvester-node-manager-webhook-6m9vf
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: harvester-node-manager-webhook
+      uid: 49711126-a2a4-4c26-bce5-0ef7b88f90e3
+    resourceVersion: "10934"
+    uid: f89e3939-166c-47b5-8692-94af3a96cd12
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.2.226
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-69-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-6fd6f578f9-5hkhd
+      namespace: harvester-system
+      uid: 5d71a7d8-c520-4d2c-a9ab-91cadf2f50e7
+  - addresses:
+    - 10.52.1.97
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-150-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-6fd6f578f9-rdnfg
+      namespace: harvester-system
+      uid: ef5be04a-8762-4594-8fd6-eda6f98ef4cc
+  - addresses:
+    - 10.52.0.162
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-6fd6f578f9-dlx8z
+      namespace: harvester-system
+      uid: 47b82d51-fb6f-4010-ad08-30aa78df8661
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T15:45:30Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generateName: harvester-
+    generation: 19
+    labels:
+      app.kubernetes.io/component: apiserver
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: harvester
+      app.kubernetes.io/part-of: harvester
+      app.kubernetes.io/version: v1.8-d46887de
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      helm.sh/chart: harvester-0.0.0-v1.8-d46887de
+      helm.sh/release: harvester
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/service-name: harvester
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/part-of: {}
+            f:app.kubernetes.io/version: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:helm.sh/chart: {}
+            f:helm.sh/release: {}
+            f:kubernetes.io/cluster-service: {}
+            f:kubernetes.io/service-name: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"2c95d4ca-1d4a-469b-9ccc-ecc181fa3fd9"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T15:45:30Z"
+    name: harvester-s87v5
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: harvester
+      uid: 2c95d4ca-1d4a-469b-9ccc-ecc181fa3fd9
+    resourceVersion: "323592"
+    uid: a5b87cd4-bf58-4f5f-82fc-518700921c09
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.163
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-webhook-6954d46957-mhwc2
+      namespace: harvester-system
+      uid: 4971c7fc-417d-4b1e-92ae-3f5246742060
+  - addresses:
+    - 10.52.1.98
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-150-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-webhook-6954d46957-smskd
+      namespace: harvester-system
+      uid: 49939932-f235-478b-99c5-ee6fc26c6d5c
+  - addresses:
+    - 10.52.2.227
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-69-tink-system
+    targetRef:
+      kind: Pod
+      name: harvester-webhook-6954d46957-bnjq6
+      namespace: harvester-system
+      uid: 94d5140d-1359-49d1-b872-b0c55fb55397
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T15:45:32Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generateName: harvester-webhook-
+    generation: 18
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: harvester-webhook
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"987241fd-b8c5-4f3c-a466-d0f2142caa02"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T15:45:32Z"
+    name: harvester-webhook-c9bdn
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: harvester-webhook
+      uid: 987241fd-b8c5-4f3c-a466-d0f2142caa02
+    resourceVersion: "323755"
+    uid: e1c08aea-9353-4894-823f-a33ba60e8ada
+  ports:
+  - name: https
+    port: 9443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.48
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-operator-545876d8b-z5dlh
+      namespace: harvester-system
+      uid: cb301bcf-d78b-4da4-9dbf-aaa67f9166ef
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:43:27Z"
+    creationTimestamp: "2026-06-12T10:43:27Z"
+    generateName: kubevirt-operator-webhook-
+    generation: 1
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: kubevirt-operator-webhook
+      kubevirt.io: "null"
+      prometheus.kubevirt.io: "true"
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:kubevirt.io: {}
+            f:prometheus.kubevirt.io: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"1665eae9-1896-4d19-be3f-1f0758934fb2"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:43:27Z"
+    name: kubevirt-operator-webhook-zwjjq
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: kubevirt-operator-webhook
+      uid: 1665eae9-1896-4d19-be3f-1f0758934fb2
+    resourceVersion: "6504"
+    uid: a3951051-1f80-4450-bf7d-4b14981567dd
+  ports:
+  - name: webhooks
+    port: 8444
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.48
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-operator-545876d8b-z5dlh
+      namespace: harvester-system
+      uid: cb301bcf-d78b-4da4-9dbf-aaa67f9166ef
+  - addresses:
+    - 10.52.0.71
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-api-559c7d8b94-c9gct
+      namespace: harvester-system
+      uid: c564fb68-5d91-4a60-9fc2-b7993acf67ae
+  - addresses:
+    - 10.52.0.77
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-controller-5dffc56694-hmfhr
+      namespace: harvester-system
+      uid: c71329b7-45d1-4a06-afc6-bd0c4d546054
+  - addresses:
+    - 10.52.0.79
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-controller-5dffc56694-9sm4w
+      namespace: harvester-system
+      uid: 02ce2273-af3b-499d-becf-137ad4c8cc75
+  - addresses:
+    - 10.52.0.78
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-handler-z6kp6
+      namespace: harvester-system
+      uid: cb503f2e-7749-40d4-b2d6-63310aa91467
+  - addresses:
+    - 10.52.1.3
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-150-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-handler-d772w
+      namespace: harvester-system
+      uid: 68a8c4e8-13ec-47a4-8f18-f145670584b1
+  - addresses:
+    - 10.52.2.6
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-69-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-handler-27hnj
+      namespace: harvester-system
+      uid: c90eed7c-31b6-4e45-bccf-59b2b7c94836
+  - addresses:
+    - 10.52.1.30
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-150-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-api-559c7d8b94-6v7nz
+      namespace: harvester-system
+      uid: 143c6382-7518-482f-aed4-5525dc082105
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T11:05:47Z"
+    creationTimestamp: "2026-06-12T10:43:27Z"
+    generateName: kubevirt-prometheus-metrics-
+    generation: 23
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: kubevirt-prometheus-metrics
+      kubevirt.io: "null"
+      prometheus.kubevirt.io: "true"
+      service.kubernetes.io/headless: "null"
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:kubevirt.io: {}
+            f:prometheus.kubevirt.io: {}
+            f:service.kubernetes.io/headless: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e4cabe6a-e2fb-4ae9-a089-3a3084b7bbfa"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T11:05:47Z"
+    name: kubevirt-prometheus-metrics-knpgz
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: kubevirt-prometheus-metrics
+      uid: e4cabe6a-e2fb-4ae9-a089-3a3084b7bbfa
+    resourceVersion: "31765"
+    uid: b78b9f49-9c84-45d7-ac52-af1e34df19e2
+  ports:
+  - name: metrics
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.52.0.71
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-117-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-api-559c7d8b94-c9gct
+      namespace: harvester-system
+      uid: c564fb68-5d91-4a60-9fc2-b7993acf67ae
+  - addresses:
+    - 10.52.1.30
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hp-150-tink-system
+    targetRef:
+      kind: Pod
+      name: virt-api-559c7d8b94-6v7nz
+      namespace: harvester-system
+      uid: 143c6382-7518-482f-aed4-5525dc082105
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T11:05:47Z"
+    creationTimestamp: "2026-06-12T10:43:27Z"
+    generateName: virt-api-
+    generation: 13
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: virt-api
+      kubevirt.io: virt-api
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:kubevirt.io: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"02c6d604-2b9d-422e-aab7-227f52a49184"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T11:05:47Z"
+    name: virt-api-ckp2l
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: virt-api
+      uid: 02c6d604-2b9d-422e-aab7-227f52a49184
+    resourceVersion: "31763"
+    uid: 226d2738-f7a9-4abf-9e26-eee0d499c95b
+  ports:
+  - name: "null"
+    port: 8443
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints: "null"
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:43:27Z"
+    creationTimestamp: "2026-06-12T10:43:27Z"
+    generateName: virt-exportproxy-
+    generation: 1
+    labels:
+      app.kubernetes.io/component: kubevirt
+      app.kubernetes.io/managed-by: virt-operator
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: virt-exportproxy
+      kubevirt.io: virt-exportproxy
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:kubernetes.io/service-name: {}
+            f:kubevirt.io: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"cfd0b314-8b10-4ba4-8005-6bc5d5849d80"}: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:43:27Z"
+    name: virt-exportproxy-6fqgz
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: virt-exportproxy
+      uid: cfd0b314-8b10-4ba4-8005-6bc5d5849d80
+    resourceVersion: "6510"
+    uid: b53cf2aa-669b-4a67-b191-18483fa52b0f
+  ports: null
+kind: List
+metadata:
+  resourceVersion: "676447"

@@ -1,0 +1,191 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:spec:
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":80,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    name: gitjob
+    namespace: cattle-fleet-system
+    resourceVersion: "1975"
+    uid: f29be156-3ced-41f0-9c3d-6c90e6139c0b
+  spec:
+    clusterIP: 10.53.79.75
+    clusterIPs:
+    - 10.53.79.75
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-80
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: gitjob
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    labels:
+      app: fleet-controller
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:spec:
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":8080,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    name: monitoring-fleet-controller
+    namespace: cattle-fleet-system
+    resourceVersion: "1972"
+    uid: 886bd4b9-d01d-425b-bc69-4ce8e489b8ec
+  spec:
+    clusterIP: 10.53.40.115
+    clusterIPs:
+    - 10.53.40.115
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: fleet-controller
+      fleet.cattle.io/shard-default: "true"
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    labels:
+      app: gitjob
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:spec:
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":8081,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    name: monitoring-gitjob
+    namespace: cattle-fleet-system
+    resourceVersion: "1969"
+    uid: 34306bed-6fa3-41aa-ad3c-6f9182729b39
+  spec:
+    clusterIP: 10.53.93.155
+    clusterIPs:
+    - 10.53.93.155
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    selector:
+      app: gitjob
+      fleet.cattle.io/shard-default: "true"
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: "676388"

@@ -1,0 +1,42 @@
+apiVersion: v1
+items:
+- apiVersion: harvesterhci.io/v1beta1
+  kind: SupportBundle
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:18Z"
+    generation: 3
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:description: {}
+          f:expiration: {}
+          f:issueURL: {}
+          f:nodeTimeout: {}
+          f:timeout: {}
+        f:status:
+          .: {}
+          f:progress: {}
+          f:state: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T23:12:21Z"
+    name: bundle-local-v1.8-d46887de-head-zcpxy
+    namespace: harvester-system
+    resourceVersion: "676250"
+    uid: 9f71c85f-7dd5-4698-9286-bbc7265475a3
+  spec:
+    description: Disabling failed
+    expiration: 30
+    issueURL: "null"
+    nodeTimeout: 30
+    timeout: 50
+  status:
+    progress: 16
+    state: generating
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676448"

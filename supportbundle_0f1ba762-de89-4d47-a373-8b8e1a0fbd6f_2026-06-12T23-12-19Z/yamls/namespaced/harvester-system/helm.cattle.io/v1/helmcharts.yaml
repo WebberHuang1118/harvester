@@ -1,0 +1,96 @@
+apiVersion: v1
+items:
+- apiVersion: helm.cattle.io/v1
+  kind: HelmChart
+  metadata:
+    annotations:
+      helmcharts.cattle.io/managed-by: helm-controller
+    creationTimestamp: "2026-06-12T23:03:14Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-06-12T23:09:11Z"
+    finalizers:
+    - wrangler.cattle.io/on-helm-chart-remove
+    generation: 2
+    managedFields:
+    - apiVersion: helm.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a318b456-58dc-4e1f-abf0-7c9e87a165b4"}: {}
+        f:spec:
+          .: {}
+          f:backOffLimit: {}
+          f:chart: {}
+          f:driver: {}
+          f:failurePolicy: {}
+          f:repo: {}
+          f:version: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T23:03:14Z"
+    - apiVersion: helm.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:helmcharts.cattle.io/managed-by: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/on-helm-chart-remove"null: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T23:03:14Z"
+    - apiVersion: helm.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Failed"}:
+              .: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"JobCreated"}:
+              .: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:jobName: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:09:14Z"
+    name: harvester-csi-driver-lvm
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: harvesterhci.io/v1beta1
+      kind: Addon
+      name: harvester-csi-driver-lvm
+      uid: a318b456-58dc-4e1f-abf0-7c9e87a165b4
+    resourceVersion: "673630"
+    uid: 4c311aa0-a9b9-4154-9fc9-60b06237d798
+  spec:
+    backOffLimit: 5
+    chart: harvester-csi-driver-lvm
+    driver: secret
+    failurePolicy: reinstall
+    repo: https://charts.harvesterhci.io
+    version: 1.8.1-rc1
+  status:
+    conditions:
+    - message: Applying HelmChart using Job harvester-system/helm-install-harvester-csi-driver-lvm
+      reason: Job created
+      status: "True"
+      type: JobCreated
+    - status: "False"
+      type: Failed
+    jobName: helm-delete-harvester-csi-driver-lvm
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676448"

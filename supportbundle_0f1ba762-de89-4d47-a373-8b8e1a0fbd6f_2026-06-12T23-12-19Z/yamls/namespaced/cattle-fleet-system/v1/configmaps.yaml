@@ -1,0 +1,172 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    config: |
+      agentCheckinInterval: 15m
+      agentImage: rancher/fleet-agent:v0.15.2
+      agentImagePullPolicy: IfNotPresent
+      agentTLSMode: system-store
+      agentWorkers:
+        bundledeployment: "50"
+        drift: "50"
+      apiServerCA: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ2VENDQVdPZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQkdNUnd3R2dZRFZRUUtFeE5rZVc1aGJXbGoKYkdsemRHVnVaWEl0YjNKbk1TWXdKQVlEVlFRRERCMWtlVzVoYldsamJHbHpkR1Z1WlhJdFkyRkFNVGM0TVRJMgpNRGM1T1RBZUZ3MHlOakEyTVRJd09UTTVOVGxhRncwek5qQTJNRGt3T1RNNU5UbGFNRVl4SERBYUJnTlZCQW9UCkUyUjVibUZ0YVdOc2FYTjBaVzVsY2kxdmNtY3hKakFrQmdOVkJBTU1IV1I1Ym1GdGFXTnNhWE4wWlc1bGNpMWoKWVVBeE56Z3hNall3TnprNU1Ga3dFd1lIS29aSXpqMENBUVlJS29aSXpqMERBUWNEUWdBRUs5ampobHFaZCtWNwo0VUlnSGNHRWlVOXNzUEsyT1hrR24zREdrVUdrYzZRaldCT051MHZweThFVjdMRU9JRDBIa2ppQTZxZk5yTmxUCndmWXdHTHNKeXFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0hRWUQKVlIwT0JCWUVGUHM4SEFNYzh4bVptYmFZcGplbWFKeGdiT3A1TUFvR0NDcUdTTTQ5QkFNQ0EwZ0FNRVVDSVFDcAo5Znltd3RuYjNpZGFSVG9DQnB3WGFTVXBCU2lsTlpXa3N4bldTN05FWmdJZ1pCNDVScFM4M2V4bjA4Qnd4b2grCm13Vkw4Q0dOSVNPakNVZ2c1UmNvd2pRPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+      apiServerURL: https://10.53.3.202
+      bootstrap:
+        agentNamespace: cattle-fleet-local-system
+        branch: master
+        clusterLabels: {}
+        namespace: fleet-local
+        paths: ""
+        repo: ""
+        secret: ""
+      garbageCollectionInterval: 15m
+      gitClientTimeout: 30s
+      githubURLPrefix: ""
+      ignoreClusterRegistrationLabels: false
+      systemDefaultRegistry: ""
+      webhookReceiverURL: ""
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:38Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          f:config: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:49:31Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:49:31Z"
+    name: fleet-controller
+    namespace: cattle-fleet-system
+    resourceVersion: "14619"
+    uid: f4175946-fc16-438e-869f-133eeeaf2572
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    annotations:
+      fleet.cattle.io/migration: Marks that the one-time helmRepoURLRegex migration
+        has run. Do not delete.
+    creationTimestamp: "2026-06-12T10:45:28Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:fleet.cattle.io/migration: {}
+      manager: fleet
+      operation: Update
+      time: "2026-06-12T10:45:28Z"
+    name: fleet-helm-url-regex-migrated
+    namespace: cattle-fleet-system
+    resourceVersion: "9089"
+    uid: 61b93d0b-6e14-41d1-ad04-0b40983e8285
+- apiVersion: v1
+  data:
+    known_hosts: |
+      bitbucket.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPIQmuzMBuKdWeF4+a2sjSSpBK0iqitSQ+5BM9KhpexuGt20JpTVM7u5BDZngncgrqDMbWdxMWWOGtZ9UgbqgZE=
+      bitbucket.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIazEu89wgQZ4bqs3d63QSMzYVa0MuJ2e2gKTKqu+UUO
+      bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQeJzhupRu0u0cdegZIa8e86EG2qOCsIsD1Xw0xSeiPDlCr7kq97NLmMbpKTX6Esc30NuoqEEHCuc7yWtwp8dI76EEEB1VqY9QJq6vk+aySyboD5QF61I/1WeTwu+deCbgKMGbUijeXhtfbxSxm6JwGrXrhBdofTsbKRUsrN1WoNgUa8uqN1Vx6WAJw1JHPhglEGGHea6QICwJOAr/6mrui/oB7pkaWKHj3z7d1IC4KWLtY47elvjbaTlkN04Kc/5LFEirorGYVbt15kAUlqGM65pk6ZBxtaO3+30LVlORZkxOh+LKL/BvbZ/iRNhItLqNyieoQj/uh/7Iv4uyH/cV/0b4WDSd3DptigWq84lJubb9t/DnZlrJazxyDCulTmKdOR7vs9gMTo+uoIrPSb8ScTtvw65+odKAlBj59dhnVp9zd7QUojOpXlL62Aw56U4oO+FALuevvMjiWeavKhJqlR7i5n9srYcrNV7ttmDw7kf/97P5zauIhxcjX+xHv4M=
+      github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+      github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+      github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
+      gitlab.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY=
+      gitlab.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf
+      gitlab.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9
+      ssh.dev.azure.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Hr1oTWqNqOlzGJOfGJ4NakVyIzf1rXYd4d7wo6jBlkLvCA4odBlL0mDUyZ0/QUfTTqeu+tm22gOsv+VrVTMk6vwRU75gY/y9ut5Mb3bR5BV58dKXyq9A9UeB5Cakehn5Zgm6x1mKoVyf+FFn26iYqXJRgzIZZcZ5V6hrE0Qg39kZm4az48o0AUbf6Sp4SLdvnuMa2sVNwHBboS7EJkm57XQPVU3/QpyNLHbWDdzwtrlS+ez30S3AdYhLKEOxAG8weOnyrtLJAUen9mTkol8oII1edf7mWWbWVf0nBmly21+nZcmCTISQBtdcyPaEno7fFQMDD26/s0lfKob4Kw8H
+      vs-ssh.visualstudio.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Hr1oTWqNqOlzGJOfGJ4NakVyIzf1rXYd4d7wo6jBlkLvCA4odBlL0mDUyZ0/QUfTTqeu+tm22gOsv+VrVTMk6vwRU75gY/y9ut5Mb3bR5BV58dKXyq9A9UeB5Cakehn5Zgm6x1mKoVyf+FFn26iYqXJRgzIZZcZ5V6hrE0Qg39kZm4az48o0AUbf6Sp4SLdvnuMa2sVNwHBboS7EJkm57XQPVU3/QpyNLHbWDdzwtrlS+ez30S3AdYhLKEOxAG8weOnyrtLJAUen9mTkol8oII1edf7mWWbWVf0nBmly21+nZcmCTISQBtdcyPaEno7fFQMDD26/s0lfKob4Kw8H
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:38Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:known_hosts: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:38Z"
+    name: known-hosts
+    namespace: cattle-fleet-system
+    resourceVersion: "1952"
+    uid: f522a263-cd8f-4df6-9f0b-ab92af2d190b
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIBeTCCAR+gAwIBAgIBADAKBggqhkjOPQQDAjAkMSIwIAYDVQQDDBlya2UyLXNl
+      cnZlci1jYUAxNzgxMjYwNzE2MB4XDTI2MDYxMjA5MzgzNloXDTM2MDYwOTA5Mzgz
+      NlowJDEiMCAGA1UEAwwZcmtlMi1zZXJ2ZXItY2FAMTc4MTI2MDcxNjBZMBMGByqG
+      SM49AgEGCCqGSM49AwEHA0IABPk246u4fDiUoJxE2EVjsdl+2WghA1AozD9LyTCt
+      kcWEXR7Y/p8ZBOmKO/7JDWR+adXlmaOH9Qt2X+OD26+OekKjQjBAMA4GA1UdDwEB
+      /wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBRTQF4RR+CYwjWUKUiW
+      v6ANMtfbszAKBggqhkjOPQQDAgNIADBFAiEAw5QWjMooFbKCSQS9HjyoPM7a7FfQ
+      a/dd2uErfC7APv4CIByEUj+g2uzMsgnCaVLekKRnpTqNn5gkLHHvR2ecZd02
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2026-06-12T10:40:31Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:ca.crt: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubernetes.io/description: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:40:31Z"
+    name: kube-root-ca.crt
+    namespace: cattle-fleet-system
+    resourceVersion: "1868"
+    uid: 9befedb6-742e-4914-884d-684a327c0dd9
+kind: List
+metadata:
+  resourceVersion: "676388"

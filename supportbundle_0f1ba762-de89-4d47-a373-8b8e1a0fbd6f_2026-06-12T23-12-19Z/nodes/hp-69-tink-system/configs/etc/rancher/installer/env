@@ -1,0 +1,3 @@
+HARVESTER_DASHBOARD="true"
+KUBECONFIG="/etc/rancher/rke2/rke2.yaml"
+PATH="/var/lib/rancher/rke2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"

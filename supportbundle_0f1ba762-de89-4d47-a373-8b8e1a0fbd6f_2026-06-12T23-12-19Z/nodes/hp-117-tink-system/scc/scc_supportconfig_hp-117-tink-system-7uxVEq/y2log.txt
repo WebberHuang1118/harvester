@@ -1,0 +1,25 @@
+#==[ Verification ]=================================#
+# RPM Not Installed: yast2-packager
+
+#==[ Verification ]=================================#
+# RPM Not Installed: yast2-packagemanager
+
+#==[ Configuration File ]===========================#
+# /etc/youservers - File not found
+
+#==[ Configuration File ]===========================#
+# /etc/sysconfig/onlineupdate - File not found
+
+#==[ Configuration File ]===========================#
+# /etc/wgetrc - File not found
+
+#==[ Log File ]=====================================#
+# /var/log/pbl.log
+
+
+#==[ Configuration File ]===========================#
+# /root/autoinst.xml - File not found
+
+#==[ Configuration File ]===========================#
+# /var/adm/autoinstall/cache/installedSystem.xml - File not found
+

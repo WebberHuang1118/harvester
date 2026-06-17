@@ -1,0 +1,52 @@
+2026-06-12T10:39:07.069275254Z if [[ ${KUBERNETES_SERVICE_HOST} =~ .*:.* ]]; then
+2026-06-12T10:39:07.069294083Z 	echo "KUBERNETES_SERVICE_HOST is using IPv6"
+2026-06-12T10:39:07.069297215Z 	CHART="${CHART//%\{KUBERNETES_API\}%/[${KUBERNETES_SERVICE_HOST}]:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T10:39:07.069300131Z else
+2026-06-12T10:39:07.069302761Z 	CHART="${CHART//%\{KUBERNETES_API\}%/${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T10:39:07.069305366Z fi
+2026-06-12T10:39:07.069367068Z 
+2026-06-12T10:39:07.069376797Z set +v -x
+2026-06-12T10:39:07.069401370Z + [[ '' == v2 ]]
+2026-06-12T10:39:07.069422875Z + shopt -s nullglob
+2026-06-12T10:39:07.069468549Z + [[ -f /config/ca-file.pem ]]
+2026-06-12T10:39:07.069564346Z + [[ -f /tmp/ca-file.pem ]]
+2026-06-12T10:39:07.069634964Z + [[ false == true ]]
+2026-06-12T10:39:07.069638729Z + [[ false == true ]]
+2026-06-12T10:39:07.069653004Z + [[ -n '' ]]
+2026-06-12T10:39:07.069709199Z + helm_content_decode
+2026-06-12T10:39:07.069723700Z + set -e
+2026-06-12T10:39:07.069741242Z + ENC_CHART_PATH=/chart/rke2-canal.tgz.base64
+2026-06-12T10:39:07.069792831Z + CHART_PATH=/tmp/rke2-canal.tgz
+2026-06-12T10:39:07.069823831Z + [[ ! -f /chart/rke2-canal.tgz.base64 ]]
+2026-06-12T10:39:07.069875546Z + base64 -d /chart/rke2-canal.tgz.base64
+2026-06-12T10:39:07.072788605Z + CHART=/tmp/rke2-canal.tgz
+2026-06-12T10:39:07.072802856Z + set +e
+2026-06-12T10:39:07.072890529Z + [[ install != delete ]]
+2026-06-12T10:39:07.072903487Z + helm_repo_init
+2026-06-12T10:39:07.072974512Z + grep -q -e 'https\?://'
+2026-06-12T10:39:07.074126627Z + [[ /tmp/rke2-canal.tgz == stable/* ]]
+2026-06-12T10:39:07.074139359Z + [[ -n '' ]]
+2026-06-12T10:39:07.074207225Z + helm_update install --set-string global.clusterCIDR=10.52.0.0/16 --set-string global.clusterCIDRv4=10.52.0.0/16 --set-string global.clusterDNS=10.53.0.10 --set-string global.clusterDomain=cluster.local --set global.prime.enabled=false --set-string global.rke2DataDir=/var/lib/rancher/rke2 --set-string global.serviceCIDR=10.53.0.0/16 --set-string global.systemDefaultIngressClass=ingress-nginx
+2026-06-12T10:39:07.075234512Z ++ helm ls --all -f '^rke2-canal$' --namespace kube-system --output json
+2026-06-12T10:39:07.075365033Z ++ jq -r '"\(.[0].chart),\(.[0].status),\(.[0].revision)"'
+2026-06-12T10:39:07.075496363Z ++ tr '[:upper:]' '[:lower:]'
+2026-06-12T10:39:07.145672031Z + LINE=null,null,null
+2026-06-12T10:39:07.145689237Z + IFS=,
+2026-06-12T10:39:07.145692749Z + read -r INSTALLED_VERSION STATUS REVISION _
+2026-06-12T10:39:07.145780872Z + VALUES=
+2026-06-12T10:39:07.145829568Z + [[ install = delete ]]
+2026-06-12T10:39:07.145863354Z + [[ null =~ ^(|null)$ ]]
+2026-06-12T10:39:07.145946239Z + [[ null =~ ^(|null)$ ]]
+2026-06-12T10:39:07.146074608Z + echo 'Installing helm chart'
+2026-06-12T10:39:07.146204605Z + helm install --set-string global.clusterCIDR=10.52.0.0/16 --set-string global.clusterCIDRv4=10.52.0.0/16 --set-string global.clusterDNS=10.53.0.10 --set-string global.clusterDomain=cluster.local --set global.prime.enabled=false --set-string global.rke2DataDir=/var/lib/rancher/rke2 --set-string global.serviceCIDR=10.53.0.0/16 --set-string global.systemDefaultIngressClass=ingress-nginx rke2-canal /tmp/rke2-canal.tgz
+2026-06-12T10:39:08.346343086Z NAME: rke2-canal
+2026-06-12T10:39:08.346369410Z LAST DEPLOYED: Fri Jun 12 10:39:07 2026
+2026-06-12T10:39:08.346377374Z NAMESPACE: kube-system
+2026-06-12T10:39:08.346381249Z STATUS: deployed
+2026-06-12T10:39:08.346384961Z REVISION: 1
+2026-06-12T10:39:08.346388569Z TEST SUITE: None
+2026-06-12T10:39:08.346392097Z NOTES:
+2026-06-12T10:39:08.346395838Z Canal network plugin has been installed.
+2026-06-12T10:39:08.346411538Z 
+2026-06-12T10:39:08.346414935Z NOTE: It may take few minutes until Canal image install CNI files and node become in ready state.
+2026-06-12T10:39:08.349178823Z + exit

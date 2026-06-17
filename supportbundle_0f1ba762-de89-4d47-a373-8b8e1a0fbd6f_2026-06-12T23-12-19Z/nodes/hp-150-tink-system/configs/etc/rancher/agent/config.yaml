@@ -1,0 +1,9 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+workDirectory: /var/lib/rancher/agent/work
+appliedPlanDirectory: /var/lib/rancher/agent/applied
+remoteEnabled: true
+localEnabled: false
+localPlanDirectory: /var/lib/rancher/agent/plans
+interlockDirectory: /var/lib/rancher/agent/interlock
+preserveWorkDirectory: false
+connectionInfoFile: /var/lib/rancher/agent/rancher2_connection_info.json

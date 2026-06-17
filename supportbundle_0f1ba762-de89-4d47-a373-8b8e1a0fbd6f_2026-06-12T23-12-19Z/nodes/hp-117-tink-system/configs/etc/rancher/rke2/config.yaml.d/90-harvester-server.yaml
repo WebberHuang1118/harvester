@@ -1,0 +1,10 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+cni: multus,canal
+cluster-cidr: 10.52.0.0/16
+service-cidr: 10.53.0.0/16
+cluster-dns: 10.53.0.10
+tls-san:
+  - 10.115.252.20
+kubelet-arg:
+  - "max-pods=200"
+audit-policy-file: /etc/rancher/rke2/config.yaml.d/92-harvester-kube-audit-policy.yaml

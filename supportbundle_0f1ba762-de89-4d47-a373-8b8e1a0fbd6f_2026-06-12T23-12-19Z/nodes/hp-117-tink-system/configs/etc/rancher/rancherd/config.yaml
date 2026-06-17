@@ -1,0 +1,14 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+role: cluster-init
+nodeName: hp-117-tink-system
+token: "***"
+kubernetesVersion: v1.35.5+rke2r1
+rancherVersion: v2.14.2
+rancherInstallerImage: rancher/system-agent-installer-rancher:v2.14.2
+labels:
+  - harvesterhci.io/managed=true
+extraConfig:
+  disable:
+    - rke2-snapshot-controller
+    - rke2-snapshot-controller-crd
+    - rke2-snapshot-validation-webhook

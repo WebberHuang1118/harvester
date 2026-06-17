@@ -1,0 +1,115 @@
+#___________________________________________________________#
+#____[ iSCSI Target Information ]___________________________#
+
+#==[ Verification ]=================================#
+# RPM Not Installed: python3-targetcli-fb
+
+#___________________________________________________________#
+#____[ iSCSI Initiator Information ]________________________#
+
+#==[ Verification ]=================================#
+# rpm -V open-iscsi-2.1.11-160000.3.1.x86_64
+.M.......  g /etc/iscsi/initiatorname.iscsi
+# Verification Status: Differences Found
+
+#==[ Command ]======================================#
+# /bin/systemctl status iscsi.service
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemctl status iscsid.service
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemctl status iscsid.socket
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Configuration File ]===========================#
+# /etc/iscsi/initiatorname.iscsi
+InitiatorName=iqn.1996-04.de.suse:01:b6d912d4a5c
+
+
+#==[ Configuration File ]===========================#
+# /etc/iscsi/iscsid.conf
+iscsid.startup = /bin/systemctl start iscsid.socket iscsiuio.socket
+iscsid.safe_logout = Yes
+node.startup = manual
+node.leading_login = No
+node.session.timeo.replacement_timeout = 120
+node.conn[0].timeo.login_timeout = 15
+node.conn[0].timeo.logout_timeout = 15
+node.conn[0].timeo.noop_out_interval = 0
+node.conn[0].timeo.noop_out_timeout = 0
+node.session.err_timeo.abort_timeout = 15
+node.session.err_timeo.lu_reset_timeout = 30
+node.session.err_timeo.tgt_reset_timeout = 30
+node.session.err_timeo.host_reset_timeout = 60
+node.session.initial_login_retry_max = 8
+node.session.cmds_max = 128
+node.session.queue_depth = 32
+node.session.iscsi.InitialR2T = No
+node.session.iscsi.ImmediateData = Yes
+node.session.iscsi.FirstBurstLength = 262144
+node.session.iscsi.MaxBurstLength = 16776192
+node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144
+node.conn[0].iscsi.MaxXmitDataSegmentLength = 0
+discovery.sendtargets.iscsi.MaxRecvDataSegmentLength = 32768
+node.session.nr_sessions = 1
+node.session.reopen_max = 0
+node.session.iscsi.FastAbort = Yes
+node.session.scan = auto
+
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m discovery
+10.52.1.9:3260 via sendtargets
+10.52.1.38:3260 via sendtargets
+10.52.1.45:3260 via sendtargets
+10.52.1.75:3260 via sendtargets
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m discovery -P 1
+SENDTARGETS:
+DiscoveryAddress: 10.52.1.9,3260
+DiscoveryAddress: 10.52.1.38,3260
+DiscoveryAddress: 10.52.1.45,3260
+DiscoveryAddress: 10.52.1.75,3260
+iSNS:
+No targets found.
+STATIC:
+No targets found.
+FIRMWARE:
+No targets found.
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m iface
+default tcp,<empty>,<empty>,<empty>,<empty>
+iser iser,<empty>,<empty>,<empty>,<empty>
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m iface -P 1
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m host
+iscsiadm: No iSCSI hosts.
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m host -P 1
+iscsiadm: No iSCSI hosts.
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m session
+iscsiadm: No active sessions.
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m session -P 1
+iscsiadm: No active sessions.
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m fw
+iscsiadm: Could not get list of targets from firmware. (err 21)
+
+#==[ Command ]======================================#
+# /sbin/iscsiadm -m node
+iscsiadm: No records found
+

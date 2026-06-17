@@ -1,0 +1,21 @@
+harvester: d46887de
+harvesterChart: 0.0.0-v1.8-d46887de
+installer: e53bc5a
+os: Harvester v1.8
+kubernetes: v1.35.5+rke2r1
+rancher: v2.14.2
+monitoringChart: 108.0.2+up77.9.1-rancher.11
+loggingChart: 108.0.2+up4.10.0-rancher.18
+loggingChartHarvesterEventRouter: rancher/harvester-eventrouter:v1.8.1-rc1
+kubevirt: 1.7.0-150700.3.21.1
+minUpgradableVersion: ''
+rancherDependencies:
+  fleet:
+    chart: 109.0.2+up0.15.2
+    app: 0.15.2
+  fleet-crd:
+    chart: 109.0.2+up0.15.2
+    app: 0.15.2
+  rancher-webhook:
+    chart: 109.0.2+up0.10.6
+    app: 0.10.6

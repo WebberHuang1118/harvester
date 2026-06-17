@@ -1,0 +1,15 @@
+2026-06-12T10:49:34.440999903Z I0612 10:49:34.440702       1 serving.go:392] Generated self-signed cert in-memory
+2026-06-12T10:49:34.744359627Z I0612 10:49:34.744192       1 serving.go:392] Generated self-signed cert in-memory
+2026-06-12T10:49:34.963261669Z I0612 10:49:34.963110       1 controllermanager.go:160] Version: v1.35.3-k3s1
+2026-06-12T10:49:34.970322379Z I0612 10:49:34.970153       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::client-ca-file"
+2026-06-12T10:49:34.970343787Z I0612 10:49:34.970159       1 requestheader_controller.go:180] Starting RequestHeaderAuthRequestController
+2026-06-12T10:49:34.970349287Z I0612 10:49:34.970202       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:49:34.970354933Z I0612 10:49:34.970217       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2026-06-12T10:49:34.970359455Z I0612 10:49:34.970261       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:49:34.970372824Z I0612 10:49:34.970215       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:49:34.971158534Z I0612 10:49:34.970995       1 secure_serving.go:211] Serving securely on 127.0.0.1:10258
+2026-06-12T10:49:34.971177819Z I0612 10:49:34.971045       1 tlsconfig.go:243] "Starting DynamicServingCertificateController"
+2026-06-12T10:49:34.971705816Z I0612 10:49:34.971549       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="kube-system/rke2-cloud-controller-manager"
+2026-06-12T10:49:35.070822396Z I0612 10:49:35.070601       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:49:35.070850405Z I0612 10:49:35.070687       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:49:35.070854941Z I0612 10:49:35.070650       1 shared_informer.go:377] "Caches are synced"

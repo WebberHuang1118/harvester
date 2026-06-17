@@ -1,0 +1,155 @@
+apiVersion: v1
+items:
+- apiVersion: storage.k8s.io/v1
+  kind: CSINode
+  metadata:
+    annotations:
+      storage.alpha.kubernetes.io/migrated-plugins: kubernetes.io/aws-ebs,kubernetes.io/azure-disk,kubernetes.io/azure-file,kubernetes.io/cinder,kubernetes.io/gce-pd,kubernetes.io/portworx-volume,kubernetes.io/vsphere-volume
+    creationTimestamp: "2026-06-12T10:39:10Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:storage.alpha.kubernetes.io/migrated-plugins: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e3daa4a2-3ffc-4a60-bed1-aa5be0249246"}: {}
+        f:spec:
+          f:drivers:
+            k:{"name":"driver.longhorn.io"}:
+              .: {}
+              f:name: {}
+              f:nodeID: {}
+              f:topologyKeys: {}
+            k:{"name":"lvm.driver.harvesterhci.io"}:
+              .: {}
+              f:name: {}
+              f:nodeID: {}
+              f:topologyKeys: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:03:29Z"
+    name: hp-117-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-117-tink-system
+      uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+    resourceVersion: "669037"
+    uid: 5aacdc1e-7f1b-4dc9-bb23-0e30def5d301
+  spec:
+    drivers:
+    - name: driver.longhorn.io
+      nodeID: hp-117-tink-system
+      topologyKeys:
+      - kubernetes.io/hostname
+    - name: lvm.driver.harvesterhci.io
+      nodeID: hp-117-tink-system
+      topologyKeys:
+      - topology.lvm.csi/node
+- apiVersion: storage.k8s.io/v1
+  kind: CSINode
+  metadata:
+    annotations:
+      storage.alpha.kubernetes.io/migrated-plugins: kubernetes.io/aws-ebs,kubernetes.io/azure-disk,kubernetes.io/azure-file,kubernetes.io/cinder,kubernetes.io/gce-pd,kubernetes.io/portworx-volume,kubernetes.io/vsphere-volume
+    creationTimestamp: "2026-06-12T10:47:11Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:storage.alpha.kubernetes.io/migrated-plugins: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"240e7b92-78b6-4f7a-9e31-87e062e42187"}: {}
+        f:spec:
+          f:drivers:
+            k:{"name":"driver.longhorn.io"}:
+              .: {}
+              f:name: {}
+              f:nodeID: {}
+              f:topologyKeys: {}
+            k:{"name":"lvm.driver.harvesterhci.io"}:
+              .: {}
+              f:name: {}
+              f:nodeID: {}
+              f:topologyKeys: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:03:28Z"
+    name: hp-150-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-150-tink-system
+      uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+    resourceVersion: "669007"
+    uid: 49b218b8-fa60-4419-a568-aad98002fb80
+  spec:
+    drivers:
+    - name: driver.longhorn.io
+      nodeID: hp-150-tink-system
+      topologyKeys:
+      - kubernetes.io/hostname
+    - name: lvm.driver.harvesterhci.io
+      nodeID: hp-150-tink-system
+      topologyKeys:
+      - topology.lvm.csi/node
+- apiVersion: storage.k8s.io/v1
+  kind: CSINode
+  metadata:
+    annotations:
+      storage.alpha.kubernetes.io/migrated-plugins: kubernetes.io/aws-ebs,kubernetes.io/azure-disk,kubernetes.io/azure-file,kubernetes.io/cinder,kubernetes.io/gce-pd,kubernetes.io/portworx-volume,kubernetes.io/vsphere-volume
+    creationTimestamp: "2026-06-12T10:47:12Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:storage.alpha.kubernetes.io/migrated-plugins: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"393f61bc-82fe-4d9f-a4e3-c1b00c70f006"}: {}
+        f:spec:
+          f:drivers:
+            k:{"name":"driver.longhorn.io"}:
+              .: {}
+              f:name: {}
+              f:nodeID: {}
+              f:topologyKeys: {}
+            k:{"name":"lvm.driver.harvesterhci.io"}:
+              .: {}
+              f:name: {}
+              f:nodeID: {}
+              f:topologyKeys: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:03:27Z"
+    name: hp-69-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-69-tink-system
+      uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    resourceVersion: "668998"
+    uid: 2160d341-a270-4051-8b7a-fa5e4e6fb425
+  spec:
+    drivers:
+    - name: driver.longhorn.io
+      nodeID: hp-69-tink-system
+      topologyKeys:
+      - kubernetes.io/hostname
+    - name: lvm.driver.harvesterhci.io
+      nodeID: hp-69-tink-system
+      topologyKeys:
+      - topology.lvm.csi/node
+kind: List
+metadata:
+  resourceVersion: "676237"

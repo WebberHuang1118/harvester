@@ -1,0 +1,46 @@
+#!/bin/bash
+set -e
+
+source $(dirname $0)/version
+
+cd $(dirname $0)/..
+
+if [[ ! -f 'bin/helm-controller' ]]; then
+    echo "Run 'make build' first."
+    exit 1
+fi
+
+mkdir -p dist/artifacts
+cp bin/helm-controller dist/artifacts/helm-controller${SUFFIX}
+
+reset-kustomization() {
+  git checkout kustomization.yaml
+}
+
+if [ "$ARCH" = "amd64" ]; then
+  trap reset-kustomization EXIT
+  cat ./pkg/crds/yaml/*/* > manifests/crd.yaml
+  kustomize edit set image "rancher/helm-controller=${REPO}/helm-controller:${VERSION}"
+  kustomize build > ./dist/artifacts/deploy-cluster-scoped.yaml
+
+  cat <<EOF >> kustomization.yaml
+patches:
+  - patch: |- 
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: helm-controller
+        namespace: helm-controller
+      spec:
+        template:
+          spec:
+            containers:
+            - name: helm-controller
+              env:
+              - name: NAMESPACE
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.namespace
+EOF
+  kustomize build > ./dist/artifacts/deploy-namespaced.yaml
+fi

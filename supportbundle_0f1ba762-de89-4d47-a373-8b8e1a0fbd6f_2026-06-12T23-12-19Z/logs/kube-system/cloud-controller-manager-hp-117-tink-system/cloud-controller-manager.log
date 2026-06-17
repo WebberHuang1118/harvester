@@ -1,0 +1,174 @@
+2026-06-12T10:39:02.343099420Z I0612 10:39:02.342881       1 serving.go:392] Generated self-signed cert in-memory
+2026-06-12T10:39:02.609870465Z I0612 10:39:02.609726       1 serving.go:392] Generated self-signed cert in-memory
+2026-06-12T10:39:02.908244417Z I0612 10:39:02.908097       1 controllermanager.go:160] Version: v1.35.3-k3s1
+2026-06-12T10:39:02.911734512Z I0612 10:39:02.911627       1 requestheader_controller.go:180] Starting RequestHeaderAuthRequestController
+2026-06-12T10:39:02.911763035Z I0612 10:39:02.911687       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:39:02.911776102Z I0612 10:39:02.911695       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::client-ca-file"
+2026-06-12T10:39:02.911780710Z I0612 10:39:02.911698       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2026-06-12T10:39:02.911807078Z I0612 10:39:02.911734       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:39:02.911810862Z I0612 10:39:02.911722       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:39:02.912251822Z I0612 10:39:02.912156       1 secure_serving.go:211] Serving securely on 127.0.0.1:10258
+2026-06-12T10:39:02.912321588Z I0612 10:39:02.912239       1 tlsconfig.go:243] "Starting DynamicServingCertificateController"
+2026-06-12T10:39:02.913140892Z I0612 10:39:02.913047       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="kube-system/rke2-cloud-controller-manager"
+2026-06-12T10:39:02.930092912Z I0612 10:39:02.929963       1 leaderelection.go:272] "Successfully acquired lease" lock="kube-system/rke2-cloud-controller-manager"
+2026-06-12T10:39:02.931321472Z I0612 10:39:02.930143       1 event.go:389] "Event occurred" object="kube-system/rke2-cloud-controller-manager" fieldPath="" kind="Lease" apiVersion="coordination.k8s.io/v1" type="Normal" reason="LeaderElection" message="hp-117-tink-system_933573db-5cb0-4463-a536-fa80bab02ce0 became leader"
+2026-06-12T10:39:02.940068971Z W0612 10:39:02.940000       1 controllermanager.go:306] "node-route-controller" is disabled
+2026-06-12T10:39:02.940466772Z I0612 10:39:02.940374       1 controllermanager.go:329] Started "cloud-node-controller"
+2026-06-12T10:39:02.940580020Z I0612 10:39:02.940478       1 node_controller.go:176] Sending events to api server.
+2026-06-12T10:39:02.940673078Z I0612 10:39:02.940588       1 node_controller.go:185] Waiting for informer caches to sync
+2026-06-12T10:39:02.940685214Z I0612 10:39:02.940629       1 controllermanager.go:329] Started "cloud-node-lifecycle-controller"
+2026-06-12T10:39:02.940688338Z W0612 10:39:02.940651       1 controllermanager.go:306] "service-lb-controller" is disabled
+2026-06-12T10:39:02.940842873Z I0612 10:39:02.940777       1 node_lifecycle_controller.go:112] Sending events to api server
+2026-06-12T10:39:03.012922490Z I0612 10:39:03.012813       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:39:03.012939460Z I0612 10:39:03.012839       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:39:03.012942665Z I0612 10:39:03.012879       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:39:03.041316060Z I0612 10:39:03.041197       1 node_controller.go:429] Initializing node hp-117-tink-system with cloud provider
+2026-06-12T10:39:03.053077265Z I0612 10:39:03.052974       1 node_controller.go:474] Successfully initialized node hp-117-tink-system with cloud provider
+2026-06-12T10:39:03.053128994Z I0612 10:39:03.053076       1 event.go:389] "Event occurred" object="hp-117-tink-system" fieldPath="" kind="Node" apiVersion="v1" type="Normal" reason="Synced" message="Node synced successfully"
+2026-06-12T10:47:11.095261641Z I0612 10:47:11.095123       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.095301079Z I0612 10:47:11.095190       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.095337707Z E0612 10:47:11.095212       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.100572229Z I0612 10:47:11.100470       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.100588621Z I0612 10:47:11.100523       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.100592508Z E0612 10:47:11.100538       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.110933849Z I0612 10:47:11.110814       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.110964255Z I0612 10:47:11.110897       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.110968975Z E0612 10:47:11.110916       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.119692928Z I0612 10:47:11.119029       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.119712371Z I0612 10:47:11.119083       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.119717140Z E0612 10:47:11.119100       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.131128500Z I0612 10:47:11.131011       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.131180601Z I0612 10:47:11.131088       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.131190478Z E0612 10:47:11.131111       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.140724367Z I0612 10:47:11.139504       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.140749224Z I0612 10:47:11.139620       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.140753211Z E0612 10:47:11.139652       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.180195036Z I0612 10:47:11.180092       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.180223197Z I0612 10:47:11.180164       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.180243803Z E0612 10:47:11.180188       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.198009310Z I0612 10:47:11.197620       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.198036626Z I0612 10:47:11.197866       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.198065770Z E0612 10:47:11.197891       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.211689598Z I0612 10:47:11.211558       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.211717425Z I0612 10:47:11.211637       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.211721509Z E0612 10:47:11.211675       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.226550367Z I0612 10:47:11.226337       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.226602293Z I0612 10:47:11.226396       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.226608616Z E0612 10:47:11.226416       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.251107980Z I0612 10:47:11.250993       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.251197653Z I0612 10:47:11.251058       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.251204369Z E0612 10:47:11.251080       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.342743494Z I0612 10:47:11.342514       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.342767612Z I0612 10:47:11.342573       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.342771606Z E0612 10:47:11.342591       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.361345096Z I0612 10:47:11.361229       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.361362113Z I0612 10:47:11.361292       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.361418204Z E0612 10:47:11.361313       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:11.380371359Z I0612 10:47:11.380150       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:11.380392245Z I0612 10:47:11.380222       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:11.380396808Z E0612 10:47:11.380243       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.492301405Z I0612 10:47:12.492177       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:12.492318769Z I0612 10:47:12.492250       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.492330184Z E0612 10:47:12.492269       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.511758422Z I0612 10:47:12.511408       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.511770684Z I0612 10:47:12.511449       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.511775641Z E0612 10:47:12.511462       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.516822157Z I0612 10:47:12.516715       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.516849746Z I0612 10:47:12.516787       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.516895618Z E0612 10:47:12.516808       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.527554867Z I0612 10:47:12.527362       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.527616311Z I0612 10:47:12.527447       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.527621585Z E0612 10:47:12.527467       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.536152663Z I0612 10:47:12.535848       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.536175331Z I0612 10:47:12.535904       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.536178944Z E0612 10:47:12.535923       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.547900334Z I0612 10:47:12.547790       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.547944578Z I0612 10:47:12.547880       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.547950767Z E0612 10:47:12.547900       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.578755445Z I0612 10:47:12.576926       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.578868460Z I0612 10:47:12.577046       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.578872987Z E0612 10:47:12.577069       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.618603974Z I0612 10:47:12.618393       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.620521287Z I0612 10:47:12.620424       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.620692094Z E0612 10:47:12.620542       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.628242346Z I0612 10:47:12.628152       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.628270316Z I0612 10:47:12.628243       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.628319058Z E0612 10:47:12.628265       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.650394166Z I0612 10:47:12.650083       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.650420285Z I0612 10:47:12.650145       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.650424632Z E0612 10:47:12.650165       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.686708920Z I0612 10:47:12.685925       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.686730803Z I0612 10:47:12.685995       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.686735083Z E0612 10:47:12.686016       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.756497164Z I0612 10:47:12.756286       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.756517585Z I0612 10:47:12.756352       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.756521792Z E0612 10:47:12.756373       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.775285776Z I0612 10:47:12.775166       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.775312624Z I0612 10:47:12.775221       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.775337565Z E0612 10:47:12.775241       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.799116267Z I0612 10:47:12.798930       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.799140432Z I0612 10:47:12.798982       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.799145367Z E0612 10:47:12.798999       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:12.933682798Z I0612 10:47:12.933518       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:12.933696803Z I0612 10:47:12.933580       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:12.933700520Z E0612 10:47:12.933600       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:13.268971095Z I0612 10:47:13.268881       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:13.268999380Z I0612 10:47:13.268970       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:13.269018055Z E0612 10:47:13.268991       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:13.852739035Z I0612 10:47:13.852461       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:13.852801737Z I0612 10:47:13.852599       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:13.852806738Z E0612 10:47:13.852626       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:16.760914966Z I0612 10:47:16.760636       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:16.760984118Z I0612 10:47:16.760713       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:16.760991337Z E0612 10:47:16.760731       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:16.784217981Z I0612 10:47:16.784041       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:16.784280223Z I0612 10:47:16.784111       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:16.784285115Z E0612 10:47:16.784131       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:16.887343856Z I0612 10:47:16.887122       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:16.887363076Z I0612 10:47:16.887197       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:16.887367508Z E0612 10:47:16.887220       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:18.775412850Z I0612 10:47:18.775174       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:18.775439182Z I0612 10:47:18.775245       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:18.775444166Z E0612 10:47:18.775267       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:19.774707509Z I0612 10:47:19.774532       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:19.774742873Z I0612 10:47:19.774609       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:19.774751210Z E0612 10:47:19.774634       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:19.925234487Z I0612 10:47:19.924984       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:19.925257153Z I0612 10:47:19.925095       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:19.925263409Z E0612 10:47:19.925119       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:20.050406755Z I0612 10:47:20.050194       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:20.050435214Z I0612 10:47:20.050262       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:20.050441108Z E0612 10:47:20.050283       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:20.072608614Z I0612 10:47:20.072475       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:20.072633420Z I0612 10:47:20.072539       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:20.072718651Z E0612 10:47:20.072558       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:20.080110402Z I0612 10:47:20.079922       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:20.080142813Z I0612 10:47:20.079984       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:20.080150735Z E0612 10:47:20.080007       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:20.103448344Z I0612 10:47:20.103243       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:20.103613185Z I0612 10:47:20.103304       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:20.103622938Z E0612 10:47:20.103322       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:20.280605984Z I0612 10:47:20.280433       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:20.280712426Z I0612 10:47:20.280596       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:20.280757907Z E0612 10:47:20.280682       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:23.587438669Z I0612 10:47:23.587217       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:23.587472630Z I0612 10:47:23.587295       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:23.587477276Z E0612 10:47:23.587319       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:23.802437480Z I0612 10:47:23.801583       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:23.802450254Z I0612 10:47:23.802039       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:23.802453981Z E0612 10:47:23.802202       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:27.803321962Z I0612 10:47:27.803149       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:27.803350452Z I0612 10:47:27.803236       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:27.803356028Z E0612 10:47:27.803259       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:28.314433871Z I0612 10:47:28.314178       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:28.314463338Z I0612 10:47:28.314255       1 node_controller.go:233] error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:28.314467106Z E0612 10:47:28.314276       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-150-tink-system': failed to get instance metadata for node hp-150-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:28.425054692Z I0612 10:47:28.424780       1 node_controller.go:429] Initializing node hp-150-tink-system with cloud provider
+2026-06-12T10:47:28.447702081Z I0612 10:47:28.447567       1 node_controller.go:474] Successfully initialized node hp-150-tink-system with cloud provider
+2026-06-12T10:47:28.447770232Z I0612 10:47:28.447687       1 event.go:389] "Event occurred" object="hp-150-tink-system" fieldPath="" kind="Node" apiVersion="v1" type="Normal" reason="Synced" message="Node synced successfully"
+2026-06-12T10:47:28.686802161Z I0612 10:47:28.686596       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:28.686830522Z I0612 10:47:28.686704       1 node_controller.go:233] error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing
+2026-06-12T10:47:28.686835394Z E0612 10:47:28.686729       1 node_controller.go:244] "Unhandled Error" err="error syncing 'hp-69-tink-system': failed to get instance metadata for node hp-69-tink-system: address annotations not yet set, requeuing"
+2026-06-12T10:47:30.063362167Z I0612 10:47:30.063265       1 node_controller.go:429] Initializing node hp-69-tink-system with cloud provider
+2026-06-12T10:47:30.086706380Z I0612 10:47:30.086377       1 node_controller.go:474] Successfully initialized node hp-69-tink-system with cloud provider
+2026-06-12T10:47:30.086769160Z I0612 10:47:30.086474       1 event.go:389] "Event occurred" object="hp-69-tink-system" fieldPath="" kind="Node" apiVersion="v1" type="Normal" reason="Synced" message="Node synced successfully"

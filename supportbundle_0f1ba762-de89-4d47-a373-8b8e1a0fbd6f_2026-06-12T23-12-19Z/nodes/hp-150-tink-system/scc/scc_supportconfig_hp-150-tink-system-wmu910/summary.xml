@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<summary>
+  <scriptversion>3.2.12</scriptversion>
+  <scriptdate>2025 Dec 12</scriptdate>
+  <rundate>260612</rundate>
+  <runtime>2313</runtime>
+  <logdir>/var/log/scc_supportconfig_hp-150-tink-system-wmu910</logdir>
+  <hostname>supportbundle-agent-bundle-local-v1.8-d46887de-head-zcpxy-dpdkc</hostname>
+  <arch>x86_64</arch>
+  <kernel>6.12.0-160000.32-default</kernel>
+  <sle_type />
+  <sle_version>16</sle_version>
+  <sle_patchlevel>0</sle_patchlevel>
+</summary>
+<customer>
+  <srnum />
+</customer>
+<products>
+<product schemeversion="0">
+  <vendor>SUSE</vendor>
+  <name>SL-Micro</name>
+  <version>6.2</version>
+  <release>1</release>
+  <endoflife>2029-11-30</endoflife>
+  <arch>x86_64</arch>
+  <cpeid>cpe:/o:suse:sl-micro:6.2</cpeid>
+  <productline>SL-Micro</productline>
+  <codestream>
+    <name>SUSE Linux Micro 6</name>
+    <endoflife>2035-11-30</endoflife>
+  </codestream>
+  <register>
+    <pool>
+      <repository project="SUSE:Products:SL-Micro:6.2:x86_64" name="images" medium="product" arch="x86_64">
+        <zypp name="SL-Micro-6.2-Pool" alias="SL-Micro-6.2-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:s390x" name="images" medium="product" arch="s390x">
+        <zypp name="SL-Micro-6.2-Pool" alias="SL-Micro-6.2-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:aarch64" name="images" medium="product" arch="aarch64">
+        <zypp name="SL-Micro-6.2-Pool" alias="SL-Micro-6.2-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:ppc64le" name="images" medium="product" arch="ppc64le">
+        <zypp name="SL-Micro-6.2-Pool" alias="SL-Micro-6.2-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:x86_64" name="images" medium="product_debug" arch="x86_64">
+        <zypp name="SL-Micro-6.2-Debuginfo-Pool" alias="SL-Micro-6.2-Debuginfo-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:s390x" name="images" medium="product_debug" arch="s390x">
+        <zypp name="SL-Micro-6.2-Debuginfo-Pool" alias="SL-Micro-6.2-Debuginfo-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:aarch64" name="images" medium="product_debug" arch="aarch64">
+        <zypp name="SL-Micro-6.2-Debuginfo-Pool" alias="SL-Micro-6.2-Debuginfo-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:ppc64le" name="images" medium="product_debug" arch="ppc64le">
+        <zypp name="SL-Micro-6.2-Debuginfo-Pool" alias="SL-Micro-6.2-Debuginfo-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:x86_64" name="images" medium="product_source" arch="x86_64">
+        <zypp name="SL-Micro-6.2-Source-Pool" alias="SL-Micro-6.2-Source-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:s390x" name="images" medium="product_source" arch="s390x">
+        <zypp name="SL-Micro-6.2-Source-Pool" alias="SL-Micro-6.2-Source-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:aarch64" name="images" medium="product_source" arch="aarch64">
+        <zypp name="SL-Micro-6.2-Source-Pool" alias="SL-Micro-6.2-Source-Pool"/>
+      </repository>
+      <repository project="SUSE:Products:SL-Micro:6.2:ppc64le" name="images" medium="product_source" arch="ppc64le">
+        <zypp name="SL-Micro-6.2-Source-Pool" alias="SL-Micro-6.2-Source-Pool"/>
+      </repository>
+    </pool>
+    <updates>
+      <distrotarget arch="x86_64">sle-15-x86_64</distrotarget>
+      <distrotarget arch="s390x">sle-15-s390x</distrotarget>
+      <distrotarget arch="aarch64">sle-15-aarch64</distrotarget>
+      <distrotarget arch="ppc64le">sle-15-ppc64le</distrotarget>
+    </updates>
+  </register>
+  <repositories>
+      <repository type="pool" repoid="obsproduct://build.suse.de/SUSE:Products:SL-Micro:6.2:x86_64/SL-Micro/6.2/x86_64" />
+  </repositories>
+  <summary>SUSE Linux Micro 6.2</summary>
+  <shortsummary>SUSE Linux Micro</shortsummary>
+  <description>SUSE Linux Micro 6.2</description>
+  <linguas>
+    <language>en</language>
+  </linguas>
+  <urls>
+    <url name="releasenotes">https://www.suse.com/releasenotes/x86_64/SL-Micro/6.2/release-notes-sl-micro.rpm</url>
+  </urls>
+  <buildconfig>
+    <producttheme>SL-Micro</producttheme>
+  </buildconfig>
+  <installconfig>
+    <defaultlang>en_US</defaultlang>
+    <releasepackage name="SL-Micro-release" flag="EQ" version="6.2" release="160000.18.1"/>
+    <distribution>SUSE</distribution>
+  </installconfig>
+  <runtimeconfig/>
+</product>
+</products>

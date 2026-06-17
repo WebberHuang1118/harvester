@@ -1,0 +1,183 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: driver.longhorn.io
+      volume.kubernetes.io/storage-provisioner: driver.longhorn.io
+    creationTimestamp: "2026-06-12T11:02:38Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    - wrangler.cattle.io/persistentvolumeclaim-controller
+    labels:
+      alertmanager: rancher-monitoring-alertmanager
+      app.kubernetes.io/instance: rancher-monitoring-alertmanager
+      app.kubernetes.io/managed-by: prometheus-operator
+      app.kubernetes.io/name: alertmanager
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"wrangler.cattle.io/persistentvolumeclaim-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:02:38Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/bind-completed: {}
+            f:pv.kubernetes.io/bound-by-controller: {}
+            f:volume.beta.kubernetes.io/storage-provisioner: {}
+            f:volume.kubernetes.io/storage-provisioner: {}
+          f:labels:
+            .: {}
+            f:alertmanager: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+        f:spec:
+          f:accessModes: {}
+          f:resources:
+            f:requests:
+              .: {}
+              f:storage: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+          f:volumeName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:02:41Z"
+    name: alertmanager-rancher-monitoring-alertmanager-db-alertmanager-rancher-monitoring-alertmanager-0
+    namespace: cattle-monitoring-system
+    resourceVersion: "26254"
+    uid: c963b942-099b-45b7-87b0-aa2b8d8439c4
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 5Gi
+    storageClassName: harvester-longhorn
+    volumeMode: Filesystem
+    volumeName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 5Gi
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: driver.longhorn.io
+      volume.kubernetes.io/storage-provisioner: driver.longhorn.io
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    - wrangler.cattle.io/persistentvolumeclaim-controller
+    labels:
+      app.kubernetes.io/instance: rancher-monitoring-prometheus
+      app.kubernetes.io/managed-by: prometheus-operator
+      app.kubernetes.io/name: prometheus
+      operator.prometheus.io/name: rancher-monitoring-prometheus
+      operator.prometheus.io/shard: "0"
+      prometheus: rancher-monitoring-prometheus
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"wrangler.cattle.io/persistentvolumeclaim-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:02:39Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/bind-completed: {}
+            f:pv.kubernetes.io/bound-by-controller: {}
+            f:volume.beta.kubernetes.io/storage-provisioner: {}
+            f:volume.kubernetes.io/storage-provisioner: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:operator.prometheus.io/name: {}
+            f:operator.prometheus.io/shard: {}
+            f:prometheus: {}
+        f:spec:
+          f:accessModes: {}
+          f:resources:
+            f:requests:
+              .: {}
+              f:storage: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+          f:volumeName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T11:02:41Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:02:41Z"
+    name: prometheus-rancher-monitoring-prometheus-db-prometheus-rancher-monitoring-prometheus-0
+    namespace: cattle-monitoring-system
+    resourceVersion: "26281"
+    uid: cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 50Gi
+    storageClassName: harvester-longhorn
+    volumeMode: Filesystem
+    volumeName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+  status:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 50Gi
+    phase: Bound
+kind: List
+metadata:
+  resourceVersion: "676419"

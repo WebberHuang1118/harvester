@@ -1,0 +1,9 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+disable:
+  - rke2-snapshot-controller
+  - rke2-snapshot-controller-crd
+  - rke2-snapshot-validation-webhook
+node-label:
+  - harvesterhci.io/managed=true
+node-name: hp-117-tink-system
+token: '***'

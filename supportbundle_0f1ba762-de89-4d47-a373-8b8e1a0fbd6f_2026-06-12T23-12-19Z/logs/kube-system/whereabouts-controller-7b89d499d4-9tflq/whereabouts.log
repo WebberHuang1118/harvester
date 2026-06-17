@@ -1,0 +1,513 @@
+2026-06-12T10:42:46.257552623Z W0612 10:42:46.256992       1 client_config.go:667] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+2026-06-12T10:42:46.258649370Z I0612 10:42:46.258543       1 controller.go:131] "Setting up event handlers"
+2026-06-12T10:42:46.351038987Z I0612 10:42:46.350854       1 controller.go:210] "Starting node-slice controller"
+2026-06-12T10:42:46.351060816Z I0612 10:42:46.350884       1 controller.go:213] "Waiting for informer caches to sync"
+2026-06-12T10:42:46.452911778Z I0612 10:42:46.452774       1 controller.go:184] handling requeueNADs
+2026-06-12T10:42:46.551182909Z I0612 10:42:46.551060       1 controller.go:225] "Starting workers" count=1
+2026-06-12T10:42:46.551198588Z I0612 10:42:46.551095       1 controller.go:231] "Started workers"
+2026-06-12T10:47:11.095808454Z I0612 10:47:11.095714       1 controller.go:184] handling requeueNADs
+2026-06-12T10:47:12.511725940Z I0612 10:47:12.511452       1 controller.go:184] handling requeueNADs
+2026-06-12T11:08:07.880056163Z I0612 11:08:07.879966       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:08:07.880157318Z I0612 11:08:07.879990       1 controller.go:172] default/11h06m21s863801-06-12
+2026-06-12T11:08:07.880578758Z E0612 11:08:07.880492       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h06m21s863801-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:08:07.885836931Z E0612 11:08:07.885748       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h06m21s863801-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:08:07.893656646Z I0612 11:08:07.893478       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:08:07.893675243Z I0612 11:08:07.893497       1 controller.go:172] default/11h06m21s863801-06-12
+2026-06-12T11:08:07.893680159Z E0612 11:08:07.893560       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h06m21s863801-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:08:07.896871188Z E0612 11:08:07.896785       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h06m21s863801-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:08:07.916775979Z I0612 11:08:07.916668       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:08:07.916796738Z I0612 11:08:07.916686       1 controller.go:172] default/11h06m21s863801-06-12
+2026-06-12T11:08:07.916801918Z I0612 11:08:07.916720       1 controller.go:285] "Successfully synced" resourceName="default/11h06m21s863801-06-12"
+2026-06-12T11:08:07.937719925Z I0612 11:08:07.937577       1 controller.go:285] "Successfully synced" resourceName="default/11h06m21s863801-06-12"
+2026-06-12T11:21:24.696916646Z I0612 11:21:24.696800       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:24.696941237Z I0612 11:21:24.696827       1 controller.go:172] default/11h19m38s484147-06-12
+2026-06-12T11:21:24.697024669Z E0612 11:21:24.696956       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:24.702385902Z E0612 11:21:24.702310       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:24.712794848Z E0612 11:21:24.712665       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:24.732847914Z I0612 11:21:24.732766       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:24.732867589Z I0612 11:21:24.732785       1 controller.go:172] default/11h19m38s484147-06-12
+2026-06-12T11:21:24.732892510Z E0612 11:21:24.732843       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:24.732952752Z E0612 11:21:24.732912       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:24.774037563Z E0612 11:21:24.773931       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:24.934515030Z E0612 11:21:24.934417       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:25.255468306Z E0612 11:21:25.255255       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:25.538331916Z I0612 11:21:25.538235       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:25.538352355Z I0612 11:21:25.538256       1 controller.go:172] default/11h19m38s484147-06-12
+2026-06-12T11:21:25.538414615Z E0612 11:21:25.538372       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:25.896172635Z E0612 11:21:25.896048       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:27.535078609Z I0612 11:21:27.534973       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:27.535100198Z I0612 11:21:27.534995       1 controller.go:172] default/11h19m38s484147-06-12
+2026-06-12T11:21:27.535146958Z E0612 11:21:27.535100       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:27.881662860Z I0612 11:21:27.881543       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:27.881688458Z I0612 11:21:27.881567       1 controller.go:172] default/11h19m38s484147-06-12
+2026-06-12T11:21:27.881708370Z E0612 11:21:27.881678       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:28.456667135Z E0612 11:21:28.456509       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:30.772137831Z I0612 11:21:30.771868       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:30.772178282Z I0612 11:21:30.771900       1 controller.go:172] default/11h19m38s484147-06-12
+2026-06-12T11:21:30.772184162Z E0612 11:21:30.772013       1 controller.go:290] "Unhandled Error" err="error syncing 'default/11h19m38s484147-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:21:32.461933530Z I0612 11:21:32.461809       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:32.461952819Z I0612 11:21:32.461828       1 controller.go:172] default/11h19m38s484147-06-12
+2026-06-12T11:21:32.461957671Z I0612 11:21:32.461874       1 controller.go:285] "Successfully synced" resourceName="default/11h19m38s484147-06-12"
+2026-06-12T11:21:33.879756298Z I0612 11:21:33.879628       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:33.879780168Z I0612 11:21:33.879699       1 controller.go:172] harvester-system/storagenetwork-dlp8l
+2026-06-12T11:21:33.880020206Z 2026-06-12T11:21:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:33.880109851Z 2026-06-12T11:21:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:33.880207769Z 2026-06-12T11:21:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:33.880256271Z I0612 11:21:33.880228       1 controller.go:345] "&{ whereabouts [] [] [{[] 10.115.0.0/21 10.115.0.0 <nil>}] [] {[]  [] []}   <nil> <nil>  1500 1000 500   30 4 * * * true 0 <nil> {/etc/cni/net.d/whereabouts.d/whereabouts.kubeconfig }    }" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:33.880264100Z I0612 11:21:33.880245       1 controller.go:346] "slicesize: " resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:33.880291910Z I0612 11:21:33.880265       1 controller.go:348] "skipping update node slices for network-attachment-definition due missing node slice or range configurations" resourceName="harvester-system/storagenetwork-dlp8l" network-attachment-definition="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:33.880302460Z I0612 11:21:33.880278       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:33.894847889Z I0612 11:21:33.894782       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:33.894866688Z I0612 11:21:33.894796       1 controller.go:172] harvester-system/storagenetwork-dlp8l
+2026-06-12T11:21:33.894992311Z 2026-06-12T11:21:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:33.895079519Z 2026-06-12T11:21:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:33.895149275Z 2026-06-12T11:21:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:33.895197955Z I0612 11:21:33.895169       1 controller.go:345] "&{ whereabouts [] [] [{[] 10.115.0.0/21 10.115.0.0 <nil>}] [] {[]  [] []}   <nil> <nil>  1500 1000 500   30 4 * * * true 0 <nil> {/etc/cni/net.d/whereabouts.d/whereabouts.kubeconfig }    }" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:33.895206287Z I0612 11:21:33.895182       1 controller.go:346] "slicesize: " resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:33.895213344Z I0612 11:21:33.895198       1 controller.go:348] "skipping update node slices for network-attachment-definition due missing node slice or range configurations" resourceName="harvester-system/storagenetwork-dlp8l" network-attachment-definition="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:33.895233456Z I0612 11:21:33.895209       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:34.012616612Z I0612 11:21:34.012184       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:34.012650925Z I0612 11:21:34.012207       1 controller.go:172] harvester-system/storagenetwork-dlp8l
+2026-06-12T11:21:34.012656898Z 2026-06-12T11:21:34Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:34.012660124Z 2026-06-12T11:21:34Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:34.012761101Z 2026-06-12T11:21:34Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:34.012772830Z I0612 11:21:34.012666       1 controller.go:345] "&{ whereabouts [] [] [{[] 10.115.0.0/21 10.115.0.0 <nil>}] [] {[]  [] []}   <nil> <nil>  1500 1000 500   30 4 * * * true 0 <nil> {/etc/cni/net.d/whereabouts.d/whereabouts.kubeconfig }    }" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:34.012776415Z I0612 11:21:34.012681       1 controller.go:346] "slicesize: " resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:34.012780085Z I0612 11:21:34.012697       1 controller.go:348] "skipping update node slices for network-attachment-definition due missing node slice or range configurations" resourceName="harvester-system/storagenetwork-dlp8l" network-attachment-definition="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:34.012783231Z I0612 11:21:34.012710       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:40.824302732Z I0612 11:21:40.824196       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:40.824328539Z I0612 11:21:40.824219       1 controller.go:172] harvester-system/storagenetwork-dlp8l
+2026-06-12T11:21:40.824478483Z 2026-06-12T11:21:40Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:40.824576815Z 2026-06-12T11:21:40Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:40.824668184Z 2026-06-12T11:21:40Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:21:40.824716733Z I0612 11:21:40.824679       1 controller.go:345] "&{ whereabouts [] [] [{[] 10.115.0.0/21 10.115.0.0 <nil>}] [] {[]  [] []}   <nil> <nil>  1500 1000 500   30 4 * * * true 0 <nil> {/etc/cni/net.d/whereabouts.d/whereabouts.kubeconfig }    }" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:40.824723267Z I0612 11:21:40.824696       1 controller.go:346] "slicesize: " resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:40.824733948Z I0612 11:21:40.824712       1 controller.go:348] "skipping update node slices for network-attachment-definition due missing node slice or range configurations" resourceName="harvester-system/storagenetwork-dlp8l" network-attachment-definition="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:40.824743259Z I0612 11:21:40.824727       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:40.858711080Z I0612 11:21:40.858589       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:21:40.858736247Z I0612 11:21:40.858613       1 controller.go:172] harvester-system/storagenetwork-dlp8l
+2026-06-12T11:21:40.858749716Z I0612 11:21:40.858689       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-dlp8l"
+2026-06-12T11:21:48.937317452Z I0612 11:21:48.937186       1 controller.go:285] "Successfully synced" resourceName="default/11h19m38s484147-06-12"
+2026-06-12T11:26:13.829032552Z I0612 11:26:13.828939       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:13.829059396Z I0612 11:26:13.828967       1 controller.go:172] default/cnet-eno50-vlan2011
+2026-06-12T11:26:13.829173816Z E0612 11:26:13.829100       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:13.834549930Z E0612 11:26:13.834452       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:13.837896154Z I0612 11:26:13.837811       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:13.837912689Z I0612 11:26:13.837826       1 controller.go:172] default/cnet-eno50-vlan2011
+2026-06-12T11:26:13.837924616Z E0612 11:26:13.837880       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:13.845263059Z E0612 11:26:13.845171       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:13.883631826Z I0612 11:26:13.883480       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:13.883665620Z I0612 11:26:13.883508       1 controller.go:172] default/cnet-eno50-vlan2011
+2026-06-12T11:26:13.883710626Z E0612 11:26:13.883621       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:13.885678945Z E0612 11:26:13.885571       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:14.046052226Z E0612 11:26:14.045930       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:14.367636401Z E0612 11:26:14.367258       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:15.007522520Z E0612 11:26:15.007404       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:15.378740374Z I0612 11:26:15.378629       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:15.378767071Z I0612 11:26:15.378661       1 controller.go:172] default/cnet-eno50-vlan2011
+2026-06-12T11:26:15.378817819Z E0612 11:26:15.378750       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:16.288157876Z E0612 11:26:16.288036       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:16.509493837Z I0612 11:26:16.509331       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T11:26:16.776012593Z I0612 11:26:16.775925       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:16.776035324Z I0612 11:26:16.775944       1 controller.go:172] default/cnet-eno50-vlan2011
+2026-06-12T11:26:16.776058530Z E0612 11:26:16.776034       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:16.901212213Z I0612 11:26:16.901123       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:16.901236561Z I0612 11:26:16.901142       1 controller.go:172] harvester-system/storagenetwork-pxtkx
+2026-06-12T11:26:16.901441277Z 2026-06-12T11:26:16Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:16.901471561Z E0612 11:26:16.901425       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:16.906941839Z 2026-06-12T11:26:16Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:16.906958533Z E0612 11:26:16.906895       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:16.914708349Z I0612 11:26:16.914627       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:16.914724002Z I0612 11:26:16.914658       1 controller.go:172] harvester-system/storagenetwork-pxtkx
+2026-06-12T11:26:16.914875639Z 2026-06-12T11:26:16Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:16.914908230Z E0612 11:26:16.914848       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:16.917744096Z 2026-06-12T11:26:16Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:16.917776328Z E0612 11:26:16.917742       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:16.958186586Z 2026-06-12T11:26:16Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:16.958204769Z E0612 11:26:16.958140       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:16.983312676Z I0612 11:26:16.983210       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:16.983334334Z I0612 11:26:16.983232       1 controller.go:172] harvester-system/storagenetwork-pxtkx
+2026-06-12T11:26:16.983465110Z 2026-06-12T11:26:16Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:16.983540434Z E0612 11:26:16.983505       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:17.039361694Z 2026-06-12T11:26:17Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:17.039413027Z E0612 11:26:17.039344       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:17.360081927Z 2026-06-12T11:26:17Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:17.360118951Z E0612 11:26:17.360069       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:18.000679281Z 2026-06-12T11:26:18Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:18.000704692Z E0612 11:26:18.000681       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:19.281387522Z 2026-06-12T11:26:19Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:19.281415411Z E0612 11:26:19.281358       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:20.892037709Z I0612 11:26:20.891818       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:20.892061739Z I0612 11:26:20.891845       1 controller.go:172] default/cnet-eno50-vlan2011
+2026-06-12T11:26:20.892090571Z E0612 11:26:20.891952       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:21.408374491Z E0612 11:26:21.408259       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:21.842264091Z 2026-06-12T11:26:21Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:21.842286908Z E0612 11:26:21.842218       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:26.963175687Z 2026-06-12T11:26:26Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:26.963200586Z E0612 11:26:26.963117       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:37.203934652Z 2026-06-12T11:26:37Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:37.203963118Z E0612 11:26:37.203876       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:46.510229264Z I0612 11:26:46.510066       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T11:26:46.510263198Z I0612 11:26:46.510099       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T11:26:57.684907858Z 2026-06-12T11:26:57Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:57.684938608Z E0612 11:26:57.684879       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:59.637084834Z I0612 11:26:59.636981       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:59.637107482Z I0612 11:26:59.637004       1 controller.go:172] harvester-system/storagenetwork-pxtkx
+2026-06-12T11:26:59.637378130Z 2026-06-12T11:26:59Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:59.637386344Z E0612 11:26:59.637302       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-pxtkx': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:26:59.668218215Z I0612 11:26:59.668141       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:26:59.668237146Z I0612 11:26:59.668162       1 controller.go:172] harvester-system/storagenetwork-pxtkx
+2026-06-12T11:26:59.668256642Z I0612 11:26:59.668212       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-pxtkx"
+2026-06-12T11:27:02.370878177Z E0612 11:27:02.370754       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:27:11.882687961Z I0612 11:27:11.882589       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:27:11.882703806Z I0612 11:27:11.882617       1 controller.go:172] default/cnet-eno50-vlan2011
+2026-06-12T11:27:11.882792645Z E0612 11:27:11.882747       1 controller.go:290] "Unhandled Error" err="error syncing 'default/cnet-eno50-vlan2011': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T11:27:11.916162961Z I0612 11:27:11.916061       1 controller.go:156] handling network attachment definition event
+2026-06-12T11:27:11.916189136Z I0612 11:27:11.916081       1 controller.go:172] default/cnet-eno50-vlan2011
+2026-06-12T11:27:11.916195009Z I0612 11:27:11.916125       1 controller.go:285] "Successfully synced" resourceName="default/cnet-eno50-vlan2011"
+2026-06-12T11:27:38.645956732Z I0612 11:27:38.645844       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-pxtkx"
+2026-06-12T11:28:24.291716306Z I0612 11:28:24.291548       1 controller.go:285] "Successfully synced" resourceName="default/cnet-eno50-vlan2011"
+2026-06-12T12:01:19.898886300Z I0612 12:01:19.898747       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:01:19.899057163Z I0612 12:01:19.898770       1 controller.go:172] default/vnet-11h54m14s376292-06-12
+2026-06-12T12:01:19.899109857Z E0612 12:01:19.898893       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:19.904460174Z E0612 12:01:19.904403       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:19.911221026Z I0612 12:01:19.911058       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:01:19.911250195Z I0612 12:01:19.911080       1 controller.go:172] default/vnet-11h54m14s376292-06-12
+2026-06-12T12:01:19.911254397Z E0612 12:01:19.911139       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:19.915535169Z E0612 12:01:19.915459       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:19.956097369Z E0612 12:01:19.955684       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:19.956114856Z I0612 12:01:19.955918       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:01:19.956118354Z I0612 12:01:19.955933       1 controller.go:172] default/vnet-11h54m14s376292-06-12
+2026-06-12T12:01:19.956122107Z E0612 12:01:19.955995       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:20.036853169Z E0612 12:01:20.036760       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:20.357302424Z E0612 12:01:20.357178       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:20.998396733Z E0612 12:01:20.998289       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:21.654518200Z I0612 12:01:21.654442       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:01:21.654532632Z I0612 12:01:21.654462       1 controller.go:172] default/vnet-11h54m14s376292-06-12
+2026-06-12T12:01:21.654598426Z E0612 12:01:21.654554       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:22.279032727Z E0612 12:01:22.278915       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:22.328769801Z I0612 12:01:22.328670       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:01:22.328790262Z I0612 12:01:22.328686       1 controller.go:172] default/vnet-11h54m14s376292-06-12
+2026-06-12T12:01:22.328804185Z E0612 12:01:22.328753       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:26.720480024Z I0612 12:01:26.720404       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:01:26.720497159Z I0612 12:01:26.720424       1 controller.go:172] default/vnet-11h54m14s376292-06-12
+2026-06-12T12:01:26.720578720Z E0612 12:01:26.720542       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:27.400255229Z E0612 12:01:27.400081       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:01:46.554418534Z I0612 12:01:46.554283       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:02:08.360993971Z E0612 12:02:08.360878       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:02:16.554695822Z I0612 12:02:16.554514       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:02:46.555682574Z I0612 12:02:46.555505       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:03:16.555876532Z I0612 12:03:16.555703       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:03:30.283138726Z E0612 12:03:30.282930       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:03:46.556799015Z I0612 12:03:46.556590       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:04:16.557800045Z I0612 12:04:16.557566       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:04:31.087187473Z I0612 12:04:31.087081       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:04:31.087215637Z I0612 12:04:31.087107       1 controller.go:172] harvester-system/storagenetwork-mvtz5
+2026-06-12T12:04:31.087379550Z 2026-06-12T12:04:31Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:31.087490321Z E0612 12:04:31.087417       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:31.093234784Z 2026-06-12T12:04:31Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:31.093253839Z E0612 12:04:31.092928       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:31.096955510Z I0612 12:04:31.096865       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:04:31.096974899Z I0612 12:04:31.096886       1 controller.go:172] harvester-system/storagenetwork-mvtz5
+2026-06-12T12:04:31.097107914Z 2026-06-12T12:04:31Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:31.097184609Z E0612 12:04:31.097131       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:31.104004678Z 2026-06-12T12:04:31Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:31.104034305Z E0612 12:04:31.103994       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:31.131669025Z I0612 12:04:31.131471       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:04:31.131704399Z I0612 12:04:31.131501       1 controller.go:172] harvester-system/storagenetwork-mvtz5
+2026-06-12T12:04:31.131955999Z 2026-06-12T12:04:31Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:31.131967341Z E0612 12:04:31.131859       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:31.144768584Z 2026-06-12T12:04:31Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:31.144787708Z E0612 12:04:31.144571       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:31.305102219Z 2026-06-12T12:04:31Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:31.305172444Z E0612 12:04:31.305136       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:31.626006897Z 2026-06-12T12:04:31Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:31.626035154Z E0612 12:04:31.625997       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:32.267158929Z 2026-06-12T12:04:32Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:32.267218996Z E0612 12:04:32.267143       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:33.548146480Z 2026-06-12T12:04:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:33.548181584Z 2026-06-12T12:04:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:33.548221842Z E0612 12:04:33.548191       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:36.110822412Z 2026-06-12T12:04:36Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:36.110857092Z E0612 12:04:36.110830       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:37.370594257Z I0612 12:04:37.370503       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:04:37.370616696Z I0612 12:04:37.370528       1 controller.go:172] harvester-system/storagenetwork-mvtz5
+2026-06-12T12:04:37.371507083Z 2026-06-12T12:04:37Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:04:37.371591673Z E0612 12:04:37.371545       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-mvtz5': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:04:37.395346528Z I0612 12:04:37.395148       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:04:37.395367909Z I0612 12:04:37.395173       1 controller.go:172] harvester-system/storagenetwork-mvtz5
+2026-06-12T12:04:37.395371506Z I0612 12:04:37.395222       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-mvtz5"
+2026-06-12T12:04:41.231188089Z I0612 12:04:41.231026       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-mvtz5"
+2026-06-12T12:04:46.558856051Z I0612 12:04:46.558638       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:05:16.558997358Z I0612 12:05:16.558783       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:05:46.559361962Z I0612 12:05:46.559197       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:06:14.130956140Z E0612 12:06:14.130813       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:06:16.560323588Z I0612 12:06:16.560243       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:06:46.561396026Z I0612 12:06:46.561253       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:07:16.561477560Z I0612 12:07:16.561327       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:07:32.874033461Z I0612 12:07:32.873903       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:07:32.874055876Z I0612 12:07:32.873926       1 controller.go:172] harvester-system/storagenetwork-w2dg2
+2026-06-12T12:07:32.874231072Z 2026-06-12T12:07:32Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:32.874313738Z E0612 12:07:32.874250       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:32.879757082Z 2026-06-12T12:07:32Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:32.879841459Z E0612 12:07:32.879785       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:32.887696194Z I0612 12:07:32.887595       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:07:32.887713905Z I0612 12:07:32.887611       1 controller.go:172] harvester-system/storagenetwork-w2dg2
+2026-06-12T12:07:32.887794101Z 2026-06-12T12:07:32Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:32.887847565Z E0612 12:07:32.887816       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:32.890623231Z 2026-06-12T12:07:32Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:32.890736448Z E0612 12:07:32.890636       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:32.923707005Z I0612 12:07:32.923623       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:07:32.923738495Z I0612 12:07:32.923665       1 controller.go:172] harvester-system/storagenetwork-w2dg2
+2026-06-12T12:07:32.923885609Z 2026-06-12T12:07:32Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:32.923936204Z E0612 12:07:32.923906       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:32.931373594Z 2026-06-12T12:07:32Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:32.931447472Z 2026-06-12T12:07:32Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:32.931551393Z E0612 12:07:32.931483       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:33.092090048Z 2026-06-12T12:07:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:33.092155427Z E0612 12:07:33.092109       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:33.412955536Z 2026-06-12T12:07:33Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:33.413001420Z E0612 12:07:33.412956       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:34.054157257Z 2026-06-12T12:07:34Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:34.054184041Z E0612 12:07:34.054120       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:35.334828124Z 2026-06-12T12:07:35Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:35.334854755Z E0612 12:07:35.334810       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:37.896592108Z 2026-06-12T12:07:37Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:37.896616974Z E0612 12:07:37.896541       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:43.019499730Z 2026-06-12T12:07:43Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:43.019532541Z E0612 12:07:43.019435       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:46.562462528Z I0612 12:07:46.562253       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:07:46.562492446Z I0612 12:07:46.562299       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:07:51.509057533Z I0612 12:07:51.508959       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:07:51.509079353Z I0612 12:07:51.508984       1 controller.go:172] harvester-system/storagenetwork-w2dg2
+2026-06-12T12:07:51.509259606Z 2026-06-12T12:07:51Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:51.509371214Z 2026-06-12T12:07:51Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T12:07:51.509421854Z E0612 12:07:51.509391       1 controller.go:290] "Unhandled Error" err="error syncing 'harvester-system/storagenetwork-w2dg2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:07:51.531054195Z I0612 12:07:51.530964       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:07:51.531071539Z I0612 12:07:51.530990       1 controller.go:172] harvester-system/storagenetwork-w2dg2
+2026-06-12T12:07:51.531105881Z I0612 12:07:51.531039       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-w2dg2"
+2026-06-12T12:07:53.261079255Z I0612 12:07:53.260933       1 controller.go:285] "Successfully synced" resourceName="harvester-system/storagenetwork-w2dg2"
+2026-06-12T12:08:10.154815407Z I0612 12:08:10.154712       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:08:10.154841486Z I0612 12:08:10.154735       1 controller.go:172] default/vnet-11h54m14s376292-06-12
+2026-06-12T12:08:10.154915813Z E0612 12:08:10.154850       1 controller.go:290] "Unhandled Error" err="error syncing 'default/vnet-11h54m14s376292-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:08:10.192837274Z I0612 12:08:10.192737       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:08:10.192858890Z I0612 12:08:10.192762       1 controller.go:172] default/vnet-11h54m14s376292-06-12
+2026-06-12T12:08:10.192901660Z I0612 12:08:10.192819       1 controller.go:285] "Successfully synced" resourceName="default/vnet-11h54m14s376292-06-12"
+2026-06-12T12:11:41.811635420Z I0612 12:11:41.811474       1 controller.go:285] "Successfully synced" resourceName="default/vnet-11h54m14s376292-06-12"
+2026-06-12T12:57:45.507861140Z I0612 12:57:45.507714       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:57:45.507894127Z I0612 12:57:45.507742       1 controller.go:172] default/bogus-net-2
+2026-06-12T12:57:45.507909260Z E0612 12:57:45.507863       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:45.513331309Z E0612 12:57:45.513223       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:45.520274161Z I0612 12:57:45.520151       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:57:45.520302779Z I0612 12:57:45.520167       1 controller.go:172] default/bogus-net-2
+2026-06-12T12:57:45.520321234Z E0612 12:57:45.520231       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:45.524224375Z E0612 12:57:45.524121       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:45.564602080Z E0612 12:57:45.564489       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:45.569427640Z I0612 12:57:45.569340       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:57:45.569447907Z I0612 12:57:45.569360       1 controller.go:172] default/bogus-net-2
+2026-06-12T12:57:45.569502918Z E0612 12:57:45.569448       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:45.645453584Z E0612 12:57:45.645316       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:45.966109150Z E0612 12:57:45.965967       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:46.606942008Z E0612 12:57:46.606814       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:46.622134036Z I0612 12:57:46.622023       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:57:47.887620776Z E0612 12:57:47.887474       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:50.448062753Z E0612 12:57:50.447844       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:57:55.568983445Z E0612 12:57:55.568791       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:58:05.810000218Z E0612 12:58:05.809898       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:58:16.622412375Z I0612 12:58:16.622231       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:58:23.188353308Z I0612 12:58:23.188218       1 controller.go:156] handling network attachment definition event
+2026-06-12T12:58:23.188392260Z I0612 12:58:23.188241       1 controller.go:172] default/bogus-net-2
+2026-06-12T12:58:23.188422098Z E0612 12:58:23.188340       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:58:26.290491917Z E0612 12:58:26.290350       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T12:58:46.622551664Z I0612 12:58:46.622381       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:59:16.623415207Z I0612 12:59:16.623286       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:59:46.624297835Z I0612 12:59:46.624177       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T12:59:48.211995402Z E0612 12:59:48.211845       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T13:00:16.624430727Z I0612 13:00:16.624275       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:00:46.624422524Z I0612 13:00:46.624265       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:01:16.625564735Z I0612 13:01:16.625398       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:01:46.626131999Z I0612 13:01:46.625954       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:02:16.626536462Z I0612 13:02:16.626385       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:02:32.057033917Z E0612 13:02:32.056867       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T13:02:46.627073190Z I0612 13:02:46.626917       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:03:16.627866528Z I0612 13:03:16.627719       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:03:46.628174269Z I0612 13:03:46.628036       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:04:16.629243413Z I0612 13:04:16.629062       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:04:46.629934903Z I0612 13:04:46.629733       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:05:16.630538892Z I0612 13:05:16.630392       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:05:46.630918115Z I0612 13:05:46.630758       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:06:16.631428497Z I0612 13:06:16.631275       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:06:46.631941567Z I0612 13:06:46.631837       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:07:16.632347599Z I0612 13:07:16.632191       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:07:46.633209120Z I0612 13:07:46.632981       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:07:59.737235710Z E0612 13:07:59.737074       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T13:08:16.633930377Z I0612 13:08:16.633831       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:08:46.635054216Z I0612 13:08:46.634874       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:09:16.635322871Z I0612 13:09:16.635201       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:09:46.635950166Z I0612 13:09:46.635799       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:10:16.636523651Z I0612 13:10:16.636371       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:10:46.637364862Z I0612 13:10:46.637188       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:11:16.637577801Z I0612 13:11:16.637434       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:11:46.638008414Z I0612 13:11:46.637869       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:12:16.639004922Z I0612 13:12:16.638862       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T13:12:37.372900765Z I0612 13:12:37.372812       1 controller.go:156] handling network attachment definition event
+2026-06-12T13:12:37.372924790Z I0612 13:12:37.372835       1 controller.go:172] default/bogus-net-2
+2026-06-12T13:12:37.373038173Z E0612 13:12:37.372973       1 controller.go:290] "Unhandled Error" err="error syncing 'default/bogus-net-2': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T13:12:37.414459989Z I0612 13:12:37.414356       1 controller.go:156] handling network attachment definition event
+2026-06-12T13:12:37.414483002Z I0612 13:12:37.414374       1 controller.go:172] default/bogus-net-2
+2026-06-12T13:12:37.414487772Z I0612 13:12:37.414414       1 controller.go:285] "Successfully synced" resourceName="default/bogus-net-2"
+2026-06-12T13:18:55.105744144Z I0612 13:18:55.105596       1 controller.go:285] "Successfully synced" resourceName="default/bogus-net-2"
+2026-06-12T15:00:22.864430364Z I0612 15:00:22.864329       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:00:22.864456499Z I0612 15:00:22.864356       1 controller.go:172] default/14h58m36s577421-06-12
+2026-06-12T15:00:22.864557019Z E0612 15:00:22.864492       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:22.869842891Z E0612 15:00:22.869763       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:22.878498125Z I0612 15:00:22.878430       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:00:22.878514059Z I0612 15:00:22.878446       1 controller.go:172] default/14h58m36s577421-06-12
+2026-06-12T15:00:22.878563965Z E0612 15:00:22.878518       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:22.880805323Z E0612 15:00:22.880738       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:22.921144463Z E0612 15:00:22.921045       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:23.001376649Z E0612 15:00:23.001290       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:23.161890037Z E0612 15:00:23.161793       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:23.482853484Z E0612 15:00:23.482738       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:23.974823641Z I0612 15:00:23.974726       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:00:23.974848478Z I0612 15:00:23.974746       1 controller.go:172] default/14h58m36s577421-06-12
+2026-06-12T15:00:23.974862063Z E0612 15:00:23.974838       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:24.123905695Z E0612 15:00:24.123771       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:25.261085489Z I0612 15:00:25.260931       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:00:25.261114651Z I0612 15:00:25.260955       1 controller.go:172] default/14h58m36s577421-06-12
+2026-06-12T15:00:25.261161695Z E0612 15:00:25.261076       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:26.685160393Z E0612 15:00:26.684992       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:30.033234120Z I0612 15:00:30.033156       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:00:30.033253656Z I0612 15:00:30.033175       1 controller.go:172] default/14h58m36s577421-06-12
+2026-06-12T15:00:30.033309192Z E0612 15:00:30.033256       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:36.926036755Z E0612 15:00:36.925867       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:00:46.766872240Z I0612 15:00:46.766781       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:01:16.768001123Z I0612 15:01:16.767885       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:01:17.887083761Z E0612 15:01:17.886933       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:01:46.768349575Z I0612 15:01:46.768191       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:02:16.768879114Z I0612 15:02:16.768754       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:02:39.809617104Z E0612 15:02:39.809460       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:02:46.769738530Z I0612 15:02:46.769586       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:03:16.770753338Z I0612 15:03:16.770594       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:03:46.771105831Z I0612 15:03:46.770959       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:04:16.771247135Z I0612 15:04:16.771089       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:04:46.771477534Z I0612 15:04:46.771354       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:05:16.772043432Z I0612 15:05:16.771874       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:05:23.652964294Z E0612 15:05:23.652842       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:05:46.773100108Z I0612 15:05:46.772944       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:06:16.773265324Z I0612 15:06:16.773103       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:06:46.773624510Z I0612 15:06:46.773510       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:07:16.774030277Z I0612 15:07:16.773850       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:07:46.774819193Z I0612 15:07:46.774654       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:08:16.775603191Z I0612 15:08:16.775480       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:08:46.775760468Z I0612 15:08:46.775660       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:09:16.776619254Z I0612 15:09:16.776462       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:09:23.852613598Z I0612 15:09:23.852515       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:09:23.852650105Z I0612 15:09:23.852538       1 controller.go:172] default/14h58m36s577421-06-12
+2026-06-12T15:09:23.852747502Z E0612 15:09:23.852689       1 controller.go:290] "Unhandled Error" err="error syncing 'default/14h58m36s577421-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:09:23.897467198Z I0612 15:09:23.897382       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:09:23.897489333Z I0612 15:09:23.897402       1 controller.go:172] default/14h58m36s577421-06-12
+2026-06-12T15:09:23.897503384Z I0612 15:09:23.897455       1 controller.go:285] "Successfully synced" resourceName="default/14h58m36s577421-06-12"
+2026-06-12T15:10:51.333869578Z I0612 15:10:51.333744       1 controller.go:285] "Successfully synced" resourceName="default/14h58m36s577421-06-12"
+2026-06-12T15:11:27.232448617Z I0612 15:11:27.232356       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:11:27.232477040Z I0612 15:11:27.232376       1 controller.go:172] default/15h08m00s971364-06-12
+2026-06-12T15:11:27.232507528Z E0612 15:11:27.232472       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:27.237832709Z E0612 15:11:27.237761       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:27.246175606Z I0612 15:11:27.246102       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:11:27.246194597Z I0612 15:11:27.246123       1 controller.go:172] default/15h08m00s971364-06-12
+2026-06-12T15:11:27.246249890Z E0612 15:11:27.246197       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:27.248104954Z E0612 15:11:27.248010       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:27.288447787Z E0612 15:11:27.288305       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:27.368830458Z E0612 15:11:27.368719       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:27.529291022Z E0612 15:11:27.529195       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:27.849964426Z E0612 15:11:27.849826       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:28.327993464Z I0612 15:11:28.327923       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:11:28.328014759Z I0612 15:11:28.327942       1 controller.go:172] default/15h08m00s971364-06-12
+2026-06-12T15:11:28.328057163Z E0612 15:11:28.328026       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:28.490561236Z E0612 15:11:28.490447       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:29.707684380Z I0612 15:11:29.707572       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:11:29.707712846Z I0612 15:11:29.707592       1 controller.go:172] default/15h08m00s971364-06-12
+2026-06-12T15:11:29.707753517Z E0612 15:11:29.707709       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:31.051818376Z E0612 15:11:31.051704       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:34.448552208Z I0612 15:11:34.448405       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:11:34.448581649Z I0612 15:11:34.448431       1 controller.go:172] default/15h08m00s971364-06-12
+2026-06-12T15:11:34.448595665Z E0612 15:11:34.448536       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:41.293248950Z E0612 15:11:41.293112       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:11:46.779889326Z I0612 15:11:46.779736       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:12:16.779910745Z I0612 15:12:16.779795       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:12:22.253693349Z E0612 15:12:22.253502       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:12:46.780976252Z I0612 15:12:46.780835       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:13:16.781557485Z I0612 15:13:16.781370       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:13:44.178320972Z E0612 15:13:44.178164       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:13:46.781849651Z I0612 15:13:46.781763       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:14:16.782693805Z I0612 15:14:16.782563       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:14:46.783473143Z I0612 15:14:46.783321       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:15:16.783562988Z I0612 15:15:16.783418       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:15:46.784060703Z I0612 15:15:46.783924       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:16:16.785023796Z I0612 15:16:16.784882       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:16:28.019023415Z E0612 15:16:28.018870       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:16:46.785962505Z I0612 15:16:46.785754       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:17:16.786019782Z I0612 15:17:16.785900       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:17:46.786509541Z I0612 15:17:46.786366       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:18:16.786595527Z I0612 15:18:16.786504       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:18:46.787489995Z I0612 15:18:46.787355       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:19:16.788633264Z I0612 15:19:16.788443       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:19:46.789025679Z I0612 15:19:46.788850       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:20:16.789803792Z I0612 15:20:16.789624       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:20:46.790610975Z I0612 15:20:46.790466       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:21:16.790941210Z I0612 15:21:16.790801       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:21:46.791528861Z I0612 15:21:46.791381       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:21:55.700131454Z E0612 15:21:55.699970       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:22:16.792518315Z I0612 15:22:16.792361       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:22:46.793433556Z I0612 15:22:46.793268       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:23:16.793603488Z I0612 15:23:16.793426       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:23:46.794694175Z I0612 15:23:46.794528       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:24:16.794796129Z I0612 15:24:16.794626       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:24:46.795725361Z I0612 15:24:46.795594       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:25:16.796042769Z I0612 15:25:16.795923       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:25:46.796517542Z I0612 15:25:46.796366       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:26:16.796995305Z I0612 15:26:16.796804       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:26:46.797457848Z I0612 15:26:46.797330       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:27:16.797715467Z I0612 15:27:16.797596       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:27:33.454986257Z I0612 15:27:33.454888       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:27:33.455010215Z I0612 15:27:33.454910       1 controller.go:172] default/15h08m00s971364-06-12
+2026-06-12T15:27:33.455093471Z E0612 15:27:33.455025       1 controller.go:290] "Unhandled Error" err="error syncing 'default/15h08m00s971364-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:27:33.497710296Z I0612 15:27:33.497607       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:27:33.497732795Z I0612 15:27:33.497627       1 controller.go:172] default/15h08m00s971364-06-12
+2026-06-12T15:27:33.497747910Z I0612 15:27:33.497680       1 controller.go:285] "Successfully synced" resourceName="default/15h08m00s971364-06-12"
+2026-06-12T15:28:12.467870143Z I0612 15:28:12.467729       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:28:12.467904998Z I0612 15:28:12.467760       1 controller.go:172] default/dhcp-test-net-15h26m26s356466-06-12
+2026-06-12T15:28:12.468031705Z E0612 15:28:12.467901       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:12.473415740Z E0612 15:28:12.473247       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:12.482786096Z I0612 15:28:12.482703       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:28:12.482808891Z I0612 15:28:12.482718       1 controller.go:172] default/dhcp-test-net-15h26m26s356466-06-12
+2026-06-12T15:28:12.482829161Z E0612 15:28:12.482787       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:12.483846948Z E0612 15:28:12.483777       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:12.498733775Z I0612 15:28:12.498637       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:28:12.498753651Z I0612 15:28:12.498673       1 controller.go:172] default/dhcp-test-net-15h26m26s356466-06-12
+2026-06-12T15:28:12.498847266Z E0612 15:28:12.498797       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:12.524889760Z E0612 15:28:12.524705       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:12.685335765Z E0612 15:28:12.685231       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:12.690976881Z I0612 15:28:12.690902       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:28:12.690997128Z I0612 15:28:12.690917       1 controller.go:172] default/dhcp-test-net-15h26m26s356466-06-12
+2026-06-12T15:28:12.691058009Z E0612 15:28:12.690983       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:13.006271634Z E0612 15:28:13.006122       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:14.286956353Z E0612 15:28:14.286835       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:16.798826031Z I0612 15:28:16.798728       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:28:16.847043828Z E0612 15:28:16.846919       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:21.968039754Z E0612 15:28:21.967905       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:32.208862712Z E0612 15:28:32.208775       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:28:46.799467549Z I0612 15:28:46.799344       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:28:52.693812921Z E0612 15:28:52.693636       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:29:16.800588463Z I0612 15:29:16.800497       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:29:33.654822701Z E0612 15:29:33.654692       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:29:46.801591372Z I0612 15:29:46.801491       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:30:16.801866969Z I0612 15:30:16.801761       1 controller.go:139] "update for NAD with same resource version"
+2026-06-12T15:30:19.567221535Z I0612 15:30:19.567108       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:30:19.567247790Z I0612 15:30:19.567127       1 controller.go:172] default/dhcp-test-net-15h26m26s356466-06-12
+2026-06-12T15:30:19.567292843Z E0612 15:30:19.567238       1 controller.go:290] "Unhandled Error" err="error syncing 'default/dhcp-test-net-15h26m26s356466-06-12': only interested in networks whose IPAM type is 'whereabouts'. This one was: , requeuing" logger="UnhandledError"
+2026-06-12T15:30:19.585077296Z I0612 15:30:19.584971       1 controller.go:156] handling network attachment definition event
+2026-06-12T15:30:19.585100469Z I0612 15:30:19.584995       1 controller.go:172] default/dhcp-test-net-15h26m26s356466-06-12
+2026-06-12T15:30:19.585115175Z I0612 15:30:19.585040       1 controller.go:285] "Successfully synced" resourceName="default/dhcp-test-net-15h26m26s356466-06-12"
+2026-06-12T15:30:55.579942292Z I0612 15:30:55.579817       1 controller.go:285] "Successfully synced" resourceName="default/dhcp-test-net-15h26m26s356466-06-12"
+2026-06-12T15:32:51.060875474Z I0612 15:32:51.060790       1 controller.go:285] "Successfully synced" resourceName="default/15h08m00s971364-06-12"

@@ -1,0 +1,112 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  data:
+    spec:
+      runStrategy: RerunOnFailure
+      template:
+        metadata:
+          creationTimestamp: "null"
+          labels:
+            harvesterhci.io/vmName: 15h08m00s971364-06-12-mgmt
+        spec:
+          affinity: {}
+          architecture: amd64
+          domain:
+            cpu:
+              cores: 1
+              maxSockets: 1
+              sockets: 1
+              threads: 1
+            devices:
+              disks:
+              - bootOrder: 1
+                disk:
+                  bus: virtio
+                name: opensuse
+              - disk:
+                  bus: virtio
+                name: cloudinitdisk
+              inputs:
+              - bus: usb
+                name: tablet
+                type: tablet
+              interfaces:
+              - macAddress: c2:5c:ab:5f:a0:39
+                masquerade: {}
+                model: virtio
+                name: default
+            features:
+              acpi:
+                enabled: true
+            firmware:
+              serial: e0a27656-6396-4110-88e8-88ad329aaf69
+              uuid: b5ec026e-0157-4503-82ed-6aedde0469f6
+            machine:
+              type: q35
+            memory:
+              guest: 2Gi
+            resources:
+              limits:
+                cpu: "1"
+                memory: 2Gi
+              requests:
+                cpu: 41m
+                memory: 256Mi
+          evictionStrategy: LiveMigrateIfPossible
+          hostname: 15h08m00s971364-06-12-mgmt
+          networks:
+          - name: default
+            pod: {}
+          terminationGracePeriodSeconds: 120
+          volumes:
+          - name: opensuse
+            persistentVolumeClaim:
+              claimName: 15h08m00s971364-06-12-mgmt-opensuse
+          - cloudInitNoCloud:
+              userData: |
+                #cloud-config
+                package_update: true
+                packages:
+                - qemu-guest-agent
+                runcmd:
+                - - systemctl
+                  - enable
+                  - --now
+                  - qemu-guest-agent.service
+
+                password: 123456
+                chpasswd: { expire: False }
+                ssh_pwauth: True
+            name: cloudinitdisk
+  kind: ControllerRevision
+  metadata:
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data: {}
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"feaac9a6-90cc-40ee-89cf-c7b5b5a1bffb"}: {}
+        f:revision: {}
+      manager: virt-controller
+      operation: Update
+      time: "2026-06-12T15:10:02Z"
+    name: revision-start-vm-feaac9a6-90cc-40ee-89cf-c7b5b5a1bffb-1
+    namespace: default
+    ownerReferences:
+    - apiVersion: kubevirt.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: VirtualMachine
+      name: 15h08m00s971364-06-12-mgmt
+      uid: feaac9a6-90cc-40ee-89cf-c7b5b5a1bffb
+    resourceVersion: "292306"
+    uid: 26927052-ac54-45e5-8f34-e86c15799a02
+  revision: 1
+kind: List
+metadata:
+  resourceVersion: "676315"

@@ -1,0 +1,476 @@
+apiVersion: v1
+items:
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:03:57Z"
+    generation: 1
+    labels:
+      nodename: hp-117-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:03:57Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:03:57Z"
+    name: hp-117-tink-system-0424-2660-004002
+    resourceVersion: "28455"
+    uid: 31ef0b2c-76e1-4a74-8c66-0e263a34500a
+  status:
+    description: Hub (Microchip Technology, Inc. (formerly SMSC))
+    devicePath: /dev/bus/usb/004/002
+    enabled: false
+    nodeName: hp-117-tink-system
+    pciAddress: "0000:00:14.0"
+    productID: "2660"
+    resourceName: kubevirt.io/hp-117-tink-system-0424-2660-004002
+    vendorID: "0424"
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:03:57Z"
+    generation: 1
+    labels:
+      nodename: hp-117-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:03:57Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:03:57Z"
+    name: hp-117-tink-system-8087-8002-001002
+    resourceVersion: "28444"
+    uid: 04c2bdef-ed1a-4a0b-bfd8-67d36a5b398f
+  status:
+    description: 8 channel internal hub (Intel Corp.)
+    devicePath: /dev/bus/usb/001/002
+    enabled: false
+    nodeName: hp-117-tink-system
+    pciAddress: 0000:00:1d.0
+    productID: "8002"
+    resourceName: kubevirt.io/hp-117-tink-system-8087-8002-001002
+    vendorID: "8087"
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:03:57Z"
+    generation: 1
+    labels:
+      nodename: hp-117-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:03:57Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:03:57Z"
+    name: hp-117-tink-system-8087-800a-002002
+    resourceVersion: "28453"
+    uid: c904840a-6f5d-4454-9c1d-f53204bdcc71
+  status:
+    description: Hub (Intel Corp.)
+    devicePath: /dev/bus/usb/002/002
+    enabled: false
+    nodeName: hp-117-tink-system
+    pciAddress: 0000:00:1a.0
+    productID: 800a
+    resourceName: kubevirt.io/hp-117-tink-system-8087-800a-002002
+    vendorID: "8087"
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:03:53Z"
+    generation: 1
+    labels:
+      nodename: hp-150-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:03:53Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:03:53Z"
+    name: hp-150-tink-system-0424-2660-004002
+    resourceVersion: "28322"
+    uid: 94533f8d-6ae6-477d-a22f-e4e212bbfde0
+  status:
+    description: Hub (Microchip Technology, Inc. (formerly SMSC))
+    devicePath: /dev/bus/usb/004/002
+    enabled: false
+    nodeName: hp-150-tink-system
+    pciAddress: "0000:00:14.0"
+    productID: "2660"
+    resourceName: kubevirt.io/hp-150-tink-system-0424-2660-004002
+    vendorID: "0424"
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:03:53Z"
+    generation: 1
+    labels:
+      nodename: hp-150-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:03:53Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:03:53Z"
+    name: hp-150-tink-system-058f-6387-004003
+    resourceVersion: "28316"
+    uid: d95d362c-697e-4f3d-956a-2e1a8aface3a
+  status:
+    description: Flash Drive (Alcor Micro Corp.)
+    devicePath: /dev/bus/usb/004/003
+    enabled: false
+    nodeName: hp-150-tink-system
+    pciAddress: "0000:00:14.0"
+    productID: "6387"
+    resourceName: kubevirt.io/hp-150-tink-system-058f-6387-004003
+    vendorID: 058f
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:03:53Z"
+    generation: 1
+    labels:
+      nodename: hp-150-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:03:53Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:03:53Z"
+    name: hp-150-tink-system-8087-8002-002002
+    resourceVersion: "28312"
+    uid: 4d11f996-79b5-4038-acbc-9faf2b2ce98b
+  status:
+    description: 8 channel internal hub (Intel Corp.)
+    devicePath: /dev/bus/usb/002/002
+    enabled: false
+    nodeName: hp-150-tink-system
+    pciAddress: 0000:00:1d.0
+    productID: "8002"
+    resourceName: kubevirt.io/hp-150-tink-system-8087-8002-002002
+    vendorID: "8087"
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:03:53Z"
+    generation: 1
+    labels:
+      nodename: hp-150-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:03:53Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:03:53Z"
+    name: hp-150-tink-system-8087-800a-001002
+    resourceVersion: "28309"
+    uid: a642822d-a5b0-425b-9a1d-b4b032f63261
+  status:
+    description: Hub (Intel Corp.)
+    devicePath: /dev/bus/usb/001/002
+    enabled: false
+    nodeName: hp-150-tink-system
+    pciAddress: 0000:00:1a.0
+    productID: 800a
+    resourceName: kubevirt.io/hp-150-tink-system-8087-800a-001002
+    vendorID: "8087"
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:04:14Z"
+    generation: 1
+    labels:
+      nodename: hp-69-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:04:14Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:14Z"
+    name: hp-69-tink-system-0424-2660-004002
+    resourceVersion: "28881"
+    uid: fe02da7e-ed04-4206-ab18-450101758d81
+  status:
+    description: Hub (Microchip Technology, Inc. (formerly SMSC))
+    devicePath: /dev/bus/usb/004/002
+    enabled: false
+    nodeName: hp-69-tink-system
+    pciAddress: "0000:00:14.0"
+    productID: "2660"
+    resourceName: kubevirt.io/hp-69-tink-system-0424-2660-004002
+    vendorID: "0424"
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:04:14Z"
+    generation: 1
+    labels:
+      nodename: hp-69-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:04:14Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:14Z"
+    name: hp-69-tink-system-8087-8002-002002
+    resourceVersion: "28886"
+    uid: 9a23d1e6-fcc2-424b-bf66-1ecfc62bccb9
+  status:
+    description: 8 channel internal hub (Intel Corp.)
+    devicePath: /dev/bus/usb/002/002
+    enabled: false
+    nodeName: hp-69-tink-system
+    pciAddress: 0000:00:1d.0
+    productID: "8002"
+    resourceName: kubevirt.io/hp-69-tink-system-8087-8002-002002
+    vendorID: "8087"
+- apiVersion: devices.harvesterhci.io/v1beta1
+  kind: USBDevice
+  metadata:
+    creationTimestamp: "2026-06-12T11:04:14Z"
+    generation: 1
+    labels:
+      nodename: hp-69-tink-system
+    managedFields:
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:nodename: {}
+      manager: pcidevices
+      operation: Update
+      time: "2026-06-12T11:04:14Z"
+    - apiVersion: devices.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:description: {}
+          f:devicePath: {}
+          f:enabled: {}
+          f:nodeName: {}
+          f:pciAddress: {}
+          f:productID: {}
+          f:resourceName: {}
+          f:vendorID: {}
+      manager: pcidevices
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:14Z"
+    name: hp-69-tink-system-8087-800a-001002
+    resourceVersion: "28884"
+    uid: e988ddfe-6cc2-4d37-a99d-73488b078c8d
+  status:
+    description: Hub (Intel Corp.)
+    devicePath: /dev/bus/usb/001/002
+    enabled: false
+    nodeName: hp-69-tink-system
+    pciAddress: 0000:00:1a.0
+    productID: 800a
+    resourceName: kubevirt.io/hp-69-tink-system-8087-800a-001002
+    vendorID: "8087"
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676281"

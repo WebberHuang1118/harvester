@@ -1,0 +1,365 @@
+apiVersion: v1
+items:
+- apiVersion: cluster.x-k8s.io/v1beta2
+  kind: Cluster
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SSQY/aMBCF/0o1Z4eGEEwSqSda9cChFYdeqh7G9hjcGDuyHXpA+e9Vwu6C0ILYo615b755Myc4UEKFCaE5ATrnEybjXRyfXvwlmSKlWTB+JjElSzPjPxsFDYSWMmn7mCgAu1vq/zkK2e7YQgNd8EcTjXfG7a5KjnP2aWOc+rJ+0s3hgaAB6yXap4pjh3JUaEuUsrNuYGBRkH046B7jHhqY5xXnohJiUYqaOMm8KBc6l1Vec6kEqnmtiK/q0fQG7l57BhPeljQFcpIiNL9PgJ35RWGM6FFcwEBYL9sfo8NXspQmQQo9MZDepeCtpfD60xo37uuS7g1iP61Tc7HklOtM1nKVlWJZZDUuqkwUiqtS80KIAoY/A4PYkRxDe+n006KjLenpfjrzPfi+O5/HBRreKLabb+sr3S3NwMA4HTCm0MvUh48Zvz/hMAz/AwAA///dy6Zr5gIAAA
+      objectset.rio.cattle.io/id: rke-cluster
+      objectset.rio.cattle.io/owner-gvk: provisioning.cattle.io/v1, Kind=Cluster
+      objectset.rio.cattle.io/owner-name: local
+      objectset.rio.cattle.io/owner-namespace: fleet-local
+    creationTimestamp: "2026-06-12T10:42:21Z"
+    finalizers:
+    - cluster.cluster.x-k8s.io
+    generation: 2
+    labels:
+      objectset.rio.cattle.io/hash: 10866b8bb34b9e6ec0243f0c8096cdbad19de679
+    managedFields:
+    - apiVersion: cluster.x-k8s.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"f6b56e0f-c9c7-4b52-9a38-b2d6d4f62bb2"}: {}
+        f:spec:
+          .: {}
+          f:controlPlaneRef:
+            .: {}
+            f:apiGroup: {}
+            f:kind: {}
+            f:name: {}
+          f:infrastructureRef:
+            .: {}
+            f:apiGroup: {}
+            f:kind: {}
+            f:name: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:42:21Z"
+    - apiVersion: cluster.x-k8s.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"cluster.cluster.x-k8s.io"null: {}
+        f:spec:
+          f:controlPlaneEndpoint:
+            .: {}
+            f:host: {}
+            f:port: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T10:42:22Z"
+    - apiVersion: cluster.x-k8s.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"ControlPlaneAvailable"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"ControlPlaneInitialized"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"ControlPlaneMachinesReady"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"ControlPlaneMachinesUpToDate"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Deleting"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"InfrastructureReady"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Paused"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Remediating"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"RemoteConnectionProbe"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"RollingOut"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"ScalingDown"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"ScalingUp"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"WorkerMachinesReady"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"WorkerMachinesUpToDate"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"WorkersAvailable"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:controlPlane: {}
+          f:deprecated:
+            .: {}
+            f:v1beta1:
+              .: {}
+              f:conditions: {}
+          f:initialization:
+            .: {}
+            f:controlPlaneInitialized: {}
+            f:infrastructureProvisioned: {}
+          f:observedGeneration: {}
+          f:phase: {}
+          f:workers: {}
+      manager: manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:38:02Z"
+    name: local
+    namespace: fleet-local
+    ownerReferences:
+    - apiVersion: provisioning.cattle.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Cluster
+      name: local
+      uid: f6b56e0f-c9c7-4b52-9a38-b2d6d4f62bb2
+    resourceVersion: "261230"
+    uid: 8fdafc57-fd95-49a4-b2f5-93ac8ca5300e
+  spec:
+    controlPlaneEndpoint:
+      host: localhost
+      port: 6443
+    controlPlaneRef:
+      apiGroup: rke.cattle.io
+      kind: RKEControlPlane
+      name: local
+    infrastructureRef:
+      apiGroup: rke.cattle.io
+      kind: RKECluster
+      name: local
+  status:
+    conditions:
+    - lastTransitionTime: "2026-06-12T10:47:03Z"
+      message: "null"
+      observedGeneration: 2
+      reason: Available
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-06-12T10:44:54Z"
+      message: "null"
+      observedGeneration: 2
+      reason: ProbeSucceeded
+      status: "True"
+      type: RemoteConnectionProbe
+    - lastTransitionTime: "2026-06-12T10:42:22Z"
+      message: "null"
+      observedGeneration: 2
+      reason: Ready
+      status: "True"
+      type: InfrastructureReady
+    - lastTransitionTime: "2026-06-12T10:47:03Z"
+      message: "null"
+      observedGeneration: 2
+      reason: Initialized
+      status: "True"
+      type: ControlPlaneInitialized
+    - lastTransitionTime: "2026-06-12T10:47:03Z"
+      message: "null"
+      observedGeneration: 2
+      reason: Available
+      status: "True"
+      type: ControlPlaneAvailable
+    - lastTransitionTime: "2026-06-12T10:42:22Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NoWorkers
+      status: "True"
+      type: WorkersAvailable
+    - lastTransitionTime: "2026-06-12T10:42:22Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NotRollingOut
+      status: "False"
+      type: RollingOut
+    - lastTransitionTime: "2026-06-12T10:42:22Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NotRemediating
+      status: "False"
+      type: Remediating
+    - lastTransitionTime: "2026-06-12T10:42:22Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NotScalingDown
+      status: "False"
+      type: ScalingDown
+    - lastTransitionTime: "2026-06-12T10:42:22Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NotScalingUp
+      status: "False"
+      type: ScalingUp
+    - lastTransitionTime: "2026-06-12T10:47:04Z"
+      message: "null"
+      observedGeneration: 2
+      reason: Ready
+      status: "True"
+      type: ControlPlaneMachinesReady
+    - lastTransitionTime: "2026-06-12T10:47:37Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NoReplicas
+      status: "True"
+      type: WorkerMachinesReady
+    - lastTransitionTime: "2026-06-12T10:45:35Z"
+      message: '* Machines custom-36ac1af2c0f4, custom-7f038b0bf080, custom-86920bbe7f61:
+        Condition UpToDate not yet reported'
+      observedGeneration: 2
+      reason: UpToDateUnknown
+      status: Unknown
+      type: ControlPlaneMachinesUpToDate
+    - lastTransitionTime: "2026-06-12T10:48:54Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NoReplicas
+      status: "True"
+      type: WorkerMachinesUpToDate
+    - lastTransitionTime: "2026-06-12T10:42:21Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NotPaused
+      status: "False"
+      type: Paused
+    - lastTransitionTime: "2026-06-12T10:42:22Z"
+      message: "null"
+      observedGeneration: 2
+      reason: NotDeleting
+      status: "False"
+      type: Deleting
+    controlPlane: {}
+    deprecated:
+      v1beta1:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:42:22Z"
+          status: "True"
+          type: Ready
+        - lastTransitionTime: "2026-06-12T10:47:03Z"
+          status: "True"
+          type: ControlPlaneInitialized
+        - lastTransitionTime: "2026-06-12T14:38:02Z"
+          status: "True"
+          type: ControlPlaneReady
+        - lastTransitionTime: "2026-06-12T10:42:22Z"
+          status: "True"
+          type: InfrastructureReady
+    initialization:
+      controlPlaneInitialized: true
+      infrastructureProvisioned: true
+    observedGeneration: 2
+    phase: Provisioned
+    workers: {}
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676422"

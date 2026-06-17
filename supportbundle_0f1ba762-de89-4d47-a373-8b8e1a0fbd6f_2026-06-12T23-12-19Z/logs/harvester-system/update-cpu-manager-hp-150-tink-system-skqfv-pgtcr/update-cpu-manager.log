@@ -1,0 +1,8 @@
+2026-06-12T14:37:18.800311793Z Start update cpu-manager-policy option...
+2026-06-12T14:37:18.925950787Z Stopping rke2-server.
+2026-06-12T14:37:21.712377967Z Stopped rke2-server.
+2026-06-12T14:37:21.712396839Z File /host/var/lib/kubelet/cpu_manager_state has been renamed to /host/var/lib/kubelet/cpu_manager_state.old
+2026-06-12T14:37:21.712404571Z Starting rke2-server.
+2026-06-12T14:37:42.482089715Z Started rke2-server.
+2026-06-12T14:37:42.599374022Z Value in label cpumanager is not false, wait 5s...
+2026-06-12T14:37:47.727863861Z End update cpu-manager-policy

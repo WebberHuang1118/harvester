@@ -1,0 +1,32 @@
+apiVersion: v1
+items:
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:10Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T11:03:50Z"
+    name: logging-operator.logging.banzaicloud.io
+    namespace: cattle-logging-system
+    resourceVersion: "28124"
+    uid: 75a25239-05b7-4495-8001-86476272df5d
+  spec:
+    acquireTime: "2026-06-12T11:02:10.064159Z"
+    holderIdentity: rancher-logging-6f6448b7d5-t4fn7_97fe7250-d603-4dcc-9fe9-a2532c466fd0
+    leaseDurationSeconds: 15
+    leaseTransitions: 0
+    renewTime: "2026-06-12T11:03:50.467698Z"
+kind: List
+metadata:
+  resourceVersion: "676499"

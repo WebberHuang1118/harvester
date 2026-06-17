@@ -1,0 +1,4 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+kubelet-arg+:
+  - "system-reserved=cpu=424m"
+  - "kube-reserved=cpu=636m"

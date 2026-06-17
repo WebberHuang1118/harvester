@@ -1,0 +1,529 @@
+Jun 12 10:36:01.424977 hp-150-tink-system systemd[1]: Starting Network Manager...
+Jun 12 10:36:01.535200 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.5351] NetworkManager (version 1.52.0) is starting... (boot:13ed5818-7867-498b-a535-7d40c9929077)
+Jun 12 10:36:01.535230 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.5352] Read config: /etc/NetworkManager/NetworkManager.conf, /usr/lib/NetworkManager/conf.d/conncheck-SLE.conf, /run/NetworkManager/conf.d/15-carrier-timeout.conf, /etc/NetworkManager/conf.d/{harvester.conf,rke2-canal.conf}
+Jun 12 10:36:01.541875 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.5418] manager[0x55568fa28c70]: monitoring kernel firmware directory '/lib/firmware'.
+Jun 12 10:36:01.671542 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6715] hostname: hostname: using hostnamed
+Jun 12 10:36:01.671580 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6715] hostname: static hostname changed from (none) to "hp-150-tink-system"
+Jun 12 10:36:01.672137 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6721] dns-mgr: init: dns=default,systemd-resolved rc-manager=symlink (auto)
+Jun 12 10:36:01.679517 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6795] manager[0x55568fa28c70]: rfkill: Wi-Fi hardware radio set enabled
+Jun 12 10:36:01.679538 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6795] manager[0x55568fa28c70]: rfkill: WWAN hardware radio set enabled
+Jun 12 10:36:01.688949 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6889] Loaded device plugin: NMWifiFactory (/usr/lib64/NetworkManager/1.52.0/libnm-device-plugin-wifi.so)
+Jun 12 10:36:01.688968 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6889] manager: rfkill: Wi-Fi enabled by radio killswitch; enabled by state file
+Jun 12 10:36:01.689041 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6890] manager: rfkill: WWAN enabled by radio killswitch; enabled by state file
+Jun 12 10:36:01.689079 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6890] manager: Networking is enabled by state file
+Jun 12 10:36:01.689429 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6894] settings: Loaded settings plugin: keyfile (internal)
+Jun 12 10:36:01.693145 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6931] dhcp: init: Using DHCP client 'internal'
+Jun 12 10:36:01.693365 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6933] manager: (lo): new Loopback device (/org/freedesktop/NetworkManager/Devices/1)
+Jun 12 10:36:01.694727 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6947] device (lo): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 10:36:01.695209 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6951] device (lo): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 10:36:01.695924 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6959] device (lo): Activation: starting connection 'lo' (023c6947-afb3-49f9-8946-cf877c7bad9c)
+Jun 12 10:36:01.696904 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6968] manager: (eno50): new Ethernet device (/org/freedesktop/NetworkManager/Devices/2)
+Jun 12 10:36:01.697212 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.6972] device (eno50): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Jun 12 10:36:01.921981 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.9219] manager: (netboot): new Ethernet device (/org/freedesktop/NetworkManager/Devices/3)
+Jun 12 10:36:01.922537 hp-150-tink-system NetworkManager[2120]: <info>  [1781260561.9225] device (netboot): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Jun 12 10:36:02.164225 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.1642] manager: (mgmt-bo): new Bond device (/org/freedesktop/NetworkManager/Devices/4)
+Jun 12 10:36:02.185311 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.1852] device (mgmt-bo): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Jun 12 10:36:02.187141 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.1871] manager: (mgmt-br): new Bridge device (/org/freedesktop/NetworkManager/Devices/5)
+Jun 12 10:36:02.232860 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2328] device (mgmt-br): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Jun 12 10:36:02.233800 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2337] manager: (mgmt-br.2021): new VLAN device (/org/freedesktop/NetworkManager/Devices/6)
+Jun 12 10:36:02.234867 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2348] device (mgmt-br.2021): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Jun 12 10:36:02.236078 hp-150-tink-system systemd[1]: Started Network Manager.
+Jun 12 10:36:02.236162 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2361] bus-manager: acquired D-Bus service "org.freedesktop.NetworkManager"
+Jun 12 10:36:02.236698 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2366] device (lo): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 10:36:02.236933 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2369] device (lo): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 10:36:02.237083 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2370] device (lo): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 10:36:02.237247 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2372] device (eno50): carrier: link connected
+Jun 12 10:36:02.238106 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2380] device (lo): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 10:36:02.240489 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2404] device (eno50): state change: unavailable -> disconnected (reason 'carrier-changed', managed-type: 'full')
+Jun 12 10:36:02.248165 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2481] device (netboot): state change: unavailable -> disconnected (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.248545 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2485] device (mgmt-bo): state change: unavailable -> disconnected (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.248967 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2489] device (mgmt-br.2021): state change: unavailable -> disconnected (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.249365 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2493] device (mgmt-br): state change: unavailable -> disconnected (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.250221 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2502] policy: auto-activating connection 'bond-slave-netboot' (cc17fe7f-360b-3249-b574-4cdc3ca0887f)
+Jun 12 10:36:02.250341 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2503] policy: auto-activating connection 'bond-mgmt' (48589773-cb7d-38c5-b579-7dd119af73b6)
+Jun 12 10:36:02.250447 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2504] policy: auto-activating connection 'vlan-mgmt' (d36f3083-03f3-31dc-b871-0e32dbb3476c)
+Jun 12 10:36:02.250639 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2506] policy: auto-activating connection 'bridge-mgmt' (713373f6-bf9d-3ee3-abb2-5f295bd18145)
+Jun 12 10:36:02.250935 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2509] device (lo): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 10:36:02.251269 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2512] device (netboot): Activation: starting connection 'bond-slave-netboot' (cc17fe7f-360b-3249-b574-4cdc3ca0887f)
+Jun 12 10:36:02.251452 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2514] device (mgmt-bo): Activation: starting connection 'bond-mgmt' (48589773-cb7d-38c5-b579-7dd119af73b6)
+Jun 12 10:36:02.251607 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2515] device (mgmt-br.2021): Activation: starting connection 'vlan-mgmt' (d36f3083-03f3-31dc-b871-0e32dbb3476c)
+Jun 12 10:36:02.251756 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2517] device (mgmt-br): Activation: starting connection 'bridge-mgmt' (713373f6-bf9d-3ee3-abb2-5f295bd18145)
+Jun 12 10:36:02.251772 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2517] device (lo): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 10:36:02.252191 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2521] device (lo): Activation: successful, device activated.
+Jun 12 10:36:02.252676 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2526] device (netboot): state change: disconnected -> prepare (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.252889 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2528] manager: NetworkManager state is now CONNECTING
+Jun 12 10:36:02.253006 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2529] device (mgmt-bo): state change: disconnected -> prepare (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.254413 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2543] device (mgmt-br.2021): state change: disconnected -> prepare (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.254740 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2547] device (mgmt-br.2021): state change: prepare -> config (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.255020 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2550] device (mgmt-br): state change: disconnected -> prepare (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.255791 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2557] device (mgmt-br): state change: prepare -> config (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.256121 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2561] device (netboot): state change: prepare -> config (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.261245 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2612] device (mgmt-br.2021): state change: config -> ip-config (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.262541 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2625] device (mgmt-bo): state change: prepare -> config (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.262807 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2627] device (mgmt-br): state change: config -> ip-config (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.263060 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.2630] device (netboot): state change: config -> ip-config (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.544030 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5440] device (mgmt-bo): attached bond port netboot
+Jun 12 10:36:02.544044 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5440] device (netboot): Activation: connection 'bond-slave-netboot' attached as port, continuing activation
+Jun 12 10:36:02.565406 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5653] policy: set 'vlan-mgmt' (mgmt-br.2021) as default for IPv4 routing and DNS
+Jun 12 10:36:02.566293 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5662] device (mgmt-bo): state change: config -> ip-config (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.568185 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5681] device (mgmt-br): attached bridge port mgmt-bo
+Jun 12 10:36:02.568197 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5681] device (mgmt-bo): Activation: connection 'bond-mgmt' attached as port, continuing activation
+Jun 12 10:36:02.568527 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5685] device (mgmt-br.2021): set-hw-addr: set MAC address to 5C:B9:01:89:C2:AC (vlan-parent)
+Jun 12 10:36:02.570468 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5704] device (mgmt-br): state change: ip-config -> ip-check (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.585209 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5851] device (mgmt-bo): state change: ip-config -> ip-check (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.587113 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5870] device (netboot): state change: ip-config -> ip-check (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.587542 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5875] device (mgmt-br): state change: ip-check -> secondaries (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.587670 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5876] device (mgmt-bo): state change: ip-check -> secondaries (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.587853 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5878] device (mgmt-br): state change: secondaries -> activated (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.588372 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5883] device (mgmt-br): Activation: successful, device activated.
+Jun 12 10:36:02.588728 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5887] device (mgmt-bo): state change: secondaries -> activated (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.589284 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5892] device (mgmt-bo): Activation: successful, device activated.
+Jun 12 10:36:02.589800 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5897] device (netboot): state change: ip-check -> secondaries (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.589980 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5899] device (netboot): state change: secondaries -> activated (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.590456 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.5904] device (netboot): Activation: successful, device activated.
+Jun 12 10:36:02.854790 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.8547] device (netboot): carrier: link connected
+Jun 12 10:36:02.904325 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9042] device (mgmt-bo): carrier: link connected
+Jun 12 10:36:02.904457 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9044] device (mgmt-br): carrier: link connected
+Jun 12 10:36:02.904562 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9045] device (mgmt-br.2021): carrier: link connected
+Jun 12 10:36:02.904678 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9046] device (mgmt-br.2021): state change: ip-config -> ip-check (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.906062 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9060] device (mgmt-br.2021): state change: ip-check -> secondaries (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.906205 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9061] device (mgmt-br.2021): state change: secondaries -> activated (reason 'none', managed-type: 'full')
+Jun 12 10:36:02.906497 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9064] manager: NetworkManager state is now CONNECTED_SITE
+Jun 12 10:36:02.906713 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9067] device (mgmt-br.2021): Activation: successful, device activated.
+Jun 12 10:36:02.907226 hp-150-tink-system NetworkManager[2120]: <info>  [1781260562.9072] manager: startup complete
+Jun 12 10:36:04.313019 hp-150-tink-system NetworkManager[2120]: <info>  [1781260564.3129] manager: NetworkManager state is now CONNECTED_GLOBAL
+Jun 12 10:47:19.709195 hp-150-tink-system NetworkManager[2120]: <info>  [1781261239.7091] manager: (calico_tmp_B): new Veth device (/org/freedesktop/NetworkManager/Devices/7)
+Jun 12 10:47:19.710180 hp-150-tink-system NetworkManager[2120]: <info>  [1781261239.7101] manager: (calico_tmp_A): new Veth device (/org/freedesktop/NetworkManager/Devices/8)
+Jun 12 10:47:19.762706 hp-150-tink-system NetworkManager[2120]: <info>  [1781261239.7626] manager: (flannel.1): new Vxlan device (/org/freedesktop/NetworkManager/Devices/9)
+Jun 12 10:47:29.011750 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.0117] manager: (cali72e4145653d): new Veth device (/org/freedesktop/NetworkManager/Devices/10)
+Jun 12 10:47:29.012285 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.0122] device (cali72e4145653d): carrier: link connected
+Jun 12 10:47:29.031918 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.0318] manager: (calid32254d81ea): new Veth device (/org/freedesktop/NetworkManager/Devices/11)
+Jun 12 10:47:29.033047 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.0330] device (calid32254d81ea): carrier: link connected
+Jun 12 10:47:29.049157 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.0491] manager: (calib1d34d88877): new Veth device (/org/freedesktop/NetworkManager/Devices/12)
+Jun 12 10:47:29.049650 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.0496] device (calib1d34d88877): carrier: link connected
+Jun 12 10:47:29.114548 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.1145] manager: (cali1d5d8acb085): new Veth device (/org/freedesktop/NetworkManager/Devices/13)
+Jun 12 10:47:29.115049 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.1150] device (cali1d5d8acb085): carrier: link connected
+Jun 12 10:47:29.130290 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.1302] manager: (cali675c96e81e0): new Veth device (/org/freedesktop/NetworkManager/Devices/14)
+Jun 12 10:47:29.131220 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.1312] device (cali675c96e81e0): carrier: link connected
+Jun 12 10:47:29.152219 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.1521] manager: (calib6fda37ba8e): new Veth device (/org/freedesktop/NetworkManager/Devices/15)
+Jun 12 10:47:29.153046 hp-150-tink-system NetworkManager[2120]: <info>  [1781261249.1530] device (calib6fda37ba8e): carrier: link connected
+Jun 12 10:48:30.180759 hp-150-tink-system NetworkManager[2120]: <info>  [1781261310.1807] manager: (cali7e61f479b91): new Veth device (/org/freedesktop/NetworkManager/Devices/16)
+Jun 12 10:48:30.181402 hp-150-tink-system NetworkManager[2120]: <info>  [1781261310.1813] device (cali7e61f479b91): carrier: link connected
+Jun 12 10:48:31.501982 hp-150-tink-system NetworkManager[2120]: <info>  [1781261311.5019] manager: (cali19cb1af5730): new Veth device (/org/freedesktop/NetworkManager/Devices/17)
+Jun 12 10:48:31.502508 hp-150-tink-system NetworkManager[2120]: <info>  [1781261311.5024] device (cali19cb1af5730): carrier: link connected
+Jun 12 10:48:31.564511 hp-150-tink-system NetworkManager[2120]: <info>  [1781261311.5644] manager: (cali06178020522): new Veth device (/org/freedesktop/NetworkManager/Devices/18)
+Jun 12 10:48:31.565458 hp-150-tink-system NetworkManager[2120]: <info>  [1781261311.5654] device (cali06178020522): carrier: link connected
+Jun 12 10:48:31.606218 hp-150-tink-system NetworkManager[2120]: <info>  [1781261311.6061] manager: (cali21a5a3e78f1): new Veth device (/org/freedesktop/NetworkManager/Devices/19)
+Jun 12 10:48:31.606942 hp-150-tink-system NetworkManager[2120]: <info>  [1781261311.6069] device (cali21a5a3e78f1): carrier: link connected
+Jun 12 10:48:31.607862 hp-150-tink-system NetworkManager[2120]: <info>  [1781261311.6078] manager: (caliac3bbb452d3): new Veth device (/org/freedesktop/NetworkManager/Devices/20)
+Jun 12 10:48:31.608368 hp-150-tink-system NetworkManager[2120]: <info>  [1781261311.6083] device (caliac3bbb452d3): carrier: link connected
+Jun 12 10:48:36.128023 hp-150-tink-system NetworkManager[2120]: <info>  [1781261316.1279] manager: (cali382403824a4): new Veth device (/org/freedesktop/NetworkManager/Devices/21)
+Jun 12 10:48:36.128629 hp-150-tink-system NetworkManager[2120]: <info>  [1781261316.1286] device (cali382403824a4): carrier: link connected
+Jun 12 10:48:43.643220 hp-150-tink-system NetworkManager[2120]: <info>  [1781261323.6431] manager: (cali8668ec2ec23): new Veth device (/org/freedesktop/NetworkManager/Devices/22)
+Jun 12 10:48:43.643834 hp-150-tink-system NetworkManager[2120]: <info>  [1781261323.6438] device (cali8668ec2ec23): carrier: link connected
+Jun 12 10:48:51.500142 hp-150-tink-system NetworkManager[2120]: <info>  [1781261331.5001] manager: (cali117f5bf4111): new Veth device (/org/freedesktop/NetworkManager/Devices/23)
+Jun 12 10:48:51.500837 hp-150-tink-system NetworkManager[2120]: <info>  [1781261331.5008] device (cali117f5bf4111): carrier: link connected
+Jun 12 10:48:55.050730 hp-150-tink-system NetworkManager[2120]: <info>  [1781261335.0507] manager: (cali543c17d46e1): new Veth device (/org/freedesktop/NetworkManager/Devices/24)
+Jun 12 10:48:55.051366 hp-150-tink-system NetworkManager[2120]: <info>  [1781261335.0513] device (cali543c17d46e1): carrier: link connected
+Jun 12 10:49:00.839191 hp-150-tink-system NetworkManager[2120]: <info>  [1781261340.8391] manager: (calib3a7c25fd3f): new Veth device (/org/freedesktop/NetworkManager/Devices/25)
+Jun 12 10:49:00.840396 hp-150-tink-system NetworkManager[2120]: <info>  [1781261340.8403] device (calib3a7c25fd3f): carrier: link connected
+Jun 12 10:49:05.962022 hp-150-tink-system NetworkManager[2120]: <info>  [1781261345.9619] manager: (cali3f6ee45bf4b): new Veth device (/org/freedesktop/NetworkManager/Devices/26)
+Jun 12 10:49:05.962625 hp-150-tink-system NetworkManager[2120]: <info>  [1781261345.9626] device (cali3f6ee45bf4b): carrier: link connected
+Jun 12 10:49:12.308486 hp-150-tink-system NetworkManager[2120]: <info>  [1781261352.3084] manager: (calicc0208afd2f): new Veth device (/org/freedesktop/NetworkManager/Devices/27)
+Jun 12 10:49:12.308981 hp-150-tink-system NetworkManager[2120]: <info>  [1781261352.3089] device (calicc0208afd2f): carrier: link connected
+Jun 12 10:49:20.955492 hp-150-tink-system NetworkManager[2120]: <info>  [1781261360.9554] manager: (cali1bf58d78073): new Veth device (/org/freedesktop/NetworkManager/Devices/28)
+Jun 12 10:49:20.956111 hp-150-tink-system NetworkManager[2120]: <info>  [1781261360.9560] device (cali1bf58d78073): carrier: link connected
+Jun 12 10:49:26.020348 hp-150-tink-system NetworkManager[2120]: <info>  [1781261366.0203] manager: (cali7f333aeb127): new Veth device (/org/freedesktop/NetworkManager/Devices/29)
+Jun 12 10:49:26.020893 hp-150-tink-system NetworkManager[2120]: <info>  [1781261366.0208] device (cali7f333aeb127): carrier: link connected
+Jun 12 10:49:32.528120 hp-150-tink-system NetworkManager[2120]: <info>  [1781261372.5280] manager: (calif739c308d50): new Veth device (/org/freedesktop/NetworkManager/Devices/30)
+Jun 12 10:49:32.528694 hp-150-tink-system NetworkManager[2120]: <info>  [1781261372.5286] device (calif739c308d50): carrier: link connected
+Jun 12 11:02:08.412661 hp-150-tink-system NetworkManager[2120]: <info>  [1781262128.4126] manager: (calie899f96de6d): new Veth device (/org/freedesktop/NetworkManager/Devices/31)
+Jun 12 11:02:08.413285 hp-150-tink-system NetworkManager[2120]: <info>  [1781262128.4132] device (calie899f96de6d): carrier: link connected
+Jun 12 11:02:24.177373 hp-150-tink-system NetworkManager[2120]: <info>  [1781262144.1773] manager: (cali7b3d9d017c4): new Veth device (/org/freedesktop/NetworkManager/Devices/32)
+Jun 12 11:02:24.178035 hp-150-tink-system NetworkManager[2120]: <info>  [1781262144.1780] device (cali7b3d9d017c4): carrier: link connected
+Jun 12 11:02:46.085918 hp-150-tink-system NetworkManager[2120]: <info>  [1781262166.0858] manager: (calic0d100f3b95): new Veth device (/org/freedesktop/NetworkManager/Devices/33)
+Jun 12 11:02:46.086443 hp-150-tink-system NetworkManager[2120]: <info>  [1781262166.0864] device (calic0d100f3b95): carrier: link connected
+Jun 12 11:03:27.928102 hp-150-tink-system NetworkManager[2120]: <info>  [1781262207.9280] manager: (califa6f73e1e6a): new Veth device (/org/freedesktop/NetworkManager/Devices/34)
+Jun 12 11:03:27.928656 hp-150-tink-system NetworkManager[2120]: <info>  [1781262207.9286] device (califa6f73e1e6a): carrier: link connected
+Jun 12 11:03:49.807072 hp-150-tink-system NetworkManager[2120]: <info>  [1781262229.8070] manager: (cali5c28a618325): new Veth device (/org/freedesktop/NetworkManager/Devices/35)
+Jun 12 11:03:49.808386 hp-150-tink-system NetworkManager[2120]: <info>  [1781262229.8083] device (cali5c28a618325): carrier: link connected
+Jun 12 11:04:02.142308 hp-150-tink-system NetworkManager[2120]: <info>  [1781262242.1422] manager: (cali2367a8badc9): new Veth device (/org/freedesktop/NetworkManager/Devices/36)
+Jun 12 11:04:02.142822 hp-150-tink-system NetworkManager[2120]: <info>  [1781262242.1428] device (cali2367a8badc9): carrier: link connected
+Jun 12 11:05:24.107194 hp-150-tink-system NetworkManager[2120]: <info>  [1781262324.1071] manager: (calif29b248f243): new Veth device (/org/freedesktop/NetworkManager/Devices/37)
+Jun 12 11:05:24.107653 hp-150-tink-system NetworkManager[2120]: <info>  [1781262324.1076] device (calif29b248f243): carrier: link connected
+Jun 12 11:05:24.151954 hp-150-tink-system NetworkManager[2120]: <info>  [1781262324.1519] manager: (cali34058c2d8aa): new Veth device (/org/freedesktop/NetworkManager/Devices/38)
+Jun 12 11:05:24.152537 hp-150-tink-system NetworkManager[2120]: <info>  [1781262324.1525] device (cali34058c2d8aa): carrier: link connected
+Jun 12 11:06:04.398423 hp-150-tink-system NetworkManager[2120]: <info>  [1781262364.3983] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/39)
+Jun 12 11:06:04.399046 hp-150-tink-system NetworkManager[2120]: <info>  [1781262364.3990] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:09:42.116964 hp-150-tink-system NetworkManager[2120]: <info>  [1781262582.1169] manager: (cali13dc1da4e0f): new Veth device (/org/freedesktop/NetworkManager/Devices/40)
+Jun 12 11:09:42.117559 hp-150-tink-system NetworkManager[2120]: <info>  [1781262582.1175] device (cali13dc1da4e0f): carrier: link connected
+Jun 12 11:13:28.426587 hp-150-tink-system NetworkManager[2120]: <info>  [1781262808.4265] manager: (cali60dce2eff7c): new Veth device (/org/freedesktop/NetworkManager/Devices/41)
+Jun 12 11:13:28.427164 hp-150-tink-system NetworkManager[2120]: <info>  [1781262808.4271] device (cali60dce2eff7c): carrier: link connected
+Jun 12 11:17:28.996862 hp-150-tink-system NetworkManager[2120]: <info>  [1781263048.9968] manager: (calif7a1f0c0019): new Veth device (/org/freedesktop/NetworkManager/Devices/42)
+Jun 12 11:17:28.998489 hp-150-tink-system NetworkManager[2120]: <info>  [1781263048.9984] device (calif7a1f0c0019): carrier: link connected
+Jun 12 11:20:00.819057 hp-150-tink-system NetworkManager[2120]: <info>  [1781263200.8190] manager: (cali679b85e2a2d): new Veth device (/org/freedesktop/NetworkManager/Devices/43)
+Jun 12 11:20:00.819600 hp-150-tink-system NetworkManager[2120]: <info>  [1781263200.8195] device (cali679b85e2a2d): carrier: link connected
+Jun 12 11:21:24.707153 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.7071] manager: (cnet-111938-bo): new Bond device (/org/freedesktop/NetworkManager/Devices/44)
+Jun 12 11:21:24.913816 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9137] manager: (cnet-111938-br): new Bridge device (/org/freedesktop/NetworkManager/Devices/45)
+Jun 12 11:21:24.916159 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9161] device (cnet-111938-bo): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:21:24.916593 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9165] device (cnet-111938-bo): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:21:24.917461 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9174] device (cnet-111938-bo): Activation: starting connection 'cnet-111938-bo' (424c7428-d229-4697-9003-aad2360bf40d)
+Jun 12 11:21:24.917630 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9176] device (cnet-111938-bo): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.917855 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9178] device (cnet-111938-bo): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.918014 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9180] device (cnet-111938-bo): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.918990 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9189] device (eno50): Activation: starting connection 'eno50' (7ef943e3-100d-45ea-9ba0-90ada66c5c36)
+Jun 12 11:21:24.919046 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9190] device (cnet-111938-bo): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.919596 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9195] device (eno50): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.919850 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9198] device (eno50): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.919999 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9199] device (eno50): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.920092 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9200] device (cnet-111938-bo): bond port eno50 was attached
+Jun 12 11:21:24.920101 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9200] device (eno50): Activation: connection 'eno50' attached as port, continuing activation
+Jun 12 11:21:24.920260 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9202] device (eno50): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.958354 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9583] device (cnet-111938-bo): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.958543 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9585] device (cnet-111938-bo): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.959041 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9590] device (cnet-111938-bo): Activation: successful, device activated.
+Jun 12 11:21:24.959361 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9593] device (eno50): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.959508 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9594] device (eno50): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 11:21:24.959952 hp-150-tink-system NetworkManager[2120]: <info>  [1781263284.9599] device (eno50): Activation: successful, device activated.
+Jun 12 11:21:25.223342 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2233] device (eno50): carrier: link connected
+Jun 12 11:21:25.272565 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2725] device (cnet-111938-br): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:21:25.273174 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2731] device (cnet-111938-bo): carrier: link connected
+Jun 12 11:21:25.273338 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2733] device (cnet-111938-br): carrier: link connected
+Jun 12 11:21:25.275265 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2752] device (cnet-111938-br): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:21:25.276001 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2759] device (cnet-111938-br): Activation: starting connection 'cnet-111938-br' (90f6be23-056c-487d-a6dc-e81d9cfbd01c)
+Jun 12 11:21:25.276273 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2762] device (cnet-111938-br): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 11:21:25.276515 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2765] device (cnet-111938-br): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 11:21:25.276690 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2766] device (cnet-111938-br): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 11:21:25.276890 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2768] device (cnet-111938-br): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 11:21:25.278037 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2780] device (cnet-111938-br): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 11:21:25.278189 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2781] device (cnet-111938-br): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 11:21:25.278634 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.2786] device (cnet-111938-br): Activation: successful, device activated.
+Jun 12 11:21:25.651738 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.6517] manager: (cali884c2a93665): new Veth device (/org/freedesktop/NetworkManager/Devices/46)
+Jun 12 11:21:25.652312 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.6522] device (cali884c2a93665): carrier: link connected
+Jun 12 11:21:25.733323 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.7333] manager: (veth8f5bc00a): new Veth device (/org/freedesktop/NetworkManager/Devices/47)
+Jun 12 11:21:25.734511 hp-150-tink-system NetworkManager[2120]: <info>  [1781263285.7344] device (veth8f5bc00a): carrier: link connected
+Jun 12 11:21:35.628636 hp-150-tink-system NetworkManager[2120]: <info>  [1781263295.6286] manager: (cali19cb1af5730): new Veth device (/org/freedesktop/NetworkManager/Devices/48)
+Jun 12 11:21:35.629271 hp-150-tink-system NetworkManager[2120]: <info>  [1781263295.6292] device (cali19cb1af5730): carrier: link connected
+Jun 12 11:21:35.687388 hp-150-tink-system NetworkManager[2120]: <info>  [1781263295.6873] manager: (vethc153cb3e): new Veth device (/org/freedesktop/NetworkManager/Devices/49)
+Jun 12 11:21:35.758348 hp-150-tink-system NetworkManager[2120]: <info>  [1781263295.7583] device (vethc153cb3e): carrier: link connected
+Jun 12 11:21:45.428378 hp-150-tink-system NetworkManager[2120]: <info>  [1781263305.4283] manager: (cali19cb1af5730): new Veth device (/org/freedesktop/NetworkManager/Devices/50)
+Jun 12 11:21:45.428985 hp-150-tink-system NetworkManager[2120]: <info>  [1781263305.4289] device (cali19cb1af5730): carrier: link connected
+Jun 12 11:21:48.161684 hp-150-tink-system NetworkManager[2120]: <info>  [1781263308.1616] device (cnet-111938-br): bridge port cnet-111938-bo was detached
+Jun 12 11:21:48.161892 hp-150-tink-system NetworkManager[2120]: <info>  [1781263308.1618] device (cnet-111938-br): state change: activated -> unmanaged (reason 'unmanaged-external-down', managed-type: 'external')
+Jun 12 11:21:48.339034 hp-150-tink-system NetworkManager[2120]: <info>  [1781263308.3390] device (cnet-111938-bo): bond port eno50 was detached
+Jun 12 11:21:48.339512 hp-150-tink-system NetworkManager[2120]: <info>  [1781263308.3394] device (cnet-111938-bo): state change: activated -> unmanaged (reason 'unmanaged', managed-type: 'removed')
+Jun 12 11:21:48.340699 hp-150-tink-system NetworkManager[2120]: <info>  [1781263308.3406] device (eno50): state change: activated -> deactivating (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:21:48.356608 hp-150-tink-system NetworkManager[2120]: <info>  [1781263308.3565] device (eno50): state change: deactivating -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:21:48.886897 hp-150-tink-system NetworkManager[2120]: <info>  [1781263308.8868] device (eno50): carrier: link connected
+Jun 12 11:22:19.306173 hp-150-tink-system NetworkManager[2120]: <info>  [1781263339.3061] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/51)
+Jun 12 11:22:19.306718 hp-150-tink-system NetworkManager[2120]: <info>  [1781263339.3067] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:22:28.898752 hp-150-tink-system NetworkManager[2120]: <info>  [1781263348.8987] manager: (calicd7549fe0fa): new Veth device (/org/freedesktop/NetworkManager/Devices/52)
+Jun 12 11:22:28.899385 hp-150-tink-system NetworkManager[2120]: <info>  [1781263348.8993] device (calicd7549fe0fa): carrier: link connected
+Jun 12 11:23:11.520127 hp-150-tink-system NetworkManager[2120]: <info>  [1781263391.5201] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/53)
+Jun 12 11:23:11.520679 hp-150-tink-system NetworkManager[2120]: <info>  [1781263391.5206] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:23:33.988155 hp-150-tink-system NetworkManager[2120]: <info>  [1781263413.9881] manager: (calib4157867cee): new Veth device (/org/freedesktop/NetworkManager/Devices/54)
+Jun 12 11:23:33.988853 hp-150-tink-system NetworkManager[2120]: <info>  [1781263413.9888] device (calib4157867cee): carrier: link connected
+Jun 12 11:26:13.857631 hp-150-tink-system NetworkManager[2120]: <info>  [1781263573.8576] manager: (cnet-eno50-bo): new Bond device (/org/freedesktop/NetworkManager/Devices/55)
+Jun 12 11:26:14.098480 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.0984] manager: (cnet-eno50-br): new Bridge device (/org/freedesktop/NetworkManager/Devices/56)
+Jun 12 11:26:14.191241 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.1912] device (cnet-eno50-bo): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:26:14.191882 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.1918] device (cnet-eno50-bo): state change: unavailable -> disconnected (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.406336 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4063] device (eno50): carrier: link connected
+Jun 12 11:26:14.424261 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4242] device (cnet-eno50-br): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:26:14.424860 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4248] device (cnet-eno50-bo): carrier: link connected
+Jun 12 11:26:14.424981 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4249] device (cnet-eno50-br): carrier: link connected
+Jun 12 11:26:14.426928 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4269] device (cnet-eno50-br): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:26:14.427522 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4275] device (cnet-eno50-br): Activation: starting connection 'cnet-eno50-br' (155c5d83-3511-42be-b149-61b429f5d20a)
+Jun 12 11:26:14.427728 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4277] device (cnet-eno50-br): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.427950 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4279] device (cnet-eno50-br): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.428109 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4280] device (cnet-eno50-br): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.430110 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4300] device (cnet-eno50-bo): Activation: starting connection 'cnet-eno50-bo' (2ec95845-f9f2-471e-8d3e-c60b287fce35)
+Jun 12 11:26:14.430178 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4301] device (cnet-eno50-br): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.430692 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4306] device (cnet-eno50-bo): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.430933 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4309] device (cnet-eno50-bo): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.431079 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4310] device (cnet-eno50-bo): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.431168 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4311] device (cnet-eno50-br): bridge port cnet-eno50-bo was attached
+Jun 12 11:26:14.431178 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4311] device (cnet-eno50-bo): Activation: connection 'cnet-eno50-bo' attached as port, continuing activation
+Jun 12 11:26:14.432109 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4320] device (eno50): Activation: starting connection 'eno50' (66fc8a5f-00ac-492d-bf81-3e7b825235a0)
+Jun 12 11:26:14.432178 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4321] device (cnet-eno50-bo): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.432625 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4326] device (eno50): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.432873 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4328] device (eno50): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.433022 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4330] device (eno50): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.433110 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4331] device (cnet-eno50-bo): bond port eno50 was attached
+Jun 12 11:26:14.433121 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4331] device (eno50): Activation: connection 'eno50' attached as port, continuing activation
+Jun 12 11:26:14.433283 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4332] device (eno50): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.464765 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4647] device (cnet-eno50-br): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.464931 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4649] device (cnet-eno50-bo): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.465105 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4650] device (cnet-eno50-br): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.465524 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4655] device (cnet-eno50-br): Activation: successful, device activated.
+Jun 12 11:26:14.465882 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4658] device (cnet-eno50-bo): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.466269 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4662] device (cnet-eno50-bo): Activation: successful, device activated.
+Jun 12 11:26:14.466531 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4665] device (eno50): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.466668 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4666] device (eno50): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 11:26:14.467052 hp-150-tink-system NetworkManager[2120]: <info>  [1781263574.4670] device (eno50): Activation: successful, device activated.
+Jun 12 11:26:20.700893 hp-150-tink-system NetworkManager[2120]: <info>  [1781263580.7008] manager: (cali19cb1af5730): new Veth device (/org/freedesktop/NetworkManager/Devices/57)
+Jun 12 11:26:20.701499 hp-150-tink-system NetworkManager[2120]: <info>  [1781263580.7014] device (cali19cb1af5730): carrier: link connected
+Jun 12 11:26:20.761721 hp-150-tink-system NetworkManager[2120]: <info>  [1781263580.7616] manager: (veth655dba5c): new Veth device (/org/freedesktop/NetworkManager/Devices/58)
+Jun 12 11:26:20.845859 hp-150-tink-system NetworkManager[2120]: <info>  [1781263580.8458] device (veth655dba5c): carrier: link connected
+Jun 12 11:26:42.363142 hp-150-tink-system NetworkManager[2120]: <info>  [1781263602.3631] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/59)
+Jun 12 11:26:42.363734 hp-150-tink-system NetworkManager[2120]: <info>  [1781263602.3637] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:26:42.418508 hp-150-tink-system NetworkManager[2120]: <info>  [1781263602.4184] manager: (vethadf9d069): new Veth device (/org/freedesktop/NetworkManager/Devices/60)
+Jun 12 11:26:43.327141 hp-150-tink-system NetworkManager[2120]: <info>  [1781263603.3271] device (vethadf9d069): carrier: link connected
+Jun 12 11:27:08.248178 hp-150-tink-system NetworkManager[2120]: <info>  [1781263628.2481] manager: (cali19cb1af5730): new Veth device (/org/freedesktop/NetworkManager/Devices/61)
+Jun 12 11:27:08.248801 hp-150-tink-system NetworkManager[2120]: <info>  [1781263628.2487] device (cali19cb1af5730): carrier: link connected
+Jun 12 11:27:11.993949 hp-150-tink-system NetworkManager[2120]: <info>  [1781263631.9939] device (cnet-eno50-bo): bond port eno50 was detached
+Jun 12 11:27:11.994387 hp-150-tink-system NetworkManager[2120]: <info>  [1781263631.9943] device (cnet-eno50-bo): state change: activated -> unmanaged (reason 'unmanaged', managed-type: 'removed')
+Jun 12 11:27:11.994650 hp-150-tink-system NetworkManager[2120]: <info>  [1781263631.9946] device (cnet-eno50-bo): released from controller device cnet-eno50-br
+Jun 12 11:27:11.995777 hp-150-tink-system NetworkManager[2120]: <info>  [1781263631.9957] device (eno50): state change: activated -> deactivating (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:27:12.038395 hp-150-tink-system NetworkManager[2120]: <info>  [1781263632.0383] device (eno50): state change: deactivating -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 11:27:12.357071 hp-150-tink-system NetworkManager[2120]: <info>  [1781263632.3570] device (cnet-eno50-br): state change: activated -> unmanaged (reason 'unmanaged', managed-type: 'removed')
+Jun 12 11:27:12.646899 hp-150-tink-system NetworkManager[2120]: <info>  [1781263632.6468] device (eno50): carrier: link connected
+Jun 12 11:27:32.847623 hp-150-tink-system NetworkManager[2120]: <info>  [1781263652.8475] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/62)
+Jun 12 11:27:32.848300 hp-150-tink-system NetworkManager[2120]: <info>  [1781263652.8482] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:27:32.946365 hp-150-tink-system NetworkManager[2120]: <info>  [1781263652.9463] manager: (cali78bb49ef592): new Veth device (/org/freedesktop/NetworkManager/Devices/63)
+Jun 12 11:27:32.947769 hp-150-tink-system NetworkManager[2120]: <info>  [1781263652.9477] device (cali78bb49ef592): carrier: link connected
+Jun 12 11:28:00.254612 hp-150-tink-system NetworkManager[2120]: <info>  [1781263680.2545] manager: (cali55cf2684cc8): new Veth device (/org/freedesktop/NetworkManager/Devices/64)
+Jun 12 11:28:00.255170 hp-150-tink-system NetworkManager[2120]: <info>  [1781263680.2551] device (cali55cf2684cc8): carrier: link connected
+Jun 12 11:28:00.263353 hp-150-tink-system NetworkManager[2120]: <info>  [1781263680.2633] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/65)
+Jun 12 11:28:00.263901 hp-150-tink-system NetworkManager[2120]: <info>  [1781263680.2638] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:28:27.537895 hp-150-tink-system NetworkManager[2120]: <info>  [1781263707.5378] manager: (calif5dd783129f): new Veth device (/org/freedesktop/NetworkManager/Devices/66)
+Jun 12 11:28:27.538473 hp-150-tink-system NetworkManager[2120]: <info>  [1781263707.5384] device (calif5dd783129f): carrier: link connected
+Jun 12 11:28:27.645035 hp-150-tink-system NetworkManager[2120]: <info>  [1781263707.6450] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/67)
+Jun 12 11:28:27.645622 hp-150-tink-system NetworkManager[2120]: <info>  [1781263707.6456] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:29:09.732779 hp-150-tink-system NetworkManager[2120]: <info>  [1781263749.7327] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/68)
+Jun 12 11:29:09.733366 hp-150-tink-system NetworkManager[2120]: <info>  [1781263749.7333] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:29:14.108742 hp-150-tink-system NetworkManager[2120]: <info>  [1781263754.1087] manager: (cali1be80b6dfb1): new Veth device (/org/freedesktop/NetworkManager/Devices/69)
+Jun 12 11:29:14.109713 hp-150-tink-system NetworkManager[2120]: <info>  [1781263754.1096] device (cali1be80b6dfb1): carrier: link connected
+Jun 12 11:30:17.751714 hp-150-tink-system NetworkManager[2120]: <info>  [1781263817.7516] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/70)
+Jun 12 11:30:17.752280 hp-150-tink-system NetworkManager[2120]: <info>  [1781263817.7522] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:31:05.075034 hp-150-tink-system NetworkManager[2120]: <info>  [1781263865.0750] manager: (calif072f666a18): new Veth device (/org/freedesktop/NetworkManager/Devices/71)
+Jun 12 11:31:05.075618 hp-150-tink-system NetworkManager[2120]: <info>  [1781263865.0756] device (calif072f666a18): carrier: link connected
+Jun 12 11:32:33.200987 hp-150-tink-system NetworkManager[2120]: <info>  [1781263953.2009] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/72)
+Jun 12 11:32:33.201459 hp-150-tink-system NetworkManager[2120]: <info>  [1781263953.2014] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:34:33.205180 hp-150-tink-system NetworkManager[2120]: <info>  [1781264073.2051] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/73)
+Jun 12 11:34:33.205722 hp-150-tink-system NetworkManager[2120]: <info>  [1781264073.2057] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:37:44.794261 hp-150-tink-system NetworkManager[2120]: <info>  [1781264264.7942] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/74)
+Jun 12 11:37:44.794897 hp-150-tink-system NetworkManager[2120]: <info>  [1781264264.7948] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:38:11.700849 hp-150-tink-system NetworkManager[2120]: <info>  [1781264291.7008] manager: (cali365eb1f36b0): new Veth device (/org/freedesktop/NetworkManager/Devices/75)
+Jun 12 11:38:11.702163 hp-150-tink-system NetworkManager[2120]: <info>  [1781264291.7021] device (cali365eb1f36b0): carrier: link connected
+Jun 12 11:39:12.698309 hp-150-tink-system NetworkManager[2120]: <info>  [1781264352.6982] manager: (calif8917fffd01): new Veth device (/org/freedesktop/NetworkManager/Devices/76)
+Jun 12 11:39:12.699021 hp-150-tink-system NetworkManager[2120]: <info>  [1781264352.6990] device (calif8917fffd01): carrier: link connected
+Jun 12 11:39:58.692453 hp-150-tink-system NetworkManager[2120]: <info>  [1781264398.6924] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/77)
+Jun 12 11:39:58.693017 hp-150-tink-system NetworkManager[2120]: <info>  [1781264398.6930] device (cali7fa1b112515): carrier: link connected
+Jun 12 11:54:14.635520 hp-150-tink-system NetworkManager[2120]: <info>  [1781265254.6354] manager: (cali0419da9e6d5): new Veth device (/org/freedesktop/NetworkManager/Devices/78)
+Jun 12 11:54:14.636144 hp-150-tink-system NetworkManager[2120]: <info>  [1781265254.6361] device (cali0419da9e6d5): carrier: link connected
+Jun 12 11:54:30.031324 hp-150-tink-system NetworkManager[2120]: <info>  [1781265270.0313] manager: (cali5f45780c40e): new Veth device (/org/freedesktop/NetworkManager/Devices/79)
+Jun 12 11:54:30.031909 hp-150-tink-system NetworkManager[2120]: <info>  [1781265270.0318] device (cali5f45780c40e): carrier: link connected
+Jun 12 11:55:12.311995 hp-150-tink-system NetworkManager[2120]: <info>  [1781265312.3119] manager: (cali484e54c5a5c): new Veth device (/org/freedesktop/NetworkManager/Devices/80)
+Jun 12 11:55:12.312640 hp-150-tink-system NetworkManager[2120]: <info>  [1781265312.3126] device (cali484e54c5a5c): carrier: link connected
+Jun 12 11:55:15.501355 hp-150-tink-system NetworkManager[2120]: <info>  [1781265315.5013] manager: (caliaef1625c302): new Veth device (/org/freedesktop/NetworkManager/Devices/81)
+Jun 12 11:55:15.501927 hp-150-tink-system NetworkManager[2120]: <info>  [1781265315.5019] device (caliaef1625c302): carrier: link connected
+Jun 12 11:55:55.016224 hp-150-tink-system NetworkManager[2120]: <info>  [1781265355.0161] manager: (cali10e77e155c5): new Veth device (/org/freedesktop/NetworkManager/Devices/82)
+Jun 12 11:55:55.016717 hp-150-tink-system NetworkManager[2120]: <info>  [1781265355.0166] device (cali10e77e155c5): carrier: link connected
+Jun 12 11:56:01.292641 hp-150-tink-system NetworkManager[2120]: <info>  [1781265361.2926] manager: (cali4df9b1f030b): new Veth device (/org/freedesktop/NetworkManager/Devices/83)
+Jun 12 11:56:01.293289 hp-150-tink-system NetworkManager[2120]: <info>  [1781265361.2932] device (cali4df9b1f030b): carrier: link connected
+Jun 12 12:01:19.921982 hp-150-tink-system NetworkManager[2120]: <info>  [1781265679.9219] manager: (cnet-eno50-bo): new Bond device (/org/freedesktop/NetworkManager/Devices/84)
+Jun 12 12:01:20.161646 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1616] manager: (cnet-eno50-br): new Bridge device (/org/freedesktop/NetworkManager/Devices/85)
+Jun 12 12:01:20.172558 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1725] device (cnet-eno50-bo): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 12:01:20.173035 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1730] device (cnet-eno50-bo): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 12:01:20.173625 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1736] device (cnet-eno50-bo): Activation: starting connection 'cnet-eno50-bo' (48a96179-376d-4361-bd1c-84c860f2ebc8)
+Jun 12 12:01:20.174125 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1741] device (cnet-eno50-bo): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.174342 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1743] device (cnet-eno50-bo): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.174494 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1744] device (cnet-eno50-bo): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.175669 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1756] device (eno50): Activation: starting connection 'eno50' (ae8d2c04-4cfa-4fce-b789-ffa1cf53a902)
+Jun 12 12:01:20.175727 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1757] device (cnet-eno50-bo): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.176225 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1762] device (eno50): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.176459 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1764] device (eno50): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.176604 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1765] device (eno50): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.176692 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1766] device (cnet-eno50-bo): bond port eno50 was attached
+Jun 12 12:01:20.176702 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1766] device (eno50): Activation: connection 'eno50' attached as port, continuing activation
+Jun 12 12:01:20.176869 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.1768] device (eno50): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.215605 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.2155] device (cnet-eno50-bo): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.215839 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.2158] device (cnet-eno50-bo): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.216297 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.2162] device (cnet-eno50-bo): Activation: successful, device activated.
+Jun 12 12:01:20.216643 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.2166] device (eno50): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.216794 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.2167] device (eno50): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.217166 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.2171] device (eno50): Activation: successful, device activated.
+Jun 12 12:01:20.463391 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4633] device (eno50): carrier: link connected
+Jun 12 12:01:20.487421 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4874] device (cnet-eno50-br): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 12:01:20.488001 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4879] device (cnet-eno50-bo): carrier: link connected
+Jun 12 12:01:20.488141 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4881] device (cnet-eno50-br): carrier: link connected
+Jun 12 12:01:20.490020 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4900] device (cnet-eno50-br): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 12:01:20.490617 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4906] device (cnet-eno50-br): Activation: starting connection 'cnet-eno50-br' (387bce0e-dea2-41a8-ab73-68b2db16a14b)
+Jun 12 12:01:20.490839 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4908] device (cnet-eno50-br): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.491047 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4910] device (cnet-eno50-br): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.491197 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4911] device (cnet-eno50-br): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.491355 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4913] device (cnet-eno50-br): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.492483 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4924] device (cnet-eno50-br): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.492605 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4925] device (cnet-eno50-br): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 12:01:20.493004 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.4929] device (cnet-eno50-br): Activation: successful, device activated.
+Jun 12 12:01:20.821277 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.8212] manager: (cali07696bc5459): new Veth device (/org/freedesktop/NetworkManager/Devices/86)
+Jun 12 12:01:20.821955 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.8219] device (cali07696bc5459): carrier: link connected
+Jun 12 12:01:20.876641 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.8766] manager: (veth9452680e): new Veth device (/org/freedesktop/NetworkManager/Devices/87)
+Jun 12 12:01:20.877757 hp-150-tink-system NetworkManager[2120]: <info>  [1781265680.8777] device (veth9452680e): carrier: link connected
+Jun 12 12:01:22.405794 hp-150-tink-system NetworkManager[2120]: <info>  [1781265682.4057] manager: (calico_tmp_B): new Veth device (/org/freedesktop/NetworkManager/Devices/88)
+Jun 12 12:01:22.406883 hp-150-tink-system NetworkManager[2120]: <info>  [1781265682.4068] manager: (calico_tmp_A): new Veth device (/org/freedesktop/NetworkManager/Devices/89)
+Jun 12 12:04:32.725315 hp-150-tink-system NetworkManager[2120]: <info>  [1781265872.7252] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/90)
+Jun 12 12:04:32.725956 hp-150-tink-system NetworkManager[2120]: <info>  [1781265872.7259] device (cali7fa1b112515): carrier: link connected
+Jun 12 12:04:32.779279 hp-150-tink-system NetworkManager[2120]: <info>  [1781265872.7792] manager: (veth4fcf04d9): new Veth device (/org/freedesktop/NetworkManager/Devices/91)
+Jun 12 12:04:32.837806 hp-150-tink-system NetworkManager[2120]: <info>  [1781265872.8377] device (veth4fcf04d9): carrier: link connected
+Jun 12 12:04:34.797869 hp-150-tink-system NetworkManager[2120]: <info>  [1781265874.7978] manager: (cali19cb1af5730): new Veth device (/org/freedesktop/NetworkManager/Devices/92)
+Jun 12 12:04:34.798881 hp-150-tink-system NetworkManager[2120]: <info>  [1781265874.7988] device (cali19cb1af5730): carrier: link connected
+Jun 12 12:04:34.857595 hp-150-tink-system NetworkManager[2120]: <info>  [1781265874.8575] manager: (veth674f6147): new Veth device (/org/freedesktop/NetworkManager/Devices/93)
+Jun 12 12:04:34.917699 hp-150-tink-system NetworkManager[2120]: <info>  [1781265874.9176] device (veth674f6147): carrier: link connected
+Jun 12 12:04:39.766439 hp-150-tink-system NetworkManager[2120]: <info>  [1781265879.7664] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/94)
+Jun 12 12:04:39.767076 hp-150-tink-system NetworkManager[2120]: <info>  [1781265879.7670] device (cali7fa1b112515): carrier: link connected
+Jun 12 12:04:49.822077 hp-150-tink-system NetworkManager[2120]: <info>  [1781265889.8220] manager: (cali19cb1af5730): new Veth device (/org/freedesktop/NetworkManager/Devices/95)
+Jun 12 12:04:49.822803 hp-150-tink-system NetworkManager[2120]: <info>  [1781265889.8227] device (cali19cb1af5730): carrier: link connected
+Jun 12 12:07:34.613770 hp-150-tink-system NetworkManager[2120]: <info>  [1781266054.6137] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/96)
+Jun 12 12:07:34.614347 hp-150-tink-system NetworkManager[2120]: <info>  [1781266054.6143] device (cali7fa1b112515): carrier: link connected
+Jun 12 12:07:34.682606 hp-150-tink-system NetworkManager[2120]: <info>  [1781266054.6825] manager: (vethb6a67562): new Veth device (/org/freedesktop/NetworkManager/Devices/97)
+Jun 12 12:07:34.768565 hp-150-tink-system NetworkManager[2120]: <info>  [1781266054.7685] device (vethb6a67562): carrier: link connected
+Jun 12 12:07:52.697932 hp-150-tink-system NetworkManager[2120]: <info>  [1781266072.6979] manager: (cali7fa1b112515): new Veth device (/org/freedesktop/NetworkManager/Devices/98)
+Jun 12 12:07:52.698493 hp-150-tink-system NetworkManager[2120]: <info>  [1781266072.6984] device (cali7fa1b112515): carrier: link connected
+Jun 12 12:08:05.577465 hp-150-tink-system NetworkManager[2120]: <info>  [1781266085.5774] manager: (cali19cb1af5730): new Veth device (/org/freedesktop/NetworkManager/Devices/99)
+Jun 12 12:08:05.578030 hp-150-tink-system NetworkManager[2120]: <info>  [1781266085.5780] device (cali19cb1af5730): carrier: link connected
+Jun 12 12:08:10.297041 hp-150-tink-system NetworkManager[2120]: <info>  [1781266090.2970] device (cnet-eno50-bo): bond port eno50 was detached
+Jun 12 12:08:10.297475 hp-150-tink-system NetworkManager[2120]: <info>  [1781266090.2974] device (cnet-eno50-bo): state change: activated -> unmanaged (reason 'unmanaged', managed-type: 'removed')
+Jun 12 12:08:10.298512 hp-150-tink-system NetworkManager[2120]: <info>  [1781266090.2984] device (eno50): state change: activated -> deactivating (reason 'connection-assumed', managed-type: 'external')
+Jun 12 12:08:10.337769 hp-150-tink-system NetworkManager[2120]: <info>  [1781266090.3377] device (eno50): state change: deactivating -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 12:08:10.587487 hp-150-tink-system NetworkManager[2120]: <info>  [1781266090.5874] device (cnet-eno50-br): state change: activated -> unmanaged (reason 'unmanaged', managed-type: 'removed')
+Jun 12 12:08:10.870900 hp-150-tink-system NetworkManager[2120]: <info>  [1781266090.8708] device (eno50): carrier: link connected
+Jun 12 13:12:40.380201 hp-150-tink-system NetworkManager[2120]: <info>  [1781269960.3801] manager: (cali310cb30a486): new Veth device (/org/freedesktop/NetworkManager/Devices/100)
+Jun 12 13:12:40.380731 hp-150-tink-system NetworkManager[2120]: <info>  [1781269960.3807] device (cali310cb30a486): carrier: link connected
+Jun 12 13:12:40.679535 hp-150-tink-system NetworkManager[2120]: <info>  [1781269960.6795] manager: (cali48c88a5f58d): new Veth device (/org/freedesktop/NetworkManager/Devices/101)
+Jun 12 13:12:40.681056 hp-150-tink-system NetworkManager[2120]: <info>  [1781269960.6810] device (cali48c88a5f58d): carrier: link connected
+Jun 12 13:12:40.937621 hp-150-tink-system NetworkManager[2120]: <info>  [1781269960.9375] manager: (caliaab9050076c): new Veth device (/org/freedesktop/NetworkManager/Devices/102)
+Jun 12 13:12:40.938567 hp-150-tink-system NetworkManager[2120]: <info>  [1781269960.9385] device (caliaab9050076c): carrier: link connected
+Jun 12 13:12:41.178450 hp-150-tink-system NetworkManager[2120]: <info>  [1781269961.1784] manager: (calib2354c638d4): new Veth device (/org/freedesktop/NetworkManager/Devices/103)
+Jun 12 13:12:41.180010 hp-150-tink-system NetworkManager[2120]: <info>  [1781269961.1799] device (calib2354c638d4): carrier: link connected
+Jun 12 13:12:41.650035 hp-150-tink-system NetworkManager[2120]: <info>  [1781269961.6500] manager: (calid9aea7f5775): new Veth device (/org/freedesktop/NetworkManager/Devices/104)
+Jun 12 13:12:41.651437 hp-150-tink-system NetworkManager[2120]: <info>  [1781269961.6514] device (calid9aea7f5775): carrier: link connected
+Jun 12 13:12:41.717487 hp-150-tink-system NetworkManager[2120]: <info>  [1781269961.7174] manager: (calif7c16fbc401): new Veth device (/org/freedesktop/NetworkManager/Devices/105)
+Jun 12 13:12:41.718062 hp-150-tink-system NetworkManager[2120]: <info>  [1781269961.7180] device (calif7c16fbc401): carrier: link connected
+Jun 12 13:12:42.317236 hp-150-tink-system NetworkManager[2120]: <info>  [1781269962.3172] manager: (caliebece7c0d7a): new Veth device (/org/freedesktop/NetworkManager/Devices/106)
+Jun 12 13:12:42.317788 hp-150-tink-system NetworkManager[2120]: <info>  [1781269962.3177] device (caliebece7c0d7a): carrier: link connected
+Jun 12 13:12:42.598381 hp-150-tink-system NetworkManager[2120]: <info>  [1781269962.5983] manager: (cali1b29c756de3): new Veth device (/org/freedesktop/NetworkManager/Devices/107)
+Jun 12 13:12:42.598972 hp-150-tink-system NetworkManager[2120]: <info>  [1781269962.5989] device (cali1b29c756de3): carrier: link connected
+Jun 12 13:12:43.300202 hp-150-tink-system NetworkManager[2120]: <info>  [1781269963.3001] manager: (calib2dbb49dabb): new Veth device (/org/freedesktop/NetworkManager/Devices/108)
+Jun 12 13:12:43.300766 hp-150-tink-system NetworkManager[2120]: <info>  [1781269963.3007] device (calib2dbb49dabb): carrier: link connected
+Jun 12 13:15:24.712134 hp-150-tink-system NetworkManager[2120]: <info>  [1781270124.7121] manager: (caliced32b4c3f9): new Veth device (/org/freedesktop/NetworkManager/Devices/109)
+Jun 12 13:15:24.712797 hp-150-tink-system NetworkManager[2120]: <info>  [1781270124.7127] device (caliced32b4c3f9): carrier: link connected
+Jun 12 13:15:25.458279 hp-150-tink-system NetworkManager[2120]: <info>  [1781270125.4582] manager: (calif4277a799e9): new Veth device (/org/freedesktop/NetworkManager/Devices/110)
+Jun 12 13:15:25.458842 hp-150-tink-system NetworkManager[2120]: <info>  [1781270125.4588] device (calif4277a799e9): carrier: link connected
+Jun 12 14:31:29.707114 hp-150-tink-system NetworkManager[2120]: <info>  [1781274689.7070] manager: (cali7aee16d6499): new Veth device (/org/freedesktop/NetworkManager/Devices/111)
+Jun 12 14:31:29.707656 hp-150-tink-system NetworkManager[2120]: <info>  [1781274689.7076] device (cali7aee16d6499): carrier: link connected
+Jun 12 14:33:47.073976 hp-150-tink-system NetworkManager[2120]: <info>  [1781274827.0739] manager: (cali03095055fac): new Veth device (/org/freedesktop/NetworkManager/Devices/112)
+Jun 12 14:33:47.074638 hp-150-tink-system NetworkManager[2120]: <info>  [1781274827.0746] device (cali03095055fac): carrier: link connected
+Jun 12 14:35:57.559483 hp-150-tink-system NetworkManager[2120]: <info>  [1781274957.5594] manager: (cali32994d771a0): new Veth device (/org/freedesktop/NetworkManager/Devices/113)
+Jun 12 14:35:57.560053 hp-150-tink-system NetworkManager[2120]: <info>  [1781274957.5600] device (cali32994d771a0): carrier: link connected
+Jun 12 14:37:18.403289 hp-150-tink-system NetworkManager[2120]: <info>  [1781275038.4032] manager: (calidda566ceff6): new Veth device (/org/freedesktop/NetworkManager/Devices/114)
+Jun 12 14:37:18.403899 hp-150-tink-system NetworkManager[2120]: <info>  [1781275038.4038] device (calidda566ceff6): carrier: link connected
+Jun 12 14:40:08.331731 hp-150-tink-system NetworkManager[2120]: <info>  [1781275208.3317] manager: (cali19eeebc0d9c): new Veth device (/org/freedesktop/NetworkManager/Devices/115)
+Jun 12 14:40:08.332206 hp-150-tink-system NetworkManager[2120]: <info>  [1781275208.3321] device (cali19eeebc0d9c): carrier: link connected
+Jun 12 14:40:35.585165 hp-150-tink-system NetworkManager[2120]: <info>  [1781275235.5851] manager: (cali28edeb49729): new Veth device (/org/freedesktop/NetworkManager/Devices/116)
+Jun 12 14:40:35.585892 hp-150-tink-system NetworkManager[2120]: <info>  [1781275235.5858] device (cali28edeb49729): carrier: link connected
+Jun 12 14:51:00.775215 hp-150-tink-system NetworkManager[2120]: <info>  [1781275860.7751] manager: (cali490161a22b1): new Veth device (/org/freedesktop/NetworkManager/Devices/117)
+Jun 12 14:51:00.775901 hp-150-tink-system NetworkManager[2120]: <info>  [1781275860.7758] device (cali490161a22b1): carrier: link connected
+Jun 12 15:00:22.895339 hp-150-tink-system NetworkManager[2120]: <info>  [1781276422.8953] manager: (cnet-145836-bo): new Bond device (/org/freedesktop/NetworkManager/Devices/118)
+Jun 12 15:00:23.148858 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1488] manager: (cnet-145836-br): new Bridge device (/org/freedesktop/NetworkManager/Devices/119)
+Jun 12 15:00:23.159565 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1595] device (cnet-145836-bo): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:00:23.160027 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1600] device (cnet-145836-bo): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:00:23.160619 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1606] device (cnet-145836-bo): Activation: starting connection 'cnet-145836-bo' (5b843f82-7546-449f-a5e2-ddd1406025b7)
+Jun 12 15:00:23.160990 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1609] device (cnet-145836-bo): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.161209 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1611] device (cnet-145836-bo): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.161366 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1613] device (cnet-145836-bo): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.162496 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1624] device (eno50): Activation: starting connection 'eno50' (4f9051c5-93c2-4451-828a-2630faf484c5)
+Jun 12 15:00:23.162555 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1625] device (cnet-145836-bo): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.163068 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1630] device (eno50): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.163308 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1632] device (eno50): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.163456 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1634] device (eno50): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.163547 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1635] device (cnet-145836-bo): bond port eno50 was attached
+Jun 12 15:00:23.163559 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1635] device (eno50): Activation: connection 'eno50' attached as port, continuing activation
+Jun 12 15:00:23.163718 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1637] device (eno50): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.199888 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.1998] device (cnet-145836-bo): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.200116 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.2000] device (cnet-145836-bo): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.200561 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.2005] device (cnet-145836-bo): Activation: successful, device activated.
+Jun 12 15:00:23.200928 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.2009] device (eno50): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.201078 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.2010] device (eno50): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.201491 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.2014] device (eno50): Activation: successful, device activated.
+Jun 12 15:00:23.456585 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4565] device (eno50): carrier: link connected
+Jun 12 15:00:23.463488 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4634] device (cnet-145836-br): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:00:23.464109 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4640] device (cnet-145836-bo): carrier: link connected
+Jun 12 15:00:23.464251 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4642] device (cnet-145836-br): carrier: link connected
+Jun 12 15:00:23.466040 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4660] device (cnet-145836-br): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:00:23.466673 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4666] device (cnet-145836-br): Activation: starting connection 'cnet-145836-br' (85a581b2-2f12-4636-85e1-0bb48a28f724)
+Jun 12 15:00:23.466918 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4669] device (cnet-145836-br): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.467162 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4671] device (cnet-145836-br): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.467321 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4673] device (cnet-145836-br): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.467483 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4674] device (cnet-145836-br): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.468632 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4686] device (cnet-145836-br): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.468798 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4687] device (cnet-145836-br): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 15:00:23.469226 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.4692] device (cnet-145836-br): Activation: successful, device activated.
+Jun 12 15:00:23.794149 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.7941] manager: (cali04c28a2d89d): new Veth device (/org/freedesktop/NetworkManager/Devices/120)
+Jun 12 15:00:23.794788 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.7947] device (cali04c28a2d89d): carrier: link connected
+Jun 12 15:00:23.853251 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.8532] manager: (veth4eeca5eb): new Veth device (/org/freedesktop/NetworkManager/Devices/121)
+Jun 12 15:00:23.854132 hp-150-tink-system NetworkManager[2120]: <info>  [1781276423.8541] device (veth4eeca5eb): carrier: link connected
+Jun 12 15:00:25.383538 hp-150-tink-system NetworkManager[2120]: <info>  [1781276425.3835] manager: (calico_tmp_B): new Veth device (/org/freedesktop/NetworkManager/Devices/122)
+Jun 12 15:00:25.384387 hp-150-tink-system NetworkManager[2120]: <info>  [1781276425.3843] manager: (calico_tmp_A): new Veth device (/org/freedesktop/NetworkManager/Devices/123)
+Jun 12 15:09:27.093809 hp-150-tink-system NetworkManager[2120]: <info>  [1781276967.0937] device (cnet-145836-bo): bond port eno50 was detached
+Jun 12 15:09:27.094261 hp-150-tink-system NetworkManager[2120]: <info>  [1781276967.0942] device (cnet-145836-bo): state change: activated -> unmanaged (reason 'unmanaged', managed-type: 'removed')
+Jun 12 15:09:27.095305 hp-150-tink-system NetworkManager[2120]: <info>  [1781276967.0952] device (eno50): state change: activated -> deactivating (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:09:27.136773 hp-150-tink-system NetworkManager[2120]: <info>  [1781276967.1367] device (eno50): state change: deactivating -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:09:27.454642 hp-150-tink-system NetworkManager[2120]: <info>  [1781276967.4546] device (cnet-145836-br): state change: activated -> unmanaged (reason 'unmanaged', managed-type: 'removed')
+Jun 12 15:09:27.670752 hp-150-tink-system NetworkManager[2120]: <info>  [1781276967.6707] device (eno50): carrier: link connected
+Jun 12 15:09:48.043253 hp-150-tink-system NetworkManager[2120]: <info>  [1781276988.0432] manager: (calif962b9fcae9): new Veth device (/org/freedesktop/NetworkManager/Devices/124)
+Jun 12 15:09:48.043906 hp-150-tink-system NetworkManager[2120]: <info>  [1781276988.0438] device (calif962b9fcae9): carrier: link connected
+Jun 12 15:11:27.245065 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.2450] manager: (cnet-150800-bo): new Bond device (/org/freedesktop/NetworkManager/Devices/125)
+Jun 12 15:11:27.492828 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.4928] manager: (cnet-150800-br): new Bridge device (/org/freedesktop/NetworkManager/Devices/126)
+Jun 12 15:11:27.504230 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5042] device (cnet-150800-bo): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:11:27.504741 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5047] device (cnet-150800-bo): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:11:27.505386 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5053] device (cnet-150800-bo): Activation: starting connection 'cnet-150800-bo' (fcb7c6e9-015d-4241-804b-11ccc947a197)
+Jun 12 15:11:27.505768 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5057] device (cnet-150800-bo): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.506003 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5059] device (cnet-150800-bo): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.506172 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5061] device (cnet-150800-bo): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.507328 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5073] device (eno50): Activation: starting connection 'eno50' (3bee6ed8-dfa1-43fb-a79b-2895d3e8747b)
+Jun 12 15:11:27.507392 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5073] device (cnet-150800-bo): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.507939 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5079] device (eno50): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.508215 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5082] device (eno50): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.508381 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5083] device (eno50): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.508479 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5084] device (cnet-150800-bo): bond port eno50 was attached
+Jun 12 15:11:27.508489 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5084] device (eno50): Activation: connection 'eno50' attached as port, continuing activation
+Jun 12 15:11:27.508658 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5086] device (eno50): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.548739 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5487] device (cnet-150800-bo): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.548953 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5489] device (eno50): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.549119 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5490] device (cnet-150800-bo): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.549558 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5495] device (cnet-150800-bo): Activation: successful, device activated.
+Jun 12 15:11:27.549899 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5498] device (eno50): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.550374 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.5503] device (eno50): Activation: successful, device activated.
+Jun 12 15:11:27.799371 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.7993] device (eno50): carrier: link connected
+Jun 12 15:11:27.808731 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8087] device (cnet-150800-br): state change: unmanaged -> unavailable (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:11:27.809275 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8092] device (cnet-150800-bo): carrier: link connected
+Jun 12 15:11:27.809400 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8093] device (cnet-150800-br): carrier: link connected
+Jun 12 15:11:27.811253 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8112] device (cnet-150800-br): state change: unavailable -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:11:27.811876 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8118] device (cnet-150800-br): Activation: starting connection 'cnet-150800-br' (a8776157-911b-48ee-8b17-b558ddfb5095)
+Jun 12 15:11:27.812085 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8120] device (cnet-150800-br): state change: disconnected -> prepare (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.812297 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8122] device (cnet-150800-br): state change: prepare -> config (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.812448 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8124] device (cnet-150800-br): state change: config -> ip-config (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.812615 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8126] device (cnet-150800-br): state change: ip-config -> ip-check (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.813728 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8137] device (cnet-150800-br): state change: ip-check -> secondaries (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.813869 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8138] device (cnet-150800-br): state change: secondaries -> activated (reason 'none', managed-type: 'external')
+Jun 12 15:11:27.814259 hp-150-tink-system NetworkManager[2120]: <info>  [1781277087.8142] device (cnet-150800-br): Activation: successful, device activated.
+Jun 12 15:11:28.251800 hp-150-tink-system NetworkManager[2120]: <info>  [1781277088.2517] manager: (cali769fae0d344): new Veth device (/org/freedesktop/NetworkManager/Devices/127)
+Jun 12 15:11:28.252377 hp-150-tink-system NetworkManager[2120]: <info>  [1781277088.2523] device (cali769fae0d344): carrier: link connected
+Jun 12 15:11:28.312871 hp-150-tink-system NetworkManager[2120]: <info>  [1781277088.3128] manager: (veth2df978a5): new Veth device (/org/freedesktop/NetworkManager/Devices/128)
+Jun 12 15:11:28.314403 hp-150-tink-system NetworkManager[2120]: <info>  [1781277088.3143] device (veth2df978a5): carrier: link connected
+Jun 12 15:27:36.636750 hp-150-tink-system NetworkManager[2120]: <info>  [1781278056.6367] device (cnet-150800-br): bridge port cnet-150800-bo was detached
+Jun 12 15:27:36.637006 hp-150-tink-system NetworkManager[2120]: <info>  [1781278056.6369] device (cnet-150800-br): state change: activated -> unmanaged (reason 'unmanaged-external-down', managed-type: 'external')
+Jun 12 15:27:36.822587 hp-150-tink-system NetworkManager[2120]: <info>  [1781278056.8225] device (cnet-150800-bo): bond port eno50 was detached
+Jun 12 15:27:36.823099 hp-150-tink-system NetworkManager[2120]: <info>  [1781278056.8230] device (cnet-150800-bo): state change: activated -> unmanaged (reason 'unmanaged', managed-type: 'removed')
+Jun 12 15:27:36.824274 hp-150-tink-system NetworkManager[2120]: <info>  [1781278056.8242] device (eno50): state change: activated -> deactivating (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:27:36.843826 hp-150-tink-system NetworkManager[2120]: <info>  [1781278056.8438] device (eno50): state change: deactivating -> disconnected (reason 'connection-assumed', managed-type: 'external')
+Jun 12 15:27:37.350891 hp-150-tink-system NetworkManager[2120]: <info>  [1781278057.3508] device (eno50): carrier: link connected
+Jun 12 15:45:27.880348 hp-150-tink-system NetworkManager[2120]: <info>  [1781279127.8803] manager: (cali21d6c52e24d): new Veth device (/org/freedesktop/NetworkManager/Devices/129)
+Jun 12 15:45:27.880930 hp-150-tink-system NetworkManager[2120]: <info>  [1781279127.8809] device (cali21d6c52e24d): carrier: link connected
+Jun 12 15:45:31.357331 hp-150-tink-system NetworkManager[2120]: <info>  [1781279131.3572] manager: (calib0ef3e94cd1): new Veth device (/org/freedesktop/NetworkManager/Devices/130)
+Jun 12 15:45:31.358546 hp-150-tink-system NetworkManager[2120]: <info>  [1781279131.3585] device (calib0ef3e94cd1): carrier: link connected
+Jun 12 23:03:20.049929 hp-150-tink-system NetworkManager[2120]: <info>  [1781305400.0499] manager: (cali1b016d10094): new Veth device (/org/freedesktop/NetworkManager/Devices/131)
+Jun 12 23:03:20.050579 hp-150-tink-system NetworkManager[2120]: <info>  [1781305400.0505] device (cali1b016d10094): carrier: link connected
+Jun 12 23:13:50.936242 hp-150-tink-system NetworkManager[2120]: <info>  [1781306030.9362] manager: (caliadd63d8d89f): new Veth device (/org/freedesktop/NetworkManager/Devices/132)
+Jun 12 23:13:50.936812 hp-150-tink-system NetworkManager[2120]: <info>  [1781306030.9367] device (caliadd63d8d89f): carrier: link connected

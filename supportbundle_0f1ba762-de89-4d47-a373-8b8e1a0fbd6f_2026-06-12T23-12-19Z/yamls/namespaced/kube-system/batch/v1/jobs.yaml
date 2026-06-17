@@ -1,0 +1,2520 @@
+apiVersion: v1
+items:
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6RXb2/iPBL/Kie/TkICKaVIfZGF8JRbCihhV3daVchxBvDh2Hlshy1X8d1PTtI2oXTb6t5hZ+bn+fub4QnhnP4EqajgaIgSrMmuc/CQhfaUp2iI/ikSZKEMNE6xxmj4hDDnQmNNBVfmKJL/ANEKtCOpcAjWmoFDRYca7R2wzCaCaykYA2mTHZbalrClSssSA1nvIojfHKS9PexroMang2f94zvl6e0dsGxkQD/E4TgDNERyD12bYI7ZpzRUjolR2xcJ2OqoNGToZCGGE2Cl+8aw0ivlnNlY3n72xR1WOxP/m+uUkGsCGLs3JPF7AD1/QJKeu0m7KfYHA/eaeP2BsaF2qAwx5UpjxuzWW+/Zb6HSvwg2IIETUGj466wO3oQbWShhguwXRnMMDMrcDTeYKbDQa4ZfruryaebnUgaKskzc1O27BG5sb7NxbX/Q79uJf+PaVxtI+q7b9UiC0enhZCGVAzFhTzDZi81mRjOq0dBzXddCGrKcYQ3m+x8K9g8ZE3xDt3dVKuK7oHvVvx3c9K79id/1BhP/2h1dB1f+TTDo+5PRt9HAuwr7Ybfv+VfBVTeYdPuTUTAJe34/8Ef/R5mcGo6a0GLKQdZZklvzA9UJRxaybQXaVlpSvkUW2jKRYOYQVigNcjQdR7ee61x1HddxO17/MwoH/0sq43lcyvcc1/HcD6VFhim/rU8OEwS/ePEqnEuagQMcJwzS27Kk3gU2gRtjjcdU3nYOWHYYTToSc7ID2TEf39VUIA+UwEuQeh95XDXQGDa4YHrKtxKUGjGs1C2tDjbfUv6IHiwE/FAmrC76eXAfIgsdMCvOeuBkvQj9DKN4upg3r6JwuWie78LZ/XocTX+GUQNOAZGgm3KjuyBarc2r8TIYNZ9uM1lb4c1LFyxaBdFf4Zeggx+ru/UyiOP1KArH4Xw1DWZxQ61Kb0NhOo/D0Y8oXMffp8v1ahYbO6aTf/9JZzkLpvP13Wq1/JPU9x/fwmgersJ4HYfRz+koXN8t4lVDxetemypwvA/Ulouoqdb3/V5T49tisYpXUdC0RsuiZcx8sV5Gi3813XLUgVhOqzmsZi9arTJtYE2C6cxEbLmYTUdNRAnPVHF6sBDN8La8rdtjz2ieg7QNJw0Ppn8d104KytKu2+27V14P1UrLgrGlYJQcTYI2c6GXEhTwBrEbEGQhCUoUshwrT4gZgi5/kbxAQ9TrlttEJuSxPP1laFLC3wWoppjnullT0HPvK1YEUkiqjyPBNTzqkt0ZE7+Xkh4ogy2EimCG28MJ5zihjGpamZRKkRsKDWYz9FC+jtMFZ8dICD2hDOoCHpp0nSx0EKzI4F4UXFcUnJmfS6zNkOjsRAatKHacOgx1UJrfyoR9pE4w2cFb/er6UwDlFLuAUN2/gdBZ/ipsDm8kzhHL2lIX5NqD3owuUyCnB1N6O6H0HPRvIfdVbC3ERQoxMCBaSJMZwx+SgwZVLmEKDRGjvHhElagtBQOnLVRvHnbOMG/0GMolFWWhGHaeV/ZUibXr7rKJpJpW00eC0ljql/pe8AmmrJAmDxdKThY8UHPBTcU8+6KAEJHlSyk2lJUriD7mJYMXXNMM6qFRV3E5dwJCTPTmjT2utRtpwUA+7y2/nhBsNkDMqjAXMdlBWjBj3x6MxSY+Z6HhwmzaOD2WifqqcpUpu+D4gCkzc/hzMISJIs2lONAU5BlowSmnmmJG/wupWUNz45/JPQr/Lkqf33BlBT2qcxWkqeDKdOuZ+iM1/HFmYfgIpNBtAy8VEWhybs5FvIsef1yVF5Efnpmlzm2W6+OYymp3TWmRoSG6r+jv9D6ZfE3tlUO+qPfKHJ9TfGaRNl+YrhTm7w+kJQ9XHXEvUkBDv+ta6GVu/Hp6XmmGLyDVX8cKym4tyw8n81Zl5D3OL2O3UGpmasFcoq2yWTXWhRkcp9P/AgAA//8i9EapLQ8AAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-canal
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      helmcharts.helm.cattle.io/chart: rke2-canal
+      objectset.rio.cattle.io/hash: b97dcc7ceaa09cb43ee348cb30fd2da48807c168
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:helmcharts.helm.cattle.io/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"0d060ce9-1ff0-4866-b490-5feb60021cba"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:helmcharts.helm.cattle.io/configHash: {}
+              f:labels:
+                .: {}
+                f:helmcharts.helm.cattle.io/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helm"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AUTH_PASS_CREDENTIALS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"BOOTSTRAP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"CHART_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FAILURE_POLICY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_DRIVER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_VERSION"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"INSECURE_SKIP_TLS_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KUBERNETES_SERVICE_HOST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KUBERNETES_SERVICE_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PLAIN_HTTP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REPO"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"TARGET_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"VERSION"}:
+                      .: {}
+                      f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/chart"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.helm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostNetwork: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"content"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"klipper-cache"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-config"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-helm"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"values"}:
+                  .: {}
+                  f:name: {}
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:39:10Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: helm-install-rke2-canal
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: helm.cattle.io/v1
+      blockOwnerDeletion: false
+      controller: false
+      kind: HelmChart
+      name: rke2-canal
+      uid: 0d060ce9-1ff0-4866-b490-5feb60021cba
+    resourceVersion: "7140"
+    uid: ffad8703-43c0-429b-bbed-2c7773c4fe55
+  spec:
+    backoffLimit: 1000
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: ffad8703-43c0-429b-bbed-2c7773c4fe55
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          helmcharts.helm.cattle.io/configHash: SHA256=89374F4218F470C7A549A864FCBC815E6E26145A52AF26FCAFE346A4CD6D30DF
+        labels:
+          batch.kubernetes.io/controller-uid: ffad8703-43c0-429b-bbed-2c7773c4fe55
+          batch.kubernetes.io/job-name: helm-install-rke2-canal
+          controller-uid: ffad8703-43c0-429b-bbed-2c7773c4fe55
+          helmcharts.helm.cattle.io/chart: rke2-canal
+          job-name: helm-install-rke2-canal
+      spec:
+        containers:
+        - args:
+          - install
+          - --set-string
+          - global.clusterCIDR=10.52.0.0/16
+          - --set-string
+          - global.clusterCIDRv4=10.52.0.0/16
+          - --set-string
+          - global.clusterDNS=10.53.0.10
+          - --set-string
+          - global.clusterDomain=cluster.local
+          - --set
+          - global.prime.enabled=false
+          - --set-string
+          - global.rke2DataDir=/var/lib/rancher/rke2
+          - --set-string
+          - global.serviceCIDR=10.53.0.0/16
+          - --set-string
+          - global.systemDefaultIngressClass=ingress-nginx
+          env:
+          - name: NAME
+            value: rke2-canal
+          - name: VERSION
+          - name: REPO
+          - name: HELM_DRIVER
+            value: secret
+          - name: CHART_NAMESPACE
+            value: kube-system
+          - name: CHART
+          - name: HELM_VERSION
+          - name: TARGET_NAMESPACE
+            value: kube-system
+          - name: AUTH_PASS_CREDENTIALS
+            value: "false"
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "false"
+          - name: PLAIN_HTTP
+            value: "false"
+          - name: KUBERNETES_SERVICE_HOST
+            value: 127.0.0.1
+          - name: KUBERNETES_SERVICE_PORT
+            value: "6443"
+          - name: BOOTSTRAP
+            value: "true"
+          - name: NO_PROXY
+            value: .svc,.cluster.local,10.52.0.0/16,10.53.0.0/16
+          - name: FAILURE_POLICY
+            value: reinstall
+          image: rancher/klipper-helm:v0.10.0-build20260513
+          imagePullPolicy: IfNotPresent
+          name: helm
+          resources:
+            limits:
+              cpu: "32"
+              memory: 32G
+            requests:
+              cpu: 100m
+              memory: 10M
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /home/klipper-helm/.helm
+            name: klipper-helm
+          - mountPath: /home/klipper-helm/.cache
+            name: klipper-cache
+          - mountPath: /home/klipper-helm/.config
+            name: klipper-config
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /config
+            name: values
+          - mountPath: /chart
+            name: content
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        nodeSelector:
+          kubernetes.io/os: linux
+          node-role.kubernetes.io/control-plane: "true"
+        priorityClassName: system-cluster-critical
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: helm-rke2-canal
+        serviceAccountName: helm-rke2-canal
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: node.kubernetes.io/not-ready
+        - effect: NoSchedule
+          key: node.kubernetes.io/network-unavailable
+        - effect: NoSchedule
+          key: node.cloudprovider.kubernetes.io/uninitialized
+          operator: Equal
+          value: "true"
+        - key: CriticalAddonsOnly
+          operator: Exists
+        - effect: NoExecute
+          key: node-role.kubernetes.io/etcd
+          operator: Exists
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
+        volumes:
+        - emptyDir:
+            medium: Memory
+          name: klipper-helm
+        - emptyDir:
+            medium: Memory
+          name: klipper-cache
+        - emptyDir:
+            medium: Memory
+          name: klipper-config
+        - emptyDir:
+            medium: Memory
+          name: tmp
+        - name: values
+          projected:
+            defaultMode: 420
+            sources:
+            - secret:
+                name: chart-values-rke2-canal
+        - configMap:
+            defaultMode: 420
+            name: chart-content-rke2-canal
+          name: content
+  status:
+    completionTime: "2026-06-12T10:39:10Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:39:10Z"
+      lastTransitionTime: "2026-06-12T10:39:10Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:39:10Z"
+      lastTransitionTime: "2026-06-12T10:39:10Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:39:04Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6RXXW/qPBL+KytfJyEECAWpFymEF/ZQQAnnaFdHFTLOAF4cO6/tcMpW/PeVk7QNlH5p70gyz+PxfDwzPCGc0V8gFRUc9dEaa7JrHJrIQnvKE9RH/xRrZKEUNE6wxqj/hDDnQmNNBVfmUaz/A0Qr0I6kwiFYawYOFQ1q0DtgqU0E11IwBtImOyy1LWFLlZYFB7LeZRB/OEh7e9hXRLVPh6b1jx+UJ7djYOnAkH7Kw3EKqI/kHjybCAkJV1/CqAwTA9zna7DVUWlI0clCDK+BFQEwrhX3Us6Fl8Xbr5+5w2qH+miTeHDjY9dv3bg4ScjabSdJl/gJdDrdbrfX7fU6Xm/TNl5UlyrCTLnSmDH74rT37mCh4o4RbEACJ6BQ//dFNbwJOrLQmgmynxvkEBgUGexvMFNgodc8v7yqiqiepet5yItycZs9v93Ebbu7Jq7dXmPfvvHbPRuI322THmmRnodODycLqQyICf4ak73YbKY0pRr1m67rWkhDmjGswXz/oHA/yJvgG7odl+mIx4HX8W9bfji4CXtBN2h5bX/U9e5uAs/zWh3vbjhyfXfQHo18b9R273y/O/TvWneeN3BH7c7/VSyn2lVNeDHlIKtMya35gaq0IwvZtgJtKy0p3yILbZlYY+YQlisNcjAZRrdN1+l4juu4jab/FcCh/S3IcBYX9i3HdZrup9YixZTfVk8OEwS/3OLVOJM0BQc4XjNIbouyepfYhG6INR5Seds4YNlgdN2QmJMdyIb5+C5SgTxQAi9Ban1247KJhrDBOdMTvpWg1IBhpW5p+WDzLeWP6MFCwA9FwqrCnwX3IbLQAbP8TR+crBezX2EUT+az+qsoXMzrz+Nwer8aRpNfYVQjVEAk6LrdYBxEy5U5N14Eg/rh55p2Dnhz0hWPlkH0V/gt6uDncrxaBHG8GkThMJwtJ8E0rsHKBNcAk1kcDn5G4Sr+MVmsltPY+DEZ/fsjzGIaTGar8XK5+Mjqx8+7MJqFyzBexWH0azIIV+N5vKxBml7X1IHT/AS2mEd1mN9ut+qIu/l8GS+joO6NlvmZM7P5ahHN/1W/lqMOxHLO2sOqd6N1Vqg1rlEwmZqILebTyaDOKOFZLE4PFqIp3hZvqwbZM5plIG2jS/2D6WDHtdc5ZYnner7babZQBVrkjC0Eo+RoErSZCb2QoIDX5N2QIAtJUCKXxXB5QsyIdPGLZDnqo5ZXbBapkMfi6S8jlRL+zkHVzZqum9YNm+59qYtAckn1cSC4hkddKDxj4s9C0gNlsIVQEczw+YjCGV5TRjUtXUqkyIyIBtMpeihOx8mcs2MkhB5RBlUB9026ThY6CJancC9yrksRTs3PBdZmUDR2IoWzKDacKgxVUOrfioR9BieY7OAtvnz9JYJikl1hKN+/odBp9mpsHt5YXDIWtaWu2J2PezO8TIGcHkzp7YTSM9B/hNyXsbUQFwnEwIBoIU1mjH5IDhpUsY4p1EeM8vwRlaa2FAycc6Nq/7Azhnmtx1AmqSgKxejzrPSnTKxddZdNJNW0nD8SlMZSv9T3nI8wZbk0ebhScjLngZoJbirm+S4KCBFptpBiQ1mxhuhjVih4zjVNoRobVRUXkycgxERvVtvnLjYkLRjI5+3l9xOCzQaIWRhmIiY7SHJmPNyD8dlE6CI4XJi9GyfHIlXfBZe5snOOD5gyM4u/RkOYyJNMigNNQF6Q5pxyqilm9L+QmHU0M/cz2Ufh33mRizdqWVIPqmwFSSK4Mv16AX+kRkEuPAwfgeT63MFrZQSaXLpzle/qjT+vy6vMD8/aUuU2zfRxSGW5wSY0T1Ef3ZcCeHpfTr4He1WRb+JeteNrwGcdOVcM05fC/BGCpFDisifuRQKo3/ZcC71Mjt9Pz0tN/4Wk/CNZUtkXK/PDyZxWunmPs+vsZzyVOl0QXROvomU11rkZH6fT/wIAAP//FoOsOD8PAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-coredns
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      helmcharts.helm.cattle.io/chart: rke2-coredns
+      objectset.rio.cattle.io/hash: fd2e86a06380addcb04dd7c6de557779799529f4
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:helmcharts.helm.cattle.io/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"019641a4-7bc0-4ba6-8649-ec674c9c3c92"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:helmcharts.helm.cattle.io/configHash: {}
+              f:labels:
+                .: {}
+                f:helmcharts.helm.cattle.io/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helm"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AUTH_PASS_CREDENTIALS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"BOOTSTRAP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"CHART_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FAILURE_POLICY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_DRIVER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_VERSION"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"INSECURE_SKIP_TLS_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KUBERNETES_SERVICE_HOST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KUBERNETES_SERVICE_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PLAIN_HTTP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REPO"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"TARGET_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"VERSION"}:
+                      .: {}
+                      f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/chart"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.helm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostNetwork: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"content"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"klipper-cache"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-config"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-helm"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"values"}:
+                  .: {}
+                  f:name: {}
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:39:10Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: helm-install-rke2-coredns
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: helm.cattle.io/v1
+      blockOwnerDeletion: false
+      controller: false
+      kind: HelmChart
+      name: rke2-coredns
+      uid: 019641a4-7bc0-4ba6-8649-ec674c9c3c92
+    resourceVersion: "7144"
+    uid: fab74bc3-b81b-4156-a8c4-ebb7ff4b7311
+  spec:
+    backoffLimit: 1000
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: fab74bc3-b81b-4156-a8c4-ebb7ff4b7311
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          helmcharts.helm.cattle.io/configHash: SHA256=36EC8E9A7A3246F72B8A222352BDF060C4FF62F40B667D6B3B22C0F458856C7E
+        labels:
+          batch.kubernetes.io/controller-uid: fab74bc3-b81b-4156-a8c4-ebb7ff4b7311
+          batch.kubernetes.io/job-name: helm-install-rke2-coredns
+          controller-uid: fab74bc3-b81b-4156-a8c4-ebb7ff4b7311
+          helmcharts.helm.cattle.io/chart: rke2-coredns
+          job-name: helm-install-rke2-coredns
+      spec:
+        containers:
+        - args:
+          - install
+          - --set-string
+          - global.clusterCIDR=10.52.0.0/16
+          - --set-string
+          - global.clusterCIDRv4=10.52.0.0/16
+          - --set-string
+          - global.clusterDNS=10.53.0.10
+          - --set-string
+          - global.clusterDomain=cluster.local
+          - --set
+          - global.prime.enabled=false
+          - --set-string
+          - global.rke2DataDir=/var/lib/rancher/rke2
+          - --set-string
+          - global.serviceCIDR=10.53.0.0/16
+          - --set-string
+          - global.systemDefaultIngressClass=ingress-nginx
+          env:
+          - name: NAME
+            value: rke2-coredns
+          - name: VERSION
+          - name: REPO
+          - name: HELM_DRIVER
+            value: secret
+          - name: CHART_NAMESPACE
+            value: kube-system
+          - name: CHART
+          - name: HELM_VERSION
+          - name: TARGET_NAMESPACE
+            value: kube-system
+          - name: AUTH_PASS_CREDENTIALS
+            value: "false"
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "false"
+          - name: PLAIN_HTTP
+            value: "false"
+          - name: KUBERNETES_SERVICE_HOST
+            value: 127.0.0.1
+          - name: KUBERNETES_SERVICE_PORT
+            value: "6443"
+          - name: BOOTSTRAP
+            value: "true"
+          - name: NO_PROXY
+            value: .svc,.cluster.local,10.52.0.0/16,10.53.0.0/16
+          - name: FAILURE_POLICY
+            value: reinstall
+          image: rancher/klipper-helm:v0.10.0-build20260513
+          imagePullPolicy: IfNotPresent
+          name: helm
+          resources:
+            limits:
+              cpu: "32"
+              memory: 32G
+            requests:
+              cpu: 100m
+              memory: 10M
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /home/klipper-helm/.helm
+            name: klipper-helm
+          - mountPath: /home/klipper-helm/.cache
+            name: klipper-cache
+          - mountPath: /home/klipper-helm/.config
+            name: klipper-config
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /config
+            name: values
+          - mountPath: /chart
+            name: content
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        nodeSelector:
+          kubernetes.io/os: linux
+          node-role.kubernetes.io/control-plane: "true"
+        priorityClassName: system-cluster-critical
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: helm-rke2-coredns
+        serviceAccountName: helm-rke2-coredns
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: node.kubernetes.io/not-ready
+        - effect: NoSchedule
+          key: node.kubernetes.io/network-unavailable
+        - effect: NoSchedule
+          key: node.cloudprovider.kubernetes.io/uninitialized
+          operator: Equal
+          value: "true"
+        - key: CriticalAddonsOnly
+          operator: Exists
+        - effect: NoExecute
+          key: node-role.kubernetes.io/etcd
+          operator: Exists
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
+        volumes:
+        - emptyDir:
+            medium: Memory
+          name: klipper-helm
+        - emptyDir:
+            medium: Memory
+          name: klipper-cache
+        - emptyDir:
+            medium: Memory
+          name: klipper-config
+        - emptyDir:
+            medium: Memory
+          name: tmp
+        - name: values
+          projected:
+            defaultMode: 420
+            sources:
+            - secret:
+                name: chart-values-rke2-coredns
+        - configMap:
+            defaultMode: 420
+            name: chart-content-rke2-coredns
+          name: content
+  status:
+    completionTime: "2026-06-12T10:39:10Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:39:10Z"
+      lastTransitionTime: "2026-06-12T10:39:10Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:39:10Z"
+      lastTransitionTime: "2026-06-12T10:39:10Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:39:04Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6xXbW/iOBf9K4/8OQlJeCtI/UBDOuUZChEw1axGFXLMBbw4dtZ2mEEV/31lJ21DS9+k/Yade47te869Ng8I5/QOpKKCoz5KsSbbxj5ADtpRvkJ99H+RIgdloPEKa4z6DwhzLjTWVHBlhiL9G4hWoD1JhUew1gw8KhrUoLfAMpcIrqVgDKRLtlhqV8KGKi0tB3LeZBC/OUh3s99VRLVP+8D533fKV5c3wLLIkH7Iw3EGqI/kDkKX8o0EpVy+ofzPp5Aqx8TAd0UKrjooDRk6OojhFJhNg9mgPZ3yXuzVzn515S1WW9RH3V7Q7HV63Qsg4XrVXaXQXPVaYafVgnYb+7027qZpK03NXqoD2pRTrjRmzD275lvncZA97wzWIIETUKj/64U/XsmAHJQyQXZTgxwCA6tpf42ZAgc9K/80Vdmqrtt7yhTWRgSaAfZba7cHpOW2oOu7KfSark+aF0HQ7oQ9/wId748OUjkQI0eKyU6s12OaUY36ge/7DtKQ5QxrMN/fMfQ7Sgq+ppubUpr5zSBsdy6711edYdjxo6DXuQo7zWZwFfRaFy3f77aDMLhqDsLrKz9oh74fXQXNdhBEQfdq2B3+B/Y51g5sUo0pB1mpJjfmB6qMgBzkugq0q7SkfIMctGEixcwjrFAaZDQazi4D32uHnu/5jaDzGcC+9SXIcDK38U3P9wL/w2iRYcovq5HHBMFPp3gOziXNwAOOUwarS2uxN4lNAodY4yGVl409lg1G04bEnGxBNszHN5EK5J4SeEpS86MTlwU1hDUumB6VmkUMK3V5KuC9g4DvrWBVEUwGtzFy0B6z4o2aODpPwXfxbD6aTupTsziZ1sc38fh2OZyN7uJZjVYBkaDrcdHNYLZYmtXnySCqb+G0450CXq10ZkeLwexb/CXqwY/FzTIZzOfLaBYP48liNBjPa7BS5hpgNJnH0Y9ZvJx/HyXLxXhu9jG6/us9TDIejCbLm8UieS9qMl0ms+nPOpOn9sTxTnzp1MvAOXFIjet6MBqbTSbT8SiqM0p4rNJadPwziaNFPFzO4nE8mMfLWXw3srl9BoboeO8gmuGNpamsvGM0z0G6po/096bWPN9NC8pWoR92/HbQRBUoKRhLBKPkYJK4ngidSFDAa03ZkCAHSVCikPZKeEDMNFX7i+QF6qNmaF8ImZAHO/pmWpuEfwpQ9bDA97N6YODflh0MSCGpPkSCa/ijbUdmTPxOJN1TBhuIFcEMn14sOMcpZVTTcksrKXLT7gbjMbq3q+PVlLPDTAh9TRlUJutrWcDRQXvBigxuRcF12S4z8zPB2jT2xlZkcJLFhleloUpK/ZvV7CM4wWQLr/Hl9KcI7M1zhqGcf0Whs/w52AxeRbxktJ5SZ+JOL2lzzRiDHO+N9bhYwRwYEC2kkcEUtOSgQdnXk0J9xCgvTNNCuaTCymz64KRkK2Vxq2JyiaSaln1egtJY6id3Tvk1pqyQJotnDCMLPlATwY3epco2jIgsT6RYU2YvfX3IbY8suKYZVO258qDt8ANCzNkntZfU2VdJ6Z/SOpDl+jCksnxVrGiRoT66LU1+fNsyX4M9O+WLuGd/fA746JVTVxj1hHmowspWW5m5W7EC1G+FvoOeusOvh8fLpf+AqIasnNvBof7oi+y27ix5VDnKQXlpuXJNN3B933dfQNwTjHfAGbM98NGd9u9FRXD2wXR/NKcr03KL8/OnOWGrHH+W7lxZWDtprAvTmI7HfwMAAP//Ye6U/GENAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-ingress-nginx
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:44:04Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      helmcharts.helm.cattle.io/chart: rke2-ingress-nginx
+      objectset.rio.cattle.io/hash: 791396978ec2fd7dbe3d942644e55a095a7bb4bb
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:helmcharts.helm.cattle.io/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"ce31a04f-9ec4-4e70-be93-0c3811562908"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:helmcharts.helm.cattle.io/configHash: {}
+              f:labels:
+                .: {}
+                f:helmcharts.helm.cattle.io/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helm"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AUTH_PASS_CREDENTIALS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"CHART_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"EXPECTED_RELEASE_REVISION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FAILURE_POLICY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_DRIVER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_VERSION"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"INSECURE_SKIP_TLS_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PLAIN_HTTP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REPO"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"TARGET_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"VERSION"}:
+                      .: {}
+                      f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/chart"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.helm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"content"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"klipper-cache"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-config"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-helm"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"values"}:
+                  .: {}
+                  f:name: {}
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:44:23Z"
+    name: helm-install-rke2-ingress-nginx
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: helm.cattle.io/v1
+      blockOwnerDeletion: false
+      controller: false
+      kind: HelmChart
+      name: rke2-ingress-nginx
+      uid: ce31a04f-9ec4-4e70-be93-0c3811562908
+    resourceVersion: "7879"
+    uid: 8227f6ec-e560-4e14-bcad-69a1b424bcdd
+  spec:
+    backoffLimit: 1000
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 8227f6ec-e560-4e14-bcad-69a1b424bcdd
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          helmcharts.helm.cattle.io/configHash: SHA256=7FB6D260C196B26331B194840075121B3A2FB015200CB13511C17BD7DAC204B2
+        labels:
+          batch.kubernetes.io/controller-uid: 8227f6ec-e560-4e14-bcad-69a1b424bcdd
+          batch.kubernetes.io/job-name: helm-install-rke2-ingress-nginx
+          controller-uid: 8227f6ec-e560-4e14-bcad-69a1b424bcdd
+          helmcharts.helm.cattle.io/chart: rke2-ingress-nginx
+          job-name: helm-install-rke2-ingress-nginx
+      spec:
+        containers:
+        - args:
+          - install
+          - --set-string
+          - global.clusterCIDR=10.52.0.0/16
+          - --set-string
+          - global.clusterCIDRv4=10.52.0.0/16
+          - --set-string
+          - global.clusterDNS=10.53.0.10
+          - --set-string
+          - global.clusterDomain=cluster.local
+          - --set
+          - global.prime.enabled=false
+          - --set-string
+          - global.rke2DataDir=/var/lib/rancher/rke2
+          - --set-string
+          - global.serviceCIDR=10.53.0.0/16
+          - --set-string
+          - global.systemDefaultIngressClass=ingress-nginx
+          env:
+          - name: NAME
+            value: rke2-ingress-nginx
+          - name: VERSION
+          - name: REPO
+          - name: HELM_DRIVER
+            value: secret
+          - name: CHART_NAMESPACE
+            value: kube-system
+          - name: CHART
+          - name: HELM_VERSION
+          - name: TARGET_NAMESPACE
+            value: kube-system
+          - name: AUTH_PASS_CREDENTIALS
+            value: "false"
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "false"
+          - name: PLAIN_HTTP
+            value: "false"
+          - name: NO_PROXY
+            value: .svc,.cluster.local,10.52.0.0/16,10.53.0.0/16
+          - name: FAILURE_POLICY
+            value: reinstall
+          - name: EXPECTED_RELEASE_REVISION
+            value: "2"
+          image: rancher/klipper-helm:v0.10.0-build20260513
+          imagePullPolicy: IfNotPresent
+          name: helm
+          resources:
+            limits:
+              cpu: "32"
+              memory: 32G
+            requests:
+              cpu: 100m
+              memory: 10M
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /home/klipper-helm/.helm
+            name: klipper-helm
+          - mountPath: /home/klipper-helm/.cache
+            name: klipper-cache
+          - mountPath: /home/klipper-helm/.config
+            name: klipper-config
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /config
+            name: values
+          - mountPath: /chart
+            name: content
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: helm-rke2-ingress-nginx
+        serviceAccountName: helm-rke2-ingress-nginx
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir:
+            medium: Memory
+          name: klipper-helm
+        - emptyDir:
+            medium: Memory
+          name: klipper-cache
+        - emptyDir:
+            medium: Memory
+          name: klipper-config
+        - emptyDir:
+            medium: Memory
+          name: tmp
+        - name: values
+          projected:
+            defaultMode: 420
+            sources:
+            - secret:
+                items:
+                - key: HelmChartConfigValuesContent
+                  path: values-1-000-HelmChartConfig-ValuesContent.yaml
+                name: chart-values-rke2-ingress-nginx
+        - configMap:
+            defaultMode: 420
+            name: chart-content-rke2-ingress-nginx
+          name: content
+  status:
+    completionTime: "2026-06-12T10:44:23Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:44:23Z"
+      lastTransitionTime: "2026-06-12T10:44:23Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:44:23Z"
+      lastTransitionTime: "2026-06-12T10:44:23Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:44:05Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6xWXW/iuhb9K1d+TkI+oJRIfUghnXKHAoLO6F6NKuQ4G/CpY+fYDjNVlf9+ZCfThin9ks5b7Oy9bO+19rIfES7pd5CKCo5ilGFN9r1DgBx0T3mOYvRfkSEHFaBxjjVG8SPCnAuNNRVcmaHI/gKiFWhPUuERrDUDj4oeNdl7YIVLBNdSMAbSJXsstSthR5WWFgM5ryKInxykuzvct0CdX4fA+c9XyvOLa2DF2IC+i8NxAShG8h5CtwAtKVGuAnkA+aFUVWJi8u+rDFz1oDQUqHYQwxkwWwezQ3s85f2xWTv76aX3WO1RjGDrD7aRPwjCqI+DaDgkWUaiIQxJjvPI3+b9AMKz85HZTHtEW3TKlcaMuacXfe1EDrInXsEWJHACCsU//pDICyaQgzImyP3CZE6AgaU13mKmwEHP5D9NtcrqUvcmOZWVUjgakO15NHJhNIrcPh723XOC++62j8/9cITDQT9H9V3tIFUCMYxkmNyL7XZGC6pRHPi+7yANRcmwBvP/DVG/QabgW7q7bshZXyfh4OwiuErTcJyMJtHkvH8ZJWn/KvHHk/AyHFwNzoL+IE2j4Cw6G/kTf3Q59Ed+PxwPh5ejf0NBdefEptiYcpAtb3JnPlCrBeQg11WgXaUl5TvkoB0TGWYeYZXSIMfTyeoi8L1B6Pme3wvOPpJw6H8qZTJf2/jI873AfzdaFJjyi3bkMUHw0ymeg0tJC/CA44xBfmFF9iqwqeAEazyh8qJ3wLLHaNaTmJM9yJ75+WqmKTcl8FSk6L0TNy01gS2umJ7ynQSlxgwrdUGbgct3lP9Cdw4CfrCEtW0wT25S5KADZtVrXVE7T9Hf09V6uph3p1bpctEdX6ezm81kNf2erjq4CogE3Y0bXyer241Zfr1Mxt09HNveccKLlU7s6DZZfUk/BZ18u73eLJP1ejNepZN0fjtNZutOWsNzJ2E6X6fjb6t0s/46XW5uZ2uzj+nV/9/KWc6S6XxzfXu7fCtqvtgsV4v/dZE8dSCOdyRMp9sHzpFEOlhXyXRmNrlczKbjLqKE321a3zmIFnhnZ1tp3jNaliBdYwzxwfSO57tZRVke+uGZPwgi1CYtK8aWglHyYGqynQu9lKCAd2zWgCAHSVCiktbkHxEzLmm/SFmhGEWhvfYLIR/s6IvxKgl/V6C6YYHvF93AwL9pHAlIJal+GAuu4Ze2FsuY+LmU9EAZ7CBVBDN8fFXgEmeUUU2bLeVSlMa+ktkM3dnVcb7g7GElhL6iDFrNxFpWUDvoIFhVwI2ouG7srzCfS6yNU/f2ooCjKva8tgxtUbr/LGHvpRNM9vAyv5n+EIC9Sk4gNPMvIHRRPgebwYuIPxGtttSJuONr11wbRiD1nZEeFzmsgQHRQhoaTH9KDhqUfREpFCNGefXLCKKUVFiaja/NG7SGFrftDZdIqmnj2xKUxlI/qXPBrzBllTRVPCEYWfFEzQU3fDcs2zAiinIpxZYye4vrh9JaXsU1LaC121aD1rETQszZ553H0el3RiOgRjtQlPphQmXzTshpVaAY3TQqr1/XzOfSnqXyybxngXws8bdYjmVh6BPm8Qm5bbemdDciBxT3Q99BT/bw4/H3ZRE/gTRP+QbqZEHr+q42iza7vcHl6UWO4FolnsY7pVfLs8a6Mo5R1/8EAAD///sjbjvPDAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-metrics-server
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      helmcharts.helm.cattle.io/chart: rke2-metrics-server
+      objectset.rio.cattle.io/hash: ef05f3051234a1377cbbc37e7cdad30fd41e2689
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:helmcharts.helm.cattle.io/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"295cf839-e993-4a74-8ca4-f4a8029a254d"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:helmcharts.helm.cattle.io/configHash: {}
+              f:labels:
+                .: {}
+                f:helmcharts.helm.cattle.io/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helm"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AUTH_PASS_CREDENTIALS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"CHART_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FAILURE_POLICY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_DRIVER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_VERSION"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"INSECURE_SKIP_TLS_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PLAIN_HTTP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REPO"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"TARGET_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"VERSION"}:
+                      .: {}
+                      f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/chart"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.helm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"content"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"klipper-cache"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-config"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-helm"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"values"}:
+                  .: {}
+                  f:name: {}
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:39:32Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: helm-install-rke2-metrics-server
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: helm.cattle.io/v1
+      blockOwnerDeletion: false
+      controller: false
+      kind: HelmChart
+      name: rke2-metrics-server
+      uid: 295cf839-e993-4a74-8ca4-f4a8029a254d
+    resourceVersion: "7160"
+    uid: 32be672c-82dc-427f-951b-be9bcb9e493b
+  spec:
+    backoffLimit: 1000
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 32be672c-82dc-427f-951b-be9bcb9e493b
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          helmcharts.helm.cattle.io/configHash: SHA256=1FEE2CA9D3D84B3AE4FA0CD2B25F56145EE3163690D09B709042C77B93997402
+        labels:
+          batch.kubernetes.io/controller-uid: 32be672c-82dc-427f-951b-be9bcb9e493b
+          batch.kubernetes.io/job-name: helm-install-rke2-metrics-server
+          controller-uid: 32be672c-82dc-427f-951b-be9bcb9e493b
+          helmcharts.helm.cattle.io/chart: rke2-metrics-server
+          job-name: helm-install-rke2-metrics-server
+      spec:
+        containers:
+        - args:
+          - install
+          - --set-string
+          - global.clusterCIDR=10.52.0.0/16
+          - --set-string
+          - global.clusterCIDRv4=10.52.0.0/16
+          - --set-string
+          - global.clusterDNS=10.53.0.10
+          - --set-string
+          - global.clusterDomain=cluster.local
+          - --set
+          - global.prime.enabled=false
+          - --set-string
+          - global.rke2DataDir=/var/lib/rancher/rke2
+          - --set-string
+          - global.serviceCIDR=10.53.0.0/16
+          - --set-string
+          - global.systemDefaultIngressClass=ingress-nginx
+          env:
+          - name: NAME
+            value: rke2-metrics-server
+          - name: VERSION
+          - name: REPO
+          - name: HELM_DRIVER
+            value: secret
+          - name: CHART_NAMESPACE
+            value: kube-system
+          - name: CHART
+          - name: HELM_VERSION
+          - name: TARGET_NAMESPACE
+            value: kube-system
+          - name: AUTH_PASS_CREDENTIALS
+            value: "false"
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "false"
+          - name: PLAIN_HTTP
+            value: "false"
+          - name: NO_PROXY
+            value: .svc,.cluster.local,10.52.0.0/16,10.53.0.0/16
+          - name: FAILURE_POLICY
+            value: reinstall
+          image: rancher/klipper-helm:v0.10.0-build20260513
+          imagePullPolicy: IfNotPresent
+          name: helm
+          resources:
+            limits:
+              cpu: "32"
+              memory: 32G
+            requests:
+              cpu: 100m
+              memory: 10M
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /home/klipper-helm/.helm
+            name: klipper-helm
+          - mountPath: /home/klipper-helm/.cache
+            name: klipper-cache
+          - mountPath: /home/klipper-helm/.config
+            name: klipper-config
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /config
+            name: values
+          - mountPath: /chart
+            name: content
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: helm-rke2-metrics-server
+        serviceAccountName: helm-rke2-metrics-server
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir:
+            medium: Memory
+          name: klipper-helm
+        - emptyDir:
+            medium: Memory
+          name: klipper-cache
+        - emptyDir:
+            medium: Memory
+          name: klipper-config
+        - emptyDir:
+            medium: Memory
+          name: tmp
+        - name: values
+          projected:
+            defaultMode: 420
+            sources:
+            - secret:
+                name: chart-values-rke2-metrics-server
+        - configMap:
+            defaultMode: 420
+            name: chart-content-rke2-metrics-server
+          name: content
+  status:
+    completionTime: "2026-06-12T10:39:32Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:39:32Z"
+      lastTransitionTime: "2026-06-12T10:39:32Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:39:32Z"
+      lastTransitionTime: "2026-06-12T10:39:32Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:39:04Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6RXW2/qPBb9KyM/JyHhkgJSH1JIvzKHAiKcoxkdVchxNuDBsfPZDqdMxX8fOUnbhNKb5o0key3v6/LmCeGM/gKpqOBoiGKsya518JCF9pQnaIj+KWJkoRQ0TrDGaPiEMOdCY00FV+ZRxP8BohVoR1LhEKw1A4eKFjXoHbDUJoJrKRgDaZMdltqWsKVKy4IDWe8yiD8cpL097Cui2qeDZ/3jB+XJ9R2wdGRIP+XhOAU0RHIPbTvNmc7VlyAqw8Tg9nkMtjoqDSk6WYjhGFgRv/GsCEs5Z04Wb7985A6rHRoiz0+6m7bbu/IAd7uk0++3B0nSjzv9Ae5feXHiEzyIE984UYVUJJlypTFjdvOw9yKwUBHhEjYggRNQaPj7rBXeZBxZKGaC7OcGOQYGRfmGG8wUWOi1yC+vqg6ql+hiEfKiVUjS9X3wXHvQ61zZ3d5Vxx60444NfsfzSAye2ybo9HCykMqAmMzHmOzFZjOlKdVo6LmuayENacawBvP9g6b9oGiCb+j2rixGdBe0e/71rXsT9r3gph94Xu+qE/TbXX/gD9q9ge/7XS8c3HQ8t99zuz3X80e98Na7GQ26vj/+fzrlVIvUJBdTDrKqk9yaH6iqObKQbSvQttKS8i2y0JaJGDOHsFxpkKPJeHntuU6v7biO2/L8rwAO3W9BxrOosO84ruO5n1qLFFN+XT05TBD8EsWrcSZpCg5wHDNIroumepfYZG6MNR5Ted06YNliNG5JzMkOZMt8fBepQB4ogZckdT6LuByhMWxwzvSEbyUoNWJYqWtaPth8S/kjerAQ8ENRsKrtZ8F9iCx0wCw/n4KT9WL1K1xGk/ms/moZLub157twer8eLye/wmWNTwGRoOt2o7tguVqbY6NFMKqf3ZSzJuDNSRc8WgXLv8JvUQc/V3frRRBF69EyHIez1SSYRjVYWd8aYDKLwtHPZbiOfkwW69U0Mn5Mbv/9EWYxDSaz9d1qtfjI6sfPm3A5C1dhtI7C5a/JKFzfzaNVDeK1r0wbON4nsMV8WYf53W6njriZz1fRahnUvdEybzgzm68Xy/m/6mE56kAspzEdVn0YrUaf1rhug8nUZGwxn05GdUYJz1pxerAQTfG2eFvNx57RLANpG1UaHswAO64d55Qlbbftuz2vgyrQImdsIRglR1OgzUzohQQFvKbthgRZSIISuSxulifEjEQXv0iWoyHqtIudIhXyWDz9ZYRSwt85qLqZ57pp3dBz70tZBJJLqo8jwTU86kLfGRN/FpIeKIMthIpghpv3E85wTBnVtHQpkSIzGhpMp+ihOB0nc86OSyH0LWVQNfDQlOtkoYNgeQr3Iue61ODU/Fxgba6J1k6k0Mhiy6nSUCWl/q0o2GdwgskO3uLL118iKO6xCwzl+zcUOs1ejc3DG4tzxqK31AW75l1v7i7TIKcH03o7ofQM9B8h92VuLcRFAhEwIFpIUxmjH5KDBlVsYgoNEaM8f0SlqS0FA6dpVC0fdsYwr80YyiQVRaMYeZ6V/pSFtavpsomkmpbXjwSlsdQv/T3nt5iyXJo6XGg5mfNAzQQ3HfMciwJCRJotpNhQViwh+pgVCp5zTVOobo2qi4uLJyDEZG9W2+Wa65EWDOTz6vL7CcFmA8RsCzMRkR0kOTMO7sG4bBJ0lhsuzMKNk2NRqe+Cy1LZOccHTJm5ib9GQ5jIk0yKA01AnpHmnHKqKWb0v5CYVTQz8Znio/DvvCjFG7EsqUdVsYIkEVyZcT2DP1IjIGceho9Act108FIXgSbn7lzkuxjx5215kfnhWVqq2qaZPo6pLNfXhOYpGqL7Uv9O76vJ92CvIvJN3Kt0fA34LCNNwTBjKcx/IEgKIS5H4l4kgIbdtmuhl4vj99PzTjN8ISn/QZZUdnNffjiZw0ov73F2mbxBU2lTk+eSchXzqrH5Pnw6nf4XAAD//wjULHU2DwAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-multus
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      helmcharts.helm.cattle.io/chart: rke2-multus
+      objectset.rio.cattle.io/hash: 16d4f20571ea44c38829dd8b389a871bd6ca9bd6
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:helmcharts.helm.cattle.io/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"cd466e10-9537-4573-92b3-e6311cbe102c"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:helmcharts.helm.cattle.io/configHash: {}
+              f:labels:
+                .: {}
+                f:helmcharts.helm.cattle.io/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helm"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AUTH_PASS_CREDENTIALS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"BOOTSTRAP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"CHART_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FAILURE_POLICY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_DRIVER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_VERSION"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"INSECURE_SKIP_TLS_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KUBERNETES_SERVICE_HOST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KUBERNETES_SERVICE_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PLAIN_HTTP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REPO"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"TARGET_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"VERSION"}:
+                      .: {}
+                      f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/chart"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.helm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostNetwork: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"content"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"klipper-cache"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-config"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-helm"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"values"}:
+                  .: {}
+                  f:name: {}
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:39:10Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: helm-install-rke2-multus
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: helm.cattle.io/v1
+      blockOwnerDeletion: false
+      controller: false
+      kind: HelmChart
+      name: rke2-multus
+      uid: cd466e10-9537-4573-92b3-e6311cbe102c
+    resourceVersion: "7163"
+    uid: b71a402e-80cd-46b8-9375-3d9b12834470
+  spec:
+    backoffLimit: 1000
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: b71a402e-80cd-46b8-9375-3d9b12834470
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          helmcharts.helm.cattle.io/configHash: SHA256=F0BE81AB8A11573A824696925966641E9B31085045016C5EF1BC9466D4E874CC
+        labels:
+          batch.kubernetes.io/controller-uid: b71a402e-80cd-46b8-9375-3d9b12834470
+          batch.kubernetes.io/job-name: helm-install-rke2-multus
+          controller-uid: b71a402e-80cd-46b8-9375-3d9b12834470
+          helmcharts.helm.cattle.io/chart: rke2-multus
+          job-name: helm-install-rke2-multus
+      spec:
+        containers:
+        - args:
+          - install
+          - --set-string
+          - global.clusterCIDR=10.52.0.0/16
+          - --set-string
+          - global.clusterCIDRv4=10.52.0.0/16
+          - --set-string
+          - global.clusterDNS=10.53.0.10
+          - --set-string
+          - global.clusterDomain=cluster.local
+          - --set
+          - global.prime.enabled=false
+          - --set-string
+          - global.rke2DataDir=/var/lib/rancher/rke2
+          - --set-string
+          - global.serviceCIDR=10.53.0.0/16
+          - --set-string
+          - global.systemDefaultIngressClass=ingress-nginx
+          env:
+          - name: NAME
+            value: rke2-multus
+          - name: VERSION
+          - name: REPO
+          - name: HELM_DRIVER
+            value: secret
+          - name: CHART_NAMESPACE
+            value: kube-system
+          - name: CHART
+          - name: HELM_VERSION
+          - name: TARGET_NAMESPACE
+            value: kube-system
+          - name: AUTH_PASS_CREDENTIALS
+            value: "false"
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "false"
+          - name: PLAIN_HTTP
+            value: "false"
+          - name: KUBERNETES_SERVICE_HOST
+            value: 127.0.0.1
+          - name: KUBERNETES_SERVICE_PORT
+            value: "6443"
+          - name: BOOTSTRAP
+            value: "true"
+          - name: NO_PROXY
+            value: .svc,.cluster.local,10.52.0.0/16,10.53.0.0/16
+          - name: FAILURE_POLICY
+            value: reinstall
+          image: rancher/klipper-helm:v0.10.0-build20260513
+          imagePullPolicy: IfNotPresent
+          name: helm
+          resources:
+            limits:
+              cpu: "32"
+              memory: 32G
+            requests:
+              cpu: 100m
+              memory: 10M
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /home/klipper-helm/.helm
+            name: klipper-helm
+          - mountPath: /home/klipper-helm/.cache
+            name: klipper-cache
+          - mountPath: /home/klipper-helm/.config
+            name: klipper-config
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /config
+            name: values
+          - mountPath: /chart
+            name: content
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        nodeSelector:
+          kubernetes.io/os: linux
+          node-role.kubernetes.io/control-plane: "true"
+        priorityClassName: system-cluster-critical
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: helm-rke2-multus
+        serviceAccountName: helm-rke2-multus
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: node.kubernetes.io/not-ready
+        - effect: NoSchedule
+          key: node.kubernetes.io/network-unavailable
+        - effect: NoSchedule
+          key: node.cloudprovider.kubernetes.io/uninitialized
+          operator: Equal
+          value: "true"
+        - key: CriticalAddonsOnly
+          operator: Exists
+        - effect: NoExecute
+          key: node-role.kubernetes.io/etcd
+          operator: Exists
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
+        volumes:
+        - emptyDir:
+            medium: Memory
+          name: klipper-helm
+        - emptyDir:
+            medium: Memory
+          name: klipper-cache
+        - emptyDir:
+            medium: Memory
+          name: klipper-config
+        - emptyDir:
+            medium: Memory
+          name: tmp
+        - name: values
+          projected:
+            defaultMode: 420
+            sources:
+            - secret:
+                name: chart-values-rke2-multus
+        - configMap:
+            defaultMode: 420
+            name: chart-content-rke2-multus
+          name: content
+  status:
+    completionTime: "2026-06-12T10:39:10Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:39:10Z"
+      lastTransitionTime: "2026-06-12T10:39:10Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:39:10Z"
+      lastTransitionTime: "2026-06-12T10:39:10Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:39:05Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6xWXW/iuhb9K1d+TkLCN5H6kCFhyh0KCDqjezWqkONswAfHzrEdZqqK/35kJ23DlH5J5y129l6291p72Q8IF/QHSEUFRyFKsSb71jFADjpQnqEQ/VekyEE5aJxhjVH4gDDnQmNNBVdmKNK/gGgF2pNUeARrzcCjokVN9h5Y7hLBtRSMgXTJHkvtSthRpaXFQM6rCOIXB+nujocaqPHrGDj/+UZ5dnUNLB8b0HdxOM4BhUgeoO3KkmuaA2FYKVAfSlUFJib/UKbgqnulIUcnBzGcArN1MDu0x1PeH5u1s59eeo/VHoVo2w+CwWiI0yEeZiPc63SCLc7ICIJt0B30+ynedkcBHprN1Ee0RadcacyYe3nR107kIHviFWxBAiegUPjzD4m8YAI5KGWCHBYmMwYGltZwi5kCBz2T/zRVK6tJ3ZvklFZK3eF22xkEmQttIG7Xb/suTrPAbQ8Cn3RJhvt9QKe7k4NUAcQwkmJyENvtjOZUozDwfd9BGvKCYQ3m/xuifoNMwbd0d12Rs76O2r3+VeSPJ8PRJAriL8Gk+6U9GvW7g2DSGSe93iDudybxMBp0x3E8Go56UT/p+8mg103i5N9Q0KlxYlNsTDnImje5Mx+o1gJykOtqfADXkqz2tLBTCrSrtKR8hxy0YyLFzCOsVBrkeBqvrgLf67U93/NbQf8jCcfup1Li+drGdzzfC/x3o0WOKb+qRx4TBLPHnOfgQtIcPOA4ZZBdWd29CmyKGmONYyqvWkcsW4ymLYk52YNsmZ+vZiqQR0rgqUid905cdVkMW1wyPeU7CUqNDY9XtBq4fEf5b3TnIOBHy2HdGfPoJkEOOmJWvtYoJ+cp+keyWk8X8+bUKlkumuPrZHaziVfTH8mqgauASNDNuPF1tLrdmOXXy2jc3MO5E54nvFjpwo5uo9XX5FPQ0ffb680yWq8341USJ/PbaTRbN9IqnhsJ0/k6GX9fJZv1t+lycztbm31MJ/9/K2c5i6bzzfXt7fKtqPlis1wt/tdE8tSRON6ZMJ1mHzhnEmlgTaLpzGxyuZhNx01ECY+de7pzEM3xzs7W0jwwWhQgXeMV4dH0jue7aUlZ1vbbfb8XdFCdtCwZWwpGyb2pyXYu9FKCAt5wXgOCHCRBiVJa339AzBin/SJFiULUaduXQC7kvR19NfYl4e8SVDMs8P28GRj4N5VJASkl1fdjwTX81tZ1GRO/lpIeKYMdJIpghs9vD1zglDKqabWlTIrCOFo0m6E7uzrOFpzdr4TQE8qg1kyoZQknBx0FK3O4ESXXlSPm5nOJtTHv1l7kcFbFlleXoS5K858l7L10gskeXuZX0x8CsLfLBYRq/gWEzovnYDN4EfEnotWWuhB3fhObm8QI5HRnpMdFBmtgQLSQhgbTn5KDBmUfSQqFiFFe/jaCKCQVlmZjS/MKraLFrXvDJZJqWvm2BKWx1E/qXPAJpqyUpooXBCNLHqm54IbvimUbRkReLKXYUmYvdn1fWMur/LG221qD1rEjQszZ54330uWnRyWgSjuQF/o+prJ6OmS0zFGIbiqVn17XzOfSnqXyybxngXws8VEs57Iw9AnzHoXMtltVuhuRAQq7bd9BT/bw8+HxsgifQKrXfQV1saCn093JLFrt9gYXlxc5g6uVeBnvkl4tzxrr0jjG6fRPAAAA///Idx4e4gwAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: rke2-runtimeclasses
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      helmcharts.helm.cattle.io/chart: rke2-runtimeclasses
+      objectset.rio.cattle.io/hash: f611798ab8a8d9a5331fadc9e1f14766baf491a8
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:helmcharts.helm.cattle.io/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"48ff371d-e2ec-4020-abd1-2710c4cda66e"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:helmcharts.helm.cattle.io/configHash: {}
+              f:labels:
+                .: {}
+                f:helmcharts.helm.cattle.io/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helm"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AUTH_PASS_CREDENTIALS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"CHART_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FAILURE_POLICY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_DRIVER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_VERSION"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"INSECURE_SKIP_TLS_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PLAIN_HTTP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REPO"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"TARGET_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"VERSION"}:
+                      .: {}
+                      f:name: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/chart"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.helm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"content"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"klipper-cache"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-config"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-helm"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"values"}:
+                  .: {}
+                  f:name: {}
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:39:32Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: helm-install-rke2-runtimeclasses
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: helm.cattle.io/v1
+      blockOwnerDeletion: false
+      controller: false
+      kind: HelmChart
+      name: rke2-runtimeclasses
+      uid: 48ff371d-e2ec-4020-abd1-2710c4cda66e
+    resourceVersion: "7162"
+    uid: 0f7fccdb-ef92-444f-894f-54721700592c
+  spec:
+    backoffLimit: 1000
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 0f7fccdb-ef92-444f-894f-54721700592c
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          helmcharts.helm.cattle.io/configHash: SHA256=A0CF89FA1DB1F4B2996471F3CE557D63FD8A74CDD9895A6E60E754EDE4C5CE09
+        labels:
+          batch.kubernetes.io/controller-uid: 0f7fccdb-ef92-444f-894f-54721700592c
+          batch.kubernetes.io/job-name: helm-install-rke2-runtimeclasses
+          controller-uid: 0f7fccdb-ef92-444f-894f-54721700592c
+          helmcharts.helm.cattle.io/chart: rke2-runtimeclasses
+          job-name: helm-install-rke2-runtimeclasses
+      spec:
+        containers:
+        - args:
+          - install
+          - --take-ownership
+          - --set-string
+          - global.clusterCIDR=10.52.0.0/16
+          - --set-string
+          - global.clusterCIDRv4=10.52.0.0/16
+          - --set-string
+          - global.clusterDNS=10.53.0.10
+          - --set-string
+          - global.clusterDomain=cluster.local
+          - --set
+          - global.prime.enabled=false
+          - --set-string
+          - global.rke2DataDir=/var/lib/rancher/rke2
+          - --set-string
+          - global.serviceCIDR=10.53.0.0/16
+          - --set-string
+          - global.systemDefaultIngressClass=ingress-nginx
+          env:
+          - name: NAME
+            value: rke2-runtimeclasses
+          - name: VERSION
+          - name: REPO
+          - name: HELM_DRIVER
+            value: secret
+          - name: CHART_NAMESPACE
+            value: kube-system
+          - name: CHART
+          - name: HELM_VERSION
+          - name: TARGET_NAMESPACE
+            value: kube-system
+          - name: AUTH_PASS_CREDENTIALS
+            value: "false"
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "false"
+          - name: PLAIN_HTTP
+            value: "false"
+          - name: NO_PROXY
+            value: .svc,.cluster.local,10.52.0.0/16,10.53.0.0/16
+          - name: FAILURE_POLICY
+            value: reinstall
+          image: rancher/klipper-helm:v0.10.0-build20260513
+          imagePullPolicy: IfNotPresent
+          name: helm
+          resources:
+            limits:
+              cpu: "32"
+              memory: 32G
+            requests:
+              cpu: 100m
+              memory: 10M
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /home/klipper-helm/.helm
+            name: klipper-helm
+          - mountPath: /home/klipper-helm/.cache
+            name: klipper-cache
+          - mountPath: /home/klipper-helm/.config
+            name: klipper-config
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /config
+            name: values
+          - mountPath: /chart
+            name: content
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: helm-rke2-runtimeclasses
+        serviceAccountName: helm-rke2-runtimeclasses
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir:
+            medium: Memory
+          name: klipper-helm
+        - emptyDir:
+            medium: Memory
+          name: klipper-cache
+        - emptyDir:
+            medium: Memory
+          name: klipper-config
+        - emptyDir:
+            medium: Memory
+          name: tmp
+        - name: values
+          projected:
+            defaultMode: 420
+            sources:
+            - secret:
+                name: chart-values-rke2-runtimeclasses
+        - configMap:
+            defaultMode: 420
+            name: chart-content-rke2-runtimeclasses
+          name: content
+  status:
+    completionTime: "2026-06-12T10:39:32Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:39:32Z"
+      lastTransitionTime: "2026-06-12T10:39:32Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:39:32Z"
+      lastTransitionTime: "2026-06-12T10:39:32Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:39:04Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+kind: List
+metadata:
+  resourceVersion: "676339"

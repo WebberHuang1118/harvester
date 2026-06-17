@@ -1,0 +1,478 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: InstanceManager
+  metadata:
+    creationTimestamp: "2026-06-12T10:43:22Z"
+    generation: 1
+    labels:
+      longhorn.io/component: instance-manager
+      longhorn.io/data-engine: v1
+      longhorn.io/instance-manager-image: imi-0f0c2602
+      longhorn.io/instance-manager-type: aio
+      longhorn.io/managed-by: longhorn-manager
+      longhorn.io/node: hp-117-tink-system
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:dataEngine: {}
+          f:dataEngineSpec:
+            .: {}
+            f:v2:
+              .: {}
+              f:cpuMask: {}
+          f:image: {}
+          f:nodeID: {}
+          f:type: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:43:22Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:apiMinVersion: {}
+          f:apiVersion: {}
+          f:backingImages: {}
+          f:conditions: {}
+          f:currentState: {}
+          f:dataEngineStatus:
+            .: {}
+            f:v2:
+              .: {}
+              f:cpuMask: {}
+              f:interruptModeEnabled: {}
+          f:instanceReplicas:
+            .: {}
+            f:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-4656c4fb:
+              .: {}
+              f:spec:
+                .: {}
+                f:dataEngine: {}
+                f:name: {}
+              f:status:
+                .: {}
+                f:conditions: {}
+                f:endpoint: {}
+                f:errorMsg: {}
+                f:listen: {}
+                f:portEnd: {}
+                f:portStart: {}
+                f:resourceVersion: {}
+                f:state: {}
+                f:targetPortEnd: {}
+                f:targetPortStart: {}
+                f:type: {}
+                f:uuid: {}
+          f:ip: {}
+          f:ownerID: {}
+          f:proxyApiMinVersion: {}
+          f:proxyApiVersion: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:28:46Z"
+    name: instance-manager-7742e04beb074c12e693076a0d1c6595
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      kind: Node
+      name: hp-117-tink-system
+      uid: b8638d31-d056-4af7-8cc7-19bf75edbabf
+    resourceVersion: "311314"
+    uid: f4919c9e-6de5-4011-9821-66f798f1820f
+  spec:
+    dataEngine: v1
+    dataEngineSpec:
+      v2:
+        cpuMask: "null"
+    image: docker.io/longhornio/longhorn-instance-manager:v1.11.2
+    nodeID: hp-117-tink-system
+    type: aio
+  status:
+    apiMinVersion: 1
+    apiVersion: 7
+    backingImages: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T12:08:24Z"
+      message: "null"
+      reason: Running
+      status: "True"
+      type: PodReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:43:22Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: NodeReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:43:29Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: SettingSynced
+    currentState: running
+    dataEngineStatus:
+      v2:
+        cpuMask: "null"
+        interruptModeEnabled: "null"
+    instanceReplicas:
+      pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-4656c4fb:
+        spec:
+          dataEngine: v1
+          name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-4656c4fb
+        status:
+          conditions: "null"
+          endpoint: "null"
+          errorMsg: "null"
+          listen: "null"
+          portEnd: 10780
+          portStart: 10771
+          resourceVersion: 0
+          state: running
+          targetPortEnd: 0
+          targetPortStart: 0
+          type: replica
+          uuid: f2ff9cc6-ede2-4db0-9259-238c684b3f0e
+    ip: 10.52.0.142
+    ownerID: hp-117-tink-system
+    proxyApiMinVersion: 1
+    proxyApiVersion: 6
+- apiVersion: longhorn.io/v1beta2
+  kind: InstanceManager
+  metadata:
+    creationTimestamp: "2026-06-12T10:48:02Z"
+    generation: 1
+    labels:
+      longhorn.io/component: instance-manager
+      longhorn.io/data-engine: v1
+      longhorn.io/instance-manager-image: imi-0f0c2602
+      longhorn.io/instance-manager-type: aio
+      longhorn.io/managed-by: longhorn-manager
+      longhorn.io/node: hp-150-tink-system
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:dataEngine: {}
+          f:dataEngineSpec:
+            .: {}
+            f:v2:
+              .: {}
+              f:cpuMask: {}
+          f:image: {}
+          f:nodeID: {}
+          f:type: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:48:02Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:apiMinVersion: {}
+          f:apiVersion: {}
+          f:backingImages: {}
+          f:conditions: {}
+          f:currentState: {}
+          f:dataEngineStatus:
+            .: {}
+            f:v2:
+              .: {}
+              f:cpuMask: {}
+              f:interruptModeEnabled: {}
+          f:instanceReplicas:
+            .: {}
+            f:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-8b69be68:
+              .: {}
+              f:spec:
+                .: {}
+                f:dataEngine: {}
+                f:name: {}
+              f:status:
+                .: {}
+                f:conditions: {}
+                f:endpoint: {}
+                f:errorMsg: {}
+                f:listen: {}
+                f:portEnd: {}
+                f:portStart: {}
+                f:resourceVersion: {}
+                f:state: {}
+                f:targetPortEnd: {}
+                f:targetPortStart: {}
+                f:type: {}
+                f:uuid: {}
+          f:ip: {}
+          f:ownerID: {}
+          f:proxyApiMinVersion: {}
+          f:proxyApiVersion: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:28:47Z"
+    name: instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      kind: Node
+      name: hp-150-tink-system
+      uid: 88ae7910-2741-4c31-930e-08a18052e27a
+    resourceVersion: "311290"
+    uid: 34a12971-7679-4dfa-bb8b-ec219d9d0f50
+  spec:
+    dataEngine: v1
+    dataEngineSpec:
+      v2:
+        cpuMask: "null"
+    image: docker.io/longhornio/longhorn-instance-manager:v1.11.2
+    nodeID: hp-150-tink-system
+    type: aio
+  status:
+    apiMinVersion: 1
+    apiVersion: 7
+    backingImages: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T12:08:06Z"
+      message: "null"
+      reason: Running
+      status: "True"
+      type: PodReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:30Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: NodeReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:36Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: SettingSynced
+    currentState: running
+    dataEngineStatus:
+      v2:
+        cpuMask: "null"
+        interruptModeEnabled: "null"
+    instanceReplicas:
+      pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-8b69be68:
+        spec:
+          dataEngine: v1
+          name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-8b69be68
+        status:
+          conditions: "null"
+          endpoint: "null"
+          errorMsg: "null"
+          listen: "null"
+          portEnd: 10727
+          portStart: 10718
+          resourceVersion: 0
+          state: running
+          targetPortEnd: 0
+          targetPortStart: 0
+          type: replica
+          uuid: 86e22c35-6407-448c-9e48-441671179f5f
+    ip: 10.52.1.75
+    ownerID: hp-150-tink-system
+    proxyApiMinVersion: 1
+    proxyApiVersion: 6
+- apiVersion: longhorn.io/v1beta2
+  kind: InstanceManager
+  metadata:
+    creationTimestamp: "2026-06-12T10:48:08Z"
+    generation: 1
+    labels:
+      longhorn.io/component: instance-manager
+      longhorn.io/data-engine: v1
+      longhorn.io/instance-manager-image: imi-0f0c2602
+      longhorn.io/instance-manager-type: aio
+      longhorn.io/managed-by: longhorn-manager
+      longhorn.io/node: hp-69-tink-system
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:dataEngine: {}
+          f:dataEngineSpec:
+            .: {}
+            f:v2:
+              .: {}
+              f:cpuMask: {}
+          f:image: {}
+          f:nodeID: {}
+          f:type: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:48:08Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:apiMinVersion: {}
+          f:apiVersion: {}
+          f:backingImages: {}
+          f:conditions: {}
+          f:currentState: {}
+          f:dataEngineStatus:
+            .: {}
+            f:v2:
+              .: {}
+              f:cpuMask: {}
+              f:interruptModeEnabled: {}
+          f:instanceEngines:
+            .: {}
+            f:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-e-0:
+              .: {}
+              f:spec:
+                .: {}
+                f:dataEngine: {}
+                f:name: {}
+              f:status:
+                .: {}
+                f:conditions: {}
+                f:endpoint: {}
+                f:errorMsg: {}
+                f:listen: {}
+                f:portEnd: {}
+                f:portStart: {}
+                f:resourceVersion: {}
+                f:state: {}
+                f:targetPortEnd: {}
+                f:targetPortStart: {}
+                f:type: {}
+                f:uuid: {}
+          f:instanceReplicas:
+            .: {}
+            f:pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-df266d46:
+              .: {}
+              f:spec:
+                .: {}
+                f:dataEngine: {}
+                f:name: {}
+              f:status:
+                .: {}
+                f:conditions: {}
+                f:endpoint: {}
+                f:errorMsg: {}
+                f:listen: {}
+                f:portEnd: {}
+                f:portStart: {}
+                f:resourceVersion: {}
+                f:state: {}
+                f:targetPortEnd: {}
+                f:targetPortStart: {}
+                f:type: {}
+                f:uuid: {}
+          f:ip: {}
+          f:ownerID: {}
+          f:proxyApiMinVersion: {}
+          f:proxyApiVersion: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:28:50Z"
+    name: instance-manager-f7924585cf5aadacce1b397379d2df82
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      kind: Node
+      name: hp-69-tink-system
+      uid: 946e729f-c96a-42e4-bf13-75dc77d05aa5
+    resourceVersion: "311305"
+    uid: af763f20-9cce-441f-9064-626543ba67b9
+  spec:
+    dataEngine: v1
+    dataEngineSpec:
+      v2:
+        cpuMask: "null"
+    image: docker.io/longhornio/longhorn-instance-manager:v1.11.2
+    nodeID: hp-69-tink-system
+    type: aio
+  status:
+    apiMinVersion: 1
+    apiVersion: 7
+    backingImages: "null"
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:41:05Z"
+      message: "null"
+      reason: Running
+      status: "True"
+      type: PodReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:41:03Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: NodeReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:17Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: SettingSynced
+    currentState: running
+    dataEngineStatus:
+      v2:
+        cpuMask: "null"
+        interruptModeEnabled: "null"
+    instanceEngines:
+      pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-e-0:
+        spec:
+          dataEngine: v1
+          name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-e-0
+        status:
+          conditions: "null"
+          endpoint: "null"
+          errorMsg: "null"
+          listen: "null"
+          portEnd: 10120
+          portStart: 10120
+          resourceVersion: 0
+          state: running
+          targetPortEnd: 10120
+          targetPortStart: 10120
+          type: engine
+          uuid: 365cf747-b147-4df9-80d9-e19a7ee3629a
+    instanceReplicas:
+      pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-df266d46:
+        spec:
+          dataEngine: v1
+          name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-df266d46
+        status:
+          conditions: "null"
+          endpoint: "null"
+          errorMsg: "null"
+          listen: "null"
+          portEnd: 10119
+          portStart: 10110
+          resourceVersion: 0
+          state: running
+          targetPortEnd: 0
+          targetPortStart: 0
+          type: replica
+          uuid: 1750870e-8d47-4b7a-b8a8-d584c16233d6
+    ip: 10.52.2.192
+    ownerID: hp-69-tink-system
+    proxyApiMinVersion: 1
+    proxyApiVersion: 6
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676495"

@@ -1,0 +1,229 @@
+apiVersion: v1
+items:
+- apiVersion: rke.cattle.io/v1
+  kind: RKEControlPlane
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/8xSTU/jSBD9K6u6rhMcAiGxtAeUBFjtamCGIXAtd1fsxu1uU112iCL/95ETg5gPRhynb1V6XfXeq7eDkgQ1CkKyA3TOC4rxLnSlTx9JSSAZsvFDhSKWhsYfGQ0JcEEDZesgxBC9C/UbRzzImgISqNg3JhjvjMveQJpR9Nd/xul/5h+c5rAkSMB6hfZD4FCh6n6sLZEMXv5xQW/QvZRBqEhBAlcn4d/z/h1Nt18292fbz+fb5Xj68HAT/79ZjZ63T5tHCXf53ezy+djdLy54ft3YzVPeXNUraCOwmJL9rZE5hhwSGMXTySSdpun4JJ3RhFR8fDJex2oazyZKp6hHM02Ts9lPpI0zMnBe06BElRtHg/1puuU/mPSeDW0EB8U7UDmyrNDWFCBxtbUR9KZ8+n5Wl5aFYVLi2XTgXRtBUafEjoTCirg7MiTQjIbj0+Hp31zQMY8gOkzoz3xeS750uvLGyWFEr+HS+hTt3Lu1yV6IlOgwo5KczH9Jqa4yRk23wiiUbfdyvBP29saiowWjcdfVa7A1WRJalpVsF4YX+/Sv0QaKQJuAqaVlY5TsVfR9cl1bv9Zrz52ZfZUxKrohNl5DEkcQClPdo5ELz4v9rq+mJF/LLSnvdNhj5NCCJG4j2HguiP90nm0XF0Gp+1QH4ob0JTliPLCI2/ZbAAAA//+7rVWHUwQAAA
+      objectset.rio.cattle.io/id: rke-cluster
+      objectset.rio.cattle.io/owner-gvk: provisioning.cattle.io/v1, Kind=Cluster
+      objectset.rio.cattle.io/owner-name: local
+      objectset.rio.cattle.io/owner-namespace: fleet-local
+      rke.cattle.io/applied-system-agent-upgrader-hash: 8f3917173d3d3b9e2a420442d89393c5994ada0c6c6fd0fe6c0aa5c3eff13122
+      rke.cattle.io/cluster-spec: H4sIAAAAAAAA/8yRwW7yQAyE38XXP0LwV1xyqwjtsUhU9Gx2nWDFrCOvlwqhvHuV0NJX6M2ez2ONNDfoy5EskVM+kGXWBDVcVoun9WL9z3r6byuowHraaGq5g/oGZegMI+3d0Km7TlLQ5KayE0zUGHJ6G5w15YlRwqNQhLpFyVRBqxbosUUSctqeB782bA06/iLOk3N74eBzrm+9Mwy0I2ONUC8rcD6TFp/n3PPwgewvas38+f0O9xQ0xQz1cqzgU60n++s5xwrCCc0PKIUy1KmIVHDGcOJEr6JHlJ9O7iiiY8NGwdV4ctzGx/1OVRpqsYjPYKxANKBspGQney5+2qY4KCef8RcAAAD//wEAAP//eeeaLxgCAAA=
+    creationTimestamp: "2026-06-12T10:42:20Z"
+    finalizers:
+    - wrangler.cattle.io/rke-control-plane-remove
+    generation: 1
+    labels:
+      cluster.x-k8s.io/cluster-name: local
+      objectset.rio.cattle.io/hash: 10866b8bb34b9e6ec0243f0c8096cdbad19de679
+      rke.cattle.io/init-node-machine-id: "null"
+    managedFields:
+    - apiVersion: rke.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:cluster.x-k8s.io/cluster-name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"8fdafc57-fd95-49a4-b2f5-93ac8ca5300e"}: {}
+      manager: manager
+      operation: Update
+      time: "2026-06-12T10:42:22Z"
+    - apiVersion: rke.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+            f:rke.cattle.io/applied-system-agent-upgrader-hash: {}
+            f:rke.cattle.io/cluster-spec: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/rke-control-plane-remove"null: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+            f:rke.cattle.io/init-node-machine-id: {}
+        f:spec:
+          .: {}
+          f:chartValues: {}
+          f:clusterName: {}
+          f:dataDirectories: {}
+          f:kubernetesVersion: {}
+          f:localClusterAuthEndpoint: {}
+          f:machineGlobalConfig: {}
+          f:managementClusterName: {}
+          f:upgradeStrategy:
+            .: {}
+            f:controlPlaneDrainOptions:
+              .: {}
+              f:deleteEmptyDirData: {}
+              f:disableEviction: {}
+              f:enabled: {}
+              f:force: {}
+              f:gracePeriod: {}
+              f:skipWaitForDeleteTimeoutSeconds: {}
+              f:timeout: {}
+            f:workerDrainOptions:
+              .: {}
+              f:deleteEmptyDirData: {}
+              f:disableEviction: {}
+              f:enabled: {}
+              f:force: {}
+              f:gracePeriod: {}
+              f:skipWaitForDeleteTimeoutSeconds: {}
+              f:timeout: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:45:22Z"
+    - apiVersion: rke.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:agentConnected: {}
+          f:appliedSpec:
+            .: {}
+            f:chartValues: {}
+            f:clusterName: {}
+            f:dataDirectories: {}
+            f:kubernetesVersion: {}
+            f:localClusterAuthEndpoint: {}
+            f:machineGlobalConfig: {}
+            f:managementClusterName: {}
+            f:upgradeStrategy:
+              .: {}
+              f:controlPlaneDrainOptions:
+                .: {}
+                f:deleteEmptyDirData: {}
+                f:disableEviction: {}
+                f:enabled: {}
+                f:force: {}
+                f:gracePeriod: {}
+                f:skipWaitForDeleteTimeoutSeconds: {}
+                f:timeout: {}
+              f:workerDrainOptions:
+                .: {}
+                f:deleteEmptyDirData: {}
+                f:disableEviction: {}
+                f:enabled: {}
+                f:force: {}
+                f:gracePeriod: {}
+                f:skipWaitForDeleteTimeoutSeconds: {}
+                f:timeout: {}
+          f:conditions: {}
+          f:initialization:
+            .: {}
+            f:controlPlaneInitialized: {}
+          f:observedGeneration: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:38:02Z"
+    name: local
+    namespace: fleet-local
+    ownerReferences:
+    - apiVersion: cluster.x-k8s.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: Cluster
+      name: local
+      uid: 8fdafc57-fd95-49a4-b2f5-93ac8ca5300e
+    resourceVersion: "261229"
+    uid: c80255b0-b1f0-4049-a1d4-2dc428a5e657
+  spec:
+    chartValues: "null"
+    clusterName: local
+    dataDirectories: {}
+    kubernetesVersion: v1.35.5+rke2r1
+    localClusterAuthEndpoint: {}
+    machineGlobalConfig: "null"
+    managementClusterName: local
+    upgradeStrategy:
+      controlPlaneDrainOptions:
+        deleteEmptyDirData: false
+        disableEviction: false
+        enabled: false
+        force: false
+        gracePeriod: 0
+        skipWaitForDeleteTimeoutSeconds: 0
+        timeout: 0
+      workerDrainOptions:
+        deleteEmptyDirData: false
+        disableEviction: false
+        enabled: false
+        force: false
+        gracePeriod: 0
+        skipWaitForDeleteTimeoutSeconds: 0
+        timeout: 0
+  status:
+    agentConnected: true
+    appliedSpec:
+      chartValues: "null"
+      clusterName: local
+      dataDirectories: {}
+      kubernetesVersion: v1.35.5+rke2r1
+      localClusterAuthEndpoint: {}
+      machineGlobalConfig: "null"
+      managementClusterName: local
+      upgradeStrategy:
+        controlPlaneDrainOptions:
+          deleteEmptyDirData: false
+          disableEviction: false
+          enabled: false
+          force: false
+          gracePeriod: 0
+          skipWaitForDeleteTimeoutSeconds: 0
+          timeout: 0
+        workerDrainOptions:
+          deleteEmptyDirData: false
+          disableEviction: false
+          enabled: false
+          force: false
+          gracePeriod: 0
+          skipWaitForDeleteTimeoutSeconds: 0
+          timeout: 0
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:42:20Z"
+      status: "False"
+      type: ScalingUp
+    - lastUpdateTime: "2026-06-12T10:42:20Z"
+      status: "False"
+      type: ScalingDown
+    - lastUpdateTime: "2026-06-12T10:42:20Z"
+      status: "False"
+      type: RollingOut
+    - lastUpdateTime: "2026-06-12T10:47:37Z"
+      status: "True"
+      type: Stable
+    - lastUpdateTime: "2026-06-12T14:38:02Z"
+      status: "True"
+      type: Ready
+    - lastUpdateTime: "2026-06-12T14:38:02Z"
+      status: "True"
+      type: Reconciled
+    - lastUpdateTime: "2026-06-12T10:45:22Z"
+      message: 109.0.1
+      status: "True"
+      type: SystemUpgradeControllerReady
+    - lastUpdateTime: "2026-06-12T10:45:24Z"
+      status: "True"
+      type: Provisioned
+    - lastUpdateTime: "2026-06-12T10:45:25Z"
+      status: "True"
+      type: Bootstrapped
+    initialization:
+      controlPlaneInitialized: true
+    observedGeneration: 1
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676443"

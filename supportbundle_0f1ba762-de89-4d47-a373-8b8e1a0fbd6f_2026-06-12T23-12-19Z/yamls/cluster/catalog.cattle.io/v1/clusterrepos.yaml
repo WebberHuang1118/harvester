@@ -1,0 +1,322 @@
+apiVersion: v1
+items:
+- apiVersion: catalog.cattle.io/v1
+  kind: ClusterRepo
+  metadata:
+    annotations:
+      clusterrepo.cattle.io/hidden: "true"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"catalog.cattle.io/v1","kind":"ClusterRepo","metadata":{"annotations":{},"name":"harvester-charts"},"spec":{"url":"http://harvester-cluster-repo.cattle-system/charts"}}
+    creationTimestamp: "2026-06-12T10:42:08Z"
+    generation: 1
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:spec:
+          .: {}
+          f:url: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2026-06-12T10:42:08Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:clusterrepo.cattle.io/hidden: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:downloadTime: {}
+          f:indexConfigMapName: {}
+          f:indexConfigMapNamespace: {}
+          f:observedGeneration: {}
+          f:url: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T22:44:31Z"
+    name: harvester-charts
+    resourceVersion: "653797"
+    uid: 59656929-19c6-4f8f-bbd6-6e8e41427b71
+  spec:
+    url: http://harvester-cluster-repo.cattle-system/charts
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:42:08Z"
+      status: "True"
+      type: FollowerDownloaded
+    - lastUpdateTime: "2026-06-12T22:44:31Z"
+      status: "True"
+      type: Downloaded
+    downloadTime: "2026-06-12T22:44:31Z"
+    indexConfigMapName: harvester-charts-0-59656929-19c6-4f8f-bbd6-6e8e41427b71
+    indexConfigMapNamespace: cattle-system
+    observedGeneration: 1
+    url: http://harvester-cluster-repo.cattle-system/charts
+- apiVersion: catalog.cattle.io/v1
+  kind: ClusterRepo
+  metadata:
+    annotations:
+      clusterrepo.cattle.io/hidden: "true"
+    creationTimestamp: "2026-06-12T10:40:00Z"
+    generation: 1
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:gitBranch: {}
+          f:gitRepo: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:00Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:clusterrepo.cattle.io/hidden: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:branch: {}
+          f:commit: {}
+          f:conditions: {}
+          f:downloadTime: {}
+          f:indexConfigMapName: {}
+          f:indexConfigMapNamespace: {}
+          f:observedGeneration: {}
+          f:url: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T22:44:31Z"
+    name: rancher-charts
+    resourceVersion: "653807"
+    uid: 427f30fa-6e91-4219-bf48-ff8ac266dcf4
+  spec:
+    gitBranch: release-v2.14
+    gitRepo: https://git.rancher.io/charts
+  status:
+    branch: release-v2.14
+    commit: a4e320d4e73efd86c9f925e005d101c3d9236226
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:40:00Z"
+      status: "True"
+      type: FollowerDownloaded
+    - lastUpdateTime: "2026-06-12T22:44:31Z"
+      status: "True"
+      type: Downloaded
+    downloadTime: "2026-06-12T22:44:31Z"
+    indexConfigMapName: rancher-charts-0-427f30fa-6e91-4219-bf48-ff8ac266dcf4
+    indexConfigMapNamespace: cattle-system
+    observedGeneration: 1
+    url: https://git.rancher.io/charts
+- apiVersion: catalog.cattle.io/v1
+  kind: ClusterRepo
+  metadata:
+    creationTimestamp: "2026-06-12T10:40:00Z"
+    generation: 1
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:gitBranch: {}
+          f:gitRepo: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:00Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:branch: {}
+          f:commit: {}
+          f:conditions: {}
+          f:downloadTime: {}
+          f:indexConfigMapName: {}
+          f:indexConfigMapNamespace: {}
+          f:observedGeneration: {}
+          f:url: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T22:44:31Z"
+    name: rancher-partner-charts
+    resourceVersion: "653798"
+    uid: 994dc47b-9b23-4e04-bcfa-ef39dd9596e0
+  spec:
+    gitBranch: main
+    gitRepo: https://git.rancher.io/partner-charts
+  status:
+    branch: main
+    commit: 7e397085bc390fdae1c22e674cc55c8418528b1e
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:40:00Z"
+      status: "True"
+      type: FollowerDownloaded
+    - lastUpdateTime: "2026-06-12T22:44:31Z"
+      status: "True"
+      type: Downloaded
+    downloadTime: "2026-06-12T22:44:31Z"
+    indexConfigMapName: rancher-partner-charts-0-994dc47b-9b23-4e04-bcfa-ef39dd9596e0
+    indexConfigMapNamespace: cattle-system
+    observedGeneration: 1
+    url: https://git.rancher.io/partner-charts
+- apiVersion: catalog.cattle.io/v1
+  kind: ClusterRepo
+  metadata:
+    annotations:
+      clusterrepo.cattle.io/hidden: "true"
+    creationTimestamp: "2026-06-12T10:40:00Z"
+    generation: 1
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:gitBranch: {}
+          f:gitRepo: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:00Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:clusterrepo.cattle.io/hidden: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:branch: {}
+          f:commit: {}
+          f:conditions: {}
+          f:downloadTime: {}
+          f:indexConfigMapName: {}
+          f:indexConfigMapNamespace: {}
+          f:observedGeneration: {}
+          f:url: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T22:44:31Z"
+    name: rancher-rke2-charts
+    resourceVersion: "653823"
+    uid: 14ac9c70-c84f-4e29-82ed-9273eaa4797d
+  spec:
+    gitBranch: main
+    gitRepo: https://git.rancher.io/rke2-charts
+  status:
+    branch: main
+    commit: 43e05abff5772ff1a9642b65b281ceb691aa4b2f
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:40:00Z"
+      status: "True"
+      type: FollowerDownloaded
+    - lastUpdateTime: "2026-06-12T22:44:31Z"
+      status: "True"
+      type: Downloaded
+    downloadTime: "2026-06-12T22:44:31Z"
+    indexConfigMapName: rancher-rke2-charts-0-14ac9c70-c84f-4e29-82ed-9273eaa4797d
+    indexConfigMapNamespace: cattle-system
+    observedGeneration: 1
+    url: https://git.rancher.io/rke2-charts
+- apiVersion: catalog.cattle.io/v1
+  kind: ClusterRepo
+  metadata:
+    annotations:
+      clusterrepo.cattle.io/hidden: "true"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"catalog.cattle.io/v1","kind":"ClusterRepo","metadata":{"annotations":{},"name":"rancher-stable"},"spec":{"url":"https://releases.rancher.com/server-charts/stable"}}
+    creationTimestamp: "2026-06-12T10:42:09Z"
+    generation: 1
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:spec:
+          .: {}
+          f:url: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2026-06-12T10:42:09Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:clusterrepo.cattle.io/hidden: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:downloadTime: {}
+          f:indexConfigMapName: {}
+          f:indexConfigMapNamespace: {}
+          f:observedGeneration: {}
+          f:url: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T22:44:31Z"
+    name: rancher-stable
+    resourceVersion: "653824"
+    uid: 5ac54df6-6f69-478a-8459-f3848e7de946
+  spec:
+    url: https://releases.rancher.com/server-charts/stable
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:42:09Z"
+      status: "True"
+      type: FollowerDownloaded
+    - lastUpdateTime: "2026-06-12T22:44:31Z"
+      status: "True"
+      type: Downloaded
+    downloadTime: "2026-06-12T22:44:31Z"
+    indexConfigMapName: rancher-stable-0-5ac54df6-6f69-478a-8459-f3848e7de946
+    indexConfigMapNamespace: cattle-system
+    observedGeneration: 1
+    url: https://releases.rancher.com/server-charts/stable
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676276"

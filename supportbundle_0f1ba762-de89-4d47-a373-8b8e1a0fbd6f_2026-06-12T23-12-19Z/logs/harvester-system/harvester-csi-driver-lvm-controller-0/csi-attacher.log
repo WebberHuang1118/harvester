@@ -1,0 +1,31 @@
+2026-06-12T23:03:23.054010980Z I0612 23:03:23.053874       1 main.go:97] Version: v4.4.2
+2026-06-12T23:03:23.056039331Z I0612 23:03:23.055964       1 connection.go:164] Connecting to unix:///csi/csi.sock
+2026-06-12T23:03:27.773736304Z I0612 23:03:27.773592       1 common.go:138] Probing CSI driver for readiness
+2026-06-12T23:03:27.773756667Z I0612 23:03:27.773617       1 connection.go:193] GRPC call: /csi.v1.Identity/Probe
+2026-06-12T23:03:27.776588123Z I0612 23:03:27.773624       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:27.777634014Z I0612 23:03:27.777553       1 connection.go:200] GRPC response: {}
+2026-06-12T23:03:27.777656833Z I0612 23:03:27.777567       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:27.777662050Z I0612 23:03:27.777586       1 connection.go:193] GRPC call: /csi.v1.Identity/GetPluginInfo
+2026-06-12T23:03:27.777668221Z I0612 23:03:27.777591       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:27.778077912Z I0612 23:03:27.778025       1 connection.go:200] GRPC response: {"name":"lvm.driver.harvesterhci.io","vendor_version":"dev"}
+2026-06-12T23:03:27.778084451Z I0612 23:03:27.778041       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:27.778088678Z I0612 23:03:27.778053       1 main.go:154] CSI driver name: "lvm.driver.harvesterhci.io"
+2026-06-12T23:03:27.778106802Z I0612 23:03:27.778062       1 connection.go:193] GRPC call: /csi.v1.Identity/GetPluginCapabilities
+2026-06-12T23:03:27.778116871Z I0612 23:03:27.778067       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:27.778686205Z I0612 23:03:27.778621       1 connection.go:200] GRPC response: {"capabilities":[{"Type":{"Service":{"type":1}}},{"Type":{"Service":{"type":2}}}]}
+2026-06-12T23:03:27.778698252Z I0612 23:03:27.778636       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:27.778701618Z I0612 23:03:27.778653       1 connection.go:193] GRPC call: /csi.v1.Controller/ControllerGetCapabilities
+2026-06-12T23:03:27.778714873Z I0612 23:03:27.778660       1 connection.go:194] GRPC request: {}
+2026-06-12T23:03:27.779196139Z I0612 23:03:27.779146       1 connection.go:200] GRPC response: {"capabilities":[{"Type":{"Rpc":{"type":1}}},{"Type":{"Rpc":{"type":5}}},{"Type":{"Rpc":{"type":7}}}]}
+2026-06-12T23:03:27.779205479Z I0612 23:03:27.779158       1 connection.go:201] GRPC error: <nil>
+2026-06-12T23:03:27.779209367Z I0612 23:03:27.779173       1 main.go:233] CSI driver does not support ControllerPublishUnpublish, using trivial handler
+2026-06-12T23:03:27.779364075Z I0612 23:03:27.779330       1 controller.go:130] Starting CSI attacher
+2026-06-12T23:03:27.779525799Z I0612 23:03:27.779463       1 reflector.go:289] Starting reflector *v1.PersistentVolume (10m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.779535330Z I0612 23:03:27.779468       1 reflector.go:289] Starting reflector *v1.VolumeAttachment (10m0s) from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.779538771Z I0612 23:03:27.779485       1 reflector.go:325] Listing and watching *v1.VolumeAttachment from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.779541962Z I0612 23:03:27.779477       1 reflector.go:325] Listing and watching *v1.PersistentVolume from k8s.io/client-go/informers/factory.go:150
+2026-06-12T23:03:27.879694735Z I0612 23:03:27.879519       1 shared_informer.go:341] caches populated
+2026-06-12T23:03:27.879712519Z I0612 23:03:27.879609       1 controller.go:210] Started VA processing "csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b"
+2026-06-12T23:03:27.879716664Z I0612 23:03:27.879630       1 controller.go:225] Skipping VolumeAttachment csi-68bc314861d42518b0b0f38b73708412625122ed2b16674d7a409f80b065320b for attacher driver.longhorn.io
+2026-06-12T23:08:57.787123936Z I0612 23:08:57.787000       1 reflector.go:790] k8s.io/client-go/informers/factory.go:150: Watch close - *v1.VolumeAttachment total 7 items received
+2026-06-12T23:09:28.787949631Z I0612 23:09:28.787780       1 reflector.go:790] k8s.io/client-go/informers/factory.go:150: Watch close - *v1.PersistentVolume total 6 items received

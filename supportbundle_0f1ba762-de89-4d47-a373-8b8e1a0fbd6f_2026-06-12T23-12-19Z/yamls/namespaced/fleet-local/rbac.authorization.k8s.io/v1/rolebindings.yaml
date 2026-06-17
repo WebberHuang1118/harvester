@@ -1,0 +1,223 @@
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SST4vUQBDFv4rUOR2T2fzbgAdF8bAHYQQvsodKpeK06ekK3ZURHPLdJRnFP+wM67G76z1+/V6d4ciKPSpCewb0XhTVio/rUbqvTBpZ02AlJVR1nFp5aXtoIYxsOhGNGnCC5OqwfPMczJfTeNH88XLKkxcP1vev9g/v3jzbyeORoQWao8rR3FVIOQ47yobiWdI4Ia36wTGrcULoYEnAYcfu5qcPGA/QQlVkfdbXRZOXOTa0I6JhqCvqGq65yDosd3nXULmaXkc1R6SD9Wwmhx4uk0+RJbCR73ngwJ44Qvv5DDjZTxyiFf9EppBA54TGD6vwLTvWbU7DzAmQeA3iHIdfN6P1a5v/VHAz5Hnrv+CyrBkzk1X3O1MwV+a+q9FQlRWYNSUx3cHyuCQQxPGeh23BJvs+yDyt3B1SirMeJNjv286lYxNTK/AbShzfhPk7xiWBOF/a22L66fKRw8kSvyaS2et/+F2vZXlcfgQAAP//CkGIjDkDAAA
+      objectset.rio.cattle.io/id: rke-bootstrap
+      objectset.rio.cattle.io/owner-gvk: rke.cattle.io/v1, Kind=RKEBootstrap
+      objectset.rio.cattle.io/owner-name: custom-36ac1af2c0f4
+      objectset.rio.cattle.io/owner-namespace: fleet-local
+    creationTimestamp: "2026-06-12T10:45:19Z"
+    labels:
+      objectset.rio.cattle.io/hash: 640d0d748151a8c2cccff76cb8e7e40ba521b8c5
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"4e557ea0-0692-4ee6-9b7a-c604a085cec3"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:45:19Z"
+    name: custom-36ac1af2c0f4-machine-plan
+    namespace: fleet-local
+    ownerReferences:
+    - apiVersion: rke.cattle.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: RKEBootstrap
+      name: custom-36ac1af2c0f4
+      uid: 4e557ea0-0692-4ee6-9b7a-c604a085cec3
+    resourceVersion: "8801"
+    uid: a9a7df63-95cd-40ae-bd58-60a15fa27dd1
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: custom-36ac1af2c0f4-machine-plan
+  subjects:
+  - kind: ServiceAccount
+    name: custom-36ac1af2c0f4-machine-plan
+    namespace: fleet-local
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SSza7TMBCFXwXNOg65TZw/iQUIxOIukIrEBt3F2BlTE9cT2U6RqPLuKCmIH91WZWl7ztHnc+YMR0o4YELoz4Dec8Jk2cf1yOor6RQp5cFyrjElR7nll3aAHsJIQjGnmAJOkF0d5m+egvhyGi+aP15OD9mLR+uHV/vHd2/udvJ4JOhBzzHxUTSmKFtVKFO0xV3SOKFe9cYRJeFYo4MlA4eK3M1PHzAeoAepHiTWVJiqbOquqaquHvROFgPtyq6tqgbbwpi6XU2vo4oj6oP1JCaHHi6Tz5FlsJHvyVAgrylC//kMONlPFKJl/0ymkIFyrMcPq/AtOUrbXAozZaDZp8DOUfh1M1q/tvlPBTdDnrf+h0LKujRSaNNIUZW7RqCspWh2jULTdbqSFSxPSwaBHe3JbAs22feB52nlVqhznNOBg/2+7Vw+tjG3DL+h2NFNmL9jXDKI86W9LaafLh8pnKym11rz7NN/+F2vZXlafgQAAP//azTvfzkDAAA
+      objectset.rio.cattle.io/id: rke-bootstrap
+      objectset.rio.cattle.io/owner-gvk: rke.cattle.io/v1, Kind=RKEBootstrap
+      objectset.rio.cattle.io/owner-name: custom-7f038b0bf080
+      objectset.rio.cattle.io/owner-namespace: fleet-local
+    creationTimestamp: "2026-06-12T10:45:24Z"
+    labels:
+      objectset.rio.cattle.io/hash: 5b15a6e0f4376974496dc250de2398447a80ff68
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"d05563f5-cf75-4327-a565-727baf99c454"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:45:24Z"
+    name: custom-7f038b0bf080-machine-plan
+    namespace: fleet-local
+    ownerReferences:
+    - apiVersion: rke.cattle.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: RKEBootstrap
+      name: custom-7f038b0bf080
+      uid: d05563f5-cf75-4327-a565-727baf99c454
+    resourceVersion: "8999"
+    uid: 1b82b26c-50cb-417b-813f-bb87c5414903
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: custom-7f038b0bf080-machine-plan
+  subjects:
+  - kind: ServiceAccount
+    name: custom-7f038b0bf080-machine-plan
+    namespace: fleet-local
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SST4/TMBDFvwqacxyctJt/EgcQiMMekBaJC9rDeDKhJq4nsp0iUeW7o6Qg/mhbLUfb855+fm/OcOSEPSaE7gzovSRMVnxcj2K+MqXIKQ9WcsKUHOdWXtoeOggjKyOSYgo4QXZ1WL55DurLabxo/ng5FdmLe+v7Vw/3794828njkaEDmmOSo2qqttTGcD1UxbOkcUJa9YNjTsoJoYMlA4eG3c1PHzAeoIO2qku806x3Bbamanumclfrshx4X5VN3esGW31XrKbXUdUR6WA9q8mhh8vkU2QZbOQPPHBgTxyh+3wGnOwnDtGKfyJTyMA4ofHDKnzLjtM2l8LMGZD4FMQ5Dr9uRuvXNv+p4GbI89b/vtdmZ9pC9bpGtS+JFO6KQg1DM7DeE5HRsDwuGQRx/MDDtmCTfR9knlZug5TjnA4S7Pdt5/KxibkV+A0ljm/C/B3jkkGcL+1tMf10+cjhZIlfE8ns03/4Xa9leVx+BAAA//8zZ+5tOQMAAA
+      objectset.rio.cattle.io/id: rke-bootstrap
+      objectset.rio.cattle.io/owner-gvk: rke.cattle.io/v1, Kind=RKEBootstrap
+      objectset.rio.cattle.io/owner-name: custom-86920bbe7f61
+      objectset.rio.cattle.io/owner-namespace: fleet-local
+    creationTimestamp: "2026-06-12T10:45:19Z"
+    labels:
+      objectset.rio.cattle.io/hash: 9672a50e031a9b69dec237022fe46287d08a9051
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"4d0b3b91-d07a-42cc-a311-ff8fe04cccb0"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:45:19Z"
+    name: custom-86920bbe7f61-machine-plan
+    namespace: fleet-local
+    ownerReferences:
+    - apiVersion: rke.cattle.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: RKEBootstrap
+      name: custom-86920bbe7f61
+      uid: 4d0b3b91-d07a-42cc-a311-ff8fe04cccb0
+    resourceVersion: "8821"
+    uid: 4d737574-5959-444c-a919-f71b64ef660c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: custom-86920bbe7f61-machine-plan
+  subjects:
+  - kind: ServiceAccount
+    name: custom-86920bbe7f61-machine-plan
+    namespace: fleet-local
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5RTTavTQBT9K3LXSUxePpoGXIiCCxdCBTfi4s7kpB17OxNnJhVe6X+X5H3wFCN1E8gM59zzcedCJ0TuOTJ1F2JrXeRonA3zr1PfoWNAzLxxmeYYBZlxr01PHWmZQoRPPfYmRL+gKFnFuJ8WPt2fj9TRIEB8cXcuWMYDF8mrj8b2b949MO/+h9jyCdSRx48JIabqXkRuAoWRNZ40peI0C10TElaQJYQ/xZ7Y8h5zAtFP+MeMA4cDdZSrmhuoZmgbVYDzTZlX1aDaAWjzPtf1BmgKNcxTV1ys6Uxo8bHDAA+rEaj7eiEezRf4MKe2HjUlpMTp46eZ4D0ES8rdwBKQkHY2eicC/3x0NHb2/PduVnRPy6Jsy7uivtNVmqtSp9UGZdoWqNJCo6pL1DwUFV2/XRPyTrDDsGziaD54N40zq2Kd8RQPzpv7ZWJ2bENmHD2r2jnBmoxrQmF6qGiJ5xHyGf5sNN5q7SYbV8DpTdp/L+jpXbwo6vFbcNk3mz7ndrudDf8KAAD//7oqCel8AwAA
+      objectset.rio.cattle.io/id: cluster-registration
+      objectset.rio.cattle.io/owner-gvk: fleet.cattle.io/v1alpha1, Kind=ClusterRegistration
+      objectset.rio.cattle.io/owner-name: request-bzlll
+      objectset.rio.cattle.io/owner-namespace: fleet-local
+    creationTimestamp: "2026-06-12T14:29:21Z"
+    labels:
+      fleet.cattle.io/managed: "true"
+      objectset.rio.cattle.io/hash: 0b5a6eb6f86b1ea073044fb8fee80d0c57ee61bf
+    managedFields:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:fleet.cattle.io/managed: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"932152c4-0b3c-47e3-81e4-1ce453e5af14"}: {}
+        f:roleRef: {}
+        f:subjects: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T14:29:21Z"
+    name: request-bzlll
+    namespace: fleet-local
+    ownerReferences:
+    - apiVersion: fleet.cattle.io/v1alpha1
+      blockOwnerDeletion: false
+      controller: false
+      kind: ClusterRegistration
+      name: request-bzlll
+      uid: 932152c4-0b3c-47e3-81e4-1ce453e5af14
+    resourceVersion: "251760"
+    uid: 2916e830-8f0b-4a8f-ba73-9ceabb32527a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: request-bzlll
+  subjects:
+  - kind: ServiceAccount
+    name: request-bzlll-932152c4-0b3c-47e3-81e4-1ce453e5af14
+    namespace: cluster-fleet-local-local-1a3d67d0a899
+kind: List
+metadata:
+  resourceVersion: "676422"

@@ -1,0 +1,444 @@
+apiVersion: v1
+items:
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: CloudInit
+  metadata:
+    annotations:
+      node.harvesterhci.io/cloudinit-hash: ab1b3d53e2423dfb6771beb7d7fefd9ba27339c2c3fc2553870cfad49ce4c9a6
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yST4sbMQzFv4rReSbNJJtkM9BD21PpsdBTLrKtyajjkYOlyRKWfPdimkIp/XcUz/q997BeAS/8hYpyFuhBcqTViOVKalTGwCvOb66dJ8MOGphYIvTwIeUlfhQ2aGAmw4iG0L8CimRD4yxax+y/UjAlWxXOq4BmiSqPKwOaP+r5Rai05+sEPUxb/Um5do37xBLfvosxyz8RgjNBD0phKWw3tWUY/mtJLxjq5rR4avWmRjPcG0joKf212og6Qg+HsFuj3x6Pm/WaNt4/73b7w5PfrrsnPOx8t9/sn7sYDxX6CBny5dYOyKl9yWXCkheJVdYLheoYshiJae1jeCbtT+KccyxsBefhx9y6CuzdCd4nDFNiNTfnuCTSE3x/4tzACRoYONHD/XhsfxuggRktjJ8pUbBcapBfr2NGwTPVL7WyENzv928BAAD//9aKRYtUAgAA
+      objectset.rio.cattle.io/id: "null"
+      objectset.rio.cattle.io/owner-gvk: k3s.cattle.io/v1, Kind=Addon
+      objectset.rio.cattle.io/owner-name: securitystuff
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:42:42Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-node-cloud-init-controller
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: 7c50ab399200e2bb855674b3014a75b162681dd7
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          .: {}
+          f:contents: {}
+          f:filename: {}
+          f:matchSelector:
+            .: {}
+            f:harvesterhci.io/managed: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:42:42Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:node.harvesterhci.io/cloudinit-hash: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-node-cloud-init-controller"null: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T10:42:48Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:rollouts:
+            .: {}
+            f:hp-69-tink-system:
+              .: {}
+              f:conditions: {}
+            f:hp-117-tink-system:
+              .: {}
+              f:conditions: {}
+            f:hp-150-tink-system:
+              .: {}
+              f:conditions: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:47:43Z"
+    name: copy-fail-workaround
+    resourceVersion: "12163"
+    uid: 09794e50-6264-43b0-896f-5a4cd3e9f67f
+  spec:
+    contents: |
+      stages:
+          initramfs:
+          - name: "Blacklist modules"
+            files:
+              - path: "/etc/modprobe.d/10-cvs-fix.conf"
+                content: |
+                  blacklist algif_aead
+                  install algif_aead /bin/false
+    filename: 99-copy-fail-workaround
+    matchSelector:
+      harvesterhci.io/managed: "true"
+  status:
+    rollouts:
+      hp-69-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: 99-copy-fail-workaround is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+      hp-117-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:42:48Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:42:48Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:42:48Z"
+          message: 99-copy-fail-workaround is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+      hp-150-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: 99-copy-fail-workaround is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: CloudInit
+  metadata:
+    annotations:
+      node.harvesterhci.io/cloudinit-hash: ea56daa45f2e11d2978285cf1cda2a55c5ca6db4af3388882a76e047e5cf2677
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yST4sbMQzFv4rReSbNJE02O9BD21PpsdBTLhpbzrjjkYKlSQhLvnsxTaGU/tmjeNbvvYf1AnhOX6loEoYeWAKtRiwXUqMy+rRK8ubSDWTYQQNT4gA9fMyyhE+cDBqYyTCgIfQvgMxiaElY6yjDN/KmZKuSZOXRLFPlpcqA5q+6XJlKe7pM0MO01V+US9e4z4nDu/chCP8XwTgT9KDkl5LsprbEyHR91Z6e0dflaRmo1ZsazXBvIONA+Z/tRtQReghdd3jC/W7wh93eb3Yx7rbxqVu/fd4/b/Y0YKCt94dthT5yejnf2ogpb9qrlAmLLByqrmfy1dILG7Fp7WR4Iu2P7JxziZMVnOPPuXWV2LsjfMjop5zU3CxhyaSO6XqEH88cNBBTpod9t163f47QwIzmxy+UyZuUGuX3G5mR8UT1Y60sBPf7/XsAAAD//6KsxqhaAgAA
+      objectset.rio.cattle.io/id: "null"
+      objectset.rio.cattle.io/owner-gvk: k3s.cattle.io/v1, Kind=Addon
+      objectset.rio.cattle.io/owner-name: securitystuffnew
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:42:42Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-node-cloud-init-controller
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: d1187a65bc856c25ff53f710496926ebade3cc83
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          .: {}
+          f:contents: {}
+          f:filename: {}
+          f:matchSelector:
+            .: {}
+            f:harvesterhci.io/managed: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:42:42Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:node.harvesterhci.io/cloudinit-hash: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-node-cloud-init-controller"null: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T10:42:48Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:rollouts:
+            .: {}
+            f:hp-69-tink-system:
+              .: {}
+              f:conditions: {}
+            f:hp-117-tink-system:
+              .: {}
+              f:conditions: {}
+            f:hp-150-tink-system:
+              .: {}
+              f:conditions: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:47:43Z"
+    name: copy-fail2-workaround
+    resourceVersion: "12160"
+    uid: cc73a4f5-a97b-4477-b0d9-d921541d5dae
+  spec:
+    contents: |
+      stages:
+          initramfs:
+          - name: "Blacklist modules new"
+            files:
+              - path: "/etc/modprobe.d/10-copyfail2-fix.conf"
+                content: |
+                  blacklist esp4
+                  blacklist esp6
+                  blacklist rxrpc
+                  install esp4 /bin/false
+                  install esp6 /bin/false
+                  install rxrpc /bin/false
+    filename: 100-copy-fail2-workaround
+    matchSelector:
+      harvesterhci.io/managed: "true"
+  status:
+    rollouts:
+      hp-69-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: 100-copy-fail2-workaround is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+      hp-117-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:42:48Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:42:48Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:42:48Z"
+          message: 100-copy-fail2-workaround is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+      hp-150-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: 100-copy-fail2-workaround is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: CloudInit
+  metadata:
+    annotations:
+      node.harvesterhci.io/cloudinit-hash: b878e8e38a88eb8174a15307ac04d00b6c1545a9fe410210cd9a3f853c47563a
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4ySwY7UMAyGXyXyuR2mM7AzjcQBcUIckTjtxXE8bWjqVInb1WrVd0cRrARIDBwtx5+/X/EL4BK+ci4hCViQ5PkwYt64KOeRwiGkN1vnWLGDBqYgHix8jGn1nyQoNDCzokdFsC+AIklRQ5JSy+S+MWlhPeSQDoSqkSsvVAY0f+2nJ+HcDtsEFqZz+aWzdY35HMS//+B9kn8iBGcGC4tmJC5Maw76/F9TZUGqo9PquC3PRXmGvYGIjuPdbCOWESxcr45dx5f+gS/H/kj+dKGHd1f39oynU3c99rezd3SiCv3Nsn3VbJ9SnjCnVXx9VBamupeSKIsWsFAUBy72UYwxJkjQjPPttW5NxVrzCDSiDGx+hCCNZuIsHE3dBw3cQuSfBn3f3pFoYEal8QtHJk25yvx5KDMKDlx/V/PKsO/79wAAAP//wx2UB18CAAA
+      objectset.rio.cattle.io/id: "null"
+      objectset.rio.cattle.io/owner-gvk: k3s.cattle.io/v1, Kind=Addon
+      objectset.rio.cattle.io/owner-name: ptracesecurity
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:42:41Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-node-cloud-init-controller
+    generation: 20
+    labels:
+      objectset.rio.cattle.io/hash: 88beb1e796e7090cd27c658b43a221809f3dbc2c
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels: {}
+        f:spec:
+          .: {}
+          f:matchSelector:
+            .: {}
+            f:harvesterhci.io/managed: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:45:58Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+          f:labels:
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:contents: {}
+          f:filename: {}
+      manager: deploy@hp-69-tink-system
+      operation: Update
+      time: "2026-06-12T14:38:18Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:node.harvesterhci.io/cloudinit-hash: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-node-cloud-init-controller"null: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T14:38:18Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:rollouts:
+            .: {}
+            f:hp-69-tink-system:
+              .: {}
+              f:conditions: {}
+            f:hp-117-tink-system:
+              .: {}
+              f:conditions: {}
+            f:hp-150-tink-system:
+              .: {}
+              f:conditions: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:38:18Z"
+    name: ptrace-security-workaround
+    resourceVersion: "261494"
+    uid: 89897f36-276f-415e-ac6d-da057797f32d
+  spec:
+    contents: |
+      stages:
+          initramfs:
+          - name: "change systemctl kernel ptrace scope"
+            files:
+              - path: "/etc/sysctl.d/10-ptrace-scope.conf"
+                content: |
+                  kernel.yama.ptrace_scope = 2
+    filename: 99-ptrace-security-workaround.yaml
+    matchSelector:
+      harvesterhci.io/managed: "true"
+  status:
+    rollouts:
+      hp-69-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:47:43Z"
+          message: 99-ptrace-security-workaround.yaml is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+      hp-117-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:42:48Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:42:48Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:45:58Z"
+          message: 99-ptrace-security-workaround.yaml is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+      hp-150-tink-system:
+        conditions:
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: "null"
+          reason: CloudInitApplicable
+          status: "True"
+          type: Applicable
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: Local file checksum is the same as the CloudInit checksum
+          reason: CloudInitChecksumMatch
+          status: "False"
+          type: OutOfSync
+        - lastTransitionTime: "2026-06-12T10:47:34Z"
+          message: 99-ptrace-security-workaround.yaml is present under /oem
+          reason: CloudInitPresentOnDisk
+          status: "True"
+          type: Present
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676284"

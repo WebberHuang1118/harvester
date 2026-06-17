@@ -1,0 +1,5 @@
+2026-06-12T11:05:25.124323587Z time="2026-06-12T11:05:25Z" level=info msg="Starting harvester-network-controller version v1.8.1-rc1"
+2026-06-12T11:05:25.124361195Z time="2026-06-12T11:05:25Z" level=info msg="Set log level to info"
+2026-06-12T11:05:25.124374371Z time="2026-06-12T11:05:25Z" level=info msg="namespace harvester-system threadiness 2 nodeName  helper-image rancher/harvester-network-helper:v1.8.1-rc1"
+2026-06-12T11:05:25.124519740Z W0612 11:05:25.124424       1 client_config.go:667] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+2026-06-12T11:05:25.125314737Z I0612 11:05:25.125234       1 leaderelection.go:257] attempting to acquire leader lease kube-system/harvester-network-controllers...

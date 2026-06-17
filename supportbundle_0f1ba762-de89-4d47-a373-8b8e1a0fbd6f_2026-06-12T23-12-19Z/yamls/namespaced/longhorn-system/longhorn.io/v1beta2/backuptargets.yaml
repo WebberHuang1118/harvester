@@ -1,0 +1,66 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: BackupTarget
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:49Z"
+    finalizers:
+    - longhorn.io
+    generation: 40
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:backupTargetURL: {}
+          f:credentialSecret: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:28:26Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:pollInterval: {}
+          f:syncRequestedAt: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:28:53Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:available: {}
+          f:conditions: {}
+          f:lastSyncedAt: {}
+          f:ownerID: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:30:09Z"
+    name: default
+    namespace: longhorn-system
+    resourceVersion: "253682"
+    uid: 35e3da6b-94ce-4fe6-ab3a-486cdf70a890
+  spec:
+    backupTargetURL: "null"
+    credentialSecret: "null"
+    pollInterval: 5m0s
+    syncRequestedAt: "2026-06-12T14:28:53Z"
+  status:
+    available: false
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:28:53Z"
+      message: backup target URL is empty
+      reason: Unavailable
+      status: "True"
+      type: Unavailable
+    lastSyncedAt: "2026-06-12T14:23:53Z"
+    ownerID: hp-117-tink-system
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676495"

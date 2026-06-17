@@ -1,0 +1,244 @@
+apiVersion: v1
+items:
+- apiVersion: kubevirt.io/v1
+  kind: VirtualMachine
+  metadata:
+    annotations:
+      field.cattle.io/description: "null"
+      harvesterhci.io/mac-address: '{"default":"c2:5c:ab:5f:a0:39"}'
+      harvesterhci.io/vmRunStrategy: RerunOnFailure
+      harvesterhci.io/volumeClaimTemplates: '[{"type": "persistentvolumeclaim", "metadata":
+        {"namespace": "default", "name": "15h08m00s971364-06-12-mgmt-opensuse", "annotations":
+        {"harvesterhci.io/imageId": "default/opensuse"}}, "spec": {"accessModes":
+        ["ReadWriteMany"], "resources": {"requests": {"storage": "10Gi"}}, "volumeMode":
+        "Block", "storageClassName": "lh-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac"}}]'
+      kubevirt.io/latest-observed-api-version: v1
+      kubevirt.io/storage-observed-api-version: v1
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-lb-vm-controller
+    - kubevirt.io/virtualMachineControllerFinalize
+    - wrangler.cattle.io/VMController.CleanupPVCAndSnapshot
+    generation: 1
+    labels:
+      harvesterhci.io/creator: harvester
+      harvesterhci.io/os: "null"
+    managedFields:
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-lb-vm-controller"null: {}
+      manager: harvester-load-balancer
+      operation: Update
+      time: "2026-06-12T15:10:02Z"
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:kubevirt.io/latest-observed-api-version: {}
+            f:kubevirt.io/storage-observed-api-version: {}
+          f:finalizers:
+            v:"kubevirt.io/virtualMachineControllerFinalize"null: {}
+      manager: virt-controller
+      operation: Update
+      time: "2026-06-12T15:10:02Z"
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:field.cattle.io/description: {}
+            f:harvesterhci.io/mac-address: {}
+            f:harvesterhci.io/vmRunStrategy: {}
+            f:harvesterhci.io/volumeClaimTemplates: {}
+          f:finalizers:
+            v:"wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"null: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/creator: {}
+            f:harvesterhci.io/os: {}
+        f:spec:
+          .: {}
+          f:runStrategy: {}
+          f:template:
+            .: {}
+            f:metadata:
+              .: {}
+              f:labels:
+                .: {}
+                f:harvesterhci.io/vmName: {}
+            f:spec:
+              .: {}
+              f:domain:
+                .: {}
+                f:cpu:
+                  .: {}
+                  f:cores: {}
+                  f:sockets: {}
+                f:devices:
+                  .: {}
+                  f:disks: {}
+                  f:inputs: {}
+                  f:interfaces: {}
+                f:features:
+                  .: {}
+                  f:acpi:
+                    .: {}
+                    f:enabled: {}
+                f:firmware: {}
+                f:machine:
+                  .: {}
+                  f:type: {}
+                f:memory:
+                  .: {}
+                  f:guest: {}
+                f:resources:
+                  .: {}
+                  f:limits:
+                    .: {}
+                    f:cpu: {}
+                    f:memory: {}
+              f:evictionStrategy: {}
+              f:hostname: {}
+              f:networks: {}
+              f:volumes: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T15:10:31Z"
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:created: {}
+          f:desiredGeneration: {}
+          f:observedGeneration: {}
+          f:printableStatus: {}
+          f:ready: {}
+          f:runStrategy: {}
+          f:volumeSnapshotStatuses: {}
+      manager: virt-controller
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:13:50Z"
+    name: 15h08m00s971364-06-12-mgmt
+    namespace: default
+    resourceVersion: "295809"
+    uid: feaac9a6-90cc-40ee-89cf-c7b5b5a1bffb
+  spec:
+    runStrategy: RerunOnFailure
+    template:
+      metadata:
+        creationTimestamp: "null"
+        labels:
+          harvesterhci.io/vmName: 15h08m00s971364-06-12-mgmt
+      spec:
+        affinity: {}
+        architecture: amd64
+        domain:
+          cpu:
+            cores: 1
+            maxSockets: 1
+            sockets: 1
+            threads: 1
+          devices:
+            disks:
+            - bootOrder: 1
+              disk:
+                bus: virtio
+              name: opensuse
+            - disk:
+                bus: virtio
+              name: cloudinitdisk
+            inputs:
+            - bus: usb
+              name: tablet
+              type: tablet
+            interfaces:
+            - macAddress: c2:5c:ab:5f:a0:39
+              masquerade: {}
+              model: virtio
+              name: default
+          features:
+            acpi:
+              enabled: true
+          firmware:
+            serial: e0a27656-6396-4110-88e8-88ad329aaf69
+            uuid: b5ec026e-0157-4503-82ed-6aedde0469f6
+          machine:
+            type: q35
+          memory:
+            guest: 2Gi
+          resources:
+            limits:
+              cpu: "1"
+              memory: 2Gi
+            requests:
+              cpu: 41m
+              memory: 256Mi
+        evictionStrategy: LiveMigrateIfPossible
+        hostname: 15h08m00s971364-06-12-mgmt
+        networks:
+        - name: default
+          pod: {}
+        terminationGracePeriodSeconds: 120
+        volumes:
+        - name: opensuse
+          persistentVolumeClaim:
+            claimName: 15h08m00s971364-06-12-mgmt-opensuse
+        - cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              package_update: true
+              packages:
+              - qemu-guest-agent
+              runcmd:
+              - - systemctl
+                - enable
+                - --now
+                - qemu-guest-agent.service
+
+              password: 123456
+              chpasswd: { expire: False }
+              ssh_pwauth: True
+          name: cloudinitdisk
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:25Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "null"
+      status: "True"
+      type: LiveMigratable
+    - lastProbeTime: "null"
+      lastTransitionTime: "null"
+      status: "True"
+      type: StorageLiveMigratable
+    - lastProbeTime: "2026-06-12T15:13:50Z"
+      lastTransitionTime: "null"
+      status: "True"
+      type: AgentConnected
+    created: true
+    desiredGeneration: 1
+    observedGeneration: 1
+    printableStatus: Running
+    ready: true
+    runStrategy: RerunOnFailure
+    volumeSnapshotStatuses:
+    - enabled: true
+      name: opensuse
+    - enabled: false
+      name: cloudinitdisk
+      reason: Snapshot is not supported for this volumeSource type [cloudinitdisk]
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676322"

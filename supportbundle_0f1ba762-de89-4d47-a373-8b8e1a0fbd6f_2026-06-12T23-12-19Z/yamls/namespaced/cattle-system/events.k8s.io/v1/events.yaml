@@ -1,0 +1,749 @@
+apiVersion: v1
+items:
+- action: Binding
+  apiVersion: events.k8s.io/v1
+  deprecatedFirstTimestamp: "null"
+  deprecatedLastTimestamp: null
+  deprecatedSource: {}
+  eventTime: "2026-06-12T23:02:20.879328Z"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:20Z"
+    managedFields:
+    - apiVersion: events.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:action: {}
+        f:eventTime: {}
+        f:note: {}
+        f:reason: {}
+        f:regarding: {}
+        f:reportingController: {}
+        f:reportingInstance: {}
+        f:type: {}
+      manager: kube-scheduler
+      operation: Update
+      time: "2026-06-12T23:02:20Z"
+    name: dashboard-shell-phb64.18b877c50f9e731f
+    namespace: cattle-system
+    resourceVersion: "667906"
+    uid: 97482585-ab6a-4fe2-870d-665a8612e412
+  note: Successfully assigned cattle-system/dashboard-shell-phb64 to hp-69-tink-system
+  reason: Scheduled
+  regarding:
+    apiVersion: v1
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667903"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: default-scheduler
+  reportingInstance: default-scheduler-hp-117-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:21Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:21Z"
+  deprecatedSource:
+    component: multus
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:21Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: multus
+      operation: Update
+      time: "2026-06-12T23:02:21Z"
+    name: dashboard-shell-phb64.18b877c534757b42
+    namespace: cattle-system
+    resourceVersion: "667914"
+    uid: b1a0348d-bbab-4d67-a76e-fc6113b1e734
+  note: Add eth0 [10.52.2.228/32] from k8s-pod-network
+  reason: AddedInterface
+  regarding:
+    apiVersion: v1
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667907"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: multus
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:21Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:21Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:21Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:21Z"
+    name: dashboard-shell-phb64.18b877c54a7cc1a9
+    namespace: cattle-system
+    resourceVersion: "667919"
+    uid: d336661e-86a1-425f-bf8c-be1b564a2431
+  note: Container image "rancher/shell:v0.7.0" already present on machine and can
+    be accessed by the pod
+  reason: Pulled
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.initContainers{init-home}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:21Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:21Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:21Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:21Z"
+    name: dashboard-shell-phb64.18b877c54c75e09b
+    namespace: cattle-system
+    resourceVersion: "667920"
+    uid: 0030d4eb-f3d5-4450-9ef2-5a26b885167b
+  note: Container created
+  reason: Created
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.initContainers{init-home}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:22Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:22Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:22Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:22Z"
+    name: dashboard-shell-phb64.18b877c55569fe54
+    namespace: cattle-system
+    resourceVersion: "667922"
+    uid: 853abd52-e566-4fea-a59f-410bf11d2ac2
+  note: Container started
+  reason: Started
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.initContainers{init-home}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:22Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:22Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:22Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:22Z"
+    name: dashboard-shell-phb64.18b877c57a58c058
+    namespace: cattle-system
+    resourceVersion: "667941"
+    uid: e44564ce-1e4f-4ec7-b2ff-1122e0bef591
+  note: Container image "rancher/shell:v0.7.0" already present on machine and can
+    be accessed by the pod
+  reason: Pulled
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.initContainers{init-kubeconfig-volume}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:22Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:22Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:22Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:22Z"
+    name: dashboard-shell-phb64.18b877c57df067fc
+    namespace: cattle-system
+    resourceVersion: "667943"
+    uid: 46960cfd-0899-46f0-bd98-cd6e35068b37
+  note: Container created
+  reason: Created
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.initContainers{init-kubeconfig-volume}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:22Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:22Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:22Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:22Z"
+    name: dashboard-shell-phb64.18b877c587a8d358
+    namespace: cattle-system
+    resourceVersion: "667945"
+    uid: b4b0887e-e788-4e55-9fa2-216051f17582
+  note: Container started
+  reason: Started
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.initContainers{init-kubeconfig-volume}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:23Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:23Z"
+    name: dashboard-shell-phb64.18b877c5b6ac1197
+    namespace: cattle-system
+    resourceVersion: "667948"
+    uid: 365ec76b-32be-4029-83cc-8f286b439a04
+  note: Container image "rancher/shell:v0.7.0" already present on machine and can
+    be accessed by the pod
+  reason: Pulled
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.containers{shell}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:23Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:23Z"
+    name: dashboard-shell-phb64.18b877c5b95accc3
+    namespace: cattle-system
+    resourceVersion: "667950"
+    uid: 672b7dc2-bcfb-4079-b983-fbebe35cd2a9
+  note: Container created
+  reason: Created
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.containers{shell}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:23Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:23Z"
+    name: dashboard-shell-phb64.18b877c5c32b489d
+    namespace: cattle-system
+    resourceVersion: "667951"
+    uid: f95bc14f-1886-401d-b875-17123b2a312f
+  note: Container started
+  reason: Started
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.containers{shell}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:23Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:23Z"
+    name: dashboard-shell-phb64.18b877c5c33d8b9e
+    namespace: cattle-system
+    resourceVersion: "667952"
+    uid: 299c3a4e-a7ce-4ed1-b913-b6c71dff63bc
+  note: Container image "rancher/shell:v0.7.0" already present on machine and can
+    be accessed by the pod
+  reason: Pulled
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.containers{proxy}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:23Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:23Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:23Z"
+    name: dashboard-shell-phb64.18b877c5c5bc1b7c
+    namespace: cattle-system
+    resourceVersion: "667953"
+    uid: 82d67f89-c18b-4b15-9a26-bc5b77147818
+  note: Container created
+  reason: Created
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.containers{proxy}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:24Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:24Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:24Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:24Z"
+    name: dashboard-shell-phb64.18b877c5d02ba71b
+    namespace: cattle-system
+    resourceVersion: "667954"
+    uid: 73644090-d920-4c62-88ea-ef623637625c
+  note: Container started
+  reason: Started
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.containers{proxy}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:45Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:45Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:45Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:45Z"
+    name: dashboard-shell-phb64.18b877cab5df5dea
+    namespace: cattle-system
+    resourceVersion: "668275"
+    uid: 3b3b9235-e546-41ea-99fe-fd251feb670c
+  note: Stopping container shell
+  reason: Killing
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.containers{shell}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+- apiVersion: events.k8s.io/v1
+  deprecatedCount: 1
+  deprecatedFirstTimestamp: "2026-06-12T23:02:45Z"
+  deprecatedLastTimestamp: "2026-06-12T23:02:45Z"
+  deprecatedSource:
+    component: kubelet
+    host: hp-69-tink-system
+  eventTime: "null"
+  kind: Event
+  metadata:
+    creationTimestamp: "2026-06-12T23:02:45Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2026-06-12T23:02:45Z"
+    name: dashboard-shell-phb64.18b877cab5e0cbe5
+    namespace: cattle-system
+    resourceVersion: "668276"
+    uid: e533f8a2-61fc-40e1-a290-f486ccd2c822
+  note: Stopping container proxy
+  reason: Killing
+  regarding:
+    apiVersion: v1
+    fieldPath: spec.containers{proxy}
+    kind: Pod
+    name: dashboard-shell-phb64
+    namespace: cattle-system
+    resourceVersion: "667904"
+    uid: e22abdef-9b70-4376-8a07-a86a6fc07d73
+  reportingController: kubelet
+  reportingInstance: hp-69-tink-system
+  type: Normal
+kind: List
+metadata:
+  resourceVersion: "676356"

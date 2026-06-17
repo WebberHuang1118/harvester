@@ -1,0 +1,317 @@
+apiVersion: v1
+items:
+- apiVersion: policy/v1
+  kind: PodDisruptionBudget
+  metadata:
+    creationTimestamp: "2026-06-12T15:10:05Z"
+    generation: 1
+    managedFields:
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            .: {}
+            k:{"type":"DisruptionAllowed"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:currentHealthy: {}
+          f:desiredHealthy: {}
+          f:disruptionsAllowed: {}
+          f:expectedPods: {}
+          f:observedGeneration: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:05Z"
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:minAvailable: {}
+          f:selector: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:05Z"
+    name: csi-attacher
+    namespace: longhorn-system
+    resourceVersion: "292451"
+    uid: e12224a4-23f5-458f-8514-9addb9a4046a
+  spec:
+    minAvailable: 1
+    selector:
+      matchLabels:
+        app: csi-attacher
+  status:
+    conditions:
+    - lastTransitionTime: "2026-06-12T15:10:05Z"
+      message: "null"
+      observedGeneration: 1
+      reason: SufficientPods
+      status: "True"
+      type: DisruptionAllowed
+    currentHealthy: 3
+    desiredHealthy: 1
+    disruptionsAllowed: 2
+    expectedPods: 3
+    observedGeneration: 1
+- apiVersion: policy/v1
+  kind: PodDisruptionBudget
+  metadata:
+    creationTimestamp: "2026-06-12T15:10:05Z"
+    generation: 1
+    managedFields:
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            .: {}
+            k:{"type":"DisruptionAllowed"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:currentHealthy: {}
+          f:desiredHealthy: {}
+          f:disruptionsAllowed: {}
+          f:expectedPods: {}
+          f:observedGeneration: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:05Z"
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:minAvailable: {}
+          f:selector: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:05Z"
+    name: csi-provisioner
+    namespace: longhorn-system
+    resourceVersion: "292449"
+    uid: 83aa6d42-6c91-41ab-a724-5bbc75d3ebb3
+  spec:
+    minAvailable: 1
+    selector:
+      matchLabels:
+        app: csi-provisioner
+  status:
+    conditions:
+    - lastTransitionTime: "2026-06-12T15:10:05Z"
+      message: "null"
+      observedGeneration: 1
+      reason: SufficientPods
+      status: "True"
+      type: DisruptionAllowed
+    currentHealthy: 3
+    desiredHealthy: 1
+    disruptionsAllowed: 2
+    expectedPods: 3
+    observedGeneration: 1
+- apiVersion: policy/v1
+  kind: PodDisruptionBudget
+  metadata:
+    creationTimestamp: "2026-06-12T10:43:29Z"
+    generation: 1
+    managedFields:
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:minAvailable: {}
+          f:selector: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:43:29Z"
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            .: {}
+            k:{"type":"DisruptionAllowed"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:currentHealthy: {}
+          f:desiredHealthy: {}
+          f:expectedPods: {}
+          f:observedGeneration: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T12:08:24Z"
+    name: instance-manager-7742e04beb074c12e693076a0d1c6595
+    namespace: longhorn-system
+    resourceVersion: "95174"
+    uid: 6f652c4a-bf8e-46b0-8524-b8ddbae6087b
+  spec:
+    minAvailable: 1
+    selector:
+      matchLabels:
+        longhorn.io/component: instance-manager
+        longhorn.io/data-engine: v1
+        longhorn.io/instance-manager-image: imi-0f0c2602
+        longhorn.io/instance-manager-type: aio
+        longhorn.io/managed-by: longhorn-manager
+        longhorn.io/node: hp-117-tink-system
+  status:
+    conditions:
+    - lastTransitionTime: "2026-06-12T10:43:29Z"
+      message: "null"
+      observedGeneration: 1
+      reason: InsufficientPods
+      status: "False"
+      type: DisruptionAllowed
+    currentHealthy: 1
+    desiredHealthy: 1
+    disruptionsAllowed: 0
+    expectedPods: 1
+    observedGeneration: 1
+- apiVersion: policy/v1
+  kind: PodDisruptionBudget
+  metadata:
+    creationTimestamp: "2026-06-12T10:48:36Z"
+    generation: 1
+    managedFields:
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:minAvailable: {}
+          f:selector: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:48:36Z"
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            .: {}
+            k:{"type":"DisruptionAllowed"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:currentHealthy: {}
+          f:desiredHealthy: {}
+          f:expectedPods: {}
+          f:observedGeneration: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T12:08:06Z"
+    name: instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5
+    namespace: longhorn-system
+    resourceVersion: "94830"
+    uid: 2d9491e7-dc9a-4ee9-a38a-aabc322e31ba
+  spec:
+    minAvailable: 1
+    selector:
+      matchLabels:
+        longhorn.io/component: instance-manager
+        longhorn.io/data-engine: v1
+        longhorn.io/instance-manager-image: imi-0f0c2602
+        longhorn.io/instance-manager-type: aio
+        longhorn.io/managed-by: longhorn-manager
+        longhorn.io/node: hp-150-tink-system
+  status:
+    conditions:
+    - lastTransitionTime: "2026-06-12T10:48:36Z"
+      message: "null"
+      observedGeneration: 1
+      reason: InsufficientPods
+      status: "False"
+      type: DisruptionAllowed
+    currentHealthy: 1
+    desiredHealthy: 1
+    disruptionsAllowed: 0
+    expectedPods: 1
+    observedGeneration: 1
+- apiVersion: policy/v1
+  kind: PodDisruptionBudget
+  metadata:
+    creationTimestamp: "2026-06-12T14:41:05Z"
+    generation: 1
+    managedFields:
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            .: {}
+            k:{"type":"DisruptionAllowed"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:observedGeneration: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:currentHealthy: {}
+          f:desiredHealthy: {}
+          f:expectedPods: {}
+          f:observedGeneration: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:41:05Z"
+    - apiVersion: policy/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:minAvailable: {}
+          f:selector: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:41:05Z"
+    name: instance-manager-f7924585cf5aadacce1b397379d2df82
+    namespace: longhorn-system
+    resourceVersion: "264796"
+    uid: c857024c-4286-48d9-849e-bd9b2f939839
+  spec:
+    minAvailable: 1
+    selector:
+      matchLabels:
+        longhorn.io/component: instance-manager
+        longhorn.io/data-engine: v1
+        longhorn.io/instance-manager-image: imi-0f0c2602
+        longhorn.io/instance-manager-type: aio
+        longhorn.io/managed-by: longhorn-manager
+        longhorn.io/node: hp-69-tink-system
+  status:
+    conditions:
+    - lastTransitionTime: "2026-06-12T14:41:05Z"
+      message: "null"
+      observedGeneration: 1
+      reason: InsufficientPods
+      status: "False"
+      type: DisruptionAllowed
+    currentHealthy: 1
+    desiredHealthy: 1
+    disruptionsAllowed: 0
+    expectedPods: 1
+    observedGeneration: 1
+kind: List
+metadata:
+  resourceVersion: "676475"

@@ -1,0 +1,1478 @@
+#==[ Verification ]=================================#
+# rpm -V systemd-257.13-160000.1.1.x86_64
+# Verification Status: Passed
+
+#==[ Command ]======================================#
+# /bin/hostnamectl status
+ Static hostname: hp-150-tink-system
+       Icon name: computer-server
+         Chassis: server 🖳
+      Machine ID: 7d15e2fe37bff839769c19076a2be10d
+         Boot ID: 13ed58187867498ba5357d40c9929077
+    Product UUID: 32353537-3835-584d-5135-31393035514a
+Operating System: Harvester v1.8
+     CPE OS Name: cpe:/o:suse:sles:16:16.0
+          Kernel: Linux 6.12.0-160000.32-default
+    Architecture: x86-64
+ Hardware Vendor: HP
+  Hardware Model: ProLiant DL360 Gen9
+ Hardware Serial: MXQ51905QJ
+Firmware Version: P89
+   Firmware Date: Tue 2021-11-23
+    Firmware Age: 4y 6month 2w 5d
+
+#==[ Command ]======================================#
+# /bin/systemctl --failed
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/busctl --no-pager --system list
+NAME                            PID PROCESS USER CONNECTION    UNIT SESSION DESCRIPTION
+:1.1                              - -       -    -             -    -       -
+:1.1114                           - -       -    -             -    -       -
+:1.1115                           - -       -    -             -    -       -
+:1.118                            - -       -    -             -    -       -
+:1.1297                           - -       -    -             -    -       -
+:1.1298                           - -       -    -             -    -       -
+:1.130                            - -       -    -             -    -       -
+:1.2                              - -       -    -             -    -       -
+:1.4                              - -       -    -             -    -       -
+:1.5                              - -       -    -             -    -       -
+fi.epitest.hostap.WPASupplicant   - -       -    (activatable) -    -       -
+fi.w1.wpa_supplicant1             - -       -    (activatable) -    -       -
+org.freedesktop.Avahi             - -       -    (activatable) -    -       -
+org.freedesktop.DBus              - -       -    -             -    -       -
+org.freedesktop.NetworkManager    - -       -    -             -    -       -
+org.freedesktop.hostname1         - -       -    -             -    -       -
+org.freedesktop.locale1           - -       -    (activatable) -    -       -
+org.freedesktop.login1            - -       -    -             -    -       -
+org.freedesktop.nm_dispatcher     - -       -    (activatable) -    -       -
+org.freedesktop.nm_priv_helper    - -       -    (activatable) -    -       -
+org.freedesktop.systemd1          - -       -    -             -    -       -
+org.freedesktop.timedate1         - -       -    (activatable) -    -       -
+org.freedesktop.timesync1         - -       -    -             -    -       -
+org.opensuse.Snapper              - -       -    (activatable) -    -       -
+
+#==[ Command ]======================================#
+# /bin/timedatectl --no-pager status
+               Local time: Fri 2026-06-12 23:14:26 UTC
+           Universal time: Fri 2026-06-12 23:14:26 UTC
+                 RTC time: Fri 2026-06-12 23:14:26
+                Time zone: Etc/UTC (UTC, +0000)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+
+#==[ Command ]======================================#
+# /bin/systemd-analyze --no-pager blame
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemd-cgtop --batch --iterations=1
+Failed to determine supported controllers: Protocol driver not attached
+
+#==[ Command ]======================================#
+# /bin/systemd-cgls --no-pager --all --full
+Failed to get root control group path: Protocol driver not attached
+Failed to list cgroup tree: Protocol driver not attached
+
+#==[ Configuration File ]===========================#
+# /sys/fs/cgroup/cgroup.stat
+nr_descendants 135
+nr_subsys_cpuset 133
+nr_subsys_cpu 133
+nr_subsys_io 133
+nr_subsys_memory 133
+nr_subsys_perf_event 136
+nr_subsys_hugetlb 112
+nr_subsys_pids 134
+nr_subsys_rdma 112
+nr_subsys_misc 112
+nr_dying_descendants 188
+nr_dying_subsys_cpuset 0
+nr_dying_subsys_cpu 0
+nr_dying_subsys_io 0
+nr_dying_subsys_memory 186
+nr_dying_subsys_perf_event 0
+nr_dying_subsys_hugetlb 0
+nr_dying_subsys_pids 0
+nr_dying_subsys_rdma 0
+nr_dying_subsys_misc 0
+
+
+#==[ Command ]======================================#
+# /bin/systemd-delta --no-pager
+[OVERRIDDEN] /etc/systemd/system/multipathd.service -> /usr/lib/systemd/system/multipathd.service
+
+--- /usr/lib/systemd/system/multipathd.service	2026-01-26 20:47:27.000000000 +0000
++++ /etc/systemd/system/multipathd.service	2026-06-12 10:35:57.989000219 +0000
+@@ -2,7 +2,7 @@
+ Description=Device-Mapper Multipath Device Controller
+ Before=lvm2-activation-early.service
+ Before=local-fs-pre.target blk-availability.service shutdown.target
+-Wants=systemd-udevd-kernel.socket multipathd-queueing.service modprobe@dm_multipath.service
++Wants=systemd-udevd-kernel.socket modprobe@dm_multipath.service
+ After=systemd-udevd-kernel.socket modprobe@dm_multipath.service
+ After=multipathd.socket systemd-remount-fs.service
+ Before=initrd-cleanup.service
+@@ -10,20 +10,16 @@
+ Conflicts=shutdown.target
+ Conflicts=initrd-cleanup.service
+ ConditionKernelCommandLine=!nompath
+-ConditionKernelCommandLine=!multipath=off
+ ConditionVirtualization=!container
+-StartLimitIntervalSec=30
+-StartLimitBurst=3
+ 
+ [Service]
+ Type=notify
+ NotifyAccess=main
+ ExecStart=/usr/sbin/multipathd -d -s
+ ExecReload=/usr/sbin/multipathd reconfigure
+-Restart=on-failure
+ TasksMax=infinity
+ LimitRTPRIO=10
+ CPUWeight=1000
+ 
+ [Install]
+-WantedBy=sysinit.target
++WantedBy=sysinit.target
+\ No newline at end of file
+
+[EXTENDED]   /etc/systemd/system/rancher-system-agent.service -> /etc/systemd/system/rancher-system-agent.service.d/env.conf
+[EXTENDED]   /etc/systemd/system/rke2-agent.service -> /etc/systemd/system/rke2-agent.service.d/override.conf
+[EXTENDED]   /etc/systemd/system/rke2-server.service -> /etc/systemd/system/rke2-server.service.d/override.conf
+[OVERRIDDEN] /etc/systemd/system/tmp.mount -> /usr/lib/systemd/system/tmp.mount
+
+Files /usr/lib/systemd/system/tmp.mount and /etc/systemd/system/tmp.mount are identical
+
+[EXTENDED]   /usr/lib/systemd/system/dbus-broker.service -> /usr/lib/systemd/system/dbus-broker.service.d/block-restart.conf
+[EXTENDED]   /usr/lib/systemd/system/kdump.service -> /etc/systemd/system/kdump.service.d/override.conf
+[EXTENDED]   /usr/lib/systemd/system/nfs-mountd.service -> /usr/lib/systemd/system/nfs-mountd.service.d/10-options.conf
+[EXTENDED]   /usr/lib/systemd/system/nfs-server.service -> /usr/lib/systemd/system/nfs-server.service.d/10-options.conf
+[EXTENDED]   /usr/lib/systemd/system/rancherd.service -> /etc/systemd/system/rancherd.service.d/override.conf
+[EXTENDED]   /usr/lib/systemd/system/rpc-gssd.service -> /usr/lib/systemd/system/rpc-gssd.service.d/10-options.conf
+[EXTENDED]   /usr/lib/systemd/system/rpc-statd-notify.service -> /usr/lib/systemd/system/rpc-statd-notify.service.d/10-options.conf
+[EXTENDED]   /usr/lib/systemd/system/rpc-statd.service -> /usr/lib/systemd/system/rpc-statd.service.d/10-options.conf
+[EXTENDED]   /usr/lib/systemd/system/rpc-svcgssd.service -> /usr/lib/systemd/system/rpc-svcgssd.service.d/10-options.conf
+[EXTENDED]   /usr/lib/systemd/system/systemd-logind.service -> /usr/lib/systemd/system/systemd-logind.service.d/20-defaults-SUSE.conf
+[EXTENDED]   /usr/lib/systemd/system/systemd-sysctl.service -> /usr/lib/systemd/system/systemd-sysctl.service.d/50-kernel-uname_r.conf
+[EXTENDED]   /usr/lib/systemd/system/systemd-time-wait-sync.service -> /etc/systemd/system/systemd-time-wait-sync.service.d/override.conf
+[EXTENDED]   /usr/lib/systemd/system/user@.service -> /usr/lib/systemd/system/user@.service.d/10-login-barrier.conf
+[EXTENDED]   /usr/lib/systemd/system/user@.service -> /usr/lib/systemd/system/user@.service.d/20-defaults-SUSE.conf
+[EXTENDED]   /usr/lib/systemd/user/dbus-broker.service -> /usr/lib/systemd/user/dbus-broker.service.d/block-restart.conf
+
+20 overridden configuration files found.
+
+#==[ Command ]======================================#
+# /bin/systemctl --no-pager show | sort
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/timesyncd.conf
+[Time]
+NTP = 0.suse.pool.ntp.org 1.suse.pool.ntp.org
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/timesyncd.conf.bak
+[Time]
+NTP = 0.suse.pool.ntp.org 1.suse.pool.ntp.org
+
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/timesyncd.conf.origin
+[Time]
+NTP = 0.suse.pool.ntp.org 1.suse.pool.ntp.org
+
+
+#==[ Command ]======================================#
+# /bin/systemctl --no-pager --all list-units
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemctl --no-pager --all list-sockets
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemctl --no-pager list-unit-files
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemctl --no-pager list-jobs
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/systemctl --no-pager list-timers --all
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Command ]======================================#
+# /bin/ls -alR /etc/systemd/
+/etc/systemd/:
+total 60
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 .
+drwxr-xr-x.  1 root root  540 Jun 12 10:36 ..
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 coredump.conf.d
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 journald.conf.d
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 logind.conf.d
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 network
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 pstore.conf.d
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 sleep.conf.d
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 system
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 system.conf.d
+-rw-r--r--.  1 root root   54 Jun 12 10:47 timesyncd.conf
+-rw-r--r--.  1 root root   53 Jun 12 10:47 timesyncd.conf.bak
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 timesyncd.conf.d
+-rw-r--r--.  1 root root   53 Jun 12 10:47 timesyncd.conf.origin
+drwxr-xr-x.  4 root root 4096 May 27 16:46 user
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 user.conf.d
+
+/etc/systemd/coredump.conf.d:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/journald.conf.d:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/logind.conf.d:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/network:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/pstore.conf.d:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/sleep.conf.d:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/system:
+total 152
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   44 May 27 20:31 dbus-org.freedesktop.ModemManager1.service -> /usr/lib/systemd/system/ModemManager.service
+lrwxrwxrwx.  1 root root   57 May 27 16:46 dbus-org.freedesktop.nm-dispatcher.service -> /usr/lib/systemd/system/NetworkManager-dispatcher.service
+lrwxrwxrwx.  1 root root   49 May 27 16:46 dbus-org.freedesktop.timesync1.service -> /usr/lib/systemd/system/systemd-timesyncd.service
+lrwxrwxrwx.  1 root root   43 May 27 16:45 dbus.service -> /usr/lib/systemd/system/dbus-broker.service
+drwxr-xr-x.  2 root root 4096 May 28 02:36 default.target.wants
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 etc.mount.d
+drwxr-xr-x.  2 root root 4096 May 27 16:46 getty.target.wants
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 getty@tty1.service.d
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 halt.target.requires
+drwxr-xr-x.  2 root root 4096 May 28 02:37 initrd-fs.target.requires
+drwxr-xr-x.  2 root root 4096 May 28 02:37 initrd-fs.target.wants
+drwxr-xr-x.  2 root root 4096 May 28 02:37 initrd-root-fs.target.wants
+drwxr-xr-x.  2 root root 4096 May 28 02:37 initrd.target.requires
+drwxr-xr-x.  2 root root 4096 May 28 02:37 initrd.target.wants
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 kdump.service.d
+drwxr-xr-x.  2 root root 4096 May 27 20:31 mdmonitor.service.wants
+drwxr-xr-x.  2 root root 4096 Jun 12 10:47 multi-user.target.wants
+-rw-r--r--   1 root root  732 Jun 12 10:35 multipathd.service
+drwxr-xr-x.  2 root root 4096 May 27 16:46 network-online.target.wants
+lrwxrwxrwx.  1 root root   46 May 27 16:46 network.service -> /usr/lib/systemd/system/NetworkManager.service
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 poweroff.target.requires
+-rw-------.  1 root root   89 Jun 12 10:47 rancher-system-agent.env
+-rw-r--r--.  1 root root  599 Jun 12 10:47 rancher-system-agent.service
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 rancher-system-agent.service.d
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 rancherd.service.d
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 reboot.target.requires
+drwxr-xr-x.  2 root root 4096 May 27 20:31 remote-fs.target.wants
+-rw-r--r--.  1 root root  882 Jun 12 10:47 rke2-agent.service
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 rke2-agent.service.d
+-rw-r--r--.  1 root root  956 Jun 12 10:47 rke2-server.service
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 rke2-server.service.d
+-rw-r--r--.  1 root root  317 Jun 12 04:35 rke2-shutdown.service
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 shutdown.target.requires
+drwxr-xr-x.  2 root root 4096 May 27 16:46 shutdown.target.wants
+drwxr-xr-x.  2 root root 4096 Jun 12 10:35 sockets.target.wants
+drwxr-xr-x.  2 root root 4096 Jun 12 10:35 sysinit.target.wants
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 systemd-time-wait-sync.service.d
+drwxr-xr-x.  2 root root 4096 May 28 02:37 timers.target.wants
+-rw-r--r--.  1 root root  769 Jun  5 09:27 tmp.mount
+drwxr-xr-x.  2 root root 4096 May 27 16:46 umount.target.wants
+drwxr-xr-x.  2 root root 4096 May 27 20:31 vmtoolsd.service.requires
+
+/etc/systemd/system/default.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 28 02:36 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   44 May 27 16:46 ca-certificates.path -> /usr/lib/systemd/system/ca-certificates.path
+lrwxrwxrwx.  1 root root   44 May 27 20:31 issue-generator.path -> /usr/lib/systemd/system/issue-generator.path
+lrwxrwxrwx.  1 root root   47 May 27 20:31 issue-generator.service -> /usr/lib/systemd/system/issue-generator.service
+lrwxrwxrwx.  1 root root   55 May 28 02:36 nvmefc-boot-connections.service -> /usr/lib/systemd/system/nvmefc-boot-connections.service
+lrwxrwxrwx.  1 root root   48 May 28 02:36 nvmf-autoconnect.service -> /usr/lib/systemd/system/nvmf-autoconnect.service
+lrwxrwxrwx.  1 root root   49 May 28 02:36 smartd_generate_opts.path -> /usr/lib/systemd/system/smartd_generate_opts.path
+lrwxrwxrwx.  1 root root   51 May 27 16:46 soft-reboot-cleanup.service -> /usr/lib/systemd/system/soft-reboot-cleanup.service
+
+/etc/systemd/system/etc.mount.d:
+total 12
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+-rw-r--r--   1 root root   25 Jun 12 10:35 override.conf
+
+/etc/systemd/system/getty.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   38 May 27 16:46 getty@tty1.service -> /usr/lib/systemd/system/getty@.service
+
+/etc/systemd/system/getty@tty1.service.d:
+total 12
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+-rw-r--r--   1 root root  672 Jun 12 10:35 override.conf
+
+/etc/systemd/system/halt.target.requires:
+total 8
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx   1 root root   41 Jun 12 10:35 rke2-shutdown.service -> /etc/systemd/system/rke2-shutdown.service
+
+/etc/systemd/system/initrd-fs.target.requires:
+total 8
+drwxr-xr-x.  2 root root 4096 May 28 02:37 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   54 May 28 02:37 elemental-setup-rootfs.service -> /usr/lib/systemd/system/elemental-setup-rootfs.service
+
+/etc/systemd/system/initrd-fs.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 28 02:37 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/system/initrd-root-fs.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 28 02:37 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/system/initrd.target.requires:
+total 8
+drwxr-xr-x.  2 root root 4096 May 28 02:37 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   57 May 28 02:37 elemental-setup-initramfs.service -> /usr/lib/systemd/system/elemental-setup-initramfs.service
+
+/etc/systemd/system/initrd.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 28 02:37 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/system/kdump.service.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+-rw-r--r--.  1 root root   50 Jun 12 04:35 override.conf
+
+/etc/systemd/system/mdmonitor.service.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 27 20:31 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   46 May 27 20:31 mdcheck_continue.timer -> /usr/lib/systemd/system/mdcheck_continue.timer
+lrwxrwxrwx.  1 root root   43 May 27 20:31 mdcheck_start.timer -> /usr/lib/systemd/system/mdcheck_start.timer
+lrwxrwxrwx.  1 root root   47 May 27 20:31 mdmonitor-oneshot.timer -> /usr/lib/systemd/system/mdmonitor-oneshot.timer
+
+/etc/systemd/system/multi-user.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 Jun 12 10:47 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   44 May 27 20:31 ModemManager.service -> /usr/lib/systemd/system/ModemManager.service
+lrwxrwxrwx.  1 root root   46 May 27 16:46 NetworkManager.service -> /usr/lib/systemd/system/NetworkManager.service
+lrwxrwxrwx.  1 root root   43 May 27 16:46 audit-rules.service -> /usr/lib/systemd/system/audit-rules.service
+lrwxrwxrwx.  1 root root   38 May 27 16:46 auditd.service -> /usr/lib/systemd/system/auditd.service
+lrwxrwxrwx.  1 root root   53 May 27 16:46 btrfsmaintenance-refresh.path -> /usr/lib/systemd/system/btrfsmaintenance-refresh.path
+lrwxrwxrwx.  1 root root   52 May 28 02:37 elemental-setup-boot.service -> /usr/lib/systemd/system/elemental-setup-boot.service
+lrwxrwxrwx.  1 root root   55 May 28 02:37 elemental-setup-network.service -> /usr/lib/systemd/system/elemental-setup-network.service
+lrwxrwxrwx.  1 root root   57 May 28 02:37 elemental-setup-reconcile.service -> /usr/lib/systemd/system/elemental-setup-reconcile.service
+lrwxrwxrwx.  1 root root   55 May 28 02:37 elemental-setup-reconcile.timer -> /usr/lib/systemd/system/elemental-setup-reconcile.timer
+lrwxrwxrwx.  1 root root   43 May 27 16:46 kbdsettings.service -> /usr/lib/systemd/system/kbdsettings.service
+lrwxrwxrwx.  1 root root   44 May 27 16:46 lvm2-monitor.service -> /usr/lib/systemd/system/lvm2-monitor.service
+lrwxrwxrwx.  1 root root   48 Jun 12 10:45 rancher-system-agent.service -> /etc/systemd/system/rancher-system-agent.service
+lrwxrwxrwx   1 root root   40 Jun 12 10:35 rancherd.service -> /usr/lib/systemd/system/rancherd.service
+lrwxrwxrwx.  1 root root   40 May 27 16:46 remote-fs.target -> /usr/lib/systemd/system/remote-fs.target
+lrwxrwxrwx.  1 root root   39 Jun 12 10:47 rke2-server.service -> /etc/systemd/system/rke2-server.service
+lrwxrwxrwx.  1 root root   38 May 28 02:36 smartd.service -> /usr/lib/systemd/system/smartd.service
+lrwxrwxrwx.  1 root root   36 Jun  5 09:20 sshd.service -> /usr/lib/systemd/system/sshd.service
+lrwxrwxrwx.  1 root root   40 May 27 20:31 vmtoolsd.service -> /usr/lib/systemd/system/vmtoolsd.service
+
+/etc/systemd/system/network-online.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   58 May 27 16:46 NetworkManager-wait-online.service -> /usr/lib/systemd/system/NetworkManager-wait-online.service
+
+/etc/systemd/system/poweroff.target.requires:
+total 8
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx   1 root root   41 Jun 12 10:35 rke2-shutdown.service -> /etc/systemd/system/rke2-shutdown.service
+
+/etc/systemd/system/rancher-system-agent.service.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+-rw-r--r--.  1 root root  104 Jun 12 04:35 env.conf
+
+/etc/systemd/system/rancherd.service.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+-rw-r--r--.  1 root root   53 Jun 12 04:35 override.conf
+
+/etc/systemd/system/reboot.target.requires:
+total 8
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx   1 root root   41 Jun 12 10:35 rke2-shutdown.service -> /etc/systemd/system/rke2-shutdown.service
+
+/etc/systemd/system/remote-fs.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 27 20:31 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   37 May 27 20:31 iscsi.service -> /usr/lib/systemd/system/iscsi.service
+
+/etc/systemd/system/rke2-agent.service.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+-rw-r--r--.  1 root root  188 Jun 12 04:35 override.conf
+
+/etc/systemd/system/rke2-server.service.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+-rw-r--r--.  1 root root  189 Jun 12 04:35 override.conf
+
+/etc/systemd/system/shutdown.target.requires:
+total 8
+drwxr-xr-x   2 root root 4096 Jun 12 10:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx   1 root root   41 Jun 12 10:35 rke2-shutdown.service -> /etc/systemd/system/rke2-shutdown.service
+
+/etc/systemd/system/shutdown.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   51 May 27 16:46 shutdown-containerd.service -> /usr/lib/systemd/system/shutdown-containerd.service
+
+/etc/systemd/system/sockets.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 Jun 12 10:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   39 May 27 16:46 dm-event.socket -> /usr/lib/systemd/system/dm-event.socket
+lrwxrwxrwx.  1 root root   37 May 27 20:31 iscsid.socket -> /usr/lib/systemd/system/iscsid.socket
+
+/etc/systemd/system/sysinit.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 Jun 12 10:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   50 May 28 02:37 elemental-setup-fs.service -> /usr/lib/systemd/system/elemental-setup-fs.service
+lrwxrwxrwx.  1 root root   44 May 27 16:46 lvm2-lvmpolld.socket -> /usr/lib/systemd/system/lvm2-lvmpolld.socket
+lrwxrwxrwx.  1 root root   46 May 27 16:46 systemd-pstore.service -> /usr/lib/systemd/system/systemd-pstore.service
+lrwxrwxrwx   1 root root   54 Jun 12 10:35 systemd-time-wait-sync.service -> /usr/lib/systemd/system/systemd-time-wait-sync.service
+lrwxrwxrwx.  1 root root   49 May 27 16:46 systemd-timesyncd.service -> /usr/lib/systemd/system/systemd-timesyncd.service
+
+/etc/systemd/system/systemd-time-wait-sync.service.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Jun 12 04:35 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+-rw-r--r--.  1 root root   30 Jun 12 04:35 override.conf
+
+/etc/systemd/system/timers.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 28 02:37 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   43 May 27 16:46 btrfs-balance.timer -> /usr/lib/systemd/system/btrfs-balance.timer
+lrwxrwxrwx.  1 root root   42 May 27 16:46 btrfs-defrag.timer -> /usr/lib/systemd/system/btrfs-defrag.timer
+lrwxrwxrwx.  1 root root   41 May 27 16:46 btrfs-scrub.timer -> /usr/lib/systemd/system/btrfs-scrub.timer
+lrwxrwxrwx.  1 root root   40 May 27 16:46 btrfs-trim.timer -> /usr/lib/systemd/system/btrfs-trim.timer
+lrwxrwxrwx.  1 root root   36 May 27 16:46 fstrim.timer -> /usr/lib/systemd/system/fstrim.timer
+lrwxrwxrwx.  1 root root   39 May 27 16:46 logrotate.timer -> /usr/lib/systemd/system/logrotate.timer
+lrwxrwxrwx.  1 root root   45 May 27 16:46 snapper-cleanup.timer -> /usr/lib/systemd/system/snapper-cleanup.timer
+lrwxrwxrwx.  1 root root   46 May 27 16:46 snapper-timeline.timer -> /usr/lib/systemd/system/snapper-timeline.timer
+
+/etc/systemd/system/umount.target.wants:
+total 8
+drwxr-xr-x.  2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   51 May 27 16:46 shutdown-containerd.service -> /usr/lib/systemd/system/shutdown-containerd.service
+
+/etc/systemd/system/vmtoolsd.service.requires:
+total 8
+drwxr-xr-x.  2 root root 4096 May 27 20:31 .
+drwxr-xr-x. 31 root root 4096 Jun 12 10:47 ..
+lrwxrwxrwx.  1 root root   39 May 27 20:31 vgauthd.service -> /usr/lib/systemd/system/vgauthd.service
+
+/etc/systemd/system.conf.d:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/timesyncd.conf.d:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+/etc/systemd/user:
+total 16
+drwxr-xr-x.  4 root root 4096 May 27 16:46 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+drwxr-xr-x.  2 root root 4096 May 27 16:46 basic.target.wants
+lrwxrwxrwx.  1 root root   41 May 27 16:45 dbus.service -> /usr/lib/systemd/user/dbus-broker.service
+drwxr-xr-x.  2 root root 4096 May 27 16:46 timers.target.wants
+
+/etc/systemd/user/basic.target.wants:
+total 8
+drwxr-xr-x. 2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 4 root root 4096 May 27 16:46 ..
+lrwxrwxrwx. 1 root root   52 May 27 16:46 systemd-tmpfiles-setup.service -> /usr/lib/systemd/user/systemd-tmpfiles-setup.service
+
+/etc/systemd/user/timers.target.wants:
+total 8
+drwxr-xr-x. 2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 4 root root 4096 May 27 16:46 ..
+lrwxrwxrwx. 1 root root   50 May 27 16:46 systemd-tmpfiles-clean.timer -> /usr/lib/systemd/user/systemd-tmpfiles-clean.timer
+
+/etc/systemd/user.conf.d:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 13 root root 4096 Jun 12 10:47 ..
+
+#==[ Command ]======================================#
+# /bin/ls -alR /usr/lib/systemd/
+/usr/lib/systemd/:
+total 2116
+drwxr-xr-x. 24 root root   4096 Jun  5 09:20 .
+drwxr-xr-x. 42 root root   4096 Jun 12 04:35 ..
+drwxr-xr-x.  2 root root   4096 May 27 16:45 catalog
+-rw-r--r--.  1 root root   1037 Mar 16 13:10 coredump.conf
+-rw-r--r--.  1 root root   1429 Mar 16 13:10 journald.conf
+drwxr-xr-x.  2 root root   4096 May 28 02:36 journald.conf.d
+-rw-r--r--.  1 root root   1785 Mar 16 13:11 logind.conf
+drwxr-xr-x.  2 root root   4096 Apr 10  2024 logind.conf.d
+drwxr-xr-x.  2 root root   4096 May 27 16:46 network
+drwxr-xr-x.  2 root root   4096 May 27 16:46 ntp-units.d
+-rw-r--r--.  1 root root    879 Mar 16 13:10 pstore.conf
+drwxr-xr-x.  3 root root   4096 May 27 16:46 repart
+drwxr-xr-x.  2 root root   4096 May 27 16:45 rpm
+drwxr-xr-x.  2 root root   4096 May 27 20:31 scripts
+-rw-r--r--.  1 root root   1102 Mar 16 13:10 sleep.conf
+drwxr-xr-x. 35 root root  20480 Jun  5 09:20 system
+drwxr-xr-x.  2 root root   4096 Mar 16 13:11 system-environment-generators
+drwxr-xr-x.  2 root root   4096 May 28 02:36 system-generators
+drwxr-xr-x.  2 root root   4096 May 27 16:45 system-preset
+drwxr-xr-x.  2 root root   4096 May 27 20:31 system-shutdown
+drwxr-xr-x.  2 root root   4096 May 27 20:31 system-sleep
+-rw-r--r--.  1 root root   2345 Mar 16 13:11 system.conf
+drwxr-xr-x.  2 root root   4096 May 28 02:36 system.conf.d
+-rwxr-xr-x.  1 root root 121016 Mar 16 13:11 systemd
+-rwxr-xr-x.  1 root root  30904 Mar 16 13:11 systemd-backlight
+-rwxr-xr-x.  1 root root  18624 Mar 16 13:11 systemd-battery-check
+-rwxr-xr-x.  1 root root  22712 Mar 16 13:11 systemd-binfmt
+-rwxr-xr-x.  1 root root  14536 Mar 16 13:11 systemd-boot-check-no-failures
+-rwxr-xr-x.  1 root root  14448 Mar 16 13:11 systemd-cgroups-agent
+-rwxr-xr-x.  1 root root  71920 Mar 16 13:11 systemd-coredump
+lrwxrwxrwx.  1 root root     28 Mar 16 13:11 systemd-cryptsetup -> ../../bin/systemd-cryptsetup
+-rwxr-xr-x.  1 root root 149808 Mar 16 13:11 systemd-executor
+-rwxr-xr-x.  1 root root  26816 Mar 16 13:11 systemd-fsck
+-rwxr-xr-x.  1 root root  22712 Mar 16 13:11 systemd-growfs
+-rwxr-xr-x.  1 root root  26936 Mar 16 13:11 systemd-hibernate-resume
+-rwxr-xr-x.  1 root root  55504 Mar 16 13:11 systemd-hostnamed
+-rwxr-xr-x.  1 root root  22800 Mar 16 13:11 systemd-integritysetup
+-rwxr-xr-x.  1 root root 209904 Mar 16 13:11 systemd-journald
+-rwxr-xr-x.  1 root root  51408 Mar 16 13:11 systemd-localed
+-rwxr-xr-x.  1 root root 309576 Mar 16 13:11 systemd-logind
+-rwxr-xr-x.  1 root root  14448 Mar 16 13:11 systemd-makefs
+-rwxr-xr-x.  1 root root  18744 Mar 16 13:11 systemd-modules-load
+-rwxr-xr-x.  1 root root  51392 Mar 16 13:11 systemd-network-generator
+-rwxr-xr-x.  1 root root  22736 Mar 16 13:11 systemd-pstore
+-rwxr-xr-x.  1 root root  14568 Mar 16 13:11 systemd-quotacheck
+-rwxr-xr-x.  1 root root  26816 Mar 16 13:11 systemd-random-seed
+-rwxr-xr-x.  1 root root  18544 Mar 16 13:11 systemd-remount-fs
+-rwxr-xr-x.  1 root root  14456 Mar 16 13:11 systemd-reply-password
+-rwxr-xr-x.  1 root root  22712 Mar 16 13:11 systemd-rfkill
+-rwxr-xr-x.  1 root root  63680 Mar 16 13:11 systemd-shutdown
+-rwxr-xr-x.  1 root root  47288 Mar 16 13:11 systemd-sleep
+-rwxr-xr-x.  1 root root  30920 Mar 16 13:11 systemd-socket-proxyd
+-rwxr-xr-x.  1 root root  18624 Mar 16 13:11 systemd-sulogin-shell
+-rwxr-xr-x.  1 root root  22832 Mar 16 13:11 systemd-sysctl
+lrwxrwxrwx.  1 root root     41 Mar 16 13:11 systemd-sysroot-fstab-check -> system-generators/systemd-fstab-generator
+-rwxr-xr-x.  1 root root  18552 Mar 16 13:11 systemd-time-wait-sync
+-rwxr-xr-x.  1 root root  47312 Mar 16 13:11 systemd-timedated
+-rwxr-xr-x.  1 root root  63696 Mar 16 13:11 systemd-timesyncd
+lrwxrwxrwx.  1 root root     17 Mar 16 13:11 systemd-udevd -> ../../bin/udevadm
+drwxr-xr-x.  2 root root   4096 Apr 10  2024 systemd-udevd.service.d
+-rwxr-xr-x.  1 root root  14448 Mar 16 13:11 systemd-update-done
+-rwxr-xr-x.  1 root root   5939 Mar 16 13:11 systemd-update-helper
+-rwxr-xr-x.  1 root root  22720 Mar 16 13:11 systemd-user-runtime-dir
+-rwxr-xr-x.  1 root root  14448 Mar 16 13:11 systemd-user-sessions
+-rwxr-xr-x.  1 root root  26808 Mar 16 13:11 systemd-userdbd
+-rwxr-xr-x.  1 root root  30904 Mar 16 13:11 systemd-userwork
+-rwxr-xr-x.  1 root root  30840 Mar 16 13:11 systemd-vconsole-setup
+-rwxr-xr-x.  1 root root  27040 Mar 16 13:11 systemd-veritysetup
+-rwxr-xr-x.  1 root root  22640 Mar 16 13:11 systemd-volatile-root
+-rwxr-xr-x.  1 root root  14464 Mar 16 13:11 systemd-xdg-autostart-condition
+-rw-r--r--.  1 root root   1056 Mar 16 13:11 timesyncd.conf
+drwxr-xr-x.  2 root root   4096 Apr 10  2024 timesyncd.conf.d
+drwxr-xr-x.  4 root root   4096 May 28 02:36 user
+drwxr-xr-x.  2 root root   4096 May 27 16:45 user-environment-generators
+drwxr-xr-x.  2 root root   4096 May 28 02:36 user-generators
+drwxr-xr-x.  2 root root   4096 May 27 16:45 user-preset
+-rw-r--r--.  1 root root   1771 Mar 16 13:11 user.conf
+drwxr-xr-x.  2 root root   4096 Apr 10  2024 user.conf.d
+
+/usr/lib/systemd/catalog:
+total 52
+drwxr-xr-x.  2 root root  4096 May 27 16:45 .
+drwxr-xr-x. 24 root root  4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  4246 Apr 12  2024 dbus-broker-launch.catalog
+-rw-r--r--.  1 root root  2355 Apr 12  2024 dbus-broker.catalog
+-rw-r--r--.  1 root root 31829 Mar 16 13:11 systemd.catalog
+
+/usr/lib/systemd/journald.conf.d:
+total 16
+drwxr-xr-x.  2 root root 4096 May 28 02:36 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  369 Apr 10  2024 20-defaults-SUSE.conf
+-rw-r--r--.  1 root root  313 Apr 10  2024 26-defaults-SLE-Micro.conf
+
+/usr/lib/systemd/logind.conf.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Apr 10  2024 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   35 Apr 10  2024 25-defaults-SLE.conf
+
+/usr/lib/systemd/network:
+total 12
+drwxr-xr-x.  2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  504 Mar 16 13:10 99-default.link
+
+/usr/lib/systemd/ntp-units.d:
+total 12
+drwxr-xr-x.  2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  116 Mar 16 13:10 80-systemd-timesync.list
+
+/usr/lib/systemd/repart:
+total 12
+drwxr-xr-x.  3 root root 4096 May 27 16:46 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+drwxr-xr-x.  5 root root 4096 May 27 16:46 definitions
+
+/usr/lib/systemd/repart/definitions:
+total 20
+drwxr-xr-x. 5 root root 4096 May 27 16:46 .
+drwxr-xr-x. 3 root root 4096 May 27 16:46 ..
+drwxr-xr-x. 2 root root 4096 May 27 16:46 confext.repart.d
+drwxr-xr-x. 2 root root 4096 May 27 16:46 portable.repart.d
+drwxr-xr-x. 2 root root 4096 May 27 16:46 sysext.repart.d
+
+/usr/lib/systemd/repart/definitions/confext.repart.d:
+total 20
+drwxr-xr-x. 2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 5 root root 4096 May 27 16:46 ..
+-rw-r--r--. 1 root root  437 Mar 16 13:10 10-root.conf
+-rw-r--r--. 1 root root  415 Mar 16 13:10 20-root-verity.conf
+-rw-r--r--. 1 root root  410 Mar 16 13:10 30-root-verity-sig.conf
+
+/usr/lib/systemd/repart/definitions/portable.repart.d:
+total 20
+drwxr-xr-x. 2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 5 root root 4096 May 27 16:46 ..
+-rw-r--r--. 1 root root  433 Mar 16 13:10 10-root.conf
+-rw-r--r--. 1 root root  415 Mar 16 13:10 20-root-verity.conf
+-rw-r--r--. 1 root root  410 Mar 16 13:10 30-root-verity-sig.conf
+
+/usr/lib/systemd/repart/definitions/sysext.repart.d:
+total 20
+drwxr-xr-x. 2 root root 4096 May 27 16:46 .
+drwxr-xr-x. 5 root root 4096 May 27 16:46 ..
+-rw-r--r--. 1 root root  453 Mar 16 13:10 10-root.conf
+-rw-r--r--. 1 root root  415 Mar 16 13:10 20-root-verity.conf
+-rw-r--r--. 1 root root  410 Mar 16 13:10 30-root-verity-sig.conf
+
+/usr/lib/systemd/rpm:
+total 12
+drwxr-xr-x.  2 root root 4096 May 27 16:45 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rwxr-xr-x.  1 root root 1145 Mar 16 13:11 fixlet-systemd-post.sh
+
+/usr/lib/systemd/scripts:
+total 12
+drwxr-xr-x.  2 root root 4096 May 27 20:31 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rwxr-xr-x.  1 root root  395 Mar 10 20:38 scsi-enable-target-scan.sh
+
+/usr/lib/systemd/system:
+total 1524
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 .
+drwxr-xr-x. 24 root root  4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   696 Sep 22  2025 NetworkManager-dispatcher.service
+-rw-r--r--.  1 root root  1360 Sep 22  2025 NetworkManager-wait-online.service
+-rw-r--r--.  1 root root  1428 Sep 22  2025 NetworkManager.service
+drwxr-xr-x.  2 root root  4096 Sep 22  2025 NetworkManager.service.d
+-rw-r--r--.  1 root root   931 Oct  4  2024 audit-rules.service
+-rw-r--r--.  1 root root  1822 Oct  4  2024 auditd.service
+-rw-r--r--.  1 root root   721 Apr 10 09:48 auth-rpcgss-module.service
+lrwxrwxrwx.  1 root root    14 Mar 16 13:11 autovt@.service -> getty@.service
+-rw-r--r--.  1 root root  1417 Jan 13 04:23 avahi-daemon.service
+-rw-r--r--.  1 root root   870 Jan 13 04:23 avahi-daemon.socket
+-rw-r--r--.  1 root root  1324 Jan 13 04:23 avahi-dnsconfd.service
+-rw-r--r--.  1 root root   927 Mar 16 13:10 basic.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 basic.target.wants
+-rw-r--r--.  1 root root   384 Feb 10 00:34 blk-availability.service
+-rw-r--r--.  1 root root   519 Mar 16 13:10 blockdev@.target
+-rw-r--r--.  1 root root   435 Mar 16 13:10 bluetooth.target
+-rw-r--r--.  1 root root   463 Mar 16 13:10 boot-complete.target
+-rw-r--r--.  1 root root   442 Dec 15 15:13 boot-sysctl.service
+-rw-r--r--.  1 root root   280 Feb 10  2021 btrfs-balance.service
+-rw-r--r--.  1 root root   187 Feb 10  2021 btrfs-balance.timer
+-rw-r--r--.  1 root root   284 Feb 10  2021 btrfs-defrag.service
+-rw-r--r--.  1 root root   194 Feb 10  2021 btrfs-defrag.timer
+-rw-r--r--.  1 root root   255 Feb 10  2021 btrfs-scrub.service
+-rw-r--r--.  1 root root   189 Feb 10  2021 btrfs-scrub.timer
+-rw-r--r--.  1 root root   238 Feb 10  2021 btrfs-trim.service
+-rw-r--r--.  1 root root   183 Feb 10  2021 btrfs-trim.timer
+-rw-r--r--.  1 root root   147 Feb 10  2021 btrfsmaintenance-refresh.path
+-rw-r--r--.  1 root root   185 Feb 10  2021 btrfsmaintenance-refresh.service
+-rw-r--r--.  1 root root   352 Aug 21  2024 ca-certificates-setup.service
+-rw-r--r--.  1 root root   285 Aug 21  2024 ca-certificates.path
+-rw-r--r--.  1 root root   179 Aug 21  2024 ca-certificates.service
+-rw-r--r--.  1 root root   431 Mar 16 13:10 capsule.slice
+-rw-r--r--.  1 root root  1129 Mar 16 13:11 capsule@.service
+-rw-r--r--.  1 root root  1231 Mar 16 13:11 console-getty.service
+-rw-r--r--.  1 root root  1387 Mar 16 13:11 container-getty@.service
+-rw-r--r--.  1 root root   473 Mar 16 13:10 cryptsetup-pre.target
+-rw-r--r--.  1 root root   420 Mar 16 13:10 cryptsetup.target
+lrwxrwxrwx.  1 root root    13 Mar 16 13:11 ctrl-alt-del.target -> reboot.target
+-rw-r--r--.  1 root root   547 Feb 24 00:24 dbus-broker.service
+drwxr-xr-x.  2 root root  4096 May 27 16:45 dbus-broker.service.d
+lrwxrwxrwx.  1 root root    22 Jul 25  2025 dbus-fi.epitest.hostap.WPASupplicant.service -> wpa_supplicant.service
+lrwxrwxrwx.  1 root root    22 Jul 25  2025 dbus-fi.w1.wpa_supplicant1.service -> wpa_supplicant.service
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 dbus-org.freedesktop.hostname1.service -> systemd-hostnamed.service
+lrwxrwxrwx.  1 root root    23 Mar 16 13:11 dbus-org.freedesktop.locale1.service -> systemd-localed.service
+lrwxrwxrwx.  1 root root    22 Mar 16 13:11 dbus-org.freedesktop.login1.service -> systemd-logind.service
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 dbus-org.freedesktop.timedate1.service -> systemd-timedated.service
+-rw-r--r--.  1 root root   147 Oct 16  2024 dbus.socket
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 dbus.target.wants
+-rw-r--r--.  1 root root  1102 Mar 16 13:11 debug-shell.service
+lrwxrwxrwx.  1 root root    16 Mar 16 13:11 default.target -> graphical.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 default.target.wants
+-rw-r--r--.  1 root root   746 Mar 16 13:10 dev-hugepages.mount
+-rw-r--r--.  1 root root   672 Mar 16 13:10 dev-mqueue.mount
+-r--r--r--.  1 root root   345 Feb 10 00:34 dm-event.service
+-r--r--r--.  1 root root   248 Feb 10 00:34 dm-event.socket
+lrwxrwxrwx.  1 root root    62 Dec 29 14:43 dracut-cmdline.service -> ../../dracut/modules.d/98dracut-systemd/dracut-cmdline.service
+lrwxrwxrwx.  1 root root    64 Dec 29 14:43 dracut-initqueue.service -> ../../dracut/modules.d/98dracut-systemd/dracut-initqueue.service
+lrwxrwxrwx.  1 root root    60 Dec 29 14:43 dracut-mount.service -> ../../dracut/modules.d/98dracut-systemd/dracut-mount.service
+lrwxrwxrwx.  1 root root    64 Dec 29 14:43 dracut-pre-mount.service -> ../../dracut/modules.d/98dracut-systemd/dracut-pre-mount.service
+lrwxrwxrwx.  1 root root    64 Dec 29 14:43 dracut-pre-pivot.service -> ../../dracut/modules.d/98dracut-systemd/dracut-pre-pivot.service
+lrwxrwxrwx.  1 root root    66 Dec 29 14:43 dracut-pre-trigger.service -> ../../dracut/modules.d/98dracut-systemd/dracut-pre-trigger.service
+lrwxrwxrwx.  1 root root    63 Dec 29 14:43 dracut-pre-udev.service -> ../../dracut/modules.d/98dracut-systemd/dracut-pre-udev.service
+lrwxrwxrwx.  1 root root    73 Dec 29 14:43 dracut-shutdown-onfailure.service -> ../../dracut/modules.d/98dracut-systemd/dracut-shutdown-onfailure.service
+lrwxrwxrwx.  1 root root    63 Dec 29 14:43 dracut-shutdown.service -> ../../dracut/modules.d/98dracut-systemd/dracut-shutdown.service
+-rw-r--r--.  1 root root   196 Jun  5 09:27 elemental-setup-boot.service
+-rw-r--r--.  1 root root   261 Jun  5 09:27 elemental-setup-fs.service
+-rw-r--r--.  1 root root   352 Jun  5 09:27 elemental-setup-initramfs.service
+-rw-r--r--.  1 root root   319 Jun  5 09:27 elemental-setup-network.service
+-rw-r--r--.  1 root root   293 Jun  5 09:27 elemental-setup-reconcile.service
+-rw-r--r--.  1 root root   169 Jun  5 09:27 elemental-setup-reconcile.timer
+-rw-r--r--.  1 root root   352 Jun  5 09:27 elemental-setup-rootfs.service
+-rw-r--r--.  1 root root   804 Mar 16 13:11 emergency.service
+-rw-r--r--.  1 root root   479 Mar 16 13:10 emergency.target
+-rw-r--r--.  1 root root   327 Apr 28 13:12 exchange-bmc-os-info.service
+-rw-r--r--.  1 root root   597 Mar 16 13:10 exit.target
+-rw-r--r--.  1 root root   410 Mar 16 13:10 factory-reset.target
+-rw-r--r--.  1 root root   516 Jan 13  2024 fancontrol.service
+-rw-r--r--.  1 root root   620 Feb 26  2024 fcoe.service
+-rw-r--r--.  1 root root   163 Feb 26  2024 fcoemon.socket
+-rw-r--r--.  1 root root   500 Mar 16 13:10 final.target
+-rw-r--r--.  1 root root   461 Mar 16 13:10 first-boot-complete.target
+-rw-r--r--.  1 root root   199 Apr 10 09:48 fsidd.service
+-rw-r--r--.  1 root root   481 Mar 23 05:02 fstrim.service
+-rw-r--r--.  1 root root   283 Mar 23 05:02 fstrim.timer
+-rw-r--r--.  1 root root   518 Mar 16 13:10 getty-pre.target
+-rw-r--r--.  1 root root   509 Mar 16 13:10 getty.target
+-rw-r--r--.  1 root root  2090 Mar 16 13:11 getty@.service
+drwxr-xr-x.  2 root root  4096 May 28 02:36 getty@tty1.service.d
+-rw-r--r--.  1 root root   606 Mar 16 13:10 graphical.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 graphical.target.wants
+-rw-r--r--.  1 root root   458 Apr 13 07:12 grub2-once.service
+-rw-r--r--.  1 root root   590 Mar 16 13:10 halt.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 halt.target.wants
+-rw-r--r--.  1 root root   526 Mar 16 13:10 hibernate.target
+-rw-r--r--.  1 root root   538 Mar 16 13:10 hybrid-sleep.target
+-rw-r--r--.  1 root root   697 Mar 16 13:10 initrd-cleanup.service
+-rw-r--r--.  1 root root   598 Mar 16 13:10 initrd-fs.target
+-rw-r--r--.  1 root root  1116 Mar 16 13:11 initrd-parse-etc.service
+-rw-r--r--.  1 root root   566 Mar 16 13:10 initrd-root-device.target
+drwxr-xr-x.  2 root root  4096 May 27 16:46 initrd-root-device.target.wants
+-rw-r--r--.  1 root root   571 Mar 16 13:10 initrd-root-fs.target
+drwxr-xr-x.  2 root root  4096 May 27 16:46 initrd-root-fs.target.wants
+-rw-r--r--.  1 root root   614 Mar 16 13:10 initrd-switch-root.service
+-rw-r--r--.  1 root root   779 Mar 16 13:10 initrd-switch-root.target
+-rw-r--r--.  1 root root   823 Mar 16 13:10 initrd-udevadm-cleanup-db.service
+-rw-r--r--.  1 root root   571 Mar 16 13:10 initrd-usr-fs.target
+-rw-r--r--.  1 root root   810 Mar 16 13:10 initrd.target
+drwxr-xr-x.  2 root root  4096 May 27 16:46 initrd.target.wants
+-rw-r--r--.  1 root root   487 Mar 16 13:10 integritysetup-pre.target
+-rw-r--r--.  1 root root   430 Mar 16 13:10 integritysetup.target
+-rw-r--r--.  1 root root   236 Apr 28 13:12 ipmievd.service
+-rw-r--r--.  1 root root   558 Mar 11 21:11 iscsi-init.service
+-rw-r--r--.  1 root root   595 Mar 11 21:11 iscsi.service
+-rw-r--r--.  1 root root   461 Mar 11 21:11 iscsid.service
+-rw-r--r--.  1 root root   175 Mar 11 20:24 iscsid.socket
+-rw-r--r--.  1 root root   260 Sep  8  2022 isnsd.service
+-rw-r--r--.  1 root root   123 Sep  8  2022 isnsd.socket
+-rw-r--r--.  1 root root   221 Jun 18  2024 issue-add-ssh-keys.service
+-rw-r--r--.  1 root root   230 Jun 18  2024 issue-generator.path
+-rw-r--r--.  1 root root   189 Jun 18  2024 issue-generator.service
+-rw-r--r--.  1 root root   345 Mar 29  2025 kbdsettings.service
+-rw-r--r--.  1 root root   242 Apr  1 14:15 kdump-commandline.service
+-rw-r--r--.  1 root root   336 Apr  1 14:15 kdump-early.service
+-rw-r--r--.  1 root root   202 Apr  1 14:15 kdump-notify.service
+-rw-r--r--.  1 root root   430 Apr  1 14:15 kdump.service
+-rw-r--r--.  1 root root   400 Dec 15 15:13 kernel-sysctl.service
+-rw-r--r--.  1 root root   257 Jan 22  2025 kexec-load.service
+-rw-r--r--.  1 root root   598 Mar 16 13:10 kexec.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 kexec.target.wants
+-rw-r--r--.  1 root root   745 Mar 16 13:11 kmod-static-nodes.service
+-rw-r--r--.  1 root root   281 Jan 14  2024 lldpad.service
+-rw-r--r--.  1 root root   163 Jan 14  2024 lldpad.socket
+-rw-r--r--.  1 root root   611 Jan 13  2024 lm_sensors.service
+-rw-r--r--.  1 root root   453 Mar 16 13:10 local-fs-pre.target
+-rw-r--r--.  1 root root   556 Mar 16 13:10 local-fs.target
+drwxr-xr-x.  2 root root  4096 May 27 16:45 local-fs.target.wants
+-rw-r--r--.  1 root root   877 Jan 22  2025 logrotate.service
+-rw-r--r--.  1 root root   198 Jan 22  2025 logrotate.timer
+-rw-r--r--.  1 root root   238 Mar 10 20:38 lunmask.service
+-rw-r--r--.  1 root root   298 Dec  9  2024 lvm-devices-import.path
+-rw-r--r--.  1 root root   232 Dec  9  2024 lvm-devices-import.service
+-rw-r--r--.  1 root root   327 Feb 10 00:34 lvm2-lvmpolld.service
+-rw-r--r--.  1 root root   239 Feb 10 00:34 lvm2-lvmpolld.socket
+-rw-r--r--.  1 root root   462 Feb 10 00:34 lvm2-monitor.service
+-rw-r--r--.  1 root root   498 Mar  4 15:46 mdadm-grow-continue@.service
+-rw-r--r--.  1 root root   241 Mar  4 15:46 mdadm-last-resort@.service
+-rw-r--r--.  1 root root   179 Mar  4 15:46 mdadm-last-resort@.timer
+-rw-r--r--.  1 root root   734 Mar  4 15:46 mdcheck_continue.service
+-rw-r--r--.  1 root root   400 Mar  4 15:46 mdcheck_continue.timer
+-rw-r--r--.  1 root root   441 Mar  4 15:46 mdcheck_start.service
+-rw-r--r--.  1 root root   423 Mar  4 15:46 mdcheck_start.timer
+-rw-r--r--.  1 root root  1174 Mar  4 15:46 mdmon@.service
+-rw-r--r--.  1 root root   556 Mar  4 15:46 mdmonitor-oneshot.service
+-rw-r--r--.  1 root root   398 Mar  4 15:46 mdmonitor-oneshot.timer
+-rw-r--r--.  1 root root   556 Mar  4 15:46 mdmonitor.service
+-rw-r--r--.  1 root root   573 Mar 16 13:10 modprobe@.service
+-rw-r--r--.  1 root root   540 Mar 16 13:10 multi-user.target
+drwxr-xr-x.  2 root root  4096 May 27 16:45 multi-user.target.wants
+-rw-r--r--.  1 root root   226 Jan 26 20:47 multipathd-queueing.service
+-rw-r--r--.  1 root root   865 Jan 26 20:47 multipathd.service
+-rw-r--r--.  1 root root   438 Jan 26 20:47 multipathd.socket
+-rw-r--r--.  1 root root   252 Mar 19  2025 netavark-dhcp-proxy.service
+-rw-r--r--.  1 root root   144 Mar 19  2025 netavark-dhcp-proxy.socket
+-rw-r--r--.  1 root root   418 Mar 19  2025 netavark-firewalld-reload.service
+-rw-r--r--.  1 root root   483 Mar 16 13:10 network-online.target
+-rw-r--r--.  1 root root   490 Mar 16 13:10 network-pre.target
+-rw-r--r--.  1 root root   499 Mar 16 13:10 network.target
+-rw-r--r--.  1 root root   320 Apr 10 09:48 nfs-blkmap.service
+-rw-r--r--.  1 root root   433 Apr 10 09:48 nfs-client.target
+-rw-r--r--.  1 root root   300 Apr 10 09:48 nfs-idmapd.service
+-rw-r--r--.  1 root root   319 Apr 10 09:48 nfs-mountd.service
+drwxr-xr-x.  2 root root  4096 May 28 02:36 nfs-mountd.service.d
+-rw-r--r--.  1 root root  1049 Apr 10 09:48 nfs-server.service
+drwxr-xr-x.  2 root root  4096 May 28 02:36 nfs-server.service.d
+-rw-r--r--.  1 root root   567 Apr 10 09:48 nfs-utils.service
+-rw-r--r--.  1 root root   292 Apr 10 09:48 nfsdcld.service
+-rw-r--r--.  1 root root   597 Apr 22  2025 nftables.service
+-rw-r--r--.  1 root root   802 May 20 09:11 nginx.service
+-rw-r--r--.  1 root root   392 Dec 27  2022 nis-domainname.service
+-rw-r--r--.  1 root root  2119 Sep 22  2025 nm-priv-helper.service
+-rw-r--r--.  1 root root   562 Mar 16 13:10 nss-lookup.target
+-rw-r--r--.  1 root root   521 Mar 16 13:10 nss-user-lookup.target
+-rw-r--r--.  1 root root   628 Feb 16 15:30 nvmefc-boot-connections.service
+-rw-r--r--.  1 root root   685 Feb 16 15:30 nvmf-autoconnect.service
+-rw-r--r--.  1 root root   778 Feb 16 15:30 nvmf-connect-nbft.service
+-rw-r--r--.  1 root root    60 Feb 16 15:30 nvmf-connect.target
+-rw-r--r--.  1 root root   710 Feb 16 15:30 nvmf-connect@.service
+-rw-r--r--.  1 root root   331 Aug 19  2025 pam_namespace.service
+-rw-r--r--.  1 root root   407 Mar 16 13:10 paths.target
+-rw-r--r--.  1 root root   607 Mar 16 13:10 poweroff.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 poweroff.target.wants
+-rw-r--r--.  1 root root   433 Mar 16 13:10 printer.target
+-rw-r--r--.  1 root root    98 Apr 10 09:48 proc-fs-nfsd.mount
+-rw-r--r--.  1 root root   760 Mar 16 13:10 proc-sys-fs-binfmt_misc.automount
+-rw-r--r--.  1 root root   682 Mar 16 13:10 proc-sys-fs-binfmt_misc.mount
+-rw-r--r--.  1 root root   398 Apr 10 08:23 qemu-guest-agent.service
+-rw-r--r--.  1 root root   666 Mar 16 13:11 quotaon-root.service
+-rw-r--r--.  1 root root   708 Mar 16 13:11 quotaon@.service
+-rw-r--r--.  1 root root   584 Jun  5 09:20 rancherd.service
+-rw-r--r--.  1 root root   594 Apr  3  2025 rdma-hw.target
+-rw-r--r--.  1 root root  1069 Apr  3  2025 rdma-load-modules@.service
+-rw-r--r--.  1 root root   598 Mar 16 13:10 reboot.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 reboot.target.wants
+-rw-r--r--.  1 root root   557 Mar 16 13:10 remote-cryptsetup.target
+-rw-r--r--.  1 root root   454 Mar 16 13:10 remote-fs-pre.target
+-rw-r--r--.  1 root root   530 Mar 16 13:10 remote-fs.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 remote-fs.target.wants
+-rw-r--r--.  1 root root   565 Mar 16 13:10 remote-veritysetup.target
+-rw-r--r--.  1 root root   108 Dec 15 15:13 remount-tmpfs.service
+-rw-r--r--.  1 root root   795 Mar 16 13:11 rescue.service
+-rw-r--r--.  1 root root   500 Mar 16 13:10 rescue.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 rescue.target.wants
+-rw-r--r--.  1 root root   311 Apr 10 09:48 rpc-gssd.service
+drwxr-xr-x.  2 root root  4096 May 27 20:31 rpc-gssd.service.d
+-rw-r--r--.  1 root root   435 Apr 10 09:48 rpc-statd-notify.service
+drwxr-xr-x.  2 root root  4096 May 27 20:31 rpc-statd-notify.service.d
+-rw-r--r--.  1 root root   461 Apr 10 09:48 rpc-statd.service
+drwxr-xr-x.  2 root root  4096 May 27 20:31 rpc-statd.service.d
+-rw-r--r--.  1 root root   391 Apr 10 09:48 rpc-svcgssd.service
+drwxr-xr-x.  2 root root  4096 May 27 20:31 rpc-svcgssd.service.d
+-rw-r--r--.  1 root root    80 Apr 10 09:48 rpc_pipefs.target
+-rw-r--r--.  1 root root   874 Feb 17  2025 rpcbind.service
+-rw-r--r--.  1 root root   400 Feb 17  2025 rpcbind.socket
+-rw-r--r--.  1 root root   548 Mar 16 13:10 rpcbind.target
+-rw-r--r--.  1 root root   193 Jun  2  2025 rpmconfigcheck.service
+-rw-r--r--.  1 root root   568 May  7 16:06 rsyncd.service
+-rw-r--r--.  1 root root   138 May  7 16:06 rsyncd.socket
+-rw-r--r--.  1 root root   252 May  7 16:06 rsyncd@.service
+-rw-r--r--.  1 root root  1655 Mar 16 13:11 serial-getty@.service
+-rw-r--r--.  1 root root   584 Apr  9  2025 shadow.service
+-rw-r--r--.  1 root root   124 Apr  9  2025 shadow.timer
+-rw-r--r--.  1 root root   457 Mar 16 13:10 shutdown.target
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 shutdown.target.wants
+-rw-r--r--.  1 root root   410 Mar 16 13:10 sigpwr.target
+-rw-r--r--.  1 root root   468 Mar 16 13:10 sleep.target
+-rw-r--r--.  1 root root   462 Mar 16 13:10 slices.target
+-rw-r--r--.  1 root root   428 Mar 16 13:10 smartcard.target
+-rw-r--r--.  1 root root   813 Nov  8  2025 smartd.service
+-rw-r--r--.  1 root root   210 Nov  8  2025 smartd_generate_opts.path
+-rw-r--r--.  1 root root   485 Nov  8  2025 smartd_generate_opts.service
+-rw-r--r--.  1 root root   529 Dec 17  2024 snapper-boot.service
+-rw-r--r--.  1 root root   112 Dec 17  2024 snapper-boot.timer
+-rw-r--r--.  1 root root   535 Dec 17  2024 snapper-cleanup.service
+-rw-r--r--.  1 root root   184 Dec 17  2024 snapper-cleanup.timer
+-rw-r--r--.  1 root root   483 Dec 17  2024 snapper-timeline.service
+-rw-r--r--.  1 root root   164 Dec 17  2024 snapper-timeline.timer
+-rw-r--r--.  1 root root   449 Dec 17  2024 snapperd.service
+-rw-r--r--.  1 root root   409 Mar 16 13:10 sockets.target
+drwxr-xr-x.  2 root root  4096 May 27 16:46 sockets.target.wants
+-rw-r--r--.  1 root root   346 Feb 10 09:26 soft-reboot-cleanup.service
+-rw-r--r--.  1 root root   586 Mar 16 13:10 soft-reboot.target
+-rw-r--r--.  1 root root   428 Mar 16 13:10 sound.target
+-rw-r--r--.  1 root root   438 Mar 16 13:10 ssh-access.target
+-rw-r--r--.  1 root root   394 May 11 15:49 sshd.service
+-rw-r--r--.  1 root root   137 May 11 15:49 sshd.socket
+-rw-r--r--.  1 root root   326 May 11 15:49 sshd@.service
+-rw-r--r--.  1 root root   585 Mar 16 13:10 suspend-then-hibernate.target
+-rw-r--r--.  1 root root   511 Mar 16 13:10 suspend.target
+-rw-r--r--.  1 root root   402 Mar 16 13:10 swap.target
+-rw-r--r--.  1 root root  1117 Mar 16 13:10 sys-fs-fuse-connections.mount
+-rw-r--r--.  1 root root  1082 Mar 16 13:10 sys-kernel-config.mount
+-rw-r--r--.  1 root root   701 Mar 16 13:10 sys-kernel-debug.mount
+-rw-r--r--.  1 root root   727 Mar 16 13:10 sys-kernel-tracing.mount
+-rw-r--r--.  1 root root   574 Mar 16 13:10 sysinit.target
+drwxr-xr-x.  2 root root  4096 May 27 16:46 sysinit.target.wants
+-rw-r--r--.  1 root root  1353 Mar 16 13:10 syslog.socket
+-rw-r--r--.  1 root root   389 Aug  8  2024 sysstat-collect.service
+-rw-r--r--.  1 root root   325 Aug  8  2024 sysstat-collect.timer
+-rw-r--r--.  1 root root   408 Aug  8  2024 sysstat-rotate.service
+-rw-r--r--.  1 root root   333 Aug  8  2024 sysstat-rotate.timer
+-rw-r--r--.  1 root root   369 Aug  8  2024 sysstat-summary.service
+-rw-r--r--.  1 root root   356 Aug  8  2024 sysstat-summary.timer
+-rw-r--r--.  1 root root   926 Aug  8  2024 sysstat.service
+-rw-r--r--.  1 root root   468 Mar 16 13:10 system-systemd\x2dcryptsetup.slice
+-rw-r--r--.  1 root root   463 Mar 16 13:10 system-systemd\x2dveritysetup.slice
+-rw-r--r--.  1 root root  1525 Mar 16 13:10 system-update-cleanup.service
+-rw-r--r--.  1 root root   551 Mar 16 13:10 system-update-pre.target
+-rw-r--r--.  1 root root   625 Mar 16 13:10 system-update.target
+-rw-r--r--.  1 root root   771 Mar 16 13:10 systemd-ask-password-console.path
+-rw-r--r--.  1 root root   834 Mar 16 13:10 systemd-ask-password-console.service
+-rw-r--r--.  1 root root   695 Mar 16 13:10 systemd-ask-password-wall.path
+-rw-r--r--.  1 root root   747 Mar 16 13:10 systemd-ask-password-wall.service
+-rw-r--r--.  1 root root   777 Mar 16 13:11 systemd-backlight@.service
+-rw-r--r--.  1 root root   908 Mar 16 13:11 systemd-battery-check.service
+-rw-r--r--.  1 root root  1184 Mar 16 13:11 systemd-binfmt.service
+-rw-r--r--.  1 root root   681 Mar 16 13:11 systemd-boot-check-no-failures.service
+-rw-r--r--.  1 root root   596 Mar 16 13:10 systemd-bootctl.socket
+-rw-r--r--.  1 root root   532 Mar 16 13:10 systemd-bootctl@.service
+-rw-r--r--.  1 root root  1089 Mar 16 13:10 systemd-confext.service
+-rw-r--r--.  1 root root   643 Mar 16 13:10 systemd-coredump.socket
+-rw-r--r--.  1 root root  1164 Mar 16 13:11 systemd-coredump@.service
+-rw-r--r--.  1 root root   612 Mar 16 13:10 systemd-creds.socket
+-rw-r--r--.  1 root root   587 Mar 16 13:10 systemd-creds@.service
+-rw-r--r--.  1 root root   564 Mar 16 13:10 systemd-exit.service
+-rw-r--r--.  1 root root  1552 Mar 16 13:10 systemd-firstboot.service
+-rw-r--r--.  1 root root   724 Mar 16 13:11 systemd-fsck-root.service
+-rw-r--r--.  1 root root   771 Mar 16 13:11 systemd-fsck@.service
+-rw-r--r--.  1 root root   667 Mar 16 13:11 systemd-growfs-root.service
+-rw-r--r--.  1 root root   664 Mar 16 13:11 systemd-growfs@.service
+-rw-r--r--.  1 root root   562 Mar 16 13:10 systemd-halt.service
+-rw-r--r--.  1 root root   782 Mar 16 13:11 systemd-hibernate-clear.service
+-rw-r--r--.  1 root root   666 Mar 16 13:11 systemd-hibernate-resume.service
+-rw-r--r--.  1 root root   562 Mar 16 13:11 systemd-hibernate.service
+-rw-r--r--.  1 root root  1224 Mar 16 13:11 systemd-hostnamed.service
+-rw-r--r--.  1 root root   593 Mar 16 13:10 systemd-hostnamed.socket
+-rw-r--r--.  1 root root   834 Mar 16 13:11 systemd-hwdb-update.service
+-rw-r--r--.  1 root root   583 Mar 16 13:11 systemd-hybrid-sleep.service
+-rw-r--r--.  1 root root   750 Mar 16 13:10 systemd-journal-catalog-update.service
+-rw-r--r--.  1 root root   943 Mar 16 13:10 systemd-journal-flush.service
+-rw-r--r--.  1 root root   724 Mar 16 13:10 systemd-journald-audit.socket
+-rw-r--r--.  1 root root  1182 Mar 16 13:10 systemd-journald-dev-log.socket
+-rw-r--r--.  1 root root   880 Mar 16 13:10 systemd-journald-sync@.service
+-rw-r--r--.  1 root root   605 Mar 16 13:10 systemd-journald-varlink@.socket
+-rw-r--r--.  1 root root  2833 Mar 16 13:11 systemd-journald.service
+-rw-r--r--.  1 root root   935 Mar 16 13:10 systemd-journald.socket
+-rw-r--r--.  1 root root  1458 Mar 16 13:11 systemd-journald@.service
+-rw-r--r--.  1 root root   782 Mar 16 13:10 systemd-journald@.socket
+-rw-r--r--.  1 root root   569 Mar 16 13:10 systemd-kexec.service
+-rw-r--r--.  1 root root  1194 Mar 16 13:11 systemd-localed.service
+-rw-r--r--.  1 root root  2088 Mar 16 13:11 systemd-logind.service
+drwxr-xr-x.  2 root root  4096 May 28 02:36 systemd-logind.service.d
+-rw-r--r--.  1 root root   744 Mar 16 13:10 systemd-machine-id-commit.service
+-rw-r--r--.  1 root root  1104 Mar 16 13:11 systemd-modules-load.service
+-rw-r--r--.  1 root root   893 Mar 16 13:11 systemd-network-generator.service
+-rw-r--r--.  1 root root   575 Mar 16 13:10 systemd-poweroff.service
+-rw-r--r--.  1 root root   815 Mar 16 13:11 systemd-pstore.service
+-rw-r--r--.  1 root root   712 Mar 16 13:11 systemd-quotacheck-root.service
+-rw-r--r--.  1 root root   732 Mar 16 13:11 systemd-quotacheck@.service
+-rw-r--r--.  1 root root  1187 Mar 16 13:11 systemd-random-seed.service
+-rw-r--r--.  1 root root   568 Mar 16 13:10 systemd-reboot.service
+-rw-r--r--.  1 root root   758 Mar 16 13:11 systemd-remount-fs.service
+-rw-r--r--.  1 root root  1255 Mar 16 13:10 systemd-repart.service
+-rw-r--r--.  1 root root   771 Mar 16 13:11 systemd-rfkill.service
+-rw-r--r--.  1 root root   776 Mar 16 13:10 systemd-rfkill.socket
+-rw-r--r--.  1 root root   588 Mar 16 13:10 systemd-soft-reboot.service
+-rw-r--r--.  1 root root   601 Mar 16 13:11 systemd-suspend-then-hibernate.service
+-rw-r--r--.  1 root root   556 Mar 16 13:11 systemd-suspend.service
+-rw-r--r--.  1 root root   731 Mar 16 13:11 systemd-sysctl.service
+drwxr-xr-x.  2 root root  4096 May 27 16:46 systemd-sysctl.service.d
+-rw-r--r--.  1 root root  1046 Mar 16 13:10 systemd-sysext.service
+-rw-r--r--.  1 root root   700 Mar 16 13:10 systemd-sysext.socket
+-rw-r--r--.  1 root root   612 Mar 16 13:10 systemd-sysext@.service
+-rw-r--r--.  1 root root  1310 Mar 16 13:10 systemd-sysusers.service
+-rw-r--r--.  1 root root  1209 Mar 16 13:11 systemd-time-wait-sync.service
+-rw-r--r--.  1 root root  1174 Mar 16 13:11 systemd-timedated.service
+-rw-r--r--.  1 root root  1777 Mar 16 13:11 systemd-timesyncd.service
+-rw-r--r--.  1 root root   747 Mar 16 13:10 systemd-tmpfiles-clean.service
+-rw-r--r--.  1 root root   539 Mar 16 13:10 systemd-tmpfiles-clean.timer
+-rw-r--r--.  1 root root   852 Mar 16 13:10 systemd-tmpfiles-setup-dev-early.service
+-rw-r--r--.  1 root root   877 Mar 16 13:10 systemd-tmpfiles-setup-dev.service
+-rw-r--r--.  1 root root  1003 Mar 16 13:10 systemd-tmpfiles-setup.service
+-rw-r--r--.  1 root root   832 Mar 16 13:10 systemd-udev-load-credentials.service
+-rw-r--r--.  1 root root   863 Mar 16 13:10 systemd-udev-settle.service
+-rw-r--r--.  1 root root   758 Mar 16 13:10 systemd-udev-trigger.service
+-rw-r--r--.  1 root root   650 Mar 16 13:10 systemd-udevd-control.socket
+-rw-r--r--.  1 root root   624 Mar 16 13:10 systemd-udevd-kernel.socket
+-rw-r--r--.  1 root root  1368 Mar 16 13:11 systemd-udevd.service
+-rw-r--r--.  1 root root   682 Mar 16 13:11 systemd-update-done.service
+-rw-r--r--.  1 root root   655 Mar 16 13:11 systemd-user-sessions.service
+-rw-r--r--.  1 root root  1204 Mar 16 13:11 systemd-userdbd.service
+-rw-r--r--.  1 root root   691 Mar 16 13:10 systemd-userdbd.socket
+-rw-r--r--.  1 root root  1196 Mar 16 13:11 systemd-vconsole-setup.service
+-rw-r--r--.  1 root root   743 Mar 16 13:11 systemd-volatile-root.service
+-rw-r--r--.  1 root root   434 Mar 16 13:10 time-set.target
+-rw-r--r--.  1 root root   487 Mar 16 13:10 time-sync.target
+-rw-r--r--.  1 root root   458 Mar 16 13:10 timers.target
+drwxr-xr-x.  2 root root  4096 May 27 16:45 timers.target.wants
+-rw-r--r--.  1 root root   769 Mar 16 13:10 tmp.mount
+-rw-r--r--.  1 root root   535 Mar 16 13:10 tpm2.target
+-rw-r--r--.  1 root root   465 Mar 16 13:10 umount.target
+-rw-r--r--.  1 root root   426 Mar 16 13:10 usb-gadget.target
+drwxr-xr-x.  2 root root  4096 Apr 10  2024 user-.slice.d
+-rw-r--r--.  1 root root   676 Mar 16 13:11 user-runtime-dir@.service
+-rw-r--r--.  1 root root   440 Mar 16 13:10 user.slice
+-rw-r--r--.  1 root root  1039 Mar 16 13:11 user@.service
+drwxr-xr-x.  2 root root  4096 May 28 02:36 user@.service.d
+drwxr-xr-x.  2 root root  4096 May 27 16:45 user@0.service.d
+-rw-r--r--.  1 root root   191 Apr 10 09:48 var-lib-nfs-rpc_pipefs.mount
+-rw-r--r--.  1 root root   481 Mar 16 13:10 veritysetup-pre.target
+-rw-r--r--.  1 root root   427 Mar 16 13:10 veritysetup.target
+-rw-r--r--.  1 root root   298 Jan 27 06:28 vgauthd.service
+-rw-r--r--.  1 root root   460 Jan 27 06:28 vmtoolsd.service
+-rw-r--r--.  1 root root   655 Jul 25  2025 wpa_supplicant.service
+-rw-r--r--.  1 root root   386 Jul 25  2025 wpa_supplicant@.service
+
+/usr/lib/systemd/system/NetworkManager.service.d:
+total 24
+drwxr-xr-x.  2 root root  4096 Sep 22  2025 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/basic.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/dbus-broker.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 27 16:45 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root    53 Feb 24 00:24 block-restart.conf
+
+/usr/lib/systemd/system/dbus.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/default.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/getty@tty1.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 28 02:36 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   355 Apr 10  2024 20-defaults-SUSE.conf
+
+/usr/lib/systemd/system/graphical.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/halt.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/initrd-root-device.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:46 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+lrwxrwxrwx.  1 root root    27 Mar 16 13:11 remote-cryptsetup.target -> ../remote-cryptsetup.target
+lrwxrwxrwx.  1 root root    28 Mar 16 13:11 remote-veritysetup.target -> ../remote-veritysetup.target
+
+/usr/lib/systemd/system/initrd-root-fs.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:46 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 systemd-repart.service -> ../systemd-repart.service
+
+/usr/lib/systemd/system/initrd.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:46 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+lrwxrwxrwx.  1 root root    25 Dec 29 14:43 dracut-cmdline.service -> ../dracut-cmdline.service
+lrwxrwxrwx.  1 root root    27 Dec 29 14:43 dracut-initqueue.service -> ../dracut-initqueue.service
+lrwxrwxrwx.  1 root root    23 Dec 29 14:43 dracut-mount.service -> ../dracut-mount.service
+lrwxrwxrwx.  1 root root    27 Dec 29 14:43 dracut-pre-mount.service -> ../dracut-pre-mount.service
+lrwxrwxrwx.  1 root root    27 Dec 29 14:43 dracut-pre-pivot.service -> ../dracut-pre-pivot.service
+lrwxrwxrwx.  1 root root    29 Dec 29 14:43 dracut-pre-trigger.service -> ../dracut-pre-trigger.service
+lrwxrwxrwx.  1 root root    26 Dec 29 14:43 dracut-pre-udev.service -> ../dracut-pre-udev.service
+lrwxrwxrwx.  1 root root    32 Mar 16 13:11 systemd-battery-check.service -> ../systemd-battery-check.service
+
+/usr/lib/systemd/system/kexec.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/local-fs.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:45 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+lrwxrwxrwx.  1 root root    12 Mar 16 13:11 tmp.mount -> ../tmp.mount
+
+/usr/lib/systemd/system/multi-user.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:45 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+lrwxrwxrwx.  1 root root    15 Mar 16 13:11 getty.target -> ../getty.target
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 systemd-logind.service -> ../systemd-logind.service
+lrwxrwxrwx.  1 root root    32 Mar 16 13:11 systemd-user-sessions.service -> ../systemd-user-sessions.service
+
+/usr/lib/systemd/system/nfs-mountd.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 28 02:36 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   105 Apr 10 09:48 10-options.conf
+
+/usr/lib/systemd/system/nfs-server.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 28 02:36 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   101 Apr 10 09:48 10-options.conf
+
+/usr/lib/systemd/system/poweroff.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/reboot.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/remote-fs.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/rescue.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/rpc-gssd.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 27 20:31 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   101 Apr 10 09:48 10-options.conf
+
+/usr/lib/systemd/system/rpc-statd-notify.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 27 20:31 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   107 Apr 10 09:48 10-options.conf
+
+/usr/lib/systemd/system/rpc-statd.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 27 20:31 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   103 Apr 10 09:48 10-options.conf
+
+/usr/lib/systemd/system/rpc-svcgssd.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 27 20:31 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   107 Apr 10 09:48 10-options.conf
+
+/usr/lib/systemd/system/shutdown.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 Mar 16 13:11 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+
+/usr/lib/systemd/system/sockets.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:46 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+lrwxrwxrwx.  1 root root    14 Oct 16  2024 dbus.socket -> ../dbus.socket
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 systemd-bootctl.socket -> ../systemd-bootctl.socket
+lrwxrwxrwx.  1 root root    26 Mar 16 13:11 systemd-coredump.socket -> ../systemd-coredump.socket
+lrwxrwxrwx.  1 root root    23 Mar 16 13:11 systemd-creds.socket -> ../systemd-creds.socket
+lrwxrwxrwx.  1 root root    27 Mar 16 13:11 systemd-hostnamed.socket -> ../systemd-hostnamed.socket
+lrwxrwxrwx.  1 root root    34 Mar 16 13:11 systemd-journald-dev-log.socket -> ../systemd-journald-dev-log.socket
+lrwxrwxrwx.  1 root root    26 Mar 16 13:11 systemd-journald.socket -> ../systemd-journald.socket
+lrwxrwxrwx.  1 root root    24 Mar 16 13:11 systemd-sysext.socket -> ../systemd-sysext.socket
+lrwxrwxrwx.  1 root root    31 Mar 16 13:11 systemd-udevd-control.socket -> ../systemd-udevd-control.socket
+lrwxrwxrwx.  1 root root    30 Mar 16 13:11 systemd-udevd-kernel.socket -> ../systemd-udevd-kernel.socket
+
+/usr/lib/systemd/system/sysinit.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:46 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+lrwxrwxrwx.  1 root root    20 Mar 16 13:11 cryptsetup.target -> ../cryptsetup.target
+lrwxrwxrwx.  1 root root    22 Mar 16 13:11 dev-hugepages.mount -> ../dev-hugepages.mount
+lrwxrwxrwx.  1 root root    19 Mar 16 13:11 dev-mqueue.mount -> ../dev-mqueue.mount
+lrwxrwxrwx.  1 root root    26 Dec 29 14:43 dracut-shutdown.service -> ../dracut-shutdown.service
+lrwxrwxrwx.  1 root root    24 Mar 16 13:11 integritysetup.target -> ../integritysetup.target
+lrwxrwxrwx.  1 root root    28 Mar 16 13:11 kmod-static-nodes.service -> ../kmod-static-nodes.service
+lrwxrwxrwx.  1 root root    36 Mar 16 13:11 proc-sys-fs-binfmt_misc.automount -> ../proc-sys-fs-binfmt_misc.automount
+lrwxrwxrwx.  1 root root    32 Mar 16 13:11 sys-fs-fuse-connections.mount -> ../sys-fs-fuse-connections.mount
+lrwxrwxrwx.  1 root root    26 Mar 16 13:11 sys-kernel-config.mount -> ../sys-kernel-config.mount
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 sys-kernel-debug.mount -> ../sys-kernel-debug.mount
+lrwxrwxrwx.  1 root root    27 Mar 16 13:11 sys-kernel-tracing.mount -> ../sys-kernel-tracing.mount
+lrwxrwxrwx.  1 root root    36 Mar 16 13:11 systemd-ask-password-console.path -> ../systemd-ask-password-console.path
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 systemd-binfmt.service -> ../systemd-binfmt.service
+lrwxrwxrwx.  1 root root    28 Mar 16 13:11 systemd-firstboot.service -> ../systemd-firstboot.service
+lrwxrwxrwx.  1 root root    34 Mar 16 13:11 systemd-hibernate-clear.service -> ../systemd-hibernate-clear.service
+lrwxrwxrwx.  1 root root    30 Mar 16 13:11 systemd-hwdb-update.service -> ../systemd-hwdb-update.service
+lrwxrwxrwx.  1 root root    41 Mar 16 13:11 systemd-journal-catalog-update.service -> ../systemd-journal-catalog-update.service
+lrwxrwxrwx.  1 root root    32 Mar 16 13:11 systemd-journal-flush.service -> ../systemd-journal-flush.service
+lrwxrwxrwx.  1 root root    27 Mar 16 13:11 systemd-journald.service -> ../systemd-journald.service
+lrwxrwxrwx.  1 root root    36 Mar 16 13:11 systemd-machine-id-commit.service -> ../systemd-machine-id-commit.service
+lrwxrwxrwx.  1 root root    31 Mar 16 13:11 systemd-modules-load.service -> ../systemd-modules-load.service
+lrwxrwxrwx.  1 root root    30 Mar 16 13:11 systemd-random-seed.service -> ../systemd-random-seed.service
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 systemd-repart.service -> ../systemd-repart.service
+lrwxrwxrwx.  1 root root    25 Mar 16 13:11 systemd-sysctl.service -> ../systemd-sysctl.service
+lrwxrwxrwx.  1 root root    27 Mar 16 13:11 systemd-sysusers.service -> ../systemd-sysusers.service
+lrwxrwxrwx.  1 root root    43 Mar 16 13:11 systemd-tmpfiles-setup-dev-early.service -> ../systemd-tmpfiles-setup-dev-early.service
+lrwxrwxrwx.  1 root root    37 Mar 16 13:11 systemd-tmpfiles-setup-dev.service -> ../systemd-tmpfiles-setup-dev.service
+lrwxrwxrwx.  1 root root    33 Mar 16 13:11 systemd-tmpfiles-setup.service -> ../systemd-tmpfiles-setup.service
+lrwxrwxrwx.  1 root root    31 Mar 16 13:11 systemd-udev-trigger.service -> ../systemd-udev-trigger.service
+lrwxrwxrwx.  1 root root    24 Mar 16 13:11 systemd-udevd.service -> ../systemd-udevd.service
+lrwxrwxrwx.  1 root root    30 Mar 16 13:11 systemd-update-done.service -> ../systemd-update-done.service
+lrwxrwxrwx.  1 root root    21 Mar 16 13:11 veritysetup.target -> ../veritysetup.target
+
+/usr/lib/systemd/system/systemd-logind.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 28 02:36 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   388 Apr 10  2024 20-defaults-SUSE.conf
+
+/usr/lib/systemd/system/systemd-sysctl.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 27 16:46 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root    61 Dec 15 15:25 50-kernel-uname_r.conf
+
+/usr/lib/systemd/system/timers.target.wants:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:45 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+lrwxrwxrwx.  1 root root    31 Mar 16 13:11 systemd-tmpfiles-clean.timer -> ../systemd-tmpfiles-clean.timer
+
+/usr/lib/systemd/system/user-.slice.d:
+total 32
+drwxr-xr-x.  2 root root  4096 Apr 10  2024 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   458 Mar 16 13:10 10-defaults.conf
+-rw-r--r--.  1 root root   355 Apr 10  2024 25-defaults-SLE.conf
+
+/usr/lib/systemd/system/user@.service.d:
+total 32
+drwxr-xr-x.  2 root root  4096 May 28 02:36 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   605 Mar 16 13:10 10-login-barrier.conf
+-rw-r--r--.  1 root root   470 Apr 10  2024 20-defaults-SUSE.conf
+
+/usr/lib/systemd/system/user@0.service.d:
+total 28
+drwxr-xr-x.  2 root root  4096 May 27 16:45 .
+drwxr-xr-x. 35 root root 20480 Jun  5 09:20 ..
+-rw-r--r--.  1 root root   548 Mar 16 13:10 10-login-barrier.conf
+
+/usr/lib/systemd/system-environment-generators:
+total 8
+drwxr-xr-x.  2 root root 4096 Mar 16 13:11 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+
+/usr/lib/systemd/system-generators:
+total 372
+drwxr-xr-x.  2 root root  4096 May 28 02:36 .
+drwxr-xr-x. 24 root root  4096 Jun  5 09:20 ..
+-rwxr-xr-x.  1 root root  1172 Mar 11 20:24 ibft-rule-generator
+-rwxr-xr-x.  1 root root 39240 Apr 10 09:48 nfs-server-generator
+-rwxr-xr-x.  1 root root 26752 Apr 10 09:48 rpc-pipefs-generator
+-rwxr-xr-x.  1 root root 35208 Mar 16 13:11 systemd-cryptsetup-generator
+-rwxr-xr-x.  1 root root 22896 Mar 16 13:11 systemd-debug-generator
+-rwxr-xr-x.  1 root root 51792 Mar 16 13:11 systemd-fstab-generator
+-rwxr-xr-x.  1 root root 22728 Mar 16 13:11 systemd-getty-generator
+-rwxr-xr-x.  1 root root 31112 Mar 16 13:11 systemd-gpt-auto-generator
+-rwxr-xr-x.  1 root root 26984 Mar 16 13:11 systemd-hibernate-resume-generator
+-rwxr-xr-x.  1 root root 22776 Mar 16 13:11 systemd-integritysetup-generator
+-rwxr-xr-x.  1 root root 18728 Mar 16 13:11 systemd-run-generator
+-rwxr-xr-x.  1 root root 14464 Mar 16 13:11 systemd-system-update-generator
+-rwxr-xr-x.  1 root root 31192 Mar 16 13:11 systemd-veritysetup-generator
+
+/usr/lib/systemd/system-preset:
+total 24
+drwxr-xr-x.  2 root root 4096 May 27 16:45 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  418 Aug  7  2024 50-default-Elemental.preset
+-rw-r--r--.  1 root root 2010 Jul 10  2025 95-default-SUSE.preset
+-rw-r--r--.  1 root root   10 Jul 10  2025 99-default-disable.preset
+-rw-r--r--.  1 root root   10 Mar 16 13:11 99-default.preset
+
+/usr/lib/systemd/system-shutdown:
+total 12
+drwxr-xr-x.  2 root root 4096 May 27 20:31 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rwxr-xr-x.  1 root root  164 Mar  4 15:46 mdadm.shutdown
+
+/usr/lib/systemd/system-sleep:
+total 12
+drwxr-xr-x.  2 root root 4096 May 27 20:31 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rwxr-xr-x.  1 root root  224 Aug  8  2024 sysstat.sleep
+
+/usr/lib/systemd/system.conf.d:
+total 16
+drwxr-xr-x.  2 root root 4096 May 28 02:36 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  479 Apr 10  2024 20-defaults-SUSE.conf
+-rw-r--r--.  1 root root  368 Apr 10  2024 25-defaults-SLE.conf
+
+/usr/lib/systemd/systemd-udevd.service.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Apr 10  2024 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  398 Apr 10  2024 25-defaults-SLE.conf
+
+/usr/lib/systemd/timesyncd.conf.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Apr 10  2024 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  383 Apr 10  2024 25-defaults-SLE.conf
+
+/usr/lib/systemd/user:
+total 132
+drwxr-xr-x.  4 root root 4096 May 28 02:36 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  442 Mar 16 13:10 app.slice
+-rw-r--r--.  1 root root  446 Mar 16 13:10 background.slice
+-rw-r--r--.  1 root root  505 Mar 16 13:10 basic.target
+-rw-r--r--.  1 root root  427 Mar 16 13:10 bluetooth.target
+-rw-r--r--.  1 root root  481 Mar 16 13:10 capsule@.target
+-rw-r--r--.  1 root root  469 Feb 24 00:24 dbus-broker.service
+drwxr-xr-x.  2 root root 4096 May 27 16:45 dbus-broker.service.d
+-rw-r--r--.  1 root root  223 Oct 16  2024 dbus.socket
+-rw-r--r--.  1 root root  471 Mar 16 13:10 default.target
+-rw-r--r--.  1 root root  510 Mar 16 13:10 exit.target
+-rw-r--r--.  1 root root  298 Feb 11 10:27 gpg-agent-browser.socket
+-rw-r--r--.  1 root root  281 Feb 11 10:27 gpg-agent-extra.socket
+-rw-r--r--.  1 root root  308 Feb 11 10:27 gpg-agent-ssh.socket
+-rw-r--r--.  1 root root  234 Feb 11 10:27 gpg-agent.service
+-rw-r--r--.  1 root root  234 Feb 11 10:27 gpg-agent.socket
+-rw-r--r--.  1 root root  576 Mar 16 13:10 graphical-session-pre.target
+-rw-r--r--.  1 root root  492 Mar 16 13:10 graphical-session.target
+-rw-r--r--.  1 root root  402 Mar 16 13:10 paths.target
+-rw-r--r--.  1 root root  425 Mar 16 13:10 printer.target
+-rw-r--r--.  1 root root  443 Mar 16 13:10 session.slice
+-rw-r--r--.  1 root root  450 Mar 16 13:10 shutdown.target
+-rw-r--r--.  1 root root  428 Mar 16 13:10 smartcard.target
+-rw-r--r--.  1 root root  404 Mar 16 13:10 sockets.target
+drwxr-xr-x.  2 root root 4096 May 27 16:45 sockets.target.wants
+-rw-r--r--.  1 root root  428 Mar 16 13:10 sound.target
+-rw-r--r--.  1 root root  598 Mar 16 13:10 systemd-exit.service
+-rw-r--r--.  1 root root  688 Mar 16 13:10 systemd-tmpfiles-clean.service
+-rw-r--r--.  1 root root  541 Mar 16 13:10 systemd-tmpfiles-clean.timer
+-rw-r--r--.  1 root root  717 Mar 16 13:10 systemd-tmpfiles-setup.service
+-rw-r--r--.  1 root root  453 Mar 16 13:10 timers.target
+-rw-r--r--.  1 root root  477 Mar 16 13:10 xdg-desktop-autostart.target
+
+/usr/lib/systemd/user/dbus-broker.service.d:
+total 12
+drwxr-xr-x. 2 root root 4096 May 27 16:45 .
+drwxr-xr-x. 4 root root 4096 May 28 02:36 ..
+-rw-r--r--. 1 root root   53 Feb 24 00:24 block-restart.conf
+
+/usr/lib/systemd/user/sockets.target.wants:
+total 8
+drwxr-xr-x. 2 root root 4096 May 27 16:45 .
+drwxr-xr-x. 4 root root 4096 May 28 02:36 ..
+lrwxrwxrwx. 1 root root   14 Oct 16  2024 dbus.socket -> ../dbus.socket
+
+/usr/lib/systemd/user-environment-generators:
+total 24
+drwxr-xr-x.  2 root root  4096 May 27 16:45 .
+drwxr-xr-x. 24 root root  4096 Jun  5 09:20 ..
+-rwxr-xr-x.  1 root root 14464 Mar 16 13:11 30-systemd-environment-d-generator
+
+/usr/lib/systemd/user-generators:
+total 40
+drwxr-xr-x.  2 root root  4096 May 28 02:36 .
+drwxr-xr-x. 24 root root  4096 Jun  5 09:20 ..
+-rwxr-xr-x.  1 root root 30920 Mar 16 13:11 systemd-xdg-autostart-generator
+
+/usr/lib/systemd/user-preset:
+total 20
+drwxr-xr-x.  2 root root 4096 May 27 16:45 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  580 Mar 16 13:10 90-systemd.preset
+-rw-r--r--.  1 root root  230 Jul 10  2025 95-default-SUSE.preset
+-rw-r--r--.  1 root root   10 Mar 16 13:11 99-default.preset
+
+/usr/lib/systemd/user.conf.d:
+total 12
+drwxr-xr-x.  2 root root 4096 Apr 10  2024 .
+drwxr-xr-x. 24 root root 4096 Jun  5 09:20 ..
+-rw-r--r--.  1 root root  397 Apr 10  2024 25-defaults-SLE.conf
+

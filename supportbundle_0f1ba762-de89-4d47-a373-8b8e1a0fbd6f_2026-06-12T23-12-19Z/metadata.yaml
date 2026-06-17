@@ -1,0 +1,7 @@
+bundlename: bundle-local-v1.8-d46887de-head-zcpxy
+bundleversion: 0.1.0
+kubernetesversion: v1.35.5+rke2r1
+projectnamespaceuuid: 0f1ba762-de89-4d47-a373-8b8e1a0fbd6f
+bundlecreatedat: "2026-06-12T23:12:19Z"
+issueurl: ""
+issuedescription: Disabling failed

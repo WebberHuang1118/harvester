@@ -1,0 +1,2466 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: 66ddf014f942ad89d85633c6dc6ba5376186ccad87864ce053cfac19917db60b
+      cni.projectcalico.org/podIP: 10.52.0.19/32
+      cni.projectcalico.org/podIPs: 10.52.0.19/32
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "k8s-pod-network",
+            "interface": "eth0",
+            "ips": [
+                "10.52.0.19"
+            ],
+            "mac": "d2:87:5a:3b:b4:84",
+            "default": true,
+            "dns": {}
+        }]
+    creationTimestamp: "2026-06-12T10:41:53Z"
+    generateName: harvester-cluster-repo-7c9559877-
+    generation: 1
+    labels:
+      app: harvester-cluster-repo
+      pod-template-hash: 7c9559877
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:cni.projectcalico.org/containerID: {}
+            f:cni.projectcalico.org/podIP: {}
+            f:cni.projectcalico.org/podIPs: {}
+      manager: calico
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:41:53Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"3bf1f258-be6d-42f7-a926-9dcd25543a93"}: {}
+        f:spec:
+          f:containers:
+            k:{"name":"httpd"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":80,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:41:53Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+      manager: multus
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:41:53Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodReadyToStartContainers"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodScheduled"}:
+              f:observedGeneration: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:hostIPs: {}
+          f:observedGeneration: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.52.0.19"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:42:07Z"
+    name: harvester-cluster-repo-7c9559877-99kpf
+    namespace: cattle-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: harvester-cluster-repo-7c9559877
+      uid: 3bf1f258-be6d-42f7-a926-9dcd25543a93
+    resourceVersion: "2917"
+    uid: 1086173d-7b65-4c8e-8aef-7674a0f500d5
+  spec:
+    containers:
+    - image: rancher/harvester-cluster-repo:v1.8
+      imagePullPolicy: IfNotPresent
+      name: httpd
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /charts/index.yaml
+          port: 80
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-6bw6b
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: hp-117-tink-system
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-6bw6b
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:41:56Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:41:53Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:07Z"
+      observedGeneration: 1
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:07Z"
+      observedGeneration: 1
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:41:53Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://622067aaec2fdd7436c65decb3e3b9d893ed283d5ae2726f7fed87da334ed6df
+      image: docker.io/rancher/harvester-cluster-repo:v1.8
+      imageID: docker.io/rancher/harvester-cluster-repo@sha256:099647833289c0558b0464cfa52b61aa27820ce0c6f8a727a30b19628a7d53ea
+      lastState: {}
+      name: httpd
+      ready: true
+      resources: {}
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-12T10:41:55Z"
+      user:
+        linux:
+          gid: 499
+          supplementalGroups:
+          - 499
+          uid: 499
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-6bw6b
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.115.252.86
+    hostIPs:
+    - ip: 10.115.252.86
+    observedGeneration: 1
+    phase: Running
+    podIP: 10.52.0.19
+    podIPs:
+    - ip: 10.52.0.19
+    qosClass: BestEffort
+    startTime: "2026-06-12T10:41:53Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: f9330364d592aff93ca877cacf2c80a15d4943442383c21bd6eb4ff498d432ef
+      cni.projectcalico.org/podIP: 10.52.0.74/32
+      cni.projectcalico.org/podIPs: 10.52.0.74/32
+      harvesterhci.io/timestamp: "2026-06-12T10:44:04Z"
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "k8s-pod-network",
+            "interface": "eth0",
+            "ips": [
+                "10.52.0.74"
+            ],
+            "mac": "2a:fe:03:0b:93:95",
+            "default": true,
+            "dns": {}
+        }]
+    creationTimestamp: "2026-06-12T10:44:04Z"
+    generateName: rancher-745fd84757-
+    generation: 1
+    labels:
+      app: rancher
+      pod-template-hash: 745fd84757
+      release: rancher
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/timestamp: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+            f:release: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"660f9dcd-67ce-4c2f-929c-24c3a4cb0569"}: {}
+        f:spec:
+          f:affinity:
+            .: {}
+            f:nodeAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+            f:podAntiAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+          f:containers:
+            k:{"name":"rancher"}:
+              .: {}
+              f:args: {}
+              f:env:
+                .: {}
+                k:{"name":"CATTLE_AGENT_TLS_MODE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_BOOTSTRAP_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef: {}
+                k:{"name":"CATTLE_FEATURES"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_PEER_SERVICE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_SYSTEM_CATALOG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IMPERATIVE_API_APP_SELECTOR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IMPERATIVE_API_DIRECT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":80,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":443,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":444,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":6666,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources: {}
+              f:startupProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:priorityClassName: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:terminationGracePeriodSeconds: {}
+          f:tolerations: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            .: {}
+            k:{"type":"PodScheduled"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+      manager: kube-scheduler
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:cni.projectcalico.org/containerID: {}
+            f:cni.projectcalico.org/podIP: {}
+            f:cni.projectcalico.org/podIPs: {}
+      manager: calico
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:44:06Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+      manager: multus
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:44:06Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodReadyToStartContainers"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodScheduled"}:
+              f:observedGeneration: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:hostIPs: {}
+          f:observedGeneration: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.52.0.74"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:44:36Z"
+    name: rancher-745fd84757-74w56
+    namespace: cattle-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: rancher-745fd84757
+      uid: 660f9dcd-67ce-4c2f-929c-24c3a4cb0569
+    resourceVersion: "8085"
+    uid: 252f9818-6926-427d-869a-4145cd231f73
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/os
+              operator: NotIn
+              values:
+              - windows
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - rancher
+          topologyKey: kubernetes.io/hostname
+    containers:
+    - args:
+      - --no-cacerts
+      - --http-listen-port=80
+      - --https-listen-port=443
+      - --add-local=true
+      env:
+      - name: CATTLE_NAMESPACE
+        value: cattle-system
+      - name: CATTLE_PEER_SERVICE
+        value: rancher
+      - name: CATTLE_FEATURES
+        value: multi-cluster-management=false,multi-cluster-management-agent=false,managed-system-upgrade-controller=false
+      - name: CATTLE_SYSTEM_CATALOG
+        value: bundled
+      - name: CATTLE_BOOTSTRAP_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: bootstrapPassword
+            name: bootstrap-secret
+      - name: CATTLE_AGENT_TLS_MODE
+        value: system-store
+      - name: IMPERATIVE_API_DIRECT
+        value: "true"
+      - name: IMPERATIVE_API_APP_SELECTOR
+        value: rancher
+      image: rancher/rancher:v2.14.2
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 5
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 30
+        successThreshold: 1
+        timeoutSeconds: 5
+      name: rancher
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      - containerPort: 443
+        protocol: TCP
+      - containerPort: 444
+        protocol: TCP
+      - containerPort: 6666
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 5
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 30
+        successThreshold: 1
+        timeoutSeconds: 5
+      resources: {}
+      startupProbe:
+        failureThreshold: 12
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 5
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xtzd6
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: hp-117-tink-system
+    preemptionPolicy: PreemptLowerPriority
+    priority: 1e+09
+    priorityClassName: rancher-critical
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: rancher
+    serviceAccountName: rancher
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: cattle.io/os
+      operator: Equal
+      value: linux
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-xtzd6
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:44:07Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:44:05Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:44:36Z"
+      observedGeneration: 1
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:44:36Z"
+      observedGeneration: 1
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:44:05Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://8417f020179418b56e83202bd7826039bbae7a3737b875d7e8fa015c4c41fa67
+      image: docker.io/rancher/rancher:v2.14.2
+      imageID: docker.io/rancher/rancher@sha256:29ea8e1cddc33452a17465f4a60355cbe5f3e486caa828d6245891ddcd0bc23a
+      lastState: {}
+      name: rancher
+      ready: true
+      resources: {}
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-12T10:44:07Z"
+      user:
+        linux:
+          gid: 0
+          supplementalGroups:
+          - 0
+          uid: 0
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xtzd6
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.115.252.86
+    hostIPs:
+    - ip: 10.115.252.86
+    observedGeneration: 1
+    phase: Running
+    podIP: 10.52.0.74
+    podIPs:
+    - ip: 10.52.0.74
+    qosClass: BestEffort
+    startTime: "2026-06-12T10:44:05Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: c6d51b1e3dc51cf1270c4a7098b85cffbc796c25ff0f6fd0c0e428a859b9f5e1
+      cni.projectcalico.org/podIP: 10.52.1.11/32
+      cni.projectcalico.org/podIPs: 10.52.1.11/32
+      harvesterhci.io/timestamp: "2026-06-12T10:44:04Z"
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "k8s-pod-network",
+            "interface": "eth0",
+            "ips": [
+                "10.52.1.11"
+            ],
+            "mac": "46:f0:bf:38:c1:be",
+            "default": true,
+            "dns": {}
+        }]
+    creationTimestamp: "2026-06-12T10:47:11Z"
+    generateName: rancher-745fd84757-
+    generation: 1
+    labels:
+      app: rancher
+      pod-template-hash: 745fd84757
+      release: rancher
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/timestamp: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+            f:release: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"660f9dcd-67ce-4c2f-929c-24c3a4cb0569"}: {}
+        f:spec:
+          f:affinity:
+            .: {}
+            f:nodeAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+            f:podAntiAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+          f:containers:
+            k:{"name":"rancher"}:
+              .: {}
+              f:args: {}
+              f:env:
+                .: {}
+                k:{"name":"CATTLE_AGENT_TLS_MODE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_BOOTSTRAP_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef: {}
+                k:{"name":"CATTLE_FEATURES"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_PEER_SERVICE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_SYSTEM_CATALOG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IMPERATIVE_API_APP_SELECTOR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IMPERATIVE_API_DIRECT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":80,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":443,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":444,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":6666,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources: {}
+              f:startupProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:priorityClassName: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:terminationGracePeriodSeconds: {}
+          f:tolerations: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:47:11Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            .: {}
+            k:{"type":"PodScheduled"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+      manager: kube-scheduler
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:48:30Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:cni.projectcalico.org/containerID: {}
+            f:cni.projectcalico.org/podIP: {}
+            f:cni.projectcalico.org/podIPs: {}
+      manager: calico
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:48:31Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+      manager: multus
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:48:31Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodReadyToStartContainers"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodScheduled"}:
+              f:observedGeneration: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:hostIPs: {}
+          f:observedGeneration: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.52.1.11"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:49:02Z"
+    name: rancher-745fd84757-cmlsm
+    namespace: cattle-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: rancher-745fd84757
+      uid: 660f9dcd-67ce-4c2f-929c-24c3a4cb0569
+    resourceVersion: "14074"
+    uid: 6af4a8f5-def7-4bf0-8faa-418118fc45e6
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/os
+              operator: NotIn
+              values:
+              - windows
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - rancher
+          topologyKey: kubernetes.io/hostname
+    containers:
+    - args:
+      - --no-cacerts
+      - --http-listen-port=80
+      - --https-listen-port=443
+      - --add-local=true
+      env:
+      - name: CATTLE_NAMESPACE
+        value: cattle-system
+      - name: CATTLE_PEER_SERVICE
+        value: rancher
+      - name: CATTLE_FEATURES
+        value: multi-cluster-management=false,multi-cluster-management-agent=false,managed-system-upgrade-controller=false
+      - name: CATTLE_SYSTEM_CATALOG
+        value: bundled
+      - name: CATTLE_BOOTSTRAP_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: bootstrapPassword
+            name: bootstrap-secret
+      - name: CATTLE_AGENT_TLS_MODE
+        value: system-store
+      - name: IMPERATIVE_API_DIRECT
+        value: "true"
+      - name: IMPERATIVE_API_APP_SELECTOR
+        value: rancher
+      image: rancher/rancher:v2.14.2
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 5
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 30
+        successThreshold: 1
+        timeoutSeconds: 5
+      name: rancher
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      - containerPort: 443
+        protocol: TCP
+      - containerPort: 444
+        protocol: TCP
+      - containerPort: 6666
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 5
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 30
+        successThreshold: 1
+        timeoutSeconds: 5
+      resources: {}
+      startupProbe:
+        failureThreshold: 12
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 5
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-jtg68
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: hp-150-tink-system
+    preemptionPolicy: PreemptLowerPriority
+    priority: 1e+09
+    priorityClassName: rancher-critical
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: rancher
+    serviceAccountName: rancher
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: cattle.io/os
+      operator: Equal
+      value: linux
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-jtg68
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:37Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:31Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:49:02Z"
+      observedGeneration: 1
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:49:02Z"
+      observedGeneration: 1
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:48:31Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://9edcad52de2842e54d5e8565379ee812caf5344bc00543a3a6f998f81cd17dec
+      image: docker.io/rancher/rancher:v2.14.2
+      imageID: docker.io/rancher/rancher@sha256:29ea8e1cddc33452a17465f4a60355cbe5f3e486caa828d6245891ddcd0bc23a
+      lastState: {}
+      name: rancher
+      ready: true
+      resources: {}
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-12T10:48:37Z"
+      user:
+        linux:
+          gid: 0
+          supplementalGroups:
+          - 0
+          uid: 0
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-jtg68
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.115.252.95
+    hostIPs:
+    - ip: 10.115.252.95
+    observedGeneration: 1
+    phase: Running
+    podIP: 10.52.1.11
+    podIPs:
+    - ip: 10.52.1.11
+    qosClass: BestEffort
+    startTime: "2026-06-12T10:48:31Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: 85191a7ff5260d82d93b629af275d70e3ebfe266e7e8923015c7babb515213ee
+      cni.projectcalico.org/podIP: 10.52.2.193/32
+      cni.projectcalico.org/podIPs: 10.52.2.193/32
+      harvesterhci.io/timestamp: "2026-06-12T10:44:04Z"
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "k8s-pod-network",
+            "interface": "eth0",
+            "ips": [
+                "10.52.2.193"
+            ],
+            "mac": "62:2b:14:d7:65:90",
+            "default": true,
+            "dns": {}
+        }]
+    creationTimestamp: "2026-06-12T14:40:08Z"
+    generateName: rancher-745fd84757-
+    generation: 1
+    labels:
+      app: rancher
+      pod-template-hash: 745fd84757
+      release: rancher
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/timestamp: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+            f:release: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"660f9dcd-67ce-4c2f-929c-24c3a4cb0569"}: {}
+        f:spec:
+          f:affinity:
+            .: {}
+            f:nodeAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+            f:podAntiAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+          f:containers:
+            k:{"name":"rancher"}:
+              .: {}
+              f:args: {}
+              f:env:
+                .: {}
+                k:{"name":"CATTLE_AGENT_TLS_MODE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_BOOTSTRAP_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef: {}
+                k:{"name":"CATTLE_FEATURES"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_PEER_SERVICE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CATTLE_SYSTEM_CATALOG"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IMPERATIVE_API_APP_SELECTOR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IMPERATIVE_API_DIRECT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":80,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":443,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":444,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+                k:{"containerPort":6666,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources: {}
+              f:startupProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:priorityClassName: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:terminationGracePeriodSeconds: {}
+          f:tolerations: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T14:40:07Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:cni.projectcalico.org/containerID: {}
+            f:cni.projectcalico.org/podIP: {}
+            f:cni.projectcalico.org/podIPs: {}
+      manager: calico
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:41:03Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            .: {}
+            k:{"type":"PodScheduled"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+      manager: kube-scheduler
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:41:03Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+      manager: multus
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:41:03Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodReadyToStartContainers"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodScheduled"}:
+              f:observedGeneration: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:hostIPs: {}
+          f:observedGeneration: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.52.2.193"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:41:34Z"
+    name: rancher-745fd84757-xlc8j
+    namespace: cattle-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: rancher-745fd84757
+      uid: 660f9dcd-67ce-4c2f-929c-24c3a4cb0569
+    resourceVersion: "265592"
+    uid: d5fee51f-6645-433e-b0a1-326a3403a040
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/os
+              operator: NotIn
+              values:
+              - windows
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - rancher
+          topologyKey: kubernetes.io/hostname
+    containers:
+    - args:
+      - --no-cacerts
+      - --http-listen-port=80
+      - --https-listen-port=443
+      - --add-local=true
+      env:
+      - name: CATTLE_NAMESPACE
+        value: cattle-system
+      - name: CATTLE_PEER_SERVICE
+        value: rancher
+      - name: CATTLE_FEATURES
+        value: multi-cluster-management=false,multi-cluster-management-agent=false,managed-system-upgrade-controller=false
+      - name: CATTLE_SYSTEM_CATALOG
+        value: bundled
+      - name: CATTLE_BOOTSTRAP_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            key: bootstrapPassword
+            name: bootstrap-secret
+      - name: CATTLE_AGENT_TLS_MODE
+        value: system-store
+      - name: IMPERATIVE_API_DIRECT
+        value: "true"
+      - name: IMPERATIVE_API_APP_SELECTOR
+        value: rancher
+      image: rancher/rancher:v2.14.2
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 5
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 30
+        successThreshold: 1
+        timeoutSeconds: 5
+      name: rancher
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      - containerPort: 443
+        protocol: TCP
+      - containerPort: 444
+        protocol: TCP
+      - containerPort: 6666
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 5
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 30
+        successThreshold: 1
+        timeoutSeconds: 5
+      resources: {}
+      startupProbe:
+        failureThreshold: 12
+        httpGet:
+          path: /healthz
+          port: 80
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 5
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-pktfh
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: hp-69-tink-system
+    preemptionPolicy: PreemptLowerPriority
+    priority: 1e+09
+    priorityClassName: rancher-critical
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: rancher
+    serviceAccountName: rancher
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: cattle.io/os
+      operator: Equal
+      value: linux
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-pktfh
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:41:05Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:41:03Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:41:34Z"
+      observedGeneration: 1
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:41:34Z"
+      observedGeneration: 1
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:41:03Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://953b0c9fc6b4f6f60b9980f2dfcad52bf1ac1cedc127e58a6d791c89d9db0f45
+      image: docker.io/rancher/rancher:v2.14.2
+      imageID: docker.io/rancher/rancher@sha256:29ea8e1cddc33452a17465f4a60355cbe5f3e486caa828d6245891ddcd0bc23a
+      lastState: {}
+      name: rancher
+      ready: true
+      resources: {}
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-12T14:41:04Z"
+      user:
+        linux:
+          gid: 0
+          supplementalGroups:
+          - 0
+          uid: 0
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-pktfh
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.115.252.96
+    hostIPs:
+    - ip: 10.115.252.96
+    observedGeneration: 1
+    phase: Running
+    podIP: 10.52.2.193
+    podIPs:
+    - ip: 10.52.2.193
+    qosClass: BestEffort
+    startTime: "2026-06-12T14:41:03Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: b2bcb2196be56cd220f8d588830638618282444500b08beadb93d9ae93be4fe3
+      cni.projectcalico.org/podIP: 10.52.0.18/32
+      cni.projectcalico.org/podIPs: 10.52.0.18/32
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "k8s-pod-network",
+            "interface": "eth0",
+            "ips": [
+                "10.52.0.18"
+            ],
+            "mac": "86:25:eb:82:d3:76",
+            "default": true,
+            "dns": {}
+        }]
+    creationTimestamp: "2026-06-12T10:41:46Z"
+    generateName: rancher-webhook-5675994948-
+    generation: 1
+    labels:
+      app: rancher-webhook
+      pod-template-hash: "5675994948"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:cni.projectcalico.org/containerID: {}
+            f:cni.projectcalico.org/podIP: {}
+            f:cni.projectcalico.org/podIPs: {}
+      manager: calico
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:41:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e5e32344-9e39-44ba-9c4f-8625543c52b7"}: {}
+        f:spec:
+          f:containers:
+            k:{"name":"rancher-webhook"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"CATTLE_PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"ENABLE_MCM"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef: {}
+                k:{"name":"STAMP"}:
+                  .: {}
+                  f:name: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":9443,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:resources: {}
+              f:securityContext:
+                .: {}
+                f:allowPrivilegeEscalation: {}
+                f:readOnlyRootFilesystem: {}
+              f:startupProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:nodeSelector: {}
+          f:priorityClassName: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:terminationGracePeriodSeconds: {}
+          f:tolerations: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:41:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+      manager: multus
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:41:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodReadyToStartContainers"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodScheduled"}:
+              f:observedGeneration: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:hostIPs: {}
+          f:observedGeneration: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.52.0.18"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:41:52Z"
+    name: rancher-webhook-5675994948-pr54z
+    namespace: cattle-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: rancher-webhook-5675994948
+      uid: e5e32344-9e39-44ba-9c4f-8625543c52b7
+    resourceVersion: "2624"
+    uid: 576acbdc-8db3-493a-8836-5f0f6516a5b5
+  spec:
+    containers:
+    - env:
+      - name: STAMP
+      - name: ENABLE_MCM
+        value: "false"
+      - name: CATTLE_PORT
+        value: "9443"
+      - name: NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      image: rancher/rancher-webhook:v0.10.6
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /healthz
+          port: https
+          scheme: HTTPS
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: rancher-webhook
+      ports:
+      - containerPort: 9443
+        name: https
+        protocol: TCP
+      resources: {}
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+      startupProbe:
+        failureThreshold: 60
+        httpGet:
+          path: /healthz
+          port: https
+          scheme: HTTPS
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 1
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-gp8nh
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: hp-117-tink-system
+    nodeSelector:
+      kubernetes.io/os: linux
+    preemptionPolicy: PreemptLowerPriority
+    priority: 1e+09
+    priorityClassName: rancher-critical
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: rancher-webhook
+    serviceAccountName: rancher-webhook
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: cattle.io/os
+      operator: Equal
+      value: linux
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-gp8nh
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:41:47Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:41:46Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:41:52Z"
+      observedGeneration: 1
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:41:52Z"
+      observedGeneration: 1
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:41:46Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://3ae1b2426c8bd86597ee49cbe444b37105e7687e3c895934dd2ddbc71cf2725b
+      image: docker.io/rancher/rancher-webhook:v0.10.6
+      imageID: docker.io/rancher/rancher-webhook@sha256:41680c8ef21c1ae67e41aca480abf290604cc16a3620bc26244c9932e92773ae
+      lastState: {}
+      name: rancher-webhook
+      ready: true
+      resources: {}
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-12T10:41:47Z"
+      user:
+        linux:
+          gid: 1000
+          supplementalGroups:
+          - 1000
+          uid: 1000
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-gp8nh
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.115.252.86
+    hostIPs:
+    - ip: 10.115.252.86
+    observedGeneration: 1
+    phase: Running
+    podIP: 10.52.0.18
+    podIPs:
+    - ip: 10.52.0.18
+    qosClass: BestEffort
+    startTime: "2026-06-12T10:41:46Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: 2cb0774a8c11e61dcfe1b6252584e5f90cc7f3c2c3a30abecdd6b75bcf81db56
+      cni.projectcalico.org/podIP: 10.52.0.30/32
+      cni.projectcalico.org/podIPs: 10.52.0.30/32
+      k8s.v1.cni.cncf.io/network-status: |-
+        [{
+            "name": "k8s-pod-network",
+            "interface": "eth0",
+            "ips": [
+                "10.52.0.30"
+            ],
+            "mac": "da:a8:94:f3:94:a4",
+            "default": true,
+            "dns": {}
+        }]
+    creationTimestamp: "2026-06-12T10:42:21Z"
+    generateName: system-upgrade-controller-54c465b8cb-
+    generation: 1
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/name: system-upgrade-controller
+      pod-template-hash: 54c465b8cb
+      upgrade.cattle.io/controller: system-upgrade-controller
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/name: {}
+            f:pod-template-hash: {}
+            f:upgrade.cattle.io/controller: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"1d3268ad-678a-4484-bda1-5e6e63a21f8f"}: {}
+        f:spec:
+          f:affinity:
+            .: {}
+            f:nodeAffinity:
+              .: {}
+              f:preferredDuringSchedulingIgnoredDuringExecution: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+            f:podAntiAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+          f:containers:
+            k:{"name":"system-upgrade-controller"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"SYSTEM_UPGRADE_CONTROLLER_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef: {}
+                k:{"name":"SYSTEM_UPGRADE_CONTROLLER_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef: {}
+                k:{"name":"SYSTEM_UPGRADE_CONTROLLER_NODE_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef: {}
+              f:envFrom: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:securityContext:
+                .: {}
+                f:allowPrivilegeEscalation: {}
+                f:capabilities:
+                  .: {}
+                  f:drop: {}
+                f:runAsGroup: {}
+                f:runAsNonRoot: {}
+                f:runAsUser: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/etc/ca-certificates"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/etc/pki"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/etc/ssl"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/tmp"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:terminationGracePeriodSeconds: {}
+          f:tolerations: {}
+          f:volumes:
+            .: {}
+            k:{"name":"etc-ca-certificates"}:
+              .: {}
+              f:hostPath:
+                .: {}
+                f:path: {}
+                f:type: {}
+              f:name: {}
+            k:{"name":"etc-pki"}:
+              .: {}
+              f:hostPath:
+                .: {}
+                f:path: {}
+                f:type: {}
+              f:name: {}
+            k:{"name":"etc-ssl"}:
+              .: {}
+              f:hostPath:
+                .: {}
+                f:path: {}
+                f:type: {}
+              f:name: {}
+            k:{"name":"tmp"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:42:21Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:cni.projectcalico.org/containerID: {}
+            f:cni.projectcalico.org/podIP: {}
+            f:cni.projectcalico.org/podIPs: {}
+      manager: calico
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:42:22Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:k8s.v1.cni.cncf.io/network-status: {}
+      manager: multus
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:42:22Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodReadyToStartContainers"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodScheduled"}:
+              f:observedGeneration: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:observedGeneration: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:hostIPs: {}
+          f:observedGeneration: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.52.0.30"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:42:23Z"
+    name: system-upgrade-controller-54c465b8cb-czxc4
+    namespace: cattle-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: system-upgrade-controller-54c465b8cb
+      uid: 1d3268ad-678a-4484-bda1-5e6e63a21f8f
+    resourceVersion: "3920"
+    uid: 1df38f9e-23bc-4500-b47e-4ce97f3a7bb6
+  spec:
+    affinity:
+      nodeAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - preference:
+            matchExpressions:
+            - key: node-role.kubernetes.io/control-plane
+              operator: In
+              values:
+              - "true"
+          weight: 100
+        - preference:
+            matchExpressions:
+            - key: node-role.kubernetes.io/master
+              operator: In
+              values:
+              - "true"
+          weight: 100
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/os
+              operator: NotIn
+              values:
+              - windows
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+              - system-upgrade-controller
+          topologyKey: kubernetes.io/hostname
+    containers:
+    - env:
+      - name: SYSTEM_UPGRADE_CONTROLLER_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.labels['upgrade.cattle.io/controller']
+      - name: SYSTEM_UPGRADE_CONTROLLER_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: SYSTEM_UPGRADE_CONTROLLER_NODE_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: spec.nodeName
+      envFrom:
+      - configMapRef:
+          name: system-upgrade-controller-config
+      image: rancher/system-upgrade-controller:v0.19.1
+      imagePullPolicy: IfNotPresent
+      name: system-upgrade-controller
+      resources: {}
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        runAsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
+        seccompProfile:
+          type: RuntimeDefault
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/ssl
+        name: etc-ssl
+        readOnly: true
+      - mountPath: /etc/pki
+        name: etc-pki
+        readOnly: true
+      - mountPath: /etc/ca-certificates
+        name: etc-ca-certificates
+        readOnly: true
+      - mountPath: /tmp
+        name: tmp
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-nb9b6
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: hp-117-tink-system
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: system-upgrade-controller
+    serviceAccountName: system-upgrade-controller
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - operator: Exists
+    volumes:
+    - hostPath:
+        path: /etc/ssl
+        type: DirectoryOrCreate
+      name: etc-ssl
+    - hostPath:
+        path: /etc/pki
+        type: DirectoryOrCreate
+      name: etc-pki
+    - hostPath:
+        path: /etc/ca-certificates
+        type: DirectoryOrCreate
+      name: etc-ca-certificates
+    - emptyDir: {}
+      name: tmp
+    - name: kube-api-access-nb9b6
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:23Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:21Z"
+      observedGeneration: 1
+      status: "True"
+      type: Initialized
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:23Z"
+      observedGeneration: 1
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:23Z"
+      observedGeneration: 1
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:42:21Z"
+      observedGeneration: 1
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://fd8677acd961850411cafbafdf5a75aad70519a93d37395b8a002acebd629496
+      image: docker.io/rancher/system-upgrade-controller:v0.19.1
+      imageID: docker.io/rancher/system-upgrade-controller@sha256:35b84a246f2b38b518c9db4e9c5413e129a871f6d905b877995a94297bc64a71
+      lastState: {}
+      name: system-upgrade-controller
+      ready: true
+      resources: {}
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2026-06-12T10:42:23Z"
+      user:
+        linux:
+          gid: 65534
+          supplementalGroups:
+          - 65534
+          uid: 65534
+      volumeMounts:
+      - mountPath: /etc/ssl
+        name: etc-ssl
+        readOnly: true
+        recursiveReadOnly: Disabled
+      - mountPath: /etc/pki
+        name: etc-pki
+        readOnly: true
+        recursiveReadOnly: Disabled
+      - mountPath: /etc/ca-certificates
+        name: etc-ca-certificates
+        readOnly: true
+        recursiveReadOnly: Disabled
+      - mountPath: /tmp
+        name: tmp
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-nb9b6
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 10.115.252.86
+    hostIPs:
+    - ip: 10.115.252.86
+    observedGeneration: 1
+    phase: Running
+    podIP: 10.52.0.30
+    podIPs:
+    - ip: 10.52.0.30
+    qosClass: BestEffort
+    startTime: "2026-06-12T10:42:21Z"
+kind: List
+metadata:
+  resourceVersion: "676346"

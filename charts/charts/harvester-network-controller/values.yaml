@@ -1,0 +1,73 @@
+# Default values for harvester-network-controller.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  repository: rancher/harvester-network-controller
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+nameOverride: ""
+
+# Specify whether to enable VIP, defaults to false
+vipEnabled: false
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 256Mi
+  requests:
+    cpu: 10m
+    memory: 64Mi
+
+nodeSelector: {}
+
+tolerations:
+  # this toleration is to have the daemonset runnable on master nodes
+  # remove it if your masters can't run pods
+  - key: node-role.kubernetes.io/master
+    effect: NoSchedule
+
+affinity: {}
+
+# Default value for harvester-network-controller-manager deployment
+manager:
+  replicas: 2
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/os
+              operator: In
+              values:
+                - linux
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+                - harvester-network-controller-manager
+        topologyKey: kubernetes.io/hostname
+
+helper:
+  # Helper image version is used in the harvester-network-controller codes as the job's template image.
+  image:
+    repository: rancher/harvester-network-helper
+    tag: ""
+
+webhook:
+  replicas: 1
+  image:
+    repository: rancher/harvester-network-webhook
+    tag: ""
+    pullPolicy: IfNotPresent
+  httpsPort: 8443
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 64Mi

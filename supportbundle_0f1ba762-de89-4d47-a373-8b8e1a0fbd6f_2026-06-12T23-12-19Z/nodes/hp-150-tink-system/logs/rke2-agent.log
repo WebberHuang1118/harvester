@@ -1,0 +1,92 @@
+Jun 12 10:47:06.430242 hp-150-tink-system systemd[1]: Starting Rancher Kubernetes Engine v2 (agent)...
+Jun 12 10:47:06.482940 hp-150-tink-system harv-update-rke2-server-url[4181]: + HARVESTER_CONFIG_FILE=/oem/harvester.config
+Jun 12 10:47:06.482940 hp-150-tink-system harv-update-rke2-server-url[4181]: + RKE2_VIP_CONFIG_FILE=/etc/rancher/rke2/config.yaml.d/90-harvester-vip.yaml
+Jun 12 10:47:06.483305 hp-150-tink-system harv-update-rke2-server-url[4181]: + case $1 in
+Jun 12 10:47:06.483305 hp-150-tink-system harv-update-rke2-server-url[4181]: + update_agent_conf
+Jun 12 10:47:06.483525 hp-150-tink-system harv-update-rke2-server-url[4182]: ++ yq -e e .serverurl /oem/harvester.config
+Jun 12 10:47:06.507274 hp-150-tink-system harv-update-rke2-server-url[4181]: + server_url=https://10.115.252.20:443
+Jun 12 10:47:06.507274 hp-150-tink-system harv-update-rke2-server-url[4181]: + '[' -z https://10.115.252.20:443 ']'
+Jun 12 10:47:06.507694 hp-150-tink-system harv-update-rke2-server-url[4189]: + echo https://10.115.252.20:443
+Jun 12 10:47:06.507968 hp-150-tink-system harv-update-rke2-server-url[4190]: + grep -E '^https://(.*):(8443|443)'
+Jun 12 10:47:06.509318 hp-150-tink-system harv-update-rke2-server-url[4190]: https://10.115.252.20:443
+Jun 12 10:47:06.510316 hp-150-tink-system harv-update-rke2-server-url[4192]: ++ echo https://10.115.252.20:443
+Jun 12 10:47:06.510585 hp-150-tink-system harv-update-rke2-server-url[4193]: ++ sed -E 's,^https://(.*):(8443|443),https://\1:9345,'
+Jun 12 10:47:06.512340 hp-150-tink-system harv-update-rke2-server-url[4181]: + export RKE2_SERVER_URL=https://10.115.252.20:9345
+Jun 12 10:47:06.512340 hp-150-tink-system harv-update-rke2-server-url[4181]: + RKE2_SERVER_URL=https://10.115.252.20:9345
+Jun 12 10:47:06.512437 hp-150-tink-system harv-update-rke2-server-url[4181]: + '[' -e /etc/rancher/rke2/config.yaml.d/90-harvester-vip.yaml ']'
+Jun 12 10:47:06.512437 hp-150-tink-system harv-update-rke2-server-url[4181]: + yq -n e '.server = strenv(RKE2_SERVER_URL)'
+Jun 12 10:47:06.621027 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=warning msg="Unknown flag --apiVersion found in config.yaml, skipping\n"
+Jun 12 10:47:06.621027 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=warning msg="Unknown flag --kind found in config.yaml, skipping\n"
+Jun 12 10:47:06.621027 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=warning msg="Unknown flag --omitStages found in config.yaml, skipping\n"
+Jun 12 10:47:06.621027 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=warning msg="Unknown flag --omitStages found in config.yaml, skipping\n"
+Jun 12 10:47:06.621027 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=warning msg="Unknown flag --rules found in config.yaml, skipping\n"
+Jun 12 10:47:06.623764 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=warning msg="not running in CIS mode"
+Jun 12 10:47:06.624045 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=info msg="Applying Pod Security Admission Configuration"
+Jun 12 10:47:06.632823 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=info msg="Starting rke2 agent v1.35.5+rke2r1 (e28e7c1a0404f1e9bf36e8b7222d64aec6b7a004)"
+Jun 12 10:47:06.634117 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=info msg="Updated load balancer rke2-agent-load-balancer default server: 10.115.252.20:9345"
+Jun 12 10:47:06.634335 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=info msg="Running load balancer rke2-agent-load-balancer 127.0.0.1:6444 -> [] [default: 10.115.252.20:9345]"
+Jun 12 10:47:06.659515 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=warning msg="Cluster CA certificate is not trusted by the host CA bundle, but the token does not include a CA hash. Use the full token from the server's node-token file to enable Cluster CA validation."
+Jun 12 10:47:06.840539 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=info msg="Updated load balancer rke2-api-server-agent-load-balancer default server: 10.115.252.20:6443"
+Jun 12 10:47:06.840698 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:06Z" level=info msg="Running load balancer rke2-api-server-agent-load-balancer 127.0.0.1:6443 -> [] [default: 10.115.252.20:6443]"
+Jun 12 10:47:07.255984 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:07Z" level=info msg="Using private registry config file at /etc/rancher/rke2/registries.yaml"
+Jun 12 10:47:08.320205 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Module overlay was already loaded"
+Jun 12 10:47:08.345328 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Module br_netfilter was already loaded"
+Jun 12 10:47:08.364200 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=warning msg="Failed to load kernel module nft-expr-counter with modprobe"
+Jun 12 10:47:08.393671 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Set sysctl 'net/netfilter/nf_conntrack_tcp_timeout_established' to 86400"
+Jun 12 10:47:08.393810 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Set sysctl 'net/netfilter/nf_conntrack_tcp_timeout_close_wait' to 3600"
+Jun 12 10:47:08.393810 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Set sysctl 'net/ipv4/conf/all/forwarding' to 1"
+Jun 12 10:47:08.393943 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Set sysctl 'net/netfilter/nf_conntrack_max' to 786432"
+Jun 12 10:47:08.394061 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Removed kube-proxy static pod manifest"
+Jun 12 10:47:08.394365 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Runtime image index.docker.io/rancher/rke2-runtime:v1.35.5-rke2r1 bin and charts directories already exist; skipping extract"
+Jun 12 10:47:08.395067 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Waiting for cri connection: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/k3s/containerd/containerd.sock: connect: no such file or directory\""
+Jun 12 10:47:08.395341 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=warning msg="SELinux is enabled on this host, but rke2 has not been started with --selinux - containerd SELinux support is disabled"
+Jun 12 10:47:08.396505 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Getting list of apiserver endpoints from server"
+Jun 12 10:47:08.396582 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Logging containerd to /var/lib/rancher/rke2/agent/containerd/containerd.log"
+Jun 12 10:47:08.396745 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Running containerd -c /var/lib/rancher/rke2/agent/etc/containerd/config.toml"
+Jun 12 10:47:08.397209 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Creating rke2-cert-monitor event broadcaster"
+Jun 12 10:47:08.585626 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Got apiserver addresses from supervisor: [10.115.252.86:6443]"
+Jun 12 10:47:08.585626 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Adding server to load balancer rke2-api-server-agent-load-balancer: 10.115.252.86:6443"
+Jun 12 10:47:08.585626 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Updated load balancer rke2-api-server-agent-load-balancer server addresses -> [10.115.252.86:6443] [default: 10.115.252.20:6443]"
+Jun 12 10:47:08.585774 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Adding server to load balancer rke2-agent-load-balancer: 10.115.252.86:9345"
+Jun 12 10:47:08.585774 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Updated load balancer rke2-agent-load-balancer server addresses -> [10.115.252.86:9345] [default: 10.115.252.20:9345]"
+Jun 12 10:47:08.585929 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Connecting to proxy" url="wss://10.115.252.86:9345/v1-rke2/connect"
+Jun 12 10:47:08.604897 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Connected to proxy" url="wss://10.115.252.86:9345/v1-rke2/connect"
+Jun 12 10:47:08.604897 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Remotedialer connected to proxy" url="wss://10.115.252.86:9345/v1-rke2/connect"
+Jun 12 10:47:08.635333 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Server 10.115.252.86:9345@UNCHECKED->RECOVERING from successful health check"
+Jun 12 10:47:08.749234 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Running kube-proxy --cluster-cidr=10.52.0.0/16 --conntrack-max-per-core=0 --conntrack-tcp-timeout-close-wait=0s --conntrack-tcp-timeout-established=0s --healthz-bind-address=127.0.0.1 --hostname-override=hp-150-tink-system --kubeconfig=/var/lib/rancher/rke2/agent/kubeproxy.kubeconfig --proxy-mode=iptables"
+Jun 12 10:47:08.842418 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:08Z" level=info msg="Server 10.115.252.86:6443@UNCHECKED->RECOVERING from successful health check"
+Jun 12 10:47:09.400941 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:09Z" level=info msg="containerd is now running"
+Jun 12 10:47:09.636177 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:09Z" level=info msg="Server 10.115.252.86:9345@RECOVERING->PREFERRED from successful health check"
+Jun 12 10:47:09.843455 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:09Z" level=info msg="Server 10.115.252.86:6443@RECOVERING->PREFERRED from successful health check"
+Jun 12 10:47:10.259822 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:10Z" level=info msg="Pulling images from /var/lib/rancher/rke2/agent/images/kube-proxy-image.txt"
+Jun 12 10:47:10.260483 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:10Z" level=info msg="Image index.docker.io/rancher/hardened-kubernetes:v1.35.5-rke2r1-build20260512 has already been pulled"
+Jun 12 10:47:10.265030 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:10Z" level=info msg="Imported docker.io/rancher/hardened-kubernetes:v1.35.5-rke2r1-build20260512"
+Jun 12 10:47:10.273059 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:10Z" level=info msg="Tagged docker.io/rancher/hardened-kubernetes@sha256:96c771588f47e31f00e5f6298c8af4925f109cd00bbc6677ea0bff8a4aba357b"
+Jun 12 10:47:10.310355 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:10Z" level=info msg="Imported images from /var/lib/rancher/rke2/agent/images/kube-proxy-image.txt in 50.55348ms"
+Jun 12 10:47:10.769963 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:10Z" level=info msg="Running kubelet --alsologtostderr=false --cloud-provider=external --config-dir=/var/lib/rancher/rke2/agent/etc/kubelet.conf.d --containerd=/run/k3s/containerd/containerd.sock --hostname-override=hp-150-tink-system --kube-reserved=cpu=636m --kubeconfig=/var/lib/rancher/rke2/agent/kubelet.kubeconfig --log-file=/var/lib/rancher/rke2/agent/logs/kubelet.log --log-file-max-size=50 --logtostderr=false --max-pods=200 --node-ip=10.115.252.95 --node-labels=harvesterhci.io/managed=true,rke.cattle.io/machine=5765f6e2-a7cd-4b70-bd86-de3b96062367 --read-only-port=0 --stderrthreshold=FATAL --system-reserved=cpu=424m"
+Jun 12 10:47:10.911545 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:10Z" level=info msg="Server 10.115.252.86:6443@PREFERRED->ACTIVE from successful dial"
+Jun 12 10:47:10.911545 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:10Z" level=info msg="Closing 3 connections to load balancer server 10.115.252.20:6443@STANDBY*"
+Jun 12 10:47:28.404520 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:28Z" level=info msg="Event occurred" apiVersion= fieldPath= kind=Node logger=rke2 message="Node and Certificate Authority certificates managed by rke2 are OK" object=hp-150-tink-system reason=CertificateExpirationOK type=Normal
+Jun 12 10:47:28.418476 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:28Z" level=info msg="Tunnel authorizer set Kubelet Port 0.0.0.0:10250"
+Jun 12 10:47:28.438392 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:28Z" level=info msg="Annotations and labels have been set successfully on node: hp-150-tink-system"
+Jun 12 10:47:28.438465 hp-150-tink-system rke2[4201]: time="2026-06-12T10:47:28Z" level=info msg="rke2 agent is up and running"
+Jun 12 10:47:28.467329 hp-150-tink-system sysctl[6836]: net.bridge.bridge-nf-call-iptables = 0
+Jun 12 10:47:28.469548 hp-150-tink-system systemd[1]: Started Rancher Kubernetes Engine v2 (agent).
+Jun 12 10:47:46.234128 hp-150-tink-system systemd[1]: Stopping Rancher Kubernetes Engine v2 (agent)...
+Jun 12 10:47:46.294275 hp-150-tink-system systemd[1]: rke2-agent.service: Deactivated successfully.
+Jun 12 10:47:46.294529 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 4415 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.294646 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 4515 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.294749 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 4576 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.294866 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 4604 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.294964 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 6134 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295062 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7012 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295159 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7233 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295244 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7255 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295329 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7496 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295414 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7524 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295498 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7672 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295582 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7700 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295672 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7743 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.295758 hp-150-tink-system systemd[1]: rke2-agent.service: Unit process 7781 (containerd-shim) remains running after unit stopped.
+Jun 12 10:47:46.296310 hp-150-tink-system systemd[1]: Stopped Rancher Kubernetes Engine v2 (agent).
+Jun 12 10:47:46.296744 hp-150-tink-system systemd[1]: rke2-agent.service: Consumed 56.000s CPU time.

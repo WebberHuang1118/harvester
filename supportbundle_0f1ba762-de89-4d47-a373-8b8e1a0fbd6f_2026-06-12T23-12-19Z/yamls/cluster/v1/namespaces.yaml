@@ -1,0 +1,1064 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rancher-turtles
+      meta.helm.sh/release-namespace: cattle-turtles-system
+    creationTimestamp: "2026-06-12T10:42:00Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      kubernetes.io/metadata.name: cattle-capi-system
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:42:00Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-capi-system
+    resourceVersion: "7136"
+    uid: cea0f0dd-7456-4adf-a086-f608759cb062
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      helm.sh/resource-policy: keep
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Namespace","metadata":{"annotations":{"helm.sh/resource-policy":"keep","meta.helm.sh/release-name":"rancher-monitoring","meta.helm.sh/release-namespace":"cattle-monitoring-system"},"labels":{"app.kubernetes.io/instance":"rancher-monitoring","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"rancher-monitoring","heritage":"Helm","kubernetes.io/metadata.name":"cattle-dashboards","name":"cattle-dashboards","release":"rancher-monitoring"},"name":"cattle-dashboards"}}
+      meta.helm.sh/release-name: rancher-monitoring
+      meta.helm.sh/release-namespace: cattle-monitoring-system
+    creationTimestamp: "2026-06-12T10:42:08Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      app.kubernetes.io/instance: rancher-monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: rancher-monitoring
+      app.kubernetes.io/version: v0.85.0
+      chart: rancher-monitoring-108.0.2_up77.9.1-rancher.11
+      helm.sh/chart: rancher-monitoring-108.0.2_up77.9.1-rancher.11
+      heritage: Helm
+      kubernetes.io/metadata.name: cattle-dashboards
+      name: cattle-dashboards
+      release: rancher-monitoring
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:helm.sh/resource-policy: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/part-of: {}
+            f:heritage: {}
+            f:kubernetes.io/metadata.name: {}
+            f:name: {}
+            f:release: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2026-06-12T10:42:08Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:app.kubernetes.io/version: {}
+            f:chart: {}
+            f:helm.sh/chart: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T11:02:34Z"
+    name: cattle-dashboards
+    resourceVersion: "25701"
+    uid: 6b6b6244-6824-400a-9bf6-2a8b2391bd0e
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/3yOwc6DIBCE32XPP/5SLVXeZsEl0iAYdz00xndv0HtvM8nMN3PAQoITCoI9AHMughJL5mqLe5MXJmm2WBqPIomaWP7jBBZCIhLlShGWDVd1Mc4/SOgo/azPyDNY6J+67dou6NEZ7zD4se207genB2OCNv7h6IV4QTMuBBZuhrqnfdpZaGPFHxZaaoxX8mCPqgRlry/O8xsAAP//rwJNleMAAAA
+      objectset.rio.cattle.io/id: fleet-bootstrap-data
+    creationTimestamp: "2026-06-12T10:40:42Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: cattle-fleet-clusters-system
+      objectset.rio.cattle.io/hash: 4510303f19b6cbafc9031148b1866f16c2be7aaa
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T10:40:42Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-fleet-clusters-system
+    resourceVersion: "7123"
+    uid: c807778c-fa16-4d96-86f8-4cd6f31e5c12
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/3yOzQ6DIBCE32XPxVr8520WWCsNska2h8b47g3x7m0mM/lmDlhJ0KMgmAMwJRaUwCkXy/ZDTjJJtQeuHIpEqgI/gwcDcyQShW9KoiyzZNlxU1dJXWFkh1HlXxZa4XxAREvxlrxgXsBA0+taN/PQaRrm1zROfrR9p6nWk/Xa9d2INLi2LdCEK4GB2+G8kQNzFCUo33LhPP8BAAD//6XBlGv7AAAA
+      objectset.rio.cattle.io/id: fleet-agent-bootstrap-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:09Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: cattle-fleet-local-system
+      objectset.rio.cattle.io/hash: 362023f752e7f1989d8b652e029bd2c658ae7c44
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T10:42:09Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-fleet-local-system
+    resourceVersion: "7139"
+    uid: 68024380-3946-4e04-a543-50db3f836e3f
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/3yNQY6EIBRE7/LXoyOjQyu3+eAn0kEwUr3oGO/eQfe9q0ql3jtoFfDMYDIHcUoZjJBTqTXbpzgUQbuH3DoGorQh/4aZDPkogsbmjIKdt+ZinD8U2Ur8el+4LGRo+Fdd3/VeTVY7y95NXa/UMFo1au2Vdn9WHswXNPEqZOhmNLe6vAtkrWvZxJE5agLjVeXn+QkAAP//upXJmdoAAAA
+      objectset.rio.cattle.io/id: fleet-bootstrap-data
+    creationTimestamp: "2026-06-12T10:40:31Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: cattle-fleet-system
+      objectset.rio.cattle.io/hash: 4510303f19b6cbafc9031148b1866f16c2be7aaa
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:31Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:objectset.rio.cattle.io/hash: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T10:40:42Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-fleet-system
+    resourceVersion: "7146"
+    uid: b219216c-2667-4342-a1d9-95ebe635e67d
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: cattle-local-user-passwords
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-local-user-passwords
+    resourceVersion: "7152"
+    uid: 348a868f-9255-42d0-96b8-31c5954694b7
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Namespace","metadata":{"annotations":{},"name":"cattle-logging-system"}}
+    creationTimestamp: "2026-06-12T10:42:08Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: cattle-logging-system
+      name: cattle-logging-system
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:name: {}
+        f:spec: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:25Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2026-06-12T10:42:08Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-logging-system
+    resourceVersion: "7159"
+    uid: 7811e660-a79b-4cf4-9e85-9b8c1e5b29a9
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Namespace","metadata":{"annotations":{},"name":"cattle-monitoring-system"}}
+    creationTimestamp: "2026-06-12T10:42:08Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: cattle-monitoring-system
+      name: cattle-monitoring-system
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:name: {}
+        f:spec: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:17Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2026-06-12T10:42:08Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-monitoring-system
+    resourceVersion: "7161"
+    uid: c94e3f4c-8b39-462e-8166-58abab3db50a
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:02Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: cattle-system
+      name: cattle-system
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+            f:name: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:39:02Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-system
+    resourceVersion: "7165"
+    uid: 5fce8189-e480-402e-a695-ed8ac78ae8d4
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:41:54Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: cattle-turtles-system
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:41:54Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-turtles-system
+    resourceVersion: "7171"
+    uid: 649dd19d-c38f-4191-a460-91508205c5e9
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:48Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      app.kubernetes.io/managed-by: rancher
+      kubernetes.io/metadata.name: cattle-ui-plugin-system
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:48Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cattle-ui-plugin-system
+    resourceVersion: "7172"
+    uid: cbbfece7-473d-4f02-9e98-4a0554d03f36
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      fleet.cattle.io/cluster: local
+      fleet.cattle.io/cluster-namespace: fleet-local
+    creationTimestamp: "2026-06-12T10:42:06Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      fleet.cattle.io/managed: "true"
+      kubernetes.io/metadata.name: cluster-fleet-local-local-1a3d67d0a899
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:fleet.cattle.io/cluster: {}
+            f:fleet.cattle.io/cluster-namespace: {}
+          f:labels:
+            .: {}
+            f:fleet.cattle.io/managed: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T10:42:06Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: cluster-fleet-local-local-1a3d67d0a899
+    resourceVersion: "7175"
+    uid: 90fd2ed3-d7b6-447a-b258-fc84ead13d0d
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:38:50Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: default
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:50Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: default
+    resourceVersion: "7186"
+    uid: ae658a1d-1102-40f8-80c5-f177a4c5b929
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/3yOS26EMBBE79JrQjCEj32OXKCxC+HIH4SbFeLukWc9ml3Vouq9myKEHQuTuYlTysLicyq15vUPVgqkPX1uLYsEtD5/e0eGtgDIl8PGVxB6GrInXtNfH1GE40EmXSE0FHhF+Hi4c9nJkBv7hTuFYR55mubJatdr3Y/Dou1PpxYATmk1V1riiHcW5YAlc9ckLFfFPs9/AAAA//8TxZL65gAAAA
+      objectset.rio.cattle.io/id: fleet-default
+    creationTimestamp: "2026-06-12T10:42:47Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: fleet-default
+      objectset.rio.cattle.io/hash: d528a01e375a6676c9d29925389c4018eeed1917
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: fleet-default
+    resourceVersion: "7187"
+    uid: cab87bbd-db57-49df-89d1-aa5d7dae75e6
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Namespace","metadata":{"annotations":{},"name":"fleet-local"}}
+    creationTimestamp: "2026-06-12T10:39:48Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      app.kubernetes.io/managed-by: rancher
+      kubernetes.io/metadata.name: fleet-local
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:48Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2026-06-12T10:42:09Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: fleet-local
+    resourceVersion: "7188"
+    uid: 7dddfdca-7964-45c9-a5a6-0c975e968022
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/3yOSxKCMBBE7zJrRMpIIDmHF5gMYxErHyoZ3FDc3Yp73XUvut87ILLggoJgD8CUsqD4nGqr2b2YpLL0xeeeUCRw7/PVL2BhxfLmKlwu2+6CJzg7oMLf9cNHroJxA5v2EDoI6Dj8/VyxrmBBDWqiwamR58VpZfRM+vY0wzROyFo5np25k8FGSxj5h0jdmMAeLQnK3sjn+QkAAP//rajMdewAAAA
+      objectset.rio.cattle.io/id: harvester-public
+    creationTimestamp: "2026-06-12T10:42:47Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: harvester-public
+      objectset.rio.cattle.io/hash: 3037c0b35e8db63968c62f90757ae63be8b94c9a
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: harvester-public
+    resourceVersion: "7191"
+    uid: a0287161-6a1e-490e-9a3b-ac9694f8bed0
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:18Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      cdi.kubevirt.io: "null"
+      kubernetes.io/metadata.name: harvester-system
+      name: harvester-system
+      openshift.io/cluster-monitoring: "true"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:name: {}
+        f:spec: {}
+      manager: fleetagent
+      operation: Apply
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+            f:name: {}
+      manager: fleetagent
+      operation: Update
+      time: "2026-06-12T10:42:18Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:cdi.kubevirt.io: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2026-06-12T10:42:33Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:openshift.io/cluster-monitoring: {}
+      manager: virt-operator
+      operation: Update
+      time: "2026-06-12T10:44:16Z"
+    name: harvester-system
+    resourceVersion: "7684"
+    uid: 0f1ba762-de89-4d47-a373-8b8e1a0fbd6f
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:38:50Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: kube-node-lease
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:50Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: kube-node-lease
+    resourceVersion: "7200"
+    uid: 88a14978-3377-40aa-a819-fc84b34a59b9
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:38:50Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: kube-public
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:50Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: kube-public
+    resourceVersion: "7201"
+    uid: bccbbe4b-2710-4e41-b29d-4997a9a20638
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:38:50Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: kube-system
+      name: kube-system
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:name: {}
+        f:spec: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:16Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: kube-apiserver
+      operation: Update
+      time: "2026-06-12T10:38:50Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: kube-system
+    resourceVersion: "7204"
+    uid: 67a9d16c-e107-4995-ab3f-4f5ede9a8129
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T10:40:00Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: local
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"3d9dbb95-22f2-4cc1-8ced-bd8f57bed6e0"}: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:00Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: local
+    ownerReferences:
+    - apiVersion: management.cattle.io/v3
+      kind: Cluster
+      name: local
+      uid: 3d9dbb95-22f2-4cc1-8ced-bd8f57bed6e0
+    resourceVersion: "7203"
+    uid: 5dea6ddf-d5fa-41f6-9448-15d4d558c4b4
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      kubernetes.io/metadata.name: longhorn-system
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: longhorn-system
+    resourceVersion: "7205"
+    uid: b5ea2154-8224-43a3-b007-0e1e972770e5
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    creationTimestamp: "2026-06-12T23:01:48Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-namespace-controller
+    labels:
+      kubernetes.io/metadata.name: user-nkqmt
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-namespace-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T23:01:48Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:kubernetes.io/metadata.name: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T23:01:48Z"
+    name: user-nkqmt
+    resourceVersion: "667451"
+    uid: 18c158d6-60f1-4bf3-8049-8bc94da68cbc
+  spec:
+    finalizers:
+    - kubernetes
+  status:
+    phase: Active
+kind: List
+metadata:
+  resourceVersion: "676233"

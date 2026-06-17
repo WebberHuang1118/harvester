@@ -1,0 +1,270 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:47:40Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app: longhorn-admission-webhook
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      endpoints.kubernetes.io/managed-by: endpoint-controller
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:endpoints.kubernetes.io/managed-by: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:subsets: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:47:40Z"
+    name: longhorn-admission-webhook
+    namespace: longhorn-system
+    resourceVersion: "12065"
+    uid: e21b35fb-3ad3-4e2d-b52e-0e70b036e499
+  subsets:
+  - addresses:
+    - ip: 10.52.0.42
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-bvg2r
+        namespace: longhorn-system
+        uid: f69f3692-00cb-4087-b546-1f5985ef9619
+    - ip: 10.52.1.5
+      nodeName: hp-150-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-l4qr4
+        namespace: longhorn-system
+        uid: 777ca1c3-22e8-4721-b43d-188ab4933a86
+    - ip: 10.52.2.8
+      nodeName: hp-69-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-prlhd
+        namespace: longhorn-system
+        uid: b85fcfb0-d2a1-4ac3-b81b-13c20a089eca
+    ports:
+    - name: admission-webhook
+      port: 9502
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:47:40Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app: longhorn-manager
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      endpoints.kubernetes.io/managed-by: endpoint-controller
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:endpoints.kubernetes.io/managed-by: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:subsets: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:47:40Z"
+    name: longhorn-backend
+    namespace: longhorn-system
+    resourceVersion: "12069"
+    uid: 1a352758-fa31-4f45-892f-b28e5dad5802
+  subsets:
+  - addresses:
+    - ip: 10.52.0.42
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-bvg2r
+        namespace: longhorn-system
+        uid: f69f3692-00cb-4087-b546-1f5985ef9619
+    - ip: 10.52.1.5
+      nodeName: hp-150-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-l4qr4
+        namespace: longhorn-system
+        uid: 777ca1c3-22e8-4721-b43d-188ab4933a86
+    - ip: 10.52.2.8
+      nodeName: hp-69-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-prlhd
+        namespace: longhorn-system
+        uid: b85fcfb0-d2a1-4ac3-b81b-13c20a089eca
+    ports:
+    - name: manager
+      port: 9500
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:42:47Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app: longhorn-ui
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      endpoints.kubernetes.io/managed-by: endpoint-controller
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:endpoints.kubernetes.io/managed-by: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:subsets: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:42:47Z"
+    name: longhorn-frontend
+    namespace: longhorn-system
+    resourceVersion: "5106"
+    uid: ca002a70-c6b6-4f1f-b5b7-43ea2e90a1df
+  subsets:
+  - addresses:
+    - ip: 10.52.0.43
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-ui-74c6fbbdb4-84ldd
+        namespace: longhorn-system
+        uid: 49b7b7a2-c9a5-4d3d-9c92-b9581f2fe458
+    - ip: 10.52.0.45
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-ui-74c6fbbdb4-q4c6l
+        namespace: longhorn-system
+        uid: 8cd15c4d-f923-4f71-aea7-5d522b25e0d2
+    ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:47:40Z"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app: longhorn-recovery-backend
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      endpoints.kubernetes.io/managed-by: endpoint-controller
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:endpoints.kubernetes.io/managed-by: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:subsets: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:47:40Z"
+    name: longhorn-recovery-backend
+    namespace: longhorn-system
+    resourceVersion: "12068"
+    uid: ae3e3523-ba10-42eb-b52b-d4280be91d43
+  subsets:
+  - addresses:
+    - ip: 10.52.0.42
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-bvg2r
+        namespace: longhorn-system
+        uid: f69f3692-00cb-4087-b546-1f5985ef9619
+    - ip: 10.52.1.5
+      nodeName: hp-150-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-l4qr4
+        namespace: longhorn-system
+        uid: 777ca1c3-22e8-4721-b43d-188ab4933a86
+    - ip: 10.52.2.8
+      nodeName: hp-69-tink-system
+      targetRef:
+        kind: Pod
+        name: longhorn-manager-prlhd
+        namespace: longhorn-system
+        uid: b85fcfb0-d2a1-4ac3-b81b-13c20a089eca
+    ports:
+    - name: recovery-backend
+      port: 9503
+      protocol: TCP
+kind: List
+metadata:
+  resourceVersion: "676475"

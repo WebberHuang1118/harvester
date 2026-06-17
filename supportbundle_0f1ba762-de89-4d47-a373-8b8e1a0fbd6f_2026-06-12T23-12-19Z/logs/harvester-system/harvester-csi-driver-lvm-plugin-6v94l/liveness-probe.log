@@ -1,0 +1,3 @@
+2026-06-12T23:03:29.865763571Z I0612 23:03:29.865592       1 main.go:133] "Calling CSI driver to discover driver name"
+2026-06-12T23:03:29.870289094Z I0612 23:03:29.870176       1 main.go:141] "CSI driver name" driver="lvm.driver.harvesterhci.io"
+2026-06-12T23:03:29.870306565Z I0612 23:03:29.870205       1 main.go:170] "ServeMux listening" address="0.0.0.0:9898"

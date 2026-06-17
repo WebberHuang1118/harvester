@@ -1,0 +1,1220 @@
+apiVersion: v1
+items:
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6SUy27bOhCGX8WYtahIsi05As7ioAHaoosCadFFiyzG1ChmTZEEOVJrGHr3grLjJEZuaHem5+J//m/Ge+iIsUFGqPeAxlhGVtaE+LTrnyQ5EKde2VQis6ZU2QvVQA0b0p1A5yB5Ns/+MuTF7bCFGi6GPJl9Uqb57wtJT/xqmcGOoIawSeMvpZ40YaB0yNNtvyY7GGEdeWTrhfRNOuRv6hgcytg29hBhF5g6GBPQuCb94swbDBuoIWslttn8sl1WbbbGrMKyXWNVLXIqsnmOWGaLvF2VselxgqfkwiH6lJoEJrXX1JInIylA/WMP6NQ38kFZAzVMs661ldvPMfWKNPEUaVEHSkBaw95qTR5q9j0lsFUmMjtZ/zfm9hN2LJeroliWolnNM7FYraRYZctKLIqqmFc0z+bVJYw3YwLBkYyOyg16jh9e2LRWE/EDt/GWDD8CdoiJKVFoK1HfG3Zeve5No0lMejspxTMEzsu2RE54Crb3k+0w2flEYiA/KEkCpbS9Yagh4n6MqID4jXsILc2X6QISaChIr9wBGfw/+0C6m00uzVrrZ+dqZ9I3ARLoUBlGZcgfVuLIcIN+oMDkYbx5bed452IUndNKTu5DAsNJ4lHhOCbTdZ+0zxNQprUR1GPtH01g1Hombec08eSV8oGvyGm7o+h/kRWlyEqRF1/zrF4UdV5+h3hwb8kKjNxHEs1d6j+c1QOy5weFTtFvJhOfId2uQqQ8Lf3xcN71gW13fexwRa0y6mjfUY60plW3vT/s9N0ZpcpOWE4e5+P9VPHPJq4SNe/J0KES6iyB0Hcd+h3U+3Ec/wQAAP//A3XFzKIFAAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.kubeovn-operator-crd.v1
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:42:16Z"
+    generation: 2
+    labels:
+      objectset.rio.cattle.io/hash: 0fcaf039f57f0ba07a6fba7741e2031aa6041f86
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a6582256-d830-488c-8057-427237e30379"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:fleet.cattle.io/agent-namespace: {}
+                f:fleet.cattle.io/bundle-id: {}
+                f:fleet.cattle.io/keep-resources: {}
+                f:fleet.cattle.io/service-account: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:maintainers: {}
+              f:name: {}
+              f:type: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:42:16Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:42:16Z"
+    name: kubeovn-operator-crd
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.kubeovn-operator-crd.v1
+      uid: a6582256-d830-488c-8057-427237e30379
+    resourceVersion: "3422"
+    uid: 38188943-1404-40a1-bcfd-da510c6e9855
+  spec:
+    chart:
+      metadata:
+        annotations:
+          fleet.cattle.io/agent-namespace: cattle-fleet-local-system
+          fleet.cattle.io/bundle-id: mcc-kubeovn-operator-crd
+          fleet.cattle.io/keep-resources: "false"
+          fleet.cattle.io/service-account: "null"
+        apiVersion: v2
+        appVersion: v1.15.4
+        description: A Helm chart for kubeovn-operator crds
+        maintainers:
+        - name: harvester
+        name: kubeovn-operator-crd
+        type: application
+        version: 1.15.4
+    helmVersion: 3
+    info:
+      description: Install complete
+      firstDeployed: "2026-06-12T10:42:16Z"
+      lastDeployed: "2026-06-12T10:42:16Z"
+      status: deployed
+    name: kubeovn-operator-crd
+    namespace: kube-system
+    resources:
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: configurations.kubeovn.io
+    version: 1
+  status:
+    observedGeneration: 2
+    summary:
+      state: deployed
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/8RY3Y7bNhN9FWGuJVmybMsrIMD3NVsUQduk2AS9aJOLETWyWFMkQVJ23IXevaDkrvfH3WyARL6zKOmcM3NmRqRvoSWHFTqE4hZQSuXQcSWtv1TlX8ScJRcbrmKGzgmKuZrxCgpoSLQRag3hfz6n9pJMtNltoYDZLg2Dn7msXr0nZsh98TWJLUEBtok9U2xIEFqKd2lstjSPGEoU8S59EY7VyDzYtispsgfrqIU+BIEliWcjbdA2UADmeXbFcsJ1yjDHfJUvCJfLJKfVslymVbXMclwtMg961H0SCePaOQ0hDBpvqCZDkpGF4s9bQM1/J2O5klDAEGEpFNu+849ekyA33KlRWAqBKemMEoIMFM50FMKWS+/PXZpfnshuMDbDkrKyzqL1YrGOFut8Fa3zeR7lV+X6ql4sKS8J+k99CFYT89ljDRrnfzxTS7UgcvcyW3ayEhQNjF6HT93TwFHreytZnM3jBEKoyDLD9ZgIeCOtQyGC1z6S4C25vTLb4DfRbbiMIYRGDQlonNO2mM32+32sjfKGMxScqViZzQxC2NJhr0zlTYDRuU/hYNdJwscuSTJ6FezSOFvGSwihRS4dcklmNI9a5AKKMSf2fwYla8jETLUnK27GxeAXLC30n87XjFWdGSviTvmGu6YrPdbsiDsbXxm4vNrd42RFZcdFNU/mq2SZpkkCfR8OrXsXUxYCl7XyHp1PK1OtFuQIQqi5se6atFAH8sZ53ChZRen8Q5oU2VWR5H+A76uXPCWV8+HBaJs82qYH24IGbVASyYCPKqiKP8qP8u27Dz8WwRsXtHgIHG4pqGkf+Gw5dJ1Hq/7l/epWNHRK+bkmvOsrs+OM/s+Y6uS9/voSQR8+A/payZpvfkUNZ1RHbLj7NdioOX12JP2ljbdr61vuAWFnnWpvjiFfU80lH3y/4y83euTtzNjFMTPV08b5Xtw1F47MxKSaJqb0cx3r8QZNyTzCS1XR2DnTkovOOjJ+7Jh28uKqSfDPFyvtjVAliuO000pwNq3xD/gtuSm5G2UdyUorLifl5RrbodWmJh2rbGrWBv3WalpWrZSYltGQJbObvH/9Z/e057YXmyOXmyCXmR3W4YaqS0/PUYWvASPJkb20ksvxOz7tVum4Z3gc8PDjEB+Xudwc0Z9qMCWyGDvXKMP/Htr1rJCR5kYJerxZivxu6Zvi1gKlJPENMH/gsuJy8+g0En13gjEz5wzX9gHUNVKr5Pv7f0i86FjW3z/Upv3poHcLqvQfAKp+Iknj/IUiCcF2bYvmAMVt3/f/BAAA//+uzM6+3xIAAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.rke2-canal.v1
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:40:01Z"
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: a7739c7ea81ca7a7674ea5507e65b51dd537a643
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"3abe3bf3-8448-4876-8727-79b89f45e7be"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:fleet.cattle.io/bundle-id: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:home: {}
+              f:keywords: {}
+              f:kubeVersion: {}
+              f:maintainers: {}
+              f:name: {}
+              f:sources: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:notes: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:01Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:40:01Z"
+    name: rke2-canal
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.rke2-canal.v1
+      uid: 3abe3bf3-8448-4876-8727-79b89f45e7be
+    resourceVersion: "1679"
+    uid: 592f7a9a-c37d-43b4-a9d1-4ec54c3ee5ce
+  spec:
+    chart:
+      metadata:
+        annotations:
+          fleet.cattle.io/bundle-id: rke2
+        apiVersion: v1
+        appVersion: v3.32.0
+        description: Install Canal Network Plugin.
+        home: https://www.projectcalico.org/
+        keywords:
+        - canal
+        kubeVersion: '>= v1.35.5'
+        maintainers:
+        - email: charts@rancher.com
+          name: Rancher Labs
+        name: rke2-canal
+        sources:
+        - https://github.com/rancher/rke2-charts
+        version: v3.32.0-build2026051100
+    helmVersion: 3
+    info:
+      description: Install complete
+      firstDeployed: "2026-06-12T10:39:07Z"
+      lastDeployed: "2026-06-12T10:39:07Z"
+      notes: |
+        Canal network plugin has been installed.
+
+        NOTE: It may take few minutes until Canal image install CNI files and node become in ready state.
+      status: deployed
+    name: rke2-canal
+    namespace: kube-system
+    resources:
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: canal
+      namespace: kube-system
+    - apiVersion: v1
+      kind: ConfigMap
+      name: rke2-canal-config
+      namespace: kube-system
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: bgpconfigurations.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: bgpfilters.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: bgppeers.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: blockaffinities.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: caliconodestatuses.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: clusterinformations.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: felixconfigurations.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: globalnetworkpolicies.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: globalnetworksets.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: hostendpoints.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: ipamblocks.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: ipamconfigs.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: ipamhandles.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: ippools.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: ipreservations.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: kubecontrollersconfigurations.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: networkpolicies.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: networksets.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: stagedglobalnetworkpolicies.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: stagedkubernetesnetworkpolicies.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: stagednetworkpolicies.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: tiers.crd.projectcalico.org
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: clusternetworkpolicies.policy.networking.k8s.io
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: calico-node
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: flannel
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: canal-flannel
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: canal-calico
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: rke2-canal
+      namespace: kube-system
+    version: 1
+  status:
+    observedGeneration: 1
+    summary:
+      state: deployed
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/7xW227jNhD9FWKeJVmSLxsL2IdtArSLRS/YLfrQJliMyLHEmiIJXhy4gf69oJyLjW6ySbvNi0WOpDlzZg6PfAMDBRQYEJobQK1NwCCN9mlr2j+JB0+hcNIUHENQVEgzkwIa6EkNOVoL2aPPmWtNLu92W2hgtqsy9kFq8fYTcUfhq69pHAga8H2RkApHitBTsasKt6U658aR0L7YVc/K5C3ylG4bW8r93gcaYMxAYUvqSa49+h4aqNr1Gt/gelXTekXz9VLw9aI927Srs7JevFks5yta09kmJb2t/LhMOES/VEUGU5UfaUOONCcPzR83gFb+Rs5Lo6GBiWOrDN/+nB69IEVhurNB5SkDbnRwRily0AQXKYOt1GlG961+STPjNN51tSTOOc9rLOf5ojzjOWJZ521brdpFi0LMVzBejRl4Szx1kPfoQlo8oSh0QW6Qhz62qbm8R90lxpCzVHLDUAgSl5oxQZ47adObDXsnBONGb2QXHbaKmND+F6Mk37ONcUyQVZDBRhGFo9G1UQtF+UQn0UyzOe1rDSliHyJVUc2L1IQjeGjg3Di6+OkTk54hSwtPbkeOhR4D4z1K7ZlVsUtX1IJZZ3ZSkGcfYktOE2TQm2kCfQjWN7PZXcelgQwkn1D+eW8mB+zIz27xP58bZaL7/INx8i+jA6rC6g4y2NL+2jiRpAMPijv8Jq2l1dVh+cD1MpblnN6yXVXMl8USMhhQ6oBSkzuI8FY1g4vUwZjdB3pEcbrvULboSB1HfR/bHoecD/stjFePnQtvojuo/r4BnZwEws1w14u7a2IR9jalQWuV5JO0IIPd0QgXy6KuahjHbDKpe8bzDKTemKTD0/G+1z6gUoybwSoKaVwb6Xy4IKvMnpJ+6rJe5eUqr+pfq7KZr5vyze+Q/OM5T2kTJpFf6iMhaXPNXNRa6o5JzUJPjKvoAzmGSWa3mzxJTXIqLvWlfp/Osg8YYkon7oD/hec4euj7l9zm3kAm8Hecm6iPjOQYJz/ZYAzGc0xe9Dh+UsmLMb9O68m055N//Ij2dVi8BO4lGK5FXmAMffKASf3F9mzyihP0g3g+GkUvpPsqgN8A5TuphZzM73XZPR/3WSr/xupAa/1J5QdzGuj/PLz/DfQppKsjY6/GB+tLf9emT7D4njS5w0egKTPwcRjQ7aG5Gcfx7wAAAP//Dqi0z9wKAAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.rke2-coredns.v1
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:40:01Z"
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: 1b99a7a962e96e395dc94b8fb6802474536e9e8f
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"915ecccc-2a03-408c-aa02-bb16b4badd36"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:artifacthub.io/changes: {}
+                f:fleet.cattle.io/bundle-id: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:home: {}
+              f:icon: {}
+              f:keywords: {}
+              f:kubeVersion: {}
+              f:maintainers: {}
+              f:name: {}
+              f:sources: {}
+              f:type: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:notes: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:01Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:40:01Z"
+    name: rke2-coredns
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.rke2-coredns.v1
+      uid: 915ecccc-2a03-408c-aa02-bb16b4badd36
+    resourceVersion: "1674"
+    uid: 69106d83-88fa-455d-b277-a22bb8f7c8b3
+  spec:
+    chart:
+      metadata:
+        annotations:
+          artifacthub.io/changes: |
+            - kind: added
+              description: Add configurable dnsPolicy for deployment
+          fleet.cattle.io/bundle-id: rke2
+        apiVersion: v2
+        appVersion: 1.13.1
+        description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+          DNS Services
+        home: https://coredns.io
+        icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+        keywords:
+        - coredns
+        - dns
+        - kubedns
+        kubeVersion: '>= v1.35.5'
+        maintainers:
+        - name: mrueg
+        - name: haad
+        - name: hagaibarel
+        - name: shubham-cmyk
+        name: rke2-coredns
+        sources:
+        - https://github.com/coredns/coredns
+        type: application
+        version: 1.45.212
+    helmVersion: 3
+    info:
+      description: Install complete
+      firstDeployed: "2026-06-12T10:39:07Z"
+      lastDeployed: "2026-06-12T10:39:07Z"
+      notes: |2
+
+        CoreDNS is now running in the cluster as a cluster-service.
+
+        It can be tested with the following:
+
+        1. Launch a Pod with DNS tools:
+
+        kubectl run -it --rm --restart=Never --image=infoblox/dnstools:latest dnstools
+
+        2. Query the DNS server:
+
+        / # host kubernetes
+      status: deployed
+    name: rke2-coredns
+    namespace: kube-system
+    resources:
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: rke2-coredns-rke2-coredns-autoscaler
+      namespace: kube-system
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: coredns
+      namespace: kube-system
+    - apiVersion: v1
+      kind: ConfigMap
+      name: rke2-coredns-rke2-coredns-autoscaler
+      namespace: kube-system
+    - apiVersion: v1
+      kind: ConfigMap
+      name: rke2-coredns-rke2-coredns
+      namespace: kube-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: rke2-coredns-rke2-coredns-autoscaler
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: rke2-coredns-rke2-coredns
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: rke2-coredns-rke2-coredns-autoscaler
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: rke2-coredns-rke2-coredns
+    - apiVersion: v1
+      kind: Service
+      name: rke2-coredns-rke2-coredns
+      namespace: kube-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: rke2-coredns-rke2-coredns-autoscaler
+      namespace: kube-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: rke2-coredns-rke2-coredns
+      namespace: kube-system
+    version: 1
+  status:
+    observedGeneration: 1
+    summary:
+      state: deployed
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/7RWXW/bNhT9K8R91qfluLaAPmwtUATFMqBfG7YEwxV5JbGSSIGknLqB/vtA2fVHl7hJtr0YFkXec8+5h8e+g44cCnQI+R2gUtqhk1pZ/6iLz8SdJRcZqSOOzrUUSR1LATnU1HYh9j0ED+7Tt4pMWK0byCFepwF7K5V4+Z64IffDYwo7ghxsHXmkyFBLaClap5FpaBZKVRmyNlSVVF+idfaoerZH7os2Q0Gh3VhHHYwBtFhQe5ZxjbaGHBKcLUWazniW0EokfFm+WCwoKeblCpdclCJd8LR8kfiiu/7/2Sxs393XSwBTr++oJEOKk4X8zzvAXn4iY6VWkMM6hQCKVvPmV7/1NbXkpjcltpYC4Fo5o9uWDOTODBRAI5Wf1172pws7TAMv5iu+Kl4UoSjmPJyvFlm4nPuPGSFmi1mJYgXjzRiA7Yl7NXmNxvkvZzyGxskSuauHwgvNa1SV5w0h+9gLdMQudw1d+YbYeqsEO/AM12mUzqOLawXB9+V6Qzt+kMOkEARQtkTuaLjFoERL4UTSS+Cnd6r5zFfu+8PKFhECEGS5kf12BLBr9ag5VmrD3g4FGUWOLBusVBW7enN59TtDy5AZ8oyI9UZ/2UAAtZ6mUzvX2zyOKzlR4bqLm32V+Hs/ST7Bfzs09K1GEd3KRnYkJEbaVLF/6v1TzHXXaWVjVw9dEfOYX8STtn9BAA1tbrUR3niwQ/GWmXBugsmsBxWuhyTJ6CVbp1F2McnRoVQOpSKzte7Oa7xHhU7DGOyX3iBvThasM1pVn78erznU6SybXywWiyzLYLw5f62sHsz20jxJv5sA1ntO82myyRLGMZgybk83C0CqUnvTnk79Y18ZFMS47vqW3GQxaax7TX2rN+RtNUtmizBZhOnsQ5rk2SqfXfwBPnjO7JrP82ThdyntphvxoSZ20vmxz2q0rCBSTCrrsG1JRNfq0rEON8xhQwxZ6SVy6AZfTHyDfXZUGTrofV9I7XPHrCWnnzjXgzrKnyeheU88iPBKq1JWv2B/rnh4FIxPwDEF8ggHV2sjv06pFTVL61PjpIN2sI7MO93SWYL/vvzPUgmpqv8D5Yfd/+eyPZbQM32xc94jXRGi6KSdyjwBD/vennB6jdRp9Z7OOv2ZZlTkbrVppKruU3P34/OqxW1mb8EfsMSerKFKWmcenNEnbKVAJ1X1GxW11s32tg3bE2dJHgQdjyM2Gw8x5P9xWTJrEm9I0a5mngRgh65Ds4H8bhzHvwMAAP//sFrn7qUKAAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.rke2-ingress-nginx.v3
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:40:01Z"
+    generation: 4
+    labels:
+      objectset.rio.cattle.io/hash: 0a28d112c30e9d0c8f766e0b4f9a8cdfd16c1f70
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"b49c9b7b-db4c-4963-8463-82eaa362fad9"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:artifacthub.io/changes: {}
+                f:artifacthub.io/prerelease: {}
+                f:fleet.cattle.io/bundle-id: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:home: {}
+              f:icon: {}
+              f:keywords: {}
+              f:kubeVersion: {}
+              f:maintainers: {}
+              f:name: {}
+              f:sources: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:notes: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:45:19Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:45:19Z"
+    name: rke2-ingress-nginx
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.rke2-ingress-nginx.v3
+      uid: b49c9b7b-db4c-4963-8463-82eaa362fad9
+    resourceVersion: "8787"
+    uid: a86e0d0b-0804-4376-95a7-15b0a95f4710
+  spec:
+    chart:
+      metadata:
+        annotations:
+          artifacthub.io/changes: |
+            - Update Ingress-Nginx version controller-v1.14.5
+          artifacthub.io/prerelease: "false"
+          fleet.cattle.io/bundle-id: rke2
+        apiVersion: v2
+        appVersion: 1.14.5
+        description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+          and load balancer
+        home: https://github.com/kubernetes/ingress-nginx
+        icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+        keywords:
+        - ingress
+        - nginx
+        kubeVersion: '>= v1.35.5'
+        maintainers:
+        - name: cpanato
+        - name: Gacko
+        - name: strongjz
+        - name: tao12345666333
+        name: rke2-ingress-nginx
+        sources:
+        - https://github.com/kubernetes/ingress-nginx
+        version: 4.14.508
+    helmVersion: 3
+    info:
+      description: Upgrade complete
+      firstDeployed: "2026-06-12T10:39:25Z"
+      lastDeployed: "2026-06-12T10:44:06Z"
+      notes: |
+        The ingress-nginx controller has been installed.
+        It may take a few minutes for the load balancer IP to be available.
+        You can watch the status by running 'kubectl get service --namespace kube-system rke2-ingress-nginx-controller --output wide --watch'
+
+        An example Ingress that makes use of the controller:
+          apiVersion: networking.k8s.io/v1
+          kind: Ingress
+          metadata:
+            name: example
+            namespace: foo
+          spec:
+            ingressClassName: nginx
+            rules:
+              - host: www.example.com
+                http:
+                  paths:
+                    - pathType: Prefix
+                      backend:
+                        service:
+                          name: exampleService
+                          port:
+                            number: 80
+                      path: /
+            # This section is only required if TLS is to be enabled for the Ingress
+            tls:
+              - hosts:
+                - www.example.com
+                secretName: example-tls
+
+        If TLS is enabled for the Ingress, a Secret containing the certificate and key must also be provided:
+
+          apiVersion: v1
+          kind: Secret
+          metadata:
+            name: example-tls
+            namespace: foo
+          data:
+            tls.crt: <base64 encoded cert>
+            tls.key: <base64 encoded key>
+          type: kubernetes.io/tls
+      status: deployed
+    name: rke2-ingress-nginx
+    namespace: kube-system
+    resources:
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: rke2-ingress-nginx
+      namespace: kube-system
+    - apiVersion: v1
+      kind: ConfigMap
+      name: rke2-ingress-nginx-controller
+      namespace: kube-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: rke2-ingress-nginx
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: rke2-ingress-nginx
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: Role
+      name: rke2-ingress-nginx
+      namespace: kube-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      name: rke2-ingress-nginx
+      namespace: kube-system
+    - apiVersion: v1
+      kind: Service
+      name: rke2-ingress-nginx-controller-admission
+      namespace: kube-system
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: rke2-ingress-nginx-controller
+      namespace: kube-system
+    - apiVersion: networking.k8s.io/v1
+      kind: IngressClass
+      name: nginx
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: rke2-ingress-nginx-admission
+    version: 3
+  status:
+    observedGeneration: 4
+    summary:
+      state: deployed
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/7xWQW/jNhP9K8QcP0iyKNnetYDgQ9oFikVRtNgtemiTw4gaWawpUiApBWmg/16QdhwH8WaTbdqcEmpm3rw3bwa5g548NugRqjtArY1HL4124U9T/0nCO/KZlSYT6L2iTJqFbKCCjlSf4jBA8sU4c6PJpttpBxUsJp6wH6VuLj6TsOS/mqaxJ6jAdVlAyiwpQkfZxDO7oyLtyVspXOrITmSzib+ooBtQhKq7sabU3TpPPcwJKKxJPUu5Q9dBBbxcr+qybDkWTVnkq7pA3mKxLtb4jvL3nLe04mKFoeiBwJluYf/xXDMJxGY/UUuWtCAH1R93gIP8jayTRkMFkWqtjNj9HEI/kCIfv7SoHCUgjPbWKEUWKm9HSmAndZjYUfhvkHaMM1/isijLDaW8XNbpcrVu03q94SmnzTtc5Xy9WZcwX88JuIFE0FN0aH345RmbofWyReG7sQ5Siw71NhCHlIXOK4ZNQ82VZqwhJ6wcQmbFruCyaVgEYCa+OeYNcyRGS8x3xISBBFpF5E8mWY+6UZRGPoFuGNVjfQsIL8PDS569z3JI4AQeKvhpLxP7HGVi0jFkTqDCWlHCqG2lkKQ9c2a0gphpWZgMSk2WWXKht87EQXTeD65aLLYyaiBMvwiesJo8udTJrVs8MZAUsYn7VJzQo3XZvsToyAYw0j5WGxflOuerIi//7y6WeX415nmxni6WkMCObm+MbYLR4AEVEngCeXiA6yQGPugTypV0wSaelatsFUJRHqjuDXzvOE8TdXK4IaWCqaw6z/5R3Jwc83e2l6KjZ3OPMSd5pBtL4rmsQ8R8/ZW93Q8zivX6qV0n4G+HUByHQUkRVwASmI5Klhkvs5xzmOckXtijyGUCUrcm7MtjG37UzqNSTJh+UOQpWF5a5z/QoMwtBZsXebFO83XKi195XpWbqtj8DuHqvSRKGx+X8X//8CeI59GPoVZzj/rtZzJs0P0ozh3I482zkxR0KYQZ9cntex1csNIjCFujyHD0nbHyrzjGbPfehfNyCv69Gp0n+8koOrm6sWR1poEUt1tLW/TUpJawIfsfAb8BzHdSN1JvnxW4OnQQ6qYNqUDV/Cvgb0/1pRzTSO4wvVcY6oxn38ysOAzuEZn90vf0hguBg7S0lc7bL0p4+cvHJ8wmXpNHnh2AD2nxDB+PIp8fLkf4By021/xAmvZYUOUJuLHv0d5CdTfP898BAAD//yfvgvTVCgAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.rke2-metrics-server.v1
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:40:01Z"
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: 1365b33f1a2d3205b2a1fa2626a7e0811fe51c5a
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"4a42339e-134b-456f-b691-1e97a5016963"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:artifacthub.io/changes: {}
+                f:fleet.cattle.io/bundle-id: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:home: {}
+              f:icon: {}
+              f:keywords: {}
+              f:kubeVersion: {}
+              f:maintainers: {}
+              f:name: {}
+              f:sources: {}
+              f:type: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:notes: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:01Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:40:01Z"
+    name: rke2-metrics-server
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.rke2-metrics-server.v1
+      uid: 4a42339e-134b-456f-b691-1e97a5016963
+    resourceVersion: "1672"
+    uid: 33ce0508-450b-4eae-b33d-0286bc00fe72
+  spec:
+    chart:
+      metadata:
+        annotations:
+          artifacthub.io/changes: |
+            - kind: added
+              description: "Add chart options to secure the connection between Metrics Server and the Kubernetes API Server."
+            - kind: added
+              description: "Add `unhealthyPodEvictionPolicy` to the Metrics Server PDB as a user enabled feature."
+            - kind: changed
+              description: "Update the _Addon Resizer_ OCI image to [`1.8.23`](https://github.com/kubernetes/autoscaler/releases/tag/addon-resizer-1.8.23)."
+            - kind: changed
+              description: "Update the _Metrics Server_ OCI image to [`0.8.0`](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.8.0)."
+          fleet.cattle.io/bundle-id: rke2
+        apiVersion: v2
+        appVersion: 0.8.0
+        description: Metrics Server is a scalable, efficient source of container resource
+          metrics for Kubernetes built-in autoscaling pipelines.
+        home: https://github.com/kubernetes-sigs/metrics-server
+        icon: https://avatars.githubusercontent.com/u/36015203?s=400&v=4
+        keywords:
+        - kubernetes
+        - metrics-server
+        - metrics
+        kubeVersion: '>= v1.35.5'
+        maintainers:
+        - name: stevehipwell
+          url: https://github.com/stevehipwell
+        - name: krmichel
+          url: https://github.com/krmichel
+        - name: endrec
+          url: https://github.com/endrec
+        name: rke2-metrics-server
+        sources:
+        - https://github.com/kubernetes-sigs/metrics-server
+        type: application
+        version: 3.13.011
+    helmVersion: 3
+    info:
+      description: Install complete
+      firstDeployed: "2026-06-12T10:39:29Z"
+      lastDeployed: "2026-06-12T10:39:29Z"
+      notes: |
+        ***********************************************************************
+        * Metrics Server                                                      *
+        ***********************************************************************
+          Chart version: 3.13.011
+          App version:   0.8.0
+          Image tag:     rancher/hardened-k8s-metrics-server:v0.8.1-build20260513
+        ***********************************************************************
+      status: deployed
+    name: rke2-metrics-server
+    namespace: kube-system
+    resources:
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: rke2-metrics-server
+      namespace: kube-system
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: system:rke2-metrics-server-aggregated-reader
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: system:rke2-metrics-server
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: rke2-metrics-server:system:auth-delegator
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: system:rke2-metrics-server
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      name: rke2-metrics-server-auth-reader
+      namespace: kube-system
+    - apiVersion: v1
+      kind: Service
+      name: rke2-metrics-server
+      namespace: kube-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: rke2-metrics-server
+      namespace: kube-system
+    - apiVersion: apiregistration.k8s.io/v1
+      kind: APIService
+      name: v1beta1.metrics.k8s.io
+    version: 1
+  status:
+    observedGeneration: 1
+    summary:
+      state: deployed
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6xVS2/jNhD+K8KcJVmSH7EFBOgjQFtsFwWyix7azWFEjSzW1JAgKadpoP9eUHJsB/VmvcXmFFHDb2a+h/wMHXms0SOUz4DM2qOXml141NVfJLwjn1qpU4HeK0qlnskaSmhJdQkaA/Fn6/Qjk022+x2UMNvncfROcn37gYQl/8VrjB1BCa5NQ6fUkiJ0lO7z1O6oSLpe+d6l+/wqIGdQBLRdX1HinpynDoYYFFak3ly1RddCCeuMmnzdVKvVHNe5oCpbinqxJJpniw2Ker5a1MtNgQH0MPjZlDAdXhoihnHIe2rIEgtyUP75DGjk72Sd1AwljCtWSovdb6H0jhT58U2DylEMQrO3WimyUHrbUww7yUGhI9FfQWU/apvl67xY5kWyFMubZJFV62RdberkhoqNuKk2y1U+h+FhiMEZEoE/0aL14Z837NQoIn/GbdVzrSgZO4ZBAnmvNy8gnJjTySIt0gXEUJMTVpqJB3g/LhD9TKqLxkGiRtvoXV+RZfIU+G/1SEHrvXHlbLaVvu2rVOhutls7Jv+o7c6ovqskbx+3s4mSRLCEGKQYu7zctfiYTvd7RzawT+yvgIJ4VP60zKc+y+Z0G+3zdL5MlxBDh5I9SiY7+YA6lArKiV33nUUWLdnQ66Tq/XQY/YqVg+HhM/5zureTuy5xINmTOl/6IQb/ZAIMGqOkGEWEGPYnbUYpgg2GePwWHPeaxyC50UHx1zL9ws6jUpHQnVHkCWJopHX+jozSTxRsUGTFKslWSV58zLNyvimzmz8g5PSaKtZB6xJux79PnKfRx5aiRiulHyVvx8aaib2LWtxTVBFxVB9wI3SRCd7RTeDLYyCuhJfX/yPZlk6sX8r0MaZ2LwV9L4Tu+SyuX+wwxG+g/qi5kdv3aODS3MmLfIkY676mCxpJf3vi8OjS3dqFLL9q3Tuvu/vD9nfUSJYH/xwmOaQkQe9RtB2xT+pj2YQpWKaCRZNK/d8RbIUixd632sp/Rm9enEP1zpO914oukvANcH+QXEveXgmPxrhXSHdIneYP5x/p68wVcn7MYj6c/Bp+yRzZPdU/EZOdcltmMbi+69A+Qfk8DMO/AQAA///A0hfL9gcAAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.rke2-multus.v1
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:40:01Z"
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: 80ef18fb663a81ceb05cd45ee3049acd364d592a
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"01812512-5c57-40b8-8b9d-7e29c7b95613"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:fleet.cattle.io/bundle-id: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:home: {}
+              f:icon: {}
+              f:kubeVersion: {}
+              f:maintainers: {}
+              f:name: {}
+              f:sources: {}
+              f:type: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:notes: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:01Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:40:01Z"
+    name: rke2-multus
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.rke2-multus.v1
+      uid: 01812512-5c57-40b8-8b9d-7e29c7b95613
+    resourceVersion: "1671"
+    uid: 640d38b7-9f6a-43a4-b134-7c9be3fe3e73
+  spec:
+    chart:
+      metadata:
+        annotations:
+          fleet.cattle.io/bundle-id: rke2
+        apiVersion: v2
+        appVersion: 4.2.4
+        description: Multus Helm chart for Kubernetes
+        home: https://github.com/k8snetworkplumbingwg/multus-cni
+        icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+        kubeVersion: '>= v1.35.5'
+        maintainers:
+        - email: charts@rancher.com
+          name: Rancher Labs
+        name: rke2-multus
+        sources:
+        - https://github.com/intel/multus-cni
+        type: application
+        version: v4.2.413
+    helmVersion: 3
+    info:
+      description: Install complete
+      firstDeployed: "2026-06-12T10:39:07Z"
+      lastDeployed: "2026-06-12T10:39:07Z"
+      notes: |
+        ======
+        1. The following components have been deployed as part of this helm chart:
+        Cluster Role: multus
+        Cluster Role Binding: rke2-multus
+        Config Map: rke2-multus-v4.2.413-config
+        Custom Resource Definition: network-attachment-definitions.k8s.cni.cncf.io
+        Daemon Set: rke2-multus
+        Service Account: multus
+
+        You can now deploy any other CNI and create its Network Attachment Defintion.
+        ---------
+
+        2. To uninstall helm chart use the command:
+        helm delete rke2-multus
+
+        You may have to manually delete CRD -
+        kubectl delete crd network-attachment-definitions.k8s.cni.cncf.io
+        ---------
+      status: deployed
+    name: rke2-multus
+    namespace: kube-system
+    resources:
+    - apiVersion: v1
+      kind: ServiceAccount
+      name: multus
+      namespace: kube-system
+    - apiVersion: v1
+      kind: ConfigMap
+      name: rke2-multus-v4.2.413-config
+      namespace: kube-system
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: network-attachment-definitions.k8s.cni.cncf.io
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: rke2-multus
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      name: rke2-multus
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: rke2-multus
+      namespace: kube-system
+    version: 1
+  status:
+    observedGeneration: 1
+    summary:
+      state: deployed
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6yUT2vcPBDGv4qZs+31n6yzNgTelwZKaaGQlh7a5DCWxrG6smQk2emy+LsX2dtsN6RJSHvblTTPzPyeGe+hI4ccHUK1B1RKO3RCK+v/6vo7MWfJxUbomKFzkmKhV4JDBS3JLsK+h/CP7/SdIhPdjluoYDWmYfBeKH7xiZgh92yYwo6gAtvGPlNsSBJaisc0NlvKIjMoJzpiEq0lG4/piwRtj8yrboeaIruzjjqYQpBYk3yy5RZtCxXkdXbGWU2bNc9oU25yLOqi4OW6ZmlZFGleMn6Wl7kXPTTwSLWwXD5WTAhzsVfUkCHFyEL1bQ/Yiy9krNAKKphbraVm24/+6SVJcvNNg9JSCEwrZ7SUZKByZqAQtkJ5x+7BvwLtMHte83MqC47RhvIkOsupiXCNdcST+jxHVmDCGphuphBsT8zzZC0a5388MWaNJHK/sa4HxSVFc0ZfkId5SiADf9IfT5I4jRMIgZNlRvQLD/if88C1FHBqcJAuODQWHG3Y0u5OG+4pwwOPbsLZmGOO6yFJcroIxjTO1/EaQuhQKIdCkVlsog6FhGpp2v5nULGWTMx0d4R+tRwGH7C2MN08MyZWD2YZAmid6221Wt0K1w61F10dEqzm2CWpL3s8xZIkME3hvK/3zeQhCNVoT/8U2TtlHUoZMN31khxBCI0w1l1SL/WOvCVZkhVRUkRp9jlNqryssvIr+B16ySulnW8Hrk6tCFocKaiJVCCWCojH18oTcOgGH8F/ab9+tQwdeT5YKqU5xduN9fM3D/xhZw51vvHqRxPVKLhAmMJ/oBLRj56M6Eg5lH8rycyg5qm6n4F0OjL0nzdLZiT+lhQZXDxPQrBD16HZQbWfpulnAAAA//+dP6aAEwYAAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.rke2-runtimeclasses.v1
+      objectset.rio.cattle.io/owner-namespace: kube-system
+    creationTimestamp: "2026-06-12T10:40:01Z"
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: 3b24dcbe85d2e8983a6b66d95bc1966139cd4393
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"bd7e96da-8e30-43ef-a5ab-d0b73ac6a0cf"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:fleet.cattle.io/bundle-id: {}
+              f:apiVersion: {}
+              f:appVersion: {}
+              f:description: {}
+              f:keywords: {}
+              f:kubeVersion: {}
+              f:maintainers: {}
+              f:name: {}
+              f:sources: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:notes: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:01Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:40:01Z"
+    name: rke2-runtimeclasses
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.rke2-runtimeclasses.v1
+      uid: bd7e96da-8e30-43ef-a5ab-d0b73ac6a0cf
+    resourceVersion: "1665"
+    uid: 16083b71-a8c1-4e40-ae86-73e98b083889
+  spec:
+    chart:
+      metadata:
+        annotations:
+          fleet.cattle.io/bundle-id: rke2
+        apiVersion: v2
+        appVersion: 0.1.0
+        description: Add the default runtime classes
+        keywords:
+        - runtimeclasses
+        kubeVersion: '>= v1.35.5'
+        maintainers:
+        - email: charts@rancher.com
+          name: Rancher Labs
+        name: rke2-runtimeclasses
+        sources:
+        - https://github.com/rancher/rke2-charts
+        version: 0.1.000
+    helmVersion: 3
+    info:
+      description: Install complete
+      firstDeployed: "2026-06-12T10:39:29Z"
+      lastDeployed: "2026-06-12T10:39:29Z"
+      notes: |
+        Runtime classes have been installed.
+      status: deployed
+    name: rke2-runtimeclasses
+    namespace: kube-system
+    resources:
+    - apiVersion: node.k8s.io/v1
+      kind: RuntimeClass
+      name: nvidia
+    - apiVersion: node.k8s.io/v1
+      kind: RuntimeClass
+      name: nvidia-experimental
+    - apiVersion: node.k8s.io/v1
+      kind: RuntimeClass
+      name: crun
+    version: 1
+  status:
+    observedGeneration: 1
+    summary:
+      state: deployed
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676342"

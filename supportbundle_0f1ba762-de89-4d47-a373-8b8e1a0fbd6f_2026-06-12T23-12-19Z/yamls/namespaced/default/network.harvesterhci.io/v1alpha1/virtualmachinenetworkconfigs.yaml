@@ -1,0 +1,82 @@
+apiVersion: v1
+items:
+- apiVersion: network.harvesterhci.io/v1alpha1
+  kind: VirtualMachineNetworkConfig
+  metadata:
+    creationTimestamp: "2026-06-12T15:28:43Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-06-12T15:30:14Z"
+    finalizers:
+    - wrangler.cattle.io/vm-dhcp-vmnetcfg-controller
+    generation: 2
+    labels:
+      harvesterhci.io/vmName: dhcp-test-vm-15h26m26s356466-06-12
+    managedFields:
+    - apiVersion: network.harvesterhci.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/vm-dhcp-vmnetcfg-controller"null: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/vmName: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"43e01f48-a194-4ead-9c1d-bd1501e8bc76"}: {}
+        f:spec:
+          .: {}
+          f:networkConfigs: {}
+          f:vmName: {}
+      manager: vm-dhcp-controller
+      operation: Update
+      time: "2026-06-12T15:28:43Z"
+    - apiVersion: network.harvesterhci.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:networkConfigs: {}
+      manager: vm-dhcp-controller
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:30:14Z"
+    name: dhcp-test-vm-15h26m26s356466-06-12
+    namespace: default
+    ownerReferences:
+    - apiVersion: kubevirt.io/v1
+      kind: VirtualMachine
+      name: dhcp-test-vm-15h26m26s356466-06-12
+      uid: 43e01f48-a194-4ead-9c1d-bd1501e8bc76
+    resourceVersion: "311232"
+    uid: 53242833-c5c6-46b5-abf3-9e6272f38c9b
+  spec:
+    networkConfigs:
+    - macAddress: 06:d0:b4:f7:1e:22
+      networkName: default/dhcp-test-net-15h26m26s356466-06-12
+    vmName: dhcp-test-vm-15h26m26s356466-06-12
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T15:30:14Z"
+      message: ippools.network.harvesterhci.io "dhcp-test-pool-15h26m26s356466-06-12"
+        not found
+      reason: Error
+      status: "False"
+      type: Allocated
+    - lastUpdateTime: "2026-06-12T15:28:43Z"
+      status: "True"
+      type: InSynced
+    - lastUpdateTime: "2026-06-12T15:28:43Z"
+      status: "False"
+      type: Disabled
+    networkConfigs:
+    - allocatedIPAddress: 10.115.0.4
+      macAddress: 06:d0:b4:f7:1e:22
+      networkName: default/dhcp-test-net-15h26m26s356466-06-12
+      state: Allocated
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676339"

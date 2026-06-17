@@ -1,0 +1,54 @@
+2026-06-12T23:03:16.141497629Z if [[ ${KUBERNETES_SERVICE_HOST} =~ .*:.* ]]; then
+2026-06-12T23:03:16.141554615Z 	echo "KUBERNETES_SERVICE_HOST is using IPv6"
+2026-06-12T23:03:16.141561336Z 	CHART="${CHART//%\{KUBERNETES_API\}%/[${KUBERNETES_SERVICE_HOST}]:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T23:03:16.141566965Z else
+2026-06-12T23:03:16.141571781Z 	CHART="${CHART//%\{KUBERNETES_API\}%/${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T23:03:16.141575706Z fi
+2026-06-12T23:03:16.141596233Z 
+2026-06-12T23:03:16.141614253Z set +v -x
+2026-06-12T23:03:16.141729590Z + [[ '' == v2 ]]
+2026-06-12T23:03:16.141744580Z + shopt -s nullglob
+2026-06-12T23:03:16.141758546Z + [[ -f /config/ca-file.pem ]]
+2026-06-12T23:03:16.141902800Z + [[ -f /tmp/ca-file.pem ]]
+2026-06-12T23:03:16.141991869Z + [[ false == true ]]
+2026-06-12T23:03:16.142015326Z + [[ false == true ]]
+2026-06-12T23:03:16.142033580Z + [[ -n '' ]]
+2026-06-12T23:03:16.142070159Z + helm_content_decode
+2026-06-12T23:03:16.142120958Z + set -e
+2026-06-12T23:03:16.142152174Z + ENC_CHART_PATH=/chart/harvester-csi-driver-lvm.tgz.base64
+2026-06-12T23:03:16.142184461Z + CHART_PATH=/tmp/harvester-csi-driver-lvm.tgz
+2026-06-12T23:03:16.142207414Z + [[ ! -f /chart/harvester-csi-driver-lvm.tgz.base64 ]]
+2026-06-12T23:03:16.142244621Z + return
+2026-06-12T23:03:16.142300452Z + [[ install != delete ]]
+2026-06-12T23:03:16.142311137Z + helm_repo_init
+2026-06-12T23:03:16.142418037Z + grep -q -e 'https\?://'
+2026-06-12T23:03:16.144622360Z + [[ harvester-csi-driver-lvm/harvester-csi-driver-lvm == stable/* ]]
+2026-06-12T23:03:16.144650413Z + [[ -n https://charts.harvesterhci.io ]]
+2026-06-12T23:03:16.144660354Z + [[ -f /auth/username ]]
+2026-06-12T23:03:16.144734977Z + [[ -f /auth/tls.crt ]]
+2026-06-12T23:03:16.144823399Z + helm repo add harvester-csi-driver-lvm https://charts.harvesterhci.io
+2026-06-12T23:03:16.654593359Z "harvester-csi-driver-lvm" has been added to your repositories
+2026-06-12T23:03:16.657699312Z + helm repo update
+2026-06-12T23:03:16.750146205Z Hang tight while we grab the latest from your chart repositories...
+2026-06-12T23:03:17.144806050Z ...Successfully got an update from the "harvester-csi-driver-lvm" chart repository
+2026-06-12T23:03:17.144843593Z Update Complete. ⎈Happy Helming!⎈
+2026-06-12T23:03:17.148159335Z + helm_update install --version 1.8.1-rc1
+2026-06-12T23:03:17.149688419Z ++ helm ls --all -f '^harvester-csi-driver-lvm$' --namespace harvester-system --output json
+2026-06-12T23:03:17.150057451Z ++ jq -r '"\(.[0].chart),\(.[0].status),\(.[0].revision)"'
+2026-06-12T23:03:17.150125840Z ++ tr '[:upper:]' '[:lower:]'
+2026-06-12T23:03:17.430250838Z + LINE=null,null,null
+2026-06-12T23:03:17.430291769Z + IFS=,
+2026-06-12T23:03:17.430310644Z + read -r INSTALLED_VERSION STATUS REVISION _
+2026-06-12T23:03:17.430422009Z + VALUES=
+2026-06-12T23:03:17.430569129Z + [[ install = delete ]]
+2026-06-12T23:03:17.430601403Z + [[ null =~ ^(|null)$ ]]
+2026-06-12T23:03:17.430725229Z + [[ null =~ ^(|null)$ ]]
+2026-06-12T23:03:17.430822521Z + echo 'Installing helm chart'
+2026-06-12T23:03:17.431021204Z + helm install --version 1.8.1-rc1 harvester-csi-driver-lvm harvester-csi-driver-lvm/harvester-csi-driver-lvm
+2026-06-12T23:03:19.525832674Z NAME: harvester-csi-driver-lvm
+2026-06-12T23:03:19.525877118Z LAST DEPLOYED: Fri Jun 12 23:03:18 2026
+2026-06-12T23:03:19.525886322Z NAMESPACE: harvester-system
+2026-06-12T23:03:19.525893624Z STATUS: deployed
+2026-06-12T23:03:19.525901089Z REVISION: 1
+2026-06-12T23:03:19.525908972Z TEST SUITE: None
+2026-06-12T23:03:19.530762087Z + exit

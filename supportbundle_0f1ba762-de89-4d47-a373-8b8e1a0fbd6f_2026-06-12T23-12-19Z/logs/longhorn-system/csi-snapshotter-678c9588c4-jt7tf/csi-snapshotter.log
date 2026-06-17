@@ -1,0 +1,14 @@
+2026-06-12T10:43:27.895478224Z I0612 10:43:27.895197       1 feature_gate.go:466] feature gates: {map[]}
+2026-06-12T10:43:27.895533404Z I0612 10:43:27.895344       1 main.go:123] "Version" version="v"
+2026-06-12T10:43:27.895850403Z I0612 10:43:27.895756       1 envvar.go:172] "Feature gate default state" feature="InOrderInformers" enabled=true
+2026-06-12T10:43:27.895862085Z I0612 10:43:27.895786       1 envvar.go:172] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+2026-06-12T10:43:27.895870681Z I0612 10:43:27.895795       1 envvar.go:172] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+2026-06-12T10:43:27.895873894Z I0612 10:43:27.895803       1 envvar.go:172] "Feature gate default state" feature="WatchListClient" enabled=true
+2026-06-12T10:43:27.895876477Z I0612 10:43:27.895810       1 envvar.go:172] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+2026-06-12T10:43:27.895879167Z I0612 10:43:27.895817       1 envvar.go:172] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+2026-06-12T10:43:27.899588571Z W0612 10:43:27.899500       1 logging.go:55] [core] [Channel #1 SubChannel #2] grpc: addrConn.createTransport failed to connect to {Addr: "/csi/csi.sock", ServerName: "localhost", Attributes: {"<%!p(networktype.keyType=grpc.internal.transport.networktype)>": "unix" }, }. Err: connection error: desc = "transport: Error while dialing: dial unix /csi/csi.sock: connect: no such file or directory"
+2026-06-12T10:43:28.901977015Z I0612 10:43:28.901894       1 main.go:204] CSI driver name: "driver.longhorn.io"
+2026-06-12T10:43:28.902000083Z I0612 10:43:28.901960       1 common.go:143] "Probing CSI driver for readiness"
+2026-06-12T10:43:28.902066409Z I0612 10:43:28.902013       1 main.go:216] ServeMux listening at ":8000"
+2026-06-12T10:43:28.903278989Z I0612 10:43:28.903199       1 main.go:248] Start NewCSISnapshotSideCarController with snapshotter [driver.longhorn.io] kubeconfig [] csiTimeout [1m50s] csiAddress [/csi/csi.sock] resyncPeriod [15m0s] snapshotNamePrefix [snapshot] snapshotNameUUIDLength [824633796544]
+2026-06-12T10:43:28.905012301Z I0612 10:43:28.904866       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="longhorn-system/external-snapshotter-leader-driver-longhorn-io"

@@ -1,0 +1,21 @@
+2026-06-12T10:41:17.751374504Z Error: no matches for kind "GitRepo" in version "fleet.cattle.io/v1alpha1"
+2026-06-12T10:41:17.751415105Z Usage:
+2026-06-12T10:41:17.751419683Z   fleet-controller gitjob [flags]
+2026-06-12T10:41:17.751422401Z 
+2026-06-12T10:41:17.751425050Z Flags:
+2026-06-12T10:41:17.751427693Z       --debug                           Turn on debug logging
+2026-06-12T10:41:17.751430409Z       --debug-level int                 If debugging is enabled, set klog -v=X
+2026-06-12T10:41:17.751433221Z       --disable-metrics                 Disable the metrics server.
+2026-06-12T10:41:17.751435759Z       --gitjob-image string             The gitjob image that will be used in the generated job. (default "rancher/fleet:dev")
+2026-06-12T10:41:17.751438873Z   -h, --help                            help for gitjob
+2026-06-12T10:41:17.751443669Z       --insecure-skip-host-key-checks   Enable SSH connections to succeed even without matching known_hosts entries. Enabling this will expose SSH operations to man-in-the-middle attacks.
+2026-06-12T10:41:17.751446356Z       --kubeconfig string               Kubeconfig file
+2026-06-12T10:41:17.751449170Z       --leader-elect                    Enable leader election for controller manager. Enabling this will ensure there is only one active controller manager. (default true)
+2026-06-12T10:41:17.751451717Z       --listen string                   The port the webhook listens. (default ":8080")
+2026-06-12T10:41:17.751454529Z       --metrics-bind-address string     The address the metric endpoint binds to. (default ":8081")
+2026-06-12T10:41:17.751456973Z       --namespace string                namespace to watch (default "cattle-fleet-system")
+2026-06-12T10:41:17.751459465Z       --shard-id string                 only manage resources labeled with a specific shard ID
+2026-06-12T10:41:17.751462025Z       --shard-node-selector string      node selector to apply to jobs based on the shard ID, if any
+2026-06-12T10:41:17.751464503Z   -v, --version                         version for gitjob
+2026-06-12T10:41:17.751466761Z 
+2026-06-12T10:41:17.751479807Z time="2026-06-12T10:41:17Z" level=fatal msg="no matches for kind \"GitRepo\" in version \"fleet.cattle.io/v1alpha1\""

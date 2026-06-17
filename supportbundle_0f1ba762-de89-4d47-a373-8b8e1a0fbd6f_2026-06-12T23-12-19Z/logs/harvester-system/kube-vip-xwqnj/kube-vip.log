@@ -1,0 +1,13 @@
+2026-06-12T10:48:31.530413765Z 2026/06/12 10:48:31 INFO kube-vip.io version=v1.0.4 build=ff40ff06a3d6ee2d4452968e46cfa7e5ac4cc456
+2026-06-12T10:48:31.530444609Z 2026/06/12 10:48:31 INFO starting namespace=kube-system Mode=ARP "Control Plane"=false Services=true
+2026-06-12T10:48:31.530447971Z 2026/06/12 10:48:31 INFO No interface is specified for VIP in config, auto-detecting default Interface
+2026-06-12T10:48:31.531132819Z 2026/06/12 10:48:31 INFO prometheus HTTP server started
+2026-06-12T10:48:31.531366269Z 2026/06/12 10:48:31 INFO kube-vip bind interface=mgmt-br.2021
+2026-06-12T10:48:31.531520896Z 2026/06/12 10:48:31 WARN Node name is missing from the config, fall back to hostname
+2026-06-12T10:48:31.531529442Z 2026/06/12 10:48:31 INFO using node name name=hp-150-tink-system
+2026-06-12T10:48:31.532660626Z 2026/06/12 10:48:31 INFO Starting Kube-vip Manager with the ARP engine
+2026-06-12T10:48:31.532670902Z 2026/06/12 10:48:31 INFO Start ARP/NDP advertisement
+2026-06-12T10:48:31.532686850Z 2026/06/12 10:48:31 INFO [ARP manager] starting ARP/NDP advertisement
+2026-06-12T10:48:31.532707698Z 2026/06/12 10:48:31 INFO beginning services leadership namespace=harvester-system "lock name"=plndr-svcs-lock id=hp-150-tink-system
+2026-06-12T10:48:31.532804101Z I0612 10:48:31.532738       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="harvester-system/plndr-svcs-lock"
+2026-06-12T10:48:31.540422389Z 2026/06/12 10:48:31 INFO new leader elected "new leader"=hp-117-tink-system

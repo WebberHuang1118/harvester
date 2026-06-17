@@ -1,0 +1,412 @@
+apiVersion: v1
+items:
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: "null"
+    creationTimestamp: "2026-06-12T10:45:58Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:45:58Z"
+    name: addons
+    namespace: kube-system
+    resourceVersion: "9586"
+    uid: f9791d9f-50cc-4f46-a431-9053aabbd0d1
+  spec:
+    checksum: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    source: /var/lib/rancher/rke2/server/manifests/rancher/addons.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: "null"
+    creationTimestamp: "2026-06-12T10:45:58Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:45:58Z"
+    name: cluster-agent
+    namespace: kube-system
+    resourceVersion: "9590"
+    uid: 0882b448-d9c4-4eec-922c-b301ff771e91
+  spec:
+    checksum: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    source: /var/lib/rancher/rke2/server/manifests/rancher/cluster-agent.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: "null"
+    creationTimestamp: "2026-06-12T10:45:58Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:45:58Z"
+    name: managed-chart-config
+    namespace: kube-system
+    resourceVersion: "9595"
+    uid: db5583f4-df40-4e5f-940e-8c716501cf79
+  spec:
+    checksum: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    source: /var/lib/rancher/rke2/server/manifests/rancher/managed-chart-config.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: node.harvesterhci.io/v1beta1, Kind=CloudInit
+    creationTimestamp: "2026-06-12T10:39:03Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:42:41Z"
+    name: pinifix
+    namespace: kube-system
+    resourceVersion: "4849"
+    uid: b443e3fb-7663-4e25-8e7f-a4defad9a72d
+  spec:
+    checksum: 7323a1f8735bb279ce2d7f621b900c7fdf87ab9ae7caa11cb93d1addf4799dfa
+    source: /var/lib/rancher/rke2/server/manifests/pinifix.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: node.harvesterhci.io/v1beta1, Kind=CloudInit
+    creationTimestamp: "2026-06-12T10:39:03Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:42:42Z"
+    name: ptracesecurity
+    namespace: kube-system
+    resourceVersion: "4856"
+    uid: 4426076d-f8b4-48a3-a8e5-ce595b9325c0
+  spec:
+    checksum: db14a84a266fd914bad49718917e0e4a73d8524654732f76086ca5ca8c8e822f
+    source: /var/lib/rancher/rke2/server/manifests/ptracesecurity.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: helm.cattle.io/v1, Kind=HelmChart
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: rke2-canal
+    namespace: kube-system
+    resourceVersion: "390"
+    uid: 92977351-c116-4607-88a1-7cf7b59933c4
+  spec:
+    checksum: caf8053f60966bc66d418b03ef0ac99f5c6f9e046bbcdf0ad03dcda89e921784
+    source: /var/lib/rancher/rke2/server/manifests/rke2-canal.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: helm.cattle.io/v1, Kind=HelmChart
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: rke2-coredns
+    namespace: kube-system
+    resourceVersion: "402"
+    uid: 85ba157b-b7f1-4fb8-a296-0426b726bbb7
+  spec:
+    checksum: ec2071c6388b08d374be7963c55426a638fa5b2ddeb40b4d105a264ee82edc97
+    source: /var/lib/rancher/rke2/server/manifests/rke2-coredns.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: /v1, Kind=ConfigMap
+    creationTimestamp: "2026-06-12T10:45:58Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:45:58Z"
+    name: rke2-etcd-snapshot-extra-metadata
+    namespace: kube-system
+    resourceVersion: "9602"
+    uid: 1ab7b848-8ebe-45da-9006-7867e59d4f6c
+  spec:
+    checksum: e409135bc33438df8becbf4fc92be952d831185bef4328568f3226dec3b0d5f9
+    source: /var/lib/rancher/rke2/server/manifests/rancher/rke2-etcd-snapshot-extra-metadata.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: helm.cattle.io/v1, Kind=HelmChart
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: rke2-ingress-nginx
+    namespace: kube-system
+    resourceVersion: "414"
+    uid: eea53bb9-f934-475f-bb92-fed27b6d2c43
+  spec:
+    checksum: 2ce90684592fe56e2861b5e4d6bc0ea89e9a53d6a3c77f2c2bc15b5fc0853585
+    source: /var/lib/rancher/rke2/server/manifests/rke2-ingress-nginx.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: helm.cattle.io/v1, Kind=HelmChart
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: rke2-metrics-server
+    namespace: kube-system
+    resourceVersion: "423"
+    uid: a9147911-b9c5-471d-8e63-6b22f7648371
+  spec:
+    checksum: 97a47a4a7630b56a6baa233af74ad830f1b2b3f8c3d11a83a9e3c91b67b02f38
+    source: /var/lib/rancher/rke2/server/manifests/rke2-metrics-server.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: helm.cattle.io/v1, Kind=HelmChart
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: rke2-multus
+    namespace: kube-system
+    resourceVersion: "432"
+    uid: 0dc607a4-224b-4bbf-acf3-ddf7f53d0625
+  spec:
+    checksum: 774c7cb8756f3d366427c4bf23418f52a4202d6d941f72f7598ab35955f44967
+    source: /var/lib/rancher/rke2/server/manifests/rke2-multus.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: helm.cattle.io/v1, Kind=HelmChart
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:39:04Z"
+    name: rke2-runtimeclasses
+    namespace: kube-system
+    resourceVersion: "450"
+    uid: 34f3bc59-ffb8-4cf5-b7f4-c224c3ebefee
+  spec:
+    checksum: ad6d38903f75a8d5d8b113ae29b3028a25264c9c77a1d8d9b4b34d65d142568a
+    source: /var/lib/rancher/rke2/server/manifests/rke2-runtimeclasses.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: node.harvesterhci.io/v1beta1, Kind=CloudInit
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:42:42Z"
+    name: securitystuff
+    namespace: kube-system
+    resourceVersion: "4861"
+    uid: 575e5dd1-ecae-4932-9a42-35065de6c89f
+  spec:
+    checksum: 7a99397eb8245e5b4df7720d45293f331b036b3bb3c1d930a969b34e2f4f0625
+    source: /var/lib/rancher/rke2/server/manifests/securitystuff.yaml
+- apiVersion: k3s.cattle.io/v1
+  kind: Addon
+  metadata:
+    annotations:
+      addon.k3s.cattle.io/gvks: node.harvesterhci.io/v1beta1, Kind=CloudInit
+    creationTimestamp: "2026-06-12T10:39:04Z"
+    generation: 2
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:addon.k3s.cattle.io/gvks: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:source: {}
+      manager: deploy@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T10:42:42Z"
+    name: securitystuffnew
+    namespace: kube-system
+    resourceVersion: "4865"
+    uid: d45e2900-9fed-4560-ae93-fa86a28db2ae
+  spec:
+    checksum: 9878f11ccc4b44e41579804dc89d395902c99d8bece0561d0f0a8fd82769d10f
+    source: /var/lib/rancher/rke2/server/manifests/securitystuffnew.yaml
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676343"

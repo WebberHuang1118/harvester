@@ -1,0 +1,2604 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T15:28:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+      longhorndiskuuid: 0d4ca67b-82b6-4b31-adac-1839e717453c
+      longhornnode: hp-150-tink-system
+      longhornvolume: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"241a258a-44f4-4860-9544-f5490180670f"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:30:16Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:30:17Z"
+    name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-6ec8cdbf
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+      uid: 241a258a-44f4-4860-9544-f5490180670f
+    resourceVersion: "311291"
+    uid: d7fb7efd-f4e0-46e9-8ab4-b56816038287
+  spec:
+    active: true
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    dataDirectoryName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-0abd6249
+    dataEngine: v1
+    desireState: stopped
+    diskID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T15:28:55Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T15:28:55Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-150-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:46Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-150-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T15:28:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+      longhorndiskuuid: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+      longhornnode: hp-117-tink-system
+      longhornvolume: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"241a258a-44f4-4860-9544-f5490180670f"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:30:16Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:30:17Z"
+    name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-cc01ffbe
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+      uid: 241a258a-44f4-4860-9544-f5490180670f
+    resourceVersion: "311315"
+    uid: a28ca250-382c-4dd8-b2c1-2a1b78b385bc
+  spec:
+    active: true
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    dataDirectoryName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-fc93f75d
+    dataEngine: v1
+    desireState: stopped
+    diskID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T15:28:55Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T15:28:55Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-117-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:46Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-117-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T15:28:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+      longhorndiskuuid: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+      longhornnode: hp-69-tink-system
+      longhornvolume: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"241a258a-44f4-4860-9544-f5490180670f"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:30:16Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:30:17Z"
+    name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-r-d000aad9
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+      uid: 241a258a-44f4-4860-9544-f5490180670f
+    resourceVersion: "311309"
+    uid: eac5743e-b790-4692-8b27-d503d995fc5d
+  spec:
+    active: true
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    dataDirectoryName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-f2b79bb4
+    dataEngine: v1
+    desireState: stopped
+    diskID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T15:28:55Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T15:28:55Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-69-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:28:46Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-69-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    finalizers:
+    - longhorn.io
+    generation: 4
+    labels:
+      longhorn.io/backing-image: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+      longhorndiskuuid: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+      longhornnode: hp-117-tink-system
+      longhornvolume: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:11Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"03e87a9b-452f-463d-bfa5-2d396d4ed96a"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:19Z"
+    name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-4656c4fb
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+      uid: 03e87a9b-452f-463d-bfa5-2d396d4ed96a
+    resourceVersion: "292690"
+    uid: 4dfde90c-fcf9-41e7-aca3-8b0393a5dbdd
+  spec:
+    active: true
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    dataDirectoryName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-79d6fa05
+    dataEngine: v1
+    desireState: running
+    diskID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T15:10:19Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T15:10:19Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-117-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:02Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:02Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:10Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentState: running
+    instanceManagerName: instance-manager-7742e04beb074c12e693076a0d1c6595
+    ip: 10.52.0.142
+    logFetched: false
+    ownerID: hp-117-tink-system
+    port: 10771
+    salvageExecuted: false
+    started: true
+    starting: false
+    storageIP: 10.52.0.142
+    uuid: f2ff9cc6-ede2-4db0-9259-238c684b3f0e
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    finalizers:
+    - longhorn.io
+    generation: 4
+    labels:
+      longhorn.io/backing-image: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+      longhorndiskuuid: 0d4ca67b-82b6-4b31-adac-1839e717453c
+      longhornnode: hp-150-tink-system
+      longhornvolume: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:05Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"03e87a9b-452f-463d-bfa5-2d396d4ed96a"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:19Z"
+    name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-8b69be68
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+      uid: 03e87a9b-452f-463d-bfa5-2d396d4ed96a
+    resourceVersion: "292694"
+    uid: e2df4162-198f-4806-8959-8876cffdb0e1
+  spec:
+    active: true
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    dataDirectoryName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-76774f1c
+    dataEngine: v1
+    desireState: running
+    diskID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T15:10:19Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T15:10:19Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-150-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:02Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:02Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:04Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentState: running
+    instanceManagerName: instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5
+    ip: 10.52.1.75
+    logFetched: false
+    ownerID: hp-150-tink-system
+    port: 10718
+    salvageExecuted: false
+    started: true
+    starting: false
+    storageIP: 10.52.1.75
+    uuid: 86e22c35-6407-448c-9e48-441671179f5f
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    finalizers:
+    - longhorn.io
+    generation: 4
+    labels:
+      longhorn.io/backing-image: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+      longhorndiskuuid: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+      longhornnode: hp-69-tink-system
+      longhornvolume: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:11Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"03e87a9b-452f-463d-bfa5-2d396d4ed96a"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:19Z"
+    name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-r-df266d46
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+      uid: 03e87a9b-452f-463d-bfa5-2d396d4ed96a
+    resourceVersion: "292692"
+    uid: beb690a8-8c32-4a16-b233-adffce348d0c
+  spec:
+    active: true
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    dataDirectoryName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-e968fd00
+    dataEngine: v1
+    desireState: running
+    diskID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T15:10:19Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T15:10:19Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-69-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:02Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:02Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:10Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: docker.io/longhornio/longhorn-engine:v1.11.2
+    currentState: running
+    instanceManagerName: instance-manager-f7924585cf5aadacce1b397379d2df82
+    ip: 10.52.2.192
+    logFetched: false
+    ownerID: hp-69-tink-system
+    port: 10110
+    salvageExecuted: false
+    started: true
+    starting: false
+    storageIP: 10.52.2.192
+    uuid: 1750870e-8d47-4b7a-b8a8-d584c16233d6
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T14:57:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+      longhorndiskuuid: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+      longhornnode: hp-69-tink-system
+      longhornvolume: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"6a53f0f2-91ef-48c3-8660-3874378d3854"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:00:17Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:00:18Z"
+    name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-162cf65c
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+      uid: 6a53f0f2-91ef-48c3-8660-3874378d3854
+    resourceVersion: "283124"
+    uid: b80f8c34-0e50-47f0-b746-ed6b7d111d32
+  spec:
+    active: true
+    backingImage: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+    dataDirectoryName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-92b520ec
+    dataEngine: v1
+    desireState: stopped
+    diskID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T14:58:52Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T14:58:52Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-69-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:58:43Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-69-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T14:57:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+      longhorndiskuuid: 0d4ca67b-82b6-4b31-adac-1839e717453c
+      longhornnode: hp-150-tink-system
+      longhornvolume: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"6a53f0f2-91ef-48c3-8660-3874378d3854"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:00:17Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:00:18Z"
+    name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-389c6264
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+      uid: 6a53f0f2-91ef-48c3-8660-3874378d3854
+    resourceVersion: "283119"
+    uid: 1563f63b-5329-408e-a58b-aed794c421b0
+  spec:
+    active: true
+    backingImage: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+    dataDirectoryName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-bb3f69fc
+    dataEngine: v1
+    desireState: stopped
+    diskID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T14:58:52Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T14:58:52Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-150-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:58:33Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-150-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T14:57:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+      longhorndiskuuid: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+      longhornnode: hp-117-tink-system
+      longhornvolume: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"6a53f0f2-91ef-48c3-8660-3874378d3854"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:00:17Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:00:18Z"
+    name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-r-ae91467e
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+      uid: 6a53f0f2-91ef-48c3-8660-3874378d3854
+    resourceVersion: "283129"
+    uid: 778a5628-a87a-4411-923c-d385966170fa
+  spec:
+    active: true
+    backingImage: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+    dataDirectoryName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-439b614e
+    dataEngine: v1
+    desireState: stopped
+    diskID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T14:58:52Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T14:58:52Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-117-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+    volumeSize: "10737418240"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T14:57:46Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-117-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 0d4ca67b-82b6-4b31-adac-1839e717453c
+      longhornnode: hp-150-tink-system
+      longhornvolume: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"412fe632-a7f8-4e82-b5fd-7bdff85711c3"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:34Z"
+    name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-d4a02328
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+      uid: 412fe632-a7f8-4e82-b5fd-7bdff85711c3
+    resourceVersion: "29656"
+    uid: c26c7541-c127-48f8-bf06-efd53d841a06
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-f227edf5
+    dataEngine: v1
+    desireState: stopped
+    diskID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:55Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:55Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-150-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    volumeSize: "2147483648"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:46Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-150-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+      longhornnode: hp-117-tink-system
+      longhornvolume: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"412fe632-a7f8-4e82-b5fd-7bdff85711c3"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:33Z"
+    name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-f19b544c
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+      uid: 412fe632-a7f8-4e82-b5fd-7bdff85711c3
+    resourceVersion: "29641"
+    uid: 5aad9842-dd3f-4a24-8085-6742e14e4474
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-9fddb4a5
+    dataEngine: v1
+    desireState: stopped
+    diskID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:55Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:55Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-117-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    volumeSize: "2147483648"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:46Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-117-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:44Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+      longhornnode: hp-69-tink-system
+      longhornvolume: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"412fe632-a7f8-4e82-b5fd-7bdff85711c3"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:34Z"
+    name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-r-fd06a27a
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+      uid: 412fe632-a7f8-4e82-b5fd-7bdff85711c3
+    resourceVersion: "29665"
+    uid: 407d22c3-cab1-4857-a305-476f87546042
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-e6dd21bd
+    dataEngine: v1
+    desireState: stopped
+    diskID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:55Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:55Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-69-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-a7b7d8fa-959a-4368-8c95-df2b4422b59b
+    volumeSize: "2147483648"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:44Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:46Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-69-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 0d4ca67b-82b6-4b31-adac-1839e717453c
+      longhornnode: hp-150-tink-system
+      longhornvolume: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e29a975e-6f97-4b65-ae9b-232bd727a681"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:34Z"
+    name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-a2c5f104
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+      uid: e29a975e-6f97-4b65-ae9b-232bd727a681
+    resourceVersion: "29657"
+    uid: 61ec7ee1-82a8-42b9-9b78-79f53292c971
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-84487ea2
+    dataEngine: v1
+    desireState: stopped
+    diskID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:50Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:50Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-150-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    volumeSize: "5368709120"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:41Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-150-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+      longhornnode: hp-117-tink-system
+      longhornvolume: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e29a975e-6f97-4b65-ae9b-232bd727a681"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:33Z"
+    name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-a929bc26
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+      uid: e29a975e-6f97-4b65-ae9b-232bd727a681
+    resourceVersion: "29640"
+    uid: 19ee3cb6-3339-484a-8940-6d995d5be496
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-60026992
+    dataEngine: v1
+    desireState: stopped
+    diskID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:50Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:50Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-117-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    volumeSize: "5368709120"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:41Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-117-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+      longhornnode: hp-69-tink-system
+      longhornvolume: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e29a975e-6f97-4b65-ae9b-232bd727a681"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:34Z"
+    name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-r-d4a287af
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+      uid: e29a975e-6f97-4b65-ae9b-232bd727a681
+    resourceVersion: "29663"
+    uid: 2e34292f-cba4-41e9-8001-12dc066484e8
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-381a1423
+    dataEngine: v1
+    desireState: stopped
+    diskID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:50Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:50Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-69-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-c963b942-099b-45b7-87b0-aa2b8d8439c4
+    volumeSize: "5368709120"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:41Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-69-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+      longhornnode: hp-69-tink-system
+      longhornvolume: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"b5d65388-6238-4f04-87ea-be9d028afe0e"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:34Z"
+    name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-2dee2b0f
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+      uid: b5d65388-6238-4f04-87ea-be9d028afe0e
+    resourceVersion: "29664"
+    uid: 29b42d3e-763c-4a22-936e-116cda175ef2
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-75e9f839
+    dataEngine: v1
+    desireState: stopped
+    diskID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:51Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:51Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-69-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    volumeSize: "53687091200"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:42Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-69-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 0d4ca67b-82b6-4b31-adac-1839e717453c
+      longhornnode: hp-150-tink-system
+      longhornvolume: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"b5d65388-6238-4f04-87ea-be9d028afe0e"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:34Z"
+    name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-a7716dbe
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+      uid: b5d65388-6238-4f04-87ea-be9d028afe0e
+    resourceVersion: "29658"
+    uid: 2d886ca9-93f8-4d47-ae39-3b8c5fe50fce
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-f651028e
+    dataEngine: v1
+    desireState: stopped
+    diskID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:51Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:51Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-150-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    volumeSize: "53687091200"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:41Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-150-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 5
+    labels:
+      longhorn.io/backing-image: "null"
+      longhorndiskuuid: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+      longhornnode: hp-117-tink-system
+      longhornvolume: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/backing-image: {}
+            f:longhorndiskuuid: {}
+            f:longhornnode: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"b5d65388-6238-4f04-87ea-be9d028afe0e"}: {}
+        f:spec:
+          .: {}
+          f:active: {}
+          f:backingImage: {}
+          f:dataDirectoryName: {}
+          f:dataEngine: {}
+          f:desireState: {}
+          f:diskID: {}
+          f:diskPath: {}
+          f:engineName: {}
+          f:evictionRequested: {}
+          f:failedAt: {}
+          f:hardNodeAffinity: {}
+          f:healthyAt: {}
+          f:image: {}
+          f:lastFailedAt: {}
+          f:lastHealthyAt: {}
+          f:logRequested: {}
+          f:migrationEngineName: {}
+          f:nodeID: {}
+          f:rebuildRetryCount: {}
+          f:revisionCounterDisabled: {}
+          f:salvageRequested: {}
+          f:snapshotMaxCount: {}
+          f:snapshotMaxSize: {}
+          f:unmapMarkDiskChainRemovedEnabled: {}
+          f:volumeName: {}
+          f:volumeSize: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:04:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:currentImage: {}
+          f:currentState: {}
+          f:instanceManagerName: {}
+          f:ip: {}
+          f:logFetched: {}
+          f:ownerID: {}
+          f:port: {}
+          f:salvageExecuted: {}
+          f:started: {}
+          f:starting: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:04:33Z"
+    name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-r-b0b0eab2
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+      uid: b5d65388-6238-4f04-87ea-be9d028afe0e
+    resourceVersion: "29642"
+    uid: 4ca115d4-9f70-4b7c-9fb8-8b1aa6d9fdd7
+  spec:
+    active: true
+    backingImage: "null"
+    dataDirectoryName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-9e49188a
+    dataEngine: v1
+    desireState: stopped
+    diskID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    diskPath: /var/lib/harvester/defaultdisk
+    engineName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1-e-0
+    evictionRequested: false
+    failedAt: "null"
+    hardNodeAffinity: "null"
+    healthyAt: "2026-06-12T11:02:51Z"
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+    lastFailedAt: "null"
+    lastHealthyAt: "2026-06-12T11:02:51Z"
+    logRequested: false
+    migrationEngineName: "null"
+    nodeID: hp-117-tink-system
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-cf929754-10ee-4ab5-b3b4-faf6295b2fb1
+    volumeSize: "53687091200"
+  status:
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:39Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: FilesystemReadOnly
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T11:02:41Z"
+      message: "null"
+      reason: "null"
+      status: "False"
+      type: WaitForBackingImage
+    currentImage: "null"
+    currentState: stopped
+    instanceManagerName: "null"
+    ip: "null"
+    logFetched: false
+    ownerID: hp-117-tink-system
+    port: 0
+    salvageExecuted: false
+    started: false
+    starting: false
+    storageIP: "null"
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676495"

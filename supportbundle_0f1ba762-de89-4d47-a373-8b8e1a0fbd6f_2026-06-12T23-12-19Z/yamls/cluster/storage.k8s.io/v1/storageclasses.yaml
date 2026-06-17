@@ -1,0 +1,2149 @@
+apiVersion: v1
+items:
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    annotations:
+      harvesterhci.io/is-reserved-storageclass: "true"
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+      storageclass.kubernetes.io/is-default-class: "true"
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:metadata:
+          f:annotations:
+            f:harvesterhci.io/is-reserved-storageclass: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:storageclass.kubernetes.io/is-default-class: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:parameters:
+          f:baseImage: {}
+          f:fromBackup: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: harvester-longhorn
+    resourceVersion: "4275"
+    uid: 280ab3bb-0299-4427-8dc7-1ae0105cee3e
+  parameters:
+    baseImage: "null"
+    fromBackup: "null"
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:40Z"
+    name: lh-03b11a7b-99ea-4851-b7ad-306eb2577ce3
+    resourceVersion: "157103"
+    uid: 9271543b-887a-4df4-b715-07f21183c2b7
+  parameters:
+    backingImage: vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-05d29c48-b50e-46f1-ab5c-062661312daf
+    resourceVersion: "157469"
+    uid: c6174d3e-8128-401b-9df4-55a88b11e4a2
+  parameters:
+    backingImage: vmi-05d29c48-b50e-46f1-ab5c-062661312daf
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-0af45f58-a2ca-4f5c-bef1-592f11f0286f
+    resourceVersion: "157256"
+    uid: 03ea6f35-efd1-4889-9587-b0bf7c5992c3
+  parameters:
+    backingImage: vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc
+    resourceVersion: "157588"
+    uid: c8eb8624-d3a6-42a6-adf6-2216414881af
+  parameters:
+    backingImage: vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T12:08:33Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T12:08:33Z"
+    name: lh-11cb7af5-9cd3-47db-86fa-95c89fac03da
+    resourceVersion: "95326"
+    uid: aa1c5c30-868a-4085-8c50-b55740b9bfe1
+  parameters:
+    backingImage: vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-14259829-31ec-4a20-948a-b888a4fc4a90
+    resourceVersion: "157760"
+    uid: 097a1220-090a-4685-8ace-741c9c5ef721
+  parameters:
+    backingImage: vmi-14259829-31ec-4a20-948a-b888a4fc4a90
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T14:50:59Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:50:59Z"
+    name: lh-14ad7058-3d7c-458a-b57e-aa26484089e4
+    resourceVersion: "274799"
+    uid: ab46af14-eb94-47c5-9051-6dceaaf4a19a
+  parameters:
+    backingImage: vmi-14ad7058-3d7c-458a-b57e-aa26484089e4
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:39Z"
+    name: lh-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad
+    resourceVersion: "156816"
+    uid: acb9d74c-037f-4ab8-a672-8af5d2220e6c
+  parameters:
+    backingImage: vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:39Z"
+    name: lh-29f999ed-6dcd-4e07-8746-944987b8d3a1
+    resourceVersion: "156872"
+    uid: 151582c2-c37d-4120-9820-4740e7f92848
+  parameters:
+    backingImage: vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:15:24Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:15:24Z"
+    name: lh-2c46a0a6-2b99-4cf3-8d14-f7c6c204df33
+    resourceVersion: "164815"
+    uid: e9ed226b-d51a-4dbc-a2b6-15c0c088436c
+  parameters:
+    backingImage: vmi-2c46a0a6-2b99-4cf3-8d14-f7c6c204df33
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:27:39Z"
+    name: lh-30940eb3-a976-4c10-902d-ffbbe1ffb410
+    resourceVersion: "180959"
+    uid: c4347a64-88b4-4f56-b610-4faf1a92978b
+  parameters:
+    backingImage: vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:15:24Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:15:24Z"
+    name: lh-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10
+    resourceVersion: "164816"
+    uid: 5b165108-c36e-49df-83b1-0d14a6e1cf90
+  parameters:
+    backingImage: vmi-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:39Z"
+    name: lh-35b43f80-2bd3-4b76-8073-2188458f0c9d
+    resourceVersion: "156835"
+    uid: 7dc35033-a24c-455c-9c94-562ea682aa43
+  parameters:
+    backingImage: vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:39Z"
+    name: lh-44a23825-d84d-4e8b-a58f-ca7560c0bdc8
+    resourceVersion: "156727"
+    uid: 3905f92a-8c13-4ded-9010-37ebb29bd1b4
+  parameters:
+    backingImage: vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T11:49:27Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:49:27Z"
+    name: lh-49ce3af7-bb03-4ce3-9c63-7e40b18c441c
+    resourceVersion: "73795"
+    uid: 53d3dbdf-c241-4ff9-abb9-e369ab5d2cbb
+  parameters:
+    backingImage: vmi-49ce3af7-bb03-4ce3-9c63-7e40b18c441c
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:40Z"
+    name: lh-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383
+    resourceVersion: "156998"
+    uid: 994bc9e4-265a-4361-8db7-3e19991c94b0
+  parameters:
+    backingImage: vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9
+    resourceVersion: "157690"
+    uid: c4dd9a41-e67d-4a9c-9933-1c5e91231832
+  parameters:
+    backingImage: vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-5432d294-0053-48b2-a068-9e601a7682f9
+    resourceVersion: "157285"
+    uid: 33609c9f-86a5-4dce-bbde-a9a43cd02ba3
+  parameters:
+    backingImage: vmi-5432d294-0053-48b2-a068-9e601a7682f9
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T15:00:25Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T15:00:25Z"
+    name: lh-579c6004-6405-438c-a53a-44b36cdd4d53
+    resourceVersion: "283299"
+    uid: 3bbf6d59-19b7-4d4c-925b-5c4bf051521e
+  parameters:
+    backingImage: vmi-579c6004-6405-438c-a53a-44b36cdd4d53
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:27:39Z"
+    name: lh-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b
+    resourceVersion: "181033"
+    uid: b16cff32-1297-451a-bc98-48996ed42b02
+  parameters:
+    backingImage: vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T14:41:03Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:41:03Z"
+    name: lh-6250f35d-01cb-421e-95de-a51ccfb2134d
+    resourceVersion: "264704"
+    uid: 4d978c12-159c-4c36-8853-e9573beefe44
+  parameters:
+    backingImage: vmi-6250f35d-01cb-421e-95de-a51ccfb2134d
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-62e8ef01-6b74-408f-a329-6550288ab4a6
+    resourceVersion: "157415"
+    uid: 71410cbc-43ff-4791-a8ec-ef612021eed9
+  parameters:
+    backingImage: vmi-62e8ef01-6b74-408f-a329-6550288ab4a6
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:27:39Z"
+    name: lh-64d68f60-5c97-4bde-bc6b-f43cd1e852a9
+    resourceVersion: "180973"
+    uid: ef391916-7414-4427-af42-2dece1f10396
+  parameters:
+    backingImage: vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-685b4487-4e6a-4cfa-b51e-a48d51eef690
+    resourceVersion: "157363"
+    uid: 410914ff-7e30-47ab-9ee3-1c84c2da805e
+  parameters:
+    backingImage: vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T14:39:17Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:39:17Z"
+    name: lh-719cfc1e-ca41-480b-95fc-5952c788060c
+    resourceVersion: "262343"
+    uid: f4c5c0e9-5061-42c8-998e-08548ff72394
+  parameters:
+    backingImage: vmi-719cfc1e-ca41-480b-95fc-5952c788060c
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-73081fc9-473f-4979-869d-68874d630056
+    resourceVersion: "157568"
+    uid: c92e8ea9-d0c4-4c37-b4c7-12c6750c80fc
+  parameters:
+    backingImage: vmi-73081fc9-473f-4979-869d-68874d630056
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-796382f6-336b-43d6-8a9e-e8eaf86a40c3
+    resourceVersion: "157572"
+    uid: 33f18d07-2bb7-45db-bae0-aa8f94387cb6
+  parameters:
+    backingImage: vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-867f53de-c53d-4bdf-85f7-4230dc6d97a6
+    resourceVersion: "157210"
+    uid: bcc8cb26-2802-4412-bf34-fd0e8e2a25bb
+  parameters:
+    backingImage: vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-8c875d2b-a04a-4910-8d5b-8886193a1976
+    resourceVersion: "157694"
+    uid: 43c42267-fa1e-49a3-af34-ee3d4c8344dd
+  parameters:
+    backingImage: vmi-8c875d2b-a04a-4910-8d5b-8886193a1976
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:39Z"
+    name: lh-8f50beba-f74e-4862-8b37-c371d9a61258
+    resourceVersion: "156938"
+    uid: 64886f83-bb72-4172-8cee-697d8e080993
+  parameters:
+    backingImage: vmi-8f50beba-f74e-4862-8b37-c371d9a61258
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-90de1da3-17d0-43f4-85a6-6c077f6ff05b
+    resourceVersion: "157345"
+    uid: 159c20f6-e545-4bc9-bad6-55c96190320c
+  parameters:
+    backingImage: vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-9389b375-93df-48cc-8a1c-7a505bce7abb
+    resourceVersion: "157184"
+    uid: a5f06d4a-c7c8-45c3-9e05-bd3c3acffea3
+  parameters:
+    backingImage: vmi-9389b375-93df-48cc-8a1c-7a505bce7abb
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T11:39:11Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:39:11Z"
+    name: lh-9536b339-cd5f-42d0-b125-359af50add06
+    resourceVersion: "64173"
+    uid: d3d7bb54-67b8-4f8e-a396-ad2b63b720e6
+  parameters:
+    backingImage: vmi-9536b339-cd5f-42d0-b125-359af50add06
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T14:45:20Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:45:20Z"
+    name: lh-985444bb-24ad-4a50-a2ef-322ac4ac6332
+    resourceVersion: "269208"
+    uid: 92642a6e-d217-40c4-bacd-72ef0793f405
+  parameters:
+    backingImage: vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:40Z"
+    name: lh-a068016b-7eb4-4615-a627-d43820b6637a
+    resourceVersion: "157067"
+    uid: d6c74042-7d9e-4bd4-9b6a-053311f21e5b
+  parameters:
+    backingImage: vmi-a068016b-7eb4-4615-a627-d43820b6637a
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:39Z"
+    name: lh-a28a994b-0a70-47f6-a466-2ce4ddd55c18
+    resourceVersion: "156789"
+    uid: 402690a8-ed0c-4101-bada-2cfa14b99af2
+  parameters:
+    backingImage: vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:15:23Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:15:23Z"
+    name: lh-a8fae03d-196b-4c73-a4d0-72ed8f8277a4
+    resourceVersion: "164673"
+    uid: a9ea9e21-b256-4c51-a1b4-2dd1508a5319
+  parameters:
+    backingImage: vmi-a8fae03d-196b-4c73-a4d0-72ed8f8277a4
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:27:39Z"
+    name: lh-a97777bd-4d56-4bb0-ba70-0b6561531177
+    resourceVersion: "180968"
+    uid: 74faeded-6ec3-40cb-b4da-5874d37385a1
+  parameters:
+    backingImage: vmi-a97777bd-4d56-4bb0-ba70-0b6561531177
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:40Z"
+    name: lh-ab2d5d11-612f-489f-ae61-77c4408f3fad
+    resourceVersion: "157168"
+    uid: b381404a-3c58-4391-b9fa-4f3193d46ec6
+  parameters:
+    backingImage: vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-bded5314-5e37-4f33-84cd-a3e569747b56
+    resourceVersion: "157619"
+    uid: 4c47b4e7-4edb-4456-b710-afeff4c03d10
+  parameters:
+    backingImage: vmi-bded5314-5e37-4f33-84cd-a3e569747b56
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:40Z"
+    name: lh-c0a66f17-a92c-46bb-ba44-3599cbf8f17a
+    resourceVersion: "157061"
+    uid: dbb3b985-96f7-4129-b7e0-383431b44e21
+  parameters:
+    backingImage: vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T11:55:54Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:55:54Z"
+    name: lh-c1cb70e9-9fac-462e-877b-d2989ad33632
+    resourceVersion: "81209"
+    uid: b44a8934-9eb1-42b7-97bf-908820a4eb9f
+  parameters:
+    backingImage: vmi-c1cb70e9-9fac-462e-877b-d2989ad33632
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:40Z"
+    name: lh-c3292732-b7df-4166-be52-7faaf0ec91c2
+    resourceVersion: "156993"
+    uid: 88d5ba33-f401-4f78-9360-d462e26ec04f
+  parameters:
+    backingImage: vmi-c3292732-b7df-4166-be52-7faaf0ec91c2
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54
+    resourceVersion: "157556"
+    uid: 12282bc3-b8a2-4a2a-9819-3f92506a414c
+  parameters:
+    backingImage: vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T14:55:38Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:55:38Z"
+    name: lh-c6da5089-57c2-48ea-873b-77e3768ce594
+    resourceVersion: "278874"
+    uid: 8841f950-6ec8-497f-92ef-240516d132b5
+  parameters:
+    backingImage: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-c724acfd-51a5-4d08-9837-c1cc54c079a7
+    resourceVersion: "157712"
+    uid: 80db487f-86bf-42c4-9789-1038244a4e25
+  parameters:
+    backingImage: vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T15:09:47Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T15:09:47Z"
+    name: lh-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    resourceVersion: "292038"
+    uid: 226f8a40-6591-48e3-8907-0849df3c79a3
+  parameters:
+    backingImage: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-c85df0d3-bab6-4dae-8758-8b99f74612ec
+    resourceVersion: "157317"
+    uid: 5b4d6825-761a-4245-ac46-3f1d3b27f011
+  parameters:
+    backingImage: vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:41Z"
+    name: lh-c94541f3-9cca-4a2d-a2c0-2292664bf1f5
+    resourceVersion: "157222"
+    uid: 1f1b6414-d9ba-4248-9e40-5beb8c007414
+  parameters:
+    backingImage: vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T11:55:11Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:55:11Z"
+    name: lh-c9986734-3742-4785-97ee-dee8c9d21ff0
+    resourceVersion: "80491"
+    uid: 7c306a17-a378-4474-a39f-7be366ee6d6a
+  parameters:
+    backingImage: vmi-c9986734-3742-4785-97ee-dee8c9d21ff0
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:15:23Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:15:23Z"
+    name: lh-cb75375e-1921-45c9-b0f8-25387c5512a9
+    resourceVersion: "164695"
+    uid: 745ebb36-7267-46b2-a9e6-a3ce0b9525ec
+  parameters:
+    backingImage: vmi-cb75375e-1921-45c9-b0f8-25387c5512a9
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-defb5036-7caa-44fc-bed7-0b7518314131
+    resourceVersion: "157538"
+    uid: f29210b3-ea83-4ede-b7a8-b59362855754
+  parameters:
+    backingImage: vmi-defb5036-7caa-44fc-bed7-0b7518314131
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:40Z"
+    name: lh-dfd6369b-8324-4d11-aabc-8f2e33d27acc
+    resourceVersion: "157156"
+    uid: 9ec8284b-42e7-4c63-aedf-96d1c03bfaa5
+  parameters:
+    backingImage: vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:27:39Z"
+    name: lh-e10be9f1-6812-44b5-aef9-3ca603284ac0
+    resourceVersion: "180950"
+    uid: d330153f-a391-4c46-a267-d62894720701
+  parameters:
+    backingImage: vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-e23faa62-66d7-4028-b77b-02acefda5bd1
+    resourceVersion: "157640"
+    uid: b5c281c7-b8ca-4278-a2e1-e66979ea775b
+  parameters:
+    backingImage: vmi-e23faa62-66d7-4028-b77b-02acefda5bd1
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:40Z"
+    name: lh-f1f5d036-b108-49f0-aaa0-57212826afe4
+    resourceVersion: "156975"
+    uid: 68c22c82-770b-46f7-91b2-cd5bb3c6a45c
+  parameters:
+    backingImage: vmi-f1f5d036-b108-49f0-aaa0-57212826afe4
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:39Z"
+    name: lh-f2ce6e1f-5386-4a5a-823d-bab4e469a96d
+    resourceVersion: "156747"
+    uid: ef018891-9226-4118-8295-c192cec766cc
+  parameters:
+    backingImage: vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:39Z"
+    name: lh-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98
+    resourceVersion: "156768"
+    uid: 0b481209-1b1f-4ec3-82cb-d65f584bcdd6
+  parameters:
+    backingImage: vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:backingImage: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T13:12:42Z"
+    name: lh-fe79e766-0638-4f13-9d0d-277b48c28f7f
+    resourceVersion: "157657"
+    uid: 3374cbc6-34d9-4223-83f2-32c5f34a56b8
+  parameters:
+    backingImage: vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    annotations:
+      longhorn.io/last-applied-configmap: |
+        kind: StorageClass
+        apiVersion: storage.k8s.io/v1
+        metadata:
+          name: longhorn
+          annotations:
+            storageclass.kubernetes.io/is-default-class: "false"
+        provisioner: driver.longhorn.io
+        allowVolumeExpansion: true
+        reclaimPolicy: "Delete"
+        volumeBindingMode: Immediate
+        parameters:
+          numberOfReplicas: "3"
+          staleReplicaTimeout: "30"
+          fromBackup: ""
+          fsType: "ext4"
+          migratable: "true"
+          dataLocality: "disabled"
+          unmapMarkSnapChainRemoved: "ignored"
+          disableRevisionCounter: "true"
+          dataEngine: "v1"
+          backupTargetName: "default"
+      storageclass.kubernetes.io/is-default-class: "false"
+    creationTimestamp: "2026-06-12T10:42:49Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:longhorn.io/last-applied-configmap: {}
+            f:storageclass.kubernetes.io/is-default-class: {}
+        f:parameters:
+          .: {}
+          f:backupTargetName: {}
+          f:dataEngine: {}
+          f:dataLocality: {}
+          f:disableRevisionCounter: {}
+          f:fromBackup: {}
+          f:fsType: {}
+          f:migratable: {}
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+          f:unmapMarkSnapChainRemoved: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:42:49Z"
+    name: longhorn
+    resourceVersion: "5362"
+    uid: 4319c272-2aaa-4c8b-bfd4-61d740cbfdb5
+  parameters:
+    backupTargetName: default
+    dataEngine: v1
+    dataLocality: disabled
+    disableRevisionCounter: "true"
+    fromBackup: "null"
+    fsType: ext4
+    migratable: "true"
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+    unmapMarkSnapChainRemoved: ignored
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:52Z"
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:parameters:
+          .: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:42:52Z"
+    name: longhorn-static
+    resourceVersion: "5576"
+    uid: e68be9bd-26f7-46b5-b30d-f58930aa0033
+  parameters:
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+- allowVolumeExpansion: true
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:parameters:
+          f:numberOfReplicas: {}
+          f:staleReplicaTimeout: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: vmstate-persistence
+    resourceVersion: "4274"
+    uid: d5985aed-9688-4d6e-849c-ac6a9e5a5266
+  parameters:
+    numberOfReplicas: "3"
+    staleReplicaTimeout: "30"
+  provisioner: driver.longhorn.io
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+kind: List
+metadata:
+  resourceVersion: "676237"

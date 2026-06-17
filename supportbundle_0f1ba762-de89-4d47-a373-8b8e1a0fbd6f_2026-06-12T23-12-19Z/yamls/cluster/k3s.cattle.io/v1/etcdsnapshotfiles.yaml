@@ -1,0 +1,182 @@
+apiVersion: v1
+items:
+- apiVersion: k3s.cattle.io/v1
+  kind: ETCDSnapshotFile
+  metadata:
+    annotations:
+      etcd.rke2.cattle.io/snapshot-token-hash: 6671aea1b3ba
+    creationTimestamp: "2026-06-12T12:00:03Z"
+    finalizers:
+    - wrangler.cattle.io/managed-etcd-snapshots-controller
+    generation: 1
+    labels:
+      etcd.rke2.cattle.io/snapshot-storage-node: hp-117-tink-system
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:etcd.rke2.cattle.io/snapshot-token-hash: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/managed-etcd-snapshots-controller"null: {}
+          f:labels:
+            .: {}
+            f:etcd.rke2.cattle.io/snapshot-storage-node: {}
+        f:spec:
+          .: {}
+          f:location: {}
+          f:metadata:
+            .: {}
+            f:provisioning-cluster-spec: {}
+          f:nodeName: {}
+          f:snapshotName: {}
+        f:status:
+          .: {}
+          f:creationTime: {}
+          f:readyToUse: {}
+          f:size: {}
+      manager: rke2-supervisor@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T12:00:03Z"
+    name: local-etcd-snapshot-hp-117-tink-system-1781265603-47c2d7
+    resourceVersion: "86375"
+    uid: 067b5a87-1ada-4577-8d08-3d7a16bee7e5
+  spec:
+    location: file:///var/lib/rancher/rke2/server/db/snapshots/etcd-snapshot-hp-117-tink-system-1781265603
+    metadata:
+      provisioning-cluster-spec: H4sIAAAAAAAA/8yRwW7yQAyE38XXP0LwV1xyqwjtsUhU9Gx2nWDFrCOvlwqhvHuV0NJX6M2ez2ONNDfoy5EskVM+kGXWBDVcVoun9WL9z3r6byuowHraaGq5g/oGZegMI+3d0Km7TlLQ5KayE0zUGHJ6G5w15YlRwqNQhLpFyVRBqxbosUUSctqeB782bA06/iLOk3N74eBzrm+9Mwy0I2ONUC8rcD6TFp/n3PPwgewvas38+f0O9xQ0xQz1cqzgU60n++s5xwrCCc0PKIUy1KmIVHDGcOJEr6JHlJ9O7iiiY8NGwdV4ctzGx/1OVRpqsYjPYKxANKBspGQney5+2qY4KCef8RcAAAD//wEAAP//eeeaLxgCAAA=
+    nodeName: hp-117-tink-system
+    snapshotName: etcd-snapshot-hp-117-tink-system-1781265603
+  status:
+    creationTime: "2026-06-12T12:00:03Z"
+    readyToUse: true
+    size: "96935968"
+- apiVersion: k3s.cattle.io/v1
+  kind: ETCDSnapshotFile
+  metadata:
+    annotations:
+      etcd.rke2.cattle.io/snapshot-token-hash: 6671aea1b3ba
+    creationTimestamp: "2026-06-12T12:00:05Z"
+    finalizers:
+    - wrangler.cattle.io/managed-etcd-snapshots-controller
+    generation: 1
+    labels:
+      etcd.rke2.cattle.io/snapshot-storage-node: hp-150-tink-system
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/managed-etcd-snapshots-controller"null: {}
+      manager: rke2-supervisor@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T12:00:05Z"
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:etcd.rke2.cattle.io/snapshot-token-hash: {}
+          f:labels:
+            .: {}
+            f:etcd.rke2.cattle.io/snapshot-storage-node: {}
+        f:spec:
+          .: {}
+          f:location: {}
+          f:metadata:
+            .: {}
+            f:provisioning-cluster-spec: {}
+          f:nodeName: {}
+          f:snapshotName: {}
+        f:status:
+          .: {}
+          f:creationTime: {}
+          f:readyToUse: {}
+          f:size: {}
+      manager: rke2-supervisor@hp-150-tink-system
+      operation: Update
+      time: "2026-06-12T12:00:05Z"
+    name: local-etcd-snapshot-hp-150-tink-system-1781265605-79454d
+    resourceVersion: "86407"
+    uid: 967b1c13-28b8-4386-a861-84b568b0d0af
+  spec:
+    location: file:///var/lib/rancher/rke2/server/db/snapshots/etcd-snapshot-hp-150-tink-system-1781265605
+    metadata:
+      provisioning-cluster-spec: H4sIAAAAAAAA/8yRwW7yQAyE38XXP0LwV1xyqwjtsUhU9Gx2nWDFrCOvlwqhvHuV0NJX6M2ez2ONNDfoy5EskVM+kGXWBDVcVoun9WL9z3r6byuowHraaGq5g/oGZegMI+3d0Km7TlLQ5KayE0zUGHJ6G5w15YlRwqNQhLpFyVRBqxbosUUSctqeB782bA06/iLOk3N74eBzrm+9Mwy0I2ONUC8rcD6TFp/n3PPwgewvas38+f0O9xQ0xQz1cqzgU60n++s5xwrCCc0PKIUy1KmIVHDGcOJEr6JHlJ9O7iiiY8NGwdV4ctzGx/1OVRpqsYjPYKxANKBspGQney5+2qY4KCef8RcAAAD//wEAAP//eeeaLxgCAAA=
+    nodeName: hp-150-tink-system
+    snapshotName: etcd-snapshot-hp-150-tink-system-1781265605
+  status:
+    creationTime: "2026-06-12T12:00:05Z"
+    readyToUse: true
+    size: "96665632"
+- apiVersion: k3s.cattle.io/v1
+  kind: ETCDSnapshotFile
+  metadata:
+    annotations:
+      etcd.rke2.cattle.io/snapshot-token-hash: 6671aea1b3ba
+    creationTimestamp: "2026-06-12T12:00:04Z"
+    finalizers:
+    - wrangler.cattle.io/managed-etcd-snapshots-controller
+    generation: 1
+    labels:
+      etcd.rke2.cattle.io/snapshot-storage-node: hp-69-tink-system
+    managedFields:
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/managed-etcd-snapshots-controller"null: {}
+      manager: rke2-supervisor@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T12:00:04Z"
+    - apiVersion: k3s.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:etcd.rke2.cattle.io/snapshot-token-hash: {}
+          f:labels:
+            .: {}
+            f:etcd.rke2.cattle.io/snapshot-storage-node: {}
+        f:spec:
+          .: {}
+          f:location: {}
+          f:metadata:
+            .: {}
+            f:provisioning-cluster-spec: {}
+          f:nodeName: {}
+          f:snapshotName: {}
+        f:status:
+          .: {}
+          f:creationTime: {}
+          f:readyToUse: {}
+          f:size: {}
+      manager: rke2-supervisor@hp-69-tink-system
+      operation: Update
+      time: "2026-06-12T12:00:04Z"
+    name: local-etcd-snapshot-hp-69-tink-system-1781265604-0d075b
+    resourceVersion: "86399"
+    uid: 71a784d6-413b-44d1-bde0-276e9440a1f6
+  spec:
+    location: file:///var/lib/rancher/rke2/server/db/snapshots/etcd-snapshot-hp-69-tink-system-1781265604
+    metadata:
+      provisioning-cluster-spec: H4sIAAAAAAAA/8yRwW7yQAyE38XXP0LwV1xyqwjtsUhU9Gx2nWDFrCOvlwqhvHuV0NJX6M2ez2ONNDfoy5EskVM+kGXWBDVcVoun9WL9z3r6byuowHraaGq5g/oGZegMI+3d0Km7TlLQ5KayE0zUGHJ6G5w15YlRwqNQhLpFyVRBqxbosUUSctqeB782bA06/iLOk3N74eBzrm+9Mwy0I2ONUC8rcD6TFp/n3PPwgewvas38+f0O9xQ0xQz1cqzgU60n++s5xwrCCc0PKIUy1KmIVHDGcOJEr6JHlJ9O7iiiY8NGwdV4ctzGx/1OVRpqsYjPYKxANKBspGQney5+2qY4KCef8RcAAAD//wEAAP//eeeaLxgCAAA=
+    nodeName: hp-69-tink-system
+    snapshotName: etcd-snapshot-hp-69-tink-system-1781265604
+  status:
+    creationTime: "2026-06-12T12:00:04Z"
+    readyToUse: true
+    size: "70795296"
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676281"

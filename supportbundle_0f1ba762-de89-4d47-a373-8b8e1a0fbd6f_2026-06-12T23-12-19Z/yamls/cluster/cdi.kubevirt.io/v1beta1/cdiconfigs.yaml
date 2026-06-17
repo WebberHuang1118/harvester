@@ -1,0 +1,224 @@
+apiVersion: v1
+items:
+- apiVersion: cdi.kubevirt.io/v1beta1
+  kind: CDIConfig
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:56Z"
+    generation: 124
+    labels:
+      app: containerized-data-importer
+      app.kubernetes.io/component: storage
+      app.kubernetes.io/managed-by: cdi-controller
+      cdi.kubevirt.io: "null"
+    managedFields:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:cdi.kubevirt.io: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"57d36aef-680f-4ffd-bbc8-025ccbd99dc0"}: {}
+        f:spec:
+          .: {}
+          f:featureGates: {}
+          f:podResourceRequirements:
+            .: {}
+            f:limits:
+              .: {}
+              f:memory: {}
+        f:status:
+          .: {}
+          f:defaultPodResourceRequirements:
+            .: {}
+            f:limits:
+              .: {}
+              f:cpu: {}
+              f:memory: {}
+            f:requests:
+              .: {}
+              f:cpu: {}
+              f:memory: {}
+          f:filesystemOverhead:
+            .: {}
+            f:global: {}
+            f:storageClass:
+              .: {}
+              f:harvester-longhorn: {}
+              f:lh-03b11a7b-99ea-4851-b7ad-306eb2577ce3: {}
+              f:lh-0af45f58-a2ca-4f5c-bef1-592f11f0286f: {}
+              f:lh-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc: {}
+              f:lh-2c46a0a6-2b99-4cf3-8d14-f7c6c204df33: {}
+              f:lh-44a23825-d84d-4e8b-a58f-ca7560c0bdc8: {}
+              f:lh-49ce3af7-bb03-4ce3-9c63-7e40b18c441c: {}
+              f:lh-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383: {}
+              f:lh-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9: {}
+              f:lh-05d29c48-b50e-46f1-ab5c-062661312daf: {}
+              f:lh-8c875d2b-a04a-4910-8d5b-8886193a1976: {}
+              f:lh-8f50beba-f74e-4862-8b37-c371d9a61258: {}
+              f:lh-11cb7af5-9cd3-47db-86fa-95c89fac03da: {}
+              f:lh-14ad7058-3d7c-458a-b57e-aa26484089e4: {}
+              f:lh-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad: {}
+              f:lh-29f999ed-6dcd-4e07-8746-944987b8d3a1: {}
+              f:lh-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10: {}
+              f:lh-35b43f80-2bd3-4b76-8073-2188458f0c9d: {}
+              f:lh-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b: {}
+              f:lh-64d68f60-5c97-4bde-bc6b-f43cd1e852a9: {}
+              f:lh-90de1da3-17d0-43f4-85a6-6c077f6ff05b: {}
+              f:lh-579c6004-6405-438c-a53a-44b36cdd4d53: {}
+              f:lh-685b4487-4e6a-4cfa-b51e-a48d51eef690: {}
+              f:lh-719cfc1e-ca41-480b-95fc-5952c788060c: {}
+              f:lh-867f53de-c53d-4bdf-85f7-4230dc6d97a6: {}
+              f:lh-5432d294-0053-48b2-a068-9e601a7682f9: {}
+              f:lh-6250f35d-01cb-421e-95de-a51ccfb2134d: {}
+              f:lh-62e8ef01-6b74-408f-a329-6550288ab4a6: {}
+              f:lh-9389b375-93df-48cc-8a1c-7a505bce7abb: {}
+              f:lh-9536b339-cd5f-42d0-b125-359af50add06: {}
+              f:lh-30940eb3-a976-4c10-902d-ffbbe1ffb410: {}
+              f:lh-73081fc9-473f-4979-869d-68874d630056: {}
+              f:lh-796382f6-336b-43d6-8a9e-e8eaf86a40c3: {}
+              f:lh-985444bb-24ad-4a50-a2ef-322ac4ac6332: {}
+              f:lh-14259829-31ec-4a20-948a-b888a4fc4a90: {}
+              f:lh-a8fae03d-196b-4c73-a4d0-72ed8f8277a4: {}
+              f:lh-a28a994b-0a70-47f6-a466-2ce4ddd55c18: {}
+              f:lh-a068016b-7eb4-4615-a627-d43820b6637a: {}
+              f:lh-a97777bd-4d56-4bb0-ba70-0b6561531177: {}
+              f:lh-ab2d5d11-612f-489f-ae61-77c4408f3fad: {}
+              f:lh-bded5314-5e37-4f33-84cd-a3e569747b56: {}
+              f:lh-c0a66f17-a92c-46bb-ba44-3599cbf8f17a: {}
+              f:lh-c1cb70e9-9fac-462e-877b-d2989ad33632: {}
+              f:lh-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54: {}
+              f:lh-c6da5089-57c2-48ea-873b-77e3768ce594: {}
+              f:lh-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac: {}
+              f:lh-c85df0d3-bab6-4dae-8758-8b99f74612ec: {}
+              f:lh-c724acfd-51a5-4d08-9837-c1cc54c079a7: {}
+              f:lh-c94541f3-9cca-4a2d-a2c0-2292664bf1f5: {}
+              f:lh-c3292732-b7df-4166-be52-7faaf0ec91c2: {}
+              f:lh-c9986734-3742-4785-97ee-dee8c9d21ff0: {}
+              f:lh-cb75375e-1921-45c9-b0f8-25387c5512a9: {}
+              f:lh-defb5036-7caa-44fc-bed7-0b7518314131: {}
+              f:lh-dfd6369b-8324-4d11-aabc-8f2e33d27acc: {}
+              f:lh-e10be9f1-6812-44b5-aef9-3ca603284ac0: {}
+              f:lh-e23faa62-66d7-4028-b77b-02acefda5bd1: {}
+              f:lh-f1f5d036-b108-49f0-aaa0-57212826afe4: {}
+              f:lh-f2ce6e1f-5386-4a5a-823d-bab4e469a96d: {}
+              f:lh-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98: {}
+              f:lh-fe79e766-0638-4f13-9d0d-277b48c28f7f: {}
+              f:longhorn: {}
+              f:longhorn-static: {}
+              f:vmstate-persistence: {}
+          f:importProxy:
+            .: {}
+            f:HTTPProxy: {}
+            f:HTTPSProxy: {}
+            f:noProxy: {}
+            f:trustedCAProxy: {}
+          f:scratchSpaceStorageClass: {}
+      manager: virt-cdi-controller
+      operation: Update
+      time: "2026-06-12T15:09:47Z"
+    name: config
+    ownerReferences:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: CDI
+      name: cdi
+      uid: 57d36aef-680f-4ffd-bbc8-025ccbd99dc0
+    resourceVersion: "292041"
+    uid: 76bfa496-47be-4535-ab0e-7ac48fcec355
+  spec:
+    featureGates:
+    - HonorWaitForFirstConsumer
+    podResourceRequirements:
+      limits:
+        memory: 2G
+  status:
+    defaultPodResourceRequirements:
+      limits:
+        cpu: 750m
+        memory: 2G
+      requests:
+        cpu: 100m
+        memory: 60M
+    filesystemOverhead:
+      global: "0.06"
+      storageClass:
+        harvester-longhorn: "0.06"
+        lh-0af45f58-a2ca-4f5c-bef1-592f11f0286f: "0.06"
+        lh-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc: "0.06"
+        lh-2c46a0a6-2b99-4cf3-8d14-f7c6c204df33: "0.06"
+        lh-03b11a7b-99ea-4851-b7ad-306eb2577ce3: "0.06"
+        lh-44a23825-d84d-4e8b-a58f-ca7560c0bdc8: "0.06"
+        lh-49ce3af7-bb03-4ce3-9c63-7e40b18c441c: "0.06"
+        lh-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383: "0.06"
+        lh-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9: "0.06"
+        lh-05d29c48-b50e-46f1-ab5c-062661312daf: "0.06"
+        lh-8c875d2b-a04a-4910-8d5b-8886193a1976: "0.06"
+        lh-8f50beba-f74e-4862-8b37-c371d9a61258: "0.06"
+        lh-11cb7af5-9cd3-47db-86fa-95c89fac03da: "0.06"
+        lh-14ad7058-3d7c-458a-b57e-aa26484089e4: "0.06"
+        lh-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad: "0.06"
+        lh-29f999ed-6dcd-4e07-8746-944987b8d3a1: "0.06"
+        lh-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10: "0.06"
+        lh-35b43f80-2bd3-4b76-8073-2188458f0c9d: "0.06"
+        lh-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b: "0.06"
+        lh-62e8ef01-6b74-408f-a329-6550288ab4a6: "0.06"
+        lh-64d68f60-5c97-4bde-bc6b-f43cd1e852a9: "0.06"
+        lh-90de1da3-17d0-43f4-85a6-6c077f6ff05b: "0.06"
+        lh-579c6004-6405-438c-a53a-44b36cdd4d53: "0.06"
+        lh-685b4487-4e6a-4cfa-b51e-a48d51eef690: "0.06"
+        lh-719cfc1e-ca41-480b-95fc-5952c788060c: "0.06"
+        lh-867f53de-c53d-4bdf-85f7-4230dc6d97a6: "0.06"
+        lh-5432d294-0053-48b2-a068-9e601a7682f9: "0.06"
+        lh-6250f35d-01cb-421e-95de-a51ccfb2134d: "0.06"
+        lh-9389b375-93df-48cc-8a1c-7a505bce7abb: "0.06"
+        lh-9536b339-cd5f-42d0-b125-359af50add06: "0.06"
+        lh-30940eb3-a976-4c10-902d-ffbbe1ffb410: "0.06"
+        lh-73081fc9-473f-4979-869d-68874d630056: "0.06"
+        lh-796382f6-336b-43d6-8a9e-e8eaf86a40c3: "0.06"
+        lh-985444bb-24ad-4a50-a2ef-322ac4ac6332: "0.06"
+        lh-14259829-31ec-4a20-948a-b888a4fc4a90: "0.06"
+        lh-a8fae03d-196b-4c73-a4d0-72ed8f8277a4: "0.06"
+        lh-a28a994b-0a70-47f6-a466-2ce4ddd55c18: "0.06"
+        lh-a068016b-7eb4-4615-a627-d43820b6637a: "0.06"
+        lh-a97777bd-4d56-4bb0-ba70-0b6561531177: "0.06"
+        lh-ab2d5d11-612f-489f-ae61-77c4408f3fad: "0.06"
+        lh-bded5314-5e37-4f33-84cd-a3e569747b56: "0.06"
+        lh-c0a66f17-a92c-46bb-ba44-3599cbf8f17a: "0.06"
+        lh-c1cb70e9-9fac-462e-877b-d2989ad33632: "0.06"
+        lh-c6da5089-57c2-48ea-873b-77e3768ce594: "0.06"
+        lh-c724acfd-51a5-4d08-9837-c1cc54c079a7: "0.06"
+        lh-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac: "0.06"
+        lh-c85df0d3-bab6-4dae-8758-8b99f74612ec: "0.06"
+        lh-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54: "0.06"
+        lh-c94541f3-9cca-4a2d-a2c0-2292664bf1f5: "0.06"
+        lh-c3292732-b7df-4166-be52-7faaf0ec91c2: "0.06"
+        lh-c9986734-3742-4785-97ee-dee8c9d21ff0: "0.06"
+        lh-cb75375e-1921-45c9-b0f8-25387c5512a9: "0.06"
+        lh-defb5036-7caa-44fc-bed7-0b7518314131: "0.06"
+        lh-dfd6369b-8324-4d11-aabc-8f2e33d27acc: "0.06"
+        lh-e10be9f1-6812-44b5-aef9-3ca603284ac0: "0.06"
+        lh-e23faa62-66d7-4028-b77b-02acefda5bd1: "0.06"
+        lh-f1f5d036-b108-49f0-aaa0-57212826afe4: "0.06"
+        lh-f2ce6e1f-5386-4a5a-823d-bab4e469a96d: "0.06"
+        lh-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98: "0.06"
+        lh-fe79e766-0638-4f13-9d0d-277b48c28f7f: "0.06"
+        longhorn: "0.06"
+        longhorn-static: "0.06"
+        vmstate-persistence: "0.06"
+    importProxy:
+      HTTPProxy: "null"
+      HTTPSProxy: "null"
+      noProxy: "null"
+      trustedCAProxy: "null"
+    scratchSpaceStorageClass: harvester-longhorn
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676280"

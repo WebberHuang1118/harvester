@@ -1,0 +1,980 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+                f:fleet.cattle.io/shard-default: {}
+                f:fleet.cattle.io/shard-id: {}
+            f:spec:
+              f:containers:
+                k:{"name":"fleet-agentmanagement"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"CATTLE_ELECTION_LEASE_DURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RENEW_DEADLINE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RETRY_PERIOD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FLEET_AGENT_ELECTION_LEASE_DURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FLEET_AGENT_ELECTION_RENEW_DEADLINE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FLEET_AGENT_ELECTION_RETRY_PERIOD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FLEET_AGENT_REPLICA_COUNT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FLEET_DEBUG_DISABLE_SECURITY_CONTEXT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FLEET_PROPAGATE_DEBUG_SETTINGS_TO_AGENTS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                k:{"name":"fleet-cleanup"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"CATTLE_ELECTION_LEASE_DURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RENEW_DEADLINE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RETRY_PERIOD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                k:{"name":"fleet-controller"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"BUNDLE_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"BUNDLEDEPLOYMENT_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_LEASE_DURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RENEW_DEADLINE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RETRY_PERIOD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CLUSTER_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CLUSTERGROUP_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CONTENT_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"SCHEDULE_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8080,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsGroup: {}
+                f:runAsNonRoot: {}
+                f:runAsUser: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:terminatingReplicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:41:59Z"
+    name: fleet-controller
+    namespace: cattle-fleet-system
+    resourceVersion: "2773"
+    uid: 8831653e-f32b-4152-9979-d72c43e68b30
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: fleet-controller
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        labels:
+          app: fleet-controller
+          fleet.cattle.io/shard-default: "true"
+          fleet.cattle.io/shard-id: "null"
+      spec:
+        containers:
+        - command:
+          - fleetcontroller
+          env:
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: CATTLE_ELECTION_LEASE_DURATION
+            value: 30s
+          - name: CATTLE_ELECTION_RETRY_PERIOD
+            value: 10s
+          - name: CATTLE_ELECTION_RENEW_DEADLINE
+            value: 25s
+          - name: BUNDLE_RECONCILER_WORKERS
+            value: "50"
+          - name: BUNDLEDEPLOYMENT_RECONCILER_WORKERS
+            value: "50"
+          - name: CLUSTER_RECONCILER_WORKERS
+            value: "50"
+          - name: CLUSTERGROUP_RECONCILER_WORKERS
+            value: "50"
+          - name: SCHEDULE_RECONCILER_WORKERS
+            value: "50"
+          - name: CONTENT_RECONCILER_WORKERS
+            value: "50"
+          image: rancher/fleet:v0.15.2
+          imagePullPolicy: IfNotPresent
+          name: fleet-controller
+          ports:
+          - containerPort: 8080
+            name: metrics
+            protocol: TCP
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /tmp
+            name: tmp
+        - command:
+          - fleetcontroller
+          - cleanup
+          env:
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: CATTLE_ELECTION_LEASE_DURATION
+            value: 30s
+          - name: CATTLE_ELECTION_RETRY_PERIOD
+            value: 10s
+          - name: CATTLE_ELECTION_RENEW_DEADLINE
+            value: 25s
+          image: rancher/fleet:v0.15.2
+          imagePullPolicy: IfNotPresent
+          name: fleet-cleanup
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - command:
+          - fleetcontroller
+          - agentmanagement
+          - --disable-bootstrap
+          env:
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: FLEET_PROPAGATE_DEBUG_SETTINGS_TO_AGENTS
+            value: "true"
+          - name: FLEET_DEBUG_DISABLE_SECURITY_CONTEXT
+            value: "false"
+          - name: CATTLE_ELECTION_LEASE_DURATION
+            value: 30s
+          - name: CATTLE_ELECTION_RETRY_PERIOD
+            value: 10s
+          - name: CATTLE_ELECTION_RENEW_DEADLINE
+            value: 25s
+          - name: FLEET_AGENT_REPLICA_COUNT
+            value: "1"
+          - name: FLEET_AGENT_ELECTION_LEASE_DURATION
+            value: 30s
+          - name: FLEET_AGENT_ELECTION_RETRY_PERIOD
+            value: 10s
+          - name: FLEET_AGENT_ELECTION_RENEW_DEADLINE
+            value: 25s
+          image: rancher/fleet:v0.15.2
+          imagePullPolicy: IfNotPresent
+          name: fleet-agentmanagement
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: rancher-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          runAsGroup: 1000
+          runAsNonRoot: true
+          runAsUser: 1000
+        serviceAccount: fleet-controller
+        serviceAccountName: fleet-controller
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: cattle.io/os
+          operator: Equal
+          value: linux
+        volumes:
+        - emptyDir: {}
+          name: tmp
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-06-12T10:41:59Z"
+      lastUpdateTime: "2026-06-12T10:41:59Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-06-12T10:40:39Z"
+      lastUpdateTime: "2026-06-12T10:41:59Z"
+      message: ReplicaSet "fleet-controller-58f99fb59b" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    terminatingReplicas: 0
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+                f:fleet.cattle.io/shard-default: {}
+                f:fleet.cattle.io/shard-id: {}
+            f:spec:
+              f:containers:
+                k:{"name":"gitjob"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"CATTLE_ELECTION_LEASE_DURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RENEW_DEADLINE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RETRY_PERIOD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"GITREPO_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"GITREPO_SYNC_PERIOD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8081,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsGroup: {}
+                f:runAsNonRoot: {}
+                f:runAsUser: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:terminatingReplicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:41:59Z"
+    name: gitjob
+    namespace: cattle-fleet-system
+    resourceVersion: "2767"
+    uid: 133344a5-e908-4f9f-858e-a101bb4df343
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: gitjob
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        labels:
+          app: gitjob
+          fleet.cattle.io/shard-default: "true"
+          fleet.cattle.io/shard-id: "null"
+      spec:
+        containers:
+        - args:
+          - fleetcontroller
+          - gitjob
+          - --gitjob-image
+          - rancher/fleet:v0.15.2
+          env:
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: CATTLE_ELECTION_LEASE_DURATION
+            value: 30s
+          - name: CATTLE_ELECTION_RETRY_PERIOD
+            value: 10s
+          - name: CATTLE_ELECTION_RENEW_DEADLINE
+            value: 25s
+          - name: GITREPO_SYNC_PERIOD
+            value: 2h
+          - name: GITREPO_RECONCILER_WORKERS
+            value: "50"
+          image: rancher/fleet:v0.15.2
+          imagePullPolicy: IfNotPresent
+          name: gitjob
+          ports:
+          - containerPort: 8081
+            name: metrics
+            protocol: TCP
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /tmp
+            name: tmp
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: rancher-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          runAsGroup: 1000
+          runAsNonRoot: true
+          runAsUser: 1000
+        serviceAccount: gitjob
+        serviceAccountName: gitjob
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: cattle.io/os
+          operator: Equal
+          value: linux
+        volumes:
+        - emptyDir: {}
+          name: tmp
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-06-12T10:40:39Z"
+      lastUpdateTime: "2026-06-12T10:40:42Z"
+      message: ReplicaSet "gitjob-59f544c44d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-06-12T10:41:59Z"
+      lastUpdateTime: "2026-06-12T10:41:59Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    terminatingReplicas: 0
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: fleet
+      meta.helm.sh/release-namespace: cattle-fleet-system
+    creationTimestamp: "2026-06-12T10:40:39Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+                f:fleet.cattle.io/shard-default: {}
+                f:fleet.cattle.io/shard-id: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helmops"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"CATTLE_ELECTION_LEASE_DURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RENEW_DEADLINE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RETRY_PERIOD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELMOPS_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8081,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsGroup: {}
+                f:runAsNonRoot: {}
+                f:runAsUser: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T10:40:39Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:terminatingReplicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:40:42Z"
+    name: helmops
+    namespace: cattle-fleet-system
+    resourceVersion: "2057"
+    uid: 9cc839b6-7ed8-435e-b059-416c8ffbc9b7
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: helmops
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        labels:
+          app: helmops
+          fleet.cattle.io/shard-default: "true"
+          fleet.cattle.io/shard-id: "null"
+      spec:
+        containers:
+        - args:
+          - fleetcontroller
+          - helmops
+          env:
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: CATTLE_ELECTION_LEASE_DURATION
+            value: 30s
+          - name: CATTLE_ELECTION_RETRY_PERIOD
+            value: 10s
+          - name: CATTLE_ELECTION_RENEW_DEADLINE
+            value: 25s
+          - name: HELMOPS_RECONCILER_WORKERS
+            value: "50"
+          image: rancher/fleet:v0.15.2
+          imagePullPolicy: IfNotPresent
+          name: helmops
+          ports:
+          - containerPort: 8081
+            name: metrics
+            protocol: TCP
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /tmp
+            name: tmp
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: rancher-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          runAsGroup: 1000
+          runAsNonRoot: true
+          runAsUser: 1000
+        serviceAccount: helmops
+        serviceAccountName: helmops
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: cattle.io/os
+          operator: Equal
+          value: linux
+        volumes:
+        - emptyDir: {}
+          name: tmp
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-06-12T10:40:42Z"
+      lastUpdateTime: "2026-06-12T10:40:42Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-06-12T10:40:39Z"
+      lastUpdateTime: "2026-06-12T10:40:42Z"
+      message: ReplicaSet "helmops-65cdb6c4cc" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    terminatingReplicas: 0
+    updatedReplicas: 1
+kind: List
+metadata:
+  resourceVersion: "676388"

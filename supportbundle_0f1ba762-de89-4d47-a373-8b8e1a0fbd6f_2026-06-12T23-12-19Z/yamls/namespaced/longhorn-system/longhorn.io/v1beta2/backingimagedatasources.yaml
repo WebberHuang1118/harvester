@@ -1,0 +1,5304 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"3c92e494-0329-44ec-9faf-8ee5209ebece"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:10Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:10Z"
+    name: vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3
+      uid: 3c92e494-0329-44ec-9faf-8ee5209ebece
+    resourceVersion: "160656"
+    uid: 2f2de033-632c-4817-8872-29c5b7cbe889
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8399d4e3-779d-4a41-9408-39d4789b0ac5
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: b4e86dc2
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8399d4e3-779d-4a41-9408-39d4789b0ac5
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a668fdea-5ea7-4e80-872d-638a5a889409"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-05d29c48-b50e-46f1-ab5c-062661312daf
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-05d29c48-b50e-46f1-ab5c-062661312daf
+      uid: a668fdea-5ea7-4e80-872d-638a5a889409
+    resourceVersion: "161206"
+    uid: a7ddda23-e3e0-4280-b393-dd7565b71f6c
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-d9fb81bc-2be5-43d7-bc24-88bd4cd03e79
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 9227f360
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-d9fb81bc-2be5-43d7-bc24-88bd4cd03e79
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"1a173025-4757-46b5-83d7-58263ad10564"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:17Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:17Z"
+    name: vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-0af45f58-a2ca-4f5c-bef1-592f11f0286f
+      uid: 1a173025-4757-46b5-83d7-58263ad10564
+    resourceVersion: "161639"
+    uid: 76447fa7-e524-42f3-9b68-f7aad629e4ac
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-7b8d06e9-3a0a-4122-a9ce-27305bfc95c8
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: "96472e38"
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-7b8d06e9-3a0a-4122-a9ce-27305bfc95c8
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e4598123-8c86-40b4-9b74-c893ee468ace"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-0e8d04bf-e7d3-4045-8ee3-cde0272c79fc
+      uid: e4598123-8c86-40b4-9b74-c893ee468ace
+    resourceVersion: "161282"
+    uid: 9e538851-c16f-46d6-8252-201a42039c7c
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-62d826eb-6adb-4eb2-9911-022f6659c844
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 137608ce
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-62d826eb-6adb-4eb2-9911-022f6659c844
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T12:08:33Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"9582f413-13a7-465f-be93-5116b49b2236"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:url: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T12:08:50Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:url: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T12:08:50Z"
+    name: vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-11cb7af5-9cd3-47db-86fa-95c89fac03da
+      uid: 9582f413-13a7-465f-be93-5116b49b2236
+    resourceVersion: "95589"
+    uid: c0c34d8a-f45e-42fd-a659-7c9ed682e650
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    sourceType: download
+    uuid: 1699c5fa
+  status:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    size: 7.16374016e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"1b873c43-8185-4fe5-8c93-b5d813ea7756"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-14259829-31ec-4a20-948a-b888a4fc4a90
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-14259829-31ec-4a20-948a-b888a4fc4a90
+      uid: 1b873c43-8185-4fe5-8c93-b5d813ea7756
+    resourceVersion: "161330"
+    uid: 146eebe9-c74f-482b-afd0-3ee59a6168d2
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-3e3c6c2c-3234-41dd-b16a-6e4ea43763aa
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 96de6de7
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-3e3c6c2c-3234-41dd-b16a-6e4ea43763aa
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T14:51:00Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"24b99fd4-408c-484a-9c09-1af46c8ef46f"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:url: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:51:14Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:url: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:51:14Z"
+    name: vmi-14ad7058-3d7c-458a-b57e-aa26484089e4
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-14ad7058-3d7c-458a-b57e-aa26484089e4
+      uid: 24b99fd4-408c-484a-9c09-1af46c8ef46f
+    resourceVersion: "275077"
+    uid: 84908224-a0b5-4b65-8ab9-371e8b0e48c7
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    sourceType: download
+    uuid: b85fd571
+  status:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    size: 7.16374016e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a91bf4e0-3959-4b98-bf5f-e736cf211097"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:06Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:07Z"
+    name: vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad
+      uid: a91bf4e0-3959-4b98-bf5f-e736cf211097
+    resourceVersion: "160234"
+    uid: 8335e3ce-7098-4079-aedd-7afe996199d7
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-f2c07198-1cfa-4c50-94b7-f456d5b9dedc
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: "31633889"
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-f2c07198-1cfa-4c50-94b7-f456d5b9dedc
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"ebaf8cd0-6650-4af8-87f3-3170d6c63159"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-29f999ed-6dcd-4e07-8746-944987b8d3a1
+      uid: ebaf8cd0-6650-4af8-87f3-3170d6c63159
+    resourceVersion: "161322"
+    uid: 88f051d4-a137-45e0-a638-7935fa15c6f1
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-afcb0ab5-4a90-4549-b204-ce4b56c624d5
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: c574d71d
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-afcb0ab5-4a90-4549-b204-ce4b56c624d5
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:15:24Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"876c46b6-72fe-41dc-b66b-5b0b68c4272f"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:15:24Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:16:02Z"
+    name: vmi-2c46a0a6-2b99-4cf3-8d14-f7c6c204df33
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-2c46a0a6-2b99-4cf3-8d14-f7c6c204df33
+      uid: 876c46b6-72fe-41dc-b66b-5b0b68c4272f
+    resourceVersion: "165666"
+    uid: a39d1668-654d-4632-b800-0f83fa0b1a93
+  spec:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: false
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-24f280d1-23aa-4a7b-965c-23d1ac56d385
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: a9f7db02
+  status:
+    checksum: "null"
+    currentState: failed-and-cleanup
+    ip: "null"
+    message: 'failed to process sync file: failed to list objects with param: &{Bucket:0xc0005f69f0
+      ContinuationToken:<nil> Delimiter:0xc0005f6a10 EncodingType: ExpectedBucketOwner:<nil>
+      FetchOwner:<nil> MaxKeys:<nil> OptionalObjectAttributes:[] Prefix:0xc0005f6a00
+      RequestPayer: StartAfter:<nil> noSmithyDocumentSerde:{}} error: AWS Operation
+      Error ListObjectsV2 exceeded maximum number of attempts, 5, get identity: get
+      credentials: failed to refresh cached credentials, no EC2 IMDS role found, operation
+      error ec2imds: GetMetadata, exceeded maximum number of attempts, 3, request
+      send failed, Get "http://169.254.169.254/latest/meta-data/iam/security-credentials/":
+      dial tcp 169.254.169.254:80: i/o timeout'
+    ownerID: hp-69-tink-system
+    progress: 0
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-24f280d1-23aa-4a7b-965c-23d1ac56d385
+      concurrent-limit: "2"
+    size: 0
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"62763d8c-887f-4188-8aea-3eb72d64795e"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:27:59Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:27:59Z"
+    name: vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-30940eb3-a976-4c10-902d-ffbbe1ffb410
+      uid: 62763d8c-887f-4188-8aea-3eb72d64795e
+    resourceVersion: "182049"
+    uid: 50c804eb-1125-4ab5-b978-bb82f3a7c3bb
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-f14fa73a-8366-494a-b5a6-02131d981f35
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 88d7c3a5
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-f14fa73a-8366-494a-b5a6-02131d981f35
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:15:24Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"0adfede9-6438-4405-be40-9645a103a2f2"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:15:24Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:15:37Z"
+    name: vmi-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10
+      uid: 0adfede9-6438-4405-be40-9645a103a2f2
+    resourceVersion: "165236"
+    uid: a0dc7eba-2d25-4cb2-b101-229146337dac
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: false
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-5238cdfd-cdc6-4b27-9f90-f4bf1c1dc0dc
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 367888b2
+  status:
+    checksum: "null"
+    currentState: failed-and-cleanup
+    ip: "null"
+    message: 'failed to process sync file: failed to list objects with param: &{Bucket:0xc00030e8e0
+      ContinuationToken:<nil> Delimiter:0xc00030e900 EncodingType: ExpectedBucketOwner:<nil>
+      FetchOwner:<nil> MaxKeys:<nil> OptionalObjectAttributes:[] Prefix:0xc00030e8f0
+      RequestPayer: StartAfter:<nil> noSmithyDocumentSerde:{}} error: AWS Operation
+      Error ListObjectsV2 get identity: get credentials: failed to refresh cached
+      credentials, no EC2 IMDS role found, operation error ec2imds: GetMetadata, request
+      canceled, context deadline exceeded'
+    ownerID: hp-150-tink-system
+    progress: 0
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-5238cdfd-cdc6-4b27-9f90-f4bf1c1dc0dc
+      concurrent-limit: "2"
+    size: 0
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"50d8b0ee-7fb3-4f74-ab53-8442afe6ee90"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:14Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:14Z"
+    name: vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-35b43f80-2bd3-4b76-8073-2188458f0c9d
+      uid: 50d8b0ee-7fb3-4f74-ab53-8442afe6ee90
+    resourceVersion: "161079"
+    uid: 7c3098d9-a25a-4c72-a537-50799c92a9cb
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-84ebed85-53b7-4cea-bc91-7dd76d9d8eb3
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: abfe5ca4
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-84ebed85-53b7-4cea-bc91-7dd76d9d8eb3
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"bf09cae3-c6a0-48e8-b360-1dcfa445cad3"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:05Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:05Z"
+    name: vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-44a23825-d84d-4e8b-a58f-ca7560c0bdc8
+      uid: bf09cae3-c6a0-48e8-b360-1dcfa445cad3
+    resourceVersion: "160080"
+    uid: eaf64d04-73c6-44eb-89ec-2cbb597cc408
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8dc6af7e-5f44-4d36-84f6-00e1bf342bb1
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 350d6d34
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8dc6af7e-5f44-4d36-84f6-00e1bf342bb1
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T11:49:27Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    labels:
+      longhorn.io/export-from-volume: pvc-825f96fc-8cb9-48c3-82cf-b5c6de484978
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/export-from-volume: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"62a89362-0312-4a04-8eb4-a6b5596dfea2"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:export-type: {}
+            f:volume-name: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:49:27Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:export-type: {}
+            f:volume-name: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:49:28Z"
+    name: vmi-49ce3af7-bb03-4ce3-9c63-7e40b18c441c
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-49ce3af7-bb03-4ce3-9c63-7e40b18c441c
+      uid: 62a89362-0312-4a04-8eb4-a6b5596dfea2
+    resourceVersion: "73815"
+    uid: eb6d15a7-cdbf-41c6-bcb2-d307bb3c66ea
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: false
+    nodeID: hp-69-tink-system
+    parameters:
+      export-type: raw
+      volume-name: pvc-825f96fc-8cb9-48c3-82cf-b5c6de484978
+    sourceType: export-from-volume
+    uuid: d3a01e46
+  status:
+    checksum: "null"
+    currentState: "null"
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 0
+    runningParameters:
+      export-type: raw
+      volume-name: pvc-825f96fc-8cb9-48c3-82cf-b5c6de484978
+    size: 0
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"afb79e34-3b4e-4c7c-9e9d-c0e9e18b1f7f"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:13Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:13Z"
+    name: vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-4b8eb34a-e482-4dbc-bdd6-0a13bbe9c383
+      uid: afb79e34-3b4e-4c7c-9e9d-c0e9e18b1f7f
+    resourceVersion: "160985"
+    uid: 17ad9c68-b806-46dd-9878-6609d64cf7ad
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-722c119e-fb48-4634-b2c7-d3a36acc7092
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: ceb45e61
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-722c119e-fb48-4634-b2c7-d3a36acc7092
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"8639ac14-016b-4a9f-87a4-4f1097ab9c77"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-4d008f0f-a14c-4be8-b5a1-80ea5b24b4c9
+      uid: 8639ac14-016b-4a9f-87a4-4f1097ab9c77
+    resourceVersion: "161257"
+    uid: 3cf965f1-802b-4e6f-b137-505a38dca3ba
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-4465cd40-f1f5-41d0-a5cc-8fe363593f18
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: ea397683
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-4465cd40-f1f5-41d0-a5cc-8fe363593f18
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"4fbf2d68-2e2a-4f11-ade1-569914429ed5"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:17Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:17Z"
+    name: vmi-5432d294-0053-48b2-a068-9e601a7682f9
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-5432d294-0053-48b2-a068-9e601a7682f9
+      uid: 4fbf2d68-2e2a-4f11-ade1-569914429ed5
+    resourceVersion: "161550"
+    uid: 449aa07b-3a3f-4c84-a390-6061685705f1
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-09d133ae-9686-4317-9aa4-31dabf20c4a2
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: bc6de022
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-09d133ae-9686-4317-9aa4-31dabf20c4a2
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T15:00:26Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"dda7fa1f-8513-45b4-9c3b-01d10e235b8a"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:url: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:00:40Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:url: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:00:40Z"
+    name: vmi-579c6004-6405-438c-a53a-44b36cdd4d53
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-579c6004-6405-438c-a53a-44b36cdd4d53
+      uid: dda7fa1f-8513-45b4-9c3b-01d10e235b8a
+    resourceVersion: "283633"
+    uid: 0ceb9e56-22ba-4427-8666-3e45df626899
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    sourceType: download
+    uuid: 3092aade
+  status:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    size: 7.16374016e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"0bad40d0-ab01-4e15-968c-1e15027fb39a"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:27:58Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:27:58Z"
+    name: vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-61e98870-8ae3-4f3f-86e0-2f75a52bdd7b
+      uid: 0bad40d0-ab01-4e15-968c-1e15027fb39a
+    resourceVersion: "181955"
+    uid: 15c65382-8080-45fb-a580-ebdd9ee451dc
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-96b5ecc6-54fc-463d-97ae-dc2411a2b5f7
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 8af12823
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-96b5ecc6-54fc-463d-97ae-dc2411a2b5f7
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T14:41:03Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"10d52288-2b7b-45ea-817f-5911d4b2fdd2"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:url: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:41:17Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:url: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:41:17Z"
+    name: vmi-6250f35d-01cb-421e-95de-a51ccfb2134d
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-6250f35d-01cb-421e-95de-a51ccfb2134d
+      uid: 10d52288-2b7b-45ea-817f-5911d4b2fdd2
+    resourceVersion: "265064"
+    uid: ae59ff7f-ace3-4577-b0a4-fe0ddf1549a3
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    sourceType: download
+    uuid: 8c121bce
+  status:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    size: 7.16374016e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"90f2ced2-436e-41e1-ade5-eec67c343d75"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:18Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:18Z"
+    name: vmi-62e8ef01-6b74-408f-a329-6550288ab4a6
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-62e8ef01-6b74-408f-a329-6550288ab4a6
+      uid: 90f2ced2-436e-41e1-ade5-eec67c343d75
+    resourceVersion: "161683"
+    uid: ff4f9af8-feca-4f90-b223-b7288454eb3f
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-7ee9c4c9-98b5-4a40-bd59-6553634f6bc3
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 5418efdd
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-7ee9c4c9-98b5-4a40-bd59-6553634f6bc3
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"692add12-e0f8-428b-8342-d8a1fc9f3298"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:27:59Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:27:59Z"
+    name: vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-64d68f60-5c97-4bde-bc6b-f43cd1e852a9
+      uid: 692add12-e0f8-428b-8342-d8a1fc9f3298
+    resourceVersion: "182000"
+    uid: 3e1ad242-5052-4b11-ad0c-2a739549b51e
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-a8539091-30fe-42a4-a3c2-749fa99ede24
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 557a15b8
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-a8539091-30fe-42a4-a3c2-749fa99ede24
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"f90f1790-9620-44fa-922f-c13584e2c2a5"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:12Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:12Z"
+    name: vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690
+      uid: f90f1790-9620-44fa-922f-c13584e2c2a5
+    resourceVersion: "160838"
+    uid: 8742570e-5263-4092-8303-124a54c18f09
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8a7ed239-b761-4316-8e5c-ee1bf3ff5227
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 746ed613
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8a7ed239-b761-4316-8e5c-ee1bf3ff5227
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T14:39:17Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a9592827-1191-4e8c-aa41-d66412407648"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:url: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:39:30Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:url: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:39:30Z"
+    name: vmi-719cfc1e-ca41-480b-95fc-5952c788060c
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-719cfc1e-ca41-480b-95fc-5952c788060c
+      uid: a9592827-1191-4e8c-aa41-d66412407648
+    resourceVersion: "262571"
+    uid: 08645216-cdf0-412f-93ed-23a693e0c2f3
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/ubuntu-24.04-server-cloudimg-amd64.img
+    sourceType: download
+    uuid: 616dd173
+  status:
+    checksum: d5f70640f461f34b0feb5fbead7e307e14d552b40450d287d551a72d9601b8434ef2670b51e0413da109298df76c9733e0204d292ea33ac790dd9a5867514cfe
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/ubuntu-24.04-server-cloudimg-amd64.img
+    size: 5.87241984e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"94e1edaf-4af0-4bb2-bfa0-56fa11830f49"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:16Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:17Z"
+    name: vmi-73081fc9-473f-4979-869d-68874d630056
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-73081fc9-473f-4979-869d-68874d630056
+      uid: 94e1edaf-4af0-4bb2-bfa0-56fa11830f49
+    resourceVersion: "161546"
+    uid: 0b277e3c-35e5-47b3-b9da-abebf0734977
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-ee919d42-df42-485e-9f17-4983c93036fe
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 7e62c405
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-ee919d42-df42-485e-9f17-4983c93036fe
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"bb48e04a-e44d-4f2b-8961-fda1863e2e64"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:18Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:18Z"
+    name: vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-796382f6-336b-43d6-8a9e-e8eaf86a40c3
+      uid: bb48e04a-e44d-4f2b-8961-fda1863e2e64
+    resourceVersion: "161728"
+    uid: 5163448e-a9ba-4e4c-bf4b-63604dc906e6
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-9846f079-1e53-466f-8cf5-bae277bdc5aa
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: d809fb37
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-9846f079-1e53-466f-8cf5-bae277bdc5aa
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"b5a20f31-9e7f-43e6-a72c-5634017890ad"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:14Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-867f53de-c53d-4bdf-85f7-4230dc6d97a6
+      uid: b5a20f31-9e7f-43e6-a72c-5634017890ad
+    resourceVersion: "161161"
+    uid: 782ae665-8689-48ac-b6c7-dd064e825ea8
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-6adbd57e-359b-4317-ab71-ddd64b1004c8
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: e62d9b14
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-6adbd57e-359b-4317-ab71-ddd64b1004c8
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"63b6a008-eaf5-410b-bdf2-20a5005d7315"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:16Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:16Z"
+    name: vmi-8c875d2b-a04a-4910-8d5b-8886193a1976
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-8c875d2b-a04a-4910-8d5b-8886193a1976
+      uid: 63b6a008-eaf5-410b-bdf2-20a5005d7315
+    resourceVersion: "161486"
+    uid: daf1617f-c1c7-44be-92ac-72e09a8d7811
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-b6c9ea03-d132-44d0-bdf7-064b6d7f71b4
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: f7449aa3
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-b6c9ea03-d132-44d0-bdf7-064b6d7f71b4
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"bbb413c5-8319-4c8b-b4a6-293b6092cf87"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:09Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:09Z"
+    name: vmi-8f50beba-f74e-4862-8b37-c371d9a61258
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-8f50beba-f74e-4862-8b37-c371d9a61258
+      uid: bbb413c5-8319-4c8b-b4a6-293b6092cf87
+    resourceVersion: "160534"
+    uid: 3fd3ff7a-5416-4d0c-aaae-0fec7e15f776
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2ae2f3ce-a0de-4152-b933-27cc08af0bca
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 7ef1a69a
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2ae2f3ce-a0de-4152-b933-27cc08af0bca
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"020afe1f-bf52-41b1-8efe-6071c2de2bfd"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-90de1da3-17d0-43f4-85a6-6c077f6ff05b
+      uid: 020afe1f-bf52-41b1-8efe-6071c2de2bfd
+    resourceVersion: "161228"
+    uid: 069ae30c-75b6-4978-98aa-a44785e9f159
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8f475061-5245-40eb-868f-e859edcac6e9
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 7935ee6e
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8f475061-5245-40eb-868f-e859edcac6e9
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"ee4572b6-67bf-45e1-9e39-daeca80ae7f7"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:14Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:14Z"
+    name: vmi-9389b375-93df-48cc-8a1c-7a505bce7abb
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-9389b375-93df-48cc-8a1c-7a505bce7abb
+      uid: ee4572b6-67bf-45e1-9e39-daeca80ae7f7
+    resourceVersion: "161080"
+    uid: 082fcd13-7394-4cb2-bf5b-03133295fcc8
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-628ded7b-2816-4dad-a74a-4986b298ffe9
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 2892710c
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-628ded7b-2816-4dad-a74a-4986b298ffe9
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T11:39:11Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"c009c778-e2ab-4190-8f0f-0163409a8a7b"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:40:09Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:40:09Z"
+    name: vmi-9536b339-cd5f-42d0-b125-359af50add06
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-9536b339-cd5f-42d0-b125-359af50add06
+      uid: c009c778-e2ab-4190-8f0f-0163409a8a7b
+    resourceVersion: "65285"
+    uid: d0ca79a2-abf7-4a48-a424-19c403a63c5c
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters: {}
+    sourceType: upload
+    uuid: 241b2ef3
+  status:
+    checksum: d6292685b380e338e025b3415a90fe8f9d39a46e7bdba8cb78c50a338cefca741f69e4e46411c32de1afdedfb268e579a51f81ff85e56f55b0ee7c33fe8c25c9
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters: {}
+    size: 1.048576e+06
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T14:45:20Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"22944782-c374-4d1a-8373-a8b577d40717"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:url: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:45:35Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:url: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:45:35Z"
+    name: vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-985444bb-24ad-4a50-a2ef-322ac4ac6332
+      uid: 22944782-c374-4d1a-8373-a8b577d40717
+    resourceVersion: "269443"
+    uid: 1f3d843c-9e7e-497c-a1e3-9de516aafadf
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    sourceType: download
+    uuid: 31f0f2ba
+  status:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    size: 7.16374016e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"aa5389ea-9566-4817-80a9-a153c0c2bbe1"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:17Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:17Z"
+    name: vmi-a068016b-7eb4-4615-a627-d43820b6637a
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-a068016b-7eb4-4615-a627-d43820b6637a
+      uid: aa5389ea-9566-4817-80a9-a153c0c2bbe1
+    resourceVersion: "161612"
+    uid: 50e6df6a-9155-4b1d-97f3-549f69846e87
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8a03e823-cad1-4975-81c3-3e70bab15b65
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 2158d1e2
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8a03e823-cad1-4975-81c3-3e70bab15b65
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5407f2b8-67ed-4584-a6e2-e42e08dcec27"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:12Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:12Z"
+    name: vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-a28a994b-0a70-47f6-a466-2ce4ddd55c18
+      uid: 5407f2b8-67ed-4584-a6e2-e42e08dcec27
+    resourceVersion: "160901"
+    uid: 29168ded-3fe0-40ac-ac8a-dd7bfadffe55
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-6bd6fa43-ddfe-4c8e-965d-745f575b873f
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 926bd9ea
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-6bd6fa43-ddfe-4c8e-965d-745f575b873f
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:15:23Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a6bc5927-e758-4581-9816-7b4ea9661156"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:15:23Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:16:01Z"
+    name: vmi-a8fae03d-196b-4c73-a4d0-72ed8f8277a4
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-a8fae03d-196b-4c73-a4d0-72ed8f8277a4
+      uid: a6bc5927-e758-4581-9816-7b4ea9661156
+    resourceVersion: "165635"
+    uid: 97cbc282-64a9-480b-ba3e-a38eee530aed
+  spec:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: false
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-4933fd78-c232-4e02-9337-c1519ccaf586
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 2e8506fd
+  status:
+    checksum: "null"
+    currentState: failed-and-cleanup
+    ip: "null"
+    message: 'failed to process sync file: failed to list objects with param: &{Bucket:0xc00053df10
+      ContinuationToken:<nil> Delimiter:0xc00053df30 EncodingType: ExpectedBucketOwner:<nil>
+      FetchOwner:<nil> MaxKeys:<nil> OptionalObjectAttributes:[] Prefix:0xc00053df20
+      RequestPayer: StartAfter:<nil> noSmithyDocumentSerde:{}} error: AWS Operation
+      Error ListObjectsV2 exceeded maximum number of attempts, 5, get identity: get
+      credentials: failed to refresh cached credentials, no EC2 IMDS role found, operation
+      error ec2imds: GetMetadata, exceeded maximum number of attempts, 3, request
+      send failed, Get "http://169.254.169.254/latest/meta-data/iam/security-credentials/":
+      dial tcp 169.254.169.254:80: connect: network is unreachable'
+    ownerID: hp-150-tink-system
+    progress: 0
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-4933fd78-c232-4e02-9337-c1519ccaf586
+      concurrent-limit: "2"
+    size: 0
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"bfa9b217-1151-46ef-89cf-34aac3038c55"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:27:59Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:27:59Z"
+    name: vmi-a97777bd-4d56-4bb0-ba70-0b6561531177
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-a97777bd-4d56-4bb0-ba70-0b6561531177
+      uid: bfa9b217-1151-46ef-89cf-34aac3038c55
+    resourceVersion: "182055"
+    uid: 2e7f9757-bee2-4355-88fa-08849bb37ca6
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2dce3229-49ef-43b3-9b81-512f338fbe97
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: c9b02b5e
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2dce3229-49ef-43b3-9b81-512f338fbe97
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a7c95afc-b482-4642-a50c-6300f500ceb5"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:13Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:13Z"
+    name: vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-ab2d5d11-612f-489f-ae61-77c4408f3fad
+      uid: a7c95afc-b482-4642-a50c-6300f500ceb5
+    resourceVersion: "161032"
+    uid: d9d277fd-8b1a-4ece-bad7-af9925844de8
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2bcd17c9-1a72-4fc8-9bcc-c9c0d1e58cdd
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 887ef9ed
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2bcd17c9-1a72-4fc8-9bcc-c9c0d1e58cdd
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5ffff24a-3d02-48ee-b8d5-f3be34794395"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:11Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:11Z"
+    name: vmi-bded5314-5e37-4f33-84cd-a3e569747b56
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-bded5314-5e37-4f33-84cd-a3e569747b56
+      uid: 5ffff24a-3d02-48ee-b8d5-f3be34794395
+    resourceVersion: "160699"
+    uid: 0c6bf95f-7a05-49e2-8b10-21c8784a438e
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8b74c828-b007-4f48-9760-b7b23b187bf7
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 5beb9c43
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8b74c828-b007-4f48-9760-b7b23b187bf7
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"57d9bef8-478d-4f8d-a7e8-8b41dc6cfa19"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:10Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:11Z"
+    name: vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a
+      uid: 57d9bef8-478d-4f8d-a7e8-8b41dc6cfa19
+    resourceVersion: "160673"
+    uid: fb56e2d5-0652-4501-977d-a0533560fc9c
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-9998f88a-a562-4e22-9317-1145e0c2aa31
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 9a4e95b0
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-9998f88a-a562-4e22-9317-1145e0c2aa31
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T11:55:54Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"61b20063-fc48-4847-9feb-5d6d5e1ddbf5"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backing-image: {}
+            f:encryption: {}
+            f:secret: {}
+            f:secret-namespace: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:55:54Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backing-image: {}
+            f:backing-image-uuid: {}
+            f:encryption: {}
+            f:secret: {}
+            f:secret-namespace: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:56:06Z"
+    name: vmi-c1cb70e9-9fac-462e-877b-d2989ad33632
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c1cb70e9-9fac-462e-877b-d2989ad33632
+      uid: 61b20063-fc48-4847-9feb-5d6d5e1ddbf5
+    resourceVersion: "81491"
+    uid: 81a5c757-ed74-47e4-900c-50fba04fb7a8
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: false
+    nodeID: hp-150-tink-system
+    parameters:
+      backing-image: vmi-3acb7665-c61d-460d-a2c5-332a049b9d0b
+      encryption: decrypt
+      secret: my-secret-11h52m27s791563-06-12
+      secret-namespace: default
+    sourceType: clone
+    uuid: 85a775ed
+  status:
+    checksum: "null"
+    currentState: failed-and-cleanup
+    ip: "null"
+    message: 'failed to process sync file: failed to prepare source file: source file
+      /data/backing-images/vmi-3acb7665-c61d-460d-a2c5-332a049b9d0b-81a13af3/backing
+      not found : stat /data/backing-images/vmi-3acb7665-c61d-460d-a2c5-332a049b9d0b-81a13af3/backing:
+      no such file or directory'
+    ownerID: hp-150-tink-system
+    progress: 0
+    runningParameters:
+      backing-image: vmi-3acb7665-c61d-460d-a2c5-332a049b9d0b
+      backing-image-uuid: 81a13af3
+      encryption: decrypt
+      secret: my-secret-11h52m27s791563-06-12
+      secret-namespace: default
+    size: 0
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"19255ae7-1802-4864-99e7-b2a72c7ad2d0"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:16Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:17Z"
+    name: vmi-c3292732-b7df-4166-be52-7faaf0ec91c2
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c3292732-b7df-4166-be52-7faaf0ec91c2
+      uid: 19255ae7-1802-4864-99e7-b2a72c7ad2d0
+    resourceVersion: "161548"
+    uid: 95bc9a4d-4c7d-4dd8-a29c-66b003d2e99a
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2682ea27-a9d9-4bd4-b3c5-135d4f1088d3
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 45e75a0a
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2682ea27-a9d9-4bd4-b3c5-135d4f1088d3
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"74b9f37f-bde6-4fa2-b4e6-7f72a1841ecf"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c6380c92-a6d8-49ea-bdd9-2f0e5d4bac54
+      uid: 74b9f37f-bde6-4fa2-b4e6-7f72a1841ecf
+    resourceVersion: "161327"
+    uid: ad07884e-b4a7-41eb-b530-e9451cb79860
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-08e6f6e4-d798-4cfb-a2cd-0d9477f0ecd1
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: c7de9ea7
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-08e6f6e4-d798-4cfb-a2cd-0d9477f0ecd1
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T14:55:38Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    labels:
+      longhorn.io/export-from-volume: pvc-8d935ce4-968e-4aba-bf31-d3582962cd00
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/export-from-volume: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"327b6e1f-b825-44cd-a76b-70ec44b74c81"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:export-type: {}
+            f:volume-name: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T14:57:33Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:export-type: {}
+            f:file-sync-http-client-timeout: {}
+            f:sender-address: {}
+            f:snapshot-name: {}
+            f:volume-name: {}
+            f:volume-size: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:57:33Z"
+    name: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c6da5089-57c2-48ea-873b-77e3768ce594
+      uid: 327b6e1f-b825-44cd-a76b-70ec44b74c81
+    resourceVersion: "280545"
+    uid: 92842850-3253-478b-9865-7c32e95382fd
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      export-type: raw
+      volume-name: pvc-8d935ce4-968e-4aba-bf31-d3582962cd00
+    sourceType: export-from-volume
+    uuid: 376e93db
+  status:
+    checksum: c72f4b7d36bb691cd0031c0667e35cba6e7be3c74fddb9b9ee21188ecc0e774045049352977d7ed2a7cb0ce9d296374b7650138e3eb3fa29f17e639390edaed6
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      export-type: raw
+      file-sync-http-client-timeout: "30"
+      sender-address: 10.52.1.75:10668
+      snapshot-name: vmi-c6da5089-57c2-48ea-873b-77e3768ce594-8aa34bcb
+      volume-name: pvc-8d935ce4-968e-4aba-bf31-d3582962cd00
+      volume-size: "10737418240"
+    size: 1.073741824e+10
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"adf1882f-ea2f-4468-b428-3233c58732c4"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c724acfd-51a5-4d08-9837-c1cc54c079a7
+      uid: adf1882f-ea2f-4468-b428-3233c58732c4
+    resourceVersion: "161207"
+    uid: cc394b7a-5082-4426-be36-6e80a04eb229
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 4b5b9744-0b68-484b-9ec5-ec53982866a5
+    fileTransferred: true
+    nodeID: hp-117-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-7971405e-eee6-42c9-9b5a-f751b12b19e7
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 62e21f5e
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-117-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-7971405e-eee6-42c9-9b5a-f751b12b19e7
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T15:09:47Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"84b2cd90-41c6-45c3-8938-8b9252bfdcca"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:url: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T15:10:01Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:url: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:01Z"
+    name: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+      uid: 84b2cd90-41c6-45c3-8938-8b9252bfdcca
+    resourceVersion: "292272"
+    uid: 0282cfe6-3a5a-4640-9227-3e8d4733d21d
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    sourceType: download
+    uuid: e788348d
+  status:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      url: http://10.115.1.6/iso/harvester_vm_images_for_tests/openSUSE-Leap-15.6.x86_64-NoCloud.qcow2
+    size: 7.16374016e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5093bc29-b344-4e75-bbf3-1e74822f336e"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:14Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c85df0d3-bab6-4dae-8758-8b99f74612ec
+      uid: 5093bc29-b344-4e75-bbf3-1e74822f336e
+    resourceVersion: "161163"
+    uid: fe747214-3edf-465d-b02a-5ba9b3c92f4e
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-57447d99-1671-4ba0-9ad4-235e16d92477
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 094e9591
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-57447d99-1671-4ba0-9ad4-235e16d92477
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"3959d67d-233a-465a-8eca-025f4289a076"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:13Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:13Z"
+    name: vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5
+      uid: 3959d67d-233a-465a-8eca-025f4289a076
+    resourceVersion: "161030"
+    uid: af401383-fe96-4983-9950-ad7c09ebc5b3
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-5b0a7876-cfcc-4c3f-aa33-6eece38e9c8d
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 6ff10ca1
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-5b0a7876-cfcc-4c3f-aa33-6eece38e9c8d
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T11:55:11Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"6ff0f65f-dd97-4d41-bf0c-f3713cf05b52"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backing-image: {}
+            f:encryption: {}
+            f:secret: {}
+            f:secret-namespace: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T11:55:11Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backing-image: {}
+            f:backing-image-uuid: {}
+            f:encryption: {}
+            f:secret: {}
+            f:secret-namespace: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:55:24Z"
+    name: vmi-c9986734-3742-4785-97ee-dee8c9d21ff0
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-c9986734-3742-4785-97ee-dee8c9d21ff0
+      uid: 6ff0f65f-dd97-4d41-bf0c-f3713cf05b52
+    resourceVersion: "80761"
+    uid: 7f2f03df-c615-4a82-8a68-1be4c4f96ea2
+  spec:
+    checksum: "null"
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: false
+    nodeID: hp-150-tink-system
+    parameters:
+      backing-image: vmi-ecf1f0ea-b6fa-4430-91dd-d3693d876dd0
+      encryption: decrypt
+      secret: my-secret-11h52m27s791563-06-12
+      secret-namespace: default
+    sourceType: clone
+    uuid: 0ed4aa51
+  status:
+    checksum: "null"
+    currentState: failed-and-cleanup
+    ip: "null"
+    message: 'failed to process sync file: failed to prepare source file: source file
+      /data/backing-images/vmi-ecf1f0ea-b6fa-4430-91dd-d3693d876dd0-5687e3a2/backing
+      not found : stat /data/backing-images/vmi-ecf1f0ea-b6fa-4430-91dd-d3693d876dd0-5687e3a2/backing:
+      no such file or directory'
+    ownerID: hp-150-tink-system
+    progress: 0
+    runningParameters:
+      backing-image: vmi-ecf1f0ea-b6fa-4430-91dd-d3693d876dd0
+      backing-image-uuid: 5687e3a2
+      encryption: decrypt
+      secret: my-secret-11h52m27s791563-06-12
+      secret-namespace: default
+    size: 0
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:15:24Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"0b47b01f-a4aa-4041-a069-1980992e2274"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:15:24Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:16:01Z"
+    name: vmi-cb75375e-1921-45c9-b0f8-25387c5512a9
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-cb75375e-1921-45c9-b0f8-25387c5512a9
+      uid: 0b47b01f-a4aa-4041-a069-1980992e2274
+    resourceVersion: "165655"
+    uid: 8f7faeda-6834-4ee7-b48b-3a35967656a1
+  spec:
+    checksum: 3d54c1b22d4dd449837a352a72eaa30df006102f8da76004fb422c5537a25ede60f9a59dbc21de8717bfb908a00f5511876720426d3fee498ea8c99012bf2fc8
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: false
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-c2569357-57b8-46f6-9564-fb93eb23f15e
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 192d935f
+  status:
+    checksum: "null"
+    currentState: failed-and-cleanup
+    ip: "null"
+    message: 'failed to process sync file: failed to list objects with param: &{Bucket:0xc00079b450
+      ContinuationToken:<nil> Delimiter:0xc00079b470 EncodingType: ExpectedBucketOwner:<nil>
+      FetchOwner:<nil> MaxKeys:<nil> OptionalObjectAttributes:[] Prefix:0xc00079b460
+      RequestPayer: StartAfter:<nil> noSmithyDocumentSerde:{}} error: AWS Operation
+      Error ListObjectsV2 exceeded maximum number of attempts, 5, get identity: get
+      credentials: failed to refresh cached credentials, no EC2 IMDS role found, operation
+      error ec2imds: GetMetadata, exceeded maximum number of attempts, 3, request
+      send failed, Get "http://169.254.169.254/latest/meta-data/iam/security-credentials/":
+      dial tcp 169.254.169.254:80: connect: network is unreachable'
+    ownerID: hp-69-tink-system
+    progress: 0
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-c2569357-57b8-46f6-9564-fb93eb23f15e
+      concurrent-limit: "2"
+    size: 0
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5037bc32-bbd6-47a1-85fc-dd5d9a31d5d6"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-defb5036-7caa-44fc-bed7-0b7518314131
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-defb5036-7caa-44fc-bed7-0b7518314131
+      uid: 5037bc32-bbd6-47a1-85fc-dd5d9a31d5d6
+    resourceVersion: "161328"
+    uid: fdba8d28-dcd6-433f-bb05-2a5ccd357dc9
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-3a08003e-07f5-488a-9254-b3ea46faefad
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: fe7a1054
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-3a08003e-07f5-488a-9254-b3ea46faefad
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:41Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"a5feec51-7954-41dc-ad3c-25bd7fcd517b"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:14Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:15Z"
+    name: vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-dfd6369b-8324-4d11-aabc-8f2e33d27acc
+      uid: a5feec51-7954-41dc-ad3c-25bd7fcd517b
+    resourceVersion: "161165"
+    uid: 7a38a201-577c-46d3-9eed-d45f21df36e1
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2bbbc645-2866-4042-b505-86431f714c75
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: fb4ee3ae
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-2bbbc645-2866-4042-b505-86431f714c75
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:27:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"4d866bb2-f3b7-45d3-9b30-c79478564dbe"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:27:59Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:27:59Z"
+    name: vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-e10be9f1-6812-44b5-aef9-3ca603284ac0
+      uid: 4d866bb2-f3b7-45d3-9b30-c79478564dbe
+    resourceVersion: "182061"
+    uid: 9b353739-ee2d-4d51-b998-c91fa71bd1f0
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-e80321ad-0334-450f-bd9d-d3b72b163e74
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: "69847724"
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-e80321ad-0334-450f-bd9d-d3b72b163e74
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"644c2a26-16db-4416-ad44-f5bfdcd59e2f"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:15Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:16Z"
+    name: vmi-e23faa62-66d7-4028-b77b-02acefda5bd1
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-e23faa62-66d7-4028-b77b-02acefda5bd1
+      uid: 644c2a26-16db-4416-ad44-f5bfdcd59e2f
+    resourceVersion: "161348"
+    uid: b28db76e-7551-4ace-9798-0bf2f21d8c99
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-d1aa03dc-c4da-41e5-93d8-57437bff5df9
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 6ddb030c
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-d1aa03dc-c4da-41e5-93d8-57437bff5df9
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:40Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"7b4d9f82-4bb9-4bef-bc3b-cd3a736fae79"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:09Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:10Z"
+    name: vmi-f1f5d036-b108-49f0-aaa0-57212826afe4
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-f1f5d036-b108-49f0-aaa0-57212826afe4
+      uid: 7b4d9f82-4bb9-4bef-bc3b-cd3a736fae79
+    resourceVersion: "160561"
+    uid: de71f7ad-f124-4150-9b5d-fae2982541f7
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-e32ae72d-a68a-4727-92f9-8a416abf6fa3
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 2cf68d84
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-e32ae72d-a68a-4727-92f9-8a416abf6fa3
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"3dda9d90-025c-4027-b823-0562fe71de3e"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:12Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:12Z"
+    name: vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-f2ce6e1f-5386-4a5a-823d-bab4e469a96d
+      uid: 3dda9d90-025c-4027-b823-0562fe71de3e
+    resourceVersion: "160884"
+    uid: 513bfd89-00bd-426d-a6b9-e699b2d2695e
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-70a71419-865c-4d3d-b735-f7f6706902ae
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: cdfdb2b7
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-70a71419-865c-4d3d-b735-f7f6706902ae
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:39Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"66e0fd10-6feb-4efc-88bf-d2d3ecccf4f1"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:09Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:09Z"
+    name: vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98
+      uid: 66e0fd10-6feb-4efc-88bf-d2d3ecccf4f1
+    resourceVersion: "160459"
+    uid: 99882021-6b79-428f-ad86-b5b874d3a058
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 0d4ca67b-82b6-4b31-adac-1839e717453c
+    fileTransferred: true
+    nodeID: hp-150-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-bbfa60ee-5e14-4342-9344-a4c1f7899bdd
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: 612b3bf5
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-150-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-bbfa60ee-5e14-4342-9344-a4c1f7899bdd
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+- apiVersion: longhorn.io/v1beta2
+  kind: BackingImageDataSource
+  metadata:
+    creationTimestamp: "2026-06-12T13:12:42Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"6d7afe21-4174-4e37-895b-a7d66166eece"}: {}
+        f:spec:
+          .: {}
+          f:checksum: {}
+          f:diskPath: {}
+          f:diskUUID: {}
+          f:fileTransferred: {}
+          f:nodeID: {}
+          f:parameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:sourceType: {}
+          f:uuid: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T13:13:16Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:checksum: {}
+          f:currentState: {}
+          f:ip: {}
+          f:message: {}
+          f:ownerID: {}
+          f:progress: {}
+          f:runningParameters:
+            .: {}
+            f:backup-target-name: {}
+            f:backup-url: {}
+            f:concurrent-limit: {}
+          f:size: {}
+          f:storageIP: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T13:13:17Z"
+    name: vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      blockOwnerDeletion: true
+      controller: true
+      kind: BackingImage
+      name: vmi-fe79e766-0638-4f13-9d0d-277b48c28f7f
+      uid: 6d7afe21-4174-4e37-895b-a7d66166eece
+    resourceVersion: "161552"
+    uid: 4f18e08d-cea9-4d63-bbc9-9de820c6d1dc
+  spec:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    diskPath: /var/lib/harvester/defaultdisk
+    diskUUID: 7d03df10-4376-40d4-bfea-a386ee4aeb1a
+    fileTransferred: true
+    nodeID: hp-69-tink-system
+    parameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8d9fc5b6-9464-4fd8-adc5-4007c5c4edf0
+      concurrent-limit: "2"
+    sourceType: restore
+    uuid: "81618290"
+  status:
+    checksum: 71b9d952824dbeb44e4a7295a92c51d3d48b59cd51ac7c596b3e5c54ad5545d64bc769b75fd17931bf6091de5ac49f00b162705cf08c004b54b2aaad7cbb3a17
+    currentState: ready
+    ip: "null"
+    message: "null"
+    ownerID: hp-69-tink-system
+    progress: 100
+    runningParameters:
+      backup-target-name: default
+      backup-url: s3://giants@ecmlab/?backingImage=vmi-8d9fc5b6-9464-4fd8-adc5-4007c5c4edf0
+      concurrent-limit: "2"
+    size: 6.67353088e+08
+    storageIP: "null"
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676495"

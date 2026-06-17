@@ -1,0 +1,15 @@
+2026-06-12T10:49:33.365447161Z I0612 10:49:33.365099       1 server.go:175] "Starting Kubernetes Scheduler" version="v1.35.5+rke2r1"
+2026-06-12T10:49:33.365529559Z I0612 10:49:33.365328       1 server.go:177] "Golang settings" GOGC="" GOMAXPROCS="" GOTRACEBACK=""
+2026-06-12T10:49:33.374419866Z I0612 10:49:33.374224       1 requestheader_controller.go:180] Starting RequestHeaderAuthRequestController
+2026-06-12T10:49:33.374456758Z I0612 10:49:33.374291       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:49:33.374465525Z I0612 10:49:33.374299       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::client-ca-file"
+2026-06-12T10:49:33.374470264Z I0612 10:49:33.374330       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:49:33.374508614Z I0612 10:49:33.374326       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2026-06-12T10:49:33.374517431Z I0612 10:49:33.374390       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:49:33.374862515Z I0612 10:49:33.374702       1 dynamic_serving_content.go:135] "Starting controller" name="serving-cert::/var/lib/rancher/rke2/server/tls/kube-scheduler/kube-scheduler.crt::/var/lib/rancher/rke2/server/tls/kube-scheduler/kube-scheduler.key"
+2026-06-12T10:49:33.374899040Z I0612 10:49:33.374817       1 secure_serving.go:211] Serving securely on 127.0.0.1:10259
+2026-06-12T10:49:33.375060586Z I0612 10:49:33.374900       1 tlsconfig.go:243] "Starting DynamicServingCertificateController"
+2026-06-12T10:49:33.474701436Z I0612 10:49:33.474553       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:49:33.474739143Z I0612 10:49:33.474646       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:49:33.475567976Z I0612 10:49:33.475396       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="kube-system/kube-scheduler"
+2026-06-12T10:49:33.574822532Z I0612 10:49:33.574651       1 shared_informer.go:377] "Caches are synced"

@@ -1,0 +1,301 @@
+apiVersion: v1
+items:
+- apiVersion: upgrade.cattle.io/v1
+  kind: Plan
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: upgrade.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:concurrency: {}
+          f:nodeSelector: {}
+          f:secrets: {}
+          f:serviceAccountName: {}
+          f:tolerations: {}
+          f:upgrade:
+            f:args: {}
+            f:command: {}
+            f:image: {}
+          f:version: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    - apiVersion: upgrade.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:latestHash: {}
+          f:latestVersion: {}
+      manager: system-upgrade-controller
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:47:42Z"
+    name: sync-additional-ca
+    namespace: cattle-system
+    resourceVersion: "12104"
+    uid: 5b2a6c40-eadb-4275-991a-b5ff53fc6181
+  spec:
+    concurrency: 1
+    nodeSelector:
+      matchLabels:
+        harvesterhci.io/managed: "true"
+    secrets:
+    - name: harvester-additional-ca
+      path: /ca
+    serviceAccountName: system-upgrade-controller
+    tolerations:
+    - effect: NoExecute
+      operator: Exists
+    upgrade:
+      args:
+      - echo "Update additional ca ..."; cp /ca/additional-ca.pem /host/etc/pki/trust/anchors;
+        chroot /host update-ca-certificates; echo "Done";
+      command:
+      - /bin/sh
+      - -c
+      image: registry.suse.com/bci/bci-base:16.0
+    version: v1.1.0
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:47:42Z"
+      reason: Complete
+      status: "True"
+      type: Complete
+    - lastUpdateTime: "2026-06-12T10:43:08Z"
+      reason: PlanIsValid
+      status: "True"
+      type: Validated
+    - lastUpdateTime: "2026-06-12T10:43:08Z"
+      reason: Version
+      status: "True"
+      type: LatestResolved
+    latestHash: 2c27af4f7e139d7c15346edc0adb200edade07eef796ef2c41ef923b
+    latestVersion: v1.1.0
+- apiVersion: upgrade.cattle.io/v1
+  kind: Plan
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/3yT32rjSgzG30XXtms3aTjxXSkuhFO2ixu6LEsI8lh1ZjOeMTOySQh+90X5R3YpvfRIn/T7JPkA2Ol38kE7Czn0XeOxpkQhs6FEu7shgwi22taQw3eDFiJoibFGRsgPgNY6RtbOBvl01W9SHIgTr91NFS3yFi02VMdhH5jaGBuyDNEnPWvdUGDIIXSkkkuc7BCif1+evWthjMBgReZLhA2GDeQwm6vqIUtn2RQn07pKlUKk+TRV6YzuU5X9d68mOK8epKjFloTihjc+9/ZwCocOleSc+pytiVZABUc5q3rvyao95FkagXU1vZEhxc5LQousNsWu8xTCaYy/DrClPeSw7SvylpiCGHABInAdeTwqYSG7GND0JBow2vY7WI0raU7KE59KXUzwEGPTeGqO24IIOmQZCIwrEfhBK3pUyvWWv33tm50RiCvsDVOx04HDseRZIBYve5LkE1pJHxL4nC02TqGJJ1lV47SiuppmMEpJuYBbT2/LcvG0XL8X5eL552UYkMMHmkAwRtfEp8fl8qVYl68vxfrHa/l/Ud5ks+/pSKxbbOTBo1Ub8nd/3ekYwXD9TYY0mSTZLA69Ou6akXs5vnH8EwAA//+2AcUQUAMAAA
+      objectset.rio.cattle.io/id: managed-system-agent
+      upgrade.cattle.io/digest: spec.upgrade.envs,spec.upgrade.envFrom
+    creationTimestamp: "2026-06-12T10:45:22Z"
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: 69cb510614a34db0ccaae940c06e20c182c3a9b5
+    managedFields:
+    - apiVersion: upgrade.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:upgrade.cattle.io/digest: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          .: {}
+          f:concurrency: {}
+          f:nodeSelector:
+            .: {}
+            f:matchExpressions: {}
+          f:secrets: {}
+          f:serviceAccountName: {}
+          f:tolerations: {}
+          f:upgrade:
+            .: {}
+            f:envFrom: {}
+            f:envs: {}
+            f:image: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:45:22Z"
+    - apiVersion: upgrade.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:latestHash: {}
+          f:latestVersion: {}
+      manager: system-upgrade-controller
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:47:28Z"
+    name: system-agent-upgrader
+    namespace: cattle-system
+    resourceVersion: "11406"
+    uid: 9ea109b8-b51d-4332-b635-a2087171aac6
+  spec:
+    concurrency: 10
+    nodeSelector:
+      matchExpressions:
+      - key: kubernetes.io/os
+        operator: In
+        values:
+        - linux
+    secrets:
+    - name: stv-aggregation
+      path: "null"
+    serviceAccountName: system-agent-upgrader
+    tolerations:
+    - operator: Exists
+    upgrade:
+      envFrom:
+      - secretRef:
+          name: stv-aggregation-local-31bda4bedb41
+      envs:
+      - name: STRICT_VERIFY
+        value: "false"
+      - name: CATTLE_ROLE_WORKER
+        value: "true"
+      image: rancher/system-agent
+    version: v0.3.16-suc
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:47:28Z"
+      reason: Complete
+      status: "True"
+      type: Complete
+    - lastUpdateTime: "2026-06-12T10:45:22Z"
+      reason: PlanIsValid
+      status: "True"
+      type: Validated
+    - lastUpdateTime: "2026-06-12T10:45:22Z"
+      reason: Version
+      status: "True"
+      type: LatestResolved
+    latestHash: f93baf0cb542ebca496b7007ca85168050d151ac3f821f48486aa99e
+    latestVersion: v0.3.16-suc
+- apiVersion: upgrade.cattle.io/v1
+  kind: Plan
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/3yT306kTBDFX+VLXQOCjuaTu4nB7GRdxzDoxqzGFE3J9ArdpLvAmUx4903Nv0w2Gy/pPnXOr6qaDWCnn8h5bQ2k0He1w4oihcwNRdqeDQkE8KFNBSk8NGgggJYYK2SEdANojGVkbY2XT1v+JsWeOHLanrhoKW/RYE1V6NeeqQ2xJsMQ/COz0jV5hhR8Ryo63JMZfPD3ya2zLYwBNFhS8yXCEv0SUri6VuVlEl8lE7yYVGWsFCJdT2IVX9F5rJL/z9UFXpeXYmqwJaE44Q332S781Kaynx52Mt+hEu0ub9+ieAiwYClrVO8cGbWGNIkDMLaiBTWk2DoRtMhqma06R97vxvlrAx+0hhQ++pKcISYvjVjJtB053FbCTHYyYNOT1MCB63V8lXhyg1Y0Vcr2hu+/aAgCYNuI6zH9JCRbac8extfjvoT5sAARe1KOOKd3uThMjocQ69pRvXUNG6uwCS+SssJJSVU5SWAUS1nt1mRftyjy2U3x9pTls9vnQ3eQwjs2nmAMjsKbaVHcZW/5/C57+znPv2f5iZpdT1ti3WItBw6NWpI7+9RGZuhJ9U7z+sYaphUL93548+74opfW84OziryHVBwDcL2Z+kdPbj/O++K/6WPxbZ7PiueXl8Xzosh+wDiOAQzHH2uIo8to+6g8I/diPY5/AgAA//+Heg+1fQMAAA
+      objectset.rio.cattle.io/id: managed-system-agent
+      upgrade.cattle.io/digest: spec.upgrade.envs,spec.upgrade.envFrom
+    creationTimestamp: "2026-06-12T10:45:22Z"
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: 69cb510614a34db0ccaae940c06e20c182c3a9b5
+    managedFields:
+    - apiVersion: upgrade.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:upgrade.cattle.io/digest: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          .: {}
+          f:concurrency: {}
+          f:nodeSelector:
+            .: {}
+            f:matchExpressions: {}
+          f:serviceAccountName: {}
+          f:tolerations: {}
+          f:upgrade:
+            .: {}
+            f:envFrom: {}
+            f:envs: {}
+            f:image: {}
+            f:securityContext:
+              .: {}
+              f:windowsOptions:
+                .: {}
+                f:hostProcess: {}
+                f:runAsUserName: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:45:22Z"
+    - apiVersion: upgrade.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+          f:latestHash: {}
+          f:latestVersion: {}
+      manager: system-upgrade-controller
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:45:22Z"
+    name: system-agent-upgrader-windows
+    namespace: cattle-system
+    resourceVersion: "8910"
+    uid: 6acf5d25-2c15-4c2e-a358-bfd9ba7b87f5
+  spec:
+    concurrency: 10
+    nodeSelector:
+      matchExpressions:
+      - key: kubernetes.io/os
+        operator: In
+        values:
+        - windows
+    serviceAccountName: system-agent-upgrader
+    tolerations:
+    - operator: Exists
+    upgrade:
+      envFrom:
+      - secretRef:
+          name: stv-aggregation-local-31bda4bedb41
+      envs:
+      - name: STRICT_VERIFY
+        value: "false"
+      - name: CATTLE_ROLE_WORKER
+        value: "true"
+      image: rancher/wins
+      securityContext:
+        windowsOptions:
+          hostProcess: true
+          runAsUserName: NT AUTHORITY\SYSTEM
+    version: v0.5.5
+  status:
+    conditions:
+    - lastUpdateTime: "2026-06-12T10:45:22Z"
+      reason: Complete
+      status: "True"
+      type: Complete
+    - lastUpdateTime: "2026-06-12T10:45:22Z"
+      reason: PlanIsValid
+      status: "True"
+      type: Validated
+    - lastUpdateTime: "2026-06-12T10:45:22Z"
+      reason: Version
+      status: "True"
+      type: LatestResolved
+    latestHash: f7b055b756a9e352e500e62ca07d9093c1a595ae17b8934b83e4ea65
+    latestVersion: v0.5.5
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676365"

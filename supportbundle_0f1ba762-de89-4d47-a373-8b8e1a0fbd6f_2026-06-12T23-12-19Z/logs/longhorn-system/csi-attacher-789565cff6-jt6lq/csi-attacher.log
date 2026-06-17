@@ -1,0 +1,15 @@
+2026-06-12T10:43:27.127675957Z I0612 10:43:27.127458       1 feature_gate.go:466] feature gates: {map[]}
+2026-06-12T10:43:27.127822551Z I0612 10:43:27.127762       1 main.go:114] "Version" version="v"
+2026-06-12T10:43:27.128165448Z I0612 10:43:27.128094       1 envvar.go:172] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+2026-06-12T10:43:27.128606662Z I0612 10:43:27.128352       1 envvar.go:172] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+2026-06-12T10:43:27.128612526Z I0612 10:43:27.128373       1 envvar.go:172] "Feature gate default state" feature="WatchListClient" enabled=true
+2026-06-12T10:43:27.128615683Z I0612 10:43:27.128383       1 envvar.go:172] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+2026-06-12T10:43:27.128618580Z I0612 10:43:27.128390       1 envvar.go:172] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+2026-06-12T10:43:27.128621810Z I0612 10:43:27.128396       1 envvar.go:172] "Feature gate default state" feature="InOrderInformers" enabled=true
+2026-06-12T10:43:27.130249089Z W0612 10:43:27.130196       1 logging.go:55] [core] [Channel #1 SubChannel #2] grpc: addrConn.createTransport failed to connect to {Addr: "/csi/csi.sock", ServerName: "localhost", Attributes: {"<%!p(networktype.keyType=grpc.internal.transport.networktype)>": "unix" }, }. Err: connection error: desc = "transport: Error while dialing: dial unix /csi/csi.sock: connect: no such file or directory"
+2026-06-12T10:43:28.131113081Z W0612 10:43:28.131036       1 logging.go:55] [core] [Channel #1 SubChannel #2] grpc: addrConn.createTransport failed to connect to {Addr: "/csi/csi.sock", ServerName: "localhost", Attributes: {"<%!p(networktype.keyType=grpc.internal.transport.networktype)>": "unix" }, }. Err: connection error: desc = "transport: Error while dialing: dial unix /csi/csi.sock: connect: no such file or directory"
+2026-06-12T10:43:29.093555063Z I0612 10:43:29.093438       1 common.go:143] "Probing CSI driver for readiness"
+2026-06-12T10:43:29.094856847Z I0612 10:43:29.094791       1 main.go:173] "CSI driver name" driver="driver.longhorn.io"
+2026-06-12T10:43:29.094999751Z I0612 10:43:29.094912       1 main.go:203] "ServeMux listening" driver="driver.longhorn.io" address=":8000" metricsPath="/metrics"
+2026-06-12T10:43:29.096074883Z I0612 10:43:29.096008       1 main.go:257] "CSI driver supports ControllerPublishUnpublish, using real CSI handler" driver="driver.longhorn.io"
+2026-06-12T10:43:29.096632789Z I0612 10:43:29.096540       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="longhorn-system/external-attacher-leader-driver-longhorn-io"

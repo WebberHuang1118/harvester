@@ -1,0 +1,417 @@
+2026-06-12T10:47:14.967368402Z Done configuring CNI.  Sleep=false
+2026-06-12T10:47:15.145885508Z 2026-06-12T10:47:15Z [debug] Filtering pods with filter key 'spec.nodeName' and filter value 'hp-150-tink-system'
+2026-06-12T10:47:15.166381692Z Sleep and Watching for service account token and CA file changes...
+2026-06-12T10:47:15.269564071Z 2026-06-12T10:47:15Z [verbose] pod controller created
+2026-06-12T10:47:15.269580957Z 2026-06-12T10:47:15Z [verbose] Starting informer factories ...
+2026-06-12T10:47:15.269583656Z 2026-06-12T10:47:15Z [verbose] Informer factories started
+2026-06-12T10:47:15.269585982Z 2026-06-12T10:47:15Z [verbose] starting network controller
+2026-06-12T10:47:15.370721065Z 2026-06-12T10:47:15Z [verbose] using expression: 30 4 * * *
+2026-06-12T10:48:29.720148931Z 2026-06-12T10:48:29Z [verbose] deleted pod [kube-system/kube-proxy-hp-150-tink-system]
+2026-06-12T10:48:29.720185580Z 2026-06-12T10:48:29Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:48:30.030707586Z 2026-06-12T10:48:30Z [verbose] deleted pod [cattle-fleet-local-system/fleet-agent-7d7c98c486-xpm6t]
+2026-06-12T10:48:30.030729385Z 2026-06-12T10:48:30Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:48:30.721932518Z 2026-06-12T10:48:30+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T10:48:48.604541851Z 2026-06-12T10:48:48Z [verbose] deleted pod [cattle-fleet-system/fleet-migrate-gitrepo-helm-url-regex-sx4k2]
+2026-06-12T10:48:48.604732088Z 2026-06-12T10:48:48Z [verbose] skipped net-attach-def for default network
+2026-06-12T10:48:48.604739747Z 2026-06-12T10:48:48Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:48:55.157540342Z 2026-06-12T10:48:55Z [verbose] deleted pod [cattle-fleet-local-system/fleet-agent-7d7c98c486-82rwx]
+2026-06-12T10:48:55.158703757Z 2026-06-12T10:48:55Z [verbose] skipped net-attach-def for default network
+2026-06-12T10:48:55.158719642Z 2026-06-12T10:48:55Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:48:55.179983445Z 2026-06-12T10:48:55Z [verbose] deleted pod [cattle-fleet-system/fleet-cleanup-clusterregistrations-n7sg4]
+2026-06-12T10:48:55.180015941Z 2026-06-12T10:48:55Z [verbose] skipped net-attach-def for default network
+2026-06-12T10:48:55.180029526Z 2026-06-12T10:48:55Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:48:56.148075217Z 2026-06-12T10:48:56Z [verbose] deleted pod [cattle-fleet-local-system/fleet-agent-598d897c9b-khrxt]
+2026-06-12T10:48:56.148093389Z 2026-06-12T10:48:56Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:49:09.525201933Z 2026-06-12T10:49:09Z [verbose] deleted pod [cattle-fleet-system/fleet-migrate-gitrepo-helm-url-regex-xm5x5]
+2026-06-12T10:49:09.525265646Z 2026-06-12T10:49:09Z [verbose] skipped net-attach-def for default network
+2026-06-12T10:49:09.525272708Z 2026-06-12T10:49:09Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:49:15.511867215Z 2026-06-12T10:49:15Z [verbose] deleted pod [cattle-fleet-system/fleet-cleanup-clusterregistrations-dw89b]
+2026-06-12T10:49:15.511911002Z 2026-06-12T10:49:15Z [verbose] skipped net-attach-def for default network
+2026-06-12T10:49:15.511917060Z 2026-06-12T10:49:15Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:49:29.634135065Z 2026-06-12T10:49:29Z [verbose] deleted pod [cattle-fleet-system/fleet-migrate-gitrepo-helm-url-regex-ptkdl]
+2026-06-12T10:49:29.634175645Z 2026-06-12T10:49:29Z [verbose] skipped net-attach-def for default network
+2026-06-12T10:49:29.634180818Z 2026-06-12T10:49:29Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:49:37.497477595Z 2026-06-12T10:49:37Z [verbose] deleted pod [cattle-fleet-system/fleet-cleanup-clusterregistrations-hvf42]
+2026-06-12T10:49:37.497513480Z 2026-06-12T10:49:37Z [verbose] skipped net-attach-def for default network
+2026-06-12T10:49:37.497532788Z 2026-06-12T10:49:37Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T10:49:38.377535690Z 2026-06-12T10:49:38Z [verbose] deleted pod [cattle-fleet-local-system/fleet-agent-598d897c9b-hdnlt]
+2026-06-12T10:49:38.377699188Z 2026-06-12T10:49:38Z [verbose] skipped net-attach-def for default network
+2026-06-12T10:49:38.377713518Z 2026-06-12T10:49:38Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:02:28.073114390Z 2026-06-12T11:02:28Z [verbose] deleted pod [cattle-system/apply-system-agent-upgrader-on-hp-150-tink-system-with-f9-ltr9k]
+2026-06-12T11:02:28.073610582Z 2026-06-12T11:02:28Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:02:28.077613773Z 2026-06-12T11:02:28Z [verbose] deleted pod [cattle-system/apply-system-agent-upgrader-on-hp-150-tink-system-with-f9-rfvtl]
+2026-06-12T11:02:28.077640377Z 2026-06-12T11:02:28Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:02:32.038954849Z 2026-06-12T11:02:32Z [verbose] deleted pod [cattle-system/apply-sync-additional-ca-on-hp-150-tink-system-with-2c27a-b44lp]
+2026-06-12T11:02:32.038987512Z 2026-06-12T11:02:32Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:02:51.661191671Z 2026-06-12T11:02:51Z [verbose] deleted pod [cattle-monitoring-system/rancher-monitoring-patch-sa-vbbjh]
+2026-06-12T11:02:51.661244938Z 2026-06-12T11:02:51Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:02:51.661270386Z 2026-06-12T11:02:51Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:03:53.721000904Z 2026-06-12T11:03:53Z [verbose] deleted pod [cattle-logging-system/rancher-logging-rke2-journald-aggregator-xrnpg]
+2026-06-12T11:03:53.721049156Z 2026-06-12T11:03:53Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:03:53.721065882Z 2026-06-12T11:03:53Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:03:54.696390374Z 2026-06-12T11:03:54Z [verbose] deleted pod [cattle-logging-system/helm-delete-rancher-logging-48dbm]
+2026-06-12T11:03:54.696462152Z 2026-06-12T11:03:54Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:03:54.696467960Z 2026-06-12T11:03:54Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:03:55.692568465Z 2026-06-12T11:03:55Z [verbose] deleted pod [cattle-logging-system/rancher-logging-root-fluentbit-hgb6r]
+2026-06-12T11:03:55.692595773Z 2026-06-12T11:03:55Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:03:55.692600307Z 2026-06-12T11:03:55Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:04:06.748801522Z 2026-06-12T11:04:06Z [verbose] deleted pod [cattle-monitoring-system/helm-delete-rancher-monitoring-5924r]
+2026-06-12T11:04:06.748839004Z 2026-06-12T11:04:06Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:04:06.748843089Z 2026-06-12T11:04:06Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:04:29.870943195Z 2026-06-12T11:04:29Z [verbose] deleted pod [cattle-monitoring-system/rancher-monitoring-prometheus-node-exporter-zqrgx]
+2026-06-12T11:04:29.870968936Z 2026-06-12T11:04:29Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:05:05.023234855Z 2026-06-12T11:05:05Z [verbose] deleted pod [harvester-system/harvester-pcidevices-controller-hnxs4]
+2026-06-12T11:05:05.023265615Z 2026-06-12T11:05:05Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:05:05.023270336Z 2026-06-12T11:05:05Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:06:11.368064873Z 2026-06-12T11:06:11Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:06:11.368112193Z 2026-06-12T11:06:11Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:06:11.368134048Z 2026-06-12T11:06:11Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:06:16.399186437Z 2026-06-12T11:06:16Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:06:16.399206637Z 2026-06-12T11:06:16Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:10:41.697006362Z 2026-06-12T11:10:41Z [verbose] deleted pod [harvester-system/supportbundle-agent-11h06m22s489385-06-12-hbccl-g7swd]
+2026-06-12T11:10:41.697146903Z 2026-06-12T11:10:41Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:10:41.697162960Z 2026-06-12T11:10:41Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:14:23.762593839Z 2026-06-12T11:14:23Z [verbose] deleted pod [harvester-system/supportbundle-agent-11h06m22s489385-06-12-zx6xz-jzqlx]
+2026-06-12T11:14:23.762621590Z 2026-06-12T11:14:23Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:14:23.762628291Z 2026-06-12T11:14:23Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:18:25.910990793Z 2026-06-12T11:18:25Z [verbose] deleted pod [harvester-system/supportbundle-agent-11h06m22s489385-06-12-pjvw7-ssrdw]
+2026-06-12T11:18:25.911085166Z 2026-06-12T11:18:25Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:18:25.911091949Z 2026-06-12T11:18:25Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:20:56.932730106Z 2026-06-12T11:20:56Z [verbose] deleted pod [harvester-system/supportbundle-agent-11h06m22s489385-06-12-52dmm-2kpcb]
+2026-06-12T11:20:56.932761545Z 2026-06-12T11:20:56Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:20:56.932765855Z 2026-06-12T11:20:56Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:21:32.489379560Z 2026-06-12T11:21:32Z [verbose] deleted pod [harvester-system/default11h19m38s484147-06-12-a1786772-x5l4t]
+2026-06-12T11:21:32.489411424Z 2026-06-12T11:21:32Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:32.489431795Z 2026-06-12T11:21:32Z [debug] pod's network status: {Name:default/11h19m38s484147-06-12 Interface:net1 IPs:[] Mac:66:c1:21:2a:db:4f Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:21:32.489444154Z 2026-06-12T11:21:32Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/11h19m38s484147-06-12: networkattachmentdefinition.k8s.cni.cncf.io "11h19m38s484147-06-12" not found
+2026-06-12T11:21:32.489448332Z 2026-06-12T11:21:32Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/default11h19m38s484147-06-12-a1786772-x5l4t; retry #: 0
+2026-06-12T11:21:32.495394698Z 2026-06-12T11:21:32Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:32.495414432Z 2026-06-12T11:21:32Z [debug] pod's network status: {Name:default/11h19m38s484147-06-12 Interface:net1 IPs:[] Mac:66:c1:21:2a:db:4f Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:21:32.495419133Z 2026-06-12T11:21:32Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/11h19m38s484147-06-12: networkattachmentdefinition.k8s.cni.cncf.io "11h19m38s484147-06-12" not found
+2026-06-12T11:21:32.495425804Z 2026-06-12T11:21:32Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/default11h19m38s484147-06-12-a1786772-x5l4t; retry #: 1
+2026-06-12T11:21:32.504951823Z 2026-06-12T11:21:32Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:32.504967838Z 2026-06-12T11:21:32Z [debug] pod's network status: {Name:default/11h19m38s484147-06-12 Interface:net1 IPs:[] Mac:66:c1:21:2a:db:4f Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:21:32.504982785Z 2026-06-12T11:21:32Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/11h19m38s484147-06-12: networkattachmentdefinition.k8s.cni.cncf.io "11h19m38s484147-06-12" not found
+2026-06-12T11:21:32.505006362Z 2026-06-12T11:21:32Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/default11h19m38s484147-06-12-a1786772-x5l4t; retry #: 2
+2026-06-12T11:21:32.525320281Z 2026-06-12T11:21:32Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:32.525336394Z 2026-06-12T11:21:32Z [debug] pod's network status: {Name:default/11h19m38s484147-06-12 Interface:net1 IPs:[] Mac:66:c1:21:2a:db:4f Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:21:32.525347151Z 2026-06-12T11:21:32Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/11h19m38s484147-06-12: networkattachmentdefinition.k8s.cni.cncf.io "11h19m38s484147-06-12" not found
+2026-06-12T11:21:32.525350397Z 2026-06-12T11:21:32Z [error] dropping pod [harvester-system/default11h19m38s484147-06-12-a1786772-x5l4t] deletion out of the queue - could not reconcile IP: failed to get network-attachment-definition for iface default/11h19m38s484147-06-12: networkattachmentdefinition.k8s.cni.cncf.io "11h19m38s484147-06-12" not found
+2026-06-12T11:21:32.525502913Z 2026-06-12T11:21:32Z [verbose] Event(v1.ObjectReference{Kind:"Pod", Namespace:"harvester-system", Name:"default11h19m38s484147-06-12-a1786772-x5l4t", UID:"0e9dfef4-2e18-4640-a208-c9c9b73a02b5", APIVersion:"v1", ResourceVersion:"45592", FieldPath:""}): type: 'Warning' reason: 'IPAddressGarbageCollectionFailed' failed to garbage collect addresses for pod harvester-system/default11h19m38s484147-06-12-a1786772-x5l4t
+2026-06-12T11:21:34.824817716Z 2026-06-12T11:21:34Z [verbose] deleted pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5]
+2026-06-12T11:21:34.825128496Z 2026-06-12T11:21:34Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:34.825138338Z 2026-06-12T11:21:34Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:21:41.886119631Z 2026-06-12T11:21:41Z [verbose] deleted pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5]
+2026-06-12T11:21:41.886149577Z 2026-06-12T11:21:41Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:41.886154346Z 2026-06-12T11:21:41Z [debug] pod's network status: {Name:harvester-system/storagenetwork-dlp8l Interface:lhnet1 IPs:[10.115.0.2] Mac:4e:b2:bf:b8:53:12 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:21:41.886193392Z 2026-06-12T11:21:41Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-dlp8l: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-dlp8l" not found
+2026-06-12T11:21:41.886199859Z 2026-06-12T11:21:41Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 0
+2026-06-12T11:21:41.891526109Z 2026-06-12T11:21:41Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:41.891543328Z 2026-06-12T11:21:41Z [debug] pod's network status: {Name:harvester-system/storagenetwork-dlp8l Interface:lhnet1 IPs:[10.115.0.2] Mac:4e:b2:bf:b8:53:12 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:21:41.891547627Z 2026-06-12T11:21:41Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-dlp8l: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-dlp8l" not found
+2026-06-12T11:21:41.891561491Z 2026-06-12T11:21:41Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 1
+2026-06-12T11:21:41.901772177Z 2026-06-12T11:21:41Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:41.901799953Z 2026-06-12T11:21:41Z [debug] pod's network status: {Name:harvester-system/storagenetwork-dlp8l Interface:lhnet1 IPs:[10.115.0.2] Mac:4e:b2:bf:b8:53:12 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:21:41.901805264Z 2026-06-12T11:21:41Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-dlp8l: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-dlp8l" not found
+2026-06-12T11:21:41.901808894Z 2026-06-12T11:21:41Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 2
+2026-06-12T11:21:41.922093102Z 2026-06-12T11:21:41Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:21:41.922110205Z 2026-06-12T11:21:41Z [debug] pod's network status: {Name:harvester-system/storagenetwork-dlp8l Interface:lhnet1 IPs:[10.115.0.2] Mac:4e:b2:bf:b8:53:12 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:21:41.922113280Z 2026-06-12T11:21:41Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-dlp8l: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-dlp8l" not found
+2026-06-12T11:21:41.922116292Z 2026-06-12T11:21:41Z [error] dropping pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5] deletion out of the queue - could not reconcile IP: failed to get network-attachment-definition for iface harvester-system/storagenetwork-dlp8l: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-dlp8l" not found
+2026-06-12T11:21:41.922161332Z 2026-06-12T11:21:41Z [verbose] Event(v1.ObjectReference{Kind:"Pod", Namespace:"longhorn-system", Name:"instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5", UID:"4e039618-ab25-4652-9f3f-0a27b8d64418", APIVersion:"v1", ResourceVersion:"45875", FieldPath:""}): type: 'Warning' reason: 'IPAddressGarbageCollectionFailed' failed to garbage collect addresses for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5
+2026-06-12T11:22:43.187031983Z 2026-06-12T11:22:43Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-4fc8b839-5873-4fcf-b050-36a9711bf8a0]
+2026-06-12T11:22:43.187163305Z 2026-06-12T11:22:43Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:22:43.187177099Z 2026-06-12T11:22:43Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:22:50.530742991Z 2026-06-12T11:22:50Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:22:50.530773162Z 2026-06-12T11:22:50Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:22:50.530778266Z 2026-06-12T11:22:50Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:23:47.504094797Z 2026-06-12T11:23:47Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-862623c5-7d14-42db-a258-c6acb8988e4a]
+2026-06-12T11:23:47.504124665Z 2026-06-12T11:23:47Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:23:47.504128978Z 2026-06-12T11:23:47Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:26:12.204314629Z 2026-06-12T11:26:12Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:26:12.204349100Z 2026-06-12T11:26:12Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:26:12.204353892Z 2026-06-12T11:26:12Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:26:18.227656388Z 2026-06-12T11:26:18Z [verbose] deleted pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5]
+2026-06-12T11:26:18.227705050Z 2026-06-12T11:26:18Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:26:18.227722295Z 2026-06-12T11:26:18Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:26:58.440343345Z 2026-06-12T11:26:58Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:26:58.440561472Z 2026-06-12T11:26:58Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:26:58.440575518Z 2026-06-12T11:26:58Z [debug] pod's network status: {Name:harvester-system/storagenetwork-pxtkx Interface:lhnet1 IPs:[10.115.0.6] Mac:ca:38:1f:39:25:ac Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:26:58.440580410Z 2026-06-12T11:26:58Z [verbose] the NAD's config: {{"cniVersion":"0.3.1","type":"bridge","bridge":"cnet-eno50-br","promiscMode":true,"vlan":2011,"ipam":{"type":"whereabouts","range":"10.115.0.0/21"}}}
+2026-06-12T11:26:58.441051612Z 2026-06-12T11:26:58Z [debug] Used defaults from parsed flat file config @ /host/etc/cni/net.d/whereabouts.d/whereabouts.conf
+2026-06-12T11:26:58.441066370Z 2026-06-12T11:26:58Z [verbose] pool range [10.115.0.0/21]
+2026-06-12T11:26:58.441080652Z 2026-06-12T11:26:58Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:27:00.446476173Z 2026-06-12T11:27:00Z [verbose] deleted pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5]
+2026-06-12T11:27:00.446504557Z 2026-06-12T11:27:00Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:27:00.446509989Z 2026-06-12T11:27:00Z [debug] pod's network status: {Name:harvester-system/storagenetwork-pxtkx Interface:lhnet1 IPs:[10.115.0.1] Mac:a6:7c:7b:9b:90:1c Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:27:00.446521824Z 2026-06-12T11:27:00Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-pxtkx: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-pxtkx" not found
+2026-06-12T11:27:00.446529620Z 2026-06-12T11:27:00Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 0
+2026-06-12T11:27:00.451909936Z 2026-06-12T11:27:00Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:27:00.451928556Z 2026-06-12T11:27:00Z [debug] pod's network status: {Name:harvester-system/storagenetwork-pxtkx Interface:lhnet1 IPs:[10.115.0.1] Mac:a6:7c:7b:9b:90:1c Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:27:00.451939308Z 2026-06-12T11:27:00Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-pxtkx: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-pxtkx" not found
+2026-06-12T11:27:00.451944022Z 2026-06-12T11:27:00Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 1
+2026-06-12T11:27:00.462251788Z 2026-06-12T11:27:00Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:27:00.462293934Z 2026-06-12T11:27:00Z [debug] pod's network status: {Name:harvester-system/storagenetwork-pxtkx Interface:lhnet1 IPs:[10.115.0.1] Mac:a6:7c:7b:9b:90:1c Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:27:00.462298584Z 2026-06-12T11:27:00Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-pxtkx: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-pxtkx" not found
+2026-06-12T11:27:00.462314124Z 2026-06-12T11:27:00Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 2
+2026-06-12T11:27:00.482624261Z 2026-06-12T11:27:00Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:27:00.482637621Z 2026-06-12T11:27:00Z [debug] pod's network status: {Name:harvester-system/storagenetwork-pxtkx Interface:lhnet1 IPs:[10.115.0.1] Mac:a6:7c:7b:9b:90:1c Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T11:27:00.482640509Z 2026-06-12T11:27:00Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-pxtkx: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-pxtkx" not found
+2026-06-12T11:27:00.482645729Z 2026-06-12T11:27:00Z [error] dropping pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5] deletion out of the queue - could not reconcile IP: failed to get network-attachment-definition for iface harvester-system/storagenetwork-pxtkx: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-pxtkx" not found
+2026-06-12T11:27:00.482654752Z 2026-06-12T11:27:00Z [verbose] Event(v1.ObjectReference{Kind:"Pod", Namespace:"longhorn-system", Name:"instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5", UID:"e2bfdd32-429f-41c8-9597-5d1533d9f4dd", APIVersion:"v1", ResourceVersion:"51893", FieldPath:""}): type: 'Warning' reason: 'IPAddressGarbageCollectionFailed' failed to garbage collect addresses for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5
+2026-06-12T11:27:53.725959257Z 2026-06-12T11:27:53Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-17ca7f81-39df-46cd-8658-57db93db380a]
+2026-06-12T11:27:53.725997145Z 2026-06-12T11:27:53Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:27:53.726016050Z 2026-06-12T11:27:53Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:27:57.041268504Z 2026-06-12T11:27:57Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:27:57.041317366Z 2026-06-12T11:27:57Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:27:57.041323116Z 2026-06-12T11:27:57Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:28:20.864237529Z 2026-06-12T11:28:20Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-9a532e83-4f58-466c-b9f9-dd359c51cad7]
+2026-06-12T11:28:20.864256797Z 2026-06-12T11:28:20Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:28:20.864260865Z 2026-06-12T11:28:20Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:28:24.898813850Z 2026-06-12T11:28:24Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:28:24.898834897Z 2026-06-12T11:28:24Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:28:24.898839664Z 2026-06-12T11:28:24Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:28:49.021398136Z 2026-06-12T11:28:49Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-a1e2f05c-4070-46d0-91e7-8ba6ac491572]
+2026-06-12T11:28:49.021428756Z 2026-06-12T11:28:49Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:28:49.021443407Z 2026-06-12T11:28:49Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:29:07.120099479Z 2026-06-12T11:29:07Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:29:07.120156413Z 2026-06-12T11:29:07Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:29:07.120172340Z 2026-06-12T11:29:07Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:29:25.220842335Z 2026-06-12T11:29:25Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-fb152f51-f9f4-4793-acb7-a74243da98df]
+2026-06-12T11:29:25.220888463Z 2026-06-12T11:29:25Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:29:25.220895135Z 2026-06-12T11:29:25Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:29:55.665892348Z 2026-06-12T11:29:55Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:29:55.665913205Z 2026-06-12T11:29:55Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:29:55.665918002Z 2026-06-12T11:29:55Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:31:02.711268429Z 2026-06-12T11:31:02Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:31:02.711358941Z 2026-06-12T11:31:02Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:31:02.711375051Z 2026-06-12T11:31:02Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:31:18.079182581Z 2026-06-12T11:31:18Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-16817b25-7c95-4683-b2dc-62f71f584368]
+2026-06-12T11:31:18.079217188Z 2026-06-12T11:31:18Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:31:18.079221520Z 2026-06-12T11:31:18Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:32:42.206997990Z 2026-06-12T11:32:42Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:32:42.207081423Z 2026-06-12T11:32:42Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:32:42.207097441Z 2026-06-12T11:32:42Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:36:43.122251606Z 2026-06-12T11:36:43+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T11:37:24.520527049Z 2026-06-12T11:37:24Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:37:24.520592126Z 2026-06-12T11:37:24Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:37:24.520608411Z 2026-06-12T11:37:24Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:38:56.979990531Z 2026-06-12T11:38:56Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-6d0128a5-b5d7-4f43-8872-3874de02ea11]
+2026-06-12T11:38:56.980049127Z 2026-06-12T11:38:56Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:38:56.980059070Z 2026-06-12T11:38:56Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:39:10.040185139Z 2026-06-12T11:39:10Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T11:39:10.040219438Z 2026-06-12T11:39:10Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:39:10.040228567Z 2026-06-12T11:39:10Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:40:10.339822801Z 2026-06-12T11:40:10Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-9536b339-cd5f-42d0-b125-359af50add06]
+2026-06-12T11:40:10.339855067Z 2026-06-12T11:40:10Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:40:10.339859540Z 2026-06-12T11:40:10Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:48:33.033059535Z 2026-06-12T11:48:33Z [verbose] deleted pod [cattle-system/helm-operation-kxwtk]
+2026-06-12T11:48:33.033127714Z 2026-06-12T11:48:33Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:48:33.033133593Z 2026-06-12T11:48:33Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:48:58.041186481Z 2026-06-12T11:48:58Z [verbose] deleted pod [cattle-system/helm-operation-mnnv6]
+2026-06-12T11:48:58.041234286Z 2026-06-12T11:48:58Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:48:58.041237837Z 2026-06-12T11:48:58Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:49:18.029937116Z 2026-06-12T11:49:18Z [verbose] deleted pod [cattle-system/helm-operation-ppz58]
+2026-06-12T11:49:18.030055015Z 2026-06-12T11:49:18Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:49:18.030078946Z 2026-06-12T11:49:18Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:54:28.459959630Z 2026-06-12T11:54:28Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-3e531dfa-b4ab-4f15-a713-7b0365dd6252]
+2026-06-12T11:54:28.460027155Z 2026-06-12T11:54:28Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:54:28.460046167Z 2026-06-12T11:54:28Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:55:11.650981112Z 2026-06-12T11:55:11Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-ecf1f0ea-b6fa-4430-91dd-d3693d876dd0]
+2026-06-12T11:55:11.651064891Z 2026-06-12T11:55:11Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:55:11.651072018Z 2026-06-12T11:55:11Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:55:23.726226888Z 2026-06-12T11:55:23Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-c9986734-3742-4785-97ee-dee8c9d21ff0]
+2026-06-12T11:55:23.726265580Z 2026-06-12T11:55:23Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:55:23.726270171Z 2026-06-12T11:55:23Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:55:54.187414131Z 2026-06-12T11:55:54Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-3acb7665-c61d-460d-a2c5-332a049b9d0b]
+2026-06-12T11:55:54.187505957Z 2026-06-12T11:55:54Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:55:54.187531351Z 2026-06-12T11:55:54Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:56:05.923324931Z 2026-06-12T11:56:05Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-c1cb70e9-9fac-462e-877b-d2989ad33632]
+2026-06-12T11:56:05.923355369Z 2026-06-12T11:56:05Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:56:05.923379869Z 2026-06-12T11:56:05Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T11:56:14.980507053Z 2026-06-12T11:56:14Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-4bad1cbe-a41a-413d-bf4f-5c4a47a6b9de]
+2026-06-12T11:56:14.980527709Z 2026-06-12T11:56:14Z [verbose] skipped net-attach-def for default network
+2026-06-12T11:56:14.980531960Z 2026-06-12T11:56:14Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T12:04:32.254019180Z 2026-06-12T12:04:32Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T12:04:32.254049356Z 2026-06-12T12:04:32Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:32.254062636Z 2026-06-12T12:04:32Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T12:04:32.314512784Z 2026-06-12T12:04:32Z [verbose] deleted pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5]
+2026-06-12T12:04:32.314539897Z 2026-06-12T12:04:32Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:32.314559505Z 2026-06-12T12:04:32Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T12:04:39.286965337Z 2026-06-12T12:04:39Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T12:04:39.286996046Z 2026-06-12T12:04:39Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:39.287004881Z 2026-06-12T12:04:39Z [debug] pod's network status: {Name:harvester-system/storagenetwork-mvtz5 Interface:lhnet1 IPs:[10.115.0.2] Mac:92:34:a1:36:a8:aa Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:04:39.287023759Z 2026-06-12T12:04:39Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:39.287029831Z 2026-06-12T12:04:39Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c; retry #: 0
+2026-06-12T12:04:39.292295522Z 2026-06-12T12:04:39Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:39.292304822Z 2026-06-12T12:04:39Z [debug] pod's network status: {Name:harvester-system/storagenetwork-mvtz5 Interface:lhnet1 IPs:[10.115.0.2] Mac:92:34:a1:36:a8:aa Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:04:39.292312401Z 2026-06-12T12:04:39Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:39.292315113Z 2026-06-12T12:04:39Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c; retry #: 1
+2026-06-12T12:04:39.303494906Z 2026-06-12T12:04:39Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:39.303519094Z 2026-06-12T12:04:39Z [debug] pod's network status: {Name:harvester-system/storagenetwork-mvtz5 Interface:lhnet1 IPs:[10.115.0.2] Mac:92:34:a1:36:a8:aa Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:04:39.303523983Z 2026-06-12T12:04:39Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:39.303529222Z 2026-06-12T12:04:39Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c; retry #: 2
+2026-06-12T12:04:39.323764136Z 2026-06-12T12:04:39Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:39.323798792Z 2026-06-12T12:04:39Z [debug] pod's network status: {Name:harvester-system/storagenetwork-mvtz5 Interface:lhnet1 IPs:[10.115.0.2] Mac:92:34:a1:36:a8:aa Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:04:39.323806307Z 2026-06-12T12:04:39Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:39.323811293Z 2026-06-12T12:04:39Z [error] dropping pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c] deletion out of the queue - could not reconcile IP: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:39.323826237Z 2026-06-12T12:04:39Z [verbose] Event(v1.ObjectReference{Kind:"Pod", Namespace:"longhorn-system", Name:"bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c", UID:"bd221efe-de46-46a2-ba6d-bb29c724d182", APIVersion:"v1", ResourceVersion:"91219", FieldPath:""}): type: 'Warning' reason: 'IPAddressGarbageCollectionFailed' failed to garbage collect addresses for pod longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c
+2026-06-12T12:04:40.313568733Z 2026-06-12T12:04:40Z [verbose] deleted pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5]
+2026-06-12T12:04:40.313599133Z 2026-06-12T12:04:40Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:40.313602678Z 2026-06-12T12:04:40Z [debug] pod's network status: {Name:harvester-system/storagenetwork-mvtz5 Interface:lhnet1 IPs:[10.115.0.5] Mac:f6:dc:e3:c0:d7:78 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:04:40.313607153Z 2026-06-12T12:04:40Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:40.313610551Z 2026-06-12T12:04:40Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 0
+2026-06-12T12:04:40.318850410Z 2026-06-12T12:04:40Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:40.318866563Z 2026-06-12T12:04:40Z [debug] pod's network status: {Name:harvester-system/storagenetwork-mvtz5 Interface:lhnet1 IPs:[10.115.0.5] Mac:f6:dc:e3:c0:d7:78 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:04:40.318869819Z 2026-06-12T12:04:40Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:40.318882997Z 2026-06-12T12:04:40Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 1
+2026-06-12T12:04:40.329162419Z 2026-06-12T12:04:40Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:40.329180129Z 2026-06-12T12:04:40Z [debug] pod's network status: {Name:harvester-system/storagenetwork-mvtz5 Interface:lhnet1 IPs:[10.115.0.5] Mac:f6:dc:e3:c0:d7:78 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:04:40.329184334Z 2026-06-12T12:04:40Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:40.329187893Z 2026-06-12T12:04:40Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5; retry #: 2
+2026-06-12T12:04:40.349490812Z 2026-06-12T12:04:40Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:04:40.349505099Z 2026-06-12T12:04:40Z [debug] pod's network status: {Name:harvester-system/storagenetwork-mvtz5 Interface:lhnet1 IPs:[10.115.0.5] Mac:f6:dc:e3:c0:d7:78 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:04:40.349518749Z 2026-06-12T12:04:40Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:40.349525162Z 2026-06-12T12:04:40Z [error] dropping pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5] deletion out of the queue - could not reconcile IP: failed to get network-attachment-definition for iface harvester-system/storagenetwork-mvtz5: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-mvtz5" not found
+2026-06-12T12:04:40.349609839Z 2026-06-12T12:04:40Z [verbose] Event(v1.ObjectReference{Kind:"Pod", Namespace:"longhorn-system", Name:"instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5", UID:"56598744-f783-4a60-b9f3-8722a0fb624e", APIVersion:"v1", ResourceVersion:"91277", FieldPath:""}): type: 'Warning' reason: 'IPAddressGarbageCollectionFailed' failed to garbage collect addresses for pod longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5
+2026-06-12T12:07:34.128555923Z 2026-06-12T12:07:34Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T12:07:34.128653791Z 2026-06-12T12:07:34Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:07:34.128667882Z 2026-06-12T12:07:34Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T12:07:34.182179654Z 2026-06-12T12:07:34Z [verbose] deleted pod [longhorn-system/instance-manager-c5b8e6cd15853ab91e2d95ce832eb8b5]
+2026-06-12T12:07:34.182225211Z 2026-06-12T12:07:34Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:07:34.182231150Z 2026-06-12T12:07:34Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T12:07:52.218002373Z 2026-06-12T12:07:52Z [verbose] deleted pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c]
+2026-06-12T12:07:52.218085481Z 2026-06-12T12:07:52Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:07:52.218109162Z 2026-06-12T12:07:52Z [debug] pod's network status: {Name:harvester-system/storagenetwork-w2dg2 Interface:lhnet1 IPs:[10.115.0.1] Mac:7a:51:6c:8b:56:39 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:07:52.218114253Z 2026-06-12T12:07:52Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-w2dg2: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-w2dg2" not found
+2026-06-12T12:07:52.218118114Z 2026-06-12T12:07:52Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c; retry #: 0
+2026-06-12T12:07:52.223430252Z 2026-06-12T12:07:52Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:07:52.223445716Z 2026-06-12T12:07:52Z [debug] pod's network status: {Name:harvester-system/storagenetwork-w2dg2 Interface:lhnet1 IPs:[10.115.0.1] Mac:7a:51:6c:8b:56:39 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:07:52.223454097Z 2026-06-12T12:07:52Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-w2dg2: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-w2dg2" not found
+2026-06-12T12:07:52.223458573Z 2026-06-12T12:07:52Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c; retry #: 1
+2026-06-12T12:07:52.234167771Z 2026-06-12T12:07:52Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:07:52.234182840Z 2026-06-12T12:07:52Z [debug] pod's network status: {Name:harvester-system/storagenetwork-w2dg2 Interface:lhnet1 IPs:[10.115.0.1] Mac:7a:51:6c:8b:56:39 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:07:52.234186760Z 2026-06-12T12:07:52Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-w2dg2: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-w2dg2" not found
+2026-06-12T12:07:52.234190639Z 2026-06-12T12:07:52Z [verbose] re-queuing IP address reconciliation request for pod longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c; retry #: 2
+2026-06-12T12:07:52.254536841Z 2026-06-12T12:07:52Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:07:52.254560946Z 2026-06-12T12:07:52Z [debug] pod's network status: {Name:harvester-system/storagenetwork-w2dg2 Interface:lhnet1 IPs:[10.115.0.1] Mac:7a:51:6c:8b:56:39 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:07:52.254583715Z 2026-06-12T12:07:52Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface harvester-system/storagenetwork-w2dg2: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-w2dg2" not found
+2026-06-12T12:07:52.254589201Z 2026-06-12T12:07:52Z [error] dropping pod [longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c] deletion out of the queue - could not reconcile IP: failed to get network-attachment-definition for iface harvester-system/storagenetwork-w2dg2: networkattachmentdefinition.k8s.cni.cncf.io "storagenetwork-w2dg2" not found
+2026-06-12T12:07:52.254674795Z 2026-06-12T12:07:52Z [verbose] Event(v1.ObjectReference{Kind:"Pod", Namespace:"longhorn-system", Name:"bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c", UID:"cdae014f-05ef-4742-8b4a-093a394cd704", APIVersion:"v1", ResourceVersion:"94517", FieldPath:""}): type: 'Warning' reason: 'IPAddressGarbageCollectionFailed' failed to garbage collect addresses for pod longhorn-system/bim-4dfba11530c5606d4b02ee7f6deece071a37e52b3d8e29fa18e09e0c
+2026-06-12T12:08:10.188319279Z 2026-06-12T12:08:10Z [verbose] deleted pod [harvester-system/defaultvnet-11h54m14s376292-06-12-41315eca-qn2md]
+2026-06-12T12:08:10.188343211Z 2026-06-12T12:08:10Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:08:10.188368264Z 2026-06-12T12:08:10Z [debug] pod's network status: {Name:default/vnet-11h54m14s376292-06-12 Interface:net1 IPs:[] Mac:46:83:38:41:e1:0a Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:08:10.188383335Z 2026-06-12T12:08:10Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/vnet-11h54m14s376292-06-12: networkattachmentdefinition.k8s.cni.cncf.io "vnet-11h54m14s376292-06-12" not found
+2026-06-12T12:08:10.188386629Z 2026-06-12T12:08:10Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/defaultvnet-11h54m14s376292-06-12-41315eca-qn2md; retry #: 0
+2026-06-12T12:08:10.193620578Z 2026-06-12T12:08:10Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:08:10.193636513Z 2026-06-12T12:08:10Z [debug] pod's network status: {Name:default/vnet-11h54m14s376292-06-12 Interface:net1 IPs:[] Mac:46:83:38:41:e1:0a Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:08:10.193640200Z 2026-06-12T12:08:10Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/vnet-11h54m14s376292-06-12: networkattachmentdefinition.k8s.cni.cncf.io "vnet-11h54m14s376292-06-12" not found
+2026-06-12T12:08:10.193652099Z 2026-06-12T12:08:10Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/defaultvnet-11h54m14s376292-06-12-41315eca-qn2md; retry #: 1
+2026-06-12T12:08:10.203930167Z 2026-06-12T12:08:10Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:08:10.203945736Z 2026-06-12T12:08:10Z [debug] pod's network status: {Name:default/vnet-11h54m14s376292-06-12 Interface:net1 IPs:[] Mac:46:83:38:41:e1:0a Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:08:10.203948865Z 2026-06-12T12:08:10Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/vnet-11h54m14s376292-06-12: networkattachmentdefinition.k8s.cni.cncf.io "vnet-11h54m14s376292-06-12" not found
+2026-06-12T12:08:10.203952088Z 2026-06-12T12:08:10Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/defaultvnet-11h54m14s376292-06-12-41315eca-qn2md; retry #: 2
+2026-06-12T12:08:10.224246217Z 2026-06-12T12:08:10Z [verbose] skipped net-attach-def for default network
+2026-06-12T12:08:10.224268216Z 2026-06-12T12:08:10Z [debug] pod's network status: {Name:default/vnet-11h54m14s376292-06-12 Interface:net1 IPs:[] Mac:46:83:38:41:e1:0a Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T12:08:10.224287318Z 2026-06-12T12:08:10Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/vnet-11h54m14s376292-06-12: networkattachmentdefinition.k8s.cni.cncf.io "vnet-11h54m14s376292-06-12" not found
+2026-06-12T12:08:10.224293471Z 2026-06-12T12:08:10Z [error] dropping pod [harvester-system/defaultvnet-11h54m14s376292-06-12-41315eca-qn2md] deletion out of the queue - could not reconcile IP: failed to get network-attachment-definition for iface default/vnet-11h54m14s376292-06-12: networkattachmentdefinition.k8s.cni.cncf.io "vnet-11h54m14s376292-06-12" not found
+2026-06-12T12:08:10.224324931Z 2026-06-12T12:08:10Z [verbose] Event(v1.ObjectReference{Kind:"Pod", Namespace:"harvester-system", Name:"defaultvnet-11h54m14s376292-06-12-41315eca-qn2md", UID:"91fbab4a-78a7-497e-b41b-578f99f0fe72", APIVersion:"v1", ResourceVersion:"94914", FieldPath:""}): type: 'Warning' reason: 'IPAddressGarbageCollectionFailed' failed to garbage collect addresses for pod harvester-system/defaultvnet-11h54m14s376292-06-12-41315eca-qn2md
+2026-06-12T12:13:19.735486040Z 2026-06-12T12:13:19Z [verbose] deleted pod [default/virt-launcher-vm-12h06m47s328335-06-12-6vrb7]
+2026-06-12T12:13:19.735521055Z 2026-06-12T12:13:19Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T12:24:57.105873867Z 2026-06-12T12:24:57+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T13:13:01.942238840Z 2026-06-12T13:13:01+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T13:13:08.411758726Z 2026-06-12T13:13:08Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-28d03f5c-fa77-4f8f-8bd8-1f5a8e9f22ad]
+2026-06-12T13:13:08.411803088Z 2026-06-12T13:13:08Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:08.411809197Z 2026-06-12T13:13:08Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:13:10.294942178Z 2026-06-12T13:13:10Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-fb6434a3-2dcd-4ddc-b7b3-448133aa8e98]
+2026-06-12T13:13:10.294989247Z 2026-06-12T13:13:10Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:10.295003388Z 2026-06-12T13:13:10Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:13:11.458492324Z 2026-06-12T13:13:11Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-f1f5d036-b108-49f0-aaa0-57212826afe4]
+2026-06-12T13:13:11.458521721Z 2026-06-12T13:13:11Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:11.458526324Z 2026-06-12T13:13:11Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:13:11.538417030Z 2026-06-12T13:13:11Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-8f50beba-f74e-4862-8b37-c371d9a61258]
+2026-06-12T13:13:11.538451202Z 2026-06-12T13:13:11Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:11.538477813Z 2026-06-12T13:13:11Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:13:12.377478760Z 2026-06-12T13:13:12Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-bded5314-5e37-4f33-84cd-a3e569747b56]
+2026-06-12T13:13:12.377611104Z 2026-06-12T13:13:12Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:12.377619902Z 2026-06-12T13:13:12Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:13:12.485051738Z 2026-06-12T13:13:12Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-c0a66f17-a92c-46bb-ba44-3599cbf8f17a]
+2026-06-12T13:13:12.485097317Z 2026-06-12T13:13:12Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:12.485113847Z 2026-06-12T13:13:12Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:13:12.590840800Z 2026-06-12T13:13:12Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-03b11a7b-99ea-4851-b7ad-306eb2577ce3]
+2026-06-12T13:13:12.590873651Z 2026-06-12T13:13:12Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:12.590878943Z 2026-06-12T13:13:12Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:13:13.332747068Z 2026-06-12T13:13:13Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-685b4487-4e6a-4cfa-b51e-a48d51eef690]
+2026-06-12T13:13:13.332793080Z 2026-06-12T13:13:13Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:13.332797962Z 2026-06-12T13:13:13Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:13:15.650179550Z 2026-06-12T13:13:15Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-c94541f3-9cca-4a2d-a2c0-2292664bf1f5]
+2026-06-12T13:13:15.650210206Z 2026-06-12T13:13:15Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:13:15.650214418Z 2026-06-12T13:13:15Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:15:35.980247114Z 2026-06-12T13:15:35Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-35a1e34e-73dc-4b4b-a5ff-27ee15cc2e10]
+2026-06-12T13:15:35.980312230Z 2026-06-12T13:15:35Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:15:35.980326024Z 2026-06-12T13:15:35Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T13:16:00.113232753Z 2026-06-12T13:16:00Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-a8fae03d-196b-4c73-a4d0-72ed8f8277a4]
+2026-06-12T13:16:00.113268559Z 2026-06-12T13:16:00Z [verbose] skipped net-attach-def for default network
+2026-06-12T13:16:00.113273488Z 2026-06-12T13:16:00Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T14:01:17.015099554Z 2026-06-12T14:01:17+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T14:31:35.591119869Z 2026-06-12T14:31:35Z [verbose] deleted pod [kube-system/kube-proxy-hp-150-tink-system]
+2026-06-12T14:31:35.591145465Z 2026-06-12T14:31:35Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T14:31:36.420156832Z 2026-06-12T14:31:36+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T14:34:01.307055844Z 2026-06-12T14:34:01Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-27e2656b-94b8-4c01-9a3c-2c4640877640]
+2026-06-12T14:34:01.307135025Z 2026-06-12T14:34:01Z [verbose] skipped net-attach-def for default network
+2026-06-12T14:34:01.307150075Z 2026-06-12T14:34:01Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T14:37:08.162931226Z 2026-06-12T14:37:08Z [verbose] deleted pod [default/virt-launcher-pin-cpu-14h32m00s015305-06-12-lgbvt]
+2026-06-12T14:37:08.162984876Z 2026-06-12T14:37:08Z [verbose] skipped net-attach-def for default network
+2026-06-12T14:37:08.162990797Z 2026-06-12T14:37:08Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T14:37:24.306725142Z 2026-06-12T14:37:24Z [verbose] deleted pod [kube-system/kube-proxy-hp-150-tink-system]
+2026-06-12T14:37:24.306765730Z 2026-06-12T14:37:24Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T14:37:24.755314717Z 2026-06-12T14:37:24+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T14:41:17.416465256Z 2026-06-12T14:41:17Z [verbose] deleted pod [default/virt-launcher-vm-14h37m46s151202-06-12-5pg5v]
+2026-06-12T14:41:17.416540337Z 2026-06-12T14:41:17Z [verbose] skipped net-attach-def for default network
+2026-06-12T14:41:17.416548116Z 2026-06-12T14:41:17Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T14:51:15.245613173Z 2026-06-12T14:51:15Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-14ad7058-3d7c-458a-b57e-aa26484089e4]
+2026-06-12T14:51:15.245649781Z 2026-06-12T14:51:15Z [verbose] skipped net-attach-def for default network
+2026-06-12T14:51:15.245653197Z 2026-06-12T14:51:15Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T15:09:23.888193254Z 2026-06-12T15:09:23Z [verbose] deleted pod [harvester-system/default14h58m36s577421-06-12-c12584f0-v5sg8]
+2026-06-12T15:09:23.888279449Z 2026-06-12T15:09:23Z [verbose] skipped net-attach-def for default network
+2026-06-12T15:09:23.888321968Z 2026-06-12T15:09:23Z [debug] pod's network status: {Name:default/14h58m36s577421-06-12 Interface:net1 IPs:[] Mac:d6:3b:25:ba:6c:70 Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T15:09:23.888330959Z 2026-06-12T15:09:23Z [verbose] the NAD's config: {{"cniVersion": "0.3.1", "name": "14h58m36s577421-06-12", "type": "bridge", "bridge": "cnet-145836-br", "promiscMode": true, "vlan": 2011, "ipam": {}}}
+2026-06-12T15:09:23.888370228Z 2026-06-12T15:09:23Z [debug] error while computing something: only interested in networks whose IPAM type is 'whereabouts'. This one was: 
+2026-06-12T15:09:23.888376430Z 2026-06-12T15:09:23Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T15:10:02.511352288Z 2026-06-12T15:10:02Z [verbose] deleted pod [longhorn-system/backing-image-ds-vmi-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac]
+2026-06-12T15:10:02.511376586Z 2026-06-12T15:10:02Z [verbose] skipped net-attach-def for default network
+2026-06-12T15:10:02.511380511Z 2026-06-12T15:10:02Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T15:25:40.590455845Z 2026-06-12T15:25:40+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T15:27:33.504039598Z 2026-06-12T15:27:33Z [verbose] deleted pod [harvester-system/default15h08m00s971364-06-12-13008ecc-brxq9]
+2026-06-12T15:27:33.504153150Z 2026-06-12T15:27:33Z [verbose] skipped net-attach-def for default network
+2026-06-12T15:27:33.504179267Z 2026-06-12T15:27:33Z [debug] pod's network status: {Name:default/15h08m00s971364-06-12 Interface:net1 IPs:[] Mac:6a:b7:83:86:11:eb Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T15:27:33.504184605Z 2026-06-12T15:27:33Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/15h08m00s971364-06-12: networkattachmentdefinition.k8s.cni.cncf.io "15h08m00s971364-06-12" not found
+2026-06-12T15:27:33.504189841Z 2026-06-12T15:27:33Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/default15h08m00s971364-06-12-13008ecc-brxq9; retry #: 0
+2026-06-12T15:27:33.509509897Z 2026-06-12T15:27:33Z [verbose] skipped net-attach-def for default network
+2026-06-12T15:27:33.509526219Z 2026-06-12T15:27:33Z [debug] pod's network status: {Name:default/15h08m00s971364-06-12 Interface:net1 IPs:[] Mac:6a:b7:83:86:11:eb Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T15:27:33.509530569Z 2026-06-12T15:27:33Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/15h08m00s971364-06-12: networkattachmentdefinition.k8s.cni.cncf.io "15h08m00s971364-06-12" not found
+2026-06-12T15:27:33.509534330Z 2026-06-12T15:27:33Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/default15h08m00s971364-06-12-13008ecc-brxq9; retry #: 1
+2026-06-12T15:27:33.519742089Z 2026-06-12T15:27:33Z [verbose] skipped net-attach-def for default network
+2026-06-12T15:27:33.519758064Z 2026-06-12T15:27:33Z [debug] pod's network status: {Name:default/15h08m00s971364-06-12 Interface:net1 IPs:[] Mac:6a:b7:83:86:11:eb Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T15:27:33.519777266Z 2026-06-12T15:27:33Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/15h08m00s971364-06-12: networkattachmentdefinition.k8s.cni.cncf.io "15h08m00s971364-06-12" not found
+2026-06-12T15:27:33.519788217Z 2026-06-12T15:27:33Z [verbose] re-queuing IP address reconciliation request for pod harvester-system/default15h08m00s971364-06-12-13008ecc-brxq9; retry #: 2
+2026-06-12T15:27:33.540120490Z 2026-06-12T15:27:33Z [verbose] skipped net-attach-def for default network
+2026-06-12T15:27:33.540134485Z 2026-06-12T15:27:33Z [debug] pod's network status: {Name:default/15h08m00s971364-06-12 Interface:net1 IPs:[] Mac:6a:b7:83:86:11:eb Mtu:0 Default:false DNS:{Nameservers:[] Domain: Search:[] Options:[]} DeviceInfo:<nil> Gateway:[]}
+2026-06-12T15:27:33.540137528Z 2026-06-12T15:27:33Z [verbose] result of garbage collecting pods: failed to get network-attachment-definition for iface default/15h08m00s971364-06-12: networkattachmentdefinition.k8s.cni.cncf.io "15h08m00s971364-06-12" not found
+2026-06-12T15:27:33.540140812Z 2026-06-12T15:27:33Z [error] dropping pod [harvester-system/default15h08m00s971364-06-12-13008ecc-brxq9] deletion out of the queue - could not reconcile IP: failed to get network-attachment-definition for iface default/15h08m00s971364-06-12: networkattachmentdefinition.k8s.cni.cncf.io "15h08m00s971364-06-12" not found
+2026-06-12T15:27:33.540151634Z 2026-06-12T15:27:33Z [verbose] Event(v1.ObjectReference{Kind:"Pod", Namespace:"harvester-system", Name:"default15h08m00s971364-06-12-13008ecc-brxq9", UID:"59d87ee6-8ec6-4f11-b65d-fed716daf33a", APIVersion:"v1", ResourceVersion:"308528", FieldPath:""}): type: 'Warning' reason: 'IPAddressGarbageCollectionFailed' failed to garbage collect addresses for pod harvester-system/default15h08m00s971364-06-12-13008ecc-brxq9
+2026-06-12T15:45:27.584837903Z 2026-06-12T15:45:27Z [verbose] deleted pod [harvester-system/harvester-55899c5989-fm55b]
+2026-06-12T15:45:27.584920622Z 2026-06-12T15:45:27Z [verbose] skipped net-attach-def for default network
+2026-06-12T15:45:27.584927095Z 2026-06-12T15:45:27Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T15:45:31.620438786Z 2026-06-12T15:45:31Z [verbose] deleted pod [harvester-system/harvester-webhook-6954d46957-bhxhh]
+2026-06-12T15:45:31.620469958Z 2026-06-12T15:45:31Z [verbose] skipped net-attach-def for default network
+2026-06-12T15:45:31.620474610Z 2026-06-12T15:45:31Z [verbose] result of garbage collecting pods: <nil>
+2026-06-12T16:13:52.699504691Z 2026-06-12T16:13:52+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T17:02:24.555389605Z 2026-06-12T17:02:24+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T17:50:52.689314693Z 2026-06-12T17:50:52+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T18:39:27.401288933Z 2026-06-12T18:39:27+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T19:27:40.692848629Z 2026-06-12T19:27:40+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T20:16:01.871084234Z 2026-06-12T20:16:01+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T21:04:30.109481133Z 2026-06-12T21:04:30+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T21:52:42.142322877Z 2026-06-12T21:52:42+00:00 Detected service account or CA file change, regenerating kubeconfig...
+2026-06-12T22:41:17.165520950Z 2026-06-12T22:41:17+00:00 Detected service account or CA file change, regenerating kubeconfig...

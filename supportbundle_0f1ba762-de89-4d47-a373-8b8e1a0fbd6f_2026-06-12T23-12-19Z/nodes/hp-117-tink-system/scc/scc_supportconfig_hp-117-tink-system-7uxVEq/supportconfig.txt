@@ -1,0 +1,170 @@
+#==[ Note ]=========================================#
+# Privacy Statement
+
+Detailed system information and logs are collected and organized in a
+manner that helps reduce service request resolution times. Private system
+information can be disclosed when using this tool. If this is a concern,
+please prune private data from the log files. Several startup options
+are available to exclude more sensitive information. Supportconfig data is
+used only for diagnostic purposes and is considered confidential information.
+See http://www.suse.com/company/policies/privacy/
+
+#==[ Verification ]=================================#
+# rpm -V supportutils-3.2.12.2-160000.1.1.noarch
+# Verification Status: Passed
+
+Gathering system information
+  Script Version:       3.2.12
+  Script Date:          2025 Dec 12
+  Data Directory:       /var/log/scc_supportconfig_hp-117-tink-system-7uxVEq
+  Environment Value:    160
+  Command with Args:    /sbin/supportconfig -c -m -B supportconfig_hp-117-tink-system-7uxVEq -i BOOT,DAEMONS,ETC,ISCSI,MEM,MOD,NTP,SMART,DISK,pharvester_plugin_rke2,pharvester_plugin_console
+  FORCE_OPTION_PAM:     0
+  EXT_SCALING_DISABLED: 1
+
+#==[ Configuration File ]===========================#
+# /etc/supportutils/supportconfig.conf - File not found
+
+
+####################################
+# Options Used
+####################################
+OPTION_APPARMOR           = 0
+OPTION_AUDIT              = 0
+OPTION_AUTOFS             = 0
+OPTION_BOOT               = 1
+OPTION_BPF                = 0
+OPTION_BTRFS              = 0
+OPTION_CIMOM              = 0
+OPTION_CRASH              = 0
+OPTION_CRON               = 0
+OPTION_DAEMONS            = 1
+OPTION_DBUS               = 0
+OPTION_DHCP               = 0
+OPTION_DISK               = 1
+OPTION_DNS                = 0
+OPTION_DOCKER             = 0
+OPTION_DRBD               = 0
+OPTION_EMAIL              = 0
+OPTION_ENV                = 0
+OPTION_ETC                = 1
+OPTION_GFS2               = 0
+OPTION_HA                 = 0
+OPTION_HAPROXY            = 0
+OPTION_HISTORY            = 0
+OPTION_IB                 = 0
+OPTION_ISCSI              = 1
+OPTION_LDAP               = 0
+OPTION_LIVEPATCH          = 0
+OPTION_LVM                = 0
+OPTION_MEM                = 1
+OPTION_MOD                = 1
+OPTION_MPIO               = 0
+OPTION_NET                = 0
+OPTION_NFS                = 0
+OPTION_NTP                = 1
+OPTION_NVME               = 0
+OPTION_OCFS2              = 0
+OPTION_OFILES             = 0
+OPTION_PLYMOUTH           = 0
+OPTION_PODMAN             = 0
+OPTION_PRINT              = 0
+OPTION_PROC               = 0
+OPTION_SAR                = 0
+OPTION_SELINUX            = 0
+OPTION_SLERT              = 0
+OPTION_SLP                = 0
+OPTION_SMART              = 1
+OPTION_SMB                = 0
+OPTION_SMT                = 0
+OPTION_SRAID              = 0
+OPTION_SSH                = 0
+OPTION_SSSD               = 0
+OPTION_SYSCONFIG          = 0
+OPTION_SYSFS              = 0
+OPTION_TRANSACTIONAL      = 0
+OPTION_TUNED              = 0
+OPTION_UDEV               = 0
+OPTION_UFILES             = 0
+OPTION_UP                 = 0
+OPTION_WEB                = 0
+OPTION_X                  = 0
+
+ADD_OPTION_FSLIST         = 0
+ADD_OPTION_LOCAL_ONLY     = 0
+ADD_OPTION_LOGS           = 0
+ADD_OPTION_MAXYAST        = 0
+ADD_OPTION_MINDISK        = 0
+ADD_OPTION_RPMV           = 0
+ADD_OPTION_SLP            = 0
+
+  Basic Server Health Check...                 Done
+  RPM Database...                              Done
+  Basic Environment...                         Done
+  Open Files...                                Excluded
+  System Modules...                            Done
+  Memory Details...                            Done
+  Disk I/O...                                  Done
+  B-tree File System...                        Excluded
+  Transactional Update...                      Excluded
+  Tuned...                                     Excluded
+  YaST Files...                                Done
+  Filesystem List...                           Skipped
+  Auditing...                                  Excluded
+  Crash Info...                                Excluded
+  Email...                                     Excluded
+  NTP...                                       Skipped
+  PROC...                                      Excluded
+  Boot Files...                                Done
+  Plymouth...                                  Excluded
+  SLERT...                                     Excluded
+  Updates...                                   Excluded
+  NVMe...                                      Excluded
+  BPF...                                       Excluded
+  SMT...                                       Excluded
+  HA Cluster...                                Excluded
+  OCFS2...                                     Excluded
+  GFS2...                                      Excluded
+  DRBD...                                      Excluded
+  HAPROXY...                                   Excluded
+  PAM...                                       Restricted
+  LDAP...                                      Excluded
+  System Security Services...                  Excluded
+  CIMOM...                                     Excluded
+  Environment...                               Excluded
+  Command History...                           Excluded
+  ETC...                                       Done
+  SYSCONFIG...                                 Excluded
+  SYSFS...                                     Excluded
+  SystemD...                                   Done
+  Docker...                                    Excluded
+  Podman...                                    Excluded
+  D-Bus...                                     Excluded
+  UDEV...                                      Excluded
+  LVM...                                       Excluded
+  Software Raid...                             Excluded
+  Multipathing...                              Excluded
+  Networking...                                Excluded
+  Web...                                       Excluded
+  InfiniBand...                                Excluded
+  DNS...                                       Excluded
+  DHCP...                                      Excluded
+  SLP...                                       Excluded
+  SSH...                                       Excluded
+  iSCSI...                                     Done
+  Samba...                                     Excluded
+  NFS...                                       Excluded
+  AUTOFS...                                    Excluded
+  SAR Files...                                 Excluded
+  AppArmor...                                  Excluded
+  SELinux...                                   Excluded
+  X...                                         Excluded
+  Printing...                                  Excluded
+  SMART Disks...                               Done
+  Livepatch...                                 Excluded
+  Hardware...                                  Please Wait... Done
+  Supportconfig Plugins:                       2
+    Plugin: harvester_plugin_rke2...           Done
+    Plugin: harvester_plugin_console...        Done
+  System Logs...                               Done
+  Local/Warn Logs...                           Done

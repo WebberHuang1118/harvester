@@ -1,0 +1,29 @@
+apiVersion: v1
+items:
+- apiVersion: whereabouts.cni.cncf.io/v1alpha1
+  kind: IPPool
+  metadata:
+    creationTimestamp: "2026-06-12T11:21:35Z"
+    generation: 41
+    managedFields:
+    - apiVersion: whereabouts.cni.cncf.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:allocations: {}
+          f:range: {}
+      manager: whereabouts
+      operation: Update
+      time: "2026-06-12T12:07:49Z"
+    name: 10.115.0.0-21
+    namespace: kube-system
+    resourceVersion: "94571"
+    uid: d01c2407-218d-4f77-8ae7-8ec7854ea705
+  spec:
+    allocations: {}
+    range: 10.115.0.0/21
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676344"

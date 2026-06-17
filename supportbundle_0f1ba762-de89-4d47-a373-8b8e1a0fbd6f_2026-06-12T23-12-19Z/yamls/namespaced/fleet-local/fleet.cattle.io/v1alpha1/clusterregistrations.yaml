@@ -1,0 +1,70 @@
+apiVersion: v1
+items:
+- apiVersion: fleet.cattle.io/v1alpha1
+  kind: ClusterRegistration
+  metadata:
+    creationTimestamp: "2026-06-12T14:29:19Z"
+    generateName: request-
+    generation: 1
+    managedFields:
+    - apiVersion: fleet.cattle.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+        f:spec:
+          .: {}
+          f:clientID: {}
+          f:clientRandom: {}
+          f:clusterLabels:
+            .: {}
+            f:fleet.cattle.io/created-by-agent-pod: {}
+            f:name: {}
+            f:provider.cattle.io: {}
+      manager: fleetagent
+      operation: Update
+      time: "2026-06-12T14:29:19Z"
+    - apiVersion: fleet.cattle.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"3cc74668-4e61-4bb2-b394-3b05d997f8e7"}: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T14:29:19Z"
+    - apiVersion: fleet.cattle.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:clusterName: {}
+          f:granted: {}
+      manager: fleetcontroller
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:29:21Z"
+    name: request-bzlll
+    namespace: fleet-local
+    ownerReferences:
+    - apiVersion: fleet.cattle.io/v1alpha1
+      kind: Cluster
+      name: local
+      uid: 3cc74668-4e61-4bb2-b394-3b05d997f8e7
+    resourceVersion: "251766"
+    uid: 932152c4-0b3c-47e3-81e4-1ce453e5af14
+  spec:
+    clientID: spphpl684rd7lmknnrbr2t4tccdrb4rmvzvqpbjcplx5j2vk64mzcp
+    clientRandom: 5twtv66kxvv4d6jcltp6pj2rn9g56bnckc68wnc9zsxw7dkplklqg7
+    clusterLabels:
+      fleet.cattle.io/created-by-agent-pod: fleet-agent-598d897c9b-nbglf
+      name: local
+      provider.cattle.io: harvester
+  status:
+    clusterName: local
+    granted: true
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676422"

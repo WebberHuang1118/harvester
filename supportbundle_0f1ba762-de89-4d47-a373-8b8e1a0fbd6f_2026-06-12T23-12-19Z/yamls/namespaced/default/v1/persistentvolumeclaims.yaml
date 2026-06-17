@@ -1,0 +1,321 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: driver.longhorn.io
+      volume.kubernetes.io/storage-provisioner: driver.longhorn.io
+    creationTimestamp: "2026-06-12T11:49:33Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    - wrangler.cattle.io/persistentvolumeclaim-controller
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"wrangler.cattle.io/persistentvolumeclaim-controller"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:resources:
+            f:requests:
+              .: {}
+              f:storage: {}
+          f:volumeMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:49:33Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/bind-completed: {}
+            f:pv.kubernetes.io/bound-by-controller: {}
+            f:volume.beta.kubernetes.io/storage-provisioner: {}
+            f:volume.kubernetes.io/storage-provisioner: {}
+        f:spec:
+          f:volumeName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T11:49:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T11:49:46Z"
+    name: 11h47m47s831161-06-12
+    namespace: default
+    resourceVersion: "74306"
+    uid: 4210668c-8fe0-4e67-9d17-3d1b90a20feb
+  spec:
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 999999Ti
+    storageClassName: harvester-longhorn
+    volumeMode: Block
+    volumeName: pvc-4210668c-8fe0-4e67-9d17-3d1b90a20feb
+  status:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 999999Ti
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      harvesterhci.io/imageId: default/opensuse
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: driver.longhorn.io
+      volume.kubernetes.io/storage-provisioner: driver.longhorn.io
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    - wrangler.cattle.io/persistentvolumeclaim-controller
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/imageId: {}
+          f:finalizers:
+            v:"wrangler.cattle.io/persistentvolumeclaim-controller"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:resources:
+            f:requests:
+              .: {}
+              f:storage: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T15:10:02Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:pv.kubernetes.io/bind-completed: {}
+            f:pv.kubernetes.io/bound-by-controller: {}
+            f:volume.beta.kubernetes.io/storage-provisioner: {}
+            f:volume.kubernetes.io/storage-provisioner: {}
+        f:spec:
+          f:volumeName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T15:10:04Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:10:04Z"
+    name: 15h08m00s971364-06-12-mgmt-opensuse
+    namespace: default
+    resourceVersion: "292398"
+    uid: 0ebca804-b487-4cad-a241-1a1b6bc17980
+  spec:
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Gi
+    storageClassName: lh-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    volumeMode: Block
+    volumeName: pvc-0ebca804-b487-4cad-a241-1a1b6bc17980
+  status:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 10Gi
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      harvesterhci.io/imageId: default/opensuse
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: driver.longhorn.io
+      volume.kubernetes.io/storage-provisioner: driver.longhorn.io
+    creationTimestamp: "2026-06-12T15:28:43Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    - wrangler.cattle.io/persistentvolumeclaim-controller
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/imageId: {}
+          f:finalizers:
+            v:"wrangler.cattle.io/persistentvolumeclaim-controller"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:resources:
+            f:requests:
+              .: {}
+              f:storage: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T15:28:43Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:pv.kubernetes.io/bind-completed: {}
+            f:pv.kubernetes.io/bound-by-controller: {}
+            f:volume.beta.kubernetes.io/storage-provisioner: {}
+            f:volume.kubernetes.io/storage-provisioner: {}
+        f:spec:
+          f:volumeName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T15:28:45Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:28:45Z"
+    name: dhcp-test-vm-15h26m26s356466-06-12-opensuse
+    namespace: default
+    resourceVersion: "309851"
+    uid: 01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+  spec:
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Gi
+    storageClassName: lh-c7f4bdd5-d1fb-4545-8fdc-8c07d29cbfac
+    volumeMode: Block
+    volumeName: pvc-01a5ce02-4eba-40e7-bdda-9824d3bcfcb8
+  status:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 10Gi
+    phase: Bound
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      harvesterhci.io/imageId: default/templateversion-stopped-0628936362-14h49m13s790479-06-12-98cc15
+      pv.kubernetes.io/bind-completed: "yes"
+      pv.kubernetes.io/bound-by-controller: "yes"
+      volume.beta.kubernetes.io/storage-provisioner: driver.longhorn.io
+      volume.kubernetes.io/storage-provisioner: driver.longhorn.io
+    creationTimestamp: "2026-06-12T14:57:34Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    - wrangler.cattle.io/persistentvolumeclaim-controller
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:harvesterhci.io/imageId: {}
+          f:finalizers:
+            v:"wrangler.cattle.io/persistentvolumeclaim-controller"null: {}
+        f:spec:
+          f:accessModes: {}
+          f:resources:
+            f:requests:
+              .: {}
+              f:storage: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:57:34Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:pv.kubernetes.io/bind-completed: {}
+            f:pv.kubernetes.io/bound-by-controller: {}
+            f:volume.beta.kubernetes.io/storage-provisioner: {}
+            f:volume.kubernetes.io/storage-provisioner: {}
+        f:spec:
+          f:volumeName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T14:57:46Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:57:46Z"
+    name: tmpl-stopped-0628936362-14h49m13s790479-06-12-disk-0
+    namespace: default
+    resourceVersion: "280818"
+    uid: 77da81c0-aff4-4e7f-b8a3-f48b39767676
+  spec:
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 10Gi
+    storageClassName: lh-c6da5089-57c2-48ea-873b-77e3768ce594
+    volumeMode: Block
+    volumeName: pvc-77da81c0-aff4-4e7f-b8a3-f48b39767676
+  status:
+    accessModes:
+    - ReadWriteMany
+    capacity:
+      storage: 10Gi
+    phase: Bound
+kind: List
+metadata:
+  resourceVersion: "676315"

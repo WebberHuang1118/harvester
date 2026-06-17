@@ -1,0 +1,19 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: CSIDriver
+metadata:
+  name: {{ .Values.lvm.driverName }}
+  annotations:
+    lvm.driver.harvesterhci.io/version: {{ .Chart.AppVersion }}
+spec:
+  volumeLifecycleModes:
+  - Persistent
+  podInfoOnMount: true
+  attachRequired: false
+---
+apiVersion: snapshot.storage.k8s.io/v1
+deletionPolicy: Delete
+driver: lvm.driver.harvesterhci.io
+kind: VolumeSnapshotClass
+metadata:
+  name: lvm-snapshot

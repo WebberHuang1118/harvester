@@ -1,0 +1,7 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+stages:
+  initramfs:
+    - name: "persistence mitigation for pinifix"
+      files:
+        - path: "/etc/modprobe.d/10-pinifix.conf"
+          content: "blacklist rds \nblacklist rds_tcp\ninstall rds /bin/false\ninstall rds_tcp /bin/fasle\n"

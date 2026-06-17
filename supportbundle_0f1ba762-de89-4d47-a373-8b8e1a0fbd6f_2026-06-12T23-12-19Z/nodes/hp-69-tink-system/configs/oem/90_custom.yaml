@@ -1,0 +1,258 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+name: Harvester Configuration
+stages:
+  after-install-chroot:
+    - commands:
+        - grub2-editenv /oem/grubenv set extra_cmdline="ifname=netboot:5c:b9:01:88:d0:30"
+      if: '[ ! -f "/run/cos/recovery_mode" ]'
+      name: Run after-install-chroot commands
+  initramfs:
+    - commands:
+        - modprobe kvm
+        - modprobe vhost_net
+        - modprobe rbd
+        - modprobe nbd
+        - rm -f /var/lib/kubelet/cpu_manager_state
+      files:
+        - path: /etc/modprobe.d/10-pinifix.conf
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            blacklist rds
+            blacklist rds_tcp
+            install rds /bin/fasle
+            install rds_tcp /bin/false
+          encoding: ""
+          ownerstring: root
+        - path: /var/lib/rancher/rke2/server/manifests/pinifix.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: "apiVersion: node.harvesterhci.io/v1beta1\nkind: CloudInit\nmetadata:\n  name: ptrace-security-workaround\nspec:\n  matchSelector:\n    harvesterhci.io/managed: \"true\"\n  filename: 99-pinifix-security-mitigation\n  contents: |\n    stages:\n        initramfs:\n        - name: \"persistence mitigation for pinifix\"\n          files:\n            - path: \"/etc/modprobe.d/10-pinifix.conf\"\n              content: |\n                blacklist rds \n                blacklist rds_tcp\n                install rds /bin/false\n                install rds_tcp /bin/fasle\n"
+          encoding: ""
+          ownerstring: root
+        - path: /etc/sysctl.d/10-ptrace-scope.conf
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            kernel.yama.ptrace_scope = 2
+          encoding: ""
+          ownerstring: root
+        - path: /var/lib/rancher/rke2/server/manifests/ptracesecurity.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            apiVersion: node.harvesterhci.io/v1beta1
+            kind: CloudInit
+            metadata:
+              name: ptrace-security-workaround
+            spec:
+              matchSelector:
+                harvesterhci.io/managed: "true"
+              filename: 99-ptrace-security-workaround
+              contents: |
+                stages:
+                    initramfs:
+                    - name: "change systemctl kernel ptrace scope"
+                      files:
+                        - path: "/etc/sysctl.d/10-ptrace-scope.conf"
+                          content: |
+                            kernel.yama.ptrace_scope = 2
+          encoding: ""
+          ownerstring: root
+        - path: /etc/modprobe.d/10-copyfail2-fix.conf
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            blacklist esp4
+            blacklist esp6
+            blacklist rxrpc
+            install esp4 /bin/false
+            install esp6 /bin/false
+            install rxrpc /bin/false
+          encoding: ""
+          ownerstring: root
+        - path: /etc/modprobe.d/10-cvs-fix.conf
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            blacklist algif_aead
+            install algif_aead /bin/false
+          encoding: ""
+          ownerstring: root
+        - path: /var/lib/rancher/rke2/server/manifests/securitystuff.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            apiVersion: node.harvesterhci.io/v1beta1
+            kind: CloudInit
+            metadata:
+              name: copy-fail-workaround
+            spec:
+              matchSelector:
+                harvesterhci.io/managed: "true"
+              filename: 99-copy-fail-workaround
+              contents: |
+                stages:
+                    initramfs:
+                    - name: "Blacklist modules"
+                      files:
+                        - path: "/etc/modprobe.d/10-cvs-fix.conf"
+                          content: |
+                            blacklist algif_aead
+                            install algif_aead /bin/false
+          encoding: ""
+          ownerstring: root
+        - path: /var/lib/rancher/rke2/server/manifests/securitystuffnew.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            apiVersion: node.harvesterhci.io/v1beta1
+            kind: CloudInit
+            metadata:
+              name: copy-fail2-workaround
+            spec:
+              matchSelector:
+                harvesterhci.io/managed: "true"
+              filename: 100-copy-fail2-workaround
+              contents: |
+                stages:
+                    initramfs:
+                    - name: "Blacklist modules new"
+                      files:
+                        - path: "/etc/modprobe.d/10-copyfail2-fix.conf"
+                          content: |
+                            blacklist esp4
+                            blacklist esp6
+                            blacklist rxrpc
+                            install esp4 /bin/false
+                            install esp6 /bin/false
+                            install rxrpc /bin/false
+          encoding: ""
+          ownerstring: root
+        - path: /etc/multipath/conf.d/99-longhorn.conf
+          permissions: 420
+          owner: 0
+          group: 0
+          content: YmxhY2tsaXN0IHsKICBkZXZpY2UgewogICAgdmVuZG9yICJJRVQiCiAgICBwcm9kdWN0ICJWSVJUVUFMLURJU0siCiAgfQp9
+          encoding: base64
+          ownerstring: ""
+        - path: /etc/systemd/system/multipathd.service
+          permissions: 420
+          owner: 0
+          group: 0
+          content: W1VuaXRdCkRlc2NyaXB0aW9uPURldmljZS1NYXBwZXIgTXVsdGlwYXRoIERldmljZSBDb250cm9sbGVyCkJlZm9yZT1sdm0yLWFjdGl2YXRpb24tZWFybHkuc2VydmljZQpCZWZvcmU9bG9jYWwtZnMtcHJlLnRhcmdldCBibGstYXZhaWxhYmlsaXR5LnNlcnZpY2Ugc2h1dGRvd24udGFyZ2V0CldhbnRzPXN5c3RlbWQtdWRldmQta2VybmVsLnNvY2tldCBtb2Rwcm9iZUBkbV9tdWx0aXBhdGguc2VydmljZQpBZnRlcj1zeXN0ZW1kLXVkZXZkLWtlcm5lbC5zb2NrZXQgbW9kcHJvYmVAZG1fbXVsdGlwYXRoLnNlcnZpY2UKQWZ0ZXI9bXVsdGlwYXRoZC5zb2NrZXQgc3lzdGVtZC1yZW1vdW50LWZzLnNlcnZpY2UKQmVmb3JlPWluaXRyZC1jbGVhbnVwLnNlcnZpY2UKRGVmYXVsdERlcGVuZGVuY2llcz1ubwpDb25mbGljdHM9c2h1dGRvd24udGFyZ2V0CkNvbmZsaWN0cz1pbml0cmQtY2xlYW51cC5zZXJ2aWNlCkNvbmRpdGlvbktlcm5lbENvbW1hbmRMaW5lPSFub21wYXRoCkNvbmRpdGlvblZpcnR1YWxpemF0aW9uPSFjb250YWluZXIKCltTZXJ2aWNlXQpUeXBlPW5vdGlmeQpOb3RpZnlBY2Nlc3M9bWFpbgpFeGVjU3RhcnQ9L3Vzci9zYmluL211bHRpcGF0aGQgLWQgLXMKRXhlY1JlbG9hZD0vdXNyL3NiaW4vbXVsdGlwYXRoZCByZWNvbmZpZ3VyZQpUYXNrc01heD1pbmZpbml0eQpMaW1pdFJUUFJJTz0xMApDUFVXZWlnaHQ9MTAwMAoKW0luc3RhbGxdCldhbnRlZEJ5PXN5c2luaXQudGFyZ2V0
+          encoding: base64
+          ownerstring: ""
+        - path: /etc/rancher/rancherd/config.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            server: https://10.115.252.20:443
+            role: agent
+            nodeName: hp-69-tink-system
+            token: "4Rsjrdr0v3YdzTQ7"
+            kubernetesVersion: v1.35.5+rke2r1
+            rancherVersion: v2.14.2
+            rancherInstallerImage: rancher/system-agent-installer-rancher:v2.14.2
+            labels:
+             - harvesterhci.io/managed=true
+            extraConfig:
+              disable:
+              - rke2-snapshot-controller
+              - rke2-snapshot-controller-crd
+              - rke2-snapshot-validation-webhook
+          encoding: ""
+          ownerstring: ""
+        - path: /etc/rancher/rke2/config.yaml.d/91-harvester-cdi.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |-
+            # handle the permission issue of Longhorn for CDI
+            "nonroot-devices": true
+          encoding: ""
+          ownerstring: ""
+        - path: /etc/rancher/rke2/config.yaml.d/92-harvester-kube-audit-policy.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |
+            apiVersion: audit.k8s.io/v1
+            kind: Policy
+            omitStages:
+              - "ResponseStarted"
+              - "ResponseComplete"
+            rules:
+              # Any include/exclude rules are added here
+
+              # A catch-all rule to log all other (create/delete/patch) requests at the Metadata level
+              - level: Metadata
+                verbs: ["create", "delete", "patch"]
+                omitStages:
+                  - "ResponseStarted"
+                  - "ResponseComplete"
+          encoding: ""
+          ownerstring: ""
+        - path: /etc/rancher/rke2/config.yaml.d/90-harvester-agent.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |-
+            kubelet-arg:
+            - "max-pods=200"
+          encoding: ""
+          ownerstring: ""
+        - path: /etc/rancher/rke2/config.yaml.d/99-z00-harvester-reserved-resources.yaml
+          permissions: 384
+          owner: 0
+          group: 0
+          content: |-
+            kubelet-arg+:
+            - "system-reserved=cpu=472m"
+            - "kube-reserved=cpu=708m"
+          encoding: ""
+          ownerstring: ""
+      directories:
+        - path: /etc/multipath/conf.d
+          permissions: 420
+          owner: 0
+          group: 0
+        - path: /etc/rancher/rke2/config.yaml.d
+          permissions: 384
+          owner: 0
+          group: 0
+      hostname: hp-69-tink-system
+      users:
+        rancher:
+          passwd: '***'
+      systemctl:
+        enable:
+          - systemd-timesyncd
+          - systemd-time-wait-sync
+      timesyncd:
+        NTP: 0.suse.pool.ntp.org 1.suse.pool.ntp.org
+  network:
+    - hostname: hp-69-tink-system
+      authorized_keys:
+        rancher:
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9pD7CoCAGUzFpb7IKx6o3/jM1i04zmVpAf3vrDXsqjwjmJOCxERM9nQDT3+xEXsuTlAe2Rw9XUvtXU2CgK7MXMnQehoLUiA+lIJG1kJqEgY+0ELV5l/6GFJvcuRaERNXpZbeVAnx082Av9GbcwK5na3UayT4BGprzHsoQfkDPizk+ndXPlCMLblfK8bzWsP0E0tITvtT3GFVaLqqSO/JpyApGBjURUXkfkUbcHUM4F4wYdHKA4osIU3sL05vIopifUYbGeY5C1JIQgKnmPkcZNjutmz+p/l1oWZttl7vN2PBb1VjVbFGMf3BOrPanEjUG2E/GipgcWG1kj6VEjk4WQzldQH9VBRyoIq9N8OXeF2AQaVkoTUO0TQMAOPD6kK27fjWXsfGMuB0QHxnNjTLwss03Z2UxwUFc2QRhYoYcT3pVOO2StaxllLonB4J1ijv8I2z0vQaBk9MYTzoXU9h9gGMAtqXV03ocdV2Znoj+256lNb/ggamwloeWs8uNq8s= sles@jenkins
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCXKno/jp0/RLeqwOud1j7antFVJYKNu5qTiIUkY8DPl4ZWZr4kvXt9osxymiCTNwd0zL38tnnsNMO2nqY+YaxXFsnHDkO/pG9T8QgORNy9dFqpbyilWJMZtcFS4n769PcnhuDaNu4U3wY8fG4SGX0OYOtfWHujPxGwQX2Lppgw8NIp02KnPh/kKbZHEo2Wgq8dTNFYlk7y7s8qgsZivcqN2a9pnXW8WLPyOI0/+v/lmDKXPmfZ2V92W/GZ/Cy+RWI/qqEgQArPcQiPO3+d82I0/JiQgp0F50XDKNNIanEjMHX3/81ChmpuSR7bknYjMassybV0rztpnKnT5JwdzoG3zx5Yu8BwPLV6oD7I2qvVuZjjdjA/tfQtAJpONPJLNPG20mzA1Llo2vAK5KyHdz4/RCZi3fTXpTj3SdCuAb4XxP//qLdDi25K9gVFsYYfclNGtLF9FpTHelWP4QJTFll4CC9gRWBlWZH50oPOcbwqUpHqNfZz8yEgad8vVBKWipk= root@jenkins
+  rootfs:
+    - if: '[ ! -f "/run/cos/recovery_mode" ]'
+      name: Rootfs layout overwrite
+      environment:
+        OVERLAY: tmpfs:25%
+        PERSISTENT_STATE_BIND: "true"
+        PERSISTENT_STATE_PATHS: /etc/NetworkManager /etc/systemd /etc/rancher /etc/ssh /etc/iscsi /etc/nvme /etc/cni /etc/pki/trust/anchors /home /opt /root /usr/libexec /var/log /var/lib/rancher /var/lib/kubelet /var/lib/wicked /var/lib/NetworkManager /var/lib/cni /var/lib/third-party /var/crash /var/lib/longhorn /var/lib/rook /var/lib/ceph /etc/ceph /etc/webhook
+        RW_PATHS: /var /etc /srv /boot /lib/firmware
+        VOLUMES: LABEL=COS_OEM:/oem LABEL=COS_PERSISTENT:/usr/local LABEL=HARV_LH_DEFAULT:/var/lib/harvester/defaultdisk
+      environment_file: /run/cos/cos-layout.env

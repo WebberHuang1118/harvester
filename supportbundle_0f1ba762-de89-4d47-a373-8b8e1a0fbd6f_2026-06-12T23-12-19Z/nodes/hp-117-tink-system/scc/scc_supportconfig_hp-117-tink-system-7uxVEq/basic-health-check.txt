@@ -1,0 +1,854 @@
+#==[ Command ]======================================#
+# /bin/uptime
+ 23:13:53  up  12:35,  0 users,  load average: 0.75, 0.78, 0.89
+
+#==[ Command ]======================================#
+# /bin/grep -H . /sys/devices/system/cpu/vulnerabilities/gather_data_sampling /sys/devices/system/cpu/vulnerabilities/indirect_target_selection /sys/devices/system/cpu/vulnerabilities/itlb_multihit /sys/devices/system/cpu/vulnerabilities/l1tf /sys/devices/system/cpu/vulnerabilities/mds /sys/devices/system/cpu/vulnerabilities/meltdown /sys/devices/system/cpu/vulnerabilities/mmio_stale_data /sys/devices/system/cpu/vulnerabilities/reg_file_data_sampling /sys/devices/system/cpu/vulnerabilities/retbleed /sys/devices/system/cpu/vulnerabilities/spec_rstack_overflow /sys/devices/system/cpu/vulnerabilities/spec_store_bypass /sys/devices/system/cpu/vulnerabilities/spectre_v1 /sys/devices/system/cpu/vulnerabilities/spectre_v2 /sys/devices/system/cpu/vulnerabilities/srbds /sys/devices/system/cpu/vulnerabilities/tsa /sys/devices/system/cpu/vulnerabilities/tsx_async_abort /sys/devices/system/cpu/vulnerabilities/vmscape
+/sys/devices/system/cpu/vulnerabilities/gather_data_sampling:Not affected
+/sys/devices/system/cpu/vulnerabilities/indirect_target_selection:Not affected
+/sys/devices/system/cpu/vulnerabilities/itlb_multihit:KVM: Mitigation: Split huge pages
+/sys/devices/system/cpu/vulnerabilities/l1tf:Mitigation: PTE Inversion; VMX: conditional cache flushes, SMT disabled
+/sys/devices/system/cpu/vulnerabilities/mds:Mitigation: Clear CPU buffers; SMT disabled
+/sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
+/sys/devices/system/cpu/vulnerabilities/mmio_stale_data:Mitigation: Clear CPU buffers; SMT disabled
+/sys/devices/system/cpu/vulnerabilities/reg_file_data_sampling:Not affected
+/sys/devices/system/cpu/vulnerabilities/retbleed:Not affected
+/sys/devices/system/cpu/vulnerabilities/spec_rstack_overflow:Not affected
+/sys/devices/system/cpu/vulnerabilities/spec_store_bypass:Mitigation: Speculative Store Bypass disabled via prctl
+/sys/devices/system/cpu/vulnerabilities/spectre_v1:Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+/sys/devices/system/cpu/vulnerabilities/spectre_v2:Mitigation: Retpolines; IBPB: conditional; IBRS_FW; STIBP: disabled; RSB filling; PBRSB-eIBRS: Not affected; BHI: Not affected
+/sys/devices/system/cpu/vulnerabilities/srbds:Not affected
+/sys/devices/system/cpu/vulnerabilities/tsa:Not affected
+/sys/devices/system/cpu/vulnerabilities/tsx_async_abort:Not affected
+/sys/devices/system/cpu/vulnerabilities/vmscape:Mitigation: IBPB before exit to userspace
+
+#==[ Command ]======================================#
+# /bin/vmstat 1 4
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 2  0      0 40122692 1458488 77951960 0  0   661  3221 17249  14  3  1 95  0  0  0
+ 0  0      0 40122628 1458488 77951988 0  0     0  1268 15421 30958 2 1 97  0  0  0
+ 0  0      0 40133724 1458504 77952004 0  0     0   384 14072 28051 1 1 98  0  0  0
+ 3  0      0 40117252 1458508 77952036 0  0     0  5612 16764 32735 3 1 96  0  0  0
+
+#==[ Command ]======================================#
+# /bin/mpstat -P ALL 1 3
+Linux 6.12.0-160000.32-default (supportbundle-agent-bundle-local-v1.8-d46887de-head-zcpxy-stw5w) 	06/12/26 	_x86_64_	(24 CPU)
+
+23:13:56     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+23:13:57     all    6.38    0.00    1.39    0.38    0.00    0.21    0.00    0.00    0.00   91.64
+23:13:57       0    8.33    0.00    1.04    0.00    0.00    0.00    0.00    0.00    0.00   90.62
+23:13:57       1    4.00    0.00    2.00    0.00    0.00    1.00    0.00    0.00    0.00   93.00
+23:13:57       2    7.07    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   91.92
+23:13:57       3    3.00    0.00    1.00    1.00    0.00    1.00    0.00    0.00    0.00   94.00
+23:13:57       4    5.05    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   93.94
+23:13:57       5    5.05    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   93.94
+23:13:57       6    8.00    0.00    1.00    0.00    0.00    1.00    0.00    0.00    0.00   90.00
+23:13:57       7    6.00    0.00    2.00    0.00    0.00    1.00    0.00    0.00    0.00   91.00
+23:13:57       8    5.00    0.00    1.00    1.00    0.00    0.00    0.00    0.00    0.00   93.00
+23:13:57       9    7.07    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   91.92
+23:13:57      10    8.00    0.00    4.00    0.00    0.00    0.00    0.00    0.00    0.00   88.00
+23:13:57      11    7.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   92.00
+23:13:57      12    4.95    0.00    1.98    0.99    0.00    0.00    0.00    0.00    0.00   92.08
+23:13:57      13    8.08    0.00    1.01    1.01    0.00    0.00    0.00    0.00    0.00   89.90
+23:13:57      14    4.04    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   94.95
+23:13:57      15    5.15    0.00    1.03    0.00    0.00    0.00    0.00    0.00    0.00   93.81
+23:13:57      16    7.07    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   91.92
+23:13:57      17    6.06    0.00    1.01    4.04    0.00    0.00    0.00    0.00    0.00   88.89
+23:13:57      18   10.00    0.00    3.00    0.00    0.00    1.00    0.00    0.00    0.00   86.00
+23:13:57      19    7.07    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   91.92
+23:13:57      20    7.07    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   91.92
+23:13:57      21    8.08    0.00    1.01    1.01    0.00    0.00    0.00    0.00    0.00   89.90
+23:13:57      22    7.00    0.00    2.00    0.00    0.00    0.00    0.00    0.00    0.00   91.00
+23:13:57      23    5.10    0.00    1.02    0.00    0.00    0.00    0.00    0.00    0.00   93.88
+
+23:13:57     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+23:13:58     all    2.60    0.00    1.85    0.21    0.00    0.00    0.00    0.00    0.00   95.34
+23:13:58       0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+23:13:58       1    1.02    0.00    0.00    1.02    0.00    0.00    0.00    0.00    0.00   97.96
+23:13:58       2    2.02    0.00    2.02    0.00    0.00    0.00    0.00    0.00    0.00   95.96
+23:13:58       3    4.08    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   95.92
+23:13:58       4    1.00    0.00    1.00    1.00    0.00    0.00    0.00    0.00    0.00   97.00
+23:13:58       5    0.99    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   98.02
+23:13:58       6    3.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   96.00
+23:13:58       7    1.98    0.00    0.99    0.99    0.00    0.00    0.00    0.00    0.00   96.04
+23:13:58       8    1.02    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   98.98
+23:13:58       9    2.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   97.00
+23:13:58      10    2.02    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   97.98
+23:13:58      11    1.01    0.00    0.00    1.01    0.00    0.00    0.00    0.00    0.00   97.98
+23:13:58      12    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+23:13:58      13    4.04    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   94.95
+23:13:58      14    2.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   97.00
+23:13:58      15    2.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   97.00
+23:13:58      16    3.03    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   95.96
+23:13:58      17    1.01    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   97.98
+23:13:58      18    1.98    0.00    0.00    0.99    0.00    0.00    0.00    0.00    0.00   97.03
+23:13:58      19   20.00    0.00   27.00    0.00    0.00    0.00    0.00    0.00    0.00   53.00
+23:13:58      20    1.01    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   98.99
+23:13:58      21    2.00    0.00    2.00    0.00    0.00    0.00    0.00    0.00    0.00   96.00
+23:13:58      22    2.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   97.00
+23:13:58      23    3.00    0.00    2.00    0.00    0.00    0.00    0.00    0.00    0.00   95.00
+
+23:13:58     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+23:13:59     all    7.42    0.00    3.25    0.30    0.00    0.13    0.00    0.00    0.00   88.91
+23:13:59       0    5.21    0.00    1.04    1.04    0.00    0.00    0.00    0.00    0.00   92.71
+23:13:59       1    7.07    0.00    1.01    1.01    0.00    0.00    0.00    0.00    0.00   90.91
+23:13:59       2    2.04    0.00    0.00    1.02    0.00    0.00    0.00    0.00    0.00   96.94
+23:13:59       3    3.03    0.00    2.02    0.00    0.00    0.00    0.00    0.00    0.00   94.95
+23:13:59       4    2.04    0.00    1.02    0.00    0.00    0.00    0.00    0.00    0.00   96.94
+23:13:59       5    4.08    0.00    0.00    0.00    0.00    1.02    0.00    0.00    0.00   94.90
+23:13:59       6   13.13    0.00    7.07    0.00    0.00    0.00    0.00    0.00    0.00   79.80
+23:13:59       7    4.04    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   95.96
+23:13:59       8    8.91    0.00    0.99    0.00    0.00    0.99    0.00    0.00    0.00   89.11
+23:13:59       9    3.03    0.00    1.01    0.00    0.00    1.01    0.00    0.00    0.00   94.95
+23:13:59      10    6.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   93.00
+23:13:59      11    5.10    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   94.90
+23:13:59      12    4.04    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   94.95
+23:13:59      13   10.00    0.00   13.00    0.00    0.00    0.00    0.00    0.00    0.00   77.00
+23:13:59      14   15.31    0.00    1.02    0.00    0.00    0.00    0.00    0.00    0.00   83.67
+23:13:59      15    6.12    0.00    1.02    0.00    0.00    0.00    0.00    0.00    0.00   92.86
+23:13:59      16   10.00    0.00    1.00    1.00    0.00    0.00    0.00    0.00    0.00   88.00
+23:13:59      17   17.17    0.00    1.01    2.02    0.00    0.00    0.00    0.00    0.00   79.80
+23:13:59      18   22.22    0.00   21.21    0.00    0.00    0.00    0.00    0.00    0.00   56.57
+23:13:59      19    7.00    0.00    6.00    1.00    0.00    0.00    0.00    0.00    0.00   86.00
+23:13:59      20    3.03    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   95.96
+23:13:59      21    4.04    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   94.95
+23:13:59      22   12.24    0.00   14.29    0.00    0.00    0.00    0.00    0.00    0.00   73.47
+23:13:59      23    3.03    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   95.96
+
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+Average:     all    5.46    0.00    2.16    0.29    0.00    0.11    0.00    0.00    0.00   91.97
+Average:       0    4.51    0.00    0.69    0.35    0.00    0.00    0.00    0.00    0.00   94.44
+Average:       1    4.04    0.00    1.01    0.67    0.00    0.34    0.00    0.00    0.00   93.94
+Average:       2    3.72    0.00    1.01    0.34    0.00    0.00    0.00    0.00    0.00   94.93
+Average:       3    3.37    0.00    1.01    0.34    0.00    0.34    0.00    0.00    0.00   94.95
+Average:       4    2.69    0.00    1.01    0.34    0.00    0.00    0.00    0.00    0.00   95.96
+Average:       5    3.36    0.00    0.67    0.00    0.00    0.34    0.00    0.00    0.00   95.64
+Average:       6    8.03    0.00    3.01    0.00    0.00    0.33    0.00    0.00    0.00   88.63
+Average:       7    4.00    0.00    1.00    0.33    0.00    0.33    0.00    0.00    0.00   94.33
+Average:       8    5.02    0.00    0.67    0.33    0.00    0.33    0.00    0.00    0.00   93.65
+Average:       9    4.03    0.00    1.01    0.00    0.00    0.34    0.00    0.00    0.00   94.63
+Average:      10    5.35    0.00    1.67    0.00    0.00    0.00    0.00    0.00    0.00   92.98
+Average:      11    4.38    0.00    0.34    0.34    0.00    0.00    0.00    0.00    0.00   94.95
+Average:      12    3.02    0.00    1.01    0.34    0.00    0.00    0.00    0.00    0.00   95.64
+Average:      13    7.38    0.00    5.03    0.34    0.00    0.00    0.00    0.00    0.00   87.25
+Average:      14    7.07    0.00    1.01    0.00    0.00    0.00    0.00    0.00    0.00   91.92
+Average:      15    4.41    0.00    1.02    0.00    0.00    0.00    0.00    0.00    0.00   94.58
+Average:      16    6.71    0.00    1.01    0.34    0.00    0.00    0.00    0.00    0.00   91.95
+Average:      17    8.08    0.00    1.01    2.02    0.00    0.00    0.00    0.00    0.00   88.89
+Average:      18   11.33    0.00    8.00    0.33    0.00    0.33    0.00    0.00    0.00   80.00
+Average:      19   11.37    0.00   11.37    0.33    0.00    0.00    0.00    0.00    0.00   76.92
+Average:      20    3.70    0.00    0.67    0.00    0.00    0.00    0.00    0.00    0.00   95.62
+Average:      21    4.70    0.00    1.34    0.34    0.00    0.00    0.00    0.00    0.00   93.62
+Average:      22    7.05    0.00    5.70    0.00    0.00    0.00    0.00    0.00    0.00   87.25
+Average:      23    3.70    0.00    1.35    0.00    0.00    0.00    0.00    0.00    0.00   94.95
+
+#==[ Command ]======================================#
+# /bin/free -k
+               total        used        free      shared  buff/cache   available
+Mem:       131854512    13380108    40174696       35312    79410980   118474404
+Swap:              0           0           0
+
+#==[ Command ]======================================#
+# /bin/free -h
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        12Gi        38Gi        34Mi        75Gi       112Gi
+Swap:             0B          0B          0B
+
+#==[ Command ]======================================#
+# /bin/df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+/dev/loop0     ext2      3.0G  2.2G  677M  77% /
+overlay        overlay    32G   15M   32G   1% /boot
+overlay        overlay    32G   15M   32G   1% /etc
+/dev/nvme0n1p5 ext4      147G   36G  104G  26% /opt
+overlay        overlay    32G   15M   32G   1% /usr/lib/firmware
+/dev/nvme0n1p2 ext4       42M  417K   38M   2% /oem
+overlay        overlay    32G   15M   32G   1% /srv
+overlay        overlay    32G   15M   32G   1% /var
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/b8daf6b7-ed19-4357-ae07-90200a6db118/volumes/kubernetes.io~projected/kube-api-access-dzjjl
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/447122d3-b7b5-42ca-a5e1-e63ae55b2930/volumes/kubernetes.io~projected/kube-api-access-wgmwb
+tmpfs          tmpfs      64M   12K   64M   1% /var/lib/kubelet/pods/ecf73a92-2c06-4245-a97b-ceb74df7824d/volumes/kubernetes.io~projected/kube-api-access-d8xdx
+tmpfs          tmpfs     128M   12K  128M   1% /var/lib/kubelet/pods/f13e24b6-7900-42ef-8ed8-4eeda38baa52/volumes/kubernetes.io~projected/kube-api-access-2zmnj
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/f9613b69-b4bf-4610-afc7-6c1695e4e9b8/volumes/kubernetes.io~projected/kube-api-access-nhgmx
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/9dd8ad0f-f613-49ab-87dc-a893edfacb4d/volumes/kubernetes.io~projected/kube-api-access-qz6dr
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/2ba31434-0a2e-48e5-a01a-b2aae47b827c/volumes/kubernetes.io~projected/kube-api-access-ksfhv
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/db124a5f-aa25-4f35-966a-272f65ee71c5/volumes/kubernetes.io~projected/kube-api-access-fwv4j
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/576acbdc-8db3-493a-8836-5f0f6516a5b5/volumes/kubernetes.io~projected/kube-api-access-gp8nh
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/1086173d-7b65-4c8e-8aef-7674a0f500d5/volumes/kubernetes.io~projected/kube-api-access-6bw6b
+tmpfs          tmpfs     600M   12K  600M   1% /var/lib/kubelet/pods/11243db0-a64f-4efe-aae8-f8e81d249dfb/volumes/kubernetes.io~projected/kube-api-access-4vsr2
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/1df38f9e-23bc-4500-b47e-4ce97f3a7bb6/volumes/kubernetes.io~projected/kube-api-access-nb9b6
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/fa047758-04c5-4817-887f-2e93a4c188a5/volumes/kubernetes.io~projected/kube-api-access-q7zzn
+tmpfs          tmpfs     256M   12K  256M   1% /var/lib/kubelet/pods/f91cfc12-7296-46fd-aec8-4a4881ffac0a/volumes/kubernetes.io~projected/kube-api-access-xw4j4
+tmpfs          tmpfs     128M   12K  128M   1% /var/lib/kubelet/pods/0d0508a4-d656-4997-a009-56f7c0f1563f/volumes/kubernetes.io~projected/kube-api-access-rjmlw
+tmpfs          tmpfs     256M   12K  256M   1% /var/lib/kubelet/pods/383eafd3-8566-4197-9efb-be7cae4023e4/volumes/kubernetes.io~projected/kube-api-access-dp4sh
+tmpfs          tmpfs     256M   12K  256M   1% /var/lib/kubelet/pods/ad917de6-c143-4734-8e02-639476e47937/volumes/kubernetes.io~projected/kube-api-access-hjtgz
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/2ae75d4c-eacb-41d1-8fcb-a3a0b6d7cca8/volumes/kubernetes.io~projected/kube-api-access-rbz4d
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/b3260026-f1a5-4695-9e76-58797b42dcaa/volumes/kubernetes.io~projected/kube-api-access-zdvh7
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/6708b641-3a0d-4065-ac90-252bee503879/volumes/kubernetes.io~projected/kube-api-access-k5xvz
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/6ed21c2d-5a6b-4971-8706-b25ee60b127d/volumes/kubernetes.io~projected/kube-api-access-xwbtj
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/8364d662-f88f-40ff-bc4a-1f4fa1702148/volumes/kubernetes.io~projected/kube-api-access-qxqbf
+tmpfs          tmpfs     126G     0  126G   0% /var/lib/kubelet/pods/f69f3692-00cb-4087-b546-1f5985ef9619/volumes/kubernetes.io~secret/longhorn-grpc-tls
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/ced58154-c356-4c4b-a4e6-70e1d45c4810/volumes/kubernetes.io~projected/kube-api-access-x5vqf
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/f69f3692-00cb-4087-b546-1f5985ef9619/volumes/kubernetes.io~projected/kube-api-access-cjlqs
+tmpfs          tmpfs     200M   12K  200M   1% /var/lib/kubelet/pods/e6cd40cd-4402-49bd-b675-3cbdac4dbfb3/volumes/kubernetes.io~projected/kube-api-access-js6g6
+tmpfs          tmpfs     128M   12K  128M   1% /var/lib/kubelet/pods/a3dfff7e-c499-42c9-a778-4229463df40c/volumes/kubernetes.io~projected/kube-api-access-mnvxt
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/6a5f9233-6ff1-45a2-a936-42f0562e46ee/volumes/kubernetes.io~projected/kube-api-access-5trpw
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/49b7b7a2-c9a5-4d3d-9c92-b9581f2fe458/volumes/kubernetes.io~projected/kube-api-access-f596k
+tmpfs          tmpfs     512M   12K  512M   1% /var/lib/kubelet/pods/a5279635-6f76-4fa5-997f-adbaed4f7809/volumes/kubernetes.io~projected/kube-api-access-7kmvj
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/8cd15c4d-f923-4f71-aea7-5d522b25e0d2/volumes/kubernetes.io~projected/kube-api-access-zz4ld
+tmpfs          tmpfs     512M  8.0K  512M   1% /var/lib/kubelet/pods/cb301bcf-d78b-4da4-9dbf-aaa67f9166ef/volumes/kubernetes.io~secret/kubevirt-operator-certs
+tmpfs          tmpfs     200M   12K  200M   1% /var/lib/kubelet/pods/7611f301-8acc-4da5-8f5a-31e106f8d990/volumes/kubernetes.io~projected/kube-api-access-6kd6k
+tmpfs          tmpfs     512M   12K  512M   1% /var/lib/kubelet/pods/cb301bcf-d78b-4da4-9dbf-aaa67f9166ef/volumes/kubernetes.io~projected/kube-api-access-kpzgq
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/5b4a400e-bb20-4e67-87a8-7af98841dc60/volumes/kubernetes.io~projected/kube-api-access-9c8p2
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/7241db30-f1f5-4a6b-bc4d-cc68abeb674f/volumes/kubernetes.io~projected/kube-api-access-t772c
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f/volumes/kubernetes.io~projected/kube-api-access-7gp2m
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/1675eb18-fe58-400c-af68-38e95135cced/volumes/kubernetes.io~secret/server-cert
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/1675eb18-fe58-400c-af68-38e95135cced/volumes/kubernetes.io~secret/client-cert
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/1675eb18-fe58-400c-af68-38e95135cced/volumes/kubernetes.io~projected/kube-api-access-w7tjr
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/7241db30-f1f5-4a6b-bc4d-cc68abeb674f/volumes/kubernetes.io~secret/server-cert
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f/volumes/kubernetes.io~secret/uploadserver-client-ca-cert
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f/volumes/kubernetes.io~secret/uploadserver-ca-cert
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/e6269d45-5b83-448f-8937-213517422b52/volumes/kubernetes.io~projected/kube-api-access-nnxhk
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f/volumes/kubernetes.io~secret/cdi-api-signing-key
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/6d85d229-ec07-4dd8-baea-ffa36bd8dc49/volumes/kubernetes.io~projected/kube-api-access-tvrw6
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/da9d9fc5-66a6-4cd4-a9a0-403494f7386e/volumes/kubernetes.io~projected/kube-api-access-drn55
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/0a7b300c-1284-401e-80a3-37a4088f414e/volumes/kubernetes.io~projected/kube-api-access-gqx9m
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/003128c3-a05b-4ed3-8f62-99f4cfe07467/volumes/kubernetes.io~projected/kube-api-access-xj5j9
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/ceff23fb-c448-4f55-a578-e4b8e23995b3/volumes/kubernetes.io~projected/kube-api-access-2c6pn
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/df277f70-9835-4857-9ec7-13795b101681/volumes/kubernetes.io~projected/kube-api-access-cwdgw
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/c84c8068-1bd2-4c8f-9306-9fcd28aa34cb/volumes/kubernetes.io~projected/kube-api-access-7dwtl
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/9f665281-bcae-449e-884e-24d3b89e898b/volumes/kubernetes.io~projected/kube-api-access-9v5mm
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/4a6651a3-75b7-47f1-b2d7-b3614b5e05e7/volumes/kubernetes.io~projected/kube-api-access-876g5
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/0d3a7876-ff72-4ee6-9b06-adfed6a3e564/volumes/kubernetes.io~projected/kube-api-access-hppps
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/9744d12c-2759-4d22-a053-dc15af3b9d14/volumes/kubernetes.io~projected/kube-api-access-v9l4q
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/e661652d-562b-4a2f-95d1-8496c225caa7/volumes/kubernetes.io~projected/kube-api-access-rhjnf
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/ccd49a84-3c96-4bba-bf83-67daa9ca498b/volumes/kubernetes.io~projected/kube-api-access-rq4l4
+tmpfs          tmpfs     1.1G  8.0K  1.1G   1% /var/lib/kubelet/pods/c564fb68-5d91-4a60-9fc2-b7993acf67ae/volumes/kubernetes.io~secret/kubevirt-virt-api-certs
+tmpfs          tmpfs     1.1G  8.0K  1.1G   1% /var/lib/kubelet/pods/c564fb68-5d91-4a60-9fc2-b7993acf67ae/volumes/kubernetes.io~secret/kubevirt-virt-handler-certs
+tmpfs          tmpfs     1.1G   12K  1.1G   1% /var/lib/kubelet/pods/c564fb68-5d91-4a60-9fc2-b7993acf67ae/volumes/kubernetes.io~projected/kube-api-access-pvdtq
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/e860f4cc-9f43-40d3-9cb5-60f0abf76901/volumes/kubernetes.io~secret/cert
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/e860f4cc-9f43-40d3-9cb5-60f0abf76901/volumes/kubernetes.io~projected/kube-api-access-97lmz
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/252f9818-6926-427d-869a-4145cd231f73/volumes/kubernetes.io~projected/kube-api-access-xtzd6
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~secret/kubevirt-virt-handler-server-certs
+tmpfs          tmpfs     1.3G  8.0K  1.3G   1% /var/lib/kubelet/pods/c71329b7-45d1-4a06-afc6-bd0c4d546054/volumes/kubernetes.io~secret/kubevirt-controller-certs
+tmpfs          tmpfs     126G  4.0K  126G   1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~downward-api/podinfo
+tmpfs          tmpfs     1.3G  8.0K  1.3G   1% /var/lib/kubelet/pods/c71329b7-45d1-4a06-afc6-bd0c4d546054/volumes/kubernetes.io~secret/kubevirt-export-ca
+tmpfs          tmpfs     1.3G  8.0K  1.3G   1% /var/lib/kubelet/pods/02ce2273-af3b-499d-becf-137ad4c8cc75/volumes/kubernetes.io~secret/kubevirt-controller-certs
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~secret/kubevirt-virt-handler-vsock-client-certs
+tmpfs          tmpfs     1.3G  8.0K  1.3G   1% /var/lib/kubelet/pods/02ce2273-af3b-499d-becf-137ad4c8cc75/volumes/kubernetes.io~secret/kubevirt-export-ca
+tmpfs          tmpfs     126G  8.0K  126G   1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~secret/kubevirt-virt-handler-migration-client-certs
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~projected/kube-api-access-sxpjx
+tmpfs          tmpfs     1.3G   12K  1.3G   1% /var/lib/kubelet/pods/02ce2273-af3b-499d-becf-137ad4c8cc75/volumes/kubernetes.io~projected/kube-api-access-xkx8r
+tmpfs          tmpfs     1.3G   12K  1.3G   1% /var/lib/kubelet/pods/c71329b7-45d1-4a06-afc6-bd0c4d546054/volumes/kubernetes.io~projected/kube-api-access-xddmj
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/b999ab7c-5743-43ad-8ff4-edbf78432f2a/volumes/kubernetes.io~secret/webhook-cert
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/b999ab7c-5743-43ad-8ff4-edbf78432f2a/volumes/kubernetes.io~projected/kube-api-access-rbrm4
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/4f8f040c-d64a-47d3-9973-30807fa8e28a/volumes/kubernetes.io~projected/kube-api-access-nt8th
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/d907518f-99e3-48ae-bd15-f3727a516cdf/volumes/kubernetes.io~projected/kube-api-access-jxsrw
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/732e2d2c-382f-4e46-b3dc-bf198d725c68/volumes/kubernetes.io~projected/kube-api-access-k8hcj
+tmpfs          tmpfs     126G     0  126G   0% /var/lib/kubelet/pods/46df60c0-2c74-42c9-b7af-89187040841e/volumes/kubernetes.io~secret/longhorn-grpc-tls
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/46df60c0-2c74-42c9-b7af-89187040841e/volumes/kubernetes.io~projected/kube-api-access-jdblw
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/47b82d51-fb6f-4010-ad08-30aa78df8661/volumes/kubernetes.io~projected/kube-api-access-xcxwl
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/4971c7fc-417d-4b1e-92ae-3f5246742060/volumes/kubernetes.io~projected/kube-api-access-mj9vb
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/c66dbd44-4499-4950-9e84-64a060112795/volumes/kubernetes.io~projected/kube-api-access-f6qdq
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/14424dc8-2c20-428f-b08a-af07c3bb5580/volumes/kubernetes.io~projected/kube-api-access-n6tkb
+tmpfs          tmpfs     126G   12K  126G   1% /var/lib/kubelet/pods/592d9307-a5f0-42f6-9a59-5b0110ea8586/volumes/kubernetes.io~projected/kube-api-access-mxmz8
+/dev/nvme0n1p6 ext4      1.7T   43G  1.5T   3% /var/lib/harvester/defaultdisk
+devtmpfs       devtmpfs  4.0M     0  4.0M   0% /dev
+shm            tmpfs      64M     0   64M   0% /dev/shm
+efivarfs       efivarfs  176K  102K   70K  60% /sys/firmware/efi/efivars
+tmpfs          tmpfs      26G   15M   26G   1% /run
+/dev/nvme0n1p4 ext4       15G  4.3G  9.7G  31% /run/initramfs/cos-state
+tmpfs          tmpfs      32G   15M   32G   1% /run/overlay
+tmpfs          tmpfs     1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs          tmpfs     1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/0e9d5fbdc0cc5b8d90c891060143c0f237144a38c72b7b5c3a2093a881326f55/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/0e9d5fbdc0cc5b8d90c891060143c0f237144a38c72b7b5c3a2093a881326f55/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f6eed2daac5beeee652f972ecdcdb938dd789c04012d6b8ea66a2538928f9a7e/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c989415c2d51a99a7055b565ec05fc532b1e7f76b2c8a67bab65d12999f473a3/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c989415c2d51a99a7055b565ec05fc532b1e7f76b2c8a67bab65d12999f473a3/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/7086b5777b2a950663c2d04842ddff85a01345cec1ccad504426a5cbbfb42bb2/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/cfee1f5f202c54c227839653bc733a00c7956e0c2b15c83b85fbcc3f7ecb7075/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/cfee1f5f202c54c227839653bc733a00c7956e0c2b15c83b85fbcc3f7ecb7075/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/bc43018d517da16f3aef904bb9332cb5a748b39d32335731d7d5f57739358c3f/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/8618cc6ac2f77fde749be4e87f12f2bb3d62622f3f9b1607d94214d89c2e03dd/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8618cc6ac2f77fde749be4e87f12f2bb3d62622f3f9b1607d94214d89c2e03dd/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6f7ff26836ef7052476ba444d056c4d394a6a89d1c43862134d3b247647d077b/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6f7ff26836ef7052476ba444d056c4d394a6a89d1c43862134d3b247647d077b/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9d47c9a3b6319ab29520cecefa0ef908b372d4d868af1e2fc5552ef5541247ce/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9d3777b9d981d8845d8560cd4c322678f6ddbe9f0c810a421caad31ab5d86265/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/360f0964490f374553dcdff642ece1f2a858e5fa1209fccbbfc466aa7f0395b2/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/2a29956024a7f69dd8b85b40aac64aea97ae1baf48cdab1220a1c6a9211785ac/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2a29956024a7f69dd8b85b40aac64aea97ae1baf48cdab1220a1c6a9211785ac/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/49dcc4ac078b81ae30d5514f5d77d7fc04bd87ea18e8be5393920c2ae4d38d36/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/49dcc4ac078b81ae30d5514f5d77d7fc04bd87ea18e8be5393920c2ae4d38d36/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/1d8c5bab264848717aa1ce0b08477d69b4be82edd558e9bed14a701a0dfe0745/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/b29e3f40337233d75d6a5cd2a6fc1454a4a48cf0770e539b1e0673367f1a36d2/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/5d24d120849b7e0f8863991967a0cb47a343d74619dbbe0cefb449d0864ede14/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5d24d120849b7e0f8863991967a0cb47a343d74619dbbe0cefb449d0864ede14/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fe8185b52bc1ac4e858527902bbe67c99b94a91c1413244dcce49a03557e3aea/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/33f95956c91e9ef2de2b740d44f2cc309f6846d7ff0ad917fc2ba7a8bc1e017b/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/86d0693481be543bdd08b50d1a7530b45c10ba1d050bcd6d994e2f9e1019d4f7/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/8d1dad63b73939ceccd2420dcc9d595d97a06b00806e4e0e16875b2d81e6ed82/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/33f95956c91e9ef2de2b740d44f2cc309f6846d7ff0ad917fc2ba7a8bc1e017b/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/86d0693481be543bdd08b50d1a7530b45c10ba1d050bcd6d994e2f9e1019d4f7/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8d1dad63b73939ceccd2420dcc9d595d97a06b00806e4e0e16875b2d81e6ed82/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d4f0b2573e6424b137b8b065b10d79e23a10babc10c60e70044c9a200dec22db/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/4f1b755e07b4dd25118ceadbe2ad01221377db0cbb24c5a18f9c8130dac8511a/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2a88e385dbaf54380cd6166a096cbcd0c247695431c2113514c57dc0d3c7ed14/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/b2bcb2196be56cd220f8d588830638618282444500b08beadb93d9ae93be4fe3/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/b2bcb2196be56cd220f8d588830638618282444500b08beadb93d9ae93be4fe3/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3ae1b2426c8bd86597ee49cbe444b37105e7687e3c895934dd2ddbc71cf2725b/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/66ddf014f942ad89d85633c6dc6ba5376186ccad87864ce053cfac19917db60b/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/66ddf014f942ad89d85633c6dc6ba5376186ccad87864ce053cfac19917db60b/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/622067aaec2fdd7436c65decb3e3b9d893ed283d5ae2726f7fed87da334ed6df/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/425f0ddfba4fd78c4f392bbb328f9c50674761513a3979a4cae3d310b06ffd7e/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/688850d5b1d5af21e42cd028381689f412a531ba309a9fa60a83b2592cfef237/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/51d100a0b59c04829bce6c8cd20f6b7ec88b3c352d616585a77d1b24a8522164/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/51d100a0b59c04829bce6c8cd20f6b7ec88b3c352d616585a77d1b24a8522164/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/53ec7c1b5299b7f3650fedb410f95de7934e175fb9f518e666b4841e915bd3bb/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/2cb0774a8c11e61dcfe1b6252584e5f90cc7f3c2c3a30abecdd6b75bcf81db56/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2cb0774a8c11e61dcfe1b6252584e5f90cc7f3c2c3a30abecdd6b75bcf81db56/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fd8677acd961850411cafbafdf5a75aad70519a93d37395b8a002acebd629496/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/7611dee8a0a38ba5654e7d0f76852e9b1211c8466e49e51414f3631f43835a01/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/7611dee8a0a38ba5654e7d0f76852e9b1211c8466e49e51414f3631f43835a01/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/e618adaafdcab3891193ceba15d685305575526b4cc556d53bd3e6dd93f54bc5/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/e618adaafdcab3891193ceba15d685305575526b4cc556d53bd3e6dd93f54bc5/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c7493fa0e27ff1b99b552e21c8124a62bf81309b1f0fe32728f4ce2e51b3c002/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/f34b5334da970081935ab65fd55c95c3cfaed346479d9198fd3e988f76cf13e4/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c7493fa0e27ff1b99b552e21c8124a62bf81309b1f0fe32728f4ce2e51b3c002/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f34b5334da970081935ab65fd55c95c3cfaed346479d9198fd3e988f76cf13e4/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/d0c70f7c82ca9a6ae7abc43087781254320eccc66e67f83887d611542fde1bbe/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d0c70f7c82ca9a6ae7abc43087781254320eccc66e67f83887d611542fde1bbe/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/425c5f6e7be56ded39338cce8d49d6e90ecb96bc46ca40eb17cbcf9990ce8bef/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/425c5f6e7be56ded39338cce8d49d6e90ecb96bc46ca40eb17cbcf9990ce8bef/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/789670254898cceb73f3613b6a47c2282a5907b20e5ac2a47a292a1ce706addd/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/ce536268d9ef5a04e1dd5d1fcd9e41051806f0a8094eb280751855c3e5494ae8/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/789670254898cceb73f3613b6a47c2282a5907b20e5ac2a47a292a1ce706addd/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/ce536268d9ef5a04e1dd5d1fcd9e41051806f0a8094eb280751855c3e5494ae8/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/5b1ba7e7f74184066cd7ec5ef8caaa8cfebacb70b1c028b94854f2a8467c7f48/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/d35da7ddc9395ae87e0f00cbb66d21c33dee8b6a42e2497ae297fd97af9ac715/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5b1ba7e7f74184066cd7ec5ef8caaa8cfebacb70b1c028b94854f2a8467c7f48/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/4f2cc32ad6b228e3a4d541c7559220843a014aa08e556a3f14a8aa994372aeda/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d35da7ddc9395ae87e0f00cbb66d21c33dee8b6a42e2497ae297fd97af9ac715/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/4f2cc32ad6b228e3a4d541c7559220843a014aa08e556a3f14a8aa994372aeda/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6fbbcdc51b240995c9258b513bef55f5b4c88f7568bae07d591cd1c93f573778/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/55acd15608db6d4d83962f867fe23ff7a123a11066c74d8023b03595aff43a2a/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6304060d5523d187bc61395bc1da21cb9f9c4681df865c9ccfcd4c4be1e0dde6/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6fbbcdc51b240995c9258b513bef55f5b4c88f7568bae07d591cd1c93f573778/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/55acd15608db6d4d83962f867fe23ff7a123a11066c74d8023b03595aff43a2a/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6304060d5523d187bc61395bc1da21cb9f9c4681df865c9ccfcd4c4be1e0dde6/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c00aec3f59c6a5c3c5604ea0f2c5eb837ac7c5e2f29be36d1ce1df2868c045ee/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/45b4c697c9996347a14f5e4f887b3254df8ef533ccac3bc620fd1a74bfa784a6/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c00aec3f59c6a5c3c5604ea0f2c5eb837ac7c5e2f29be36d1ce1df2868c045ee/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/45b4c697c9996347a14f5e4f887b3254df8ef533ccac3bc620fd1a74bfa784a6/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/434972406e674173f4b996655c6f7ea2e7a227fd5bb46cd15f9e6e3f9c6eb954/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/1f07ecdfeb4109c02f9f894b2f8f8087fe68bafdc65cdf5f6dcc48ce13ebea78/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/434972406e674173f4b996655c6f7ea2e7a227fd5bb46cd15f9e6e3f9c6eb954/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/1f07ecdfeb4109c02f9f894b2f8f8087fe68bafdc65cdf5f6dcc48ce13ebea78/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/ce76039af3122d15694bd735254f7030296a9c8564dcdda8530cb9d72f47ca72/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/ce76039af3122d15694bd735254f7030296a9c8564dcdda8530cb9d72f47ca72/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/42eb4bc2dbd0db6834e78da1b7a35307381a65e1fc0038e0f6aeb0afc9e554ad/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/42eb4bc2dbd0db6834e78da1b7a35307381a65e1fc0038e0f6aeb0afc9e554ad/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/ccd9aab8b8aaa18ed9f668df130b77bcf0bd5b0ec46b5c8c4c5409ceaa3c2c5b/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/ccd9aab8b8aaa18ed9f668df130b77bcf0bd5b0ec46b5c8c4c5409ceaa3c2c5b/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d8f80c5fa6c1f63bc016a0faeb48e5adc918e0fde0271c2f4b0e5bb7c9ea6fd9/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c9de69d4ee4c3adeba9c48131090613fde158c4556cacb262f9741a133c5e9cf/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/075bf1f8d4d105a5d6c938a0311949b979955e538c70e53d17397dc0905eabe9/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f52aac886bbbea11a0d8c84f648768745618b723f2f34b7d41ffa803e2eebcf9/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a2b38dab66630de432553daf822eb89a876b9dad7c4b6dffa69c51063733d6b7/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3f8f57dde2a92daa689574a7c4b97121ee08801acc15bce8d9f2e18b9c45550e/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/05dc0c43e33feedff0bc2651cf7d5399257252db90a794a77ab41148ccc8cd6e/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9fd659f4a70d774a24c526c5748cd2d48fb96a186721a7b68dda6e030545ec7a/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8a682abc55495333244561350d80ca0ed85abd0eac95384e072dd7a0af7847cd/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a175cf51cbd6a69b728fc58736e6ff4c7914a3ee4515f561791b6421ae314759/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a760d3fa8179908fd2dca13f3a1c2b01ad1aa23ecba37d534502d7c716486faa/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3bbd33047c45a6a7e2daa874c12f9e48aea7c2c2e826559ec454214f8062b8a4/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fe1489c1acb30f29a8fec711a70fcb7be33fce76a4428aab5f1a1b13a037b2ca/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/858c8f26a7a8d229352faf30f1a0bb8ace79e6417820bf35393240d6b65d7b3c/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/207ce18088603db007caa0e4d2450c78880cbc0957dd0c748107ab4d30cf7f64/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/689ab86b21df0f9db0fc3cff3160d2122d76be402f5978d0842cdea54942ac6c/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2f53f4c33c02a5c37693bb46ba3cfe53fa5b7618b3409b85d1151d46341e9cb3/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/0fe38d712e786ad77f8ecb8b89bb5dff9e9864c0f9e3f71738c4b65c74ed36b8/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/602598fbadad99ced4a7983bd24be9fd8ee09745a8b277b52bd9784e09f0063b/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/e74afef77c1f89b05eae72cc163170661155a4c0a80fcc5c6e1bd3b5a3d6bf58/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6ee28d3e9e31fd71cf04e9876d0194a3b2b20bf08c1126120561b76252791b50/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/287fc4f66a1399b7459e4f1780d56ac45ae7be36b009519112de8b2735029ad5/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/287fc4f66a1399b7459e4f1780d56ac45ae7be36b009519112de8b2735029ad5/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6d903d9684f38d19d073dff04bce6c09a8d2a33f46d39d246cef4ba5b5b1d295/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6d903d9684f38d19d073dff04bce6c09a8d2a33f46d39d246cef4ba5b5b1d295/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/33a297a99e41d59fb2f70091d0eb6074c9479d173ce92c622fc9a68b5a9d43a3/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/5bb5ae646de0039bbc3f842f999b112d55c56d42b40fd667024f5829e09bfa03/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5bb5ae646de0039bbc3f842f999b112d55c56d42b40fd667024f5829e09bfa03/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5130a5e6e9cc476cf64e51b5b90c1119271fa9f72f7c107a54c8be0f4ea9d017/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/7fb31ff6c42a87b89acfc721c9af866ea3a40eb8685542731777784706d4ab9a/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/fd974932fb38cb738e8713695f3b20afc001cfb740f094562159b349e34d3bcc/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fd974932fb38cb738e8713695f3b20afc001cfb740f094562159b349e34d3bcc/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/65013805f77793c0f700d0af9c5313bd301e124ffe92cfb52585dc8a06e7ada7/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/34706fc146a4029d18e7026d6203228e9ceee3a1e1f5d2e6cd09a3d921fa34ca/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/51c1e2429757fee177fe75ac8062fc1a113fd3e015386880f5ad4a943a5f3763/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/be92fba73ed9dc6da779031c2abd8aa0f55957919cd6e2c1be5ff48358f75fec/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/51c1e2429757fee177fe75ac8062fc1a113fd3e015386880f5ad4a943a5f3763/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/be92fba73ed9dc6da779031c2abd8aa0f55957919cd6e2c1be5ff48358f75fec/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/b6c8b8a850c45ad86a287f8beb2dabf4b08c26f83f561198c7dab18ed569dbba/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/4684edbd5d4759c1900910380ca2fae45e3804d5c2f0d5d81b63d56d4168518e/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/b6c8b8a850c45ad86a287f8beb2dabf4b08c26f83f561198c7dab18ed569dbba/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/4684edbd5d4759c1900910380ca2fae45e3804d5c2f0d5d81b63d56d4168518e/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/46789344d4b8daa93440ff75daab55176145e515af6d25b12ecb2d5cb36194e7/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/46789344d4b8daa93440ff75daab55176145e515af6d25b12ecb2d5cb36194e7/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/98fac4f8be47e54eb5fdbef46f3073f5de554d9c525d69e139734b84cf90f6da/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/8a13e163c5da29c1350d4d6b2dc5ff6fed88f47f6410cae7cfc88c31c1ee0d53/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/fac9f65790835a4bdccd9a76cae3499dc9e1d851541517d43813b412335f3e3e/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/98fac4f8be47e54eb5fdbef46f3073f5de554d9c525d69e139734b84cf90f6da/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8a13e163c5da29c1350d4d6b2dc5ff6fed88f47f6410cae7cfc88c31c1ee0d53/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fac9f65790835a4bdccd9a76cae3499dc9e1d851541517d43813b412335f3e3e/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c8835544bb2465ce8e39db6a317289fbcbf6f08e62d218cabfcf5a1d6176e266/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/a2d97f2dde8588d8fc4fbf3897649244791321b667ea4bbedeaf454b324baeb0/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c8835544bb2465ce8e39db6a317289fbcbf6f08e62d218cabfcf5a1d6176e266/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/35a9f088f6ee0aa06b061a534aafdaa4e6723379e66dec109bd5c3ef1bd20880/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a2d97f2dde8588d8fc4fbf3897649244791321b667ea4bbedeaf454b324baeb0/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/ab7d67e2dc84f4e0e13d95dd9e5a41788c3ef2b1d37bc9da012e0c321cbc7515/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/35a9f088f6ee0aa06b061a534aafdaa4e6723379e66dec109bd5c3ef1bd20880/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/f408326cefb5bca4bebdd8e3da9716bfeaf5c506d76b9feda59571d650068bb3/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/ab7d67e2dc84f4e0e13d95dd9e5a41788c3ef2b1d37bc9da012e0c321cbc7515/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f408326cefb5bca4bebdd8e3da9716bfeaf5c506d76b9feda59571d650068bb3/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d47093c5c2ef7632829b8c24b38420132cb8ce65bf7148b8995d2517a4d1c1e4/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/53b9e14901d388f6fc039967a821a7f1a78b0fc32a2907495e44d2fc68d7f666/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c644e68f3b7aa8ae420599deddcf35ccb5da2b833967eb5f806b3f049035c2eb/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/e2fe7f22449e237e2a2743a9a1a7d0fa395cb7e9344bbde2347a8cf767f5bcfd/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d11c528f2980233ce15f055342242ee6a45b11a9151dfb9f476575140661c913/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/e12549a481f7e32f40849795515d9af10e3108cd86f83a91290ae9abb3e48df5/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/04c03206e8591a25fbc8a3487014fac858aa3f5d67bedf7db0cfc263eef663a1/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/02da1ea83862a50e476c8df27b98341c7757649141e3bb3839e0a316906af217/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3aec31eab71c236cb34c53b06d6dd17e494fc75d3bb3330c40451fb3e9a74f69/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/1d94489efdd5557932948095effade81d9dea757bdddba8db303bbfe4b7c928a/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/37379cc12ed729924491989cb7fcf181562d721ef869116aa3ea86124d9828d6/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/66e997ff8667914662222510b3ccf468f42dc86cf51266e537752da421b50365/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/823c1d1c0691d27652f2555e72162f6e9d79733e8534f4e8ecf6949ebdf2483d/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/072e56e7984111f477ec59aa3b59db9cc0090625c26c0f9f89d6a4f9155e12d7/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d7a2f7aff59b2b23471c397e44b93cc5d2b1e79caef4a1dd695633ab07013985/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/19e4781703aebc3622da827fc1fc8b9ad1d1a123dcba2223108ea3fce01ce09f/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/19e4781703aebc3622da827fc1fc8b9ad1d1a123dcba2223108ea3fce01ce09f/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/889043bdc51a9390fbe8dd4c96e98c5d32de430864323f3330d7d36168e8142f/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/9417a1ffe4c9f9f85336380c1a79a552351ceae449076b579b71eea197a1e31d/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9417a1ffe4c9f9f85336380c1a79a552351ceae449076b579b71eea197a1e31d/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/626a93f22ccf3d336e579436e154a787003f5428aab76e9dc3aa4e7e96894f67/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/f9330364d592aff93ca877cacf2c80a15d4943442383c21bd6eb4ff498d432ef/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f9330364d592aff93ca877cacf2c80a15d4943442383c21bd6eb4ff498d432ef/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8417f020179418b56e83202bd7826039bbae7a3737b875d7e8fa015c4c41fa67/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/55dcd0cf736628a9fabb7db4837bb2f0af78719d1343a60c46e27962ff9b80be/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/71dc4ced0d085f6951525f69f0de0850a973a6bf4f0e1e454d3d5bad71ed3429/shm
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/9d33b6691de017b50ccaf77c501c9dc5ea0c5212f26d155881ae76c5d207119c/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/55dcd0cf736628a9fabb7db4837bb2f0af78719d1343a60c46e27962ff9b80be/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/71dc4ced0d085f6951525f69f0de0850a973a6bf4f0e1e454d3d5bad71ed3429/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9d33b6691de017b50ccaf77c501c9dc5ea0c5212f26d155881ae76c5d207119c/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3c0e29657e2ec3f442d5cc5f53d7ab4119f2070b39a4e3012d89e24edf9151ed/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3c0e29657e2ec3f442d5cc5f53d7ab4119f2070b39a4e3012d89e24edf9151ed/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/362a066149033f797579764f3f492af0a6fa93e1afe6cf48e25664a7f6e5265c/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/b59986fe2ee481d7a0bcc9ff0352c80b0f1fda7fbd72789c3cf8b43988151535/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/80740ae42b10221dc883b3dc337c69955fe93895b6ae1524c326324af318bb06/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a6f7e2179167d1218d9f08d6d4c48df2029337919bde46ae6116d47c6cd69c68/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/563eeb718cb3d282a01419e28d0f69610f37ea8b21b887ff205511c07acf28e1/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/563eeb718cb3d282a01419e28d0f69610f37ea8b21b887ff205511c07acf28e1/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2fadf3a0ba12debdbffc718479a2a17c50d3c6687ccad9059a2754879c6e546a/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/bb22db6d67b629f90e909b25f4431406ba0e129856177e4638fe3241f040a9ae/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/bb22db6d67b629f90e909b25f4431406ba0e129856177e4638fe3241f040a9ae/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fdadb4319c019696840bba09e4ad84c2a719d557a42b022dc16ffece5d67532e/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/cae4753d34b94b51147c7550401a64d7f86539b86f8d852fd11d9a963d87ce96/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/cae4753d34b94b51147c7550401a64d7f86539b86f8d852fd11d9a963d87ce96/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6513f3c0d34fd2c891d39ce1471a7e432a8dfb416df2b08460a904642d545c6b/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6dcddf8654cfaa8cd4467d2ba0bbfe0d07316584a1bdf148d35adc491e6bb583/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6dcddf8654cfaa8cd4467d2ba0bbfe0d07316584a1bdf148d35adc491e6bb583/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2a9e8570eaf55deffb89223358396ab9806b742cbcee97b04a965b7c9c3db465/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/cbc770803926718851ca163c313159ba9937d6692a1df78d415bec52fc11767b/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/cbc770803926718851ca163c313159ba9937d6692a1df78d415bec52fc11767b/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/04121eedf3ad7999cd66c8f5a5c68d19ce6fc56914ef47ad27d833ee7c1251dd/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/0c12fa19838e44fc5fa5221655f0e90bbc1e222bf6295726dae10ffe577755a7/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/0c12fa19838e44fc5fa5221655f0e90bbc1e222bf6295726dae10ffe577755a7/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/cc1d2fc4910a4820fe4b80d33dd74d7110391d44b8cdae97ab04debeabd60c37/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/66d154b41a1e3d0c91806fd11012ca1d1af15dd85fd22b413e2d89cdea2a1f5d/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/66d154b41a1e3d0c91806fd11012ca1d1af15dd85fd22b413e2d89cdea2a1f5d/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/45fb064cb16d0653f5b99b8df129a9ff2ff46ee167f23aade0a0628597918a83/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3dac7d46d5607d068716964c64d682479f90eba761fd55604be814644832d8cb/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3dac7d46d5607d068716964c64d682479f90eba761fd55604be814644832d8cb/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/36ec00daf80c583b4cdbb11a405db9e2b2d0cd8a8794ac9872cea550394408e2/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/d52f38bf82fa2a2981b0c600365c442fa3d8a2db4c23de6295817b22d8c99916/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d52f38bf82fa2a2981b0c600365c442fa3d8a2db4c23de6295817b22d8c99916/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9ca8eede79618d12c8819fbe461371df56bc3d61e0a76813e86b414ba66041d4/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/237408d9b94578f436e8bf9e4a320d0f8e6b17a75fabeb8c03c1f4c23a58c8e4/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/237408d9b94578f436e8bf9e4a320d0f8e6b17a75fabeb8c03c1f4c23a58c8e4/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/569ad0f475329ebedbbfda7120561475bb2a639d05ebd4398fd1fb2679471c71/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/57d5f7c2b0dff3a6c8a533ccb808ad0c59bc71bdd1d708853932e57fbed8ad23/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8c938347537d3dfcb483c412b5b0e63ede501573e2e333f7af5bf8eba158f39f/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/38c37bd00ae71c7c7ed369c8a21971c6db65dae79cac3e9eb43a7263893354f2/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8fb02ae414e6941aa7b258a1d5895bdfd4a790742ba511232f23ff5a543ef7c9/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a51dd5db047626030df7452831039f2a107864e03ac27bc2b477ae7ef7db8787/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5253426cb2466310d68baaae9e3f5d6995216f1cdd491bc408ec87d951f67b2e/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a5b85a3e4d99bba4ba2fcf49303b6d4e05fc1cb49dde6d95a9459a680607dacf/rootfs
+shm            tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/719e9b40618e0b42ec985ef1808cddfd5dea1778dbdb8245aeb80fecbe10f77a/shm
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/719e9b40618e0b42ec985ef1808cddfd5dea1778dbdb8245aeb80fecbe10f77a/rootfs
+overlay        overlay   147G   36G  104G  26% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9e7f89e13b626517a73d1e16bacee3e3e93eadab3ab537682b985c79331f5ae9/rootfs
+tmpfs          tmpfs      64M     0   64M   0% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9e7f89e13b626517a73d1e16bacee3e3e93eadab3ab537682b985c79331f5ae9/rootfs/dev
+tmpfs          tmpfs      63G  4.0K   63G   1% /tmp
+
+#==[ Command ]======================================#
+# /bin/df -i
+Filesystem        Inodes  IUsed     IFree IUse% Mounted on
+/dev/loop0        196608  37193    159415   19% /
+overlay         16481814   1204  16480610    1% /boot
+overlay         16481814   1204  16480610    1% /etc
+/dev/nvme0n1p5   9830400 322498   9507902    4% /opt
+overlay         16481814   1204  16480610    1% /usr/lib/firmware
+/dev/nvme0n1p2     12824     26     12798    1% /oem
+overlay         16481814   1204  16480610    1% /srv
+overlay         16481814   1204  16480610    1% /var
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/b8daf6b7-ed19-4357-ae07-90200a6db118/volumes/kubernetes.io~projected/kube-api-access-dzjjl
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/447122d3-b7b5-42ca-a5e1-e63ae55b2930/volumes/kubernetes.io~projected/kube-api-access-wgmwb
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/ecf73a92-2c06-4245-a97b-ceb74df7824d/volumes/kubernetes.io~projected/kube-api-access-d8xdx
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/f13e24b6-7900-42ef-8ed8-4eeda38baa52/volumes/kubernetes.io~projected/kube-api-access-2zmnj
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/f9613b69-b4bf-4610-afc7-6c1695e4e9b8/volumes/kubernetes.io~projected/kube-api-access-nhgmx
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/9dd8ad0f-f613-49ab-87dc-a893edfacb4d/volumes/kubernetes.io~projected/kube-api-access-qz6dr
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/2ba31434-0a2e-48e5-a01a-b2aae47b827c/volumes/kubernetes.io~projected/kube-api-access-ksfhv
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/db124a5f-aa25-4f35-966a-272f65ee71c5/volumes/kubernetes.io~projected/kube-api-access-fwv4j
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/576acbdc-8db3-493a-8836-5f0f6516a5b5/volumes/kubernetes.io~projected/kube-api-access-gp8nh
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/1086173d-7b65-4c8e-8aef-7674a0f500d5/volumes/kubernetes.io~projected/kube-api-access-6bw6b
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/11243db0-a64f-4efe-aae8-f8e81d249dfb/volumes/kubernetes.io~projected/kube-api-access-4vsr2
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/1df38f9e-23bc-4500-b47e-4ce97f3a7bb6/volumes/kubernetes.io~projected/kube-api-access-nb9b6
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/fa047758-04c5-4817-887f-2e93a4c188a5/volumes/kubernetes.io~projected/kube-api-access-q7zzn
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/f91cfc12-7296-46fd-aec8-4a4881ffac0a/volumes/kubernetes.io~projected/kube-api-access-xw4j4
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/0d0508a4-d656-4997-a009-56f7c0f1563f/volumes/kubernetes.io~projected/kube-api-access-rjmlw
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/383eafd3-8566-4197-9efb-be7cae4023e4/volumes/kubernetes.io~projected/kube-api-access-dp4sh
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/ad917de6-c143-4734-8e02-639476e47937/volumes/kubernetes.io~projected/kube-api-access-hjtgz
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/2ae75d4c-eacb-41d1-8fcb-a3a0b6d7cca8/volumes/kubernetes.io~projected/kube-api-access-rbz4d
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/b3260026-f1a5-4695-9e76-58797b42dcaa/volumes/kubernetes.io~projected/kube-api-access-zdvh7
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/6708b641-3a0d-4065-ac90-252bee503879/volumes/kubernetes.io~projected/kube-api-access-k5xvz
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/6ed21c2d-5a6b-4971-8706-b25ee60b127d/volumes/kubernetes.io~projected/kube-api-access-xwbtj
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/8364d662-f88f-40ff-bc4a-1f4fa1702148/volumes/kubernetes.io~projected/kube-api-access-qxqbf
+tmpfs           16481814      4  16481810    1% /var/lib/kubelet/pods/f69f3692-00cb-4087-b546-1f5985ef9619/volumes/kubernetes.io~secret/longhorn-grpc-tls
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/ced58154-c356-4c4b-a4e6-70e1d45c4810/volumes/kubernetes.io~projected/kube-api-access-x5vqf
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/f69f3692-00cb-4087-b546-1f5985ef9619/volumes/kubernetes.io~projected/kube-api-access-cjlqs
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/e6cd40cd-4402-49bd-b675-3cbdac4dbfb3/volumes/kubernetes.io~projected/kube-api-access-js6g6
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/a3dfff7e-c499-42c9-a778-4229463df40c/volumes/kubernetes.io~projected/kube-api-access-mnvxt
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/6a5f9233-6ff1-45a2-a936-42f0562e46ee/volumes/kubernetes.io~projected/kube-api-access-5trpw
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/49b7b7a2-c9a5-4d3d-9c92-b9581f2fe458/volumes/kubernetes.io~projected/kube-api-access-f596k
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/a5279635-6f76-4fa5-997f-adbaed4f7809/volumes/kubernetes.io~projected/kube-api-access-7kmvj
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/8cd15c4d-f923-4f71-aea7-5d522b25e0d2/volumes/kubernetes.io~projected/kube-api-access-zz4ld
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/cb301bcf-d78b-4da4-9dbf-aaa67f9166ef/volumes/kubernetes.io~secret/kubevirt-operator-certs
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/7611f301-8acc-4da5-8f5a-31e106f8d990/volumes/kubernetes.io~projected/kube-api-access-6kd6k
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/cb301bcf-d78b-4da4-9dbf-aaa67f9166ef/volumes/kubernetes.io~projected/kube-api-access-kpzgq
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/5b4a400e-bb20-4e67-87a8-7af98841dc60/volumes/kubernetes.io~projected/kube-api-access-9c8p2
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/7241db30-f1f5-4a6b-bc4d-cc68abeb674f/volumes/kubernetes.io~projected/kube-api-access-t772c
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f/volumes/kubernetes.io~projected/kube-api-access-7gp2m
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/1675eb18-fe58-400c-af68-38e95135cced/volumes/kubernetes.io~secret/server-cert
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/1675eb18-fe58-400c-af68-38e95135cced/volumes/kubernetes.io~secret/client-cert
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/1675eb18-fe58-400c-af68-38e95135cced/volumes/kubernetes.io~projected/kube-api-access-w7tjr
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/7241db30-f1f5-4a6b-bc4d-cc68abeb674f/volumes/kubernetes.io~secret/server-cert
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f/volumes/kubernetes.io~secret/uploadserver-client-ca-cert
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f/volumes/kubernetes.io~secret/uploadserver-ca-cert
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/e6269d45-5b83-448f-8937-213517422b52/volumes/kubernetes.io~projected/kube-api-access-nnxhk
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/e027cfe6-f3ff-4c1c-8fe4-738dfdee2e0f/volumes/kubernetes.io~secret/cdi-api-signing-key
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/6d85d229-ec07-4dd8-baea-ffa36bd8dc49/volumes/kubernetes.io~projected/kube-api-access-tvrw6
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/da9d9fc5-66a6-4cd4-a9a0-403494f7386e/volumes/kubernetes.io~projected/kube-api-access-drn55
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/0a7b300c-1284-401e-80a3-37a4088f414e/volumes/kubernetes.io~projected/kube-api-access-gqx9m
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/003128c3-a05b-4ed3-8f62-99f4cfe07467/volumes/kubernetes.io~projected/kube-api-access-xj5j9
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/ceff23fb-c448-4f55-a578-e4b8e23995b3/volumes/kubernetes.io~projected/kube-api-access-2c6pn
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/df277f70-9835-4857-9ec7-13795b101681/volumes/kubernetes.io~projected/kube-api-access-cwdgw
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/c84c8068-1bd2-4c8f-9306-9fcd28aa34cb/volumes/kubernetes.io~projected/kube-api-access-7dwtl
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/9f665281-bcae-449e-884e-24d3b89e898b/volumes/kubernetes.io~projected/kube-api-access-9v5mm
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/4a6651a3-75b7-47f1-b2d7-b3614b5e05e7/volumes/kubernetes.io~projected/kube-api-access-876g5
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/0d3a7876-ff72-4ee6-9b06-adfed6a3e564/volumes/kubernetes.io~projected/kube-api-access-hppps
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/9744d12c-2759-4d22-a053-dc15af3b9d14/volumes/kubernetes.io~projected/kube-api-access-v9l4q
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/e661652d-562b-4a2f-95d1-8496c225caa7/volumes/kubernetes.io~projected/kube-api-access-rhjnf
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/ccd49a84-3c96-4bba-bf83-67daa9ca498b/volumes/kubernetes.io~projected/kube-api-access-rq4l4
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/c564fb68-5d91-4a60-9fc2-b7993acf67ae/volumes/kubernetes.io~secret/kubevirt-virt-api-certs
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/c564fb68-5d91-4a60-9fc2-b7993acf67ae/volumes/kubernetes.io~secret/kubevirt-virt-handler-certs
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/c564fb68-5d91-4a60-9fc2-b7993acf67ae/volumes/kubernetes.io~projected/kube-api-access-pvdtq
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/e860f4cc-9f43-40d3-9cb5-60f0abf76901/volumes/kubernetes.io~secret/cert
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/e860f4cc-9f43-40d3-9cb5-60f0abf76901/volumes/kubernetes.io~projected/kube-api-access-97lmz
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/252f9818-6926-427d-869a-4145cd231f73/volumes/kubernetes.io~projected/kube-api-access-xtzd6
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~secret/kubevirt-virt-handler-server-certs
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/c71329b7-45d1-4a06-afc6-bd0c4d546054/volumes/kubernetes.io~secret/kubevirt-controller-certs
+tmpfs           16481814      6  16481808    1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~downward-api/podinfo
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/c71329b7-45d1-4a06-afc6-bd0c4d546054/volumes/kubernetes.io~secret/kubevirt-export-ca
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/02ce2273-af3b-499d-becf-137ad4c8cc75/volumes/kubernetes.io~secret/kubevirt-controller-certs
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~secret/kubevirt-virt-handler-vsock-client-certs
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/02ce2273-af3b-499d-becf-137ad4c8cc75/volumes/kubernetes.io~secret/kubevirt-export-ca
+tmpfs           16481814      8  16481806    1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~secret/kubevirt-virt-handler-migration-client-certs
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/cb503f2e-7749-40d4-b2d6-63310aa91467/volumes/kubernetes.io~projected/kube-api-access-sxpjx
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/02ce2273-af3b-499d-becf-137ad4c8cc75/volumes/kubernetes.io~projected/kube-api-access-xkx8r
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/c71329b7-45d1-4a06-afc6-bd0c4d546054/volumes/kubernetes.io~projected/kube-api-access-xddmj
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/b999ab7c-5743-43ad-8ff4-edbf78432f2a/volumes/kubernetes.io~secret/webhook-cert
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/b999ab7c-5743-43ad-8ff4-edbf78432f2a/volumes/kubernetes.io~projected/kube-api-access-rbrm4
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/4f8f040c-d64a-47d3-9973-30807fa8e28a/volumes/kubernetes.io~projected/kube-api-access-nt8th
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/d907518f-99e3-48ae-bd15-f3727a516cdf/volumes/kubernetes.io~projected/kube-api-access-jxsrw
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/732e2d2c-382f-4e46-b3dc-bf198d725c68/volumes/kubernetes.io~projected/kube-api-access-k8hcj
+tmpfs           16481814      4  16481810    1% /var/lib/kubelet/pods/46df60c0-2c74-42c9-b7af-89187040841e/volumes/kubernetes.io~secret/longhorn-grpc-tls
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/46df60c0-2c74-42c9-b7af-89187040841e/volumes/kubernetes.io~projected/kube-api-access-jdblw
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/47b82d51-fb6f-4010-ad08-30aa78df8661/volumes/kubernetes.io~projected/kube-api-access-xcxwl
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/4971c7fc-417d-4b1e-92ae-3f5246742060/volumes/kubernetes.io~projected/kube-api-access-mj9vb
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/c66dbd44-4499-4950-9e84-64a060112795/volumes/kubernetes.io~projected/kube-api-access-f6qdq
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/14424dc8-2c20-428f-b08a-af07c3bb5580/volumes/kubernetes.io~projected/kube-api-access-n6tkb
+tmpfs           16481814     10  16481804    1% /var/lib/kubelet/pods/592d9307-a5f0-42f6-9a59-5b0110ea8586/volumes/kubernetes.io~projected/kube-api-access-mxmz8
+/dev/nvme0n1p6 110755840    206 110755634    1% /var/lib/harvester/defaultdisk
+devtmpfs        16467690    699  16466991    1% /dev
+shm             16481814      1  16481813    1% /dev/shm
+efivarfs               0      0         0     - /sys/firmware/efi/efivars
+tmpfs             819200   6253    812947    1% /run
+/dev/nvme0n1p4    983040     26    983014    1% /run/initramfs/cos-state
+tmpfs           16481814   1204  16480610    1% /run/overlay
+tmpfs               1024      2      1022    1% /run/credentials/systemd-journald.service
+tmpfs               1024      2      1022    1% /run/credentials/getty@tty1.service
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/0e9d5fbdc0cc5b8d90c891060143c0f237144a38c72b7b5c3a2093a881326f55/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/0e9d5fbdc0cc5b8d90c891060143c0f237144a38c72b7b5c3a2093a881326f55/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f6eed2daac5beeee652f972ecdcdb938dd789c04012d6b8ea66a2538928f9a7e/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c989415c2d51a99a7055b565ec05fc532b1e7f76b2c8a67bab65d12999f473a3/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c989415c2d51a99a7055b565ec05fc532b1e7f76b2c8a67bab65d12999f473a3/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/7086b5777b2a950663c2d04842ddff85a01345cec1ccad504426a5cbbfb42bb2/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/cfee1f5f202c54c227839653bc733a00c7956e0c2b15c83b85fbcc3f7ecb7075/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/cfee1f5f202c54c227839653bc733a00c7956e0c2b15c83b85fbcc3f7ecb7075/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/bc43018d517da16f3aef904bb9332cb5a748b39d32335731d7d5f57739358c3f/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/8618cc6ac2f77fde749be4e87f12f2bb3d62622f3f9b1607d94214d89c2e03dd/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8618cc6ac2f77fde749be4e87f12f2bb3d62622f3f9b1607d94214d89c2e03dd/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6f7ff26836ef7052476ba444d056c4d394a6a89d1c43862134d3b247647d077b/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6f7ff26836ef7052476ba444d056c4d394a6a89d1c43862134d3b247647d077b/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9d47c9a3b6319ab29520cecefa0ef908b372d4d868af1e2fc5552ef5541247ce/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9d3777b9d981d8845d8560cd4c322678f6ddbe9f0c810a421caad31ab5d86265/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/360f0964490f374553dcdff642ece1f2a858e5fa1209fccbbfc466aa7f0395b2/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/2a29956024a7f69dd8b85b40aac64aea97ae1baf48cdab1220a1c6a9211785ac/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2a29956024a7f69dd8b85b40aac64aea97ae1baf48cdab1220a1c6a9211785ac/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/49dcc4ac078b81ae30d5514f5d77d7fc04bd87ea18e8be5393920c2ae4d38d36/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/49dcc4ac078b81ae30d5514f5d77d7fc04bd87ea18e8be5393920c2ae4d38d36/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/1d8c5bab264848717aa1ce0b08477d69b4be82edd558e9bed14a701a0dfe0745/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/b29e3f40337233d75d6a5cd2a6fc1454a4a48cf0770e539b1e0673367f1a36d2/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/5d24d120849b7e0f8863991967a0cb47a343d74619dbbe0cefb449d0864ede14/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5d24d120849b7e0f8863991967a0cb47a343d74619dbbe0cefb449d0864ede14/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fe8185b52bc1ac4e858527902bbe67c99b94a91c1413244dcce49a03557e3aea/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/33f95956c91e9ef2de2b740d44f2cc309f6846d7ff0ad917fc2ba7a8bc1e017b/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/86d0693481be543bdd08b50d1a7530b45c10ba1d050bcd6d994e2f9e1019d4f7/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/8d1dad63b73939ceccd2420dcc9d595d97a06b00806e4e0e16875b2d81e6ed82/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/33f95956c91e9ef2de2b740d44f2cc309f6846d7ff0ad917fc2ba7a8bc1e017b/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/86d0693481be543bdd08b50d1a7530b45c10ba1d050bcd6d994e2f9e1019d4f7/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8d1dad63b73939ceccd2420dcc9d595d97a06b00806e4e0e16875b2d81e6ed82/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d4f0b2573e6424b137b8b065b10d79e23a10babc10c60e70044c9a200dec22db/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/4f1b755e07b4dd25118ceadbe2ad01221377db0cbb24c5a18f9c8130dac8511a/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2a88e385dbaf54380cd6166a096cbcd0c247695431c2113514c57dc0d3c7ed14/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/b2bcb2196be56cd220f8d588830638618282444500b08beadb93d9ae93be4fe3/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/b2bcb2196be56cd220f8d588830638618282444500b08beadb93d9ae93be4fe3/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3ae1b2426c8bd86597ee49cbe444b37105e7687e3c895934dd2ddbc71cf2725b/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/66ddf014f942ad89d85633c6dc6ba5376186ccad87864ce053cfac19917db60b/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/66ddf014f942ad89d85633c6dc6ba5376186ccad87864ce053cfac19917db60b/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/622067aaec2fdd7436c65decb3e3b9d893ed283d5ae2726f7fed87da334ed6df/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/425f0ddfba4fd78c4f392bbb328f9c50674761513a3979a4cae3d310b06ffd7e/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/688850d5b1d5af21e42cd028381689f412a531ba309a9fa60a83b2592cfef237/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/51d100a0b59c04829bce6c8cd20f6b7ec88b3c352d616585a77d1b24a8522164/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/51d100a0b59c04829bce6c8cd20f6b7ec88b3c352d616585a77d1b24a8522164/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/53ec7c1b5299b7f3650fedb410f95de7934e175fb9f518e666b4841e915bd3bb/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/2cb0774a8c11e61dcfe1b6252584e5f90cc7f3c2c3a30abecdd6b75bcf81db56/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2cb0774a8c11e61dcfe1b6252584e5f90cc7f3c2c3a30abecdd6b75bcf81db56/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fd8677acd961850411cafbafdf5a75aad70519a93d37395b8a002acebd629496/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/7611dee8a0a38ba5654e7d0f76852e9b1211c8466e49e51414f3631f43835a01/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/7611dee8a0a38ba5654e7d0f76852e9b1211c8466e49e51414f3631f43835a01/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/e618adaafdcab3891193ceba15d685305575526b4cc556d53bd3e6dd93f54bc5/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/e618adaafdcab3891193ceba15d685305575526b4cc556d53bd3e6dd93f54bc5/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c7493fa0e27ff1b99b552e21c8124a62bf81309b1f0fe32728f4ce2e51b3c002/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/f34b5334da970081935ab65fd55c95c3cfaed346479d9198fd3e988f76cf13e4/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c7493fa0e27ff1b99b552e21c8124a62bf81309b1f0fe32728f4ce2e51b3c002/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f34b5334da970081935ab65fd55c95c3cfaed346479d9198fd3e988f76cf13e4/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/d0c70f7c82ca9a6ae7abc43087781254320eccc66e67f83887d611542fde1bbe/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d0c70f7c82ca9a6ae7abc43087781254320eccc66e67f83887d611542fde1bbe/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/425c5f6e7be56ded39338cce8d49d6e90ecb96bc46ca40eb17cbcf9990ce8bef/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/425c5f6e7be56ded39338cce8d49d6e90ecb96bc46ca40eb17cbcf9990ce8bef/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/789670254898cceb73f3613b6a47c2282a5907b20e5ac2a47a292a1ce706addd/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/ce536268d9ef5a04e1dd5d1fcd9e41051806f0a8094eb280751855c3e5494ae8/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/789670254898cceb73f3613b6a47c2282a5907b20e5ac2a47a292a1ce706addd/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/ce536268d9ef5a04e1dd5d1fcd9e41051806f0a8094eb280751855c3e5494ae8/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/5b1ba7e7f74184066cd7ec5ef8caaa8cfebacb70b1c028b94854f2a8467c7f48/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/d35da7ddc9395ae87e0f00cbb66d21c33dee8b6a42e2497ae297fd97af9ac715/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5b1ba7e7f74184066cd7ec5ef8caaa8cfebacb70b1c028b94854f2a8467c7f48/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/4f2cc32ad6b228e3a4d541c7559220843a014aa08e556a3f14a8aa994372aeda/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d35da7ddc9395ae87e0f00cbb66d21c33dee8b6a42e2497ae297fd97af9ac715/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/4f2cc32ad6b228e3a4d541c7559220843a014aa08e556a3f14a8aa994372aeda/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6fbbcdc51b240995c9258b513bef55f5b4c88f7568bae07d591cd1c93f573778/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/55acd15608db6d4d83962f867fe23ff7a123a11066c74d8023b03595aff43a2a/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6304060d5523d187bc61395bc1da21cb9f9c4681df865c9ccfcd4c4be1e0dde6/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6fbbcdc51b240995c9258b513bef55f5b4c88f7568bae07d591cd1c93f573778/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/55acd15608db6d4d83962f867fe23ff7a123a11066c74d8023b03595aff43a2a/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6304060d5523d187bc61395bc1da21cb9f9c4681df865c9ccfcd4c4be1e0dde6/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c00aec3f59c6a5c3c5604ea0f2c5eb837ac7c5e2f29be36d1ce1df2868c045ee/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/45b4c697c9996347a14f5e4f887b3254df8ef533ccac3bc620fd1a74bfa784a6/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c00aec3f59c6a5c3c5604ea0f2c5eb837ac7c5e2f29be36d1ce1df2868c045ee/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/45b4c697c9996347a14f5e4f887b3254df8ef533ccac3bc620fd1a74bfa784a6/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/434972406e674173f4b996655c6f7ea2e7a227fd5bb46cd15f9e6e3f9c6eb954/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/1f07ecdfeb4109c02f9f894b2f8f8087fe68bafdc65cdf5f6dcc48ce13ebea78/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/434972406e674173f4b996655c6f7ea2e7a227fd5bb46cd15f9e6e3f9c6eb954/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/1f07ecdfeb4109c02f9f894b2f8f8087fe68bafdc65cdf5f6dcc48ce13ebea78/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/ce76039af3122d15694bd735254f7030296a9c8564dcdda8530cb9d72f47ca72/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/ce76039af3122d15694bd735254f7030296a9c8564dcdda8530cb9d72f47ca72/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/42eb4bc2dbd0db6834e78da1b7a35307381a65e1fc0038e0f6aeb0afc9e554ad/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/42eb4bc2dbd0db6834e78da1b7a35307381a65e1fc0038e0f6aeb0afc9e554ad/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/ccd9aab8b8aaa18ed9f668df130b77bcf0bd5b0ec46b5c8c4c5409ceaa3c2c5b/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/ccd9aab8b8aaa18ed9f668df130b77bcf0bd5b0ec46b5c8c4c5409ceaa3c2c5b/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d8f80c5fa6c1f63bc016a0faeb48e5adc918e0fde0271c2f4b0e5bb7c9ea6fd9/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c9de69d4ee4c3adeba9c48131090613fde158c4556cacb262f9741a133c5e9cf/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/075bf1f8d4d105a5d6c938a0311949b979955e538c70e53d17397dc0905eabe9/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f52aac886bbbea11a0d8c84f648768745618b723f2f34b7d41ffa803e2eebcf9/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a2b38dab66630de432553daf822eb89a876b9dad7c4b6dffa69c51063733d6b7/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3f8f57dde2a92daa689574a7c4b97121ee08801acc15bce8d9f2e18b9c45550e/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/05dc0c43e33feedff0bc2651cf7d5399257252db90a794a77ab41148ccc8cd6e/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9fd659f4a70d774a24c526c5748cd2d48fb96a186721a7b68dda6e030545ec7a/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8a682abc55495333244561350d80ca0ed85abd0eac95384e072dd7a0af7847cd/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a175cf51cbd6a69b728fc58736e6ff4c7914a3ee4515f561791b6421ae314759/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a760d3fa8179908fd2dca13f3a1c2b01ad1aa23ecba37d534502d7c716486faa/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3bbd33047c45a6a7e2daa874c12f9e48aea7c2c2e826559ec454214f8062b8a4/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fe1489c1acb30f29a8fec711a70fcb7be33fce76a4428aab5f1a1b13a037b2ca/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/858c8f26a7a8d229352faf30f1a0bb8ace79e6417820bf35393240d6b65d7b3c/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/207ce18088603db007caa0e4d2450c78880cbc0957dd0c748107ab4d30cf7f64/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/689ab86b21df0f9db0fc3cff3160d2122d76be402f5978d0842cdea54942ac6c/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2f53f4c33c02a5c37693bb46ba3cfe53fa5b7618b3409b85d1151d46341e9cb3/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/0fe38d712e786ad77f8ecb8b89bb5dff9e9864c0f9e3f71738c4b65c74ed36b8/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/602598fbadad99ced4a7983bd24be9fd8ee09745a8b277b52bd9784e09f0063b/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/e74afef77c1f89b05eae72cc163170661155a4c0a80fcc5c6e1bd3b5a3d6bf58/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6ee28d3e9e31fd71cf04e9876d0194a3b2b20bf08c1126120561b76252791b50/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/287fc4f66a1399b7459e4f1780d56ac45ae7be36b009519112de8b2735029ad5/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/287fc4f66a1399b7459e4f1780d56ac45ae7be36b009519112de8b2735029ad5/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6d903d9684f38d19d073dff04bce6c09a8d2a33f46d39d246cef4ba5b5b1d295/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6d903d9684f38d19d073dff04bce6c09a8d2a33f46d39d246cef4ba5b5b1d295/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/33a297a99e41d59fb2f70091d0eb6074c9479d173ce92c622fc9a68b5a9d43a3/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/5bb5ae646de0039bbc3f842f999b112d55c56d42b40fd667024f5829e09bfa03/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5bb5ae646de0039bbc3f842f999b112d55c56d42b40fd667024f5829e09bfa03/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5130a5e6e9cc476cf64e51b5b90c1119271fa9f72f7c107a54c8be0f4ea9d017/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/7fb31ff6c42a87b89acfc721c9af866ea3a40eb8685542731777784706d4ab9a/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/fd974932fb38cb738e8713695f3b20afc001cfb740f094562159b349e34d3bcc/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fd974932fb38cb738e8713695f3b20afc001cfb740f094562159b349e34d3bcc/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/65013805f77793c0f700d0af9c5313bd301e124ffe92cfb52585dc8a06e7ada7/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/34706fc146a4029d18e7026d6203228e9ceee3a1e1f5d2e6cd09a3d921fa34ca/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/51c1e2429757fee177fe75ac8062fc1a113fd3e015386880f5ad4a943a5f3763/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/be92fba73ed9dc6da779031c2abd8aa0f55957919cd6e2c1be5ff48358f75fec/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/51c1e2429757fee177fe75ac8062fc1a113fd3e015386880f5ad4a943a5f3763/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/be92fba73ed9dc6da779031c2abd8aa0f55957919cd6e2c1be5ff48358f75fec/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/b6c8b8a850c45ad86a287f8beb2dabf4b08c26f83f561198c7dab18ed569dbba/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/4684edbd5d4759c1900910380ca2fae45e3804d5c2f0d5d81b63d56d4168518e/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/b6c8b8a850c45ad86a287f8beb2dabf4b08c26f83f561198c7dab18ed569dbba/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/4684edbd5d4759c1900910380ca2fae45e3804d5c2f0d5d81b63d56d4168518e/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/46789344d4b8daa93440ff75daab55176145e515af6d25b12ecb2d5cb36194e7/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/46789344d4b8daa93440ff75daab55176145e515af6d25b12ecb2d5cb36194e7/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/98fac4f8be47e54eb5fdbef46f3073f5de554d9c525d69e139734b84cf90f6da/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/8a13e163c5da29c1350d4d6b2dc5ff6fed88f47f6410cae7cfc88c31c1ee0d53/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/fac9f65790835a4bdccd9a76cae3499dc9e1d851541517d43813b412335f3e3e/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/98fac4f8be47e54eb5fdbef46f3073f5de554d9c525d69e139734b84cf90f6da/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8a13e163c5da29c1350d4d6b2dc5ff6fed88f47f6410cae7cfc88c31c1ee0d53/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fac9f65790835a4bdccd9a76cae3499dc9e1d851541517d43813b412335f3e3e/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/c8835544bb2465ce8e39db6a317289fbcbf6f08e62d218cabfcf5a1d6176e266/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/a2d97f2dde8588d8fc4fbf3897649244791321b667ea4bbedeaf454b324baeb0/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c8835544bb2465ce8e39db6a317289fbcbf6f08e62d218cabfcf5a1d6176e266/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/35a9f088f6ee0aa06b061a534aafdaa4e6723379e66dec109bd5c3ef1bd20880/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a2d97f2dde8588d8fc4fbf3897649244791321b667ea4bbedeaf454b324baeb0/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/ab7d67e2dc84f4e0e13d95dd9e5a41788c3ef2b1d37bc9da012e0c321cbc7515/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/35a9f088f6ee0aa06b061a534aafdaa4e6723379e66dec109bd5c3ef1bd20880/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/f408326cefb5bca4bebdd8e3da9716bfeaf5c506d76b9feda59571d650068bb3/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/ab7d67e2dc84f4e0e13d95dd9e5a41788c3ef2b1d37bc9da012e0c321cbc7515/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f408326cefb5bca4bebdd8e3da9716bfeaf5c506d76b9feda59571d650068bb3/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d47093c5c2ef7632829b8c24b38420132cb8ce65bf7148b8995d2517a4d1c1e4/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/53b9e14901d388f6fc039967a821a7f1a78b0fc32a2907495e44d2fc68d7f666/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/c644e68f3b7aa8ae420599deddcf35ccb5da2b833967eb5f806b3f049035c2eb/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/e2fe7f22449e237e2a2743a9a1a7d0fa395cb7e9344bbde2347a8cf767f5bcfd/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d11c528f2980233ce15f055342242ee6a45b11a9151dfb9f476575140661c913/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/e12549a481f7e32f40849795515d9af10e3108cd86f83a91290ae9abb3e48df5/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/04c03206e8591a25fbc8a3487014fac858aa3f5d67bedf7db0cfc263eef663a1/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/02da1ea83862a50e476c8df27b98341c7757649141e3bb3839e0a316906af217/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3aec31eab71c236cb34c53b06d6dd17e494fc75d3bb3330c40451fb3e9a74f69/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/1d94489efdd5557932948095effade81d9dea757bdddba8db303bbfe4b7c928a/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/37379cc12ed729924491989cb7fcf181562d721ef869116aa3ea86124d9828d6/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/66e997ff8667914662222510b3ccf468f42dc86cf51266e537752da421b50365/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/823c1d1c0691d27652f2555e72162f6e9d79733e8534f4e8ecf6949ebdf2483d/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/072e56e7984111f477ec59aa3b59db9cc0090625c26c0f9f89d6a4f9155e12d7/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d7a2f7aff59b2b23471c397e44b93cc5d2b1e79caef4a1dd695633ab07013985/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/19e4781703aebc3622da827fc1fc8b9ad1d1a123dcba2223108ea3fce01ce09f/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/19e4781703aebc3622da827fc1fc8b9ad1d1a123dcba2223108ea3fce01ce09f/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/889043bdc51a9390fbe8dd4c96e98c5d32de430864323f3330d7d36168e8142f/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/9417a1ffe4c9f9f85336380c1a79a552351ceae449076b579b71eea197a1e31d/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9417a1ffe4c9f9f85336380c1a79a552351ceae449076b579b71eea197a1e31d/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/626a93f22ccf3d336e579436e154a787003f5428aab76e9dc3aa4e7e96894f67/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/f9330364d592aff93ca877cacf2c80a15d4943442383c21bd6eb4ff498d432ef/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/f9330364d592aff93ca877cacf2c80a15d4943442383c21bd6eb4ff498d432ef/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8417f020179418b56e83202bd7826039bbae7a3737b875d7e8fa015c4c41fa67/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/55dcd0cf736628a9fabb7db4837bb2f0af78719d1343a60c46e27962ff9b80be/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/71dc4ced0d085f6951525f69f0de0850a973a6bf4f0e1e454d3d5bad71ed3429/shm
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/9d33b6691de017b50ccaf77c501c9dc5ea0c5212f26d155881ae76c5d207119c/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/55dcd0cf736628a9fabb7db4837bb2f0af78719d1343a60c46e27962ff9b80be/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/71dc4ced0d085f6951525f69f0de0850a973a6bf4f0e1e454d3d5bad71ed3429/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9d33b6691de017b50ccaf77c501c9dc5ea0c5212f26d155881ae76c5d207119c/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3c0e29657e2ec3f442d5cc5f53d7ab4119f2070b39a4e3012d89e24edf9151ed/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3c0e29657e2ec3f442d5cc5f53d7ab4119f2070b39a4e3012d89e24edf9151ed/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/362a066149033f797579764f3f492af0a6fa93e1afe6cf48e25664a7f6e5265c/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/b59986fe2ee481d7a0bcc9ff0352c80b0f1fda7fbd72789c3cf8b43988151535/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/80740ae42b10221dc883b3dc337c69955fe93895b6ae1524c326324af318bb06/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a6f7e2179167d1218d9f08d6d4c48df2029337919bde46ae6116d47c6cd69c68/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/563eeb718cb3d282a01419e28d0f69610f37ea8b21b887ff205511c07acf28e1/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/563eeb718cb3d282a01419e28d0f69610f37ea8b21b887ff205511c07acf28e1/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2fadf3a0ba12debdbffc718479a2a17c50d3c6687ccad9059a2754879c6e546a/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/bb22db6d67b629f90e909b25f4431406ba0e129856177e4638fe3241f040a9ae/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/bb22db6d67b629f90e909b25f4431406ba0e129856177e4638fe3241f040a9ae/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/fdadb4319c019696840bba09e4ad84c2a719d557a42b022dc16ffece5d67532e/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/cae4753d34b94b51147c7550401a64d7f86539b86f8d852fd11d9a963d87ce96/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/cae4753d34b94b51147c7550401a64d7f86539b86f8d852fd11d9a963d87ce96/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6513f3c0d34fd2c891d39ce1471a7e432a8dfb416df2b08460a904642d545c6b/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/6dcddf8654cfaa8cd4467d2ba0bbfe0d07316584a1bdf148d35adc491e6bb583/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/6dcddf8654cfaa8cd4467d2ba0bbfe0d07316584a1bdf148d35adc491e6bb583/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/2a9e8570eaf55deffb89223358396ab9806b742cbcee97b04a965b7c9c3db465/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/cbc770803926718851ca163c313159ba9937d6692a1df78d415bec52fc11767b/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/cbc770803926718851ca163c313159ba9937d6692a1df78d415bec52fc11767b/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/04121eedf3ad7999cd66c8f5a5c68d19ce6fc56914ef47ad27d833ee7c1251dd/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/0c12fa19838e44fc5fa5221655f0e90bbc1e222bf6295726dae10ffe577755a7/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/0c12fa19838e44fc5fa5221655f0e90bbc1e222bf6295726dae10ffe577755a7/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/cc1d2fc4910a4820fe4b80d33dd74d7110391d44b8cdae97ab04debeabd60c37/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/66d154b41a1e3d0c91806fd11012ca1d1af15dd85fd22b413e2d89cdea2a1f5d/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/66d154b41a1e3d0c91806fd11012ca1d1af15dd85fd22b413e2d89cdea2a1f5d/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/45fb064cb16d0653f5b99b8df129a9ff2ff46ee167f23aade0a0628597918a83/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/3dac7d46d5607d068716964c64d682479f90eba761fd55604be814644832d8cb/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/3dac7d46d5607d068716964c64d682479f90eba761fd55604be814644832d8cb/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/36ec00daf80c583b4cdbb11a405db9e2b2d0cd8a8794ac9872cea550394408e2/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/d52f38bf82fa2a2981b0c600365c442fa3d8a2db4c23de6295817b22d8c99916/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/d52f38bf82fa2a2981b0c600365c442fa3d8a2db4c23de6295817b22d8c99916/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9ca8eede79618d12c8819fbe461371df56bc3d61e0a76813e86b414ba66041d4/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/237408d9b94578f436e8bf9e4a320d0f8e6b17a75fabeb8c03c1f4c23a58c8e4/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/237408d9b94578f436e8bf9e4a320d0f8e6b17a75fabeb8c03c1f4c23a58c8e4/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/569ad0f475329ebedbbfda7120561475bb2a639d05ebd4398fd1fb2679471c71/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/57d5f7c2b0dff3a6c8a533ccb808ad0c59bc71bdd1d708853932e57fbed8ad23/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8c938347537d3dfcb483c412b5b0e63ede501573e2e333f7af5bf8eba158f39f/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/38c37bd00ae71c7c7ed369c8a21971c6db65dae79cac3e9eb43a7263893354f2/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/8fb02ae414e6941aa7b258a1d5895bdfd4a790742ba511232f23ff5a543ef7c9/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a51dd5db047626030df7452831039f2a107864e03ac27bc2b477ae7ef7db8787/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/5253426cb2466310d68baaae9e3f5d6995216f1cdd491bc408ec87d951f67b2e/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/a5b85a3e4d99bba4ba2fcf49303b6d4e05fc1cb49dde6d95a9459a680607dacf/rootfs
+shm             16481814      1  16481813    1% /run/k3s/containerd/io.containerd.grpc.v1.cri/sandboxes/719e9b40618e0b42ec985ef1808cddfd5dea1778dbdb8245aeb80fecbe10f77a/shm
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/719e9b40618e0b42ec985ef1808cddfd5dea1778dbdb8245aeb80fecbe10f77a/rootfs
+overlay          9830400 322498   9507902    4% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9e7f89e13b626517a73d1e16bacee3e3e93eadab3ab537682b985c79331f5ae9/rootfs
+tmpfs           16481814     19  16481795    1% /run/k3s/containerd/io.containerd.runtime.v2.task/k8s.io/9e7f89e13b626517a73d1e16bacee3e3e93eadab3ab537682b985c79331f5ae9/rootfs/dev
+tmpfs            1048576     11   1048565    1% /tmp
+
+#==[ Configuration File ]===========================#
+# /proc/sys/kernel/tainted
+0
+
+
+Kernel Status -- Not Tainted
+
+#==[ Checking Health of Processes ]=================#
+# awk '$8 ~ /D|Z/' /var/log/scc_supportconfig_hp-117-tink-system-7uxVEq/psout.QOUWsbep
+
+
+#==[ Summary ]======================================#
+# Top 10 CPU Processes
+%CPU   PID USER     CMD
+
+
+#==[ Summary ]======================================#
+# Top 10 Memory Processes
+%MEM   PID USER     CMD
+
+
+#==[ Command ]======================================#
+# /bin/ps axwwo user,pid,ppid,%cpu,%mem,vsz,rss,stat,time,cmd
+fatal library error, lookup self
+

@@ -1,0 +1,65 @@
+2026-06-12T10:41:47.264100976Z time="2026-06-12T10:41:47Z" level=info msg="Rancher-webhook version v0.10.6 (18da01b) is starting"
+2026-06-12T10:41:47.271590222Z time="2026-06-12T10:41:47Z" level=info msg="could not read client CA file at /tmp/k8s-webhook-server/client-ca/ca.crt, incoming requests will not be authenticated"
+2026-06-12T10:41:47.271711583Z I0612 10:41:47.271571       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="cattle-system/rancher-webhook-leader"
+2026-06-12T10:41:47.275473161Z time="2026-06-12T10:41:47Z" level=warning msg="Skipping save of TLS secret for cattle-system/cattle-webhook-tls due to missing certificate data"
+2026-06-12T10:41:47.275490989Z time="2026-06-12T10:41:47Z" level=info msg="Active TLS secret cattle-system/cattle-webhook-tls (ver=) (count -1): map[]"
+2026-06-12T10:41:47.275964719Z time="2026-06-12T10:41:47Z" level=info msg="generated self-signed CA certificate CN=dynamiclistener-ca@1781260907,O=dynamiclistener-org: notBefore=2026-06-12 09:41:47.275448763 +0000 UTC notAfter=2036-06-09 09:41:47.275448763 +0000 UTC"
+2026-06-12T10:41:47.278183263Z I0612 10:41:47.278115       1 leaderelection.go:272] "Successfully acquired lease" lock="cattle-system/rancher-webhook-leader"
+2026-06-12T10:41:47.278215430Z time="2026-06-12T10:41:47Z" level=info msg="[b20b5c35-1e1b-4f81-a40e-fe6adf10273d] I am the new leader"
+2026-06-12T10:41:47.278292538Z time="2026-06-12T10:41:47Z" level=info msg="[b20b5c35-1e1b-4f81-a40e-fe6adf10273d] elected leader: will manage webhook configurations"
+2026-06-12T10:41:47.285108036Z time="2026-06-12T10:41:47Z" level=info msg="Listening on :9443"
+2026-06-12T10:41:47.285749897Z time="2026-06-12T10:41:47Z" level=info msg="certificate CN=dynamic,O=dynamic signed by CN=dynamiclistener-ca@1781260907,O=dynamiclistener-org: notBefore=2026-06-12 09:41:47 +0000 UTC notAfter=2036-06-09 09:41:47 +0000 UTC"
+2026-06-12T10:41:47.285850739Z time="2026-06-12T10:41:47Z" level=warning msg="dynamiclistener [::]:9443: no cached certificate available for preload - deferring certificate load until storage initialization or first client request"
+2026-06-12T10:41:47.287239026Z time="2026-06-12T10:41:47Z" level=info msg="Creating new TLS secret for cattle-system/cattle-webhook-tls (count: 1): map[listener.cattle.io/cn-rancher-webhook.cattle-system.svc:rancher-webhook.cattle-system.svc listener.cattle.io/fingerprint:SHA1=936E3EAE8A4A1E3016232D5D25B13D6A8613930D]"
+2026-06-12T10:41:47.293054917Z time="2026-06-12T10:41:47Z" level=info msg="Active TLS secret cattle-system/cattle-webhook-tls (ver=2593) (count 1): map[listener.cattle.io/cn-rancher-webhook.cattle-system.svc:rancher-webhook.cattle-system.svc listener.cattle.io/fingerprint:SHA1=936E3EAE8A4A1E3016232D5D25B13D6A8613930D]"
+2026-06-12T10:41:47.494591925Z time="2026-06-12T10:41:47Z" level=info msg="Starting rbac.authorization.k8s.io/v1, Kind=Role controller"
+2026-06-12T10:41:47.494618953Z time="2026-06-12T10:41:47Z" level=info msg="Starting rbac.authorization.k8s.io/v1, Kind=RoleBinding controller"
+2026-06-12T10:41:47.494669562Z time="2026-06-12T10:41:47Z" level=info msg="Starting management.cattle.io/v3, Kind=Feature controller"
+2026-06-12T10:41:47.494688184Z time="2026-06-12T10:41:47Z" level=info msg="Starting apiregistration.k8s.io/v1, Kind=APIService controller"
+2026-06-12T10:41:47.494736819Z time="2026-06-12T10:41:47Z" level=info msg="Starting management.cattle.io/v3, Kind=PodSecurityAdmissionConfigurationTemplate controller"
+2026-06-12T10:41:47.494765414Z time="2026-06-12T10:41:47Z" level=info msg="Starting apiextensions.k8s.io/v1, Kind=CustomResourceDefinition controller"
+2026-06-12T10:41:47.494783620Z time="2026-06-12T10:41:47Z" level=info msg="Starting rbac.authorization.k8s.io/v1, Kind=ClusterRoleBinding controller"
+2026-06-12T10:41:47.494790914Z time="2026-06-12T10:41:47Z" level=info msg="Starting /v1, Kind=Secret controller"
+2026-06-12T10:41:47.494867653Z time="2026-06-12T10:41:47Z" level=info msg="Starting rbac.authorization.k8s.io/v1, Kind=ClusterRole controller"
+2026-06-12T10:41:47.494959906Z time="2026-06-12T10:41:47Z" level=info msg="Applying webhook config"
+2026-06-12T10:42:48.738561362Z W0612 10:42:48.738323       1 gvks.go:80] Failed to read API for groups: map[upload.cdi.kubevirt.io/v1beta1:stale GroupVersion discovery: upload.cdi.kubevirt.io/v1beta1]
+2026-06-12T10:42:48.739277549Z W0612 10:42:48.739193       1 gvks.go:80] Failed to read API for groups: map[upload.cdi.kubevirt.io/v1beta1:stale GroupVersion discovery: upload.cdi.kubevirt.io/v1beta1]
+2026-06-12T10:42:49.901094585Z W0612 10:42:49.900887       1 gvks.go:80] Failed to read API for groups: map[upload.cdi.kubevirt.io/v1beta1:stale GroupVersion discovery: upload.cdi.kubevirt.io/v1beta1]
+2026-06-12T10:42:49.901582733Z W0612 10:42:49.901507       1 gvks.go:80] Failed to read API for groups: map[upload.cdi.kubevirt.io/v1beta1:stale GroupVersion discovery: upload.cdi.kubevirt.io/v1beta1]
+2026-06-12T10:43:28.789445662Z W0612 10:43:28.789351       1 gvks.go:80] Failed to read API for groups: map[subresources.kubevirt.io/v1:stale GroupVersion discovery: subresources.kubevirt.io/v1 subresources.kubevirt.io/v1alpha3:stale GroupVersion discovery: subresources.kubevirt.io/v1alpha3]
+2026-06-12T10:43:28.789536630Z W0612 10:43:28.789475       1 gvks.go:80] Failed to read API for groups: map[subresources.kubevirt.io/v1:stale GroupVersion discovery: subresources.kubevirt.io/v1 subresources.kubevirt.io/v1alpha3:stale GroupVersion discovery: subresources.kubevirt.io/v1alpha3]
+2026-06-12T10:44:05.355029171Z W0612 10:44:05.354843       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1 subresources.kubevirt.io/v1:stale GroupVersion discovery: subresources.kubevirt.io/v1 subresources.kubevirt.io/v1alpha3:stale GroupVersion discovery: subresources.kubevirt.io/v1alpha3]
+2026-06-12T10:44:05.355138465Z W0612 10:44:05.355049       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1 subresources.kubevirt.io/v1:stale GroupVersion discovery: subresources.kubevirt.io/v1 subresources.kubevirt.io/v1alpha3:stale GroupVersion discovery: subresources.kubevirt.io/v1alpha3]
+2026-06-12T10:44:06.170284935Z W0612 10:44:06.170161       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:06.171727867Z W0612 10:44:06.171607       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:08.110539355Z W0612 10:44:08.110274       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:08.110569798Z W0612 10:44:08.110389       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.086140885Z W0612 10:44:09.085996       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.086361700Z W0612 10:44:09.086285       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.187732994Z W0612 10:44:09.187558       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.188026761Z W0612 10:44:09.187941       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.254818874Z W0612 10:44:09.254713       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.256064861Z W0612 10:44:09.255944       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.565732057Z W0612 10:44:09.565560       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.570015560Z W0612 10:44:09.569923       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.636930975Z W0612 10:44:09.636811       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.640770380Z W0612 10:44:09.640638       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.735518270Z W0612 10:44:09.735415       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.736284690Z W0612 10:44:09.736148       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.755928444Z W0612 10:44:09.755820       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:09.757564922Z W0612 10:44:09.757482       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:14.765548110Z W0612 10:44:14.765418       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:14.765569619Z W0612 10:44:14.765441       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:18.702586210Z W0612 10:44:18.702511       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:18.702653804Z W0612 10:44:18.702507       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:26.959336427Z W0612 10:44:26.959250       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:26.959352823Z W0612 10:44:26.959285       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:28.214403619Z W0612 10:44:28.214280       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T10:44:28.215819896Z W0612 10:44:28.215696       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T11:02:37.280540392Z W0612 11:02:37.280427       1 gvks.go:80] Failed to read API for groups: map[custom.metrics.k8s.io/v1beta1:stale GroupVersion discovery: custom.metrics.k8s.io/v1beta1]
+2026-06-12T11:02:37.282415961Z W0612 11:02:37.282319       1 gvks.go:80] Failed to read API for groups: map[custom.metrics.k8s.io/v1beta1:stale GroupVersion discovery: custom.metrics.k8s.io/v1beta1]
+2026-06-12T11:03:07.417957840Z W0612 11:03:07.417835       1 gvks.go:80] Failed to read API for groups: map[custom.metrics.k8s.io/v1beta1:stale GroupVersion discovery: custom.metrics.k8s.io/v1beta1]
+2026-06-12T11:03:07.418377865Z W0612 11:03:07.418294       1 gvks.go:80] Failed to read API for groups: map[custom.metrics.k8s.io/v1beta1:stale GroupVersion discovery: custom.metrics.k8s.io/v1beta1]
+2026-06-12T11:05:24.526917075Z W0612 11:05:24.526772       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T11:05:24.527939383Z W0612 11:05:24.527881       1 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2026-06-12T20:41:47.383525759Z time="2026-06-12T20:41:47Z" level=info msg="Applying webhook config"

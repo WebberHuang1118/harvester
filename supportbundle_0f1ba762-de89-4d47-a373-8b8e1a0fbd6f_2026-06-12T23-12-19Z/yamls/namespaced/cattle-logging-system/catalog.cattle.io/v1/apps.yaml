@@ -1,0 +1,179 @@
+apiVersion: v1
+items:
+- apiVersion: catalog.cattle.io/v1
+  kind: App
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/8RXzW7jNhB+FWF6rKSVZK9rC+ih2ABF0UOBtOih7R5G5MhiTZECOfLWDfTuBWnHMRw3CRaBfbPMIb/5fjSgHqAnRomMUD8AGmMZWVnjw6Nt/ibBnjh3yuYCmTXlyn5QEmroSPcZDgOk/1tnvxhy2Xq7gRo+bMs0+VkZ+f2vJBzxq9sM9gQ1+C4PSLkjTegp35a5QyM6cpm267Uy60w4mW/LNx3oBxTh1P3a8QS/80w9TClobEi/SL5D30ENhSBJZdvMsEWxaqvVfF6t5st2vqgWVYvlqpDUiNkyHHqgcqFv2C++3FYKkcA9teTICPJQ//kAOKjfyXllDdQQ6Tfais0vofSONHFcaVF7SkFYw85qTQ5qdiOlsFEmuHg04yvkHmMOqKrKRTMT2cdq0WTzcikzXMkiW6wW8+9Wsvw4WxYwfZ5S8AOJoKzo0HH48UL0BDJquz7RXZBj1SqST0pCeqGuU1JS0CTwvFjxFsWf7zookr1oZquJ+GQTrsnwpeTFwkxbgfoJ9Hx3MxqpKYsy90Jkb8PcEA2ZI29HF7MCMQMXCj25rRKUoRB2NAw1hLA+z5UkL5wa9oGCn4xn1Non3FHy6f7OJ611yVlrObySet4NYRGHQSsRbYcUtkfcsljmRV59Ow7zvCzy4pF6Xi5hmtI4fI5dzlJQprUhNhdbTYTtB00cNVDO8x0N2u5ikqqiWmTFIiur38qinld1VfwBYQy8pcoRysjxm3P+geVf5ofkfv93EiOfcIecqGf6jdEdz8hjsEs+4r7H5DjJwfnMwEHRP0wmPPp8s/QhE9Hww2z4NHq2/f3hhDtqlVEHpw590ZYMMypNzueP2CeHNmj+RSW0HWWuLEzp+7fQWX/jDoQePZNrtf1ybOGKuHbkYeSrIl+daqtHMtwojvP0BtBSWNOq9VWRD1DBYLoF8FUxjZV0fXNv8O74ndd2bda3mhpn+LdU4Pqv1CP0zVR/Te7PJ5egcnq6FITPkXBdI/kjGXL7C1NdpODHvke3g/phmqb/AgAA//9Ty+CdzQ0AAA
+      objectset.rio.cattle.io/id: helm-app
+      objectset.rio.cattle.io/owner-gvk: /v1, Kind=Secret
+      objectset.rio.cattle.io/owner-name: sh.helm.release.v1.rancher-logging-crd.v1
+      objectset.rio.cattle.io/owner-namespace: cattle-logging-system
+    creationTimestamp: "2026-06-12T10:42:28Z"
+    generation: 2
+    labels:
+      objectset.rio.cattle.io/hash: 0cede1fb3afac9f29442948f46262fa190debc38
+    managedFields:
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e2216b3c-526b-418d-a9d0-696479d15380"}: {}
+        f:spec:
+          .: {}
+          f:chart:
+            .: {}
+            f:metadata:
+              .: {}
+              f:annotations:
+                .: {}
+                f:catalog.cattle.io/certified: {}
+                f:catalog.cattle.io/hidden: {}
+                f:catalog.cattle.io/namespace: {}
+                f:catalog.cattle.io/release-name: {}
+                f:fleet.cattle.io/agent-namespace: {}
+                f:fleet.cattle.io/bundle-id: {}
+                f:fleet.cattle.io/keep-resources: {}
+                f:fleet.cattle.io/service-account: {}
+              f:apiVersion: {}
+              f:description: {}
+              f:name: {}
+              f:type: {}
+              f:version: {}
+          f:helmVersion: {}
+          f:info:
+            .: {}
+            f:description: {}
+            f:firstDeployed: {}
+            f:lastDeployed: {}
+            f:readme: {}
+            f:status: {}
+          f:name: {}
+          f:namespace: {}
+          f:resources: {}
+          f:version: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:42:32Z"
+    - apiVersion: catalog.cattle.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:observedGeneration: {}
+          f:summary:
+            .: {}
+            f:state: {}
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:42:32Z"
+    name: rancher-logging-crd
+    namespace: cattle-logging-system
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: false
+      controller: true
+      kind: Secret
+      name: sh.helm.release.v1.rancher-logging-crd.v1
+      uid: e2216b3c-526b-418d-a9d0-696479d15380
+    resourceVersion: "4177"
+    uid: 7eb0de50-cf00-40bf-9ce5-08d211299fbd
+  spec:
+    chart:
+      metadata:
+        annotations:
+          catalog.cattle.io/certified: rancher
+          catalog.cattle.io/hidden: "true"
+          catalog.cattle.io/namespace: cattle-logging-system
+          catalog.cattle.io/release-name: rancher-logging-crd
+          fleet.cattle.io/agent-namespace: cattle-fleet-local-system
+          fleet.cattle.io/bundle-id: mcc-rancher-logging-crd
+          fleet.cattle.io/keep-resources: "false"
+          fleet.cattle.io/service-account: "null"
+        apiVersion: v1
+        description: Installs the CRDs for rancher-logging.
+        name: rancher-logging-crd
+        type: application
+        version: 108.0.2+up4.10.0-rancher.18
+    helmVersion: 3
+    info:
+      description: Install complete
+      firstDeployed: "2026-06-12T10:42:20Z"
+      lastDeployed: "2026-06-12T10:42:20Z"
+      readme: |
+        # rancher-logging-crd
+        A Rancher chart that installs the CRDs used by rancher-logging.
+      status: deployed
+    name: rancher-logging-crd
+    namespace: cattle-logging-system
+    resources:
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: eventtailers.logging-extensions.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: hosttailers.logging-extensions.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: clusterflows.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: clusteroutputs.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: flows.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: fluentbitagents.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: fluentdconfigs.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: loggingroutes.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: loggings.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: nodeagents.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: outputs.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: syslogngclusterflows.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: syslogngclusteroutputs.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: syslogngconfigs.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: syslogngflows.logging.banzaicloud.io
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: syslogngoutputs.logging.banzaicloud.io
+    version: 1
+  status:
+    observedGeneration: 2
+    summary:
+      state: deployed
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676499"

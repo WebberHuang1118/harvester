@@ -1,0 +1,91 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIBeTCCAR+gAwIBAgIBADAKBggqhkjOPQQDAjAkMSIwIAYDVQQDDBlya2UyLXNl
+      cnZlci1jYUAxNzgxMjYwNzE2MB4XDTI2MDYxMjA5MzgzNloXDTM2MDYwOTA5Mzgz
+      NlowJDEiMCAGA1UEAwwZcmtlMi1zZXJ2ZXItY2FAMTc4MTI2MDcxNjBZMBMGByqG
+      SM49AgEGCCqGSM49AwEHA0IABPk246u4fDiUoJxE2EVjsdl+2WghA1AozD9LyTCt
+      kcWEXR7Y/p8ZBOmKO/7JDWR+adXlmaOH9Qt2X+OD26+OekKjQjBAMA4GA1UdDwEB
+      /wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBRTQF4RR+CYwjWUKUiW
+      v6ANMtfbszAKBggqhkjOPQQDAgNIADBFAiEAw5QWjMooFbKCSQS9HjyoPM7a7FfQ
+      a/dd2uErfC7APv4CIByEUj+g2uzMsgnCaVLekKRnpTqNn5gkLHHvR2ecZd02
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2026-06-12T10:39:48Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:ca.crt: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubernetes.io/description: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:39:48Z"
+    name: kube-root-ca.crt
+    namespace: fleet-local
+    resourceVersion: "1221"
+    uid: f581b268-18dd-46de-8998-e58503105eba
+- apiVersion: v1
+  data:
+    cleanup.sh: "#!/bin/bash\n\n\t\t\t# Fetch and save all CRD names containing 'rke-machine-config.cattle.io'\n\t\t\tcrds=$(kubectl
+      get crds -o custom-columns=NAME:.metadata.name --no-headers | grep 'rke-machine-config\\.cattle\\.io')\n\t\t\t\n\t\t\t#
+      Collect all namespaces from fleetWorkspaceName field of provisioning clusters\n\t\t\tnamespaces=$(kubectl
+      get clusters.provisioning.cattle.io -A -o json | jq -r '.items[].status.fleetWorkspaceName
+      // empty' | sort -u)\n\t\t\t\n\t\t\tif [ -z \"$namespaces\" ]; then\n  \t\t\t\tnamespaces=\"fleet-default\"\n\t\t\tfi\n\n\t\t\t#
+      Loop through each namespace\n\t\t\tfor ns in $namespaces; do\n\t\n\t\t\t  #
+      Loop through each CRD name\n\t\t\t  for crd in $crds; do\n\n\t\t\t\t# Get resources
+      of the current CRD and collect those with no ownerReferences and older than
+      1 hour\n\t\t\t\tresources=$(kubectl get $crd -n $ns -o json | \\\n\t\t\t\t  jq
+      -r '\n\t\t\t\t\t.items[] |\n\t\t\t\t\tselect(.metadata.ownerReferences == null)
+      |\n\t\t\t\t\tselect((now - (.metadata.creationTimestamp | fromdateiso8601))
+      > 3600) |\n\t\t\t\t\t.metadata.name' | \\\n\t\t\t\t  xargs)\n\n\t\t\t\tif [
+      -n \"$resources\" ]; then\n\t\t\t\t  echo \"Deleting resources: $resources in
+      namespace: $ns\"\n\t\t\t\t  kubectl delete $crd -n $ns $resources\n\t\t\t\tfi\n\t\t\t
+      \ done\n\t\t\tdone"
+  kind: ConfigMap
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/3yPvU7sMBCFX8XXW9wGJ1GWZL1pQTwAdZrxeLIx64yjeKBZ5d2R+SmgQFONdPR959y0BwE93DRGAn5dqzzrQR/+1S5w7SDPI488SrmDeiLBWQF7leGNFMSoHp4fFcNCWWFigcCBL+r/diWz6P1OLyTwbQDmJCAhcS5vci+EkkmqLaQKQSRSFVIdvB70dqXWLIBzYDKYeAoX89WwYCM4in9SZvgY4v3ZO5z8CY/W2s4fGzpZQNd30Fnqzn3b3ze2aQu0zPil/mk2Gbewiv6M5hWw5KdIJCYmhKj3/T0AAP//H6C34VEBAAA
+      objectset.rio.cattle.io/id: rke2-machine-config-cleanup
+    creationTimestamp: "2026-06-12T10:42:20Z"
+    labels:
+      objectset.rio.cattle.io/hash: dd9dbcfd7c38885d30e78acb65a58e5962640802
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:cleanup.sh: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:42:20Z"
+    name: rke2-machineconfig-cleanup-script
+    namespace: fleet-local
+    resourceVersion: "3744"
+    uid: 044e56cc-480d-4ae5-b781-0e8cd89b8df2
+kind: List
+metadata:
+  resourceVersion: "676422"

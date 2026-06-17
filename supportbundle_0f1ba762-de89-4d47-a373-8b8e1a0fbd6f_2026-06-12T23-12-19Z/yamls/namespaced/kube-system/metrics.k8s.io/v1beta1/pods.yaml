@@ -1,0 +1,658 @@
+apiVersion: v1
+items:
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: cloud-controller-manager
+    usage:
+      cpu: 2768892n
+      memory: 31768Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: cloud-controller-manager
+      tier: control-plane
+    name: cloud-controller-manager-hp-117-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:15Z"
+  window: 28.649s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: cloud-controller-manager
+    usage:
+      cpu: 1861295n
+      memory: 24540Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: cloud-controller-manager
+      tier: control-plane
+    name: cloud-controller-manager-hp-150-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:13Z"
+  window: 30.345s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: cloud-controller-manager
+    usage:
+      cpu: 2339239n
+      memory: 22452Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: cloud-controller-manager
+      tier: control-plane
+    name: cloud-controller-manager-hp-69-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:06Z"
+  window: 14.618s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: etcd
+    usage:
+      cpu: 86882792n
+      memory: 390852Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: etcd
+      tier: control-plane
+    name: etcd-hp-117-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:15Z"
+  window: 19.811s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: etcd
+    usage:
+      cpu: 69337100n
+      memory: 279308Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: etcd
+      tier: control-plane
+    name: etcd-hp-150-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:09Z"
+  window: 17.345s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: etcd
+    usage:
+      cpu: 89458548n
+      memory: 298988Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: etcd
+      tier: control-plane
+    name: etcd-hp-69-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:13Z"
+  window: 17.647s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: whereabouts
+    usage:
+      cpu: 6486857n
+      memory: 36624Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: whereabouts
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/name: whereabouts
+      controller-revision-hash: 6cc6484658
+      name: whereabouts
+      pod-template-generation: "1"
+    name: harvester-whereabouts-j6qnc
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:02Z"
+  window: 16.321s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: whereabouts
+    usage:
+      cpu: 9413108n
+      memory: 37040Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: whereabouts
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/name: whereabouts
+      controller-revision-hash: 6cc6484658
+      name: whereabouts
+      pod-template-generation: "1"
+    name: harvester-whereabouts-k5drf
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:07Z"
+  window: 17.821s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: whereabouts
+    usage:
+      cpu: 6525553n
+      memory: 34780Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: whereabouts
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/name: whereabouts
+      controller-revision-hash: 6cc6484658
+      name: whereabouts
+      pod-template-generation: "1"
+    name: harvester-whereabouts-p7v7x
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:10Z"
+  window: 16.162s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-apiserver
+    usage:
+      cpu: 276891748n
+      memory: 3313788Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-apiserver
+      tier: control-plane
+    name: kube-apiserver-hp-117-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:12Z"
+  window: 15.621s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-apiserver
+    usage:
+      cpu: 130447850n
+      memory: 2584224Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-apiserver
+      tier: control-plane
+    name: kube-apiserver-hp-150-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:12Z"
+  window: 15.331s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-apiserver
+    usage:
+      cpu: 209934526n
+      memory: 2389384Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-apiserver
+      tier: control-plane
+    name: kube-apiserver-hp-69-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:09Z"
+  window: 14.586s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-controller-manager
+    usage:
+      cpu: 21773846n
+      memory: 164076Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-controller-manager
+      tier: control-plane
+    name: kube-controller-manager-hp-117-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:07Z"
+  window: 13.681s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-controller-manager
+    usage:
+      cpu: 2283045n
+      memory: 24952Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-controller-manager
+      tier: control-plane
+    name: kube-controller-manager-hp-150-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:07Z"
+  window: 15.471s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-controller-manager
+    usage:
+      cpu: 3456775n
+      memory: 26924Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-controller-manager
+      tier: control-plane
+    name: kube-controller-manager-hp-69-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:16Z"
+  window: 30.862s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-proxy
+    usage:
+      cpu: 693901n
+      memory: 27704Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-proxy
+      tier: control-plane
+    name: kube-proxy-hp-117-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:11Z"
+  window: 17.037s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-proxy
+    usage:
+      cpu: 761400n
+      memory: 25440Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-proxy
+      tier: control-plane
+    name: kube-proxy-hp-150-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:09Z"
+  window: 14.648s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-proxy
+    usage:
+      cpu: 1057384n
+      memory: 26664Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-proxy
+      tier: control-plane
+    name: kube-proxy-hp-69-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:08Z"
+  window: 19.047s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-scheduler
+    usage:
+      cpu: 6437232n
+      memory: 46852Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-scheduler
+      tier: control-plane
+    name: kube-scheduler-hp-117-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:06Z"
+  window: 11.001s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-scheduler
+    usage:
+      cpu: 6410864n
+      memory: 46984Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-scheduler
+      tier: control-plane
+    name: kube-scheduler-hp-150-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:10Z"
+  window: 12.868s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-scheduler
+    usage:
+      cpu: 9170276n
+      memory: 49608Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      component: kube-scheduler
+      tier: control-plane
+    name: kube-scheduler-hp-69-tink-system
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:02Z"
+  window: 16.99s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: calico-node
+    usage:
+      cpu: 62674968n
+      memory: 91652Ki
+  - name: kube-flannel
+    usage:
+      cpu: 9497471n
+      memory: 28692Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      controller-revision-hash: 54b7c99fbb
+      k8s-app: canal
+      pod-template-generation: "1"
+    name: rke2-canal-2qm5s
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:02Z"
+  window: 12.26s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-flannel
+    usage:
+      cpu: 5845279n
+      memory: 24532Ki
+  - name: calico-node
+    usage:
+      cpu: 32897845n
+      memory: 83904Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      controller-revision-hash: 54b7c99fbb
+      k8s-app: canal
+      pod-template-generation: "1"
+    name: rke2-canal-bvkvw
+    namespace: kube-system
+  timestamp: "2026-06-12T23:11:58Z"
+  window: 18.207s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: calico-node
+    usage:
+      cpu: 38683877n
+      memory: 84372Ki
+  - name: kube-flannel
+    usage:
+      cpu: 5257102n
+      memory: 24432Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      controller-revision-hash: 54b7c99fbb
+      k8s-app: canal
+      pod-template-generation: "1"
+    name: rke2-canal-zmqhf
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:04Z"
+  window: 15.804s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: coredns
+    usage:
+      cpu: 1011430n
+      memory: 16924Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app.kubernetes.io/instance: rke2-coredns
+      app.kubernetes.io/name: rke2-coredns
+      k8s-app: kube-dns
+      pod-template-hash: 69c9c9877c
+    name: rke2-coredns-rke2-coredns-69c9c9877c-pdnb4
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:15Z"
+  window: 17.41s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: coredns
+    usage:
+      cpu: 989233n
+      memory: 14740Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app.kubernetes.io/instance: rke2-coredns
+      app.kubernetes.io/name: rke2-coredns
+      k8s-app: kube-dns
+      pod-template-hash: 69c9c9877c
+    name: rke2-coredns-rke2-coredns-69c9c9877c-scjqw
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:15Z"
+  window: 25.727s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: autoscaler
+    usage:
+      cpu: 564755n
+      memory: 15568Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app.kubernetes.io/instance: rke2-coredns
+      app.kubernetes.io/name: rke2-coredns-autoscaler
+      k8s-app: kube-dns-autoscaler
+      pod-template-hash: 645c95cdd7
+    name: rke2-coredns-rke2-coredns-autoscaler-645c95cdd7-pzt5d
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:08Z"
+  window: 11.111s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: rke2-ingress-nginx-controller
+    usage:
+      cpu: 6972462n
+      memory: 611884Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: rke2-ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-ingress-nginx
+      app.kubernetes.io/part-of: rke2-ingress-nginx
+      app.kubernetes.io/version: 1.14.5
+      controller-revision-hash: 5cb8559895
+      helm.sh/chart: rke2-ingress-nginx-4.14.508
+      pod-template-generation: "3"
+    name: rke2-ingress-nginx-controller-vm8zb
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:06Z"
+  window: 16.305s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: rke2-ingress-nginx-controller
+    usage:
+      cpu: 3441477n
+      memory: 321268Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: rke2-ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-ingress-nginx
+      app.kubernetes.io/part-of: rke2-ingress-nginx
+      app.kubernetes.io/version: 1.14.5
+      controller-revision-hash: 5cb8559895
+      helm.sh/chart: rke2-ingress-nginx-4.14.508
+      pod-template-generation: "3"
+    name: rke2-ingress-nginx-controller-wdtwk
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:01Z"
+  window: 23.034s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: rke2-ingress-nginx-controller
+    usage:
+      cpu: 3396608n
+      memory: 319560Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: rke2-ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-ingress-nginx
+      app.kubernetes.io/part-of: rke2-ingress-nginx
+      app.kubernetes.io/version: 1.14.5
+      controller-revision-hash: 5cb8559895
+      helm.sh/chart: rke2-ingress-nginx-4.14.508
+      pod-template-generation: "3"
+    name: rke2-ingress-nginx-controller-wpj74
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:12Z"
+  window: 19.934s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: metrics-server
+    usage:
+      cpu: 4762227n
+      memory: 45828Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: rke2-metrics-server
+      app.kubernetes.io/instance: rke2-metrics-server
+      app.kubernetes.io/name: rke2-metrics-server
+      pod-template-hash: bdc688fb7
+    name: rke2-metrics-server-bdc688fb7-zjzmx
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:10Z"
+  window: 16.07s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-rke2-multus
+    usage:
+      cpu: 691345n
+      memory: 48884Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: rke2-multus
+      controller-revision-hash: 5dfd8bb844
+      pod-template-generation: "1"
+      tier: node
+    name: rke2-multus-8qhm4
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:06Z"
+  window: 16.073s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-rke2-multus
+    usage:
+      cpu: 391289n
+      memory: 48940Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: rke2-multus
+      controller-revision-hash: 5dfd8bb844
+      pod-template-generation: "1"
+      tier: node
+    name: rke2-multus-jgl7m
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:07Z"
+  window: 19.837s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: kube-rke2-multus
+    usage:
+      cpu: 354849n
+      memory: 48176Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: rke2-multus
+      controller-revision-hash: 5dfd8bb844
+      pod-template-generation: "1"
+      tier: node
+    name: rke2-multus-rf4lt
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:04Z"
+  window: 14.857s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: snapshot-controller
+    usage:
+      cpu: 565473n
+      memory: 17796Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: snapshot-controller
+      pod-template-hash: b996f9ff4
+    name: snapshot-controller-b996f9ff4-2v9fp
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:06Z"
+  window: 18.977s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: snapshot-controller
+    usage:
+      cpu: 706526n
+      memory: 24772Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: snapshot-controller
+      pod-template-hash: b996f9ff4
+    name: snapshot-controller-b996f9ff4-zc2z7
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:07Z"
+  window: 17.361s
+- apiVersion: metrics.k8s.io/v1beta1
+  containers:
+  - name: whereabouts
+    usage:
+      cpu: 652041n
+      memory: 13124Ki
+  kind: PodMetrics
+  metadata:
+    creationTimestamp: "2026-06-12T23:12:27Z"
+    labels:
+      app: whereabouts-controller
+      pod-template-hash: 7b89d499d4
+    name: whereabouts-controller-7b89d499d4-9tflq
+    namespace: kube-system
+  timestamp: "2026-06-12T23:12:12Z"
+  window: 10.507s
+kind: List
+metadata: {}

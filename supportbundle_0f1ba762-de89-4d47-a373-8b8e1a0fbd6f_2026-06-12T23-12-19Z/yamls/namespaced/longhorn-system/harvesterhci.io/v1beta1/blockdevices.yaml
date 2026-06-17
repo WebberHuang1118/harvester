@@ -1,0 +1,284 @@
+apiVersion: v1
+items:
+- apiVersion: harvesterhci.io/v1beta1
+  kind: BlockDevice
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:32Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-block-device-handler
+    generation: 1
+    labels:
+      kubernetes.io/hostname: hp-150-tink-system
+      ndm.harvesterhci.io/device-type: disk
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-block-device-handler"null: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/hostname: {}
+            f:ndm.harvesterhci.io/device-type: {}
+        f:spec:
+          .: {}
+          f:devPath: {}
+          f:fileSystem:
+            .: {}
+            f:mountPoint: {}
+          f:nodeName: {}
+          f:provision: {}
+        f:status:
+          .: {}
+          f:deviceStatus:
+            .: {}
+            f:capacity:
+              .: {}
+              f:physicalBlockSizeBytes: {}
+              f:sizeBytes: {}
+            f:details:
+              .: {}
+              f:busPath: {}
+              f:deviceType: {}
+              f:driveType: {}
+              f:isRemovable: {}
+              f:model: {}
+              f:serialNumber: {}
+              f:storageController: {}
+              f:vendor: {}
+              f:wwn: {}
+            f:devPath: {}
+            f:fileSystem:
+              .: {}
+              f:isReadOnly: {}
+              f:mountPoint: {}
+              f:type: {}
+            f:partitioned: {}
+          f:provisionPhase: {}
+          f:state: {}
+      manager: node-disk-manager
+      operation: Update
+      time: "2026-06-12T10:47:32Z"
+    name: 4b4c0be0-17a6-4e28-8512-10d9b9c6bc77
+    namespace: longhorn-system
+    resourceVersion: "11692"
+    uid: 097b93a9-3e1b-4bcb-a91a-ae65a1d03aba
+  spec:
+    devPath: /dev/sdb
+    fileSystem:
+      mountPoint: "null"
+    nodeName: hp-150-tink-system
+    provision: false
+  status:
+    deviceStatus:
+      capacity:
+        physicalBlockSizeBytes: 512
+        sizeBytes: 4.02653184e+09
+      details:
+        busPath: pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0
+        deviceType: disk
+        driveType: HDD
+        isRemovable: true
+        model: Flash_Disk
+        serialNumber: ED99DB7C
+        storageController: SCSI
+        vendor: Generic
+        wwn: unknown
+      devPath: /dev/sdb
+      fileSystem:
+        isReadOnly: true
+        mountPoint: "null"
+        type: "null"
+      partitioned: false
+    provisionPhase: Unprovisioned
+    state: Active
+- apiVersion: harvesterhci.io/v1beta1
+  kind: BlockDevice
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:45Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-block-device-handler
+    generation: 1
+    labels:
+      kubernetes.io/hostname: hp-117-tink-system
+      ndm.harvesterhci.io/device-type: disk
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-block-device-handler"null: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/hostname: {}
+            f:ndm.harvesterhci.io/device-type: {}
+        f:spec:
+          .: {}
+          f:devPath: {}
+          f:fileSystem:
+            .: {}
+            f:mountPoint: {}
+          f:nodeName: {}
+          f:provision: {}
+        f:status:
+          .: {}
+          f:deviceStatus:
+            .: {}
+            f:capacity:
+              .: {}
+              f:physicalBlockSizeBytes: {}
+              f:sizeBytes: {}
+            f:details:
+              .: {}
+              f:busPath: {}
+              f:deviceType: {}
+              f:driveType: {}
+              f:model: {}
+              f:serialNumber: {}
+              f:storageController: {}
+              f:vendor: {}
+              f:wwn: {}
+            f:devPath: {}
+            f:fileSystem:
+              .: {}
+              f:isReadOnly: {}
+              f:mountPoint: {}
+              f:type: {}
+            f:partitioned: {}
+          f:provisionPhase: {}
+          f:state: {}
+      manager: node-disk-manager
+      operation: Update
+      time: "2026-06-12T10:42:45Z"
+    name: 7747b8a8-f5fc-4a37-b5c8-13e8d8d1533b
+    namespace: longhorn-system
+    resourceVersion: "4959"
+    uid: 7c9bc251-b242-4168-aad6-7d336eb44765
+  spec:
+    devPath: /dev/sda
+    fileSystem:
+      mountPoint: "null"
+    nodeName: hp-117-tink-system
+    provision: false
+  status:
+    deviceStatus:
+      capacity:
+        physicalBlockSizeBytes: 512
+        sizeBytes: 1.799797127168e+12
+      details:
+        busPath: pci-0000:03:00.0-scsi-0:1:0:0
+        deviceType: disk
+        driveType: HDD
+        model: LOGICAL_VOLUME
+        serialNumber: 600508b1001c077f5d6756d79fbeaedc
+        storageController: SCSI
+        vendor: HP
+        wwn: 0x600508b1001c077f5d6756d79fbeaedc
+      devPath: /dev/sda
+      fileSystem:
+        isReadOnly: true
+        mountPoint: "null"
+        type: "null"
+      partitioned: false
+    provisionPhase: Unprovisioned
+    state: Active
+- apiVersion: harvesterhci.io/v1beta1
+  kind: BlockDevice
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:32Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-block-device-handler
+    generation: 1
+    labels:
+      kubernetes.io/hostname: hp-150-tink-system
+      ndm.harvesterhci.io/device-type: disk
+    managedFields:
+    - apiVersion: harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-block-device-handler"null: {}
+          f:labels:
+            .: {}
+            f:kubernetes.io/hostname: {}
+            f:ndm.harvesterhci.io/device-type: {}
+        f:spec:
+          .: {}
+          f:devPath: {}
+          f:fileSystem:
+            .: {}
+            f:mountPoint: {}
+          f:nodeName: {}
+          f:provision: {}
+        f:status:
+          .: {}
+          f:deviceStatus:
+            .: {}
+            f:capacity:
+              .: {}
+              f:physicalBlockSizeBytes: {}
+              f:sizeBytes: {}
+            f:details:
+              .: {}
+              f:busPath: {}
+              f:deviceType: {}
+              f:driveType: {}
+              f:model: {}
+              f:serialNumber: {}
+              f:storageController: {}
+              f:vendor: {}
+              f:wwn: {}
+            f:devPath: {}
+            f:fileSystem:
+              .: {}
+              f:isReadOnly: {}
+              f:mountPoint: {}
+              f:type: {}
+            f:partitioned: {}
+          f:provisionPhase: {}
+          f:state: {}
+      manager: node-disk-manager
+      operation: Update
+      time: "2026-06-12T10:47:32Z"
+    name: f387c4ee-6224-4e63-8587-706e39014138
+    namespace: longhorn-system
+    resourceVersion: "11691"
+    uid: 84e09a5e-e290-4658-8d7f-76dd9fb18c0d
+  spec:
+    devPath: /dev/sda
+    fileSystem:
+      mountPoint: "null"
+    nodeName: hp-150-tink-system
+    provision: false
+  status:
+    deviceStatus:
+      capacity:
+        physicalBlockSizeBytes: 512
+        sizeBytes: 1.799797127168e+12
+      details:
+        busPath: pci-0000:03:00.0-scsi-0:1:0:0
+        deviceType: disk
+        driveType: HDD
+        model: LOGICAL_VOLUME
+        serialNumber: 600508b1001c3173914021737328af61
+        storageController: SCSI
+        vendor: HP
+        wwn: 0x600508b1001c3173914021737328af61
+      devPath: /dev/sda
+      fileSystem:
+        isReadOnly: true
+        mountPoint: "null"
+        type: "null"
+      partitioned: false
+    provisionPhase: Unprovisioned
+    state: Active
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676477"

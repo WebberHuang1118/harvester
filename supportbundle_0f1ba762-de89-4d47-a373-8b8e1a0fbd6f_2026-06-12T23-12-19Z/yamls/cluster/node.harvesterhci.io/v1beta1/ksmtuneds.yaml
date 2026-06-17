@@ -1,0 +1,243 @@
+apiVersion: v1
+items:
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: Ksmtuned
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:48Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-ksmtuned-handler
+    generation: 1
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-ksmtuned-handler"null: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e3daa4a2-3ffc-4a60-bed1-aa5be0249246"}: {}
+        f:spec:
+          .: {}
+          f:ksmtunedParameters:
+            .: {}
+            f:boost: {}
+            f:decay: {}
+            f:maxPages: {}
+            f:minPages: {}
+            f:sleepMsec: {}
+          f:mergeAcrossNodes: {}
+          f:mode: {}
+          f:run: {}
+          f:thresCoef: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T10:42:49Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:fullScans: {}
+          f:ksmdPhase: {}
+          f:shared: {}
+          f:sharing: {}
+          f:stableNodeChains: {}
+          f:stableNodeDups: {}
+          f:unshared: {}
+          f:volatile: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:43:47Z"
+    name: hp-117-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-117-tink-system
+      uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+    resourceVersion: "6859"
+    uid: 2edfb6b3-31d4-4dbc-afed-cca467ea5a29
+  spec:
+    ksmtunedParameters:
+      boost: 0
+      decay: 0
+      maxPages: 100
+      minPages: 100
+      sleepMsec: 20
+    mergeAcrossNodes: 0
+    mode: standard
+    run: stop
+    thresCoef: 20
+  status:
+    fullScans: 0
+    ksmdPhase: Stopped
+    shared: 0
+    sharing: 0
+    stableNodeChains: 0
+    stableNodeDups: 0
+    unshared: 0
+    volatile: 0
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: Ksmtuned
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:34Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-ksmtuned-handler
+    generation: 1
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-ksmtuned-handler"null: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"240e7b92-78b6-4f7a-9e31-87e062e42187"}: {}
+        f:spec:
+          .: {}
+          f:ksmtunedParameters:
+            .: {}
+            f:boost: {}
+            f:decay: {}
+            f:maxPages: {}
+            f:minPages: {}
+            f:sleepMsec: {}
+          f:mergeAcrossNodes: {}
+          f:mode: {}
+          f:run: {}
+          f:thresCoef: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T10:47:34Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:fullScans: {}
+          f:ksmdPhase: {}
+          f:shared: {}
+          f:sharing: {}
+          f:stableNodeChains: {}
+          f:stableNodeDups: {}
+          f:unshared: {}
+          f:volatile: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:48:34Z"
+    name: hp-150-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-150-tink-system
+      uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+    resourceVersion: "13446"
+    uid: 8f63434c-b566-4d98-8044-0367fcc95db5
+  spec:
+    ksmtunedParameters:
+      boost: 0
+      decay: 0
+      maxPages: 100
+      minPages: 100
+      sleepMsec: 20
+    mergeAcrossNodes: 0
+    mode: standard
+    run: stop
+    thresCoef: 20
+  status:
+    fullScans: 0
+    ksmdPhase: Stopped
+    shared: 0
+    sharing: 0
+    stableNodeChains: 0
+    stableNodeDups: 0
+    unshared: 0
+    volatile: 0
+- apiVersion: node.harvesterhci.io/v1beta1
+  kind: Ksmtuned
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:43Z"
+    finalizers:
+    - wrangler.cattle.io/harvester-ksmtuned-handler
+    generation: 1
+    managedFields:
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/harvester-ksmtuned-handler"null: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"393f61bc-82fe-4d9f-a4e3-c1b00c70f006"}: {}
+        f:spec:
+          .: {}
+          f:ksmtunedParameters:
+            .: {}
+            f:boost: {}
+            f:decay: {}
+            f:maxPages: {}
+            f:minPages: {}
+            f:sleepMsec: {}
+          f:mergeAcrossNodes: {}
+          f:mode: {}
+          f:run: {}
+          f:thresCoef: {}
+      manager: harvester-node-manager
+      operation: Update
+      time: "2026-06-12T10:47:43Z"
+    - apiVersion: node.harvesterhci.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:fullScans: {}
+          f:ksmdPhase: {}
+          f:shared: {}
+          f:sharing: {}
+          f:stableNodeChains: {}
+          f:stableNodeDups: {}
+          f:unshared: {}
+          f:volatile: {}
+      manager: harvester-node-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:48:42Z"
+    name: hp-69-tink-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-69-tink-system
+      uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    resourceVersion: "13606"
+    uid: 58f180c9-fb84-454e-ac00-8bc151259b11
+  spec:
+    ksmtunedParameters:
+      boost: 0
+      decay: 0
+      maxPages: 100
+      minPages: 100
+      sleepMsec: 20
+    mergeAcrossNodes: 0
+    mode: standard
+    run: stop
+    thresCoef: 20
+  status:
+    fullScans: 0
+    ksmdPhase: Stopped
+    shared: 0
+    sharing: 0
+    stableNodeChains: 0
+    stableNodeDups: 0
+    unshared: 0
+    volatile: 0
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676284"

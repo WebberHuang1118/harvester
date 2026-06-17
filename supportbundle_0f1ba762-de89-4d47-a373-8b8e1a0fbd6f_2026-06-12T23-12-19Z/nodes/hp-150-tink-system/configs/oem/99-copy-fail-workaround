@@ -1,0 +1,8 @@
+stages:
+    initramfs:
+    - name: "Blacklist modules"
+      files:
+        - path: "/etc/modprobe.d/10-cvs-fix.conf"
+          content: |
+            blacklist algif_aead
+            install algif_aead /bin/false

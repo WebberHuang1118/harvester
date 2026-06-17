@@ -1,0 +1,3 @@
+#==[ Log File ]=====================================#
+# /var/log/warn - File not found
+

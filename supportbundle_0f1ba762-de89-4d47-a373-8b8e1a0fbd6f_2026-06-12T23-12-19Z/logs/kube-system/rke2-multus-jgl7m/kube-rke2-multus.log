@@ -1,0 +1,39 @@
+2026-06-12T10:47:27.237915929Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T10:47:27.237944382Z kubeconfig file is created.
+2026-06-12T10:47:27.237987609Z master capabilities is get from conflist
+2026-06-12T10:47:27.249508359Z multus config file is created.
+2026-06-12T10:47:27.250376810Z Entering watch loop...
+2026-06-12T10:48:30.251024406Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T10:48:30.257240734Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T11:36:38.251198554Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T11:36:38.257569291Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T12:24:50.251350953Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T12:24:50.260443433Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T13:13:01.251051709Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T13:13:01.257331181Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T14:01:16.250876844Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T14:01:16.265700593Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T14:31:36.251055208Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T14:31:36.265807329Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T14:37:24.251057222Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T14:37:24.257406640Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T15:26:04.251152641Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T15:26:04.257685537Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T16:14:15.250856384Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T16:14:15.265632834Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T17:02:25.251332263Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T17:02:25.266133867Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T17:51:02.250836677Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T17:51:02.257500573Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T18:39:09.251210230Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T18:39:09.257594805Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T19:27:48.250822900Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T19:27:48.257389154Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T20:15:55.251531661Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T20:15:55.258105914Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T21:04:13.251261553Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T21:04:13.257829388Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T21:52:28.251587609Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T21:52:28.267604464Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig
+2026-06-12T22:40:27.250851833Z CA (false) or SA token (true) changed - recreating kubeconfig
+2026-06-12T22:40:27.257557337Z kubeconfig is created in /host/etc/cni/net.d/multus.d/multus.kubeconfig

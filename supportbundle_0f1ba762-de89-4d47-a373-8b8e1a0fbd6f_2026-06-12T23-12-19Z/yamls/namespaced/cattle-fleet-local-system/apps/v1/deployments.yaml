@@ -1,0 +1,314 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: fleet-agent-local
+      meta.helm.sh/release-namespace: cattle-fleet-local-system
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5RVXXOjNhT9L3omXttZ54M3CsqWWQIMdppmdjyMLC62ukKikvDGzfDfOwLs4G3GO31D0j3389zDG6rAkIIYgtw3RISQhhgmhbZHufkLqNFgJorJCSXGcJgw+YkVyEUlBzBXZAvCXG2kNNooUl/1Rlf9I5eU8Ct90AYq1DqIkw3wi553RO+Qi65v5tP5dXm7mMNtObu/uy/uNjeLOUzn95tiTm8WdwRu6efP1qkgFZyng/pLXRNqXy6mpGugNiEFNWeUaOTOHKSBAzVS2YeKGLqLTomTuv4pWGu9GEUMbA/IfWsdZKCqOTHQwUfd5b/yMuRCypIJZqw3JGQB3uhcKyhBKSiCRjGxXdIdFA1nYhtuhTxd41egjR0jcr8dMSAonArCr7UCrftBf3tD3+FwTGg0jWM3ZQ2KdP1AoUAO2hPegAUioxpA63bdOugHsO3OIHfWrm0xVApDmADVB6CyqogoLKaL0rteOwjEvjMYxvjbUxxEOMBplLw84niVZ9hPYj+McJY/J9lXnC2PCSAXLaaodU7YIAsf/hcg9h7xMvV8fLR4ULKyPSoZ8CKD8vSdEmN5eZzm5J1fbTty6H2xKS/9JMWjoJcIeIL6v2P/axjnYbzC2R9eNMLPFtVUn9l6q1WEcxxhfxUmcR5hb4nz4Cnz7HGEvL6My/Aqe8lTnIVJMI73K1SMn/MAe0EUxuM654szHP7TerZD9KLcT9KXPMPL5Cnz8TIPkud4ucqw9zjCl4RrQO3aQawiW3ujiKA7UJ9Gm+Lup5PZYjJHg1XacJ5KzqglcFjG0qQK9LsK/EcaFGjZKGr5a5dVA20UMwdfCgOvpts/zuWPVLE947AFrCnhpF+mLkMHUVKTDePMsM4LKpSsLbO9KEJ2FeojtjhBFJAiEfyQSWkeGIeBAK5doNZBe8mbCh5lI0y/L5X9HFj3afK92cB7Pd3JNvrMyFT1u4k9tGvbSisgy5GeWbASYEDbDZcauYgz0byij3uhGuHpL0o2NXJn0+nU6W9iKWwlff7D3ZMG1Rt1rtSeUfAotTnGHw3CSG5l5aRBUJZAjV1LOciarblXJlvFhHLZFLWSe1aAmpwX0ggrkYxw9g8U55KF/24IH9Gs0yzbvksB30VQ6svuhu6tj0MciqlqcwiY6kn28+A+fB1m1v9PiGk6grb/BgAA//8/t3oioQcAAA
+      objectset.rio.cattle.io/id: fleet-agent-bootstrap-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T14:28:31Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: 362023f752e7f1989d8b652e029bd2c658ae7c44
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            .: {}
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:preferredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"fleet-agent"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AGENT_SCOPE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"BUNDLEDEPLOYMENT_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_LEASE_DURATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RENEW_DEADLINE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CATTLE_ELECTION_RETRY_PERIOD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHECKIN_INTERVAL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DRIFT_RECONCILER_WORKERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"EXPERIMENTAL_COPY_RESOURCES_DOWNSTREAM"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/.kube"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsGroup: {}
+                f:runAsNonRoot: {}
+                f:runAsUser: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"kube"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir: {}
+                  f:name: {}
+      manager: fleetcontroller
+      operation: Update
+      time: "2026-06-12T14:28:31Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+      manager: fleetagent
+      operation: Update
+      time: "2026-06-12T14:28:32Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:terminatingReplicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:40:09Z"
+    name: fleet-agent
+    namespace: cattle-fleet-local-system
+    resourceVersion: "263528"
+    uid: fd12aaf9-3c22-4430-a11b-c65644a14e69
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: fleet-agent
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        labels:
+          app: fleet-agent
+      spec:
+        affinity:
+          nodeAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - preference:
+                matchExpressions:
+                - key: fleet.cattle.io/agent
+                  operator: In
+                  values:
+                  - "true"
+              weight: 1
+        containers:
+        - command:
+          - fleetagent
+          env:
+          - name: BUNDLEDEPLOYMENT_RECONCILER_WORKERS
+            value: "50"
+          - name: DRIFT_RECONCILER_WORKERS
+            value: "50"
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: AGENT_SCOPE
+            value: cattle-fleet-local-system
+          - name: CHECKIN_INTERVAL
+            value: 15m0s
+          - name: CATTLE_ELECTION_LEASE_DURATION
+            value: 30s
+          - name: CATTLE_ELECTION_RETRY_PERIOD
+            value: 10s
+          - name: CATTLE_ELECTION_RENEW_DEADLINE
+            value: 25s
+          - name: EXPERIMENTAL_COPY_RESOURCES_DOWNSTREAM
+            value: "false"
+          image: rancher/fleet-agent:v0.15.2
+          imagePullPolicy: IfNotPresent
+          name: fleet-agent
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /.kube
+            name: kube
+          - mountPath: /tmp
+            name: tmp
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          runAsGroup: 1000
+          runAsNonRoot: true
+          runAsUser: 1000
+        serviceAccount: fleet-agent
+        serviceAccountName: fleet-agent
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          key: node.cloudprovider.kubernetes.io/uninitialized
+          operator: Equal
+          value: "true"
+        - effect: NoSchedule
+          key: cattle.io/os
+          operator: Equal
+          value: linux
+        volumes:
+        - emptyDir: {}
+          name: kube
+        - emptyDir: {}
+          name: tmp
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-06-12T14:28:31Z"
+      lastUpdateTime: "2026-06-12T14:28:37Z"
+      message: ReplicaSet "fleet-agent-598d897c9b" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2026-06-12T14:40:09Z"
+      lastUpdateTime: "2026-06-12T14:40:09Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+    terminatingReplicas: 0
+    updatedReplicas: 1
+kind: List
+metadata:
+  resourceVersion: "676368"

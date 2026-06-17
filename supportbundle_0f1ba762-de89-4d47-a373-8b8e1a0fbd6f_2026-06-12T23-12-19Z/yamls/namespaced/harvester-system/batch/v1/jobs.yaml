@@ -1,0 +1,3044 @@
+apiVersion: v1
+items:
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T11:08:07Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      network.harvesterhci.io/vlan-dhcp-server-ip: "null"
+      network.harvesterhci.io/vlan-id: "4000"
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:08:07Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:network.harvesterhci.io/vlan-dhcp-server-ip: {}
+            f:network.harvesterhci.io/vlan-id: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:k8s.v1.cni.cncf.io/networks: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"network-helper"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"DHCP_SERVER"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"NAD_NETWORKS"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: harvester-network-controller
+      operation: Update
+      time: "2026-06-12T11:08:07Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:active: {}
+          f:failed: {}
+          f:ready: {}
+          f:startTime: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:40:09Z"
+    name: default11h06m21s863801-06-12-619c368b
+    namespace: harvester-system
+    resourceVersion: "263570"
+    uid: 2abea493-06f5-4f20-ba39-388292ab695c
+  spec:
+    backoffLimit: 1
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 2abea493-06f5-4f20-ba39-388292ab695c
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          k8s.v1.cni.cncf.io/networks: '[{"name":"11h06m21s863801-06-12","namespace":"default","interface":"net1"}]'
+        labels:
+          batch.kubernetes.io/controller-uid: 2abea493-06f5-4f20-ba39-388292ab695c
+          batch.kubernetes.io/job-name: default11h06m21s863801-06-12-619c368b
+          controller-uid: 2abea493-06f5-4f20-ba39-388292ab695c
+          job-name: default11h06m21s863801-06-12-619c368b
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: network.harvesterhci.io/mgmt
+                  operator: In
+                  values:
+                  - "true"
+        containers:
+        - env:
+          - name: NAD_NETWORKS
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.annotations['k8s.v1.cni.cncf.io/networks']
+          - name: DHCP_SERVER
+          image: rancher/harvester-network-helper:v1.8.1-rc1
+          imagePullPolicy: IfNotPresent
+          name: network-helper
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester-network-helper
+        serviceAccountName: harvester-network-helper
+        terminationGracePeriodSeconds: 30
+  status:
+    active: 1
+    failed: 1
+    ready: 0
+    startTime: "2026-06-12T11:08:08Z"
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      helm.sh/hook: pre-delete
+      helm.sh/hook-delete-policy: hook-succeeded
+    creationTimestamp: "2026-06-12T23:09:13Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      batch.kubernetes.io/controller-uid: 67567b5d-00a4-44ce-948b-7cdd54bf0a94
+      batch.kubernetes.io/job-name: delete-harvester-csi-driver-lvm-webhook
+      controller-uid: 67567b5d-00a4-44ce-948b-7cdd54bf0a94
+      job-name: delete-harvester-csi-driver-lvm-webhook
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T23:09:13Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:helm.sh/hook: {}
+            f:helm.sh/hook-delete-policy: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"delete-lvm-validator-webhook"}:
+                  .: {}
+                  f:args: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: helm
+      operation: Update
+      time: "2026-06-12T23:09:13Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:09:19Z"
+    name: delete-harvester-csi-driver-lvm-webhook
+    namespace: harvester-system
+    resourceVersion: "673763"
+    uid: 67567b5d-00a4-44ce-948b-7cdd54bf0a94
+  spec:
+    backoffLimit: 6
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 67567b5d-00a4-44ce-948b-7cdd54bf0a94
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: 67567b5d-00a4-44ce-948b-7cdd54bf0a94
+          batch.kubernetes.io/job-name: delete-harvester-csi-driver-lvm-webhook
+          controller-uid: 67567b5d-00a4-44ce-948b-7cdd54bf0a94
+          job-name: delete-harvester-csi-driver-lvm-webhook
+        name: delete-harvester-csi-driver-lvm-webhook
+      spec:
+        containers:
+        - args:
+          - delete
+          - validatingwebhookconfiguration
+          - harvester-csi-driver-lvm-webhook
+          - --ignore-not-found
+          image: rancher/kuberlr-kubectl:v7.0.3
+          imagePullPolicy: IfNotPresent
+          name: delete-lvm-validator-webhook
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester-csi-driver-lvm-webhook
+        serviceAccountName: harvester-csi-driver-lvm-webhook
+        terminationGracePeriodSeconds: 30
+  status:
+    completionTime: "2026-06-12T23:09:19Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T23:09:19Z"
+      lastTransitionTime: "2026-06-12T23:09:19Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T23:09:19Z"
+      lastTransitionTime: "2026-06-12T23:09:19Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T23:09:14Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      helm.sh/hook: pre-install
+      helm.sh/hook-weight: "3"
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:30Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:helm.sh/hook: {}
+            f:helm.sh/hook-weight: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:objectset.rio.cattle.io/hash: {}
+        f:spec:
+          f:template:
+            f:metadata:
+              f:name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"harvester-cdi-namespace-modify"}:
+                  .: {}
+                  f:args: {}
+                  f:image: {}
+                  f:name: {}
+                  f:securityContext:
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      f:drop: {}
+                    f:runAsNonRoot: {}
+                    f:runAsUser: {}
+                    f:seccompProfile:
+                      f:type: {}
+              f:restartPolicy: {}
+              f:serviceAccountName: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:30Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:42:37Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:44:04Z"
+    name: harvester-cdi-namespace-modify
+    namespace: harvester-system
+    resourceVersion: "7141"
+    uid: d7503321-358c-4572-9513-92f726889173
+  spec:
+    backoffLimit: 6
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: d7503321-358c-4572-9513-92f726889173
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: d7503321-358c-4572-9513-92f726889173
+          batch.kubernetes.io/job-name: harvester-cdi-namespace-modify
+          controller-uid: d7503321-358c-4572-9513-92f726889173
+          job-name: harvester-cdi-namespace-modify
+        name: harvester-cdi-namespace-modify
+      spec:
+        containers:
+        - args:
+          - label
+          - namespace
+          - harvester-system
+          - cdi.kubevirt.io=
+          image: rancher/kuberlr-kubectl:v7.0.3
+          imagePullPolicy: IfNotPresent
+          name: harvester-cdi-namespace-modify
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester-cdi-namespace-modify
+        serviceAccountName: harvester-cdi-namespace-modify
+        terminationGracePeriodSeconds: 30
+  status:
+    completionTime: "2026-06-12T10:42:37Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:42:37Z"
+      lastTransitionTime: "2026-06-12T10:42:37Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:42:37Z"
+      lastTransitionTime: "2026-06-12T10:42:37Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:42:30Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T10:47:20Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      harvesterhci.io/promote-node: hp-150-tink-system
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/promote-node: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"240e7b92-78b6-4f7a-9e31-87e062e42187"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:harvesterhci.io/promote-node: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+                f:podAntiAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"promote"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HARVESTER_PROMOTE_NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:privileged: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/harvester-helpers"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostIPC: {}
+              f:hostNetwork: {}
+              f:hostPID: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"helpers"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"host-root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:47:20Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:48:30Z"
+    name: harvester-promote-hp-150-tink-system
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-150-tink-system
+      uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+    resourceVersion: "13289"
+    uid: 68b17e44-341d-4904-8a06-4bb49940288f
+  spec:
+    backoffLimit: 2
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 68b17e44-341d-4904-8a06-4bb49940288f
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: 68b17e44-341d-4904-8a06-4bb49940288f
+          batch.kubernetes.io/job-name: harvester-promote-hp-150-tink-system
+          controller-uid: 68b17e44-341d-4904-8a06-4bb49940288f
+          harvesterhci.io/promote-node: hp-150-tink-system
+          job-name: harvester-promote-hp-150-tink-system
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                  - hp-150-tink-system
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: harvesterhci.io/promote-node
+                  operator: In
+                  values:
+                  - hp-150-tink-system
+              topologyKey: kubernetes.io/hostname
+        containers:
+        - args:
+          - -e
+          - /harvester-helpers/promote.sh
+          - "null"
+          command:
+          - sh
+          env:
+          - name: HARVESTER_PROMOTE_NODE_NAME
+            value: hp-150-tink-system
+          image: registry.suse.com/bci/bci-base:16.0
+          imagePullPolicy: IfNotPresent
+          name: promote
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host
+            name: host-root
+          - mountPath: /harvester-helpers
+            name: helpers
+        dnsPolicy: ClusterFirstWithHostNet
+        hostIPC: true
+        hostNetwork: true
+        hostPID: true
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester
+        serviceAccountName: harvester
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
+        volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host-root
+        - configMap:
+            defaultMode: 420
+            name: harvester-helpers
+          name: helpers
+  status:
+    completionTime: "2026-06-12T10:48:30Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:48:30Z"
+      lastTransitionTime: "2026-06-12T10:48:30Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:48:30Z"
+      lastTransitionTime: "2026-06-12T10:48:30Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:47:21Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T10:48:31Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      harvesterhci.io/promote-node: hp-69-tink-system
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/promote-node: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"393f61bc-82fe-4d9f-a4e3-c1b00c70f006"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:harvesterhci.io/promote-node: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+                f:podAntiAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"promote"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HARVESTER_PROMOTE_NODE_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:privileged: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/harvester-helpers"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostIPC: {}
+              f:hostNetwork: {}
+              f:hostPID: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:tolerations: {}
+              f:volumes:
+                .: {}
+                k:{"name":"helpers"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"host-root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T10:48:31Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T10:49:39Z"
+    name: harvester-promote-hp-69-tink-system
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-69-tink-system
+      uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    resourceVersion: "15039"
+    uid: f589656d-da28-4e2c-bff3-22d57c4cd337
+  spec:
+    backoffLimit: 2
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: f589656d-da28-4e2c-bff3-22d57c4cd337
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: f589656d-da28-4e2c-bff3-22d57c4cd337
+          batch.kubernetes.io/job-name: harvester-promote-hp-69-tink-system
+          controller-uid: f589656d-da28-4e2c-bff3-22d57c4cd337
+          harvesterhci.io/promote-node: hp-69-tink-system
+          job-name: harvester-promote-hp-69-tink-system
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                  - hp-69-tink-system
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: harvesterhci.io/promote-node
+                  operator: In
+                  values:
+                  - hp-69-tink-system
+              topologyKey: kubernetes.io/hostname
+        containers:
+        - args:
+          - -e
+          - /harvester-helpers/promote.sh
+          - "null"
+          command:
+          - sh
+          env:
+          - name: HARVESTER_PROMOTE_NODE_NAME
+            value: hp-69-tink-system
+          image: registry.suse.com/bci/bci-base:16.0
+          imagePullPolicy: IfNotPresent
+          name: promote
+          resources: {}
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host
+            name: host-root
+          - mountPath: /harvester-helpers
+            name: helpers
+        dnsPolicy: ClusterFirstWithHostNet
+        hostIPC: true
+        hostNetwork: true
+        hostPID: true
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester
+        serviceAccountName: harvester
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
+        volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host-root
+        - configMap:
+            defaultMode: 420
+            name: harvester-helpers
+          name: helpers
+  status:
+    completionTime: "2026-06-12T10:49:39Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T10:49:39Z"
+      lastTransitionTime: "2026-06-12T10:49:39Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T10:49:39Z"
+      lastTransitionTime: "2026-06-12T10:49:39Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T10:48:32Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6xW72/iOBD9V07+nIQEAjRI+yGlYeGWHxGw1Z5WFTLOUHx17JztsIuq/O8nO7Qb2i7bPd23xJn3PDPveZxHhAt6C1JRwdEAbbEm+9YhQA56oDxDA/Sn2CIH5aBxhjVGg0eEORcaayq4Mq9i+zcQrUB7kgqPYK0ZeFS0qEHvgeUu2WOpXQn3VGlpgcj5KUx84yDd+8PDCd34dAicPz5Rnn0YA8uHhvSXPBznYIiwPIDSIF2iqJtJegDpskP+LrwqMDknUUelIUeVgxjeArNtMLnaQpX3Im27+t+S2GO1N6pche1d2O12wj6E/Swj2Ced7W6Le51ehwT9EO/wLmv3TEZPFZvGZ8BAg3th44v1Ocg2YQk7kMAJKDT4+sIvrxRCDtoyQR4WBnlj9reBO8wUOIgIrqVgDOTz0slmTUl/LVppzRWSThBg7Ls42kZuGHRDN9qRyO35W7/X7vSzfnSFqrvKQaoAYkTaYvIgdrspzalGg66DNOQFwxrMxwsevyCu4Dt6P651Wo3jdrf3Ielc+8MwbEdXo2EwDMIoHl2PwuFVFPVG11E7bPfjJAySsBdG11EnHMZh1I2i4Lr/vzmqatRseo4pB3mST96bB1R7A905CPjBfjm1fR7PEuSgA2blRRUq5xlymyxXk8W8gQq8Ky9wJQmaYcskXTSZtS7UoNV6qvFpoz2hHhVN4DiZzjY3y8ltsmzgFRAJuhk3HMfL9cYUsErj4dtVPJ/dc9Q7Km69pxU21ad+NNbX8fJj8vu5xZ/X400ar1ab4TK5SebrSTxdNbD2EDUBk/kqGX5eJpvVp0m6WU9XJpnJ6K9LmHQaT+ab8XqdXoqaLzbpcvGlyeSpA3E8wkqTvccEwcwJfK/b9nzPbwU9+9I5vTS5RvFkapJMF9PJsMkogXKlMWPN6ORLmgzXyc1mmUyTeJVslsnt5KXhUHXnIJrje0uDOdmDbD0wWhQgXXN+BgffC3zPd7clZVnbb/f8btBBJ1BaMpYKRsnRNHE3FzqVoIA35xEwM3skKFFKOw0fETOTxD6RokQD1GnbyzIX8mjfPpojLeGfElQzLPD9vBkY+LP6zAIpJdXHoeAavms7iRgT31JJD5TBPSSKYIbPZyou8JYyqmmdUiZFYQ54PJ2iO7s7zhacHZdC6BFlcDLZQMsSKgcdBCtzmImS63pA5OYxxdoMtNZe5HDWxZZ3asOpKc1vVrNfwQkme3iNr5ffRWAn7hsM9forCp0XP4LNy6uIl4zWU+qNuPP7yQxWY5DqzliPiwxWwIBoIY0MD+UWJAcNyv5NKDRAjPLyuzFEIamwMjOs1Lxmq2VxT4fJJZJqSjCrDaex1M/uXPARpqyUpotvGEaWPFZzwY3etco2jIi8SKXYUWYvO30s7EguuaY53MAOl0yfPCgPlEBMiKl93viduHAh1y6qDQR5oY83VNZ3akbLHA3QrLZ69XPj/B7sh19+E/fDJe8DPjnm3BtGQ2H+2SCzZ67u30xkgAZh23fQ84z4+vh0UQ2eSeof4prq512tqrvK7FynPMPF2zudcZ48eYH0Lfta2TXWpRkgVfVvAAAA//8oHjNVFAwAAA
+      objectset.rio.cattle.io/id: helm-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: harvester-csi-driver-lvm
+      objectset.rio.cattle.io/owner-namespace: harvester-system
+    creationTimestamp: "2026-06-12T23:12:15Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      helmcharts.helm.cattle.io/chart: harvester-csi-driver-lvm
+      objectset.rio.cattle.io/hash: b842f455347e47ddca0c3bfba6363c174afafd26
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T23:12:15Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:helmcharts.helm.cattle.io/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"4c311aa0-a9b9-4154-9fc9-60b06237d798"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:helmcharts.helm.cattle.io/configHash: {}
+              f:labels:
+                .: {}
+                f:helmcharts.helm.cattle.io/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helm"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AUTH_PASS_CREDENTIALS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"EXPECTED_RELEASE_REVISION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FAILURE_POLICY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_DRIVER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_VERSION"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"INSECURE_SKIP_TLS_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PLAIN_HTTP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REPO"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TARGET_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"VERSION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/chart"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.helm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"content"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"klipper-cache"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-config"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-helm"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"values"}:
+                  .: {}
+                  f:name: {}
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T23:12:15Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:12:20Z"
+    name: helm-delete-harvester-csi-driver-lvm
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: helm.cattle.io/v1
+      blockOwnerDeletion: false
+      controller: false
+      kind: HelmChart
+      name: harvester-csi-driver-lvm
+      uid: 4c311aa0-a9b9-4154-9fc9-60b06237d798
+    resourceVersion: "676236"
+    uid: 3832be17-c023-4dc3-a002-d47a944fa1d6
+  spec:
+    backoffLimit: 5
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 3832be17-c023-4dc3-a002-d47a944fa1d6
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          helmcharts.helm.cattle.io/configHash: SHA256=E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855
+        labels:
+          batch.kubernetes.io/controller-uid: 3832be17-c023-4dc3-a002-d47a944fa1d6
+          batch.kubernetes.io/job-name: helm-delete-harvester-csi-driver-lvm
+          controller-uid: 3832be17-c023-4dc3-a002-d47a944fa1d6
+          helmcharts.helm.cattle.io/chart: harvester-csi-driver-lvm
+          job-name: helm-delete-harvester-csi-driver-lvm
+      spec:
+        containers:
+        - args:
+          - delete
+          env:
+          - name: NAME
+            value: harvester-csi-driver-lvm
+          - name: VERSION
+            value: 1.8.1-rc1
+          - name: REPO
+            value: https://charts.harvesterhci.io
+          - name: HELM_DRIVER
+            value: secret
+          - name: CHART_NAMESPACE
+            value: harvester-system
+          - name: CHART
+            value: harvester-csi-driver-lvm/harvester-csi-driver-lvm
+          - name: HELM_VERSION
+          - name: TARGET_NAMESPACE
+            value: harvester-system
+          - name: AUTH_PASS_CREDENTIALS
+            value: "false"
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "false"
+          - name: PLAIN_HTTP
+            value: "false"
+          - name: NO_PROXY
+            value: .svc,.cluster.local,10.52.0.0/16,10.53.0.0/16
+          - name: FAILURE_POLICY
+            value: reinstall
+          - name: EXPECTED_RELEASE_REVISION
+            value: "1"
+          image: rancher/klipper-helm:v0.10.0-build20260513
+          imagePullPolicy: IfNotPresent
+          name: helm
+          resources:
+            limits:
+              cpu: "32"
+              memory: 32G
+            requests:
+              cpu: 100m
+              memory: 10M
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /home/klipper-helm/.helm
+            name: klipper-helm
+          - mountPath: /home/klipper-helm/.cache
+            name: klipper-cache
+          - mountPath: /home/klipper-helm/.config
+            name: klipper-config
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /config
+            name: values
+          - mountPath: /chart
+            name: content
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: helm-harvester-csi-driver-lvm
+        serviceAccountName: helm-harvester-csi-driver-lvm
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir:
+            medium: Memory
+          name: klipper-helm
+        - emptyDir:
+            medium: Memory
+          name: klipper-cache
+        - emptyDir:
+            medium: Memory
+          name: klipper-config
+        - emptyDir:
+            medium: Memory
+          name: tmp
+        - name: values
+          projected:
+            defaultMode: 420
+            sources:
+            - secret:
+                name: chart-values-harvester-csi-driver-lvm
+        - configMap:
+            defaultMode: 420
+            name: chart-content-harvester-csi-driver-lvm
+          name: content
+  status:
+    completionTime: "2026-06-12T23:12:20Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T23:12:20Z"
+      lastTransitionTime: "2026-06-12T23:12:20Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T23:12:20Z"
+      lastTransitionTime: "2026-06-12T23:12:20Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T23:12:16Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/6xWX2+juBf9Kj/5GQgkJC1I80BTMs1v8gclmdGuRlXkmJvGW4NZ2zATVXz3lQ1pybST6az2Dcw9x/fec3zNE8IF/QJCUp6jEO2wIode5SELPdI8RSH6P98hC2WgcIoVRuETwnnOFVaU51K/8t1fQJQE5QjKHYKVYuBQ3qMafQCW2YTnSnDGQNjkgIWyBTxQqYThQNZPGfi3HIT9UD22RJ1PlWf97xPN0w93wLKxJv0lT44z0ERYVCCVzkVSOxW0AmGzKnsXXhaYnJPIo1SQodpCDO+AmY7oXE2h0vkhbbP675I4YHlAIRp6Vz7uX/VHQHb7YLgbuUD2V8PRwO2n3sjbe97QS9PrVGd0qlhrQHOpMGP2hZ0vFmgh04UV7EFATkCi8OsP3nklEbLQjnHyuNTIW2Bg9A73mEmw0Isrnpday3U1/bVqpTGaTwaeh7Fr42AX2L439O1gTwJ75O7cUX9wlV4F16i+ry0kCyBapR0mj3y/n9GMKhQOLaQgKxhWoD9e8PsFdXm+pw93jVDru6g/HH2IBzfu2Pf7wfVk7I09P4gmNxN/fB0Eo8lN0Pf7V1Hse7E/8oObYOCPIz8YBoF3c/WfWaru1Kx7jmkOopVPPOgH1JoDWci2q1ZPC3nOtePZgnjo3kKQVwbS6rGI5jGyUIVZeVGe2nqGfIlX6+ly0UG9bNAJW8XJssusVCHDXu9U/GmjA6EO5V3gXTybb29X0y/xqoOXQASobtz4LlpttrqAdRKN367i+VSfo95Rce89rTCpnvrRWd9Eq4/x7+cWfd7cbZNovd6OV/FtvNhMo9m6gzWnqwuYLtbx+PMq3q4/TZPtZrbWyUwnf17CJLNoutjebTbJpajFcpusln90mRxZEcshrNTZO4wTzCzPdYZ9x3XcnjcyL4P2pcs1iaYznWSynE3HXUYBJ8PW9xaiGX4wqzgnBxC9R0aLAoStz0lYuY7nOq69KylL+25/5A69AWpBSclYwhklR92T/YKrRICEvDt3gOkZI0DyUpip94SYnhjmiRQlCtGgby7IjIujefuoj66Av0uQ3TDPdbNuoOfOm7MJpBRUHcc8V/BdmYnDGP+WCFpRBg8QS4IZPp+duMA7yqiiTUqp4IU+yNFshu7N7jhd5uy44lxNKIPWM6ESJdQWqjgrM5jzMlfNIMj0Y4KVHly9A8/grIs9p21D25TuNyPYr+AEkwO8xjfL7yIwk/UNhmb9FYXKipdg/fIq4kdG4y35Rtz5PaQHqDZIfa+tl/MU1sCAKC60DI/lDkQOCqT5bZAoRIzm5XdtiEJQbmRmWMpFw9bIYrdnwyaCKkowawynsFDP7lzmE0xZKXQX3zCMKPNILniu9W5UNmGEZ0Ui+J4yc6mpY2EmbJkrmsEt7HHJVOtBUVECESG69kXnv+HCxdu4qDEQZIU63lLR3J0pLTMUonlj9frnxvk92ItffhP34pL3AU+OOfeG1pDrnzNIzZlr+jfnKaDQ77sWep4RX59O9074TNL8+TZUP+9qXd/Xeucm5Tku3t7pjLP15AXSt+xrZFdYlXqA1PU/AQAA//9+ks7yCAwAAA
+      objectset.rio.cattle.io/id: helm-controller-chart-registration
+      objectset.rio.cattle.io/owner-gvk: helm.cattle.io/v1, Kind=HelmChart
+      objectset.rio.cattle.io/owner-name: harvester-csi-driver-lvm
+      objectset.rio.cattle.io/owner-namespace: harvester-system
+    creationTimestamp: "2026-06-12T23:03:14Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generation: 1
+    labels:
+      helmcharts.helm.cattle.io/chart: harvester-csi-driver-lvm
+      objectset.rio.cattle.io/hash: 5174a2726ecbf95b60ecf756302d161f1151dd8d
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T23:03:14Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
+            f:objectset.rio.cattle.io/owner-gvk: {}
+            f:objectset.rio.cattle.io/owner-name: {}
+            f:objectset.rio.cattle.io/owner-namespace: {}
+          f:labels:
+            .: {}
+            f:helmcharts.helm.cattle.io/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"4c311aa0-a9b9-4154-9fc9-60b06237d798"}: {}
+        f:spec:
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:helmcharts.helm.cattle.io/configHash: {}
+              f:labels:
+                .: {}
+                f:helmcharts.helm.cattle.io/chart: {}
+            f:spec:
+              f:containers:
+                k:{"name":"helm"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"AUTH_PASS_CREDENTIALS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"CHART_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FAILURE_POLICY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_DRIVER"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"HELM_VERSION"}:
+                      .: {}
+                      f:name: {}
+                    k:{"name":"INSECURE_SKIP_TLS_VERIFY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NO_PROXY"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PLAIN_HTTP"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"REPO"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TARGET_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"VERSION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:readOnlyRootFilesystem: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/chart"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.cache"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.config"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/home/klipper-helm/.helm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/tmp"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:nodeSelector: {}
+              f:priorityClassName: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:seccompProfile:
+                  .: {}
+                  f:type: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"content"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"klipper-cache"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-config"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"klipper-helm"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"tmp"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                  f:name: {}
+                k:{"name":"values"}:
+                  .: {}
+                  f:name: {}
+                  f:projected:
+                    .: {}
+                    f:defaultMode: {}
+                    f:sources: {}
+      manager: helm-controller@hp-117-tink-system
+      operation: Update
+      time: "2026-06-12T23:03:14Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T23:03:22Z"
+    name: helm-install-harvester-csi-driver-lvm
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: helm.cattle.io/v1
+      blockOwnerDeletion: false
+      controller: false
+      kind: HelmChart
+      name: harvester-csi-driver-lvm
+      uid: 4c311aa0-a9b9-4154-9fc9-60b06237d798
+    resourceVersion: "668874"
+    uid: 95d1b0a9-633c-4558-b2a8-94d657d0e49f
+  spec:
+    backoffLimit: 5
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 95d1b0a9-633c-4558-b2a8-94d657d0e49f
+    suspend: false
+    template:
+      metadata:
+        annotations:
+          helmcharts.helm.cattle.io/configHash: SHA256=E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855
+        labels:
+          batch.kubernetes.io/controller-uid: 95d1b0a9-633c-4558-b2a8-94d657d0e49f
+          batch.kubernetes.io/job-name: helm-install-harvester-csi-driver-lvm
+          controller-uid: 95d1b0a9-633c-4558-b2a8-94d657d0e49f
+          helmcharts.helm.cattle.io/chart: harvester-csi-driver-lvm
+          job-name: helm-install-harvester-csi-driver-lvm
+      spec:
+        containers:
+        - args:
+          - install
+          - --version
+          - 1.8.1-rc1
+          env:
+          - name: NAME
+            value: harvester-csi-driver-lvm
+          - name: VERSION
+            value: 1.8.1-rc1
+          - name: REPO
+            value: https://charts.harvesterhci.io
+          - name: HELM_DRIVER
+            value: secret
+          - name: CHART_NAMESPACE
+            value: harvester-system
+          - name: CHART
+            value: harvester-csi-driver-lvm/harvester-csi-driver-lvm
+          - name: HELM_VERSION
+          - name: TARGET_NAMESPACE
+            value: harvester-system
+          - name: AUTH_PASS_CREDENTIALS
+            value: "false"
+          - name: INSECURE_SKIP_TLS_VERIFY
+            value: "false"
+          - name: PLAIN_HTTP
+            value: "false"
+          - name: NO_PROXY
+            value: .svc,.cluster.local,10.52.0.0/16,10.53.0.0/16
+          - name: FAILURE_POLICY
+            value: reinstall
+          image: rancher/klipper-helm:v0.10.0-build20260513
+          imagePullPolicy: IfNotPresent
+          name: helm
+          resources:
+            limits:
+              cpu: "32"
+              memory: 32G
+            requests:
+              cpu: 100m
+              memory: 10M
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /home/klipper-helm/.helm
+            name: klipper-helm
+          - mountPath: /home/klipper-helm/.cache
+            name: klipper-cache
+          - mountPath: /home/klipper-helm/.config
+            name: klipper-config
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /config
+            name: values
+          - mountPath: /chart
+            name: content
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          kubernetes.io/os: linux
+        priorityClassName: system-cluster-critical
+        restartPolicy: OnFailure
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: helm-harvester-csi-driver-lvm
+        serviceAccountName: helm-harvester-csi-driver-lvm
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir:
+            medium: Memory
+          name: klipper-helm
+        - emptyDir:
+            medium: Memory
+          name: klipper-cache
+        - emptyDir:
+            medium: Memory
+          name: klipper-config
+        - emptyDir:
+            medium: Memory
+          name: tmp
+        - name: values
+          projected:
+            defaultMode: 420
+            sources:
+            - secret:
+                name: chart-values-harvester-csi-driver-lvm
+        - configMap:
+            defaultMode: 420
+            name: chart-content-harvester-csi-driver-lvm
+          name: content
+  status:
+    completionTime: "2026-06-12T23:03:22Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T23:03:22Z"
+      lastTransitionTime: "2026-06-12T23:03:22Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T23:03:22Z"
+      lastTransitionTime: "2026-06-12T23:03:22Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T23:03:15Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T14:31:29Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generateName: update-cpu-manager-hp-150-tink-system-
+    generation: 1
+    labels:
+      harvesterhci.io/cpu-manager-update-node: hp-150-tink-system
+      harvesterhci.io/cpu-manager-update-policy: static
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/cpu-manager-update-node: {}
+            f:harvesterhci.io/cpu-manager-update-policy: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"240e7b92-78b6-4f7a-9e31-87e062e42187"}: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:harvesterhci.io/cpu-manager-update-node: {}
+                f:harvesterhci.io/cpu-manager-update-policy: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"update-cpu-manager"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HOST_DIR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"WAIT_LABEL_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/harvester-helpers"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostPID: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"helpers"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"host-root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:ttlSecondsAfterFinished: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:31:29Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:33:44Z"
+    name: update-cpu-manager-hp-150-tink-system-f6z5g
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-150-tink-system
+      uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+    resourceVersion: "256885"
+    uid: fa6c49b8-81fe-4415-bc8b-29b1d75ab559
+  spec:
+    activeDeadlineSeconds: 600
+    backoffLimit: 0
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: fa6c49b8-81fe-4415-bc8b-29b1d75ab559
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: fa6c49b8-81fe-4415-bc8b-29b1d75ab559
+          batch.kubernetes.io/job-name: update-cpu-manager-hp-150-tink-system-f6z5g
+          controller-uid: fa6c49b8-81fe-4415-bc8b-29b1d75ab559
+          harvesterhci.io/cpu-manager-update-node: hp-150-tink-system
+          harvesterhci.io/cpu-manager-update-policy: static
+          job-name: update-cpu-manager-hp-150-tink-system-f6z5g
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                  - hp-150-tink-system
+        containers:
+        - args:
+          - -e
+          - /harvester-helpers/cpu-manager.sh
+          - hp-150-tink-system
+          - static
+          command:
+          - sh
+          env:
+          - name: HOST_DIR
+            value: /host
+          - name: WAIT_LABEL_TIMEOUT
+            value: "300"
+          image: registry.suse.com/bci/bci-base:16.0
+          imagePullPolicy: IfNotPresent
+          name: update-cpu-manager
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host
+            name: host-root
+          - mountPath: /harvester-helpers
+            name: helpers
+        dnsPolicy: ClusterFirst
+        hostPID: true
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester
+        serviceAccountName: harvester
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host-root
+        - configMap:
+            defaultMode: 420
+            name: harvester-helpers
+          name: helpers
+    ttlSecondsAfterFinished: 604800
+  status:
+    completionTime: "2026-06-12T14:33:44Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T14:33:44Z"
+      lastTransitionTime: "2026-06-12T14:33:44Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T14:33:44Z"
+      lastTransitionTime: "2026-06-12T14:33:44Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T14:31:30Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T14:37:17Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generateName: update-cpu-manager-hp-150-tink-system-
+    generation: 1
+    labels:
+      harvesterhci.io/cpu-manager-update-node: hp-150-tink-system
+      harvesterhci.io/cpu-manager-update-policy: none
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/cpu-manager-update-node: {}
+            f:harvesterhci.io/cpu-manager-update-policy: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"240e7b92-78b6-4f7a-9e31-87e062e42187"}: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:harvesterhci.io/cpu-manager-update-node: {}
+                f:harvesterhci.io/cpu-manager-update-policy: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"update-cpu-manager"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HOST_DIR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"WAIT_LABEL_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/harvester-helpers"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostPID: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"helpers"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"host-root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:ttlSecondsAfterFinished: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:37:17Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:37:50Z"
+    name: update-cpu-manager-hp-150-tink-system-skqfv
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-150-tink-system
+      uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+    resourceVersion: "261008"
+    uid: 65bba6f4-d1a8-4d08-a7d8-233c75023579
+  spec:
+    activeDeadlineSeconds: 600
+    backoffLimit: 0
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 65bba6f4-d1a8-4d08-a7d8-233c75023579
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: 65bba6f4-d1a8-4d08-a7d8-233c75023579
+          batch.kubernetes.io/job-name: update-cpu-manager-hp-150-tink-system-skqfv
+          controller-uid: 65bba6f4-d1a8-4d08-a7d8-233c75023579
+          harvesterhci.io/cpu-manager-update-node: hp-150-tink-system
+          harvesterhci.io/cpu-manager-update-policy: none
+          job-name: update-cpu-manager-hp-150-tink-system-skqfv
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                  - hp-150-tink-system
+        containers:
+        - args:
+          - -e
+          - /harvester-helpers/cpu-manager.sh
+          - hp-150-tink-system
+          - none
+          command:
+          - sh
+          env:
+          - name: HOST_DIR
+            value: /host
+          - name: WAIT_LABEL_TIMEOUT
+            value: "300"
+          image: registry.suse.com/bci/bci-base:16.0
+          imagePullPolicy: IfNotPresent
+          name: update-cpu-manager
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host
+            name: host-root
+          - mountPath: /harvester-helpers
+            name: helpers
+        dnsPolicy: ClusterFirst
+        hostPID: true
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester
+        serviceAccountName: harvester
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host-root
+        - configMap:
+            defaultMode: 420
+            name: harvester-helpers
+          name: helpers
+    ttlSecondsAfterFinished: 604800
+  status:
+    completionTime: "2026-06-12T14:37:50Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T14:37:50Z"
+      lastTransitionTime: "2026-06-12T14:37:50Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T14:37:50Z"
+      lastTransitionTime: "2026-06-12T14:37:50Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T14:37:18Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T14:29:09Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generateName: update-cpu-manager-hp-69-tink-system-
+    generation: 1
+    labels:
+      harvesterhci.io/cpu-manager-update-node: hp-69-tink-system
+      harvesterhci.io/cpu-manager-update-policy: none
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/cpu-manager-update-node: {}
+            f:harvesterhci.io/cpu-manager-update-policy: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"393f61bc-82fe-4d9f-a4e3-c1b00c70f006"}: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:harvesterhci.io/cpu-manager-update-node: {}
+                f:harvesterhci.io/cpu-manager-update-policy: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"update-cpu-manager"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HOST_DIR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"WAIT_LABEL_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/harvester-helpers"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostPID: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"helpers"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"host-root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:ttlSecondsAfterFinished: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:29:09Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:30:09Z"
+    name: update-cpu-manager-hp-69-tink-system-jpkzb
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-69-tink-system
+      uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    resourceVersion: "253687"
+    uid: dbbc0681-afa7-4bb5-a832-87c9dccad721
+  spec:
+    activeDeadlineSeconds: 600
+    backoffLimit: 0
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: dbbc0681-afa7-4bb5-a832-87c9dccad721
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: dbbc0681-afa7-4bb5-a832-87c9dccad721
+          batch.kubernetes.io/job-name: update-cpu-manager-hp-69-tink-system-jpkzb
+          controller-uid: dbbc0681-afa7-4bb5-a832-87c9dccad721
+          harvesterhci.io/cpu-manager-update-node: hp-69-tink-system
+          harvesterhci.io/cpu-manager-update-policy: none
+          job-name: update-cpu-manager-hp-69-tink-system-jpkzb
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                  - hp-69-tink-system
+        containers:
+        - args:
+          - -e
+          - /harvester-helpers/cpu-manager.sh
+          - hp-69-tink-system
+          - none
+          command:
+          - sh
+          env:
+          - name: HOST_DIR
+            value: /host
+          - name: WAIT_LABEL_TIMEOUT
+            value: "300"
+          image: registry.suse.com/bci/bci-base:16.0
+          imagePullPolicy: IfNotPresent
+          name: update-cpu-manager
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host
+            name: host-root
+          - mountPath: /harvester-helpers
+            name: helpers
+        dnsPolicy: ClusterFirst
+        hostPID: true
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester
+        serviceAccountName: harvester
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host-root
+        - configMap:
+            defaultMode: 420
+            name: harvester-helpers
+          name: helpers
+    ttlSecondsAfterFinished: 604800
+  status:
+    completionTime: "2026-06-12T14:30:09Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T14:30:09Z"
+      lastTransitionTime: "2026-06-12T14:30:09Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T14:30:09Z"
+      lastTransitionTime: "2026-06-12T14:30:09Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T14:29:10Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T14:37:51Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generateName: update-cpu-manager-hp-69-tink-system-
+    generation: 1
+    labels:
+      harvesterhci.io/cpu-manager-update-node: hp-69-tink-system
+      harvesterhci.io/cpu-manager-update-policy: none
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/cpu-manager-update-node: {}
+            f:harvesterhci.io/cpu-manager-update-policy: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"393f61bc-82fe-4d9f-a4e3-c1b00c70f006"}: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:harvesterhci.io/cpu-manager-update-node: {}
+                f:harvesterhci.io/cpu-manager-update-policy: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"update-cpu-manager"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HOST_DIR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"WAIT_LABEL_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/harvester-helpers"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostPID: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"helpers"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"host-root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:ttlSecondsAfterFinished: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:37:51Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:39:07Z"
+    name: update-cpu-manager-hp-69-tink-system-prh86
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-69-tink-system
+      uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    resourceVersion: "262219"
+    uid: ebb90c3d-c964-420c-bbff-14d8dcd09da8
+  spec:
+    activeDeadlineSeconds: 600
+    backoffLimit: 0
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: ebb90c3d-c964-420c-bbff-14d8dcd09da8
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: ebb90c3d-c964-420c-bbff-14d8dcd09da8
+          batch.kubernetes.io/job-name: update-cpu-manager-hp-69-tink-system-prh86
+          controller-uid: ebb90c3d-c964-420c-bbff-14d8dcd09da8
+          harvesterhci.io/cpu-manager-update-node: hp-69-tink-system
+          harvesterhci.io/cpu-manager-update-policy: none
+          job-name: update-cpu-manager-hp-69-tink-system-prh86
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                  - hp-69-tink-system
+        containers:
+        - args:
+          - -e
+          - /harvester-helpers/cpu-manager.sh
+          - hp-69-tink-system
+          - none
+          command:
+          - sh
+          env:
+          - name: HOST_DIR
+            value: /host
+          - name: WAIT_LABEL_TIMEOUT
+            value: "300"
+          image: registry.suse.com/bci/bci-base:16.0
+          imagePullPolicy: IfNotPresent
+          name: update-cpu-manager
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host
+            name: host-root
+          - mountPath: /harvester-helpers
+            name: helpers
+        dnsPolicy: ClusterFirst
+        hostPID: true
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester
+        serviceAccountName: harvester
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host-root
+        - configMap:
+            defaultMode: 420
+            name: harvester-helpers
+          name: helpers
+    ttlSecondsAfterFinished: 604800
+  status:
+    completionTime: "2026-06-12T14:39:07Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T14:39:07Z"
+      lastTransitionTime: "2026-06-12T14:39:07Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T14:39:07Z"
+      lastTransitionTime: "2026-06-12T14:39:07Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T14:37:52Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T14:28:26Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generateName: update-cpu-manager-hp-69-tink-system-
+    generation: 1
+    labels:
+      harvesterhci.io/cpu-manager-update-node: hp-69-tink-system
+      harvesterhci.io/cpu-manager-update-policy: static
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/cpu-manager-update-node: {}
+            f:harvesterhci.io/cpu-manager-update-policy: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"393f61bc-82fe-4d9f-a4e3-c1b00c70f006"}: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:harvesterhci.io/cpu-manager-update-node: {}
+                f:harvesterhci.io/cpu-manager-update-policy: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"update-cpu-manager"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HOST_DIR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"WAIT_LABEL_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/harvester-helpers"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostPID: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"helpers"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"host-root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:ttlSecondsAfterFinished: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:28:26Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:29:05Z"
+    name: update-cpu-manager-hp-69-tink-system-pv7fx
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-69-tink-system
+      uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    resourceVersion: "251057"
+    uid: 897b9ca2-71a6-4169-8ea0-c883800a611b
+  spec:
+    activeDeadlineSeconds: 600
+    backoffLimit: 0
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: 897b9ca2-71a6-4169-8ea0-c883800a611b
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: 897b9ca2-71a6-4169-8ea0-c883800a611b
+          batch.kubernetes.io/job-name: update-cpu-manager-hp-69-tink-system-pv7fx
+          controller-uid: 897b9ca2-71a6-4169-8ea0-c883800a611b
+          harvesterhci.io/cpu-manager-update-node: hp-69-tink-system
+          harvesterhci.io/cpu-manager-update-policy: static
+          job-name: update-cpu-manager-hp-69-tink-system-pv7fx
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                  - hp-69-tink-system
+        containers:
+        - args:
+          - -e
+          - /harvester-helpers/cpu-manager.sh
+          - hp-69-tink-system
+          - static
+          command:
+          - sh
+          env:
+          - name: HOST_DIR
+            value: /host
+          - name: WAIT_LABEL_TIMEOUT
+            value: "300"
+          image: registry.suse.com/bci/bci-base:16.0
+          imagePullPolicy: IfNotPresent
+          name: update-cpu-manager
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host
+            name: host-root
+          - mountPath: /harvester-helpers
+            name: helpers
+        dnsPolicy: ClusterFirst
+        hostPID: true
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester
+        serviceAccountName: harvester
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host-root
+        - configMap:
+            defaultMode: 420
+            name: harvester-helpers
+          name: helpers
+    ttlSecondsAfterFinished: 604800
+  status:
+    completionTime: "2026-06-12T14:29:05Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T14:29:05Z"
+      lastTransitionTime: "2026-06-12T14:29:05Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T14:29:05Z"
+      lastTransitionTime: "2026-06-12T14:29:05Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T14:28:27Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    creationTimestamp: "2026-06-12T14:30:13Z"
+    finalizers:
+    - wrangler.cattle.io/promote-node-controller
+    generateName: update-cpu-manager-hp-69-tink-system-
+    generation: 1
+    labels:
+      harvesterhci.io/cpu-manager-update-node: hp-69-tink-system
+      harvesterhci.io/cpu-manager-update-policy: static
+    managedFields:
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/promote-node-controller"null: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/cpu-manager-update-node: {}
+            f:harvesterhci.io/cpu-manager-update-policy: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"393f61bc-82fe-4d9f-a4e3-c1b00c70f006"}: {}
+        f:spec:
+          f:activeDeadlineSeconds: {}
+          f:backoffLimit: {}
+          f:completionMode: {}
+          f:completions: {}
+          f:manualSelector: {}
+          f:parallelism: {}
+          f:podReplacementPolicy: {}
+          f:suspend: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:harvesterhci.io/cpu-manager-update-node: {}
+                f:harvesterhci.io/cpu-manager-update-policy: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:nodeAffinity:
+                  .: {}
+                  f:requiredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"update-cpu-manager"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"HOST_DIR"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"WAIT_LABEL_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/harvester-helpers"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostPID: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"helpers"}:
+                  .: {}
+                  f:configMap:
+                    .: {}
+                    f:defaultMode: {}
+                    f:name: {}
+                  f:name: {}
+                k:{"name":"host-root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:ttlSecondsAfterFinished: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:30:13Z"
+    - apiVersion: batch/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:completionTime: {}
+          f:conditions: {}
+          f:ready: {}
+          f:startTime: {}
+          f:succeeded: {}
+          f:terminating: {}
+          f:uncountedTerminatedPods: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T14:31:28Z"
+    name: update-cpu-manager-hp-69-tink-system-q28vm
+    namespace: harvester-system
+    ownerReferences:
+    - apiVersion: v1
+      kind: Node
+      name: hp-69-tink-system
+      uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    resourceVersion: "254906"
+    uid: d2ad8146-4af5-427a-a44d-04919f815a9d
+  spec:
+    activeDeadlineSeconds: 600
+    backoffLimit: 0
+    completionMode: NonIndexed
+    completions: 1
+    manualSelector: false
+    parallelism: 1
+    podReplacementPolicy: TerminatingOrFailed
+    selector:
+      matchLabels:
+        batch.kubernetes.io/controller-uid: d2ad8146-4af5-427a-a44d-04919f815a9d
+    suspend: false
+    template:
+      metadata:
+        labels:
+          batch.kubernetes.io/controller-uid: d2ad8146-4af5-427a-a44d-04919f815a9d
+          batch.kubernetes.io/job-name: update-cpu-manager-hp-69-tink-system-q28vm
+          controller-uid: d2ad8146-4af5-427a-a44d-04919f815a9d
+          harvesterhci.io/cpu-manager-update-node: hp-69-tink-system
+          harvesterhci.io/cpu-manager-update-policy: static
+          job-name: update-cpu-manager-hp-69-tink-system-q28vm
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                  - hp-69-tink-system
+        containers:
+        - args:
+          - -e
+          - /harvester-helpers/cpu-manager.sh
+          - hp-69-tink-system
+          - static
+          command:
+          - sh
+          env:
+          - name: HOST_DIR
+            value: /host
+          - name: WAIT_LABEL_TIMEOUT
+            value: "300"
+          image: registry.suse.com/bci/bci-base:16.0
+          imagePullPolicy: IfNotPresent
+          name: update-cpu-manager
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /host
+            name: host-root
+          - mountPath: /harvester-helpers
+            name: helpers
+        dnsPolicy: ClusterFirst
+        hostPID: true
+        restartPolicy: Never
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: harvester
+        serviceAccountName: harvester
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /
+            type: Directory
+          name: host-root
+        - configMap:
+            defaultMode: 420
+            name: harvester-helpers
+          name: helpers
+    ttlSecondsAfterFinished: 604800
+  status:
+    completionTime: "2026-06-12T14:31:28Z"
+    conditions:
+    - lastProbeTime: "2026-06-12T14:31:28Z"
+      lastTransitionTime: "2026-06-12T14:31:28Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: SuccessCriteriaMet
+    - lastProbeTime: "2026-06-12T14:31:28Z"
+      lastTransitionTime: "2026-06-12T14:31:28Z"
+      message: Reached expected number of succeeded pods
+      reason: CompletionsReached
+      status: "True"
+      type: Complete
+    ready: 0
+    startTime: "2026-06-12T14:30:14Z"
+    succeeded: 1
+    terminating: 0
+    uncountedTerminatedPods: {}
+kind: List
+metadata:
+  resourceVersion: "676447"

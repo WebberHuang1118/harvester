@@ -1,0 +1,95 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: EngineImage
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:52Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    labels:
+      longhorn.io/component: engine-image
+      longhorn.io/engine-image: ei-c9fa6d45
+      longhorn.io/managed-by: longhorn-manager
+    managedFields:
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:longhorn.io/component: {}
+            f:longhorn.io/engine-image: {}
+            f:longhorn.io/managed-by: {}
+        f:spec:
+          .: {}
+          f:image: {}
+      manager: longhorn-manager
+      operation: Update
+      time: "2026-06-12T10:42:52Z"
+    - apiVersion: longhorn.io/v1beta2
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:buildDate: {}
+          f:cliAPIMinVersion: {}
+          f:cliAPIVersion: {}
+          f:conditions: {}
+          f:controllerAPIMinVersion: {}
+          f:controllerAPIVersion: {}
+          f:dataFormatMinVersion: {}
+          f:dataFormatVersion: {}
+          f:gitCommit: {}
+          f:incompatible: {}
+          f:noRefSince: {}
+          f:nodeDeploymentMap:
+            .: {}
+            f:hp-69-tink-system: {}
+            f:hp-117-tink-system: {}
+            f:hp-150-tink-system: {}
+          f:ownerID: {}
+          f:refCount: {}
+          f:state: {}
+          f:version: {}
+      manager: longhorn-manager
+      operation: Update
+      subresource: status
+      time: "2026-06-12T15:28:44Z"
+    name: ei-c9fa6d45
+    namespace: longhorn-system
+    resourceVersion: "309821"
+    uid: e30c36e8-9b7e-4a20-bf74-4f653359ff18
+  spec:
+    image: docker.io/longhornio/longhorn-engine:v1.11.2
+  status:
+    buildDate: "2026-05-04T03:10:05+00:00"
+    cliAPIMinVersion: 8
+    cliAPIVersion: 11
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T10:43:02Z"
+      message: Engine image ei-c9fa6d45 (docker.io/longhornio/longhorn-engine:v1.11.2)
+        is fully deployed on all ready nodes
+      reason: "null"
+      status: "True"
+      type: ready
+    controllerAPIMinVersion: 4
+    controllerAPIVersion: 6
+    dataFormatMinVersion: 1
+    dataFormatVersion: 1
+    gitCommit: ac0ee7928e9b706ff8772e524d68917b4ba5180e
+    incompatible: false
+    noRefSince: "null"
+    nodeDeploymentMap:
+      hp-69-tink-system: true
+      hp-117-tink-system: true
+      hp-150-tink-system: true
+    ownerID: hp-117-tink-system
+    refCount: 32
+    state: deployed
+    version: v1.11.2
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676495"

@@ -1,0 +1,44 @@
+2026-06-12T23:12:16.960533742Z if [[ ${KUBERNETES_SERVICE_HOST} =~ .*:.* ]]; then
+2026-06-12T23:12:16.960584160Z 	echo "KUBERNETES_SERVICE_HOST is using IPv6"
+2026-06-12T23:12:16.960590604Z 	CHART="${CHART//%\{KUBERNETES_API\}%/[${KUBERNETES_SERVICE_HOST}]:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T23:12:16.960595894Z else
+2026-06-12T23:12:16.960600295Z 	CHART="${CHART//%\{KUBERNETES_API\}%/${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}}"
+2026-06-12T23:12:16.960604644Z fi
+2026-06-12T23:12:16.960669942Z 
+2026-06-12T23:12:16.960686017Z set +v -x
+2026-06-12T23:12:16.960746347Z + [[ '' == v2 ]]
+2026-06-12T23:12:16.960849265Z + shopt -s nullglob
+2026-06-12T23:12:16.960863435Z + [[ -f /config/ca-file.pem ]]
+2026-06-12T23:12:16.960976849Z + [[ -f /tmp/ca-file.pem ]]
+2026-06-12T23:12:16.961052843Z + [[ false == true ]]
+2026-06-12T23:12:16.961082588Z + [[ false == true ]]
+2026-06-12T23:12:16.961126859Z + [[ -n '' ]]
+2026-06-12T23:12:16.961144208Z + helm_content_decode
+2026-06-12T23:12:16.961242815Z + set -e
+2026-06-12T23:12:16.961307420Z + ENC_CHART_PATH=/chart/harvester-csi-driver-lvm.tgz.base64
+2026-06-12T23:12:16.961361245Z + CHART_PATH=/tmp/harvester-csi-driver-lvm.tgz
+2026-06-12T23:12:16.961400334Z + [[ ! -f /chart/harvester-csi-driver-lvm.tgz.base64 ]]
+2026-06-12T23:12:16.961447254Z + return
+2026-06-12T23:12:16.961563215Z + [[ delete != delete ]]
+2026-06-12T23:12:16.961587846Z + helm_update delete
+2026-06-12T23:12:16.963444298Z ++ helm ls --all -f '^harvester-csi-driver-lvm$' --namespace harvester-system --output json
+2026-06-12T23:12:16.963800375Z ++ jq -r '"\(.[0].chart),\(.[0].status),\(.[0].revision)"'
+2026-06-12T23:12:16.963934453Z ++ tr '[:upper:]' '[:lower:]'
+2026-06-12T23:12:17.251205755Z + LINE=harvester-csi-driver-lvm-1.8.1-rc1,uninstalling,1
+2026-06-12T23:12:17.251240535Z + IFS=,
+2026-06-12T23:12:17.251256183Z + read -r INSTALLED_VERSION STATUS REVISION _
+2026-06-12T23:12:17.251441567Z + VALUES=
+2026-06-12T23:12:17.251576909Z + [[ delete = delete ]]
+2026-06-12T23:12:17.251617680Z + [[ -z harvester-csi-driver-lvm-1.8.1-rc1 ]]
+2026-06-12T23:12:17.251639648Z + check_revision 1
+2026-06-12T23:12:17.251699965Z + REVISION=1
+2026-06-12T23:12:17.251711558Z + [[ -n 1 ]]
+2026-06-12T23:12:17.251747696Z + [[ 1 != 1 ]]
+2026-06-12T23:12:17.251803591Z + echo 'Uninstalling helm chart'
+2026-06-12T23:12:17.251984676Z + helm uninstall harvester-csi-driver-lvm --namespace harvester-system --wait
+2026-06-12T23:12:17.473904657Z Error: warning: Hook pre-delete harvester-csi-driver-lvm/templates/uninstall-hook.yaml failed: 1 error occurred:
+2026-06-12T23:12:17.473942020Z 	* jobs.batch "delete-harvester-csi-driver-lvm-webhook" already exists
+2026-06-12T23:12:17.473948198Z 
+2026-06-12T23:12:17.473953550Z 
+2026-06-12T23:12:17.476993732Z + true
+2026-06-12T23:12:17.477028906Z + exit

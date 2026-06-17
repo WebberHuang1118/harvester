@@ -1,0 +1,59 @@
+apiVersion: v1
+items:
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:41:47Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: webhook
+      operation: Update
+      time: "2026-06-12T23:12:28Z"
+    name: rancher-webhook-leader
+    namespace: cattle-system
+    resourceVersion: "676349"
+    uid: 59e8508f-0971-4bb9-ab27-d6e65032e56d
+  spec:
+    acquireTime: "2026-06-12T10:41:47.271599Z"
+    holderIdentity: b20b5c35-1e1b-4f81-a40e-fe6adf10273d
+    leaseDurationSeconds: 15
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:28.012964Z"
+- apiVersion: coordination.k8s.io/v1
+  kind: Lease
+  metadata:
+    creationTimestamp: "2026-06-12T10:42:23Z"
+    managedFields:
+    - apiVersion: coordination.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:acquireTime: {}
+          f:holderIdentity: {}
+          f:leaseDurationSeconds: {}
+          f:leaseTransitions: {}
+          f:renewTime: {}
+      manager: system-upgrade-controller
+      operation: Update
+      time: "2026-06-12T23:12:28Z"
+    name: system-upgrade-controller
+    namespace: cattle-system
+    resourceVersion: "676348"
+    uid: b0ffdf58-4a42-46da-9800-9fd6f0791727
+  spec:
+    acquireTime: "2026-06-12T10:42:23.579830Z"
+    holderIdentity: system-upgrade-controller-54c465b8cb-czxc4
+    leaseDurationSeconds: 45
+    leaseTransitions: 0
+    renewTime: "2026-06-12T23:12:28.006807Z"
+kind: List
+metadata:
+  resourceVersion: "676363"

@@ -1,0 +1,9 @@
+#==[ Note ]=========================================#
+# Restricted
+
+PAM module is disabled in compliance with General Data Protection Regulation (GDPR).
+To consent to supportconfig collecting this information, run:
+# FORCE_OPTION_PAM=1 supportconfig
+
+Additional info: https://www.suse.com/support/kb/doc/?id=000019695
+

@@ -1,0 +1,3 @@
+# Note: this file is re-formatted by support-bundle-kit collector.
+kubelet-arg:
+  - "max-pods=200"

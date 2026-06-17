@@ -1,0 +1,4114 @@
+apiVersion: v1
+items:
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: rancher/rancher-agent:head
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: agent-image
+    resourceVersion: "1486"
+    uid: 0cc62ca2-5ca4-495b-8e8c-dc7f0b88b498
+  source: env
+  value: rancher/rancher-agent:v2.14.2
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 300s
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: agent-rollout-timeout
+    resourceVersion: "1531"
+    uid: 81ca9c8f-b145-4f38-bb1b-6871f7461479
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: strict
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: agent-tls-mode
+    resourceVersion: "1517"
+    uid: 7ab312b8-ef17-443f-b443-b3acb46f3c30
+  source: env
+  value: system-store
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: aks-operator-version
+    resourceVersion: "1534"
+    uid: 9094fbad-30da-4c8c-9ab1-83584b60eec8
+  source: env
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "300"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: aks-refresh
+    resourceVersion: "1490"
+    uid: 0484f30f-09a8-45cc-9f52-ac6827e3a432
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ali-operator-version
+    resourceVersion: "1513"
+    uid: c36d578f-ba72-4645-be8a-1e0fd7c825e1
+  source: env
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "300"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: alibaba-refresh
+    resourceVersion: "1543"
+    uid: 28204ee7-1b68-4272-a68d-8588edbe6bcf
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: api-host
+    resourceVersion: "1507"
+    uid: 1902423f-478f-4178-88f5-5f505ee65d8e
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 1.1.11
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: api-ui-version
+    resourceVersion: "1468"
+    uid: 4dd75bf6-eabb-4ef0-a911-e267f526858b
+  source: env
+  value: 1.1.11
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: rancher/kube-api-auth:v0.2.6
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: auth-image
+    resourceVersion: "1518"
+    uid: 5c065295-4b55-4640-9784-c62a6db0cfe0
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: auth-password-requirements-description
+    resourceVersion: "1463"
+    uid: d09cc1b9-3603-4b27-b73d-9842683e3243
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "129600"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 3
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:value: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:08:08Z"
+    name: auth-token-max-ttl-minutes
+    resourceVersion: "34099"
+    uid: b2310b64-1971-42a6-b908-2cb516beff93
+  source: "null"
+  value: "172800"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "3600"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: auth-user-info-max-age-seconds
+    resourceVersion: "1522"
+    uid: 00f66d2f-a02e-4689-8785-ee9d4099fe2d
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 0 0 * * *
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: auth-user-info-resync-cron
+    resourceVersion: "1495"
+    uid: 33c284c6-52d8-4538-a1d4-6edfa6bd2375
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "960"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: auth-user-session-idle-ttl-minutes
+    resourceVersion: "1579"
+    uid: 31fc49dc-ff32-4a76-91cf-e0c14b9822f2
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "960"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: auth-user-session-ttl-minutes
+    resourceVersion: "1491"
+    uid: 8a4b0403-5fc5-451e-82df-85841929d017
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "10"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: authorization-cache-ttl-seconds
+    resourceVersion: "1587"
+    uid: 9cdeecd6-1e7e-4f48-a980-ed31eba54b22
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "10"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: authorization-deny-cache-ttl-seconds
+    resourceVersion: "1471"
+    uid: 78aa7bba-b310-42bd-a1a9-4ae6fb6f8438
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "10000"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: azure-group-cache-size
+    resourceVersion: "1497"
+    uid: f92cd544-7a59-4a7f-8ffb-08066290e4e8
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: |-
+    -----BEGIN CERTIFICATE-----
+    MIIBvTCCAWOgAwIBAgIBADAKBggqhkjOPQQDAjBGMRwwGgYDVQQKExNkeW5hbWlj
+    bGlzdGVuZXItb3JnMSYwJAYDVQQDDB1keW5hbWljbGlzdGVuZXItY2FAMTc4MTI2
+    MDc5OTAeFw0yNjA2MTIwOTM5NTlaFw0zNjA2MDkwOTM5NTlaMEYxHDAaBgNVBAoT
+    E2R5bmFtaWNsaXN0ZW5lci1vcmcxJjAkBgNVBAMMHWR5bmFtaWNsaXN0ZW5lci1j
+    YUAxNzgxMjYwNzk5MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEK9jjhlqZd+V7
+    4UIgHcGEiU9ssPK2OXkGn3DGkUGkc6QjWBONu0vpy8EV7LEOID0HkjiA6qfNrNlT
+    wfYwGLsJyqNCMEAwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB/wQFMAMBAf8wHQYD
+    VR0OBBYEFPs8HAMc8xmZmbaYpjemaJxgbOp5MAoGCCqGSM49BAMCA0gAMEUCIQCp
+    9fymwtnb3idaRToCBpwXaSUpBSilNZWksxnWS7NEZgIgZB45RpS83exn08Bwxoh+
+    mwVL8CGNISOjCUgg5RcowjQ=
+    -----END CERTIFICATE-----
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 12
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:41:30Z"
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T14:41:30Z"
+    name: cacerts
+    resourceVersion: "265465"
+    uid: 64080ce0-2070-4073-9c78-222e87b2e50f
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: release-v2.14
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: chart-default-branch
+    resourceVersion: "1520"
+    uid: 9a1851fd-2e81-48ef-bdfb-6e39c4101c09
+  source: env
+  value: release-v2.14
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://git.rancher.io/
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: chart-default-url
+    resourceVersion: "1544"
+    uid: e765924c-e102-4dcc-934d-60e4d9e80b02
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://releases.rancher.com/cli/v1.0.0-alpha8/rancher-darwin-amd64-v1.0.0-alpha8.tar.gz
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: cli-url-darwin
+    resourceVersion: "1472"
+    uid: 26f81770-a52c-4137-8b74-5b1b467d4fc2
+  source: env
+  value: https://releases.rancher.com/cli2/v2.14.2/rancher-darwin-amd64-v2.14.2.tar.gz
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://releases.rancher.com/cli/v1.0.0-alpha8/rancher-linux-amd64-v1.0.0-alpha8.tar.gz
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: cli-url-linux
+    resourceVersion: "1545"
+    uid: 82c25089-0845-4ede-929a-a920a1502808
+  source: env
+  value: https://releases.rancher.com/cli2/v2.14.2/rancher-linux-amd64-v2.14.2.tar.gz
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://releases.rancher.com/cli/v1.0.0-alpha8/rancher-windows-386-v1.0.0-alpha8.zip
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: cli-url-windows
+    resourceVersion: "1546"
+    uid: 2e64e67e-f647-4012-a9a2-be450f69ea0d
+  source: env
+  value: https://releases.rancher.com/cli2/v2.14.2/rancher-windows-386-v2.14.2.zip
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: cli-version
+    resourceVersion: "1529"
+    uid: 438c2606-8104-44f9-a7c1-273a0cd671de
+  source: env
+  value: v2.14.2
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: |-
+    {
+      "nodeAffinity": {
+        "requiredDuringSchedulingIgnoredDuringExecution": {
+          "nodeSelectorTerms": [
+            {
+              "matchExpressions": [
+                {
+                  "key": "kubernetes.io/os",
+                  "operator": "NotIn",
+                  "values": [
+                    "windows"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "weight": 100,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "node-role.kubernetes.io/controlplane",
+                  "operator": "In",
+                  "values": [
+                    "true"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "node-role.kubernetes.io/control-plane",
+                  "operator": "In",
+                  "values": [
+                    "true"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "cattle.io/cluster-agent",
+                  "operator": "In",
+                  "values": [
+                    "true"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "podAntiAffinity": {
+        "preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "weight": 100,
+            "podAffinityTerm": {
+              "labelSelector": {
+                "matchExpressions": [
+                  {
+                    "key": "app",
+                    "operator": "In",
+                    "values": [
+                      "cattle-cluster-agent"
+                    ]
+                  }
+                ]
+              },
+              "topologyKey": "kubernetes.io/hostname"
+            }
+          }
+        ]
+      }
+    }
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: cluster-agent-default-affinity
+    resourceVersion: "1564"
+    uid: 46b3fcff-8e88-4796-8b7a-0cbf5e09077d
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "{\n\t\"minAvailable\": \"1\",\n\t\"maxUnavailable\": \"0\"\n}"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: cluster-agent-default-pod-disruption-budget
+    resourceVersion: "1445"
+    uid: 6c5f611a-ab12-42be-a584-83f07fb35aec
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: |-
+    {
+        "preemptionPolicy": "PreemptLowerPriority",
+        "value": 1000000000
+    }
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: cluster-agent-default-priority-class
+    resourceVersion: "1562"
+    uid: 1de6e6f6-d86f-4782-a2f2-8458796bdbc9
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: cluster-autoscaler-chart-repository
+    resourceVersion: "1599"
+    uid: 2b65caa4-e1ed-47fd-87bb-04884179d8f5
+  source: env
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: cluster-autoscaler-image
+    resourceVersion: "1492"
+    uid: 21612002-e080-4323-bc28-34658c87b362
+  source: env
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "50"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: cluster-controller-start-count
+    resourceVersion: "1466"
+    uid: 6140b6c4-4128-4709-9c24-9195ce9609d6
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "false"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: cluster-template-enforcement
+    resourceVersion: "1560"
+    uid: 14d5d101-731e-4132-834f-9e7a310e4acc
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: rancher-config
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: config-map-name
+    resourceVersion: "1461"
+    uid: 20d731da-7e8d-4cce-a843-6d48075444c4
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://acs-mirror.azureedge.net/csi-proxy/%[1]s/binaries/csi-proxy-%[1]s.tar.gz
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: csi-proxy-agent-url
+    resourceVersion: "1467"
+    uid: a1fee320-4aba-4c76-a93f-aeb185fe4804
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: csi-proxy-agent-version
+    resourceVersion: "1436"
+    uid: cac89b17-a367-4fa2-8ad5-d9257be61dca
+  source: env
+  value: v1.1.3
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: csp-adapter-min-version
+    resourceVersion: "1565"
+    uid: fa78ec4f-905b-4412-aca7-a80f2177b748
+  source: env
+  value: 109.0.0+up9.0.0
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: delete-inactive-user-after
+    resourceVersion: "1598"
+    uid: 8c22c1c9-c4f7-4b15-a76a-1b9d4ab9742b
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 0s
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: delete-machine-on-failure-after
+    resourceVersion: "1446"
+    uid: ef79dc9d-a265-4949-9fc7-ac93cced6147
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: disable-default-proxy-endpoints
+    resourceVersion: "1455"
+    uid: 03e2b623-08ce-4bcc-b2fc-ac134ee5da62
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: disable-inactive-user-after
+    resourceVersion: "1433"
+    uid: 17cafc41-621a-4a96-a761-29cef607ba10
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: display-add-extension-repos-banner
+    resourceVersion: "1528"
+    uid: 2f15e9be-5d63-458b-b1c7-5901186d412c
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: eks-operator-version
+    resourceVersion: "1438"
+    uid: 83e55ca0-f286-4e2f-a40b-38c6a8d29209
+  source: env
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "300"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: eks-refresh
+    resourceVersion: "1561"
+    uid: c138191f-ea4d-4005-a95b-0882edd9d66a
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: '*/5 * * * *'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: eks-refresh-cron
+    resourceVersion: "1512"
+    uid: 8a57c82e-4b54-44e2-a36d-23d96b17307f
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://releases.rancher.com/install-docker/28.1.sh
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: engine-install-url
+    resourceVersion: "1479"
+    uid: c899e7de-93a8-4917-8845-78ef0107b18a
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://releases.rancher.com/os/latest/rancheros-vmware.iso
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: engine-iso-url
+    resourceVersion: "1443"
+    uid: 28d40800-e87f-4224-a575-c5da6b8508b4
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: v17.12.0
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: engine-newest-version
+    resourceVersion: "1574"
+    uid: bcb743fd-dcce-473e-ba77-d0fa1d0c10c3
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: ~v1.11.2 || ~v1.12.0 || ~v1.13.0 || ~v17.03.0 || ~v17.06.0 || ~v17.09.0
+    || ~v18.06.0 || ~v18.09.0 || ~v19.03.0 || ~v20.10.0 || ~v23.0.0 || ~v24.0.0 ||
+    ~v25.0.0 || ~v26.0.0 || ~v26.1.0|| ~v27.0.0|| ~v27.1.0|| ~v27.2.0|| ~v27.3.0||
+    ~v27.4.0|| ~v27.5.0|| ~v28.0.0|| ~v28.1.0
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: engine-supported-range
+    resourceVersion: "1539"
+    uid: d70c7e55-d09f-466a-8417-63ddede76421
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: eula-agreed
+    resourceVersion: "1516"
+    uid: 3d191bd4-98a2-46e6-848f-216d04611ee7
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 720h
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: expire-scim-tokens-after
+    resourceVersion: "1551"
+    uid: 3de63a14-249f-4ab3-8753-ea5dead27743
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "true"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 2
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:59:57Z"
+    name: first-login
+    resourceVersion: "23189"
+    uid: 97e0e651-1765-4732-9061-6eb672cab6ce
+  source: "null"
+  value: "false"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: |-
+    {
+      "nodeAffinity": {
+        "preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "weight": 1,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "fleet.cattle.io/agent",
+                  "operator": "In",
+                  "values": [
+                    "true"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: fleet-agent-default-affinity
+    resourceVersion: "1515"
+    uid: 68548de0-0c49-4ac8-b28c-18a87c8feb34
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "{\n\t\"minAvailable\": \"1\",\n\t\"maxUnavailable\": \"0\"\n}"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: fleet-agent-default-pod-disruption-budget
+    resourceVersion: "1431"
+    uid: 5894c9c6-764b-4b96-981b-7042a24f7508
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: |-
+    {
+        "preemptionPolicy": "PreemptLowerPriority",
+        "value":  999999999
+    }
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: fleet-agent-default-priority-class
+    resourceVersion: "1460"
+    uid: f53dee5a-e96f-40c0-860f-ccfad0b1d507
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: fleet-default
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: fleet-default-workspace-name
+    resourceVersion: "1595"
+    uid: ff373423-cc10-4c5c-9227-7c90bc8cfe45
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: fleet-min-version
+    resourceVersion: "1571"
+    uid: ef0b9f0b-f998-4243-ad94-e8f73fb4ade0
+  source: env
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: fleet-version
+    resourceVersion: "1456"
+    uid: 809b68d8-f824-46dc-b2dc-08312172375e
+  source: env
+  value: 109.0.2+up0.15.2
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://api.github.com
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: github-proxy-api-url
+    resourceVersion: "1589"
+    uid: fcc0bcf4-62a6-4560-82bb-7668983535bc
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: gke-operator-version
+    resourceVersion: "1499"
+    uid: 32b929ee-bb59-4bce-a65e-c2a5e04af73b
+  source: env
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "300"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: gke-refresh
+    resourceVersion: "1430"
+    uid: 54d020ef-716d-4794-8ec3-ce021dc42a5a
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "false"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: global-registry-enabled
+    resourceVersion: "1487"
+    uid: 13026028-e520-41fa-9557-60b13a4569fd
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: has-support
+    resourceVersion: "1454"
+    uid: 4058ec5a-1b97-4dd5-8cdb-35378d68a73d
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "10"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: helm-max-history
+    resourceVersion: "1602"
+    uid: 6c7475b4-1f88-4e16-bbe4-85ea36aaacaf
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: dev
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: helm-version
+    resourceVersion: "1601"
+    uid: 7f02538f-9eac-4a9c-85b6-23ec205eb209
+  source: env
+  value: v3.20.0-rancher1
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "false"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: hide-local-cluster
+    resourceVersion: "1596"
+    uid: 72a4a555-61e3-4092-804e-0e42b43c2393
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ignore-node-name
+    resourceVersion: "1489"
+    uid: 60a09414-f9e7-49be-b72f-9f2c32cabc75
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "true"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: imported-cluster-version-management
+    resourceVersion: "1558"
+    uid: f43862ed-b498-46eb-8e6a-2e61525a9432
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: sslip.io
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ingress-ip-domain
+    resourceVersion: "1480"
+    uid: 7bfcd076-53d4-4f2c-955a-2adc9fc9b66b
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: /var/lib/docker
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: initial-docker-root-dir
+    resourceVersion: "1488"
+    uid: 6470a5b8-df39-42ce-9a6f-5388a157495a
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 2
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:00Z"
+    name: install-uuid
+    resourceVersion: "1647"
+    uid: 10746b54-4b3e-4132-bb6f-688c893d4512
+  source: "null"
+  value: c64133c6-1b79-46ff-b1ca-91bc8b34c95c
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 2
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:01Z"
+    name: internal-cacerts
+    resourceVersion: "1662"
+    uid: 2dd119c0-4524-4bec-b8ac-cc62c7fac1c8
+  source: "null"
+  value: |
+    -----BEGIN CERTIFICATE-----
+    MIIBvTCCAWOgAwIBAgIBADAKBggqhkjOPQQDAjBGMRwwGgYDVQQKExNkeW5hbWlj
+    bGlzdGVuZXItb3JnMSYwJAYDVQQDDB1keW5hbWljbGlzdGVuZXItY2FAMTc4MTI2
+    MDc5OTAeFw0yNjA2MTIwOTM5NTlaFw0zNjA2MDkwOTM5NTlaMEYxHDAaBgNVBAoT
+    E2R5bmFtaWNsaXN0ZW5lci1vcmcxJjAkBgNVBAMMHWR5bmFtaWNsaXN0ZW5lci1j
+    YUAxNzgxMjYwNzk5MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEK9jjhlqZd+V7
+    4UIgHcGEiU9ssPK2OXkGn3DGkUGkc6QjWBONu0vpy8EV7LEOID0HkjiA6qfNrNlT
+    wfYwGLsJyqNCMEAwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB/wQFMAMBAf8wHQYD
+    VR0OBBYEFPs8HAMc8xmZmbaYpjemaJxgbOp5MAoGCCqGSM49BAMCA0gAMEUCIQCp
+    9fymwtnb3idaRToCBpwXaSUpBSilNZWksxnWS7NEZgIgZB45RpS83exn08Bwxoh+
+    mwVL8CGNISOjCUgg5RcowjQ=
+    -----END CERTIFICATE-----
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 2
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:40:01Z"
+    name: internal-server-url
+    resourceVersion: "1663"
+    uid: 76adec15-9214-4dad-9578-0d277d586287
+  source: "null"
+  value: https://10.53.3.202
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "60"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: jailer-timeout
+    resourceVersion: "1481"
+    uid: 9accde55-32da-4e8e-bf54-b01181ef4340
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "5"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: k3s-based-upgrader-uninstall-concurrency
+    resourceVersion: "1510"
+    uid: 968ff3b4-7f99-4144-95fb-46e7b26e9989
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: k3s-default-version
+    resourceVersion: "1432"
+    uid: 298d2f64-5e05-4a26-861d-dac82ad7d5c3
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: k8s-version
+    resourceVersion: "1552"
+    uid: d71522b0-5d98-48da-ba89-e314d4a77c30
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: k8s-version-to-images
+    resourceVersion: "1525"
+    uid: 049dbc2c-1665-4eee-a95b-4b66c3816c15
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: k8s-version-to-service-options
+    resourceVersion: "1478"
+    uid: a035ff40-0ccb-42e3-ac27-a9f1e61a42bc
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: k8s-versions-current
+    resourceVersion: "1429"
+    uid: 9706bc1f-cc87-4b48-9050-2c341aa1481a
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: k8s-versions-deprecated
+    resourceVersion: "1532"
+    uid: c534556c-fdf8-4621-bd96-58019eb3b5ca
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: release-v2.14
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: kdm-branch
+    resourceVersion: "1473"
+    uid: aefe4bca-9288-4280-b12b-02e351f09066
+  source: env
+  value: release-v2.14
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: '{}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: kev2-operators
+    resourceVersion: "1452"
+    uid: 60e49fb0-f793-418c-9cd2-7128fb1854da
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "43200"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 3
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:value: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T11:08:08Z"
+    name: kubeconfig-default-token-ttl-minutes
+    resourceVersion: "34098"
+    uid: fd744caf-3368-4c3e-a015-e7405726e5d0
+  source: "null"
+  value: "172800"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "true"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: kubeconfig-generate-token
+    resourceVersion: "1554"
+    uid: 2b9d7dbd-b530-4ca3-b75f-6e923e103704
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: rancher/machine:v0.15.0-rancher142
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: machine-provision-image
+    resourceVersion: "1521"
+    uid: e2d0e703-5aae-4895-942b-1af4ba361ba5
+  source: env
+  value: rancher/machine:v0.15.0-rancher142
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: Always
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: machine-provision-image-pull-policy
+    resourceVersion: "1477"
+    uid: cbe7e712-19f7-414e-968a-af139e0b2923
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: dev
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: machine-version
+    resourceVersion: "1482"
+    uid: fb68263b-0bba-483d-b88f-2845f74fb3bc
+  source: env
+  value: v0.15.0-rancher142
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "31457280"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: max-ui-plugin-file-byte-size
+    resourceVersion: "1575"
+    uid: 3b95e293-7753-4b2c-a9dc-2f04d93c1014
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: cattle-system
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: namespace
+    resourceVersion: "1590"
+    uid: f0d80504-43f5-45dc-9723-213a88fd750b
+  source: env
+  value: cattle-system
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: no-default-admin
+    resourceVersion: "1578"
+    uid: e9673bed-ab6b-42ed-adb0-24fa234eb27c
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: main
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: partner-chart-default-branch
+    resourceVersion: "1591"
+    uid: c9eea0d7-4e64-412c-a9b3-63da61e4ba6c
+  source: env
+  value: main
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://git.rancher.io/
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: partner-chart-default-url
+    resourceVersion: "1572"
+    uid: 347a3db1-a96d-450b-af19-6d98546051b0
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "12"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: password-min-length
+    resourceVersion: "1569"
+    uid: 533588a9-d54b-42ab-8abd-aa085428736d
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: rancher
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: peer-service
+    resourceVersion: "1451"
+    uid: 41239446-dcd9-4962-874b-a725375b701f
+  source: env
+  value: rancher
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 1Mi
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: public-api-body-limit
+    resourceVersion: "1530"
+    uid: fe8a6078-b957-48d6-bc8d-b57aa63ac106
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: rancher-turtles-version
+    resourceVersion: "1500"
+    uid: d86a5743-18e0-48d0-abc8-e241be1888d9
+  source: env
+  value: 109.0.2+up0.26.2
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: rancher-webhook-version
+    resourceVersion: "1566"
+    uid: aee94827-ea24-48c0-8e87-333abf1db568
+  source: env
+  value: 109.0.2+up0.10.6
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: remotedialer-proxy-version
+    resourceVersion: "1555"
+    uid: 6381ac52-5169-4a26-a8ba-7ea9c2e03b98
+  source: env
+  value: 109.0.3+up0.7.3
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: '{"refresh-interval-minutes":"1440","url":"https://releases.rancher.com/kontainer-driver-metadata/release-v2.14/data.json"}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: rke-metadata-config
+    resourceVersion: "1519"
+    uid: ca3964eb-0b87-4425-b6be-4bf7f741e3db
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: main
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: rke2-chart-default-branch
+    resourceVersion: "1556"
+    uid: 03f4d8fb-7f6f-43cb-9662-66aebb5753d5
+  source: env
+  value: main
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://git.rancher.io/
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: rke2-chart-default-url
+    resourceVersion: "1439"
+    uid: d19f0e2c-ad10-43bb-ba87-a715d5497c1a
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: rke2-default-version
+    resourceVersion: "1553"
+    uid: 3e0eaf1c-9499-4a9a-b47e-49c0c89b0fbb
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "7"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: rotate-certs-if-expiring-in-days
+    resourceVersion: "1594"
+    uid: 6d69a450-c90c-43f9-b547-4a3fa8d63e41
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 30s
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: s3-bucket-check-timeout
+    resourceVersion: "1584"
+    uid: 743171fd-6335-4553-b07b-cea139c2ba34
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: rancher/scc-operator:v0.4.1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: scc-operator-image
+    resourceVersion: "1493"
+    uid: 0c3e3a19-bfbd-4045-bba7-3f67b7ea94c4
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: rancher/rancher
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: server-image
+    resourceVersion: "1474"
+    uid: 9753256d-5bf8-4080-9274-661de901b6bc
+  source: env
+  value: rancher/rancher
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: server-url
+    resourceVersion: "1504"
+    uid: 00423343-cfed-43e5-bc12-e2cdaac2b581
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: dev
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: server-version
+    resourceVersion: "1541"
+    uid: 2f287d63-9530-4f7c-b59b-91dbb99a2212
+  source: env
+  value: v2.14.2
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: dev
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: server-version-type
+    resourceVersion: "1570"
+    uid: c54f2a93-89ec-4822-8339-daab7af68081
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: rancher/shell:v0.7.0
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: shell-image
+    resourceVersion: "1475"
+    uid: c362e1f9-8f54-4d25-8f99-646451ff0ce1
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "true"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: skip-helm-index-filtering
+    resourceVersion: "1496"
+    uid: 81feb8a3-557a-430b-a270-da4e44eaeba3
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: skip-hosted-cluster-chart-installation
+    resourceVersion: "1449"
+    uid: 9fed2e04-1b96-4d83-b7de-78c5f8300392
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 15m
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: sql-cache-gc-interval
+    resourceVersion: "1508"
+    uid: 08008660-7254-4ffe-870f-3652ea18fd3f
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "1000"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: sql-cache-gc-keep-count
+    resourceVersion: "1573"
+    uid: ac0d6518-0250-4c16-8b10-19c54969d82e
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://github.com/rancher/system-agent/releases/download/v0.3.16/install.sh
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: system-agent-install-script
+    resourceVersion: "1509"
+    uid: 6eccbeff-4037-4426-ad61-703a751030e7
+  source: env
+  value: https://github.com/rancher/system-agent/releases/download/v0.3.16/install.sh
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: system-agent-installer-image
+    resourceVersion: "1483"
+    uid: e9c26e14-7073-4e47-ad6e-974172c69307
+  source: env
+  value: rancher/system-agent-installer-
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: system-agent-upgrade-image
+    resourceVersion: "1484"
+    uid: 5bf4077f-784e-4913-afb6-c72448c643f0
+  source: env
+  value: rancher/system-agent:v0.3.16-suc
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "5"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: system-agent-upgrader-install-concurrency
+    resourceVersion: "1464"
+    uid: 0abca321-adb5-4dad-830b-33377771a959
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: system-agent-version
+    resourceVersion: "1435"
+    uid: 6f7324f5-9331-4f93-9889-66e2afdf17d0
+  source: env
+  value: v0.3.16
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: external
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: system-catalog
+    resourceVersion: "1453"
+    uid: d068be6a-7d22-4a2b-8fa1-b04f309a42ac
+  source: env
+  value: bundled
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: system-default-registry
+    resourceVersion: "1457"
+    uid: 57e28ee1-f135-4fbd-9832-2e67dc4afb51
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "21600"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: system-feature-chart-refresh-seconds
+    resourceVersion: "1597"
+    uid: b0483561-746a-4c23-80ea-910b8aef6f97
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: 300s
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: system-managed-charts-operation-timeout
+    resourceVersion: "1542"
+    uid: fcd683b9-ad14-473e-bc95-58ffdbcfc13a
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: kube-system,kube-public,cattle-system,cattle-alerting,cattle-logging,cattle-prometheus,ingress-nginx,cattle-global-data,cattle-istio,kube-node-lease,cert-manager,cattle-global-nt,security-scan,cattle-fleet-system,cattle-fleet-local-system,calico-system,tigera-operator,cattle-impersonation-system,rancher-operator-system,cattle-csp-adapter-system,calico-apiserver,cattle-elemental-system,cattle-dashboards,cattle-fleet-clusters-system,cattle-monitoring-system,fleet-local,harvester-system,local,longhorn-system,user-nkqmt
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 12
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:41:30Z"
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T14:41:30Z"
+    name: system-namespaces
+    resourceVersion: "265468"
+    uid: 3a035b53-a9c0-4517-842a-764de8fe05e9
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: system-upgrade-controller-chart-version
+    resourceVersion: "1437"
+    uid: f5fc0ddf-ea2d-4e34-8c54-9ebc06d08e44
+  source: env
+  value: 109.0.1
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: tls-ciphers
+    resourceVersion: "1498"
+    uid: 2f15b751-2d76-42b0-bf64-c1f10b4a142f
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "1.2"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: tls-min-version
+    resourceVersion: "1494"
+    uid: a251bbf5-e66a-4e4e-8121-3ab4c55363cc
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-banner-dark
+    resourceVersion: "1537"
+    uid: 597fab58-c1fb-4210-ae35-0073417cc528
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-banner-footer
+    resourceVersion: "1576"
+    uid: f574f569-1854-4d32-9c14-bd25444b450f
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-banner-header
+    resourceVersion: "1568"
+    uid: f6bcfbd6-f89c-44aa-8cad-e036ca7a08fb
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-banner-light
+    resourceVersion: "1476"
+    uid: 6cfb4c94-e5c5-4242-84ba-f2cc496dd86d
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-banner-login-consent
+    resourceVersion: "1506"
+    uid: 3644a71e-bd86-4380-8662-963b41053f80
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: '{}'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-banners
+    resourceVersion: "1458"
+    uid: 166a6b88-fec7-44e2-9008-7917126d775c
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: harvester
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 12
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:41:30Z"
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T14:41:30Z"
+    name: ui-brand
+    resourceVersion: "265460"
+    uid: 04bb32ef-5b22-4f0e-8b60-a843e4e589e7
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "true"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-community-links
+    resourceVersion: "1447"
+    uid: 026b143e-1591-4973-8a4e-87a141f8d078
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "true"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-content-enabled
+    resourceVersion: "1581"
+    uid: a4abc846-92a6-4dd9-83db-ea12dd4ecbd1
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-content-endpoint
+    resourceVersion: "1538"
+    uid: 90539c3e-4085-4743-a0a3-2cadf40df2df
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-custom-links
+    resourceVersion: "1557"
+    uid: 69ed2297-711b-4d96-adfa-20e357a0ff61
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://releases.rancher.com/harvester-ui/plugin/harvester-1.0.3-head/harvester-1.0.3-head.umd.min.js
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-dashboard-harvester-legacy-plugin
+    resourceVersion: "1441"
+    uid: bff4a214-b25d-4c36-b6a0-5ec44058e026
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://releases.rancher.com/dashboard/release-2.14/index.html
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-dashboard-index
+    resourceVersion: "1585"
+    uid: d27ba817-2552-4435-814b-f2ec4603239b
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: /usr/share/rancher/ui-dashboard
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-dashboard-path
+    resourceVersion: "1514"
+    uid: a513cf32-6faa-4bbf-93e9-80af93508492
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: vue
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-default-landing
+    resourceVersion: "1580"
+    uid: 11fffe3f-8593-49d7-9d53-3598418b9181
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-extensions
+    resourceVersion: "1470"
+    uid: 38474d81-7e24-4284-8026-d3d3c81ffc2f
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-favicon
+    resourceVersion: "1592"
+    uid: 588ccbb9-22a7-4d0e-84b7-7c2f865ee117
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-feedback-form
+    resourceVersion: "1442"
+    uid: 7d774ce3-5c01-4dae-a2cb-bff986e6a90c
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://releases.rancher.com/ui/release-2.14/index.html
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-index
+    resourceVersion: "1567"
+    uid: 2b6ac1be-f6cf-40b0-989a-1d309bea306a
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-issues
+    resourceVersion: "1501"
+    uid: 83822924-0ba5-4a6b-ab83-5fd978abf171
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: <=1.14.x
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-k8s-default-version-range
+    resourceVersion: "1462"
+    uid: 69430ea2-0824-4e81-9210-c9ca4e6fd66f
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: '>= 1.11.0 <=1.14.x'
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-k8s-supported-versions-range
+    resourceVersion: "1547"
+    uid: d886eaa3-f17f-472a-bd11-7011cefeeb4d
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-link-color
+    resourceVersion: "1536"
+    uid: 92b87e80-fe16-4cdc-9d26-a3a7a7ad3994
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-login-background-dark
+    resourceVersion: "1524"
+    uid: b2ff94bb-5f40-45d5-8bd3-11d217708870
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-login-background-light
+    resourceVersion: "1549"
+    uid: a9cc8f04-557a-495c-8cf8-57d917b8747e
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-logo-dark
+    resourceVersion: "1577"
+    uid: 161ad14d-039e-4d03-a7d4-f0e2b0b26114
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-logo-light
+    resourceVersion: "1450"
+    uid: e38c64a9-b54b-4753-8af5-5d766e754cf6
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: dynamic
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-offline-preferred
+    resourceVersion: "1548"
+    uid: fae02a03-32bf-4643-ad51-4e6232c9a8ec
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: /usr/share/rancher/ui
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-path
+    resourceVersion: "1523"
+    uid: d539ce15-15ba-4109-94ae-66e0840e17b4
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-performance
+    resourceVersion: "1600"
+    uid: 0eecb4ee-cb7e-47e9-b2c5-a2078902679c
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: Harvester
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 12
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:default: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T14:41:30Z"
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T14:41:30Z"
+    name: ui-pl
+    resourceVersion: "265449"
+    uid: 5f87a5d7-964c-4d20-af03-d1f3e368a192
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: vue
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: ui-preferred
+    resourceVersion: "1448"
+    uid: 557d18b5-fb35-4aa6-9fec-6afac68fdc81
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-primary-color
+    resourceVersion: "1526"
+    uid: 15ce8e23-1546-44c9-a470-570a38de646f
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: ui-theme
+    resourceVersion: "1586"
+    uid: 08ea07be-8c04-4b8b-a9af-2248b60edcb1
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "true"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: unprivileged-jail-user
+    resourceVersion: "1550"
+    uid: f520eb64-2a9a-41f1-b802-cb819ce380e8
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: user-last-login-default
+    resourceVersion: "1434"
+    uid: 8a658926-b83a-4261-b1ff-8ea17375bc8b
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: user-retention-cron
+    resourceVersion: "1583"
+    uid: 5df964d2-28ad-44be-a212-208389d2a8ae
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "false"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: user-retention-dry-run
+    resourceVersion: "1505"
+    uid: db16891c-4977-4475-83d2-bbe03c4dd640
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: forums.rancher.com
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: whitelist-domain
+    resourceVersion: "1511"
+    uid: b6fc35bf-8f7a-482d-aa51-a76c977dbf5e
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: HTTP_PROXY,HTTPS_PROXY,NO_PROXY
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: whitelist-envvars
+    resourceVersion: "1559"
+    uid: 40b605d6-2335-42d9-a24a-7bc3615758bd
+  source: "null"
+  value: "null"
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: https://raw.githubusercontent.com/rancher/wins/v0.5.5/install.ps1
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:57Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:57Z"
+    name: wins-agent-install-script
+    resourceVersion: "1563"
+    uid: c751528a-830d-4b73-a002-5234da745e65
+  source: env
+  value: https://raw.githubusercontent.com/rancher/wins/v0.5.5/install.ps1
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: wins-agent-upgrade-image
+    resourceVersion: "1485"
+    uid: a5a56b59-3be2-4882-8b8b-214e30d9c836
+  source: env
+  value: rancher/wins:v0.5.5
+- apiVersion: management.cattle.io/v3
+  customized: false
+  default: "null"
+  kind: Setting
+  metadata:
+    creationTimestamp: "2026-06-12T10:39:56Z"
+    generation: 1
+    managedFields:
+    - apiVersion: management.cattle.io/v3
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:customized: {}
+        f:default: {}
+        f:source: {}
+        f:value: {}
+      manager: rancher
+      operation: Update
+      time: "2026-06-12T10:39:56Z"
+    name: wins-agent-version
+    resourceVersion: "1459"
+    uid: 4aa82b9c-51fd-43c0-a84b-66fbdc7d82ed
+  source: env
+  value: v0.5.5
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676281"

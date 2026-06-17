@@ -1,0 +1,203 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    ca.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIBeTCCAR+gAwIBAgIBADAKBggqhkjOPQQDAjAkMSIwIAYDVQQDDBlya2UyLXNl
+      cnZlci1jYUAxNzgxMjYwNzE2MB4XDTI2MDYxMjA5MzgzNloXDTM2MDYwOTA5Mzgz
+      NlowJDEiMCAGA1UEAwwZcmtlMi1zZXJ2ZXItY2FAMTc4MTI2MDcxNjBZMBMGByqG
+      SM49AgEGCCqGSM49AwEHA0IABPk246u4fDiUoJxE2EVjsdl+2WghA1AozD9LyTCt
+      kcWEXR7Y/p8ZBOmKO/7JDWR+adXlmaOH9Qt2X+OD26+OekKjQjBAMA4GA1UdDwEB
+      /wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBRTQF4RR+CYwjWUKUiW
+      v6ANMtfbszAKBggqhkjOPQQDAgNIADBFAiEAw5QWjMooFbKCSQS9HjyoPM7a7FfQ
+      a/dd2uErfC7APv4CIByEUj+g2uzMsgnCaVLekKRnpTqNn5gkLHHvR2ecZd02
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubernetes.io/description: Contains a CA bundle that can be used to verify the
+        kube-apiserver when using internal endpoints such as the internal service
+        IP or kubernetes.default.svc. No other usage is guaranteed across distributions
+        of Kubernetes clusters.
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:ca.crt: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubernetes.io/description: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:42:37Z"
+    name: kube-root-ca.crt
+    namespace: longhorn-system
+    resourceVersion: "4239"
+    uid: 9e922b9e-1c1b-429c-82c0-c71600126d6b
+- apiVersion: v1
+  data:
+    default-resource.yaml: "null"
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          f:default-resource.yaml: {}
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: longhorn-default-resource
+    namespace: longhorn-system
+    resourceVersion: "4271"
+    uid: 4ef34054-5e75-4017-b2aa-aff37d05cb47
+- apiVersion: v1
+  data:
+    default-setting.yaml: |-
+      default-data-path: "/var/lib/harvester/defaultdisk"
+      storage-reserved-percentage-for-default-disk: "0"
+      taint-toleration: "kubevirt.io/drain:NoSchedule"
+      priority-class: "system-cluster-critical"
+      auto-delete-pod-when-volume-detached-unexpectedly: true
+      blacklist-for-auto-delete-pod-when-volume-detached-unexpectedly: kubevirt.io/VirtualMachineInstance
+      node-drain-policy: "allow-if-replica-is-stopped"
+      detach-manually-attached-volumes-when-cordoned: true
+      disable-revision-counter: "{\"v1\":\"true\"}"
+      concurrent-automatic-engine-upgrade-per-node-limit: "3"
+      orphan-resource-auto-deletion: "instance"
+      auto-cleanup-when-delete-backup: true
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          f:default-setting.yaml: {}
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: longhorn-default-setting
+    namespace: longhorn-system
+    resourceVersion: "4270"
+    uid: 62747ab7-c180-4908-b0a5-f39d55de27fc
+- apiVersion: v1
+  data:
+    storageclass.yaml: |
+      kind: StorageClass
+      apiVersion: storage.k8s.io/v1
+      metadata:
+        name: longhorn
+        annotations:
+          storageclass.kubernetes.io/is-default-class: "false"
+      provisioner: driver.longhorn.io
+      allowVolumeExpansion: true
+      reclaimPolicy: "Delete"
+      volumeBindingMode: Immediate
+      parameters:
+        numberOfReplicas: "3"
+        staleReplicaTimeout: "30"
+        fromBackup: ""
+        fsType: "ext4"
+        migratable: "true"
+        dataLocality: "disabled"
+        unmapMarkSnapChainRemoved: "ignored"
+        disableRevisionCounter: "true"
+        dataEngine: "v1"
+        backupTargetName: "default"
+  kind: ConfigMap
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: harvester
+      meta.helm.sh/release-namespace: harvester-system
+      objectset.rio.cattle.io/id: default-mcc-harvester-cattle-fleet-local-system
+    creationTimestamp: "2026-06-12T10:42:37Z"
+    labels:
+      app.kubernetes.io/instance: harvester
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: longhorn
+      app.kubernetes.io/version: v1.11.2
+      helm.sh/chart: longhorn-1.11.2
+      objectset.rio.cattle.io/hash: e852fa897f5eae59a44b4bfe186aad80b10b94b3
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          f:storageclass.yaml: {}
+        f:metadata:
+          f:annotations:
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+            f:objectset.rio.cattle.io/id: {}
+          f:labels:
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+            f:objectset.rio.cattle.io/hash: {}
+      manager: fleetagent
+      operation: Apply
+      time: "2026-06-12T10:42:37Z"
+    name: longhorn-storageclass
+    namespace: longhorn-system
+    resourceVersion: "4272"
+    uid: 202a82ea-a9fe-4a65-ae08-dfa58bd3714a
+kind: List
+metadata:
+  resourceVersion: "676475"

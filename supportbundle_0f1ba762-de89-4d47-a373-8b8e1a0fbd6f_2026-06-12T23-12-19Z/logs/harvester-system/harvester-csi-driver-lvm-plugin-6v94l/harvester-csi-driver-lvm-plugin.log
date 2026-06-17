@@ -1,0 +1,8 @@
+2026-06-12T23:03:27.449442113Z 2026/06/12 23:03:27 unable to configure logging to stdout:no such flag -logtostderr
+2026-06-12T23:03:27.449478602Z I0612 23:03:27.449375       1 lvm.go:137] pullpolicy: IfNotPresent
+2026-06-12T23:03:27.449482826Z I0612 23:03:27.449387       1 lvm.go:141] Driver: lvm.driver.harvesterhci.io 
+2026-06-12T23:03:27.449485561Z I0612 23:03:27.449394       1 lvm.go:142] Version: dev
+2026-06-12T23:03:27.559581643Z I0612 23:03:27.559481       1 controllerserver.go:388] Enabling controller service capability: CREATE_DELETE_VOLUME
+2026-06-12T23:03:27.559598224Z I0612 23:03:27.559498       1 controllerserver.go:388] Enabling controller service capability: CREATE_DELETE_SNAPSHOT
+2026-06-12T23:03:27.559601757Z I0612 23:03:27.559503       1 controllerserver.go:388] Enabling controller service capability: CLONE_VOLUME
+2026-06-12T23:03:27.559911988Z I0612 23:03:27.559829       1 server.go:95] Listening for connections on address: &net.UnixAddr{Name:"//csi/csi.sock", Net:"unix"}

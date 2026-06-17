@@ -1,0 +1,26 @@
+2026-06-12T23:03:30.846601318Z I0612 23:03:30.846358       1 main.go:109] Version: v6.3.4
+2026-06-12T23:03:30.848694228Z I0612 23:03:30.848574       1 connection.go:166] Connecting to unix:///csi/csi.sock
+2026-06-12T23:03:30.849552436Z I0612 23:03:30.849494       1 connection.go:195] GRPC call: /csi.v1.Identity/GetPluginInfo
+2026-06-12T23:03:30.852346866Z I0612 23:03:30.849508       1 connection.go:196] GRPC request: {}
+2026-06-12T23:03:30.853316971Z I0612 23:03:30.853230       1 connection.go:202] GRPC response: {"name":"lvm.driver.harvesterhci.io","vendor_version":"dev"}
+2026-06-12T23:03:30.853339240Z I0612 23:03:30.853244       1 connection.go:203] GRPC error: <nil>
+2026-06-12T23:03:30.853343345Z I0612 23:03:30.853257       1 main.go:189] CSI driver name: "lvm.driver.harvesterhci.io"
+2026-06-12T23:03:30.853346122Z I0612 23:03:30.853267       1 common.go:138] Probing CSI driver for readiness
+2026-06-12T23:03:30.853349218Z I0612 23:03:30.853277       1 connection.go:195] GRPC call: /csi.v1.Identity/Probe
+2026-06-12T23:03:30.853358711Z I0612 23:03:30.853282       1 connection.go:196] GRPC request: {}
+2026-06-12T23:03:30.853797547Z I0612 23:03:30.853744       1 connection.go:202] GRPC response: {}
+2026-06-12T23:03:30.853805540Z I0612 23:03:30.853759       1 connection.go:203] GRPC error: <nil>
+2026-06-12T23:03:30.853808824Z I0612 23:03:30.853767       1 connection.go:195] GRPC call: /csi.v1.Controller/ControllerGetCapabilities
+2026-06-12T23:03:30.853820159Z I0612 23:03:30.853773       1 connection.go:196] GRPC request: {}
+2026-06-12T23:03:30.854473376Z I0612 23:03:30.854384       1 connection.go:202] GRPC response: {"capabilities":[{"Type":{"Rpc":{"type":1}}},{"Type":{"Rpc":{"type":5}}},{"Type":{"Rpc":{"type":7}}}]}
+2026-06-12T23:03:30.854482803Z I0612 23:03:30.854399       1 connection.go:203] GRPC error: <nil>
+2026-06-12T23:03:30.854487837Z I0612 23:03:30.854414       1 main.go:227] Start NewCSISnapshotSideCarController with snapshotter [lvm.driver.harvesterhci.io] kubeconfig [] csiTimeout [1m0s] csiAddress [/csi/csi.sock] resyncPeriod [15m0s] snapshotNamePrefix [snapshot] snapshotNameUUIDLength [824635993992]
+2026-06-12T23:03:30.854744581Z I0612 23:03:30.854687       1 snapshot_controller_base.go:170] Starting CSI snapshotter
+2026-06-12T23:03:30.854773749Z I0612 23:03:30.854734       1 reflector.go:289] Starting reflector *v1.VolumeSnapshotClass (15m0s) from github.com/kubernetes-csi/external-snapshotter/client/v6/informers/externalversions/factory.go:133
+2026-06-12T23:03:30.854782842Z I0612 23:03:30.854755       1 reflector.go:325] Listing and watching *v1.VolumeSnapshotClass from github.com/kubernetes-csi/external-snapshotter/client/v6/informers/externalversions/factory.go:133
+2026-06-12T23:03:30.854791042Z I0612 23:03:30.854739       1 reflector.go:289] Starting reflector *v1.VolumeSnapshotContent (15m0s) from github.com/kubernetes-csi/external-snapshotter/client/v6/informers/externalversions/factory.go:133
+2026-06-12T23:03:30.854832767Z I0612 23:03:30.854788       1 reflector.go:325] Listing and watching *v1.VolumeSnapshotContent from github.com/kubernetes-csi/external-snapshotter/client/v6/informers/externalversions/factory.go:133
+2026-06-12T23:03:30.955957627Z I0612 23:03:30.955793       1 shared_informer.go:341] caches populated
+2026-06-12T23:03:30.955975492Z I0612 23:03:30.955828       1 snapshot_controller_base.go:396] controller initialized
+2026-06-12T23:11:33.861895451Z I0612 23:11:33.861706       1 reflector.go:790] github.com/kubernetes-csi/external-snapshotter/client/v6/informers/externalversions/factory.go:133: Watch close - *v1.VolumeSnapshotContent total 9 items received
+2026-06-12T23:12:32.860918560Z I0612 23:12:32.860797       1 reflector.go:790] github.com/kubernetes-csi/external-snapshotter/client/v6/informers/externalversions/factory.go:133: Watch close - *v1.VolumeSnapshotClass total 9 items received

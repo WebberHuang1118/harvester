@@ -1,0 +1,304 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:47:49Z"
+    creationTimestamp: "2026-06-12T10:44:03Z"
+    labels:
+      endpoints.kubernetes.io/managed-by: endpoint-controller
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:labels:
+            .: {}
+            f:endpoints.kubernetes.io/managed-by: {}
+        f:subsets: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:47:49Z"
+    name: ingress-expose
+    namespace: kube-system
+    resourceVersion: "12312"
+    uid: fe17b853-bcfa-4a2d-b1e2-c09431117241
+  subsets:
+  - addresses:
+    - ip: 10.52.0.80
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-ingress-nginx-controller-wdtwk
+        namespace: kube-system
+        uid: b999ab7c-5743-43ad-8ff4-edbf78432f2a
+    - ip: 10.52.1.4
+      nodeName: hp-150-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-ingress-nginx-controller-wpj74
+        namespace: kube-system
+        uid: c2263623-354c-4593-80ca-b545cd483f73
+    - ip: 10.52.2.5
+      nodeName: hp-69-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-ingress-nginx-controller-vm8zb
+        namespace: kube-system
+        uid: 84929db1-ec7b-42e0-8b04-392aec3374c3
+    ports:
+    - name: https-internal
+      port: 443
+      protocol: TCP
+    - name: http
+      port: 80
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    creationTimestamp: "2026-06-12T11:02:38Z"
+    labels:
+      app.kubernetes.io/managed-by: prometheus-operator
+      app.kubernetes.io/name: kubelet
+      k8s-app: kubelet
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:k8s-app: {}
+        f:subsets: {}
+      manager: PrometheusOperator
+      operation: Update
+      time: "2026-06-12T11:02:38Z"
+    name: rancher-monitoring-kubelet
+    namespace: kube-system
+    resourceVersion: "26040"
+    uid: 7c52f855-f8d1-495a-ae81-11e7c9ce24f2
+  subsets:
+  - addresses:
+    - ip: 10.115.252.86
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Node
+        name: hp-117-tink-system
+        uid: e3daa4a2-3ffc-4a60-bed1-aa5be0249246
+    - ip: 10.115.252.95
+      nodeName: hp-150-tink-system
+      targetRef:
+        kind: Node
+        name: hp-150-tink-system
+        uid: 240e7b92-78b6-4f7a-9e31-87e062e42187
+    - ip: 10.115.252.96
+      nodeName: hp-69-tink-system
+      targetRef:
+        kind: Node
+        name: hp-69-tink-system
+        uid: 393f61bc-82fe-4d9f-a4e3-c1b00c70f006
+    ports:
+    - name: https-metrics
+      port: 10250
+      protocol: TCP
+    - name: http-metrics
+      port: 10255
+      protocol: TCP
+    - name: cadvisor
+      port: 4194
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T11:05:57Z"
+    creationTimestamp: "2026-06-12T10:39:07Z"
+    labels:
+      app.kubernetes.io/instance: rke2-coredns
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-coredns
+      endpoints.kubernetes.io/managed-by: endpoint-controller
+      helm.sh/chart: rke2-coredns-1.45.212
+      k8s-app: kube-dns
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: CoreDNS
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:endpoints.kubernetes.io/managed-by: {}
+            f:helm.sh/chart: {}
+            f:k8s-app: {}
+            f:kubernetes.io/cluster-service: {}
+            f:kubernetes.io/name: {}
+        f:subsets: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T11:05:57Z"
+    name: rke2-coredns-rke2-coredns
+    namespace: kube-system
+    resourceVersion: "31940"
+    uid: c27e1ab4-9051-4c08-b6ba-e5398b1ee205
+  subsets:
+  - addresses:
+    - ip: 10.52.0.4
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-coredns-rke2-coredns-69c9c9877c-pdnb4
+        namespace: kube-system
+        uid: f13e24b6-7900-42ef-8ed8-4eeda38baa52
+    - ip: 10.52.1.29
+      nodeName: hp-150-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-coredns-rke2-coredns-69c9c9877c-scjqw
+        namespace: kube-system
+        uid: 6916412c-d935-4fb2-9da7-e6d04f4f9217
+    ports:
+    - name: tcp-53
+      port: 53
+      protocol: TCP
+    - name: udp-53
+      port: 53
+      protocol: UDP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:47:49Z"
+    creationTimestamp: "2026-06-12T10:39:31Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: rke2-ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-ingress-nginx
+      app.kubernetes.io/part-of: rke2-ingress-nginx
+      app.kubernetes.io/version: 1.14.5
+      endpoints.kubernetes.io/managed-by: endpoint-controller
+      helm.sh/chart: rke2-ingress-nginx-4.14.508
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/component: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/part-of: {}
+            f:app.kubernetes.io/version: {}
+            f:endpoints.kubernetes.io/managed-by: {}
+            f:helm.sh/chart: {}
+        f:subsets: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:47:49Z"
+    name: rke2-ingress-nginx-controller-admission
+    namespace: kube-system
+    resourceVersion: "12313"
+    uid: 4729c7cb-7769-4414-8978-6361675ba79c
+  subsets:
+  - addresses:
+    - ip: 10.52.0.80
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-ingress-nginx-controller-wdtwk
+        namespace: kube-system
+        uid: b999ab7c-5743-43ad-8ff4-edbf78432f2a
+    - ip: 10.52.1.4
+      nodeName: hp-150-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-ingress-nginx-controller-wpj74
+        namespace: kube-system
+        uid: c2263623-354c-4593-80ca-b545cd483f73
+    - ip: 10.52.2.5
+      nodeName: hp-69-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-ingress-nginx-controller-vm8zb
+        namespace: kube-system
+        uid: 84929db1-ec7b-42e0-8b04-392aec3374c3
+    ports:
+    - appProtocol: https
+      name: https-webhook
+      port: 8444
+      protocol: TCP
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-06-12T10:39:53Z"
+    creationTimestamp: "2026-06-12T10:39:29Z"
+    labels:
+      app: rke2-metrics-server
+      app.kubernetes.io/instance: rke2-metrics-server
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: rke2-metrics-server
+      app.kubernetes.io/version: 0.8.0
+      endpoints.kubernetes.io/managed-by: endpoint-controller
+      helm.sh/chart: rke2-metrics-server-3.13.011
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:endpoints.kubernetes.io/managed-by: {}
+            f:helm.sh/chart: {}
+        f:subsets: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2026-06-12T10:39:53Z"
+    name: rke2-metrics-server
+    namespace: kube-system
+    resourceVersion: "1407"
+    uid: b201458d-bf18-4c52-af3c-2e869def2f82
+  subsets:
+  - addresses:
+    - ip: 10.52.0.9
+      nodeName: hp-117-tink-system
+      targetRef:
+        kind: Pod
+        name: rke2-metrics-server-bdc688fb7-zjzmx
+        namespace: kube-system
+        uid: f9613b69-b4bf-4610-afc7-6c1695e4e9b8
+    ports:
+    - appProtocol: https
+      name: https
+      port: 10250
+      protocol: TCP
+kind: List
+metadata:
+  resourceVersion: "676339"

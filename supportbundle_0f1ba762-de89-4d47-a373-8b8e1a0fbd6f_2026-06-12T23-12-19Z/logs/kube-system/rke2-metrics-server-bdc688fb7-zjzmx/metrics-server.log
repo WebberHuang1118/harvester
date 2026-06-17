@@ -1,0 +1,21 @@
+2026-06-12T10:39:31.672752116Z I0612 10:39:31.672590       1 serving.go:380] Generated self-signed cert (/tmp/apiserver.crt, /tmp/apiserver.key)
+2026-06-12T10:39:32.041757823Z I0612 10:39:32.041638       1 handler.go:304] Adding GroupVersion metrics.k8s.io v1beta1 to ResourceManager
+2026-06-12T10:39:32.151714320Z I0612 10:39:32.151572       1 requestheader_controller.go:180] Starting RequestHeaderAuthRequestController
+2026-06-12T10:39:32.151734953Z I0612 10:39:32.151580       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::client-ca-file"
+2026-06-12T10:39:32.151745414Z I0612 10:39:32.151586       1 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2026-06-12T10:39:32.151750683Z I0612 10:39:32.151615       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:39:32.151754607Z I0612 10:39:32.151637       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:39:32.151758438Z I0612 10:39:32.151618       1 shared_informer.go:370] "Waiting for caches to sync"
+2026-06-12T10:39:32.152164638Z I0612 10:39:32.152079       1 dynamic_serving_content.go:135] "Starting controller" name="serving-cert::/tmp/apiserver.crt::/tmp/apiserver.key"
+2026-06-12T10:39:32.153031339Z I0612 10:39:32.152917       1 secure_serving.go:211] Serving securely on [::]:10250
+2026-06-12T10:39:32.153052250Z I0612 10:39:32.152966       1 tlsconfig.go:243] "Starting DynamicServingCertificateController"
+2026-06-12T10:39:32.252320138Z I0612 10:39:32.252174       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:39:32.252343007Z I0612 10:39:32.252209       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:39:32.252347544Z I0612 10:39:32.252247       1 shared_informer.go:377] "Caches are synced"
+2026-06-12T10:47:47.146727049Z E0612 10:47:47.146545       1 scraper.go:146] "Failed to scrape node" err="Get \"https://10.115.252.95:10250/metrics/resource\": dial tcp 10.115.252.95:10250: connect: connection refused" node="hp-150-tink-system"
+2026-06-12T10:48:02.158825850Z E0612 10:48:02.158662       1 scraper.go:146] "Failed to scrape node" err="request failed, status: \"401 Unauthorized\"" node="hp-150-tink-system"
+2026-06-12T10:49:02.160849626Z E0612 10:49:02.160750       1 scraper.go:146] "Failed to scrape node" err="Get \"https://10.115.252.96:10250/metrics/resource\": dial tcp 10.115.252.96:10250: connect: connection refused" node="hp-69-tink-system"
+2026-06-12T10:49:17.168264333Z E0612 10:49:17.168104       1 scraper.go:146] "Failed to scrape node" err="request failed, status: \"401 Unauthorized\"" node="hp-69-tink-system"
+2026-06-12T14:28:32.146699715Z E0612 14:28:32.146512       1 scraper.go:146] "Failed to scrape node" err="Get \"https://10.115.252.96:10250/metrics/resource\": dial tcp 10.115.252.96:10250: connect: connection refused" node="hp-69-tink-system"
+2026-06-12T14:30:17.154812138Z E0612 14:30:17.154638       1 scraper.go:146] "Failed to scrape node" err="Get \"https://10.115.252.96:10250/metrics/resource\": dial tcp 10.115.252.96:10250: connect: connection refused" node="hp-69-tink-system"
+2026-06-12T14:31:32.158391740Z E0612 14:31:32.158196       1 scraper.go:146] "Failed to scrape node" err="Get \"https://10.115.252.95:10250/metrics/resource\": dial tcp 10.115.252.95:10250: connect: connection refused" node="hp-150-tink-system"

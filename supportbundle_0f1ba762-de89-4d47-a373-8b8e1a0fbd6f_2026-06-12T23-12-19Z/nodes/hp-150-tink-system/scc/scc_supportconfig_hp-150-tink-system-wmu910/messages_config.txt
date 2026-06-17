@@ -1,0 +1,26 @@
+#==[ Verification ]=================================#
+# RPM Not Installed: rsyslog
+
+#==[ Verification ]=================================#
+# rpm -V systemd-257.13-160000.1.1.x86_64
+# Verification Status: Passed
+
+#==[ Command ]======================================#
+# /bin/systemctl status systemd-journald.service
+Failed to connect to system scope bus via local transport: No data available
+
+#==[ Configuration File ]===========================#
+# /etc/systemd/journald.conf - File not found
+
+#==[ Configuration File ]===========================#
+# /usr/lib/systemd/journald.conf.d/26-defaults-SLE-Micro.conf
+[Journal]
+Storage=persistent
+
+
+#==[ Configuration File ]===========================#
+# /usr/lib/systemd/journald.conf.d/20-defaults-SUSE.conf
+[Journal]
+Audit=no
+
+

@@ -1,0 +1,317 @@
+apiVersion: v1
+items:
+- apiVersion: kubevirt.io/v1
+  kind: VirtualMachineInstance
+  metadata:
+    annotations:
+      kubevirt.io/latest-observed-api-version: v1
+      kubevirt.io/storage-observed-api-version: v1
+      kubevirt.io/vm-generation: "1"
+    creationTimestamp: "2026-06-12T15:10:02Z"
+    finalizers:
+    - kubevirt.io/virtualMachineControllerFinalize
+    - kubevirt.io/foregroundDeleteVirtualMachine
+    - wrangler.cattle.io/VMController.BackfillObservedNetworkMacAddress
+    - wrangler.cattle.io/harvester-lb-vmi-controller
+    generation: 14
+    labels:
+      harvesterhci.io/vmName: 15h08m00s971364-06-12-mgmt
+      kubevirt.io/nodeName: hp-69-tink-system
+    managedFields:
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"wrangler.cattle.io/VMController.BackfillObservedNetworkMacAddress"null: {}
+      manager: harvester
+      operation: Update
+      time: "2026-06-12T15:10:02Z"
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            v:"wrangler.cattle.io/harvester-lb-vmi-controller"null: {}
+      manager: harvester-load-balancer
+      operation: Update
+      time: "2026-06-12T15:10:02Z"
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubevirt.io/latest-observed-api-version: {}
+            f:kubevirt.io/storage-observed-api-version: {}
+            f:kubevirt.io/vm-generation: {}
+          f:finalizers:
+            .: {}
+            v:"kubevirt.io/virtualMachineControllerFinalize"null: {}
+          f:labels:
+            .: {}
+            f:harvesterhci.io/vmName: {}
+            f:kubevirt.io/nodeName: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"feaac9a6-90cc-40ee-89cf-c7b5b5a1bffb"}: {}
+        f:spec:
+          .: {}
+          f:affinity: {}
+          f:architecture: {}
+          f:domain:
+            .: {}
+            f:cpu:
+              .: {}
+              f:cores: {}
+              f:maxSockets: {}
+              f:sockets: {}
+              f:threads: {}
+            f:devices:
+              .: {}
+              f:disks: {}
+              f:inputs: {}
+              f:interfaces: {}
+            f:features:
+              .: {}
+              f:acpi:
+                .: {}
+                f:enabled: {}
+            f:firmware:
+              .: {}
+              f:serial: {}
+              f:uuid: {}
+            f:machine:
+              .: {}
+              f:type: {}
+            f:memory:
+              .: {}
+              f:guest: {}
+            f:resources:
+              .: {}
+              f:limits:
+                .: {}
+                f:cpu: {}
+                f:memory: {}
+              f:requests:
+                .: {}
+                f:cpu: {}
+                f:memory: {}
+          f:evictionStrategy: {}
+          f:hostname: {}
+          f:networks: {}
+          f:terminationGracePeriodSeconds: {}
+          f:volumes: {}
+        f:status:
+          .: {}
+          f:activePods:
+            .: {}
+            f:7dabb5ff-f77e-4950-b61e-987d404de3eb: {}
+          f:guestOSInfo: {}
+          f:launcherContainerImageVersion: {}
+          f:migrationTransport: {}
+          f:nodeName: {}
+          f:qosClass: {}
+          f:runtimeUser: {}
+          f:virtualMachineRevisionName: {}
+      manager: virt-controller
+      operation: Update
+      time: "2026-06-12T15:10:31Z"
+    - apiVersion: kubevirt.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions: {}
+          f:guestOSInfo:
+            f:id: {}
+            f:kernelRelease: {}
+            f:kernelVersion: {}
+            f:machine: {}
+            f:name: {}
+            f:prettyName: {}
+            f:version: {}
+            f:versionId: {}
+          f:interfaces: {}
+          f:machine:
+            .: {}
+            f:type: {}
+          f:migrationMethod: {}
+          f:phase: {}
+          f:phaseTransitionTimestamps: {}
+          f:selinuxContext: {}
+          f:volumeStatus: {}
+      manager: virt-handler
+      operation: Update
+      time: "2026-06-12T15:13:50Z"
+    name: 15h08m00s971364-06-12-mgmt
+    namespace: default
+    ownerReferences:
+    - apiVersion: kubevirt.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: VirtualMachine
+      name: 15h08m00s971364-06-12-mgmt
+      uid: feaac9a6-90cc-40ee-89cf-c7b5b5a1bffb
+    resourceVersion: "295808"
+    uid: c6d8abac-dd08-4383-8f03-096952fb7702
+  spec:
+    affinity: {}
+    architecture: amd64
+    domain:
+      cpu:
+        cores: 1
+        maxSockets: 1
+        model: host-model
+        sockets: 1
+        threads: 1
+      devices:
+        disks:
+        - bootOrder: 1
+          disk:
+            bus: virtio
+          name: opensuse
+        - disk:
+            bus: virtio
+          name: cloudinitdisk
+        inputs:
+        - bus: usb
+          name: tablet
+          type: tablet
+        interfaces:
+        - macAddress: c2:5c:ab:5f:a0:39
+          masquerade: {}
+          model: virtio
+          name: default
+      features:
+        acpi:
+          enabled: true
+      firmware:
+        serial: e0a27656-6396-4110-88e8-88ad329aaf69
+        uuid: b5ec026e-0157-4503-82ed-6aedde0469f6
+      machine:
+        type: q35
+      memory:
+        guest: 2Gi
+        maxGuest: 8Gi
+      resources:
+        limits:
+          cpu: "1"
+          memory: 2Gi
+        requests:
+          cpu: 41m
+          memory: 256Mi
+    evictionStrategy: LiveMigrateIfPossible
+    hostname: 15h08m00s971364-06-12-mgmt
+    networks:
+    - name: default
+      pod: {}
+    terminationGracePeriodSeconds: 120
+    volumes:
+    - name: opensuse
+      persistentVolumeClaim:
+        claimName: 15h08m00s971364-06-12-mgmt-opensuse
+    - cloudInitNoCloud:
+        userData: |
+          #cloud-config
+          package_update: true
+          packages:
+          - qemu-guest-agent
+          runcmd:
+          - - systemctl
+            - enable
+            - --now
+            - qemu-guest-agent.service
+
+          password: 123456
+          chpasswd: { expire: False }
+          ssh_pwauth: True
+      name: cloudinitdisk
+  status:
+    activePods:
+      7dabb5ff-f77e-4950-b61e-987d404de3eb: hp-69-tink-system
+    conditions:
+    - lastProbeTime: "null"
+      lastTransitionTime: "2026-06-12T15:10:25Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: "null"
+      lastTransitionTime: "null"
+      status: "True"
+      type: LiveMigratable
+    - lastProbeTime: "null"
+      lastTransitionTime: "null"
+      status: "True"
+      type: StorageLiveMigratable
+    - lastProbeTime: "2026-06-12T15:13:50Z"
+      lastTransitionTime: "null"
+      status: "True"
+      type: AgentConnected
+    currentCPUTopology:
+      cores: 1
+      sockets: 1
+      threads: 1
+    guestOSInfo:
+      id: opensuse-leap
+      kernelRelease: 6.4.0-150600.23.84-default
+      kernelVersion: '#1 SMP PREEMPT_DYNAMIC Wed Jan 14 00:31:35 UTC 2026 (dc06f85)'
+      machine: x86_64
+      name: openSUSE Leap
+      prettyName: openSUSE Leap 15.6
+      version: "15.6"
+      versionId: "15.6"
+    interfaces:
+    - infoSource: domain, guest-agent
+      interfaceName: eth0
+      ipAddress: 10.52.2.209
+      ipAddresses:
+      - 10.52.2.209
+      - fe80::c05c:abff:fe5f:a039
+      linkState: up
+      mac: c2:5c:ab:5f:a0:39
+      name: default
+      podInterfaceName: eth0
+      queueCount: 1
+    launcherContainerImageVersion: registry.suse.com/suse/sles/15.7/virt-launcher:1.7.0-150700.3.21.1
+    machine:
+      type: pc-q35-9.2
+    memory:
+      guestAtBoot: 2Gi
+      guestCurrent: 2Gi
+      guestRequested: 2Gi
+    migrationMethod: BlockMigration
+    migrationTransport: Unix
+    nodeName: hp-69-tink-system
+    phase: Running
+    phaseTransitionTimestamps:
+    - phase: Pending
+      phaseTransitionTimestamp: "2026-06-12T15:10:02Z"
+    - phase: Scheduling
+      phaseTransitionTimestamp: "2026-06-12T15:10:02Z"
+    - phase: Scheduled
+      phaseTransitionTimestamp: "2026-06-12T15:10:25Z"
+    - phase: Running
+      phaseTransitionTimestamp: "2026-06-12T15:10:31Z"
+    qosClass: Burstable
+    runtimeUser: 107
+    selinuxContext: system_u:object_r:unlabeled_t:s0
+    virtualMachineRevisionName: revision-start-vm-feaac9a6-90cc-40ee-89cf-c7b5b5a1bffb-1
+    volumeStatus:
+    - name: cloudinitdisk
+      size: 1.048576e+06
+      target: vdb
+    - name: opensuse
+      persistentVolumeClaimInfo:
+        accessModes:
+        - ReadWriteMany
+        capacity:
+          storage: 10Gi
+        claimName: 15h08m00s971364-06-12-mgmt-opensuse
+        filesystemOverhead: "0"
+        requests:
+          storage: 10Gi
+        volumeMode: Block
+      target: vda
+kind: List
+metadata:
+  continue: "null"
+  resourceVersion: "676322"

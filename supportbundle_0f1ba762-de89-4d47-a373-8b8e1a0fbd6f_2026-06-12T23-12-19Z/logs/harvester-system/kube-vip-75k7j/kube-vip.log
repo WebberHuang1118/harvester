@@ -1,0 +1,46 @@
+2026-06-12T10:42:41.794242688Z 2026/06/12 10:42:41 INFO kube-vip.io version=v1.0.4 build=ff40ff06a3d6ee2d4452968e46cfa7e5ac4cc456
+2026-06-12T10:42:41.794271108Z 2026/06/12 10:42:41 INFO starting namespace=kube-system Mode=ARP "Control Plane"=false Services=true
+2026-06-12T10:42:41.794275040Z 2026/06/12 10:42:41 INFO No interface is specified for VIP in config, auto-detecting default Interface
+2026-06-12T10:42:41.795264200Z 2026/06/12 10:42:41 INFO kube-vip bind interface=mgmt-br.2021
+2026-06-12T10:42:41.795418967Z 2026/06/12 10:42:41 WARN Node name is missing from the config, fall back to hostname
+2026-06-12T10:42:41.795438856Z 2026/06/12 10:42:41 INFO using node name name=hp-117-tink-system
+2026-06-12T10:42:41.795777628Z 2026/06/12 10:42:41 INFO prometheus HTTP server started
+2026-06-12T10:42:41.797257840Z 2026/06/12 10:42:41 INFO Starting Kube-vip Manager with the ARP engine
+2026-06-12T10:42:41.797702019Z 2026/06/12 10:42:41 INFO Start ARP/NDP advertisement
+2026-06-12T10:42:41.797716516Z 2026/06/12 10:42:41 INFO beginning services leadership namespace=harvester-system "lock name"=plndr-svcs-lock id=hp-117-tink-system
+2026-06-12T10:42:41.797722958Z I0612 10:42:41.797038       1 leaderelection.go:258] "Attempting to acquire leader lease..." lock="harvester-system/plndr-svcs-lock"
+2026-06-12T10:42:41.798179186Z 2026/06/12 10:42:41 INFO [ARP manager] starting ARP/NDP advertisement
+2026-06-12T10:42:41.818025596Z I0612 10:42:41.817908       1 leaderelection.go:272] "Successfully acquired lease" lock="harvester-system/plndr-svcs-lock"
+2026-06-12T10:42:41.818296935Z 2026/06/12 10:42:41 INFO (svcs) starting services watcher for all namespaces
+2026-06-12T10:44:03.436407048Z 2026/06/12 10:44:03 INFO NewInstance used instanceAddresses=[10.115.252.20] instanceHostnames=[]
+2026-06-12T10:44:03.436701859Z 2026/06/12 10:44:03 INFO (svcs) adding VIP ip=10.115.252.20 interface=mgmt-br.2021 namespace=kube-system name=ingress-expose
+2026-06-12T10:44:03.437729821Z 2026/06/12 10:44:03 INFO successful add IP
+2026-06-12T10:44:03.437851801Z 2026/06/12 10:44:03 INFO layer 2 broadcaster starting IP=10.115.252.20 device=mgmt-br.2021
+2026-06-12T10:44:03.437938684Z 2026/06/12 10:44:03 INFO [ARP manager] inserting ARP/NDP instance name=10.115.252.20/32-mgmt-br.2021
+2026-06-12T10:44:03.470231807Z 2026/06/12 10:44:03 INFO [service] service=ingress-expose namespace=kube-system "synchronised in"=33ms
+2026-06-12T11:03:51.425334354Z 2026/06/12 11:03:51 INFO (svcs) deleted "service name"=rancher-logging namespace=cattle-logging-system
+2026-06-12T11:03:51.832763693Z 2026/06/12 11:03:51 INFO (svcs) deleted "service name"=rancher-logging-kube-audit-fluentbit-monitor namespace=cattle-logging-system
+2026-06-12T11:03:51.933061133Z 2026/06/12 11:03:51 INFO (svcs) deleted "service name"=rancher-logging-root-fluentbit-monitor namespace=cattle-logging-system
+2026-06-12T11:03:52.606706895Z 2026/06/12 11:03:52 INFO (svcs) deleted "service name"=rancher-logging-root-fluentd-headless namespace=cattle-logging-system
+2026-06-12T11:03:52.761201655Z 2026/06/12 11:03:52 INFO (svcs) deleted "service name"=rancher-logging-root-fluentd namespace=cattle-logging-system
+2026-06-12T11:03:52.781188715Z 2026/06/12 11:03:52 INFO (svcs) deleted "service name"=rancher-logging-root-fluentd-metrics namespace=cattle-logging-system
+2026-06-12T11:03:52.856619159Z 2026/06/12 11:03:52 INFO (svcs) deleted "service name"=rancher-logging-kube-audit-fluentd namespace=cattle-logging-system
+2026-06-12T11:03:52.886206821Z 2026/06/12 11:03:52 INFO (svcs) deleted "service name"=rancher-logging-kube-audit-fluentd-headless namespace=cattle-logging-system
+2026-06-12T11:03:53.531053656Z 2026/06/12 11:03:53 INFO (svcs) deleted "service name"=rancher-logging-kube-audit-fluentd-metrics namespace=cattle-logging-system
+2026-06-12T11:04:29.075143405Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-prometheus namespace=cattle-monitoring-system
+2026-06-12T11:04:29.081540034Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-prometheus-adapter namespace=cattle-monitoring-system
+2026-06-12T11:04:29.082404723Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-alertmanager namespace=cattle-monitoring-system
+2026-06-12T11:04:29.082426481Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-kube-state-metrics namespace=cattle-monitoring-system
+2026-06-12T11:04:29.082737088Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-coredns namespace=kube-system
+2026-06-12T11:04:29.082765176Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-windows-exporter namespace=cattle-monitoring-system
+2026-06-12T11:04:29.082771587Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-operator namespace=cattle-monitoring-system
+2026-06-12T11:04:29.082776117Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-prometheus-node-exporter namespace=cattle-monitoring-system
+2026-06-12T11:04:29.087919753Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=rancher-monitoring-grafana namespace=cattle-monitoring-system
+2026-06-12T11:04:29.903912600Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=alertmanager-operated namespace=cattle-monitoring-system
+2026-06-12T11:04:29.971599591Z 2026/06/12 11:04:29 INFO (svcs) deleted "service name"=prometheus-operated namespace=cattle-monitoring-system
+2026-06-12T11:04:45.752146876Z 2026/06/12 11:04:45 INFO (svcs) deleted "service name"=harvester-seeder namespace=harvester-system
+2026-06-12T11:05:03.952712176Z 2026/06/12 11:05:03 INFO (svcs) deleted "service name"=pcidevices-webhook namespace=harvester-system
+2026-06-12T11:05:13.060033224Z 2026/06/12 11:05:13 INFO (svcs) deleted "service name"=harvester-vm-import-controller namespace=harvester-system
+2026-06-12T13:02:29.301347279Z 2026/06/12 13:02:29 INFO (svcs) deleted "service name"=pvc-d1565a37-10bc-4375-bfce-0978b8200338 namespace=longhorn-system
+2026-06-12T15:30:21.928399304Z 2026/06/12 15:30:21 INFO (svcs) deleted "service name"=harvester-vm-dhcp-controller namespace=harvester-system
+2026-06-12T15:30:21.929908434Z 2026/06/12 15:30:21 INFO (svcs) deleted "service name"=harvester-vm-dhcp-controller-webhook namespace=harvester-system

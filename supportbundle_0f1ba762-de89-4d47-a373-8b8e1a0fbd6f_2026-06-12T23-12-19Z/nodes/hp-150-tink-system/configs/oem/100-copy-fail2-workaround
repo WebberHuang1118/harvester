@@ -1,0 +1,12 @@
+stages:
+    initramfs:
+    - name: "Blacklist modules new"
+      files:
+        - path: "/etc/modprobe.d/10-copyfail2-fix.conf"
+          content: |
+            blacklist esp4
+            blacklist esp6
+            blacklist rxrpc
+            install esp4 /bin/false
+            install esp6 /bin/false
+            install rxrpc /bin/false
