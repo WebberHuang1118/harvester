@@ -31,7 +31,9 @@ import (
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/backup/common"
 	"github.com/harvester/harvester/pkg/backup/engine"
+	backupkopia "github.com/harvester/harvester/pkg/backup/engine/kopia"
 	"github.com/harvester/harvester/pkg/backup/engine/longhorn"
+	backuprestic "github.com/harvester/harvester/pkg/backup/engine/restic"
 	"github.com/harvester/harvester/pkg/backup/engine/snapshot"
 	"github.com/harvester/harvester/pkg/config"
 	"github.com/harvester/harvester/pkg/generated/clientset/versioned/scheme"
@@ -70,7 +72,7 @@ func RegisterBackup(ctx context.Context, management *config.Management, _ config
 	vmbo := newBackupOperator(controllers, restClient)
 
 	// Initialize backup engines
-	engines := newBackupEngines(controllers, vmbo)
+	engines := newBackupEngines(controllers, management, vmbo)
 
 	// Let each engine wire up its own informer event handlers (e.g. Job
 	// watchers) so engine-owned resource changes feed back into VMBackup
@@ -158,6 +160,7 @@ func newBackupOperator(
 // newBackupEngines creates backup engines for different backup types
 func newBackupEngines(
 	controllers *backupControllerSet,
+	management *config.Management,
 	vmbo common.VMBackupOperator,
 ) map[harvesterv1.BackupType]engine.BackupEngine {
 	return map[harvesterv1.BackupType]engine.BackupEngine{
@@ -179,6 +182,31 @@ func newBackupEngines(
 			controllers.lhbackups.Cache(),
 			controllers.lhbackups,
 			controllers.vmbs.Cache(),
+		),
+		harvesterv1.Restic: backuprestic.GetBackupEngine(
+			vmbo,
+			controllers.vss.Cache(),
+			controllers.vss,
+			controllers.pvcs.Cache(),
+			controllers.pvcs,
+			controllers.secrets.Cache(),
+			controllers.secrets,
+			controllers.storageClasses.Cache(),
+			controllers.jobs,
+			management.ClientSet,
+		),
+		harvesterv1.Kopia: backupkopia.GetBackupEngine(
+			vmbo,
+			controllers.vss.Cache(),
+			controllers.vss,
+			controllers.pvcs.Cache(),
+			controllers.pvcs,
+			controllers.secrets.Cache(),
+			controllers.secrets,
+			controllers.storageClasses.Cache(),
+			controllers.jobs.Cache(),
+			controllers.jobs,
+			management.ClientSet,
 		),
 	}
 }
@@ -251,8 +279,6 @@ func (h *Handler) OnBackupChange(_ string, vmb *harvesterv1.VirtualMachineBackup
 
 		return nil, nil
 	}
-
-	// TODO, make sure status is initialized, and "Lock" the source VM by adding a finalizer and setting snapshotInProgress in status
 
 	_, csiVSClassMap, err := h.vmbo.BuildCSIDriverMap(vmb)
 	if err != nil {

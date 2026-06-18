@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvc-inspect
+  namespace: default
+spec:
+  restartPolicy: Never
+  containers:
+  - name: inspect
+    image: 10.115.54.34:5000/harvester:issue-9135-v3-engine-head
+    command: ["sleep", "7200"]
+    volumeDevices:
+    - name: disk
+      devicePath: /dev/disk0
+    securityContext:
+      privileged: true   # block-device access
+  volumes:
+  - name: disk
+    persistentVolumeClaim:
+      claimName: restore-vm-lvm-b-4e94d5aa-f71a-41a5-9b38-7d1ac8ba3972-disk-0

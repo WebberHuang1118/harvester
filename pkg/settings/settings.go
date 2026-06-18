@@ -27,6 +27,11 @@ var (
 	UIPluginIndex                          = NewSetting(UIPluginIndexSettingName, DefaultUIPluginURL)
 	VolumeSnapshotClass                    = NewSetting(VolumeSnapshotClassSettingName, "longhorn")
 	BackupTargetSet                        = NewSetting(BackupTargetSettingName, "")
+	ResticCacheSize                        = NewSetting(ResticCacheSizeSettingName, "2Gi")
+	ResticNoCache                          = NewSetting(ResticNoCacheSettingName, "false")
+	ResticMaxConcurrentJobs                = NewSetting(ResticMaxConcurrentJobsSettingName, "10")
+	ResticEphemeralRequest                 = NewSetting(ResticEphemeralRequestSettingName, "512Mi")
+	ResticEphemeralLimit                   = NewSetting(ResticEphemeralLimitSettingName, "3Gi")
 	UpgradableVersions                     = NewSetting(UpgradableVersionsSettingName, "")
 	UpgradeCheckerEnabled                  = NewSetting(UpgradeCheckerEnabledSettingName, "true")
 	UpgradeCheckerURL                      = NewSetting(UpgradeCheckerURLSettingName, "https://harvester-upgrade-responder.rancher.io/v1/checkupgrade")
@@ -75,6 +80,11 @@ var (
 const (
 	AdditionalCASettingName                           = "additional-ca"
 	BackupTargetSettingName                           = "backup-target"
+	ResticCacheSizeSettingName                        = "restic-cache-size"
+	ResticNoCacheSettingName                          = "restic-no-cache"
+	ResticMaxConcurrentJobsSettingName                = "restic-max-concurrent-jobs"
+	ResticEphemeralRequestSettingName                 = "restic-ephemeral-request"
+	ResticEphemeralLimitSettingName                   = "restic-ephemeral-limit"
 	VMForceResetPolicySettingName                     = "vm-force-reset-policy"
 	SupportBundleTimeoutSettingName                   = "support-bundle-timeout"
 	HTTPProxySettingName                              = "http-proxy"

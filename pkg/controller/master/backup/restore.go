@@ -34,9 +34,9 @@ import (
 	ctlsnapshotv1 "github.com/harvester/harvester/pkg/generated/controllers/snapshot.storage.k8s.io/v1"
 	restorecommon "github.com/harvester/harvester/pkg/restore/common"
 	"github.com/harvester/harvester/pkg/restore/engine"
-
+	restorekopia "github.com/harvester/harvester/pkg/restore/engine/kopia"
 	"github.com/harvester/harvester/pkg/restore/engine/longhorn"
-
+	restorerestic "github.com/harvester/harvester/pkg/restore/engine/restic"
 	restoresnapshot "github.com/harvester/harvester/pkg/restore/engine/snapshot"
 	"github.com/harvester/harvester/pkg/util"
 )
@@ -91,7 +91,7 @@ func RegisterRestore(ctx context.Context, management *config.Management, _ confi
 	vmbo, vmro := newRestoreOperators(controllers, restClient)
 
 	// Initialize restore engines
-	engines := newRestoreEngines(controllers, vmbo, vmro)
+	engines := newRestoreEngines(controllers, management, vmbo, vmro)
 
 	// Let each engine wire up its own informer event handlers (e.g. Job
 	// watchers) so engine-owned resource changes feed back into VMRestore
@@ -187,6 +187,7 @@ func newRestoreOperators(
 // newRestoreEngines creates restore engines for different backup types
 func newRestoreEngines(
 	controllers *restoreControllerSet,
+	management *config.Management,
 	vmbo backupcommon.VMBackupOperator,
 	vmro restorecommon.VMRestoreOperator,
 ) map[harvesterv1.BackupType]engine.RestoreEngine {
@@ -216,6 +217,28 @@ func newRestoreEngines(
 			controllers.pvcs.Cache(),
 			controllers.pvcs,
 			controllers.vss.Cache(),
+		),
+		harvesterv1.Restic: restorerestic.GetRestoreEngine(
+			vmbo,
+			vmro,
+			controllers.pvcs.Cache(),
+			controllers.pvcs,
+			controllers.scs.Cache(),
+			controllers.secrets.Cache(),
+			controllers.secrets,
+			controllers.jobs,
+			management.ClientSet,
+		),
+		harvesterv1.Kopia: restorekopia.GetRestoreEngine(
+			vmbo,
+			vmro,
+			controllers.pvcs.Cache(),
+			controllers.pvcs,
+			controllers.secrets.Cache(),
+			controllers.secrets,
+			controllers.jobs.Cache(),
+			controllers.jobs,
+			management.ClientSet,
 		),
 	}
 }
