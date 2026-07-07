@@ -314,11 +314,16 @@ func (h *Handler) OnBackupRemove(_ string, vmb *harvesterv1.VirtualMachineBackup
 		return nil, fmt.Errorf("failed to decode backup target: %w", err)
 	}
 
+	// If the backup target has been reset to default/empty, there is no
+	// configured backend to contact. Do not block finalizer removal on remote
+	// cleanup that cannot be performed with the current settings.
+	if currentTarget.IsDefaultBackupTarget() {
+		return nil, nil
+	}
+
 	// Delete metadata from backup target if it's configured (not default)
-	if !currentTarget.IsDefaultBackupTarget() {
-		if err := h.deleteVMBackupMetadata(vmb, currentTarget); err != nil {
-			return nil, fmt.Errorf("failed to delete VM backup metadata: %w", err)
-		}
+	if err := h.deleteVMBackupMetadata(vmb, currentTarget); err != nil {
+		return nil, fmt.Errorf("failed to delete VM backup metadata: %w", err)
 	}
 
 	// Force-delete volume backups in two cases:

@@ -148,6 +148,7 @@ type VMBackupReader interface {
 	GetUID(vmb *harvesterv1.VirtualMachineBackup) types.UID
 	GetDeletionTimestamp(vmb *harvesterv1.VirtualMachineBackup) *metav1.Time
 	GetSpec(vmb *harvesterv1.VirtualMachineBackup) harvesterv1.VirtualMachineBackupSpec
+	GetSourceUID(vmb *harvesterv1.VirtualMachineBackup) *types.UID
 	GetSourceSpec(vmb *harvesterv1.VirtualMachineBackup) *harvesterv1.VirtualMachineSourceSpec
 	GetStatus(vmb *harvesterv1.VirtualMachineBackup) *harvesterv1.VirtualMachineBackupStatus
 	GetSecretBackups(vmb *harvesterv1.VirtualMachineBackup) []harvesterv1.SecretBackup
@@ -360,6 +361,10 @@ func (a *vmbackupReader) GetDeletionTimestamp(vmb *harvesterv1.VirtualMachineBac
 
 func (a *vmbackupReader) GetSpec(vmb *harvesterv1.VirtualMachineBackup) harvesterv1.VirtualMachineBackupSpec {
 	return vmb.Spec
+}
+
+func (a *vmbackupReader) GetSourceUID(vmb *harvesterv1.VirtualMachineBackup) *types.UID {
+	return vmb.Status.SourceUID
 }
 
 func (a *vmbackupReader) GetSourceSpec(vmb *harvesterv1.VirtualMachineBackup) *harvesterv1.VirtualMachineSourceSpec {

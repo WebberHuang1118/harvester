@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -82,6 +83,32 @@ func TestJobHasCapacityReturnsTrueBelowGlobalLimit(t *testing.T) {
 	require.True(t, hasCapacity)
 }
 
+func TestSnapshotCheckJobResultReportsFound(t *testing.T) {
+	job := snapshotCheckJob("check", 1, 0)
+
+	result, err := SnapshotCheckJobResult(context.Background(), fake.NewSimpleClientset(), job)
+	require.NoError(t, err)
+	require.Equal(t, SnapshotCheckFound, result)
+}
+
+func TestSnapshotCheckJobResultReportsMissing(t *testing.T) {
+	job := snapshotCheckJob("check", 0, 1)
+	clientset := fake.NewSimpleClientset(snapshotCheckPod("check-pod", job.Name, SnapshotCheckMissingExitCode))
+
+	result, err := SnapshotCheckJobResult(context.Background(), clientset, job)
+	require.NoError(t, err)
+	require.Equal(t, SnapshotCheckMissing, result)
+}
+
+func TestSnapshotCheckJobResultReportsFailed(t *testing.T) {
+	job := snapshotCheckJob("check", 0, 1)
+	clientset := fake.NewSimpleClientset(snapshotCheckPod("check-pod", job.Name, 1))
+
+	result, err := SnapshotCheckJobResult(context.Background(), clientset, job)
+	require.NoError(t, err)
+	require.Equal(t, SnapshotCheckFailed, result)
+}
+
 func resticPod(name, nodeName string, phase corev1.PodPhase) *corev1.Pod {
 	return &corev1.Pod{
 		ObjectMeta: metav1.ObjectMeta{
@@ -96,6 +123,39 @@ func resticPod(name, nodeName string, phase corev1.PodPhase) *corev1.Pod {
 		},
 		Status: corev1.PodStatus{
 			Phase: phase,
+		},
+	}
+}
+
+func snapshotCheckJob(name string, succeeded, failed int32) *batchv1.Job {
+	return &batchv1.Job{
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      name,
+			Namespace: "default",
+		},
+		Status: batchv1.JobStatus{
+			Succeeded: succeeded,
+			Failed:    failed,
+		},
+	}
+}
+
+func snapshotCheckPod(name, jobName string, exitCode int32) *corev1.Pod {
+	return &corev1.Pod{
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      name,
+			Namespace: "default",
+			Labels: map[string]string{
+				"job-name": jobName,
+			},
+		},
+		Status: corev1.PodStatus{
+			ContainerStatuses: []corev1.ContainerStatus{{
+				Name: SnapshotCheckContainerName,
+				State: corev1.ContainerState{
+					Terminated: &corev1.ContainerStateTerminated{ExitCode: exitCode},
+				},
+			}},
 		},
 	}
 }

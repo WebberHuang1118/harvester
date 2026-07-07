@@ -28,7 +28,8 @@ import (
 )
 
 const (
-	jobNamePrefix = "restic-restore"
+	jobNamePrefix      = "restic-restore"
+	checkJobNamePrefix = "restic-restore-check"
 )
 
 type ResticRestoreEngine struct {
@@ -117,6 +118,9 @@ func (re *ResticRestoreEngine) Reconcile(
 		return fmt.Errorf("volume backup at index %d not found", volIndex)
 	}
 
+	if err := re.checkRemoteSnapshot(vmr, vmb, vr, vb); err != nil {
+		return err
+	}
 	if err := re.ensurePVC(vmr, vr, vb); err != nil {
 		return err
 	}
@@ -298,9 +302,10 @@ func (re *ResticRestoreEngine) createRestoreJob(
 							// failure and leave the PVC blank. Leading `/` on the dump path
 							// matches the absolute path restic stored via --stdin-filename.
 							"set -eo pipefail; "+
-								"%s -q dump --tag=%s,%s latest /%s | /usr/bin/harvester io-mode -device /dev/%s -mode=write",
+								"%s -q dump --tag=%s,%s,%s latest /%s | /usr/bin/harvester io-mode -device /dev/%s -mode=write",
 							runtime.Command,
 							resticutil.NamespaceTag(re.vmbo.GetNamespace(vmb)),
+							resticutil.VMBackupTag(re.vmbo.GetName(vmb)),
 							resticutil.SnapshotTag(*vbName),
 							pvName,
 							pvcName,
@@ -315,6 +320,94 @@ func (re *ResticRestoreEngine) createRestoreJob(
 			},
 		},
 	}
+	_, err = re.jobClient.Create(job)
+	if apierrors.IsAlreadyExists(err) {
+		return engine.ErrRetryLater
+	}
+	return err
+}
+
+func (re *ResticRestoreEngine) checkRemoteSnapshot(
+	vmr *harvesterv1.VirtualMachineRestore,
+	vmb *harvesterv1.VirtualMachineBackup,
+	vr *harvesterv1.VolumeRestore,
+	vb *harvesterv1.VolumeBackup,
+) error {
+	checkName := re.checkJobName(vmr, vr)
+	namespace := re.vmro.GetNamespace(vmr)
+	result, err := resticutil.CheckSnapshotJob(
+		context.Background(),
+		re.clientset,
+		checkName,
+		func(name string) (*batchv1.Job, error) {
+			return re.jobCache.Get(namespace, name)
+		},
+		func(name string) error {
+			return re.createCheckJob(vmr, vmb, vb, name)
+		},
+	)
+	if err != nil {
+		return err
+	}
+	switch result {
+	case resticutil.SnapshotCheckPending:
+		return engine.ErrRetryLater
+	case resticutil.SnapshotCheckMissing:
+		return fmt.Errorf("restic snapshot for restore job %s/%s not found", namespace, checkName)
+	case resticutil.SnapshotCheckFailed:
+		return fmt.Errorf("restic snapshot check job %s/%s failed", namespace, checkName)
+	case resticutil.SnapshotCheckFound:
+		return nil
+	default:
+		return fmt.Errorf("unknown restic snapshot check result %q", result)
+	}
+}
+
+func (re *ResticRestoreEngine) createCheckJob(
+	vmr *harvesterv1.VirtualMachineRestore,
+	vmb *harvesterv1.VirtualMachineBackup,
+	vb *harvesterv1.VolumeBackup,
+	jobName string,
+) error {
+	repository, err := resticutil.RepositoryFromSetting()
+	if err != nil {
+		return err
+	}
+	secretName, err := re.ensureResticSecret(vmr)
+	if err != nil {
+		return err
+	}
+	vbName := re.vmbo.GetVolBackupName(vb)
+	if vbName == nil {
+		return fmt.Errorf("volume backup name is nil")
+	}
+
+	namespace := re.vmro.GetNamespace(vmr)
+	labels := vmRestoreLabels(vmr, re.vmro)
+	runtime, hasCapacity, err := resticutil.NewJobRuntime(context.Background(), re.clientset, secretName, repository, labels)
+	if err != nil {
+		return err
+	}
+	if !hasCapacity {
+		return engine.ErrRetryLater
+	}
+	job := resticutil.NewSnapshotCheckJob(resticutil.SnapshotCheckJobOptions{
+		Name:      jobName,
+		Namespace: namespace,
+		Labels:    labels,
+		OwnerReferences: []metav1.OwnerReference{{
+			APIVersion: harvesterv1.SchemeGroupVersion.String(),
+			Kind:       "VirtualMachineRestore",
+			Name:       re.vmro.GetName(vmr),
+			UID:        re.vmro.GetUID(vmr),
+		}},
+		Runtime: runtime,
+		Tags: []string{
+			resticutil.NamespaceTag(re.vmbo.GetNamespace(vmb)),
+			resticutil.VMBackupTag(re.vmbo.GetName(vmb)),
+			resticutil.SnapshotTag(*vbName),
+		},
+	})
 	_, err = re.jobClient.Create(job)
 	if apierrors.IsAlreadyExists(err) {
 		return engine.ErrRetryLater
@@ -398,6 +491,10 @@ func (re *ResticRestoreEngine) refreshProgressFromLogs(vr *harvesterv1.VolumeRes
 
 func (re *ResticRestoreEngine) jobName(vmr *harvesterv1.VirtualMachineRestore, vr *harvesterv1.VolumeRestore) string {
 	return strings.ToLower(fmt.Sprintf("%s-%s-%s", jobNamePrefix, re.vmro.GetName(vmr), re.vmro.GetVolRestoreVolumeName(vr)))
+}
+
+func (re *ResticRestoreEngine) checkJobName(vmr *harvesterv1.VirtualMachineRestore, vr *harvesterv1.VolumeRestore) string {
+	return strings.ToLower(fmt.Sprintf("%s-%s-%s", checkJobNamePrefix, re.vmro.GetName(vmr), re.vmro.GetVolRestoreVolumeName(vr)))
 }
 
 // jobLocator returns the name and namespace to look up the restore Job for vr.

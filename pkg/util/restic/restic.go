@@ -7,10 +7,13 @@ import (
 	"strconv"
 	"strings"
 
+	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"
+	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
+	"k8s.io/utils/ptr"
 
 	"github.com/harvester/harvester/pkg/settings"
 	"github.com/harvester/harvester/pkg/util"
@@ -37,6 +40,18 @@ const (
 	LabelVMRestoreName      = "harvesterhci.io/vm-restore-name"
 	LabelResticJob          = "harvesterhci.io/restic-job"
 	LabelValueTrue          = "true"
+
+	SnapshotCheckContainerName   = "check"
+	SnapshotCheckMissingExitCode = 42
+)
+
+type SnapshotCheckResult string
+
+const (
+	SnapshotCheckPending SnapshotCheckResult = "pending"
+	SnapshotCheckFound   SnapshotCheckResult = "found"
+	SnapshotCheckMissing SnapshotCheckResult = "missing"
+	SnapshotCheckFailed  SnapshotCheckResult = "failed"
 )
 
 type JobRuntime struct {
@@ -47,6 +62,15 @@ type JobRuntime struct {
 	VolumeMounts []corev1.VolumeMount
 	Volumes      []corev1.Volume
 	Command      string
+}
+
+type SnapshotCheckJobOptions struct {
+	Name            string
+	Namespace       string
+	Labels          map[string]string
+	OwnerReferences []metav1.OwnerReference
+	Runtime         *JobRuntime
+	Tags            []string
 }
 
 // Image returns the harvester container image used for restic backup/restore
@@ -186,6 +210,109 @@ func NewJobRuntime(
 		runtime.VolumeMounts = append(runtime.VolumeMounts, *cacheMount)
 	}
 	return runtime, true, nil
+}
+
+func CheckSnapshotJob(
+	ctx context.Context,
+	clientset kubernetes.Interface,
+	jobName string,
+	getJob func(name string) (*batchv1.Job, error),
+	createJob func(name string) error,
+) (SnapshotCheckResult, error) {
+	job, err := getJob(jobName)
+	if err == nil {
+		return SnapshotCheckJobResult(ctx, clientset, job)
+	}
+	if !apierrors.IsNotFound(err) {
+		return SnapshotCheckPending, err
+	}
+	if err := createJob(jobName); err != nil {
+		return SnapshotCheckPending, err
+	}
+	return SnapshotCheckPending, nil
+}
+
+func SnapshotCheckJobResult(ctx context.Context, clientset kubernetes.Interface, job *batchv1.Job) (SnapshotCheckResult, error) {
+	if job.Status.Failed > 0 {
+		return failedSnapshotCheckResult(ctx, clientset, job)
+	}
+	if job.Status.Succeeded == 0 {
+		return SnapshotCheckPending, nil
+	}
+	return SnapshotCheckFound, nil
+}
+
+func failedSnapshotCheckResult(ctx context.Context, clientset kubernetes.Interface, job *batchv1.Job) (SnapshotCheckResult, error) {
+	exitCode, foundExitCode, err := SnapshotCheckJobExitCode(ctx, clientset, job)
+	if err != nil {
+		return SnapshotCheckPending, err
+	}
+	if foundExitCode && exitCode == SnapshotCheckMissingExitCode {
+		return SnapshotCheckMissing, nil
+	}
+	return SnapshotCheckFailed, nil
+}
+
+func SnapshotCheckJobExitCode(ctx context.Context, clientset kubernetes.Interface, job *batchv1.Job) (int32, bool, error) {
+	pods, err := clientset.CoreV1().Pods(job.Namespace).List(ctx, metav1.ListOptions{
+		LabelSelector: fmt.Sprintf("job-name=%s", job.Name),
+	})
+	if err != nil {
+		return 0, false, fmt.Errorf("listing pods for restic snapshot check job %s/%s: %w", job.Namespace, job.Name, err)
+	}
+	for _, pod := range pods.Items {
+		for _, status := range pod.Status.ContainerStatuses {
+			if status.Name != SnapshotCheckContainerName || status.State.Terminated == nil {
+				continue
+			}
+			return status.State.Terminated.ExitCode, true, nil
+		}
+	}
+	return 0, false, nil
+}
+
+func NewSnapshotCheckJob(opts SnapshotCheckJobOptions) *batchv1.Job {
+	return &batchv1.Job{
+		ObjectMeta: metav1.ObjectMeta{
+			Name:            opts.Name,
+			Namespace:       opts.Namespace,
+			Labels:          opts.Labels,
+			OwnerReferences: opts.OwnerReferences,
+		},
+		Spec: batchv1.JobSpec{
+			BackoffLimit:            ptr.To[int32](0),
+			TTLSecondsAfterFinished: ptr.To[int32](300),
+			Template: corev1.PodTemplateSpec{
+				ObjectMeta: metav1.ObjectMeta{
+					Labels: opts.Labels,
+				},
+				Spec: corev1.PodSpec{
+					RestartPolicy: corev1.RestartPolicyNever,
+					Containers: []corev1.Container{{
+						Name:         SnapshotCheckContainerName,
+						Image:        opts.Runtime.Image,
+						Env:          opts.Runtime.Env,
+						Command:      []string{"/bin/sh", "-c"},
+						Resources:    opts.Runtime.Resources,
+						VolumeMounts: opts.Runtime.VolumeMounts,
+						Args:         []string{SnapshotCheckCommand(opts.Runtime.Command, opts.Tags)},
+					}},
+					Volumes: opts.Runtime.Volumes,
+				},
+			},
+		},
+	}
+}
+
+func SnapshotCheckCommand(resticCommand string, tags []string) string {
+	return fmt.Sprintf(
+		"set -eo pipefail; "+
+			"SNAPSHOTS=$(%s snapshots --json --tag=%s | tr -d '[:space:]'); "+
+			"test \"$SNAPSHOTS\" != \"[]\" || exit %d",
+		resticCommand,
+		strings.Join(tags, ","),
+		SnapshotCheckMissingExitCode,
+	)
 }
 
 func (r *JobRuntime) VolumesWith(volumes ...corev1.Volume) []corev1.Volume {

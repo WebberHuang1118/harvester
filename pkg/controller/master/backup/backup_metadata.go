@@ -521,6 +521,10 @@ func (h *MetadataHandler) checkDependentStorageClassExist(backupMetadata *Virtua
 }
 
 func (h *MetadataHandler) checkDependentLonghornBackupExist(target *settings.BackupTarget, backupMetadata *VirtualMachineBackupMetadata) bool {
+	if backupMetadata.BackupSpec.Type != harvesterv1.Backup {
+		return true
+	}
+
 	for _, vb := range backupMetadata.VolumeBackups {
 		if vb.LonghornBackupName == nil {
 			logrus.WithFields(logrus.Fields{

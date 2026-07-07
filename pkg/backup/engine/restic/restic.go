@@ -30,6 +30,7 @@ import (
 const (
 	jobNamePrefix       = "restic-backup"
 	forgetJobNamePrefix = "restic-forget"
+	checkJobNamePrefix  = "restic-check"
 )
 
 type ResticEngine struct {
@@ -118,7 +119,17 @@ func (re *ResticEngine) Reconcile(
 		re.cleanupTemporaryResources(vmb, vb)
 		return nil
 	}
+	if ready, err := re.checkRemoteSnapshot(vmb, vb); ready || err != nil {
+		return err
+	}
+	return re.reconcileBackupJob(vmb, vb, vsClassMap)
+}
 
+func (re *ResticEngine) reconcileBackupJob(
+	vmb *harvesterv1.VirtualMachineBackup,
+	vb *harvesterv1.VolumeBackup,
+	vsClassMap map[string]snapshotv1.VolumeSnapshotClass,
+) error {
 	jobName, err := re.jobName(vb)
 	if err != nil {
 		return err
@@ -373,6 +384,108 @@ func (re *ResticEngine) createBackupJob(vmb *harvesterv1.VirtualMachineBackup,
 	return err
 }
 
+func (re *ResticEngine) checkRemoteSnapshot(vmb *harvesterv1.VirtualMachineBackup, vb *harvesterv1.VolumeBackup) (bool, error) {
+	checkName, err := re.checkJobName(vb)
+	if err != nil {
+		return false, err
+	}
+	namespace := re.vmbo.GetNamespace(vmb)
+	result, err := resticutil.CheckSnapshotJob(
+		context.Background(),
+		re.clientset,
+		checkName,
+		func(name string) (*batchv1.Job, error) {
+			return re.jobCache.Get(namespace, name)
+		},
+		func(name string) error {
+			return re.createCheckJob(vmb, vb, name)
+		},
+	)
+	if err != nil {
+		return false, err
+	}
+	discoveredBackup := re.isDiscoveredBackup(vmb)
+	switch result {
+	case resticutil.SnapshotCheckPending:
+		return false, engine.ErrRetryLater
+	case resticutil.SnapshotCheckMissing:
+		if discoveredBackup {
+			return false, fmt.Errorf("restic snapshot for discovered backup %s/%s not found", namespace, checkName)
+		}
+		return false, nil
+	case resticutil.SnapshotCheckFailed:
+		if discoveredBackup {
+			return false, fmt.Errorf("restic snapshot check job %s/%s failed", namespace, checkName)
+		}
+		return false, nil
+	case resticutil.SnapshotCheckFound:
+		return re.markReady(vb)
+	default:
+		return false, fmt.Errorf("unknown restic snapshot check result %q", result)
+	}
+}
+
+func (re *ResticEngine) isDiscoveredBackup(vmb *harvesterv1.VirtualMachineBackup) bool {
+	return re.vmbo.GetSourceUID(vmb) == nil
+}
+
+func (re *ResticEngine) markReady(vb *harvesterv1.VolumeBackup) (bool, error) {
+	now := metav1.Now()
+	ready := true
+	if err := re.vmbo.SetVolBackupReadyToUse(vb, &ready); err != nil {
+		return false, err
+	}
+	if err := re.vmbo.SetVolBackupCreationTime(vb, &now); err != nil {
+		return false, err
+	}
+	if err := re.vmbo.SetVolBackupProgress(vb, 100); err != nil {
+		return false, err
+	}
+	return true, nil
+}
+
+func (re *ResticEngine) createCheckJob(vmb *harvesterv1.VirtualMachineBackup, vb *harvesterv1.VolumeBackup, jobName string) error {
+	repository, err := resticutil.RepositoryFromSetting()
+	if err != nil {
+		return err
+	}
+	secretName, err := re.ensureResticSecret(vmb)
+	if err != nil {
+		return err
+	}
+
+	namespace := re.vmbo.GetNamespace(vmb)
+	vbName := re.vmbo.GetVolBackupName(vb)
+	if vbName == nil || *vbName == "" {
+		return fmt.Errorf("volume backup name is nil")
+	}
+	labels := vmBackupLabels(vmb, re.vmbo)
+	runtime, hasCapacity, err := resticutil.NewJobRuntime(context.Background(), re.clientset, secretName, repository, labels)
+	if err != nil {
+		return err
+	}
+	if !hasCapacity {
+		return engine.ErrRetryLater
+	}
+	job := resticutil.NewSnapshotCheckJob(resticutil.SnapshotCheckJobOptions{
+		Name:            jobName,
+		Namespace:       namespace,
+		Labels:          labels,
+		OwnerReferences: []metav1.OwnerReference{re.vsHelper.BuildOwnerReference(vmb)},
+		Runtime:         runtime,
+		Tags: []string{
+			resticutil.NamespaceTag(namespace),
+			resticutil.VMBackupTag(re.vmbo.GetName(vmb)),
+			resticutil.SnapshotTag(*vbName),
+		},
+	})
+	_, err = re.jobClient.Create(job)
+	if apierrors.IsAlreadyExists(err) {
+		return engine.ErrRetryLater
+	}
+	return err
+}
+
 // createForgetJob fires a one-shot job that runs `restic forget --prune` for
 // the snapshot(s) matching this VolumeBackup. Mirrors createBackupJob's
 // resource shape (same namespace, same per-VMBackup credential secret) so it
@@ -583,6 +696,14 @@ func (re *ResticEngine) forgetJobName(vb *harvesterv1.VolumeBackup) (string, err
 		return "", fmt.Errorf("volume backup name is nil")
 	}
 	return strings.ToLower(fmt.Sprintf("%s-%s", forgetJobNamePrefix, *name)), nil
+}
+
+func (re *ResticEngine) checkJobName(vb *harvesterv1.VolumeBackup) (string, error) {
+	name := re.vmbo.GetVolBackupName(vb)
+	if name == nil {
+		return "", fmt.Errorf("volume backup name is nil")
+	}
+	return strings.ToLower(fmt.Sprintf("%s-%s", checkJobNamePrefix, *name)), nil
 }
 
 // jobLocator returns the name/namespace to look up the backup Job for vb,
