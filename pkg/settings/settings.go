@@ -32,6 +32,10 @@ var (
 	ResticMaxConcurrentJobs                = NewSetting(ResticMaxConcurrentJobsSettingName, "10")
 	ResticEphemeralRequest                 = NewSetting(ResticEphemeralRequestSettingName, "512Mi")
 	ResticEphemeralLimit                   = NewSetting(ResticEphemeralLimitSettingName, "3Gi")
+	KopiaCacheSize                         = NewSetting(KopiaCacheSizeSettingName, "2Gi")
+	KopiaMaxConcurrentJobs                 = NewSetting(KopiaMaxConcurrentJobsSettingName, "10")
+	KopiaEphemeralRequest                  = NewSetting(KopiaEphemeralRequestSettingName, "512Mi")
+	KopiaEphemeralLimit                    = NewSetting(KopiaEphemeralLimitSettingName, "3Gi")
 	UpgradableVersions                     = NewSetting(UpgradableVersionsSettingName, "")
 	UpgradeCheckerEnabled                  = NewSetting(UpgradeCheckerEnabledSettingName, "true")
 	UpgradeCheckerURL                      = NewSetting(UpgradeCheckerURLSettingName, "https://harvester-upgrade-responder.rancher.io/v1/checkupgrade")
@@ -85,6 +89,10 @@ const (
 	ResticMaxConcurrentJobsSettingName                = "restic-max-concurrent-jobs"
 	ResticEphemeralRequestSettingName                 = "restic-ephemeral-request"
 	ResticEphemeralLimitSettingName                   = "restic-ephemeral-limit"
+	KopiaCacheSizeSettingName                         = "kopia-cache-size"
+	KopiaMaxConcurrentJobsSettingName                 = "kopia-max-concurrent-jobs"
+	KopiaEphemeralRequestSettingName                  = "kopia-ephemeral-request"
+	KopiaEphemeralLimitSettingName                    = "kopia-ephemeral-limit"
 	VMForceResetPolicySettingName                     = "vm-force-reset-policy"
 	SupportBundleTimeoutSettingName                   = "support-bundle-timeout"
 	HTTPProxySettingName                              = "http-proxy"

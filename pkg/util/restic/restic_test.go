@@ -56,6 +56,34 @@ func TestCacheVolumeAndMountDisabledByNoCache(t *testing.T) {
 	require.Equal(t, "restic --no-cache", Command())
 }
 
+func TestRepositoryAndRuntimeCommandHonorBucketRegion(t *testing.T) {
+	resetResticSettings(t)
+	repository, err := Repository(&settings.BackupTarget{
+		Type:         settings.S3BackupType,
+		Endpoint:     "http://10.115.54.34:9000",
+		BucketName:   "mybucket",
+		BucketRegion: "pcloud",
+	})
+	require.NoError(t, err)
+	require.Equal(t, "s3:http://10.115.54.34:9000/mybucket/restic", repository.URL)
+	require.Equal(t, "pcloud", repository.Region)
+	require.Contains(t, Env("credentials", repository), corev1.EnvVar{Name: RegionKey, Value: "pcloud"})
+	require.Equal(t, `restic -o s3.region="$RESTIC_S3_REGION"`, command(repository.Region))
+}
+
+func TestRuntimeCommandOmitsEmptyBucketRegion(t *testing.T) {
+	resetResticSettings(t)
+	repository, err := Repository(&settings.BackupTarget{
+		Type:       settings.S3BackupType,
+		Endpoint:   "http://10.115.54.34:9000",
+		BucketName: "mybucket",
+	})
+	require.NoError(t, err)
+	require.Empty(t, repository.Region)
+	require.NotContains(t, Env("credentials", repository), corev1.EnvVar{Name: RegionKey})
+	require.Equal(t, "restic", command(repository.Region))
+}
+
 func TestJobHasCapacityReturnsFalseWhenGlobalLimitIsReached(t *testing.T) {
 	resetResticSettings(t)
 	require.NoError(t, settings.ResticMaxConcurrentJobs.Set("3"))

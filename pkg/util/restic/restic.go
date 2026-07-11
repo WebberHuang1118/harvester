@@ -9,7 +9,6 @@ import (
 
 	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"
-	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
@@ -17,12 +16,15 @@ import (
 
 	"github.com/harvester/harvester/pkg/settings"
 	"github.com/harvester/harvester/pkg/util"
+	backuputil "github.com/harvester/harvester/pkg/util/backup"
+	"github.com/harvester/harvester/pkg/util/snapshotcheck"
 )
 
 const (
 	ImageEnvVar = "HARVESTER_IMAGE"
 
 	PasswordKey = "RESTIC_PASSWORD"
+	RegionKey   = "RESTIC_S3_REGION"
 
 	CacheDirEnvVar = "RESTIC_CACHE_DIR"
 	CacheDir       = "/restic-cache"
@@ -42,16 +44,16 @@ const (
 	LabelValueTrue          = "true"
 
 	SnapshotCheckContainerName   = "check"
-	SnapshotCheckMissingExitCode = 42
+	SnapshotCheckMissingExitCode = snapshotcheck.MissingExitCode
 )
 
-type SnapshotCheckResult string
+type SnapshotCheckResult = snapshotcheck.Result
 
 const (
-	SnapshotCheckPending SnapshotCheckResult = "pending"
-	SnapshotCheckFound   SnapshotCheckResult = "found"
-	SnapshotCheckMissing SnapshotCheckResult = "missing"
-	SnapshotCheckFailed  SnapshotCheckResult = "failed"
+	SnapshotCheckPending = snapshotcheck.Pending
+	SnapshotCheckFound   = snapshotcheck.Found
+	SnapshotCheckMissing = snapshotcheck.Missing
+	SnapshotCheckFailed  = snapshotcheck.Failed
 )
 
 type JobRuntime struct {
@@ -85,35 +87,43 @@ func Image() (string, error) {
 	return image, nil
 }
 
-func RepositoryFromSetting() (string, error) {
-	target, err := settings.DecodeBackupTarget(settings.BackupTargetSet.Get())
+type RepositoryConfig struct {
+	URL    string
+	Region string
+}
+
+func RepositoryFromSetting() (*RepositoryConfig, error) {
+	target, err := backuputil.CurrentTarget()
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	return Repository(target)
 }
 
-func Repository(target *settings.BackupTarget) (string, error) {
+func Repository(target *settings.BackupTarget) (*RepositoryConfig, error) {
 	if target == nil {
-		return "", fmt.Errorf("backup target is nil")
+		return nil, fmt.Errorf("backup target is nil")
 	}
 
 	switch target.Type {
 	case settings.S3BackupType:
 		endpoint := strings.TrimRight(target.Endpoint, "/")
 		if endpoint == "" {
-			return "", fmt.Errorf("s3 backup target endpoint is empty")
+			return nil, fmt.Errorf("s3 backup target endpoint is empty")
 		}
 		if target.BucketName == "" {
-			return "", fmt.Errorf("s3 backup target bucket name is empty")
+			return nil, fmt.Errorf("s3 backup target bucket name is empty")
 		}
-		return fmt.Sprintf("s3:%s/%s/%s", endpoint, target.BucketName, repoSubpath), nil
+		return &RepositoryConfig{
+			URL:    fmt.Sprintf("s3:%s/%s/%s", endpoint, target.BucketName, repoSubpath),
+			Region: target.BucketRegion,
+		}, nil
 	default:
-		return "", fmt.Errorf("restic engine currently supports %s backup targets only, got %s", settings.S3BackupType, target.Type)
+		return nil, fmt.Errorf("restic engine currently supports %s backup targets only, got %s", settings.S3BackupType, target.Type)
 	}
 }
 
-func Env(secretName, repository string) []corev1.EnvVar {
+func Env(secretName string, repository *RepositoryConfig) []corev1.EnvVar {
 	env := []corev1.EnvVar{
 		{
 			Name: util.AWSAccessKey,
@@ -129,7 +139,7 @@ func Env(secretName, repository string) []corev1.EnvVar {
 				Key:                  util.AWSSecretKey,
 			}},
 		},
-		{Name: "RESTIC_REPOSITORY", Value: repository},
+		{Name: "RESTIC_REPOSITORY", Value: repository.URL},
 		{
 			Name: "RESTIC_PASSWORD",
 			ValueFrom: &corev1.EnvVarSource{SecretKeyRef: &corev1.SecretKeySelector{
@@ -138,6 +148,9 @@ func Env(secretName, repository string) []corev1.EnvVar {
 			}},
 		},
 	}
+	if repository.Region != "" {
+		env = append(env, corev1.EnvVar{Name: RegionKey, Value: repository.Region})
+	}
 	if !NoCache() {
 		env = append(env, corev1.EnvVar{Name: CacheDirEnvVar, Value: CacheDir})
 	}
@@ -145,10 +158,18 @@ func Env(secretName, repository string) []corev1.EnvVar {
 }
 
 func Command() string {
+	return command("")
+}
+
+func command(region string) string {
+	command := "restic"
 	if NoCache() {
-		return "restic --no-cache"
+		command += " --no-cache"
 	}
-	return "restic"
+	if region != "" {
+		command += fmt.Sprintf(" -o s3.region=\"$%s\"", RegionKey)
+	}
+	return command
 }
 
 func NoCache() bool {
@@ -173,9 +194,13 @@ func JobLabels(labels map[string]string) map[string]string {
 func NewJobRuntime(
 	ctx context.Context,
 	clientset kubernetes.Interface,
-	secretName, repository string,
+	secretName string,
+	repository *RepositoryConfig,
 	labels map[string]string,
 ) (*JobRuntime, bool, error) {
+	if repository == nil {
+		return nil, false, fmt.Errorf("restic repository config is nil")
+	}
 	image, err := Image()
 	if err != nil {
 		return nil, false, err
@@ -201,7 +226,7 @@ func NewJobRuntime(
 		Labels:    labels,
 		Env:       Env(secretName, repository),
 		Resources: resources,
-		Command:   Command(),
+		Command:   command(repository.Region),
 	}
 	if cacheVolume != nil {
 		runtime.Volumes = append(runtime.Volumes, *cacheVolume)
@@ -219,56 +244,22 @@ func CheckSnapshotJob(
 	getJob func(name string) (*batchv1.Job, error),
 	createJob func(name string) error,
 ) (SnapshotCheckResult, error) {
-	job, err := getJob(jobName)
-	if err == nil {
-		return SnapshotCheckJobResult(ctx, clientset, job)
-	}
-	if !apierrors.IsNotFound(err) {
-		return SnapshotCheckPending, err
-	}
-	if err := createJob(jobName); err != nil {
-		return SnapshotCheckPending, err
-	}
-	return SnapshotCheckPending, nil
+	return snapshotcheck.CheckJob(ctx, clientset, snapshotcheck.CheckJobOptions{
+		EngineName:      "restic",
+		ContainerName:   SnapshotCheckContainerName,
+		MissingExitCode: SnapshotCheckMissingExitCode,
+		JobName:         jobName,
+		GetJob:          getJob,
+		CreateJob:       createJob,
+	})
 }
 
 func SnapshotCheckJobResult(ctx context.Context, clientset kubernetes.Interface, job *batchv1.Job) (SnapshotCheckResult, error) {
-	if job.Status.Failed > 0 {
-		return failedSnapshotCheckResult(ctx, clientset, job)
-	}
-	if job.Status.Succeeded == 0 {
-		return SnapshotCheckPending, nil
-	}
-	return SnapshotCheckFound, nil
-}
-
-func failedSnapshotCheckResult(ctx context.Context, clientset kubernetes.Interface, job *batchv1.Job) (SnapshotCheckResult, error) {
-	exitCode, foundExitCode, err := SnapshotCheckJobExitCode(ctx, clientset, job)
-	if err != nil {
-		return SnapshotCheckPending, err
-	}
-	if foundExitCode && exitCode == SnapshotCheckMissingExitCode {
-		return SnapshotCheckMissing, nil
-	}
-	return SnapshotCheckFailed, nil
+	return snapshotcheck.JobResult(ctx, clientset, job, "restic", SnapshotCheckContainerName, SnapshotCheckMissingExitCode)
 }
 
 func SnapshotCheckJobExitCode(ctx context.Context, clientset kubernetes.Interface, job *batchv1.Job) (int32, bool, error) {
-	pods, err := clientset.CoreV1().Pods(job.Namespace).List(ctx, metav1.ListOptions{
-		LabelSelector: fmt.Sprintf("job-name=%s", job.Name),
-	})
-	if err != nil {
-		return 0, false, fmt.Errorf("listing pods for restic snapshot check job %s/%s: %w", job.Namespace, job.Name, err)
-	}
-	for _, pod := range pods.Items {
-		for _, status := range pod.Status.ContainerStatuses {
-			if status.Name != SnapshotCheckContainerName || status.State.Terminated == nil {
-				continue
-			}
-			return status.State.Terminated.ExitCode, true, nil
-		}
-	}
-	return 0, false, nil
+	return snapshotcheck.JobExitCode(ctx, clientset, job, "restic", SnapshotCheckContainerName)
 }
 
 func NewSnapshotCheckJob(opts SnapshotCheckJobOptions) *batchv1.Job {

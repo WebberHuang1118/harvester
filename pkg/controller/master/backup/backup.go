@@ -204,7 +204,6 @@ func newBackupEngines(
 			controllers.secrets.Cache(),
 			controllers.secrets,
 			controllers.storageClasses.Cache(),
-			controllers.jobs.Cache(),
 			controllers.jobs,
 			management.ClientSet,
 		),

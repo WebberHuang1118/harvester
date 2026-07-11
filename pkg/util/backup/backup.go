@@ -34,6 +34,10 @@ func ConstructEndpoint(target *settings.BackupTarget) string {
 	}
 }
 
+func CurrentTarget() (*settings.BackupTarget, error) {
+	return settings.DecodeBackupTarget(settings.BackupTargetSet.Get())
+}
+
 func GetBackupStoreDriver(secretCache ctlcorev1.SecretCache, target *settings.BackupTarget) (backupstore.BackupStoreDriver, error) {
 	if target.Type == settings.S3BackupType {
 		secret, err := secretCache.Get(util.LonghornSystemNamespaceName, util.BackupTargetSecretName)
