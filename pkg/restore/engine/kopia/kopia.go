@@ -107,9 +107,9 @@ func (ke *KopiaRestoreEngine) Reconcile(
 		return fmt.Errorf("volume restore at index %d not found", volIndex)
 	}
 	// Once a volume has finished restoring (progress=100), bail out before any
-	// Job lookup. The job watcher fires on Job deletion too, so syncFromJob's
-	// post-success delete would otherwise trigger a follow-up Reconcile where
-	// jobCache.Get returns NotFound and we'd spuriously recreate the Job.
+	// Job lookup. The job watcher also fires when TTL or owner-reference garbage
+	// collection removes the Job; this prevents that event from recreating the
+	// Job and running the restore a second time.
 	if ke.vmro.GetVolRestoreProgress(vr) == 100 {
 		return nil
 	}
@@ -159,16 +159,11 @@ func (ke *KopiaRestoreEngine) UpdateProgress(vr *harvesterv1.VolumeRestore) (int
 	return int64(pct), nil
 }
 
-func (ke *KopiaRestoreEngine) Delete(vmr *harvesterv1.VirtualMachineRestore, volIndex int) error {
-	vr := ke.vmro.GetVolRestore(vmr, volIndex)
-	if vr == nil {
-		return nil
-	}
-	err := ke.jobClient.Delete(ke.vmro.GetNamespace(vmr), ke.jobName(vmr, vr), &metav1.DeleteOptions{})
-	if apierrors.IsNotFound(err) {
-		return nil
-	}
-	return err
+// Delete is a no-op: completed restore Jobs are removed by
+// TTLSecondsAfterFinished, while unfinished Jobs carry an OwnerReference to
+// the VirtualMachineRestore and are removed by cascading garbage collection.
+func (ke *KopiaRestoreEngine) Delete(_ *harvesterv1.VirtualMachineRestore, _ int) error {
+	return nil
 }
 
 func (ke *KopiaRestoreEngine) ensurePVC(

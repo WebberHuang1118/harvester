@@ -107,9 +107,9 @@ func (re *ResticRestoreEngine) Reconcile(
 		return fmt.Errorf("volume restore at index %d not found", volIndex)
 	}
 	// Once a volume has finished restoring (progress=100), bail out before any
-	// Job lookup. The job watcher fires on Job deletion too, so syncFromJob's
-	// post-success delete would otherwise trigger a follow-up Reconcile where
-	// jobCache.Get returns NotFound and we'd spuriously recreate the Job.
+	// Job lookup. The job watcher also fires when TTL or owner-reference garbage
+	// collection removes the Job; this prevents that event from recreating the
+	// Job and running the restore a second time.
 	if re.vmro.GetVolRestoreProgress(vr) == 100 {
 		return nil
 	}
@@ -151,9 +151,9 @@ func (re *ResticRestoreEngine) UpdateProgress(vr *harvesterv1.VolumeRestore) (in
 	return int64(re.refreshProgressFromLogs(vr, namespace, jobName)), nil
 }
 
-// Delete is a no-op: the restore Job is reaped by syncFromJob on success, and
-// any unfinished Job carries an OwnerReference to the VirtualMachineRestore
-// so K8s cascade-GC sweeps it when the CR is deleted.
+// Delete is a no-op: completed restore Jobs are removed by
+// TTLSecondsAfterFinished, while unfinished Jobs carry an OwnerReference to
+// the VirtualMachineRestore and are removed by cascading garbage collection.
 func (re *ResticRestoreEngine) Delete(_ *harvesterv1.VirtualMachineRestore, _ int) error {
 	return nil
 }
@@ -454,9 +454,10 @@ func (re *ResticRestoreEngine) ensureResticSecret(vmr *harvesterv1.VirtualMachin
 }
 
 // syncFromJob reports only state transitions: failure → error, still running
-// → ErrRetryLater, success → mark progress=100 and reap the Job. Intermediate
-// progress sampling lives in UpdateProgress so it runs every reconcile via
-// the controller's updateProgressMetrics, independent of this path.
+// → ErrRetryLater, and success → mark progress=100. Intermediate progress
+// sampling lives in UpdateProgress so it runs every reconcile via the
+// controller's updateProgressMetrics, independent of this path. Job cleanup
+// is left to TTLSecondsAfterFinished.
 func (re *ResticRestoreEngine) syncFromJob(vr *harvesterv1.VolumeRestore, job *batchv1.Job) error {
 	if job.Status.Failed > 0 {
 		return fmt.Errorf("restic restore job %s/%s failed", job.Namespace, job.Name)
