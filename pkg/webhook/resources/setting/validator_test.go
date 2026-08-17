@@ -39,6 +39,27 @@ const (
 	testKubeOVNNadConfig = "{\"cniVersion\":\"0.3.1\",\"name\":\"vswitch1\",\"type\":\"kube-ovn\",\"server_socket\":\"/run/openvswitch/kube-ovn-daemon.sock\", \"provider\": \"vswitch1.default.ovn\"}"
 )
 
+func TestValidateBackupTargetFieldsKopiaGC(t *testing.T) {
+	validator := &settingValidator{}
+
+	err := validator.validateBackupTargetFields(&settings.BackupTarget{
+		Type:           settings.NFSBackupType,
+		Endpoint:       "nfs.example.com:/backups",
+		KopiaGCEnabled: true,
+	})
+	assert.EqualError(t, err, "Kopia GC is supported only for S3 backup targets")
+
+	err = validator.validateBackupTargetFields(&settings.BackupTarget{
+		Type:            settings.S3BackupType,
+		AccessKeyID:     "access-key",
+		SecretAccessKey: "secret-key",
+		BucketName:      "backups",
+		BucketRegion:    "test-region",
+		KopiaGCEnabled:  true,
+	})
+	assert.NoError(t, err)
+}
+
 func Test_validateOvercommitConfig(t *testing.T) {
 	tests := []struct {
 		name   string

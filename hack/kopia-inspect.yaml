@@ -70,6 +70,35 @@
 #
 #   kopia snapshot delete --delete "$SNAPSHOT_ID"
 #
+# Reclaim S3 data after snapshots are deleted. First ensure no Kopia backup,
+# restore, snapshot-delete, or other maintenance client is running. Inspect the
+# current maintenance owner, assign ownership to this pod, and run safe full
+# maintenance:
+#
+#   kopia maintenance status
+#   kopia maintenance set --owner=me
+#   kopia maintenance run --full
+#   kopia maintenance status
+#   kopia content stats
+#   kopia blob stats
+#
+# Full maintenance preserves all content referenced by existing snapshots,
+# including deduplicated content shared with deleted snapshots. Unreferenced
+# content is reclaimed in stages. If Kopia reports content that is too recent
+# to delete, wait until the next full-maintenance time shown by `maintenance
+# status`, then run `kopia maintenance run --full` again. Pack deletion can
+# require more than one full cycle.
+#
+# DANGEROUS: bypass the deletion safety window only when this pod is the sole
+# Kopia client and every backup, restore, snapshot-delete, and maintenance job
+# is stopped. A concurrent snapshot can be corrupted because uploaded content
+# may not yet be referenced by its final snapshot manifest:
+#
+#   kopia maintenance run --full --safety=none
+#
+# After forced cleanup, run the status and stats commands above again. A small
+# amount of repository format, index, log, and maintenance data will remain.
+#
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -156,6 +185,10 @@ spec:
           esac
           kopia repository connect s3 "$@" \
             --cache-directory=/kopia-cache \
+            --content-cache-size-mb=256 \
+            --content-cache-size-limit-mb=512 \
+            --metadata-cache-size-mb=256 \
+            --metadata-cache-size-limit-mb=512 \
             --bucket="${KOPIA_BUCKET}" \
             --endpoint="${endpoint}" \
             --region="${KOPIA_REGION}" \

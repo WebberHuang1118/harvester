@@ -13,8 +13,10 @@ import (
 	ctlcorev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
 	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
+	apiequality "k8s.io/apimachinery/pkg/api/equality"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/client-go/kubernetes"
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/config"
@@ -23,6 +25,7 @@ import (
 	"github.com/harvester/harvester/pkg/settings"
 	"github.com/harvester/harvester/pkg/util"
 	backuputil "github.com/harvester/harvester/pkg/util/backup"
+	kopiautil "github.com/harvester/harvester/pkg/util/kopia"
 )
 
 const (
@@ -42,6 +45,7 @@ func RegisterBackupTarget(ctx context.Context, management *config.Management, _ 
 		settings:            settings,
 		lhBackupTargets:     lhBackupTargets,
 		lhBackupTargetCache: lhBackupTargets.Cache(),
+		clientset:           management.ClientSet,
 	}
 
 	settings.OnChange(ctx, backupTargetControllerName, backupTargetController.OnBackupTargetChange)
@@ -55,13 +59,16 @@ type TargetHandler struct {
 	settings            ctlharvesterv1.SettingClient
 	lhBackupTargets     ctllonghornv1.BackupTargetClient
 	lhBackupTargetCache ctllonghornv1.BackupTargetCache
+	clientset           kubernetes.Interface
 }
 
 // OnBackupTargetChange handles backupTarget setting object on change
 func (h *TargetHandler) OnBackupTargetChange(_ string, setting *harvesterv1.Setting) (*harvesterv1.Setting, error) {
-	if setting == nil || setting.DeletionTimestamp != nil ||
-		setting.Name != settings.BackupTargetSettingName {
+	if setting == nil || setting.Name != settings.BackupTargetSettingName {
 		return setting, nil
+	}
+	if setting.DeletionTimestamp != nil {
+		return setting, h.reconcileKopiaMaintenance(nil)
 	}
 
 	target, err := settings.DecodeBackupTarget(setting.Value)
@@ -78,6 +85,12 @@ func (h *TargetHandler) OnBackupTargetChange(_ string, setting *harvesterv1.Sett
 		// stop the controller to reconcile it
 		if target.SecretAccessKey == "" && target.AccessKeyID == "" {
 			break
+		}
+		// A submitted target with credentials represents a newly configured or
+		// changed S3 target. Stop the old repository maintenance schedules before
+		// replacing the shared credentials and repository parameters.
+		if err = h.reconcileKopiaMaintenance(nil); err != nil {
+			return h.setConfiguredCondition(setting, "", err)
 		}
 
 		if err = h.updateLonghornTarget(target); err != nil {
@@ -105,6 +118,9 @@ func (h *TargetHandler) OnBackupTargetChange(_ string, setting *harvesterv1.Sett
 	default:
 		// reset backup target to default, then delete/update related settings
 		if target.IsDefaultBackupTarget() {
+			if err = h.reconcileKopiaMaintenance(nil); err != nil {
+				return h.setConfiguredCondition(setting, "", err)
+			}
 			if err = h.updateLonghornTarget(target); err != nil {
 				return h.setConfiguredCondition(setting, "", err)
 			}
@@ -130,10 +146,86 @@ func (h *TargetHandler) OnBackupTargetChange(_ string, setting *harvesterv1.Sett
 		}
 	}
 
+	if err = h.reconcileKopiaMaintenance(target); err != nil {
+		return h.setConfiguredCondition(setting, "", err)
+	}
+
 	if len(setting.Status.Conditions) == 0 || harvesterv1.SettingConfigured.IsFalse(setting) {
 		return h.setConfiguredCondition(setting, "", nil)
 	}
 	return setting, nil
+}
+
+type kopiaMaintenanceSchedule struct {
+	name     string
+	schedule string
+	full     bool
+}
+
+var kopiaMaintenanceSchedules = []kopiaMaintenanceSchedule{
+	{name: kopiautil.QuickMaintenanceCronJobName, schedule: kopiautil.QuickMaintenanceSchedule},
+	{name: kopiautil.FullMaintenanceCronJobName, schedule: kopiautil.FullMaintenanceSchedule, full: true},
+}
+
+// reconcileKopiaMaintenance owns the cluster-wide Kopia maintenance schedules.
+// A nil, default, non-S3, or disabled target removes both CronJobs. Otherwise it
+// creates or updates the schedules to match the current backup-target setting.
+func (h *TargetHandler) reconcileKopiaMaintenance(target *settings.BackupTarget) error {
+	if h.clientset == nil {
+		return fmt.Errorf("kubernetes clientset is nil")
+	}
+
+	cronJobs := h.clientset.BatchV1().CronJobs(util.LonghornSystemNamespaceName)
+	if target == nil || target.IsDefaultBackupTarget() || target.Type != settings.S3BackupType || !target.KopiaGCEnabled {
+		for _, maintenance := range kopiaMaintenanceSchedules {
+			if err := cronJobs.Delete(h.ctx, maintenance.name, metav1.DeleteOptions{}); err != nil && !apierrors.IsNotFound(err) {
+				return fmt.Errorf("failed to delete Kopia maintenance CronJob %s/%s: %w",
+					util.LonghornSystemNamespaceName, maintenance.name, err)
+			}
+		}
+		return nil
+	}
+
+	repository, err := kopiautil.S3Repository(target)
+	if err != nil {
+		return err
+	}
+	for _, maintenance := range kopiaMaintenanceSchedules {
+		desired, err := kopiautil.NewMaintenanceCronJob(
+			maintenance.name,
+			maintenance.schedule,
+			maintenance.full,
+			util.BackupTargetSecretName,
+			repository,
+		)
+		if err != nil {
+			return fmt.Errorf("failed to build Kopia maintenance CronJob %s: %w", maintenance.name, err)
+		}
+
+		current, err := cronJobs.Get(h.ctx, maintenance.name, metav1.GetOptions{})
+		if apierrors.IsNotFound(err) {
+			if _, err = cronJobs.Create(h.ctx, desired, metav1.CreateOptions{}); err != nil {
+				return fmt.Errorf("failed to create Kopia maintenance CronJob %s/%s: %w",
+					desired.Namespace, desired.Name, err)
+			}
+			continue
+		}
+		if err != nil {
+			return fmt.Errorf("failed to get Kopia maintenance CronJob %s/%s: %w",
+				desired.Namespace, desired.Name, err)
+		}
+		if apiequality.Semantic.DeepEqual(current.Labels, desired.Labels) &&
+			apiequality.Semantic.DeepDerivative(desired.Spec, current.Spec) {
+			continue
+		}
+
+		desired.ResourceVersion = current.ResourceVersion
+		if _, err = cronJobs.Update(h.ctx, desired, metav1.UpdateOptions{}); err != nil {
+			return fmt.Errorf("failed to update Kopia maintenance CronJob %s/%s: %w",
+				desired.Namespace, desired.Name, err)
+		}
+	}
+	return nil
 }
 
 func (h *TargetHandler) reUpdateBackupTargetSettingSecret(setting *harvesterv1.Setting, target *settings.BackupTarget) (*harvesterv1.Setting, error) {

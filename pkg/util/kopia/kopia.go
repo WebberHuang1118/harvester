@@ -37,12 +37,28 @@ const (
 	CacheVolume    = "kopia-cache"
 	LogDirEnvVar   = "KOPIA_LOG_DIR"
 
+	ContentCacheSizeMBKey          = "KOPIA_CONTENT_CACHE_SIZE_MB"
+	ContentCacheSizeLimitMBKey     = "KOPIA_CONTENT_CACHE_SIZE_LIMIT_MB"
+	MetadataCacheSizeMBKey         = "KOPIA_METADATA_CACHE_SIZE_MB"
+	MetadataCacheSizeLimitMBKey    = "KOPIA_METADATA_CACHE_SIZE_LIMIT_MB"
+	cacheCapacityReservedFraction  = int64(2)
+	cacheHardLimitShareDenominator = int64(4)
+	bytesPerMiB                    = int64(1024 * 1024)
+
 	LabelVMBackupNamespace  = "harvesterhci.io/vm-backup-namespace"
 	LabelVMBackupName       = "harvesterhci.io/vm-backup-name"
 	LabelVMRestoreNamespace = "harvesterhci.io/vm-restore-namespace"
 	LabelVMRestoreName      = "harvesterhci.io/vm-restore-name"
 	LabelKopiaJob           = "harvesterhci.io/kopia-job"
 	LabelValueTrue          = "true"
+	LabelKopiaMaintenance   = "harvesterhci.io/kopia-maintenance"
+	LabelMaintenanceType    = "harvesterhci.io/kopia-maintenance-type"
+
+	QuickMaintenanceCronJobName = "kopia-maintenance-quick"
+	FullMaintenanceCronJobName  = "kopia-maintenance-full"
+	QuickMaintenanceSchedule    = "0 * * * *"
+	FullMaintenanceSchedule     = "30 0 * * *"
+	CheckForUpdatesEnvVar       = "KOPIA_CHECK_FOR_UPDATES"
 
 	SnapshotCheckContainerName   = "check"
 	SnapshotCheckMissingExitCode = snapshotcheck.MissingExitCode
@@ -168,6 +184,15 @@ func RepositoryFromSetting() (*Repository, error) {
 }
 
 func Env(secretName string, repository *Repository) []corev1.EnvVar {
+	return EnvWithPasswordKey(secretName, PasswordKey, repository)
+}
+
+// EnvWithPasswordKey returns the common Kopia repository environment while
+// allowing callers to select the key containing the repository password. The
+// backup and restore engines use their per-operation KOPIA_PASSWORD key, while
+// maintenance uses the S3 secret-access-key directly, matching the password
+// derivation used by those engines.
+func EnvWithPasswordKey(secretName, passwordKey string, repository *Repository) []corev1.EnvVar {
 	return []corev1.EnvVar{
 		{Name: CacheDirEnvVar, Value: CacheDir},
 		{Name: LogDirEnvVar, Value: CacheDir},
@@ -189,7 +214,7 @@ func Env(secretName string, repository *Repository) []corev1.EnvVar {
 			Name: PasswordKey,
 			ValueFrom: &corev1.EnvVarSource{SecretKeyRef: &corev1.SecretKeySelector{
 				LocalObjectReference: corev1.LocalObjectReference{Name: secretName},
-				Key:                  PasswordKey,
+				Key:                  passwordKey,
 			}},
 		},
 		{Name: BucketKey, Value: repository.Bucket},
@@ -200,15 +225,103 @@ func Env(secretName string, repository *Repository) []corev1.EnvVar {
 	}
 }
 
+// MaintenanceCommand connects to (or initializes) the repository, takes
+// maintenance ownership for the short-lived CronJob pod, and runs one explicit
+// maintenance cycle. Automatic maintenance is disabled for the last two
+// commands so taking ownership cannot trigger an additional implicit cycle.
+func MaintenanceCommand(full bool) string {
+	fullFlag := ""
+	if full {
+		fullFlag = " --full"
+	}
+	return fmt.Sprintf(
+		"set -eo pipefail\n"+
+			"%s\n"+
+			"%s --no-auto-maintenance maintenance set --owner=me\n"+
+			"%s --no-auto-maintenance maintenance run%s",
+		ConnectOrCreateCommand(), Command(), Command(), fullFlag,
+	)
+}
+
+// NewMaintenanceCronJob builds a short-lived repository maintenance job using
+// the same image, S3 configuration, cache limits, and resource settings as the
+// Kopia backup and restore engines.
+func NewMaintenanceCronJob(name, schedule string, full bool, secretName string, repository *Repository) (*batchv1.CronJob, error) {
+	image, err := Image()
+	if err != nil {
+		return nil, err
+	}
+	cacheVolume, cacheMount, err := CacheVolumeAndMount()
+	if err != nil {
+		return nil, err
+	}
+	cacheEnv, err := CacheConfigEnv()
+	if err != nil {
+		return nil, err
+	}
+	resources, err := JobResources()
+	if err != nil {
+		return nil, err
+	}
+
+	maintenanceType := "quick"
+	if full {
+		maintenanceType = "full"
+	}
+	labels := JobLabels(map[string]string{
+		LabelKopiaMaintenance: LabelValueTrue,
+		LabelMaintenanceType:  maintenanceType,
+	})
+	env := append(EnvWithPasswordKey(secretName, util.AWSSecretKey, repository), cacheEnv...)
+	env = append(env, corev1.EnvVar{Name: CheckForUpdatesEnvVar, Value: "false"})
+
+	cronJob := &batchv1.CronJob{
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      name,
+			Namespace: util.LonghornSystemNamespaceName,
+			Labels:    labels,
+		},
+		Spec: batchv1.CronJobSpec{
+			Schedule:                   schedule,
+			ConcurrencyPolicy:          batchv1.ForbidConcurrent,
+			SuccessfulJobsHistoryLimit: ptr.To[int32](1),
+			FailedJobsHistoryLimit:     ptr.To[int32](1),
+			JobTemplate: batchv1.JobTemplateSpec{
+				Spec: batchv1.JobSpec{
+					BackoffLimit:            ptr.To[int32](0),
+					TTLSecondsAfterFinished: ptr.To[int32](3600),
+					Template: corev1.PodTemplateSpec{
+						ObjectMeta: metav1.ObjectMeta{Labels: labels},
+						Spec: corev1.PodSpec{
+							RestartPolicy: corev1.RestartPolicyNever,
+							Containers: []corev1.Container{{
+								Name:         "maintenance",
+								Image:        image,
+								Env:          env,
+								Command:      []string{"/bin/sh", "-c"},
+								Args:         []string{MaintenanceCommand(full)},
+								Resources:    resources,
+								VolumeMounts: []corev1.VolumeMount{*cacheMount},
+							}},
+							Volumes: []corev1.Volume{*cacheVolume},
+						},
+					},
+				},
+			},
+		},
+	}
+	return cronJob, nil
+}
+
 func Command() string {
 	return fmt.Sprintf("kopia --config-file=%s", ConfigPath)
 }
 
 func ConnectOrCreateCommand() string {
 	return fmt.Sprintf(
-		"(%[1]s repository connect s3$(if [ \"$%[7]s\" = \"true\" ]; then printf ' --disable-tls'; fi) --cache-directory=%[6]s --bucket=\"$%[2]s\" --endpoint=\"$%[3]s\" --region=\"$%[8]s\" --prefix=\"$%[9]s\" --access-key=\"$%[4]s\" --secret-access-key=\"$%[5]s\" || "+
-			"{ %[1]s repository create s3$(if [ \"$%[7]s\" = \"true\" ]; then printf ' --disable-tls'; fi) --cache-directory=%[6]s --bucket=\"$%[2]s\" --endpoint=\"$%[3]s\" --region=\"$%[8]s\" --prefix=\"$%[9]s\" --access-key=\"$%[4]s\" --secret-access-key=\"$%[5]s\" || "+
-			"%[1]s repository connect s3$(if [ \"$%[7]s\" = \"true\" ]; then printf ' --disable-tls'; fi) --cache-directory=%[6]s --bucket=\"$%[2]s\" --endpoint=\"$%[3]s\" --region=\"$%[8]s\" --prefix=\"$%[9]s\" --access-key=\"$%[4]s\" --secret-access-key=\"$%[5]s\"; })",
+		"(%[1]s repository connect s3$(if [ \"$%[7]s\" = \"true\" ]; then printf ' --disable-tls'; fi) --cache-directory=%[6]s%[10]s --bucket=\"$%[2]s\" --endpoint=\"$%[3]s\" --region=\"$%[8]s\" --prefix=\"$%[9]s\" --access-key=\"$%[4]s\" --secret-access-key=\"$%[5]s\" || "+
+			"{ %[1]s repository create s3$(if [ \"$%[7]s\" = \"true\" ]; then printf ' --disable-tls'; fi) --cache-directory=%[6]s%[10]s --bucket=\"$%[2]s\" --endpoint=\"$%[3]s\" --region=\"$%[8]s\" --prefix=\"$%[9]s\" --access-key=\"$%[4]s\" --secret-access-key=\"$%[5]s\" || "+
+			"%[1]s repository connect s3$(if [ \"$%[7]s\" = \"true\" ]; then printf ' --disable-tls'; fi) --cache-directory=%[6]s%[10]s --bucket=\"$%[2]s\" --endpoint=\"$%[3]s\" --region=\"$%[8]s\" --prefix=\"$%[9]s\" --access-key=\"$%[4]s\" --secret-access-key=\"$%[5]s\"; })",
 		Command(),
 		BucketKey,
 		EndpointKey,
@@ -218,12 +331,13 @@ func ConnectOrCreateCommand() string {
 		DisableTLSKey,
 		RegionKey,
 		PrefixKey,
+		cacheFlags(),
 	)
 }
 
 func ConnectCommand() string {
 	return fmt.Sprintf(
-		"%[1]s repository connect s3$(if [ \"$%[7]s\" = \"true\" ]; then printf ' --disable-tls'; fi) --cache-directory=%[6]s --bucket=\"$%[2]s\" --endpoint=\"$%[3]s\" --region=\"$%[8]s\" --prefix=\"$%[9]s\" --access-key=\"$%[4]s\" --secret-access-key=\"$%[5]s\"",
+		"%[1]s repository connect s3$(if [ \"$%[7]s\" = \"true\" ]; then printf ' --disable-tls'; fi) --cache-directory=%[6]s%[10]s --bucket=\"$%[2]s\" --endpoint=\"$%[3]s\" --region=\"$%[8]s\" --prefix=\"$%[9]s\" --access-key=\"$%[4]s\" --secret-access-key=\"$%[5]s\"",
 		Command(),
 		BucketKey,
 		EndpointKey,
@@ -233,6 +347,17 @@ func ConnectCommand() string {
 		DisableTLSKey,
 		RegionKey,
 		PrefixKey,
+		cacheFlags(),
+	)
+}
+
+func cacheFlags() string {
+	return fmt.Sprintf(
+		" --content-cache-size-mb=\"$%s\" --content-cache-size-limit-mb=\"$%s\" --metadata-cache-size-mb=\"$%s\" --metadata-cache-size-limit-mb=\"$%s\"",
+		ContentCacheSizeMBKey,
+		ContentCacheSizeLimitMBKey,
+		MetadataCacheSizeMBKey,
+		MetadataCacheSizeLimitMBKey,
 	)
 }
 
@@ -268,6 +393,10 @@ func NewJobRuntime(
 	if err != nil {
 		return nil, false, err
 	}
+	cacheEnv, err := CacheConfigEnv()
+	if err != nil {
+		return nil, false, err
+	}
 	resources, err := JobResources()
 	if err != nil {
 		return nil, false, err
@@ -276,7 +405,7 @@ func NewJobRuntime(
 	runtime := &JobRuntime{
 		Image:     image,
 		Labels:    labels,
-		Env:       Env(secretName, repository),
+		Env:       append(Env(secretName, repository), cacheEnv...),
 		Resources: resources,
 		Command:   Command(),
 	}
@@ -287,6 +416,31 @@ func NewJobRuntime(
 		runtime.VolumeMounts = append(runtime.VolumeMounts, *cacheMount)
 	}
 	return runtime, true, nil
+}
+
+func CacheConfigEnv() ([]corev1.EnvVar, error) {
+	sizeLimit, err := resource.ParseQuantity(settings.KopiaCacheSize.Get())
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse setting %s=%q: %w",
+			settings.KopiaCacheSizeSettingName, settings.KopiaCacheSize.Get(), err)
+	}
+	totalMiB := sizeLimit.Value() / bytesPerMiB
+	if totalMiB < cacheHardLimitShareDenominator*cacheCapacityReservedFraction {
+		return nil, fmt.Errorf("setting %s=%q must be at least 8Mi",
+			settings.KopiaCacheSizeSettingName, settings.KopiaCacheSize.Get())
+	}
+
+	// Content and metadata each receive one quarter of the emptyDir as a hard
+	// limit. The other half remains available for indexes, logs, and cache sweep
+	// overlap. Soft limits are half of the corresponding hard limits.
+	hardLimitMiB := totalMiB / cacheHardLimitShareDenominator
+	softLimitMiB := hardLimitMiB / cacheCapacityReservedFraction
+	return []corev1.EnvVar{
+		{Name: ContentCacheSizeMBKey, Value: fmt.Sprintf("%d", softLimitMiB)},
+		{Name: ContentCacheSizeLimitMBKey, Value: fmt.Sprintf("%d", hardLimitMiB)},
+		{Name: MetadataCacheSizeMBKey, Value: fmt.Sprintf("%d", softLimitMiB)},
+		{Name: MetadataCacheSizeLimitMBKey, Value: fmt.Sprintf("%d", hardLimitMiB)},
+	}, nil
 }
 
 func (r *JobRuntime) VolumesWith(volumes ...corev1.Volume) []corev1.Volume {

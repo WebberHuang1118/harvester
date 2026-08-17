@@ -28,6 +28,10 @@ KOPIA_ENDPOINT="${KOPIA_ENDPOINT:-}"
 KOPIA_REGION="${KOPIA_REGION:-}"
 KOPIA_PREFIX="${KOPIA_PREFIX:-kopia/}"
 KOPIA_DISABLE_TLS="${KOPIA_DISABLE_TLS:-auto}"
+KOPIA_CONTENT_CACHE_SIZE_MB="${KOPIA_CONTENT_CACHE_SIZE_MB:-256}"
+KOPIA_CONTENT_CACHE_SIZE_LIMIT_MB="${KOPIA_CONTENT_CACHE_SIZE_LIMIT_MB:-512}"
+KOPIA_METADATA_CACHE_SIZE_MB="${KOPIA_METADATA_CACHE_SIZE_MB:-256}"
+KOPIA_METADATA_CACHE_SIZE_LIMIT_MB="${KOPIA_METADATA_CACHE_SIZE_LIMIT_MB:-512}"
 PVC_SIZE="${PVC_SIZE:-1Gi}"
 PAYLOAD_MIB="${PAYLOAD_MIB:-64}"
 STORAGE_CLASS="${STORAGE_CLASS:-}"
@@ -58,6 +62,18 @@ for command in kubectl jq; do
 		exit 1
 	fi
 done
+
+for cache_value in \
+	"${KOPIA_CONTENT_CACHE_SIZE_MB}" \
+	"${KOPIA_CONTENT_CACHE_SIZE_LIMIT_MB}" \
+	"${KOPIA_METADATA_CACHE_SIZE_MB}" \
+	"${KOPIA_METADATA_CACHE_SIZE_LIMIT_MB}"; do
+	if [[ ! "${cache_value}" =~ ^[1-9][0-9]*$ ]]; then
+		echo "Kopia cache sizes must be positive integer MiB values, got: ${cache_value}" >&2
+		exit 1
+	fi
+done
+KOPIA_CACHE_FLAGS="--content-cache-size-mb=${KOPIA_CONTENT_CACHE_SIZE_MB} --content-cache-size-limit-mb=${KOPIA_CONTENT_CACHE_SIZE_LIMIT_MB} --metadata-cache-size-mb=${KOPIA_METADATA_CACHE_SIZE_MB} --metadata-cache-size-limit-mb=${KOPIA_METADATA_CACHE_SIZE_LIMIT_MB}"
 
 BACKUP_TARGET_VALUE="$(kubectl get settings.harvesterhci.io "${BACKUP_TARGET_SETTING}" -o jsonpath='{.value}')"
 BACKUP_TARGET_TYPE="$(jq -er '.type' <<<"${BACKUP_TARGET_VALUE}")"
@@ -153,6 +169,23 @@ wait_job() {
 	fi
 	echo "Job ${job} failed or timed out. Recent logs:"
 	kubectl -n "${NAMESPACE}" logs "job/${job}" --all-containers=true --tail=-1 || true
+	echo
+	echo "Job and pod termination status:"
+	kubectl -n "${NAMESPACE}" get "job/${job}" -o json | jq '{status: .status}' || true
+	kubectl -n "${NAMESPACE}" get pods -l "job-name=${job}" -o json | jq '
+		.items[] | {
+			pod: .metadata.name,
+			phase: .status.phase,
+			reason: .status.reason,
+			message: .status.message,
+			containers: [.status.containerStatuses[]? | {
+				name,
+				state,
+				lastState
+			}]
+		}' || true
+	echo "Pod events:"
+	kubectl -n "${NAMESPACE}" describe pods -l "job-name=${job}" | sed -n '/Events:/,$p' || true
 	return 1
 }
 
@@ -227,14 +260,14 @@ spec:
           if [ "\${KOPIA_DISABLE_TLS:-}" = "true" ] || [ "\${KOPIA_ENDPOINT#http://}" != "\${KOPIA_ENDPOINT}" ]; then
             DISABLE_TLS="--disable-tls"
           fi
-          kopia --config-file=/tmp/kopia.config repository connect s3 \${DISABLE_TLS} --cache-directory=/kopia-cache --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}"
+          kopia --config-file=/tmp/kopia.config repository connect s3 \${DISABLE_TLS} --cache-directory=/kopia-cache ${KOPIA_CACHE_FLAGS} --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}"
           SNAPSHOT_JSON=\$(kopia --config-file=/tmp/kopia.config snapshot list --all --json --tags 'ns:${NAMESPACE}')
           IDS=\$(printf '%s' "\${SNAPSHOT_JSON}" | jq -r '
             .[] |
             select(
-              (.tags.smoke // "") == "kopia-block-pvc" or
-              (.tags.vmb // "") == "${VMBACKUP_TAG}" or
-              ((.tags.vmb // "") | startswith("kopia-smoke-"))
+              (.tags["tag:smoke"] // "") == "kopia-block-pvc" or
+              (.tags["tag:vmb"] // "") == "${VMBACKUP_TAG}" or
+              ((.tags["tag:vmb"] // "") | startswith("kopia-smoke-"))
             ) |
             .id
           ')
@@ -393,9 +426,9 @@ ${JOB_TTL_LINE}
           if [ "\${KOPIA_DISABLE_TLS:-}" = "true" ] || [ "\${KOPIA_ENDPOINT#http://}" != "\${KOPIA_ENDPOINT}" ]; then
             DISABLE_TLS="--disable-tls"
           fi
-          kopia --config-file=/tmp/kopia.config repository connect s3 \${DISABLE_TLS} --cache-directory=/kopia-cache --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}" || \
-            { kopia --config-file=/tmp/kopia.config repository create s3 \${DISABLE_TLS} --cache-directory=/kopia-cache --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}" || \
-              kopia --config-file=/tmp/kopia.config repository connect s3 \${DISABLE_TLS} --cache-directory=/kopia-cache --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}"; }
+          kopia --config-file=/tmp/kopia.config repository connect s3 \${DISABLE_TLS} --cache-directory=/kopia-cache ${KOPIA_CACHE_FLAGS} --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}" || \
+            { kopia --config-file=/tmp/kopia.config repository create s3 \${DISABLE_TLS} --cache-directory=/kopia-cache ${KOPIA_CACHE_FLAGS} --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}" || \
+              kopia --config-file=/tmp/kopia.config repository connect s3 \${DISABLE_TLS} --cache-directory=/kopia-cache ${KOPIA_CACHE_FLAGS} --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}"; }
           /usr/bin/harvester io-mode -device /dev/source -mode=read | \
             kopia --config-file=/tmp/kopia.config snapshot create /${SOURCE_PV} --stdin-file ${SOURCE_PV} --tags ns:${NAMESPACE} --tags vmb:${VMBACKUP_TAG} --tags sn:${SNAPSHOT_TAG} --tags ${SMOKE_TEST_TAG}
         volumeMounts:
@@ -478,7 +511,7 @@ ${JOB_TTL_LINE}
           if [ "\${KOPIA_DISABLE_TLS:-}" = "true" ] || [ "\${KOPIA_ENDPOINT#http://}" != "\${KOPIA_ENDPOINT}" ]; then
             DISABLE_TLS="--disable-tls"
           fi
-          kopia --config-file=/tmp/kopia.config repository connect s3 \${DISABLE_TLS} --cache-directory=/kopia-cache --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}"
+          kopia --config-file=/tmp/kopia.config repository connect s3 \${DISABLE_TLS} --cache-directory=/kopia-cache ${KOPIA_CACHE_FLAGS} --bucket="\${KOPIA_BUCKET}" --endpoint="\${ENDPOINT}" --region="\${KOPIA_REGION}" --prefix="\${KOPIA_PREFIX}" --access-key="\${AWS_ACCESS_KEY_ID}" --secret-access-key="\${AWS_SECRET_ACCESS_KEY}"
           SNAPSHOT_JSON=\$(kopia --config-file=/tmp/kopia.config snapshot list --all --json --tags ns:${NAMESPACE} --tags vmb:${VMBACKUP_TAG} --tags sn:${SNAPSHOT_TAG})
           OBJ=\$(printf '%s' "\${SNAPSHOT_JSON}" | jq -er 'last | .rootEntry.obj') || { echo 'no matching Kopia snapshot found' >&2; exit 1; }
           kopia --config-file=/tmp/kopia.config show "\${OBJ}/${SOURCE_PV}" | /usr/bin/harvester io-mode -device /dev/target -mode=write

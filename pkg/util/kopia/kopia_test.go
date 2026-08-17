@@ -74,8 +74,32 @@ func TestS3RepositoryNormalizesHTTPEndpoint(t *testing.T) {
 	require.Contains(t, Env("credentials", repository), corev1.EnvVar{Name: PrefixKey, Value: "kopia/"})
 	require.Contains(t, ConnectCommand(), `--region="$KOPIA_REGION"`)
 	require.Contains(t, ConnectCommand(), `--prefix="$KOPIA_PREFIX"`)
+	require.Contains(t, ConnectCommand(), `--content-cache-size-limit-mb="$KOPIA_CONTENT_CACHE_SIZE_LIMIT_MB"`)
+	require.Contains(t, ConnectCommand(), `--metadata-cache-size-limit-mb="$KOPIA_METADATA_CACHE_SIZE_LIMIT_MB"`)
 	require.Contains(t, ConnectOrCreateCommand(), `--region="$KOPIA_REGION"`)
 	require.Contains(t, ConnectOrCreateCommand(), `--prefix="$KOPIA_PREFIX"`)
+	require.Contains(t, ConnectOrCreateCommand(), `--content-cache-size-limit-mb="$KOPIA_CONTENT_CACHE_SIZE_LIMIT_MB"`)
+	require.Contains(t, ConnectOrCreateCommand(), `--metadata-cache-size-limit-mb="$KOPIA_METADATA_CACHE_SIZE_LIMIT_MB"`)
+}
+
+func TestCacheConfigEnvReservesCapacityForOtherEphemeralData(t *testing.T) {
+	resetKopiaSettings(t)
+	require.NoError(t, settings.KopiaCacheSize.Set("2Gi"))
+
+	env, err := CacheConfigEnv()
+	require.NoError(t, err)
+	require.Contains(t, env, corev1.EnvVar{Name: ContentCacheSizeMBKey, Value: "256"})
+	require.Contains(t, env, corev1.EnvVar{Name: ContentCacheSizeLimitMBKey, Value: "512"})
+	require.Contains(t, env, corev1.EnvVar{Name: MetadataCacheSizeMBKey, Value: "256"})
+	require.Contains(t, env, corev1.EnvVar{Name: MetadataCacheSizeLimitMBKey, Value: "512"})
+}
+
+func TestCacheConfigEnvRejectsTooSmallCache(t *testing.T) {
+	resetKopiaSettings(t)
+	require.NoError(t, settings.KopiaCacheSize.Set("4Mi"))
+
+	_, err := CacheConfigEnv()
+	require.ErrorContains(t, err, "must be at least 8Mi")
 }
 
 func TestS3RepositoryNormalizesHTTPSEndpoint(t *testing.T) {

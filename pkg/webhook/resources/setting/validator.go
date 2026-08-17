@@ -497,6 +497,10 @@ func (v *settingValidator) validateBackupTargetFields(target *settings.BackupTar
 		}
 
 	case settings.NFSBackupType:
+		if target.KopiaGCEnabled {
+			return werror.NewInvalidError("Kopia GC is supported only for S3 backup targets", settings.KeywordValue)
+		}
+
 		if target.Endpoint == "" {
 			return werror.NewInvalidError("NFS backup target should have endpoint", settings.KeywordValue)
 		}
