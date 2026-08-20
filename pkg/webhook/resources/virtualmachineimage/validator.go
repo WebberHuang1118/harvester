@@ -1,11 +1,13 @@
 package virtualmachineimage
 
 import (
+	"reflect"
+
 	ctlcorev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
 	ctlstoragev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/storage/v1"
+	admissionv1 "k8s.io/api/admission/v1"
 	admissionregv1 "k8s.io/api/admissionregistration/v1"
 	"k8s.io/apimachinery/pkg/runtime"
-	authorizationv1client "k8s.io/client-go/kubernetes/typed/authorization/v1"
 
 	"github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	ctlharvesterv1 "github.com/harvester/harvester/pkg/generated/controllers/harvesterhci.io/v1beta1"
@@ -23,10 +25,9 @@ func NewValidator(
 	pvcCache ctlcorev1.PersistentVolumeClaimCache,
 	vmTemplateVersionCache ctlharvesterv1.VirtualMachineTemplateVersionCache,
 	scCache ctlstoragev1.StorageClassCache,
-	vmBackupCache ctlharvesterv1.VirtualMachineBackupCache,
-	sar authorizationv1client.SubjectAccessReviewInterface) types.Validator {
+	vmBackupCache ctlharvesterv1.VirtualMachineBackupCache) types.Validator {
 
-	vmiv := common.GetVMIValidator(vmiCache, scCache, podCache, pvcCache, vmTemplateVersionCache, vmBackupCache, sar)
+	vmiv := common.GetVMIValidator(vmiCache, scCache, podCache, pvcCache, vmTemplateVersionCache, vmBackupCache)
 	validators := map[v1beta1.VMIBackend]backend.Validator{
 		v1beta1.VMIBackendBackingImage: backingimage.GetValidator(vmiv),
 		v1beta1.VMIBackendCDI:          cdi.GetValidator(vmiv),
@@ -34,6 +35,61 @@ func NewValidator(
 
 	return &virtualMachineImageValidator{
 		validators: validators,
+	}
+}
+
+func (v *virtualMachineImageValidator) ResolveAccessChecks(
+	_ *types.Request,
+	operation admissionv1.Operation,
+	oldObj runtime.Object,
+	newObj runtime.Object,
+) ([]types.RelatedResource, error) {
+	vmi, _ := newObj.(*v1beta1.VirtualMachineImage)
+	if vmi == nil {
+		return nil, nil
+	}
+
+	resources := resolveVMIRefs(vmi)
+	switch operation {
+	case admissionv1.Create:
+		return resources, nil
+	case admissionv1.Update:
+		oldVMI, _ := oldObj.(*v1beta1.VirtualMachineImage)
+		if oldVMI != nil && reflect.DeepEqual(resolveVMIRefs(oldVMI), resources) {
+			return nil, nil
+		}
+		return resources, nil
+	default:
+		return nil, nil
+	}
+}
+
+func resolveVMIRefs(vmi *v1beta1.VirtualMachineImage) []types.RelatedResource {
+	switch vmi.Spec.SourceType {
+	case v1beta1.VirtualMachineImageSourceTypeClone:
+		parameters := vmi.Spec.SecurityParameters
+		if parameters == nil || parameters.CryptoOperation == "" ||
+			parameters.SourceImageNamespace == "" || parameters.SourceImageName == "" {
+			return nil
+		}
+		return []types.RelatedResource{{
+			GVR:         util.VirtualMachineImageGVR,
+			Namespace:   parameters.SourceImageNamespace,
+			Name:        parameters.SourceImageName,
+			Description: "source image",
+		}}
+	case v1beta1.VirtualMachineImageSourceTypeExportVolume:
+		if vmi.Spec.PVCNamespace == "" || vmi.Spec.PVCName == "" {
+			return nil
+		}
+		return []types.RelatedResource{{
+			GVR:         util.PVCGVR,
+			Namespace:   vmi.Spec.PVCNamespace,
+			Name:        vmi.Spec.PVCName,
+			Description: "PVC",
+		}}
+	default:
+		return nil
 	}
 }
 

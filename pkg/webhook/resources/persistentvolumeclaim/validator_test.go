@@ -5,8 +5,10 @@ import (
 
 	longhorn "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
 	"github.com/stretchr/testify/assert"
+	admissionv1 "k8s.io/api/admission/v1"
 	corev1 "k8s.io/api/core/v1"
 	storagev1 "k8s.io/api/storage/v1"
+	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/utils/ptr"
 	kubevirtv1 "kubevirt.io/api/core/v1"
@@ -15,6 +17,7 @@ import (
 	"github.com/harvester/harvester/pkg/generated/clientset/versioned/fake"
 	"github.com/harvester/harvester/pkg/util"
 	"github.com/harvester/harvester/pkg/util/fakeclients"
+	"github.com/harvester/harvester/pkg/webhook/types"
 )
 
 func TestIsBelongToUpgradeImage(t *testing.T) {
@@ -398,10 +401,10 @@ func TestCreate(t *testing.T) {
 			validator := &pvcValidator{
 				scCache:           fakeclients.StorageClassCache(clientset.StorageV1().StorageClasses),
 				backingImageCache: fakeclients.BackingImageCache(clientset.LonghornV1beta2().BackingImages),
-				sar:               sar,
 			}
+			adapter := types.NewValidatorAdapter(validator, sar)
 
-			err := validator.Create(fakeRequest, tc.pvc)
+			_, err := adapter.Create(fakeRequest, tc.pvc)
 
 			if tc.expectError {
 				assert.NotNil(t, err, tc.name)
@@ -412,6 +415,78 @@ func TestCreate(t *testing.T) {
 				assert.Nil(t, err, tc.name)
 			}
 		})
+	}
+}
+
+func TestResolveAccessChecksForPVCUpdate(t *testing.T) {
+	const (
+		scName  = "lh-test-sc"
+		biName  = "vmi-test-bi"
+		imageID = "default/image-szq79"
+	)
+
+	clientset := fake.NewSimpleClientset()
+	assert.NoError(t, clientset.Tracker().Add(&storagev1.StorageClass{
+		ObjectMeta:  metav1.ObjectMeta{Name: scName},
+		Provisioner: util.CSIProvisionerLonghorn,
+		Parameters:  map[string]string{util.LonghornOptionBackingImageName: biName},
+	}))
+	assert.NoError(t, clientset.Tracker().Add(&longhorn.BackingImage{
+		ObjectMeta: metav1.ObjectMeta{
+			Name:        biName,
+			Namespace:   util.LonghornSystemNamespaceName,
+			Annotations: map[string]string{util.AnnotationImageID: imageID},
+		},
+	}))
+
+	validator := &pvcValidator{
+		scCache:           fakeclients.StorageClassCache(clientset.StorageV1().StorageClasses),
+		backingImageCache: fakeclients.BackingImageCache(clientset.LonghornV1beta2().BackingImages),
+	}
+	storageRequests := corev1.VolumeResourceRequirements{
+		Requests: corev1.ResourceList{corev1.ResourceStorage: resource.MustParse("1Gi")},
+	}
+	newPVC := &corev1.PersistentVolumeClaim{
+		Spec: corev1.PersistentVolumeClaimSpec{
+			StorageClassName: ptr.To(scName),
+			Resources:        storageRequests,
+		},
+	}
+	fakeRequest := fakeclients.NewFakeRequest("test-user")
+
+	t.Run("changed storage class is authorized", func(t *testing.T) {
+		oldPVC := &corev1.PersistentVolumeClaim{
+			Spec: corev1.PersistentVolumeClaimSpec{
+				Resources: storageRequests,
+			},
+		}
+		adapter := types.NewValidatorAdapter(validator, fakeclients.DeniedSARClient())
+
+		_, err := adapter.Update(fakeRequest, oldPVC, newPVC)
+
+		assert.EqualError(t, err, `user "test-user" is not allowed to access image default/image-szq79`)
+	})
+
+	t.Run("unchanged storage class is not reauthorized", func(t *testing.T) {
+		oldPVC := newPVC.DeepCopy()
+		adapter := types.NewValidatorAdapter(validator, fakeclients.DeniedSARClient())
+
+		_, err := adapter.Update(fakeRequest, oldPVC, newPVC)
+
+		assert.NoError(t, err)
+	})
+
+	resources, err := validator.ResolveAccessChecks(
+		fakeRequest,
+		admissionv1.Update,
+		&corev1.PersistentVolumeClaim{},
+		newPVC,
+	)
+	assert.NoError(t, err)
+	if assert.Len(t, resources, 1) {
+		assert.Equal(t, util.VirtualMachineImageGVR, resources[0].GVR)
+		assert.Equal(t, "default", resources[0].Namespace)
+		assert.Equal(t, "image-szq79", resources[0].Name)
 	}
 }
 

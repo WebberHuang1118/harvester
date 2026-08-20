@@ -18,6 +18,7 @@ import (
 	"github.com/harvester/harvester/pkg/generated/clientset/versioned/fake"
 	"github.com/harvester/harvester/pkg/util"
 	"github.com/harvester/harvester/pkg/util/fakeclients"
+	"github.com/harvester/harvester/pkg/webhook/types"
 )
 
 func TestCheckMaintenanceModeStrategyIsValid(t *testing.T) {
@@ -243,7 +244,7 @@ func TestCheckMaintenanceModeStrategyIsValid(t *testing.T) {
 		},
 	}
 
-	validator := NewValidator(nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil).(*vmValidator)
+	validator := NewValidator(nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil).(*vmValidator)
 
 	for _, tc := range testCases {
 		err := validator.checkMaintenanceModeStrategyIsValid(tc.newVM, tc.oldVM)
@@ -891,7 +892,7 @@ func Test_virtualMachineValidator_duplicateMacAddress(t *testing.T) {
 	fakeVMCache := fakeclients.VirtualMachineCache(clientset.KubevirtV1().VirtualMachines)
 	fakeNadCache := fakeclients.NetworkAttachmentDefinitionCache(clientset.K8sCniCncfIoV1().NetworkAttachmentDefinitions)
 
-	validator := NewValidator(nil, nil, nil, nil, nil, nil, fakeVMCache, nil, fakeNadCache, nil, nil, nil, nil, nil).(*vmValidator)
+	validator := NewValidator(nil, nil, nil, nil, nil, nil, fakeVMCache, nil, fakeNadCache, nil, nil, nil, nil).(*vmValidator)
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
@@ -1236,7 +1237,7 @@ func TestVmValidator_Update(t *testing.T) {
 	fakeScCache := fakeclients.StorageClassCache(harvesterFakeClientset.StorageV1().StorageClasses)
 	fakeBICache := fakeclients.BackingImageCache(harvesterFakeClientset.LonghornV1beta2().BackingImages)
 
-	validator := NewValidator(fakeNSCache, nil, nil, nil, nil, nil, nil, nil, nil, nil, fakeScCache, nil, fakeBICache, nil).(*vmValidator)
+	validator := NewValidator(fakeNSCache, nil, nil, nil, nil, nil, nil, nil, nil, nil, fakeScCache, nil, fakeBICache).(*vmValidator)
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
@@ -1254,12 +1255,12 @@ func TestVmValidator_Update(t *testing.T) {
 			} else {
 				validator.scCache = fakeScCache
 			}
+			sar := allowedFakeSAR
 			if test.sarDenied {
-				validator.sar = denyFakeSAR
-			} else {
-				validator.sar = allowedFakeSAR
+				sar = denyFakeSAR
 			}
-			err := validator.Update(fakeRequest, test.oldVM, test.newVM)
+			adapter := types.NewValidatorAdapter(validator, sar)
+			_, err := adapter.Update(fakeRequest, test.oldVM, test.newVM)
 
 			if test.expectedValidationError {
 				assert.Error(t, err)
@@ -1410,7 +1411,7 @@ func TestCheckCdRomVolumeIsValid(t *testing.T) {
 		},
 	}
 
-	validator := NewValidator(nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil).(*vmValidator)
+	validator := NewValidator(nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil).(*vmValidator)
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
@@ -1837,7 +1838,7 @@ func TestCheckTargetVolumes(t *testing.T) {
 				assert.NoError(t, err, "Mock resource should add into fake controller tracker")
 			}
 			pvcCache := fakeclients.PersistentVolumeClaimCache(clientset.CoreV1().PersistentVolumeClaims)
-			validator := NewValidator(nil, nil, pvcCache, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil).(*vmValidator)
+			validator := NewValidator(nil, nil, pvcCache, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil).(*vmValidator)
 
 			err := validator.checkTargetVolumes(nil, tc.vm)
 			if tc.expectError {
@@ -2203,7 +2204,7 @@ func TestVmValidator_Create(t *testing.T) {
 	fakeScCache := fakeclients.StorageClassCache(harvesterFakeClientset.StorageV1().StorageClasses)
 	fakeBICache := fakeclients.BackingImageCache(harvesterFakeClientset.LonghornV1beta2().BackingImages)
 
-	validator := NewValidator(fakeNSCache, nil, nil, nil, nil, nil, nil, nil, nil, nil, fakeScCache, nil, fakeBICache, nil).(*vmValidator)
+	validator := NewValidator(fakeNSCache, nil, nil, nil, nil, nil, nil, nil, nil, nil, fakeScCache, nil, fakeBICache).(*vmValidator)
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
@@ -2211,12 +2212,12 @@ func TestVmValidator_Create(t *testing.T) {
 			if test.objMeta != nil {
 				vm.ObjectMeta = *test.objMeta
 			}
+			sar := allowedFakeSAR
 			if test.sarDenied {
-				validator.sar = denyFakeSAR
-			} else {
-				validator.sar = allowedFakeSAR
+				sar = denyFakeSAR
 			}
-			err := validator.Create(fakeRequest, vm)
+			adapter := types.NewValidatorAdapter(validator, sar)
+			_, err := adapter.Create(fakeRequest, vm)
 			if test.expectedValidationError {
 				assert.Error(t, err)
 			} else {

@@ -87,8 +87,7 @@ func Validation(clients *clients.Clients, options *config.Options, crdExists boo
 			clients.HarvesterFactory.Harvesterhci().V1beta1().VirtualMachineImage().Cache(),
 			clients.StorageFactory.Storage().V1().StorageClass().Cache(),
 			clients.HarvesterFactory.Harvesterhci().V1beta1().Setting().Cache(),
-			clients.LonghornFactory.Longhorn().V1beta2().BackingImage().Cache(),
-			clients.K8s.AuthorizationV1().SubjectAccessReviews()),
+			clients.LonghornFactory.Longhorn().V1beta2().BackingImage().Cache()),
 		volumeremotebackup.NewBackupValidator(
 			clients.Core.PersistentVolumeClaim().Cache(),
 			clients.HarvesterFactory.Harvesterhci().V1beta1().VolumeRemoteBackup(),
@@ -120,16 +119,14 @@ func Validation(clients *clients.Clients, options *config.Options, crdExists boo
 			clients.KubevirtFactory.Kubevirt().V1().KubeVirt().Cache(),
 			clients.StorageFactory.Storage().V1().StorageClass().Cache(),
 			clients.HarvesterFactory.Harvesterhci().V1beta1().Setting().Cache(),
-			clients.LonghornFactory.Longhorn().V1beta2().BackingImage().Cache(),
-			clients.K8s.AuthorizationV1().SubjectAccessReviews()),
+			clients.LonghornFactory.Longhorn().V1beta2().BackingImage().Cache()),
 		virtualmachineimage.NewValidator(
 			clients.HarvesterFactory.Harvesterhci().V1beta1().VirtualMachineImage().Cache(),
 			clients.Core.Pod().Cache(),
 			clients.Core.PersistentVolumeClaim().Cache(),
 			clients.HarvesterFactory.Harvesterhci().V1beta1().VirtualMachineTemplateVersion().Cache(),
 			clients.StorageFactory.Storage().V1().StorageClass().Cache(),
-			clients.HarvesterFactory.Harvesterhci().V1beta1().VirtualMachineBackup().Cache(),
-			clients.K8s.AuthorizationV1().SubjectAccessReviews()),
+			clients.HarvesterFactory.Harvesterhci().V1beta1().VirtualMachineBackup().Cache()),
 		upgrade.NewValidator(
 			clients.HarvesterFactory.Harvesterhci().V1beta1().Upgrade().Cache(),
 			clients.HarvesterFactory.Harvesterhci().V1beta1().Addon().Cache(),
@@ -264,8 +261,9 @@ func Validation(clients *clients.Clients, options *config.Options, crdExists boo
 	}
 
 	router := webhook.NewRouter()
+	sar := clients.K8s.AuthorizationV1().SubjectAccessReviews()
 	for _, v := range validators {
-		addHandler(router, types.AdmissionTypeValidation, types.NewValidatorAdapter(v), options)
+		addHandler(router, types.AdmissionTypeValidation, types.NewValidatorAdapter(v, sar), options)
 		resources = append(resources, v.Resource())
 	}
 

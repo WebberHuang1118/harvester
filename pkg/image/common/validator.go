@@ -12,14 +12,12 @@ import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/apimachinery/pkg/util/validation"
-	authorizationv1client "k8s.io/client-go/kubernetes/typed/authorization/v1"
 
 	"github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	ctlharvesterv1 "github.com/harvester/harvester/pkg/generated/controllers/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/util"
 	werror "github.com/harvester/harvester/pkg/webhook/error"
 	"github.com/harvester/harvester/pkg/webhook/indexeres"
-	"github.com/harvester/harvester/pkg/webhook/types"
 )
 
 const (
@@ -32,8 +30,8 @@ type VMIValidator interface {
 	CheckDisplayName(vmi *v1beta1.VirtualMachineImage) error
 	CheckUpdateDisplayName(oldVMI, newVMI *v1beta1.VirtualMachineImage) error
 	CheckURL(vmi *v1beta1.VirtualMachineImage) error
-	CheckSecurityParameters(request *types.Request, vmi *v1beta1.VirtualMachineImage) error
-	CheckImagePVC(request *types.Request, vmi *v1beta1.VirtualMachineImage) error
+	CheckSecurityParameters(vmi *v1beta1.VirtualMachineImage) error
+	CheckImagePVC(vmi *v1beta1.VirtualMachineImage) error
 	CheckPVCInUse(vmi *v1beta1.VirtualMachineImage) error
 
 	IsExportVolume(vmi *v1beta1.VirtualMachineImage) bool
@@ -53,7 +51,6 @@ type VMIValidator interface {
 type vmiValidator struct {
 	vmiCache               ctlharvesterv1.VirtualMachineImageCache
 	scCache                ctlstoragev1.StorageClassCache
-	sar                    authorizationv1client.SubjectAccessReviewInterface
 	podCache               ctlcorev1.PodCache
 	pvcCache               ctlcorev1.PersistentVolumeClaimCache
 	vmTemplateVersionCache ctlharvesterv1.VirtualMachineTemplateVersionCache
@@ -65,12 +62,10 @@ func GetVMIValidator(vmiCache ctlharvesterv1.VirtualMachineImageCache,
 	podCache ctlcorev1.PodCache,
 	pvcCache ctlcorev1.PersistentVolumeClaimCache,
 	vmTemplateVersionCache ctlharvesterv1.VirtualMachineTemplateVersionCache,
-	vmBackupCache ctlharvesterv1.VirtualMachineBackupCache,
-	sar authorizationv1client.SubjectAccessReviewInterface) VMIValidator {
+	vmBackupCache ctlharvesterv1.VirtualMachineBackupCache) VMIValidator {
 	vmiv := &vmiValidator{
 		vmiCache:               vmiCache,
 		scCache:                scCache,
-		sar:                    sar,
 		podCache:               podCache,
 		pvcCache:               pvcCache,
 		vmTemplateVersionCache: vmTemplateVersionCache,
@@ -149,7 +144,7 @@ func (v *vmiValidator) CheckURL(vmi *v1beta1.VirtualMachineImage) error {
 	return nil
 }
 
-func (v *vmiValidator) CheckSecurityParameters(request *types.Request, vmi *v1beta1.VirtualMachineImage) error {
+func (v *vmiValidator) CheckSecurityParameters(vmi *v1beta1.VirtualMachineImage) error {
 	if vmi.Spec.SourceType != v1beta1.VirtualMachineImageSourceTypeClone {
 		return nil
 	}
@@ -169,22 +164,6 @@ func (v *vmiValidator) CheckSecurityParameters(request *types.Request, vmi *v1be
 
 	if sp.SourceImageNamespace == "" {
 		return werror.NewInvalidError(`SourceImageNamespace is required when image source type is "clone"`, "spec.security.sourceImageName")
-	}
-
-	allowed, err := util.CheckObjectAccess(request.Context, util.ResourceAccessCheck{
-		SAR:       v.sar,
-		Username:  request.UserInfo.Username,
-		Groups:    request.UserInfo.Groups,
-		Verb:      util.VerbGet,
-		GVR:       util.VirtualMachineImageGVR,
-		Namespace: sp.SourceImageNamespace,
-		Name:      sp.SourceImageName,
-	})
-	if err != nil {
-		return werror.NewInternalError(fmt.Sprintf("failed to check access to source image %s/%s: %v", sp.SourceImageNamespace, sp.SourceImageName, err))
-	}
-	if !allowed {
-		return werror.NewInvalidError(fmt.Sprintf("user %q is not allowed to access source image %s/%s", request.UserInfo.Username, sp.SourceImageNamespace, sp.SourceImageName), "")
 	}
 
 	// Check if the source image exists
@@ -260,7 +239,7 @@ func (v *vmiValidator) CheckPVCInUse(vmi *v1beta1.VirtualMachineImage) error {
 	return nil
 }
 
-func (v *vmiValidator) CheckImagePVC(request *types.Request, vmi *v1beta1.VirtualMachineImage) error {
+func (v *vmiValidator) CheckImagePVC(vmi *v1beta1.VirtualMachineImage) error {
 	if vmi.Spec.SourceType != v1beta1.VirtualMachineImageSourceTypeExportVolume {
 		return nil
 	}
@@ -272,23 +251,7 @@ func (v *vmiValidator) CheckImagePVC(request *types.Request, vmi *v1beta1.Virtua
 		return werror.NewInvalidError(`pvcName is required when image source type is "export-from-volume"`, "spec.pvcName")
 	}
 
-	allowed, err := util.CheckObjectAccess(request.Context, util.ResourceAccessCheck{
-		SAR:       v.sar,
-		Username:  request.UserInfo.Username,
-		Groups:    request.UserInfo.Groups,
-		Verb:      util.VerbGet,
-		GVR:       util.PVCGVR,
-		Namespace: vmi.Spec.PVCNamespace,
-		Name:      vmi.Spec.PVCName,
-	})
-	if err != nil {
-		return werror.NewInternalError(fmt.Sprintf("failed to check user permission for pvc %s/%s: %v", vmi.Spec.PVCNamespace, vmi.Spec.PVCName, err))
-	}
-	if !allowed {
-		return werror.NewInvalidError(fmt.Sprintf("user has no permission to get the pvc resource %s/%s", vmi.Spec.PVCNamespace, vmi.Spec.PVCName), "")
-	}
-
-	_, err = v.pvcCache.Get(vmi.Spec.PVCNamespace, vmi.Spec.PVCName)
+	_, err := v.pvcCache.Get(vmi.Spec.PVCNamespace, vmi.Spec.PVCName)
 	if err != nil {
 		message := fmt.Sprintf("failed to get pvc %s/%s, error: %s", vmi.Spec.PVCName, vmi.Spec.PVCNamespace, err.Error())
 		return werror.NewInvalidError(message, "")

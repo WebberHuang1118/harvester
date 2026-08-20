@@ -9,6 +9,7 @@ import (
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/generated/clientset/versioned/fake"
 	"github.com/harvester/harvester/pkg/util/fakeclients"
+	"github.com/harvester/harvester/pkg/webhook/types"
 )
 
 func TestVirtualMachineImageValidator_Create(t *testing.T) {
@@ -90,10 +91,10 @@ func TestVirtualMachineImageValidator_Create(t *testing.T) {
 				nil, nil,
 				fakeclients.StorageClassCache(clientset.StorageV1().StorageClasses),
 				nil,
-				sar,
 			)
+			adapter := types.NewValidatorAdapter(validator, sar)
 
-			err := validator.Create(fakeRequest, tc.vmi)
+			_, err := adapter.Create(fakeRequest, tc.vmi)
 			if tc.expectError {
 				assert.Error(t, err)
 			} else {
@@ -101,4 +102,47 @@ func TestVirtualMachineImageValidator_Create(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestVirtualMachineImageValidator_UpdateRelatedResourceAccess(t *testing.T) {
+	oldVMI := &harvesterv1.VirtualMachineImage{
+		ObjectMeta: metav1.ObjectMeta{Name: "test-clone", Namespace: "default"},
+		Spec: harvesterv1.VirtualMachineImageSpec{
+			Backend:     harvesterv1.VMIBackendBackingImage,
+			DisplayName: "test-clone-image",
+			SourceType:  harvesterv1.VirtualMachineImageSourceTypeClone,
+			SecurityParameters: &harvesterv1.VirtualMachineImageSecurityParameters{
+				CryptoOperation:      harvesterv1.VirtualMachineImageCryptoOperationTypeEncrypt,
+				SourceImageName:      "source-image",
+				SourceImageNamespace: "default",
+			},
+		},
+	}
+	fakeRequest := fakeclients.NewFakeRequest("test-user")
+	clientset := fake.NewSimpleClientset()
+	validator := NewValidator(
+		fakeclients.VirtualMachineImageCache(clientset.HarvesterhciV1beta1().VirtualMachineImages),
+		fakeclients.PodCache(clientset.CoreV1().Pods),
+		nil, nil,
+		fakeclients.StorageClassCache(clientset.StorageV1().StorageClasses),
+		nil,
+	)
+
+	t.Run("changed source image is authorized", func(t *testing.T) {
+		newVMI := oldVMI.DeepCopy()
+		newVMI.Spec.SecurityParameters.SourceImageName = "another-source-image"
+		adapter := types.NewValidatorAdapter(validator, fakeclients.DeniedSARClient())
+
+		_, err := adapter.Update(fakeRequest, oldVMI, newVMI)
+
+		assert.EqualError(t, err, `user "test-user" is not allowed to access source image default/another-source-image`)
+	})
+
+	t.Run("unchanged source image is not reauthorized", func(t *testing.T) {
+		adapter := types.NewValidatorAdapter(validator, fakeclients.DeniedSARClient())
+
+		_, err := adapter.Update(fakeRequest, oldVMI, oldVMI.DeepCopy())
+
+		assert.NoError(t, err)
+	})
 }

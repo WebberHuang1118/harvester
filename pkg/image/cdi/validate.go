@@ -32,7 +32,7 @@ func (cv *Validator) Create(req *types.Request, vmImg *harvesterv1.VirtualMachin
 		return err
 	}
 
-	if err := cv.vmiv.CheckImagePVC(req, vmImg); err != nil {
+	if err := cv.vmiv.CheckImagePVC(vmImg); err != nil {
 		return err
 	}
 	return nil
