@@ -106,12 +106,10 @@ func (ke *KopiaRestoreEngine) Reconcile(
 	if vr == nil {
 		return fmt.Errorf("volume restore at index %d not found", volIndex)
 	}
-	// Once a volume has finished restoring (progress=100), bail out before any
-	// Job lookup. The job watcher also fires when TTL or owner-reference garbage
-	// collection removes the Job; this prevents that event from recreating the
-	// Job and running the restore a second time.
+	// progress=100 comes from a previously persisted reconciliation. It is now
+	// safe to release the Job finalizer and let the TTL controller remove it.
 	if ke.vmro.GetVolRestoreProgress(vr) == 100 {
-		return nil
+		return ke.releaseJob(ke.vmro.GetNamespace(vmr), ke.jobName(vmr, vr))
 	}
 	vb := ke.vmbo.GetVolBackup(vmb, volIndex)
 	if vb == nil {
@@ -159,11 +157,14 @@ func (ke *KopiaRestoreEngine) UpdateProgress(vr *harvesterv1.VolumeRestore) (int
 	return int64(pct), nil
 }
 
-// Delete is a no-op: completed restore Jobs are removed by
-// TTLSecondsAfterFinished, while unfinished Jobs carry an OwnerReference to
-// the VirtualMachineRestore and are removed by cascading garbage collection.
-func (ke *KopiaRestoreEngine) Delete(_ *harvesterv1.VirtualMachineRestore, _ int) error {
-	return nil
+// Delete releases completion protection and removes the per-volume restore
+// Job. This also handles unfinished Jobs when a VMRestore is deleted.
+func (ke *KopiaRestoreEngine) Delete(vmr *harvesterv1.VirtualMachineRestore, volIndex int) error {
+	vr := ke.vmro.GetVolRestore(vmr, volIndex)
+	if vr == nil {
+		return nil
+	}
+	return engine.DeleteRestoreJob(ke.jobClient, ke.vmro.GetNamespace(vmr), ke.jobName(vmr, vr))
 }
 
 func (ke *KopiaRestoreEngine) ensurePVC(
@@ -291,9 +292,10 @@ func (ke *KopiaRestoreEngine) createRestoreJob(
 	})
 	job := &batchv1.Job{
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      jobName,
-			Namespace: namespace,
-			Labels:    labels,
+			Name:       jobName,
+			Namespace:  namespace,
+			Labels:     labels,
+			Finalizers: []string{engine.RestoreJobCompletionFinalizer},
 			OwnerReferences: []metav1.OwnerReference{{
 				APIVersion: harvesterv1.SchemeGroupVersion.String(),
 				Kind:       "VirtualMachineRestore",
@@ -303,7 +305,7 @@ func (ke *KopiaRestoreEngine) createRestoreJob(
 		},
 		Spec: batchv1.JobSpec{
 			BackoffLimit:            ptr.To[int32](0),
-			TTLSecondsAfterFinished: ptr.To[int32](300),
+			TTLSecondsAfterFinished: ptr.To[int32](60),
 			Template: corev1.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: labels,
@@ -457,6 +459,9 @@ func (ke *KopiaRestoreEngine) ensureKopiaSecret(vmr *harvesterv1.VirtualMachineR
 
 func (ke *KopiaRestoreEngine) syncFromJob(vr *harvesterv1.VolumeRestore, job *batchv1.Job) error {
 	if job.Status.Failed > 0 {
+		if err := ke.releaseJob(job.Namespace, job.Name); err != nil {
+			return err
+		}
 		return fmt.Errorf("kopia restore job %s/%s failed", job.Namespace, job.Name)
 	}
 	if job.Status.Succeeded == 0 {
@@ -469,6 +474,18 @@ func (ke *KopiaRestoreEngine) syncFromJob(vr *harvesterv1.VolumeRestore, job *ba
 		return err
 	}
 	logrus.Debugf("kopia restore job %s/%s completed", job.Namespace, job.Name)
+	return engine.ErrRetryLater
+}
+
+func (ke *KopiaRestoreEngine) releaseJob(namespace, name string) error {
+	if err := engine.ReleaseRestoreJob(ke.jobClient, namespace, name); err != nil {
+		logrus.WithError(err).Warnf(
+			"failed to release kopia restore job %s/%s",
+			namespace,
+			name,
+		)
+		return engine.ErrRetryLater
+	}
 	return nil
 }
 

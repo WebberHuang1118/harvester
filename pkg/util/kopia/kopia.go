@@ -611,7 +611,7 @@ func NewSnapshotCheckJob(opts SnapshotCheckJobOptions) *batchv1.Job {
 		},
 		Spec: batchv1.JobSpec{
 			BackoffLimit:            ptr.To[int32](0),
-			TTLSecondsAfterFinished: ptr.To[int32](300),
+			TTLSecondsAfterFinished: ptr.To[int32](60),
 			Template: corev1.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{Labels: opts.Labels},
 				Spec: corev1.PodSpec{

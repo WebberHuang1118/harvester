@@ -333,7 +333,7 @@ func (re *ResticEngine) createBackupJob(vmb *harvesterv1.VirtualMachineBackup,
 		},
 		Spec: batchv1.JobSpec{
 			BackoffLimit:            ptr.To[int32](0),
-			TTLSecondsAfterFinished: ptr.To[int32](300),
+			TTLSecondsAfterFinished: ptr.To[int32](60),
 			Template: corev1.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: labels,
@@ -524,7 +524,7 @@ func (re *ResticEngine) createForgetJob(vmb *harvesterv1.VirtualMachineBackup, v
 		},
 		Spec: batchv1.JobSpec{
 			BackoffLimit:            ptr.To[int32](0),
-			TTLSecondsAfterFinished: ptr.To[int32](300),
+			TTLSecondsAfterFinished: ptr.To[int32](60),
 			Template: corev1.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: labels,
@@ -638,7 +638,7 @@ func (re *ResticEngine) syncFromJob(vb *harvesterv1.VolumeBackup, job *batchv1.J
 // Order matters: delete the Job first so its Pod is GC'd (Background
 // propagation), otherwise the clone PVC would stay stuck on the
 // kubernetes.io/pvc-protection finalizer until TTLSecondsAfterFinished
-// reaped the Pod ~5 minutes later.
+// reaped the Pod about a minute later.
 func (re *ResticEngine) cleanupTemporaryResources(vmb *harvesterv1.VirtualMachineBackup, vb *harvesterv1.VolumeBackup) {
 	namespace := re.vmbo.GetNamespace(vmb)
 	re.deleteBackupJob(namespace, vb)
