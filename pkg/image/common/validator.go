@@ -6,7 +6,6 @@ import (
 	"reflect"
 	"strings"
 
-	lhutil "github.com/longhorn/longhorn-manager/util"
 	ctlcorev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
 	ctlstoragev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/storage/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -33,6 +32,7 @@ type VMIValidator interface {
 
 	CheckDisplayName(vmi *v1beta1.VirtualMachineImage) error
 	CheckUpdateDisplayName(oldVMI, newVMI *v1beta1.VirtualMachineImage) error
+	CheckSCNameOverride(vmi *v1beta1.VirtualMachineImage) error
 	CheckURL(vmi *v1beta1.VirtualMachineImage) error
 	CheckSecurityParameters(request *types.Request, vmi *v1beta1.VirtualMachineImage) error
 	CheckImagePVC(request *types.Request, vmi *v1beta1.VirtualMachineImage) error
@@ -116,25 +116,29 @@ func (v *vmiValidator) CheckDisplayName(vmi *v1beta1.VirtualMachineImage) error 
 		return werror.NewInvalidError(fmt.Sprintf("displayName is not a valid Kubernetes label value: %s", strings.Join(errs, "; ")), fieldDisplayName)
 	}
 
-	if vmi.Annotations != nil {
-		scOverrideName, ok := vmi.Annotations[util.AnnotationHarvesterVMImageStorageClassNameOverride]
-		if ok && scOverrideName != "" {
-			// Perform any necessary validation or processing for the override name here.
-			if !lhutil.ValidateName(scOverrideName) {
-				return werror.NewInvalidError(fmt.Sprintf("storage class name override is not valid: %s", scOverrideName), util.AnnotationHarvesterVMImageStorageClassNameOverride)
-			}
-		}
-		// verify scOverrideName is not already in use
-		_, err := v.scCache.Get(scOverrideName)
-		if err != nil {
-			if !errors.IsNotFound(err) {
-				return werror.NewInvalidError(fmt.Sprintf("failed to check storage class name override: %s", err.Error()), util.AnnotationHarvesterVMImageStorageClassNameOverride)
-			}
-		} else {
-			return werror.NewInvalidError(fmt.Sprintf("storage class name override is already in use: %s", scOverrideName), util.AnnotationHarvesterVMImageStorageClassNameOverride)
-		}
-	}
 	return v.commonCheckDisplayName(vmi)
+}
+
+func (v *vmiValidator) CheckSCNameOverride(vmi *v1beta1.VirtualMachineImage) error {
+	annotationKey := util.AnnotationVMImageSCNameOverride
+	scOverrideName, hasOverride := vmi.Annotations[annotationKey]
+	if !hasOverride {
+		return nil
+	}
+
+	if err := util.ValidateVMImageSCNameOverride(scOverrideName); err != nil {
+		return werror.NewInvalidError(fmt.Sprintf("storage class name override is invalid: %v", err), annotationKey)
+	}
+
+	_, err := v.scCache.Get(scOverrideName)
+	if errors.IsNotFound(err) {
+		return nil
+	}
+	if err != nil {
+		return werror.NewInvalidError(fmt.Sprintf("failed to check storage class name override: %v", err), annotationKey)
+	}
+
+	return werror.NewInvalidError(fmt.Sprintf("storage class name override is already in use: %s", scOverrideName), annotationKey)
 }
 
 func (v *vmiValidator) CheckUpdateDisplayName(oldVMI, newVMI *v1beta1.VirtualMachineImage) error {
@@ -327,14 +331,14 @@ func (v *vmiValidator) SCParametersConsistency(oldVMI, newVMI *v1beta1.VirtualMa
 	}
 
 	var oldOverrideSCName, newOverrideSCName string
-	if val, ok := oldVMI.Annotations[util.AnnotationHarvesterVMImageStorageClassNameOverride]; ok {
+	if val, ok := oldVMI.Annotations[util.AnnotationVMImageSCNameOverride]; ok {
 		oldOverrideSCName = val
 	}
-	if val, ok := newVMI.Annotations[util.AnnotationHarvesterVMImageStorageClassNameOverride]; ok {
+	if val, ok := newVMI.Annotations[util.AnnotationVMImageSCNameOverride]; ok {
 		newOverrideSCName = val
 	}
 	if oldOverrideSCName != newOverrideSCName {
-		return werror.NewInvalidError("storage class name override cannot be modified", util.AnnotationHarvesterVMImageStorageClassNameOverride)
+		return werror.NewInvalidError("storage class name override cannot be modified", util.AnnotationVMImageSCNameOverride)
 	}
 
 	return nil

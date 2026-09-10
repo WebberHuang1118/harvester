@@ -202,13 +202,7 @@ func (vmio *vmiOperator) GetStorageClassName(vmi *harvesterv1.VirtualMachineImag
 		lhdatastore.NameMaximumLength,
 	)
 
-	var scNameOverride string
-	var scNameOverrideFromAnnotation bool
-	if vmi.Annotations != nil {
-		if scNameOverride, scNameOverrideFromAnnotation = vmi.Annotations[util.AnnotationHarvesterVMImageStorageClassNameOverride]; scNameOverrideFromAnnotation {
-			scNameOverride = lhutil.AutoCorrectName(scNameOverride, lhdatastore.NameMaximumLength)
-		}
-	}
+	scNameOverride, scNameOverrideFromAnnotation := vmi.Annotations[util.AnnotationVMImageSCNameOverride]
 
 	legacySCName := fmt.Sprintf("longhorn-%s", vmi.Name)
 

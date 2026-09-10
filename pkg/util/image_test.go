@@ -1,6 +1,7 @@
 package util_test
 
 import (
+	"strings"
 	"testing"
 
 	lhv1beta2 "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
@@ -13,6 +14,45 @@ import (
 	"github.com/harvester/harvester/pkg/util"
 	"github.com/harvester/harvester/pkg/util/fakeclients"
 )
+
+func TestValidateVMImageSCNameOverride(t *testing.T) {
+	tests := []struct {
+		name        string
+		override    string
+		errContains string
+	}{
+		{
+			name:     "valid name",
+			override: "my-custom-storage-class",
+		},
+		{
+			name:        "empty name",
+			override:    "",
+			errContains: "is not a valid Longhorn name",
+		},
+		{
+			name:        "invalid name",
+			override:    "Invalid-Name",
+			errContains: "is not a valid Longhorn name",
+		},
+		{
+			name:        "name requiring auto-correction",
+			override:    strings.Repeat("a", 41),
+			errContains: "would be auto-corrected",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			err := util.ValidateVMImageSCNameOverride(tt.override)
+			if tt.errContains == "" {
+				require.NoError(t, err)
+			} else {
+				require.ErrorContains(t, err, tt.errContains)
+			}
+		})
+	}
+}
 
 func TestGetBackingImageNameRestoreFromURL(t *testing.T) {
 	const (
@@ -81,7 +121,7 @@ func TestGetBackingImageNameRestoreFromURL(t *testing.T) {
 					Namespace: "default",
 					UID:       imageUID,
 					Annotations: map[string]string{
-						util.AnnotationHarvesterVMImageStorageClassNameOverride: storageClassNameOverride,
+						util.AnnotationVMImageSCNameOverride: storageClassNameOverride,
 					},
 				},
 				Spec: harvesterv1.VirtualMachineImageSpec{

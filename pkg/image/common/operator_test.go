@@ -5,6 +5,7 @@ import (
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/generated/clientset/versioned/fake"
+	"github.com/harvester/harvester/pkg/util"
 	"github.com/harvester/harvester/pkg/util/fakeclients"
 	"github.com/stretchr/testify/assert"
 	storagev1 "k8s.io/api/storage/v1"
@@ -177,7 +178,7 @@ func TestGetStorageClassName(t *testing.T) {
 						Name: "image-foobar",
 						UID:  "abcdefghi-jklmno-pqrstu-123456",
 						Annotations: map[string]string{
-							"harvesterhci.io/vmImageStorageClassNameOverride": "my-custom-storage-class",
+							util.AnnotationVMImageSCNameOverride: "my-custom-storage-class",
 						},
 					},
 					Spec: harvesterv1.VirtualMachineImageSpec{
@@ -202,7 +203,7 @@ func TestGetStorageClassName(t *testing.T) {
 						Name: "image-foobar",
 						UID:  "abcdefghi-jklmno-pqrstu-123456",
 						Annotations: map[string]string{
-							"harvesterhci.io/vmImageStorageClassNameOverride": "my-custom-storage-class",
+							util.AnnotationVMImageSCNameOverride: "my-custom-storage-class",
 						},
 					},
 					Spec: harvesterv1.VirtualMachineImageSpec{
@@ -232,7 +233,7 @@ func TestGetStorageClassName(t *testing.T) {
 						Name: "image-foobar",
 						UID:  "06791a48-8d0d-4895-999b-28296f0e1c10",
 						Annotations: map[string]string{
-							"harvesterhci.io/vmImageStorageClassNameOverride": "my-custom-storage-class",
+							util.AnnotationVMImageSCNameOverride: "my-custom-storage-class",
 						},
 					},
 					Spec: harvesterv1.VirtualMachineImageSpec{

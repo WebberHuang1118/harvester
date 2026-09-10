@@ -247,9 +247,9 @@ const (
 	HarvesterReportedConditionMessageKey               = prefix + "/condition-message"
 	ManagedTapBindingName                              = "managedtap"
 
-	HarvesterInstallCordonedLabel                      = prefix + "/install-cordoned"
-	HarvesterInstallCordonedProcessedAnnotation        = prefix + "/install-cordoned-processed"
-	AnnotationHarvesterVMImageStorageClassNameOverride = prefix + "/vmImageStorageClassNameOverride"
+	HarvesterInstallCordonedLabel               = prefix + "/install-cordoned"
+	HarvesterInstallCordonedProcessedAnnotation = prefix + "/install-cordoned-processed"
+	AnnotationVMImageSCNameOverride             = prefix + "/vmImageSCNameOverride"
 )
 
 var (

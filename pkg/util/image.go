@@ -37,11 +37,21 @@ func backingImageName(image *harvesterv1.VirtualMachineImage) string {
 	return fmt.Sprintf("%s-%s", backingimagePrefix, image.UID)
 }
 
+func ValidateVMImageSCNameOverride(name string) error {
+	if !lhutil.ValidateName(name) {
+		return fmt.Errorf("%q is not a valid Longhorn name", name)
+	}
+	if correctedName := lhutil.AutoCorrectName(name, lhdatastore.NameMaximumLength); correctedName != name {
+		return fmt.Errorf("name would be auto-corrected to %q", correctedName)
+	}
+	return nil
+}
+
 func defaultBackingImageName(image *harvesterv1.VirtualMachineImage) string {
-	// when a virtualmachine image contains the annotation util.AnnotationHarvesterVMImageStorageClassNameOverride, the backing image name will be overridden to the value of annotation.
+	// when a virtualmachine image contains the annotation util.AnnotationVMImageSCNameOverride, the backing image name will be overridden to the value of annotation.
 	// this then flows in storage class definitions and subsequent restore operations, and the backing image will not follow the vmi-UUID naming convention.
 	if image.Annotations != nil {
-		if name, ok := image.Annotations[AnnotationHarvesterVMImageStorageClassNameOverride]; ok {
+		if name, ok := image.Annotations[AnnotationVMImageSCNameOverride]; ok {
 			return lhutil.AutoCorrectName(name, lhdatastore.NameMaximumLength)
 		}
 	}
@@ -72,7 +82,7 @@ func GetRestoreSCName(image *harvesterv1.VirtualMachineImage) (string, bool) {
 		return "", false
 	}
 
-	// when a virtualmachine image contains the annotation util.AnnotationHarvesterVMImageStorageClassNameOverride, the backing image name will be overridden to the value of annotation.
+	// when a virtualmachine image contains the annotation util.AnnotationVMImageSCNameOverride, the backing image name will be overridden to the value of annotation.
 	// in such a scenario the backing image will not follow the vmi-UUID naming convention, and the storage class name will be derived from the backing image name instead of the vmi-UUID.
 
 	if strings.HasPrefix(biName, backingimagePrefix+"-") {

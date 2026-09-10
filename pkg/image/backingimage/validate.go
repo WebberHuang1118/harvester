@@ -20,6 +20,10 @@ func (biv *Validator) Create(request *types.Request, vmi *harvesterv1.VirtualMac
 		return err
 	}
 
+	if err := biv.vmiv.CheckSCNameOverride(vmi); err != nil {
+		return err
+	}
+
 	if err := biv.vmiv.SCConsistency(nil, vmi); err != nil {
 		return err
 	}
