@@ -7,6 +7,7 @@ package backup
 // 2. restore a backup to a new VM or replacing it with the existing VM is supported.
 import (
 	"context"
+	"errors"
 	"fmt"
 	"reflect"
 	"strings"
@@ -324,6 +325,9 @@ func (h *RestoreHandler) RestoreOnChanged(_ string, vmr *harvesterv1.VirtualMach
 			vmr.Namespace, vmr.Name, updErr)
 	}
 
+	if errors.Is(err, engine.ErrRetryLater) {
+		return nil, h.handleVolumesNotReady(vmr, vmrCpy)
+	}
 	if err != nil {
 		return nil, h.vmro.UpdateError(vmrCpy, err)
 	}
@@ -520,17 +524,24 @@ func (h *RestoreHandler) reconcileVolumeRestores(
 	volRestores := h.vmro.GetVolRestores(vmr)
 	for i := range volRestores {
 		err := re.Reconcile(vmr, vmb, i)
-		if err == nil {
+		switch {
+		case err == nil:
 			continue
-		}
-
-		if err == engine.ErrRetryLater {
+		case errors.Is(err, engine.ErrRetryLater):
 			isVolumesReady = false
 			continue
+		default:
+			return false, fmt.Errorf(
+				"failed to reconcile volume %q: %w",
+				volRestores[i].VolumeName,
+				err,
+			)
 		}
-		return false, err
 	}
 
+	if !isVolumesReady {
+		return false, engine.ErrRetryLater
+	}
 	return isVolumesReady, nil
 }
 
@@ -856,7 +867,7 @@ func (h *RestoreHandler) updateProgressMetrics(
 	return nil
 }
 
-// handleVolumesNotReady persists the "Creating new PVCs" progressing condition
+// handleVolumesNotReady persists the "Restoring volumes" progressing condition
 // and schedules a fixed-interval re-reconcile so progress is sampled regularly
 // instead of through the workqueue's exponential backoff (which quickly grows
 // to multi-minute intervals during a long restore and leaves status.progress
@@ -866,7 +877,7 @@ func (h *RestoreHandler) handleVolumesNotReady(
 	vmrCpy *harvesterv1.VirtualMachineRestore,
 ) error {
 	h.vmro.RectifyProgressBeforeVMStart(vmrCpy)
-	vmrCpy = h.vmro.SetProcessingCondition(vmrCpy, "Creating new PVCs")
+	vmrCpy = h.vmro.SetProcessingCondition(vmrCpy, "Restoring volumes")
 	if _, err := h.vmro.Update(vmr, vmrCpy); err != nil {
 		return err
 	}
