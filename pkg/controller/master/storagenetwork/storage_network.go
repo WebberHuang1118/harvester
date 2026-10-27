@@ -313,7 +313,8 @@ func (h *Handler) rwxReservedExcludes(setting *harvesterv1.Setting) ([]string, e
 		rwxSetting, err := h.settingsCache.Get(settings.RWXNetworkSettingName)
 		if apierrors.IsNotFound(err) {
 			return nil, nil
-		} else if err != nil {
+		}
+		if err != nil {
 			return nil, err
 		}
 		rwxValue = rwxSetting.EffectiveValue()

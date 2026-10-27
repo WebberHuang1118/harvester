@@ -15,6 +15,7 @@ import (
 	lhv1beta2 "github.com/longhorn/longhorn-manager/k8s/pkg/apis/longhorn/v1beta2"
 	lhtypes "github.com/longhorn/longhorn-manager/types"
 	ctlcorev1 "github.com/rancher/wrangler/v3/pkg/generated/controllers/core/v1"
+	wranglername "github.com/rancher/wrangler/v3/pkg/name"
 	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 	discoveryv1 "k8s.io/api/discovery/v1"
@@ -152,9 +153,9 @@ func registerShareManagerVIP(ctx context.Context, management *config.Management)
 		if svc.Labels[util.RWXVolServiceLabel] != "" {
 			// A released VIP may unblock volumes waiting on an exhausted range.
 			h.enqueueAll()
-		} else if volumeName, ok := strings.CutPrefix(svc.Name, vipServicePrefix); ok {
-			// A removed foreign Service may unblock the volume whose VIP Service name it took.
-			h.enqueue(volumeName)
+		} else if strings.HasPrefix(svc.Name, vipServicePrefix) {
+			// Shortened Service names cannot be reversed to a volume name.
+			h.enqueueAll()
 		}
 		return svc, nil
 	})
@@ -185,72 +186,104 @@ func (h *ShareManagerVIPHandler) enqueueAll() {
 	}
 }
 
-func (h *ShareManagerVIPHandler) OnVolumeChange(_ string, volume *lhv1beta2.Volume) (*lhv1beta2.Volume, error) {
-	if volume == nil || volume.DeletionTimestamp != nil || volume.Namespace != util.LonghornSystemNamespaceName || !isRWXFilesystemVolume(volume) {
+func (h *ShareManagerVIPHandler) OnVolumeChange(
+	_ string, volume *lhv1beta2.Volume,
+) (*lhv1beta2.Volume, error) {
+	if volume == nil || volume.DeletionTimestamp != nil ||
+		volume.Namespace != util.LonghornSystemNamespaceName || !isRWXFilesystemVolume(volume) {
 		// The VIP Service is owned by the volume and garbage collected with it.
 		return volume, nil
 	}
 
-	setting, err := h.settingCache.Get(settings.RWXNetworkSettingName)
-	if err != nil {
-		return volume, fmt.Errorf("failed to get %s setting: %w", settings.RWXNetworkSettingName, err)
-	}
-	rwxConfig, err := settings.DecodeConfig[settings.RWXNetworkConfig](setting.EffectiveValue())
+	config, err := h.loadRWXConfig()
 	if err != nil {
 		return volume, err
 	}
-
-	svc, err := h.serviceCache.Get(util.LonghornSystemNamespaceName, vipServiceName(volume.Name))
-	if apierrors.IsNotFound(err) {
-		svc = nil
-	} else if err != nil {
+	svc, blocked, err := h.loadVIPService(volume)
+	if err != nil || blocked {
 		return volume, err
 	}
-	if svc != nil && svc.Labels[util.RWXVolServiceLabel] != volume.Name {
-		// The Service watch requeues the volume once the foreign one is removed.
-		h.recorder.Eventf(volume, corev1.EventTypeWarning, ReasonVIPServiceConflict,
-			"Service %s/%s exists but is not managed by Harvester, the Share Manager VIP cannot be set up", svc.Namespace, svc.Name)
-		return volume, nil
+	if config == nil || config.HostIPRange == "" || config.VIPRange == "" {
+		return volume, h.deleteVIPService(svc)
 	}
 
-	if rwxConfig == nil || rwxConfig.HostIPRange == "" || rwxConfig.VIPRange == "" {
-		if svc != nil && svc.DeletionTimestamp == nil {
-			// The EndpointSlice is owned by the Service and garbage collected with it.
-			if err := h.services.Delete(svc.Namespace, svc.Name, &metav1.DeleteOptions{}); err != nil && !apierrors.IsNotFound(err) {
-				return volume, err
-			}
-		}
-		return volume, nil
-	}
 	if err := h.announceShareManagerAddress(volume); err != nil {
 		return volume, err
 	}
 	if svc != nil && svc.DeletionTimestamp != nil {
-		// The Service watch requeues once the deletion completes.
+		// The Service watch requeues once deletion completes.
 		return volume, nil
 	}
-
-	svc, err = h.syncService(volume, svc, rwxConfig)
+	svc, err = h.syncService(volume, svc, config)
 	if err != nil || svc == nil {
 		return volume, err
 	}
 	return volume, h.syncEndpointSlice(volume, svc)
 }
 
+func (h *ShareManagerVIPHandler) loadRWXConfig() (*settings.RWXNetworkConfig, error) {
+	setting, err := h.settingCache.Get(settings.RWXNetworkSettingName)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get %s setting: %w", settings.RWXNetworkSettingName, err)
+	}
+	return settings.DecodeConfig[settings.RWXNetworkConfig](setting.EffectiveValue())
+}
+
+// loadVIPService reports conflicts without treating them as retryable errors.
+func (h *ShareManagerVIPHandler) loadVIPService(
+	volume *lhv1beta2.Volume,
+) (*corev1.Service, bool, error) {
+	svc, err := h.serviceCache.Get(
+		util.LonghornSystemNamespaceName, vipServiceName(volume.Name),
+	)
+	if apierrors.IsNotFound(err) {
+		return nil, false, nil
+	}
+	if err != nil {
+		return nil, false, err
+	}
+	if svc != nil && svc.Labels[util.RWXVolServiceLabel] != volume.Name {
+		// The Service watch requeues once the foreign Service is removed.
+		h.recorder.Eventf(volume, corev1.EventTypeWarning, ReasonVIPServiceConflict,
+			"Service %s/%s exists but is not managed by Harvester, "+
+				"the Share Manager VIP cannot be set up", svc.Namespace, svc.Name)
+		return svc, true, nil
+	}
+	return svc, false, nil
+}
+
+func (h *ShareManagerVIPHandler) deleteVIPService(svc *corev1.Service) error {
+	if svc == nil || svc.DeletionTimestamp != nil {
+		return nil
+	}
+	// The EndpointSlice is owned by the Service and garbage collected with it.
+	err := h.services.Delete(svc.Namespace, svc.Name, &metav1.DeleteOptions{})
+	if apierrors.IsNotFound(err) {
+		return nil
+	}
+	return err
+}
+
 // syncService reconciles the VIP Service of a volume. It returns nil when the volume
 // cannot get a VIP yet.
-func (h *ShareManagerVIPHandler) syncService(volume *lhv1beta2.Volume, svc *corev1.Service, rwxConfig *settings.RWXNetworkConfig) (*corev1.Service, error) {
-	vipRange := rwxConfig.VIPRange
+func (h *ShareManagerVIPHandler) syncService(
+	volume *lhv1beta2.Volume, svc *corev1.Service,
+	config *settings.RWXNetworkConfig,
+) (*corev1.Service, error) {
+	vipRange := config.VIPRange
 	inUse := svc != nil && inRange(serviceVIP(svc), vipRange)
 
 	// kube-vip announces a VIP only if its interface exists when the Service is
 	// created or updated, and does not retry by itself, so VIPs are only handed out
 	// once the host network is ready. Existing ones keep serving meanwhile.
-	iface, err := h.hostNetworkInterface(rwxConfig)
+	iface, err := h.hostNetworkInterface(config)
 	if err != nil {
 		return nil, err
 	}
 	if iface == "" {
+		// No interface means host networking is not ready yet.
+		// Keep a valid existing VIP; otherwise, defer allocation.
+		// Setting and HostNetworkConfig watches trigger reconciliation again.
 		if inUse {
 			return svc, nil
 		}
@@ -259,32 +292,49 @@ func (h *ShareManagerVIPHandler) syncService(volume *lhv1beta2.Volume, svc *core
 	if inUse {
 		return h.applyService(svc, newVIPService(volume, serviceVIP(svc), iface))
 	}
+	return h.allocateVIPService(volume, svc, vipRange, iface)
+}
 
+func (h *ShareManagerVIPHandler) allocateVIPService(
+	volume *lhv1beta2.Volume, svc *corev1.Service, vipRange, iface string,
+) (*corev1.Service, error) {
+	// Hold the lock until the Service records the VIP reservation.
 	h.allocateLock.Lock()
 	defer h.allocateLock.Unlock()
 
-	// List from the API server rather than the cache, so that a VIP handed out by a
-	// previous allocation is always seen.
-	list, err := h.services.List(util.LonghornSystemNamespaceName, metav1.ListOptions{LabelSelector: util.RWXVolServiceLabel})
+	used, err := h.usedVIPs(volume.Name)
+	if err != nil {
+		return nil, err
+	}
+	vip, err := networkutil.AllocateVIP(vipRange, used)
+	if errors.Is(err, networkutil.ErrRangeExhausted) {
+		h.recorder.Eventf(volume, corev1.EventTypeWarning, ReasonVIPRangeExhausted,
+			"no address left in vipRange %s of the %s setting for the Share Manager VIP",
+			vipRange, settings.RWXNetworkSettingName)
+		return nil, nil
+	}
+	if err != nil {
+		return nil, err
+	}
+	return h.applyService(svc, newVIPService(volume, vip, iface))
+}
+
+func (h *ShareManagerVIPHandler) usedVIPs(volumeName string) ([]string, error) {
+	// Read from the API server so previous allocations are immediately visible.
+	list, err := h.services.List(util.LonghornSystemNamespaceName, metav1.ListOptions{
+		LabelSelector: util.RWXVolServiceLabel,
+	})
 	if err != nil {
 		return nil, err
 	}
 	var used []string
-	for _, s := range list.Items {
-		if s.Labels[util.RWXVolServiceLabel] != volume.Name {
-			used = append(used, serviceVIP(&s))
+	for _, svc := range list.Items {
+		if svc.Labels[util.RWXVolServiceLabel] == volumeName {
+			continue
 		}
+		used = append(used, serviceVIP(&svc))
 	}
-
-	vip, err := networkutil.AllocateVIP(vipRange, used)
-	if errors.Is(err, networkutil.ErrRangeExhausted) {
-		h.recorder.Eventf(volume, corev1.EventTypeWarning, ReasonVIPRangeExhausted,
-			"no address left in vipRange %s of the %s setting for the Share Manager VIP", vipRange, settings.RWXNetworkSettingName)
-		return nil, nil
-	} else if err != nil {
-		return nil, err
-	}
-	return h.applyService(svc, newVIPService(volume, vip, iface))
+	return used, nil
 }
 
 func (h *ShareManagerVIPHandler) applyService(current, desired *corev1.Service) (*corev1.Service, error) {
@@ -308,37 +358,47 @@ func (h *ShareManagerVIPHandler) applyService(current, desired *corev1.Service) 
 }
 
 func (h *ShareManagerVIPHandler) syncEndpointSlice(volume *lhv1beta2.Volume, svc *corev1.Service) error {
-	network, err := h.rwxEndpointNetwork()
+	addr, nodeName, err := h.shareManagerEndpoint(volume.Name)
 	if err != nil {
 		return err
 	}
 
-	pod, err := h.podCache.Get(util.LonghornSystemNamespaceName, lhtypes.GetShareManagerPodNameFromShareManagerName(volume.Name))
+	// Reconcile an empty slice too, so unavailable pods leave no stale endpoint.
+	return h.applyEndpointSlice(newVIPEndpointSlice(svc, addr, nodeName))
+}
+
+func (h *ShareManagerVIPHandler) shareManagerEndpoint(volumeName string) (string, string, error) {
+	network, err := h.rwxEndpointNetwork()
+	if err != nil {
+		return "", "", err
+	}
+
+	podName := lhtypes.GetShareManagerPodNameFromShareManagerName(volumeName)
+	pod, err := h.podCache.Get(util.LonghornSystemNamespaceName, podName)
 	if apierrors.IsNotFound(err) {
-		pod = nil
-	} else if err != nil {
-		return err
+		return "", "", nil
+	}
+	if err != nil {
+		return "", "", err
 	}
 
-	var addr, nodeName string
-	if addr = shareManagerEndpointAddr(pod, network); addr != "" {
-		nodeName = pod.Spec.NodeName
+	addr := shareManagerEndpointAddr(pod, network)
+	if addr == "" {
+		return "", "", nil
 	}
-	desired := newVIPEndpointSlice(svc, addr, nodeName)
+	return addr, pod.Spec.NodeName, nil
+}
 
+func (h *ShareManagerVIPHandler) applyEndpointSlice(desired *discoveryv1.EndpointSlice) error {
 	current, err := h.endpointSliceCache.Get(desired.Namespace, desired.Name)
 	if apierrors.IsNotFound(err) {
 		_, err = h.endpointSlices.Create(desired)
 		return err
-	} else if err != nil {
+	}
+	if err != nil {
 		return err
 	}
-
-	if equality.Semantic.DeepEqual(current.Endpoints, desired.Endpoints) &&
-		equality.Semantic.DeepEqual(current.Ports, desired.Ports) &&
-		equality.Semantic.DeepEqual(current.OwnerReferences, desired.OwnerReferences) &&
-		current.AddressType == desired.AddressType &&
-		equality.Semantic.DeepEqual(mergeMaps(current.Labels, desired.Labels), current.Labels) {
+	if endpointSliceUpToDate(current, desired) {
 		return nil
 	}
 	if current.AddressType != desired.AddressType {
@@ -353,6 +413,14 @@ func (h *ShareManagerVIPHandler) syncEndpointSlice(volume *lhv1beta2.Volume, svc
 	epsCopy.Ports = desired.Ports
 	_, err = h.endpointSlices.Update(epsCopy)
 	return err
+}
+
+func endpointSliceUpToDate(current, desired *discoveryv1.EndpointSlice) bool {
+	return equality.Semantic.DeepEqual(current.Endpoints, desired.Endpoints) &&
+		equality.Semantic.DeepEqual(current.Ports, desired.Ports) &&
+		equality.Semantic.DeepEqual(current.OwnerReferences, desired.OwnerReferences) &&
+		current.AddressType == desired.AddressType &&
+		equality.Semantic.DeepEqual(mergeMaps(current.Labels, desired.Labels), current.Labels)
 }
 
 // announceShareManagerAddress adds an ephemeral container to a new Share Manager pod that
@@ -527,7 +595,7 @@ func podReady(pod *corev1.Pod) bool {
 }
 
 func vipServiceName(volumeName string) string {
-	return vipServicePrefix + volumeName
+	return wranglername.SafeConcatName(vipServicePrefix + volumeName)
 }
 
 func serviceVIP(svc *corev1.Service) string {
