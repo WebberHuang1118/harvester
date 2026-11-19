@@ -287,65 +287,103 @@ func (h *RestoreHandler) getRestoreEngine(backup *harvesterv1.VirtualMachineBack
 // RestoreOnChanged handles vmRestore CRD object on change, it will help to create the new PVCs and either replace them
 // with existing VM or used for the new VM.
 func (h *RestoreHandler) RestoreOnChanged(_ string, vmr *harvesterv1.VirtualMachineRestore) (*harvesterv1.VirtualMachineRestore, error) {
+	return nil, h.reconcileRestore(vmr)
+}
+
+func (h *RestoreHandler) reconcileRestore(vmr *harvesterv1.VirtualMachineRestore) (err error) {
 	if vmr == nil || h.vmro.IsDeleting(vmr) {
-		return nil, nil
+		return nil
 	}
 
 	// Independent engine resources require durable cleanup protection first.
 	if !h.vmro.HasFinalizer(vmr, "wrangler.cattle.io/"+restoreControllerName) {
-		return nil, nil
+		return nil
 	}
 
 	if !h.vmro.IsProgressing(vmr) || h.vmro.IsFailed(vmr) {
-		return nil, nil
+		return nil
 	}
 
+	// All retryable exits, including status update conflicts, requeue here.
+	defer func() {
+		if !isRestoreRetry(err) {
+			return
+		}
+		h.enqueueRestore(vmr)
+		err = nil
+	}()
+
 	if !h.vmro.HasStatus(vmr) {
-		return nil, h.vmro.InitVMRestore(vmr)
+		return h.vmro.InitVMRestore(vmr)
 	}
 
 	vmb, err := h.vmro.ResolveVMBackup(vmr)
 	if err != nil {
-		return nil, h.vmro.UpdateError(vmr, err)
+		return h.recordRestoreError(vmr, err)
 	}
 
 	if h.vmro.GetType(vmr) != h.vmbo.GetType(vmb) {
-		return nil, h.vmro.UpdateType(vmr, h.vmbo.GetType(vmb))
+		return h.vmro.UpdateType(vmr, h.vmbo.GetType(vmb))
 	}
 
 	if h.vmro.IsMissingVolumes(vmr) {
-		return nil, h.vmro.InitVolumesStatus(vmr, vmb)
+		return h.vmro.InitVolumesStatus(vmr, vmb)
 	}
 
-	// DeepCopy before any path that mutates status: engines call
-	// SetVolRestoreProgress etc. on entries inside vmrCpy.Status, and the
-	// informer cache must not be mutated. Persist-side operators take vmrCpy
-	// as their basis so engine mutations flow through to client.Update; vmr
-	// stays as the unmodified "old" side for diff comparisons.
-	vmrCpy := vmr.DeepCopy()
+	return h.advanceRestore(vmr, vmb)
+}
 
-	vm, isVolumesReady, err := h.reconcileResources(vmrCpy, vmb)
-
-	// Refresh per-volume progress regardless of reconcile outcome so the user
-	// sees the latest known progress even when an engine returns a hard error.
-	if updErr := h.updateProgressMetrics(vmrCpy, vmb); updErr != nil {
-		logrus.Warnf("failed to refresh restore progress for %s/%s: %v",
-			vmr.Namespace, vmr.Name, updErr)
-	}
-
-	if errors.Is(err, engine.ErrRetryLater) {
-		return nil, h.handleVolumesNotReady(vmr, vmrCpy)
+func (h *RestoreHandler) advanceRestore(
+	vmr *harvesterv1.VirtualMachineRestore,
+	vmb *harvesterv1.VirtualMachineBackup,
+) error {
+	// Engines mutate volume status; keep the informer object unchanged.
+	updated := vmr.DeepCopy()
+	vm, isVolumesReady, err := h.syncRestore(updated, vmb)
+	if isRestoreRetry(err) {
+		return h.saveVolumeProgress(vmr, updated)
 	}
 	if err != nil {
-		return nil, h.vmro.UpdateError(vmrCpy, err)
+		return h.recordRestoreError(updated, err)
 	}
 
-	// set vmRestore owner reference to the target VM
-	if !h.vmro.HasOwnerReference(vmrCpy) {
-		return nil, h.vmro.UpdateOwnerRefAndTargetUID(vmrCpy, vm)
+	if !h.vmro.HasOwnerReference(updated) {
+		return h.vmro.UpdateOwnerRefAndTargetUID(updated, vm)
 	}
+	return h.updateStatus(vmr, updated, vm, isVolumesReady)
+}
 
-	return nil, h.updateStatus(vmr, vmrCpy, vm, isVolumesReady)
+func (h *RestoreHandler) enqueueRestore(vmr *harvesterv1.VirtualMachineRestore) {
+	h.vmrController.EnqueueAfter(
+		h.vmro.GetNamespace(vmr),
+		h.vmro.GetName(vmr),
+		restoreProgressPoll,
+	)
+}
+
+func isRestoreRetry(err error) bool {
+	return onlyRetry(err, engine.ErrRetryLater)
+}
+
+// recordRestoreError leaves retry signals for reconcileRestore and persists failures.
+func (h *RestoreHandler) recordRestoreError(vmr *harvesterv1.VirtualMachineRestore, err error) error {
+	if err == nil || isRestoreRetry(err) {
+		return err
+	}
+	return h.vmro.UpdateError(vmr, err)
+}
+
+// syncRestore refreshes volume progress even when resource reconciliation fails.
+func (h *RestoreHandler) syncRestore(
+	vmr *harvesterv1.VirtualMachineRestore,
+	vmb *harvesterv1.VirtualMachineBackup,
+) (*kubevirtv1.VirtualMachine, bool, error) {
+	vm, ready, err := h.reconcileResources(vmr, vmb)
+	if progressErr := h.updateProgressMetrics(vmr, vmb); progressErr != nil {
+		logrus.Warnf("failed to refresh restore progress for %s/%s: %v",
+			vmr.Namespace, vmr.Name, progressErr)
+	}
+	return vm, ready, err
 }
 
 // RestoreOnRemove uses the persisted engine without looking up the source backup.
@@ -533,7 +571,7 @@ func (h *RestoreHandler) reconcileVolumeRestores(
 		switch {
 		case err == nil:
 			continue
-		case errors.Is(err, engine.ErrRetryLater):
+		case errors.Is(err, engine.ErrRetryLater) && isRestoreRetry(err):
 			isVolumesReady = false
 			continue
 		default:
@@ -829,7 +867,7 @@ func (h *RestoreHandler) updateStatus(
 ) error {
 	// Wait for volumes if not ready
 	if !isVolumesReady {
-		return h.handleVolumesNotReady(vmr, vmrCpy)
+		return h.saveVolumeProgress(vmr, vmrCpy)
 	}
 
 	// Ensure VM is started and ready
@@ -873,12 +911,9 @@ func (h *RestoreHandler) updateProgressMetrics(
 	return nil
 }
 
-// handleVolumesNotReady persists the "Restoring volumes" progressing condition
-// and schedules a fixed-interval re-reconcile so progress is sampled regularly
-// instead of through the workqueue's exponential backoff (which quickly grows
-// to multi-minute intervals during a long restore and leaves status.progress
-// stuck at its initial value until the Job's terminal event fires).
-func (h *RestoreHandler) handleVolumesNotReady(
+// saveVolumeProgress persists the "Restoring volumes" condition before returning
+// a retry signal. reconcileRestore schedules the next progress poll.
+func (h *RestoreHandler) saveVolumeProgress(
 	vmr *harvesterv1.VirtualMachineRestore,
 	vmrCpy *harvesterv1.VirtualMachineRestore,
 ) error {
@@ -887,8 +922,7 @@ func (h *RestoreHandler) handleVolumesNotReady(
 	if _, err := h.vmro.Update(vmr, vmrCpy); err != nil {
 		return err
 	}
-	h.vmrController.EnqueueAfter(vmr.Namespace, vmr.Name, restoreProgressPoll)
-	return nil
+	return engine.ErrRetryLater
 }
 
 // ensureVMStartedAndReady starts the VM if needed and waits for it to be ready.
@@ -908,14 +942,13 @@ func (h *RestoreHandler) ensureVMStartedAndReady(
 		return nil
 	}
 
-	startErr := h.vmro.StartVM(h.context, vm)
-	if startErr != nil && !errors.Is(startErr, restorecommon.ErrVMStartInProgress) {
-		return h.recordStartError(vmr, startErr)
+	if err := h.startVM(vmr, vm); err != nil {
+		return err
 	}
 
 	// VM not ready yet: persist progressing condition and halt the pipeline so
-	// updateStatus does NOT fall through to finalizeRestore. The VMOnChange
-	// handler will requeue the restore once the VM transitions to Ready.
+	// updateStatus does NOT fall through to finalizeRestore. reconcileRestore
+	// schedules another attempt; VMOnChange also enqueues readiness changes.
 	h.vmro.RectifyProgressBeforeVMStart(vmrCpy)
 	vmrCpy = h.vmro.SetProcessingCondition(vmrCpy, "Waiting for target vm to be ready")
 	if _, err := h.vmro.Update(vmr, vmrCpy); err != nil {
@@ -924,12 +957,16 @@ func (h *RestoreHandler) ensureVMStartedAndReady(
 	return fmt.Errorf("vm %s/%s is not ready yet: %w", vm.Namespace, vm.Name, engine.ErrRetryLater)
 }
 
-func (h *RestoreHandler) recordStartError(vmr *harvesterv1.VirtualMachineRestore, err error) error {
-	startErr := fmt.Errorf("failed to start vm: %w", err)
-	if updateErr := h.vmro.UpdateError(vmr, startErr); updateErr != nil {
-		return updateErr
+// startVM records real start failures. Accepted or retryable requests proceed
+// to the caller's readiness wait without marking the restore as failed.
+func (h *RestoreHandler) startVM(
+	vmr *harvesterv1.VirtualMachineRestore, vm *kubevirtv1.VirtualMachine,
+) error {
+	err := h.vmro.StartVM(h.context, vm)
+	if err == nil || onlyRetry(err, engine.ErrRetryLater, restorecommon.ErrVMStartInProgress) {
+		return nil
 	}
-	return startErr
+	return h.recordRestoreError(vmr, fmt.Errorf("failed to start vm: %w", err))
 }
 
 // finalizeRestore performs cleanup and marks the restore as complete

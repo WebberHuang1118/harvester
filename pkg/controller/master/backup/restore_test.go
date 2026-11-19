@@ -60,6 +60,12 @@ func TestReconcileVolumeRestores(t *testing.T) {
 			wantErrors: []error{errData},
 			wantCalls:  2,
 		},
+		{
+			name:       "joined failure is not treated as pending",
+			errors:     []error{errors.Join(engine.ErrRetryLater, errBoot), nil},
+			wantErrors: []error{engine.ErrRetryLater, errBoot},
+			wantCalls:  1,
+		},
 	}
 
 	for _, tt := range tests {
@@ -87,7 +93,7 @@ func TestReconcileVolumeRestores(t *testing.T) {
 
 			require.Equal(t, tt.wantReady, ready)
 			require.Len(t, re.calls, tt.wantCalls)
-			require.Equal(t, tt.wantRetry, errors.Is(err, engine.ErrRetryLater))
+			require.Equal(t, tt.wantRetry, isRestoreRetry(err))
 			for _, wantErr := range tt.wantErrors {
 				require.ErrorIs(t, err, wantErr)
 			}
@@ -97,6 +103,7 @@ func TestReconcileVolumeRestores(t *testing.T) {
 
 type fakeRestoreEngine struct {
 	errors    []error
+	progress  int64
 	calls     []int
 	deletes   int
 	deleteErr error
@@ -117,7 +124,7 @@ func (f *fakeRestoreEngine) Delete(*harvesterv1.VirtualMachineRestore) error {
 }
 
 func (f *fakeRestoreEngine) UpdateProgress(*harvesterv1.VirtualMachineRestore, *harvesterv1.VolumeRestore) (int64, error) {
-	return 0, nil
+	return f.progress, nil
 }
 
 func (f *fakeRestoreEngine) RegisterWatchers(
@@ -137,6 +144,9 @@ func TestUpdateStatusWaitsForVMStartup(t *testing.T) {
 	}{
 		{name: "accepted start waits for readiness"},
 		{name: "duplicate start waits for readiness", startErr: fmt.Errorf("start: %w", restorecommon.ErrVMStartInProgress)},
+		{name: "conflict waits for readiness", startErr: conflictError()},
+		{name: "wrapped conflict waits for readiness", startErr: fmt.Errorf("start: %w", conflictError())},
+		{name: "wrapped retry waits for readiness", startErr: fmt.Errorf("start: %w", engine.ErrRetryLater)},
 		{name: "real failure does not finalize", startErr: errors.New("start forbidden"), wantFailed: true},
 		{name: "ready VM completes", ready: true, wantDone: true},
 		{name: "halt after restore completes without starting", keepHalted: true, wantDone: true},
@@ -207,8 +217,8 @@ func (o *startupRestoreOperator) Update(
 }
 
 func (o *startupRestoreOperator) UpdateError(old *harvesterv1.VirtualMachineRestore, err error) error {
-	o.updated = o.SetErrorCondition(old.DeepCopy(), err)
-	return nil
+	_, updateErr := o.Update(old, o.SetErrorCondition(old.DeepCopy(), err))
+	return errors.Join(err, updateErr)
 }
 
 func (o *startupRestoreOperator) DeleteOldPVCs(*harvesterv1.VirtualMachineRestore, *kubevirtv1.VirtualMachine) error {
