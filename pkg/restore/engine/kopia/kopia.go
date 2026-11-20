@@ -42,6 +42,7 @@ type KopiaRestoreEngine struct {
 	pvcClient     ctlcorev1.PersistentVolumeClaimClient
 	scCache       ctlstoragev1.StorageClassCache
 	secretClient  ctlcorev1.SecretClient
+	targets       backuputil.TargetClient
 	jobController ctlbatchv1.JobController
 	jobClient     ctlbatchv1.JobClient
 	vmrController ctlharvesterv1.VirtualMachineRestoreController
@@ -54,6 +55,7 @@ func GetRestoreEngine(
 	pvcClient ctlcorev1.PersistentVolumeClaimClient,
 	scCache ctlstoragev1.StorageClassCache,
 	secretClient ctlcorev1.SecretClient,
+	settingClient ctlharvesterv1.SettingClient,
 	jobController ctlbatchv1.JobController,
 	vmrController ctlharvesterv1.VirtualMachineRestoreController,
 	clientset kubernetes.Interface,
@@ -64,6 +66,7 @@ func GetRestoreEngine(
 		pvcClient:     pvcClient,
 		scCache:       scCache,
 		secretClient:  secretClient,
+		targets:       backuputil.TargetClient{Settings: settingClient, Secrets: secretClient},
 		jobController: jobController,
 		jobClient:     jobController,
 		vmrController: vmrController,
@@ -431,8 +434,8 @@ func (ke *KopiaRestoreEngine) createCheckJob(
 func (ke *KopiaRestoreEngine) jobRuntime(
 	vmb *harvesterv1.VirtualMachineBackup, name string,
 ) (*kopiautil.JobRuntime, error) {
-	if _, err := backuputil.CredentialData(
-		ke.secretClient, ke.vmbo.GetBackupTarget(vmb), kopiautil.PasswordKey,
+	if _, err := ke.targets.Credentials(
+		ke.vmbo.GetBackupTarget(vmb), kopiautil.PasswordKey,
 	); err != nil {
 		return nil, fmt.Errorf("reading repository credentials: %w: %w", engine.ErrRetryLater, err)
 	}
@@ -471,8 +474,8 @@ func (ke *KopiaRestoreEngine) startJob(
 func (ke *KopiaRestoreEngine) ensureSecret(vmb *harvesterv1.VirtualMachineBackup, job *batchv1.Job) error {
 	client := jobcredentials.Client{Jobs: ke.jobClient, Secrets: ke.secretClient}
 	err := client.Ensure(job, func() (map[string][]byte, error) {
-		return backuputil.CredentialData(
-			ke.secretClient, ke.vmbo.GetBackupTarget(vmb), kopiautil.PasswordKey,
+		return ke.targets.Credentials(
+			ke.vmbo.GetBackupTarget(vmb), kopiautil.PasswordKey,
 		)
 	})
 	if err != nil {

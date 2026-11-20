@@ -41,6 +41,7 @@ type ResticRestoreEngine struct {
 	pvcClient     ctlcorev1.PersistentVolumeClaimClient
 	scCache       ctlstoragev1.StorageClassCache
 	secretClient  ctlcorev1.SecretClient
+	targets       backuputil.TargetClient
 	jobController ctlbatchv1.JobController
 	jobClient     ctlbatchv1.JobClient
 	vmrController ctlharvesterv1.VirtualMachineRestoreController
@@ -53,6 +54,7 @@ func GetRestoreEngine(
 	pvcClient ctlcorev1.PersistentVolumeClaimClient,
 	scCache ctlstoragev1.StorageClassCache,
 	secretClient ctlcorev1.SecretClient,
+	settingClient ctlharvesterv1.SettingClient,
 	jobController ctlbatchv1.JobController,
 	vmrController ctlharvesterv1.VirtualMachineRestoreController,
 	clientset kubernetes.Interface,
@@ -63,6 +65,7 @@ func GetRestoreEngine(
 		pvcClient:     pvcClient,
 		scCache:       scCache,
 		secretClient:  secretClient,
+		targets:       backuputil.TargetClient{Settings: settingClient, Secrets: secretClient},
 		jobController: jobController,
 		jobClient:     jobController,
 		vmrController: vmrController,
@@ -428,8 +431,8 @@ func (re *ResticRestoreEngine) createCheckJob(
 func (re *ResticRestoreEngine) jobRuntime(
 	vmb *harvesterv1.VirtualMachineBackup, name string,
 ) (*resticutil.JobRuntime, error) {
-	if _, err := backuputil.CredentialData(
-		re.secretClient, re.vmbo.GetBackupTarget(vmb), resticutil.PasswordKey,
+	if _, err := re.targets.Credentials(
+		re.vmbo.GetBackupTarget(vmb), resticutil.PasswordKey,
 	); err != nil {
 		return nil, fmt.Errorf("reading repository credentials: %w: %w", engine.ErrRetryLater, err)
 	}
@@ -478,8 +481,8 @@ func (re *ResticRestoreEngine) snapshotTags(
 func (re *ResticRestoreEngine) ensureSecret(vmb *harvesterv1.VirtualMachineBackup, job *batchv1.Job) error {
 	client := jobcredentials.Client{Jobs: re.jobClient, Secrets: re.secretClient}
 	err := client.Ensure(job, func() (map[string][]byte, error) {
-		return backuputil.CredentialData(
-			re.secretClient, re.vmbo.GetBackupTarget(vmb), resticutil.PasswordKey,
+		return re.targets.Credentials(
+			re.vmbo.GetBackupTarget(vmb), resticutil.PasswordKey,
 		)
 	})
 	if err != nil {

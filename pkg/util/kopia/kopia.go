@@ -198,7 +198,7 @@ func repositoryEnv(repository *Repository) []corev1.EnvVar {
 	}
 }
 
-// MaintenanceCommand connects to (or initializes) the repository, takes
+// MaintenanceCommand connects to the prepared repository, takes
 // maintenance ownership for the short-lived CronJob pod, and runs one explicit
 // maintenance cycle. Automatic maintenance is disabled for the last two
 // commands so taking ownership cannot trigger an additional implicit cycle.
@@ -212,7 +212,7 @@ func MaintenanceCommand(full bool) string {
 			"%s\n"+
 			"%s --no-auto-maintenance maintenance set --owner=me\n"+
 			"%s --no-auto-maintenance maintenance run%s",
-		ConnectOrCreateCommand(), Command(), Command(), fullFlag,
+		ConnectCommand(), Command(), Command(), fullFlag,
 	)
 }
 
@@ -290,20 +290,6 @@ func NewMaintenanceCronJob(name, schedule string, full bool, secretName string, 
 
 func Command() string {
 	return fmt.Sprintf("kopia --log-level=info --file-log-level=debug --config-file=%s", ConfigPath)
-}
-
-func ConnectOrCreateCommand() string {
-	connect := ConnectCommand()
-	create := repositoryCommand("create")
-	prepare := "/usr/bin/harvester " + PrepareSubcommand
-
-	return fmt.Sprintf(
-		"(%s || { (%s && %s) || %s; })",
-		connect,
-		prepare,
-		create,
-		connect,
-	)
 }
 
 func ConnectCommand() string {

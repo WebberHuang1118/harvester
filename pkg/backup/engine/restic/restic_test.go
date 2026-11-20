@@ -2,6 +2,7 @@ package restic
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"strings"
 	"testing"
@@ -221,7 +222,18 @@ func forgetFixture(t *testing.T) (*ResticEngine, *harvesterv1.VirtualMachineBack
 	}
 	credentials.Data[backuputil.RepositoryIDKey] = []byte(vmb.Status.BackupTarget.RepositoryID)
 	credentials.Data[resticutil.PasswordKey] = []byte("stored-password")
-	clientset := fake.NewSimpleClientset(credentials)
+	backupTarget.ThirdPartyBackupEnabled = true
+	credentials.UID, credentials.ResourceVersion = "source-uid", "1"
+	value, err := json.Marshal(backupTarget)
+	require.NoError(t, err)
+	record, err := backuputil.ReadyRecord(backupTarget, credentials)
+	require.NoError(t, err)
+	setting := &harvesterv1.Setting{ObjectMeta: metav1.ObjectMeta{
+		Name:        settings.BackupTargetSettingName,
+		Annotations: map[string]string{backuputil.ReadyAnnotation: record},
+	}, Value: string(value)}
+	harvesterv1.SettingConfigured.True(setting)
+	clientset := fake.NewSimpleClientset(credentials, setting)
 	clientset.PrependReactor("create", "jobs", func(action clienttesting.Action) (bool, runtime.Object, error) {
 		job := action.(clienttesting.CreateAction).GetObject().(*batchv1.Job)
 		job.UID = uuid.NewUUID()
@@ -232,6 +244,7 @@ func forgetFixture(t *testing.T) (*ResticEngine, *harvesterv1.VirtualMachineBack
 		vmbo:         vmbo,
 		vsHelper:     backupcommon.NewVolumeSnapshotHelper(nil, nil, nil, nil, vmbo, nil, nil),
 		secretClient: fakeclients.SecretClient(clientset.CoreV1().Secrets),
+		targets:      backuputil.TargetClient{Settings: fakeclients.HarvesterSettingClient(clientset.HarvesterhciV1beta1().Settings), Secrets: fakeclients.SecretClient(clientset.CoreV1().Secrets)},
 		jobClient:    fakeclients.JobClient(clientset.BatchV1().Jobs),
 		clientset:    fakeclients.KubernetesClient(clientset),
 	}
@@ -385,7 +398,10 @@ func TestJobsOwnCredentials(t *testing.T) {
 			}
 			refs = append(refs, env.ValueFrom.SecretKeyRef.Name)
 		}
-		require.Equal(t, []string{secretName, secretName, secretName}, refs)
+		require.Len(t, refs, 3)
+		for _, ref := range refs {
+			require.Equal(t, secretName, ref)
+		}
 		secret, err := secrets.Get(context.Background(), secretName, metav1.GetOptions{})
 		require.NoError(t, err)
 		require.True(t, metav1.IsControlledBy(secret, job))

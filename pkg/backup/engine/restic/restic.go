@@ -21,6 +21,7 @@ import (
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/backup/common"
 	"github.com/harvester/harvester/pkg/backup/engine"
+	ctlharvesterv1 "github.com/harvester/harvester/pkg/generated/controllers/harvesterhci.io/v1beta1"
 	ctlsnapshotv1 "github.com/harvester/harvester/pkg/generated/controllers/snapshot.storage.k8s.io/v1"
 	backuputil "github.com/harvester/harvester/pkg/util/backup"
 	"github.com/harvester/harvester/pkg/util/datamover"
@@ -46,6 +47,7 @@ type ResticEngine struct {
 	pvcClient     ctlcorev1.PersistentVolumeClaimClient
 	scCache       ctlstoragev1.StorageClassCache
 	secretClient  ctlcorev1.SecretClient
+	targets       backuputil.TargetClient
 	jobController ctlbatchv1.JobController
 	jobClient     ctlbatchv1.JobClient
 	clientset     kubernetes.Interface
@@ -59,6 +61,7 @@ func GetBackupEngine(
 	pvcCache ctlcorev1.PersistentVolumeClaimCache,
 	pvcClient ctlcorev1.PersistentVolumeClaimClient,
 	secretClient ctlcorev1.SecretClient,
+	settingClient ctlharvesterv1.SettingClient,
 	scCache ctlstoragev1.StorageClassCache,
 	jobController ctlbatchv1.JobController,
 	clientset kubernetes.Interface,
@@ -72,6 +75,7 @@ func GetBackupEngine(
 		pvcClient:     pvcClient,
 		scCache:       scCache,
 		secretClient:  secretClient,
+		targets:       backuputil.TargetClient{Settings: settingClient, Secrets: secretClient},
 		jobController: jobController,
 		jobClient:     jobController,
 		clientset:     clientset,
@@ -595,8 +599,8 @@ func newForgetJob(runtime *resticutil.JobRuntime, command, name string) *batchv1
 func (re *ResticEngine) jobRuntime(
 	vmb *harvesterv1.VirtualMachineBackup, name string,
 ) (*resticutil.JobRuntime, error) {
-	if _, err := backuputil.CredentialData(
-		re.secretClient, re.vmbo.GetBackupTarget(vmb), resticutil.PasswordKey,
+	if _, err := re.targets.Credentials(
+		re.vmbo.GetBackupTarget(vmb), resticutil.PasswordKey,
 	); err != nil {
 		return nil, err
 	}
@@ -640,8 +644,8 @@ func (re *ResticEngine) snapshotTags(vmb *harvesterv1.VirtualMachineBackup, name
 func (re *ResticEngine) ensureSecret(vmb *harvesterv1.VirtualMachineBackup, job *batchv1.Job) error {
 	client := jobcredentials.Client{Jobs: re.jobClient, Secrets: re.secretClient}
 	return client.Ensure(job, func() (map[string][]byte, error) {
-		return backuputil.CredentialData(
-			re.secretClient, re.vmbo.GetBackupTarget(vmb), resticutil.PasswordKey,
+		return re.targets.Credentials(
+			re.vmbo.GetBackupTarget(vmb), resticutil.PasswordKey,
 		)
 	})
 }

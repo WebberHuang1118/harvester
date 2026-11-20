@@ -19,6 +19,7 @@ import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
+	"k8s.io/utils/ptr"
 
 	harvesterv1 "github.com/harvester/harvester/pkg/apis/harvesterhci.io/v1beta1"
 	"github.com/harvester/harvester/pkg/config"
@@ -28,6 +29,7 @@ import (
 	"github.com/harvester/harvester/pkg/util"
 	backuputil "github.com/harvester/harvester/pkg/util/backup"
 	kopiautil "github.com/harvester/harvester/pkg/util/kopia"
+	"github.com/harvester/harvester/pkg/util/repository"
 )
 
 const (
@@ -36,20 +38,27 @@ const (
 
 // RegisterBackupTarget register the setting controller and reconsile longhorn setting when backup target changed
 func RegisterBackupTarget(ctx context.Context, management *config.Management, _ config.Options) error {
-	settings := management.HarvesterFactory.Harvesterhci().V1beta1().Setting()
+	settingController := management.HarvesterFactory.Harvesterhci().V1beta1().Setting()
 	secrets := management.CoreFactory.Core().V1().Secret()
 	lhBackupTargets := management.LonghornFactory.Longhorn().V1beta2().BackupTarget()
 
 	backupTargetController := &TargetHandler{
 		ctx:                 ctx,
 		secrets:             secrets,
-		settings:            settings,
+		settings:            settingController,
 		lhBackupTargets:     lhBackupTargets,
 		lhBackupTargetCache: lhBackupTargets.Cache(),
 		clientset:           management.ClientSet,
+		prepare:             (&repository.Manager{}).Prepare,
 	}
 
-	settings.OnChange(ctx, backupTargetControllerName, backupTargetController.OnBackupTargetChange)
+	settingController.OnChange(ctx, backupTargetControllerName, backupTargetController.OnBackupTargetChange)
+	secrets.OnChange(ctx, backupTargetControllerName, func(key string, secret *corev1.Secret) (*corev1.Secret, error) {
+		if key == util.LonghornSystemNamespaceName+"/"+util.BackupTargetSecretName {
+			settingController.Enqueue(settings.BackupTargetSettingName)
+		}
+		return secret, nil
+	})
 	return nil
 }
 
@@ -60,6 +69,7 @@ type TargetHandler struct {
 	lhBackupTargets     ctllonghornv1.BackupTargetClient
 	lhBackupTargetCache ctllonghornv1.BackupTargetCache
 	clientset           kubernetes.Interface
+	prepare             func(context.Context, *settings.BackupTarget, map[string][]byte, bool) error
 }
 
 // OnBackupTargetChange dispatches backup-related Setting changes.
@@ -89,14 +99,34 @@ func (h *TargetHandler) reconcileTarget(setting *harvesterv1.Setting) (*harveste
 
 	setting, err = h.syncTarget(setting, target)
 	if err != nil {
+		if apierrors.IsConflict(err) {
+			return setting, err
+		}
 		return h.setConfiguredCondition(setting, "", err)
 	}
-	return h.updateTargetStatus(setting, target)
+	setting, err = h.updateTargetStatus(setting, target)
+	if err != nil {
+		return setting, err
+	}
+	return setting, h.reconcileKopiaMaintenance(target)
 }
 
 func (h *TargetHandler) updateTargetStatus(
 	setting *harvesterv1.Setting, target *settings.BackupTarget,
 ) (*harvesterv1.Setting, error) {
+	if target.ThirdPartyBackupEnabled {
+		secret, err := h.getBackupSecret()
+		if err != nil {
+			return setting, err
+		}
+		record, err := backuputil.ReadyRecord(target, secret)
+		if err != nil {
+			return setting, err
+		}
+		if setting.Annotations[backuputil.ReadyAnnotation] != record {
+			return setting, fmt.Errorf("backup target credentials changed before publishing readiness")
+		}
+	}
 	if target.IsDefaultBackupTarget() {
 		updated := setting.DeepCopy()
 		harvesterv1.SettingConfigured.False(updated)
@@ -113,6 +143,13 @@ func (h *TargetHandler) updateTargetStatus(
 func (h *TargetHandler) syncTarget(
 	setting *harvesterv1.Setting, target *settings.BackupTarget,
 ) (*harvesterv1.Setting, error) {
+	if !target.ThirdPartyBackupEnabled {
+		var err error
+		setting, err = h.clearReceipt(setting)
+		if err != nil {
+			return setting, err
+		}
+	}
 	if target.IsDefaultBackupTarget() {
 		return setting, h.resetTarget(target)
 	}
@@ -132,58 +169,59 @@ func (h *TargetHandler) syncTarget(
 	if err := h.updateLHBackupTargetPollInterval(target); err != nil {
 		return setting, err
 	}
-	return setting, h.reconcileKopiaMaintenance(target)
+	return setting, nil
 }
 
 func (h *TargetHandler) syncS3Target(
 	setting *harvesterv1.Setting, target *settings.BackupTarget,
 ) (*harvesterv1.Setting, error) {
-	if err := h.syncS3Secret(target); err != nil {
+	if target.ThirdPartyBackupEnabled {
+		if backuputil.Masked(target) {
+			return h.checkSavedRepository(setting, target)
+		}
+		return h.prepareTarget(setting, target)
+	}
+	if backuputil.Masked(target) {
+		_, err := h.checkSavedSecret(target)
+		return setting, err
+	}
+	if err := h.disableThirdParty(target); err != nil {
 		return setting, err
 	}
 	return h.stripCredentials(setting, target)
 }
 
 func (h *TargetHandler) syncNFSTarget(target *settings.BackupTarget) error {
+	if err := h.stopMaintenance(); err != nil {
+		return err
+	}
 	if err := h.updateLonghornTarget(target); err != nil {
 		return err
 	}
 	return h.resetBackupTargetSecret()
 }
 
-func (h *TargetHandler) syncS3Secret(target *settings.BackupTarget) error {
-	// After masking, reconcile using the credentials already stored in the Secret.
-	masked := target.AccessKeyID == "" && target.SecretAccessKey == "" && target.RepoPassword == ""
-	if masked {
-		return h.syncMaskedSecret(target)
-	}
-
-	// User submissions update AWS credentials and either clear or save passwords.
-	if !target.ThirdPartyBackupEnabled {
-		return h.disableThirdParty(target)
-	}
-	return h.saveS3Credentials(target)
-}
-
-// syncMaskedSecret validates saved AWS credentials for every S3 target.
-// Enabled third-party backups also require matching repository credentials.
-func (h *TargetHandler) syncMaskedSecret(target *settings.BackupTarget) error {
+// checkSavedSecret only validates persisted credentials after masking.
+// Longhorn needs AWS credentials even when third-party backups are disabled.
+func (h *TargetHandler) checkSavedSecret(target *settings.BackupTarget) (*corev1.Secret, error) {
 	secret, err := h.getBackupSecret()
 	if err != nil {
-		return err
+		return nil, err
 	}
 	data := secretData(secret)
 	if err := checkS3Credentials(data); err != nil {
-		return err
+		return nil, err
 	}
-	if !target.ThirdPartyBackupEnabled {
-		return nil
+	if target.ThirdPartyBackupEnabled {
+		if err := checkRepoCredentials(data, backuputil.RepositoryID(target)); err != nil {
+			return nil, err
+		}
 	}
-	return checkRepoCredentials(data, backuputil.RepositoryID(target))
+	return secret, nil
 }
 
 func (h *TargetHandler) resetTarget(target *settings.BackupTarget) error {
-	if err := h.reconcileKopiaMaintenance(nil); err != nil {
+	if err := h.stopMaintenance(); err != nil {
 		return err
 	}
 	if err := h.updateLonghornTarget(target); err != nil {
@@ -217,6 +255,15 @@ func (h *TargetHandler) reconcileKopiaMaintenance(target *settings.BackupTarget)
 	if !target.ThirdPartyBackupEnabled {
 		return h.deleteKopiaMaintenance()
 	}
+	client := backuputil.TargetClient{Settings: h.settings, Secrets: h.secrets}
+	setting, current, err := client.Get()
+	if err != nil {
+		return err
+	}
+	if _, err := client.Ready(setting, current); err != nil {
+		return h.deleteKopiaMaintenance()
+	}
+	target = current
 
 	repository, err := kopiautil.S3Repository(target)
 	if err != nil {
@@ -244,7 +291,9 @@ func (h *TargetHandler) reconcileKopiaMaintenance(target *settings.BackupTarget)
 func (h *TargetHandler) deleteKopiaMaintenance() error {
 	cronJobs := h.clientset.BatchV1().CronJobs(util.LonghornSystemNamespaceName)
 	for _, maintenance := range kopiaMaintenanceSchedules {
-		err := cronJobs.Delete(h.ctx, maintenance.name, metav1.DeleteOptions{})
+		err := cronJobs.Delete(h.ctx, maintenance.name, metav1.DeleteOptions{
+			PropagationPolicy: ptr.To(metav1.DeletePropagationForeground),
+		})
 		if err == nil || apierrors.IsNotFound(err) {
 			continue
 		}
@@ -370,24 +419,6 @@ func getBackupSecretData(target *settings.BackupTarget) (map[string]string, erro
 	return data, nil
 }
 
-// saveS3Credentials stores submitted AWS credentials and both repository passwords
-// when third-party backups are enabled.
-func (h *TargetHandler) saveS3Credentials(target *settings.BackupTarget) error {
-	if err := backuputil.CheckPasswordInput(target.RepoPassword); err != nil {
-		return err
-	}
-	secret, data, err := h.prepareS3Secret(target)
-	if err != nil {
-		return err
-	}
-	if err := backuputil.CheckPasswordChange(data, backuputil.RepositoryID(target), target.RepoPassword); err != nil {
-		return err
-	}
-	data[backuputil.ResticPasswordKey] = []byte(target.RepoPassword)
-	data[backuputil.KopiaPasswordKey] = []byte(target.RepoPassword)
-	return h.saveS3Secret(secret, data, target)
-}
-
 // disableThirdParty accepts submitted AWS credentials and clears both passwords.
 func (h *TargetHandler) disableThirdParty(target *settings.BackupTarget) error {
 	if target.RepoPassword != "" {
@@ -439,14 +470,14 @@ func (h *TargetHandler) saveS3Secret(
 	secret *corev1.Secret, data map[string][]byte, target *settings.BackupTarget,
 ) error {
 	// Stop old maintenance before replacing shared credentials and target parameters.
-	if err := h.reconcileKopiaMaintenance(nil); err != nil {
-		return err
-	}
-	if err := h.updateLonghornTarget(target); err != nil {
+	if err := h.stopMaintenance(); err != nil {
 		return err
 	}
 	data[backuputil.RepositoryIDKey] = []byte(backuputil.RepositoryID(target))
 	if err := h.saveBackupSecret(secret, data); err != nil {
+		return err
+	}
+	if err := h.updateLonghornTarget(target); err != nil {
 		return err
 	}
 	return h.setLonghornSecret(util.BackupTargetSecretName)
@@ -560,6 +591,9 @@ func (h *TargetHandler) setConfiguredCondition(setting *harvesterv1.Setting, rea
 	settingCpy := setting.DeepCopy()
 	// SetError with nil error will cleanup message in condition and set the status to true
 	harvesterv1.SettingConfigured.SetError(settingCpy, reason, err)
+	if reflect.DeepEqual(setting, settingCpy) {
+		return setting, err
+	}
 	return h.settings.Update(settingCpy)
 }
 

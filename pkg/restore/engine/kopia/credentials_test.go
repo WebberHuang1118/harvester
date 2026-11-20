@@ -2,6 +2,7 @@ package kopia
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"testing"
 
@@ -55,7 +56,10 @@ func TestJobsOwnCredentials(t *testing.T) {
 			}
 			refs = append(refs, env.ValueFrom.SecretKeyRef.Name)
 		}
-		require.Equal(t, []string{secretName, secretName, secretName}, refs)
+		require.Len(t, refs, 3)
+		for _, ref := range refs {
+			require.Equal(t, secretName, ref)
+		}
 		secret, err := secrets.Get(context.Background(), secretName, metav1.GetOptions{})
 		require.NoError(t, err)
 		require.True(t, metav1.IsControlledBy(secret, job))
@@ -127,10 +131,26 @@ func credentialFixture(t *testing.T) (
 	require.NoError(t, settings.BackupTargetSet.Set(`{"type":"s3","endpoint":"https://s3.example.com","bucketName":"backups"}`))
 	source.Data[backuputil.RepositoryIDKey] = []byte(vmb.Status.BackupTarget.RepositoryID)
 	source.Data["KOPIA_PASSWORD"] = []byte("stored-password")
+	source.UID, source.ResourceVersion = "source-uid", "1"
+	target, err := backuputil.TargetFromStatus(vmb.Status.BackupTarget)
+	require.NoError(t, err)
+	target.ThirdPartyBackupEnabled = true
+	value, err := json.Marshal(target)
+	require.NoError(t, err)
+	record, err := backuputil.ReadyRecord(target, source)
+	require.NoError(t, err)
+	setting := &harvesterv1.Setting{ObjectMeta: metav1.ObjectMeta{
+		Name:        settings.BackupTargetSettingName,
+		Annotations: map[string]string{backuputil.ReadyAnnotation: record},
+	}, Value: string(value)}
+	harvesterv1.SettingConfigured.True(setting)
+	_, err = client.HarvesterhciV1beta1().Settings().Create(context.Background(), setting, metav1.CreateOptions{})
+	require.NoError(t, err)
+	ke.targets = backuputil.TargetClient{Settings: fakeclients.HarvesterSettingClient(client.HarvesterhciV1beta1().Settings), Secrets: ke.secretClient}
 	_, updateErr := client.CoreV1().Secrets(source.Namespace).Update(context.Background(), source, metav1.UpdateOptions{})
 	require.NoError(t, updateErr)
 
-	_, err := client.HarvesterhciV1beta1().VirtualMachineRestores(vmr.Namespace).Create(
+	_, err = client.HarvesterhciV1beta1().VirtualMachineRestores(vmr.Namespace).Create(
 		context.Background(), vmr, metav1.CreateOptions{},
 	)
 	require.NoError(t, err)
